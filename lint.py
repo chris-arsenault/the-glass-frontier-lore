@@ -324,6 +324,9 @@ def main():
         fm = parse_frontmatter(path)
         if not fm:
             continue
+        # Registry docs (species list, cultures list) catalogue all entities — skip prominence check
+        if fm.get("registry") == "true":
+            continue
         source_prom = fm.get("prominence", "")
         if source_prom not in PROMINENCE_RANK:
             continue
