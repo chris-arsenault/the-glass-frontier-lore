@@ -203,6 +203,9 @@ def convert_links(body: str, source_rel: str, scanner: RepoScanner) -> str:
         resolved = scanner.resolve_link_target(source_rel, href)
         if resolved is not None:
             wiki_title = scanner.path_to_title[resolved]
+            # If link text is a filename/path, just use the page title
+            if link_text.endswith(".md") or "/" in link_text:
+                return f"[[{wiki_title}]]"
             # Preserve original link text when it differs from the page title
             if link_text and link_text != wiki_title:
                 return f"[[{wiki_title}|{link_text}]]"
