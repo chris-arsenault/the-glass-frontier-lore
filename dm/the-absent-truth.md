@@ -53,6 +53,16 @@ What is established:
 - The elves believe the coming conflict will be existential
 - The elves have been preparing for 130 years
 
+## The Bloom Zones
+
+The Silent Bloom was an industrial accident. The elves didn't cause it and had nothing to do with Coremark's negligence. But the consequence — tears in local reality across mid-drift ring habs — is now the elves' most urgent problem.
+
+The Adversary is seeping through the Bloom Zone reality tears. Not a full incursion — more like pressure through a crack. The dimensional instability that makes the zones dangerous to inhabit is, in part, the Adversary's influence bleeding through. The new relic-magnitude artifacts that the zones generate are a byproduct of this contact between normal reality and whatever lies on the other side.
+
+The elves have significantly increased their hidden presence in and around the Bloom Zones. This is their primary operational focus now — monitoring the incursion, studying the tears, and preparing countermeasures. Some of the Displacement Council's unexplained successes in containment are quietly attributable to elven intervention.
+
+This is the nightmare scenario the elves have been preparing for: the Adversary finding a way back in. The Bloom Zones are the front line of a war that nobody else knows is being fought.
+
 ## The Cultural Sacrifice
 
 The emotional core of the elven story.
@@ -69,5 +79,7 @@ Whether they're right is the question the story will eventually have to answer.
 - The Echo River fragments are the primary discovery mechanism. Archivists who dig deep enough will find patterns suggesting intentional, sophisticated erasure.
 - Elven operatives in the general population are potential NPCs — not villains, but people bearing an enormous secret and an enormous sacrifice. Some doubt. Some are tired. None are evil.
 - The hidden habs are potential locations. What's inside is 130 years of preparation by the system's most technically advanced civilization.
+- The Bloom Zones are the active front line. Elven operatives in and around the zones are the closest thing to combat troops in the hidden war. Some Displacement Council members may notice patterns in their "unexplained successes" — containment that works better than it should, threats that resolve before the Council gets there.
 - The Adversary is a campaign-level threat. Don't define it until you need to.
 - The key dramatic question for any elf NPC: was the sacrifice worth it? The answer should be genuinely uncertain.
+- The Bloom Zone relics are a wild card. They're created by contact between normal reality and the Adversary's influence. Are they weapons? Tools? Side effects? The elves don't fully understand them either, and Coremark is smuggling them into the broader system.

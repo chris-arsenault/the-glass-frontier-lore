@@ -65,12 +65,21 @@ Loss of elven knowledge → [means nobody understands] → Resonance ecology lim
 Pyre Refinery overload → [triggers] → Sympathetic resonance cascade
 Resonance cascade → [causes] → The Silent Bloom
 The Bloom → [warps crystal substrate of] → Mid-drift ring habs
-The Bloom → [forces evacuation of] → Bloom Displacement (refugee crisis) (new)
+The Bloom → [tears holes in local reality] → Bloom Zones
+The Bloom → [forces evacuation of] → Bloom Displacement (refugee crisis)
+
+Bloom Zones → [generate] → New relic-magnitude artifacts (unique to zones)
+Bloom Zones → [attract] → Scavengers, researchers, desperate people
+The Adversary → [seeps through] → Reality tears in Bloom Zones             [DM]
+Elves → [increase hidden presence in] → Bloom Zones (monitoring/containing) [DM]
 
 The Bloom → [requires containment by] → Emergency coalitions
-Contested Reach rivals → [set aside disputes to form] → Bloom Response Coalition (new)
-Bloom Response Coalition → [develops] → Containment cordons / resonance damping tech
-Bloom Response Coalition → [produces leaders who become] → Accord architects (new)
+Contested Reach rivals → [set aside disputes to form] → Bloom Response Coalition
+Bloom Response Coalition → [draws leadership from] → Existing factions:
+  - Prismwell Kite Guild → [contributes] → Logistics and transport coordination
+  - Lattice Proxy Synod → [contributes] → Resonance telemetry and custodian data
+  - Echo Ledger Conclave → [contributes] → Historical resonance analysis
+  - Independent salvage crews → [contribute] → Verge operations expertise
 
 Bloom crisis → [discredits] → Coremark Extraction Syndicate
 Coremark negligence → [provides impetus for] → Verge Compact (regulatory body)
@@ -79,13 +88,17 @@ Bloom containment crews → [form core of] → Verge Compact membership
 Bloom Displacement → [scatters refugees into] → Existing settlements
 Bloom refugees → [create tension with] → Host communities
 Bloom refugees → [bring skills/culture from] → Lost mid-drift habs
+Bloom refugees → [organize into] → Displacement Council
 
-The Bloom → [creates] → Bloom Zones (cordoned, unstable, present-day hazard)
-Bloom Zones → [contain] → Pre-Bloom artifacts and ringglass (valuable, dangerous)
+Displacement Council → [specializes in] → Bloom Zone containment operations
+Displacement Council → [maintains] → Containment cordons (ongoing, present-day)
+Displacement Council → [becomes] → Grey Wardens-style neutral order (containment-focused)
 
-Resonance damping tech → [produced by] → Lira Vasht (new) — resonance engineer
-Lira Vasht → [develops] → The Damper Array (new) — artifact, first containment tool
+Resonance damping tech → [developed by] → Lira Vasht — resonance engineer
+Lira Vasht → [was member of] → Echo Ledger Conclave (pre-Bloom)
+Lira Vasht → [develops] → The Damper Array — first containment device
 The Damper Array → [proves] → Containment is possible → coalition gains momentum
+Lira Vasht → [becomes] → First head of Displacement Council containment ops
 ```
 
 ## Coalition Fracture → Bitter Reach
@@ -97,12 +110,15 @@ Coalition fracture → [reignites] → Contested Reach disputes (now the Bitter 
 
 Bitter Reach → [is sharper than Contested Reach because] → People remember cooperating
 Bitter Reach → [is limited because] → Nobody wants to destroy the bridges they built
-Coremark remnants → [attempt to reclaim] → Salvage operations in Bloom-adjacent zones
+Coremark → [goes underground as] → Criminal syndicate operating in Bloom-adjacent zones
+Coremark remnants → [smuggle artifacts from] → Bloom Zones
 Verge Compact → [opposes] → Coremark remnants → further entrenches Compact authority
 
-Bloom refugees → [organized by] → The Displacement Council (new) — political body
-Displacement Council → [advocates for] → Refugee settlement rights
-Displacement Council → [becomes key voice in] → Accord negotiations
+Displacement Council → [remains neutral during] → Bitter Reach
+Displacement Council → [focuses on] → Bloom Zone containment (not politics)
+Displacement Council neutrality → [earns trust from] → All factions
+Displacement Council → [becomes key mediator in] → Accord negotiations
+  (trusted precisely because they stayed out of the fighting)
 ```
 
 ## The Accord
@@ -111,13 +127,22 @@ Displacement Council → [becomes key voice in] → Accord negotiations
 Bitter Reach exhaustion → [motivates] → Tempered Accord negotiations
 Memory of Bloom cooperation → [provides model for] → Accord framework
 Verge Compact success → [provides model for] → Accord framework
-Displacement Council → [participates in] → Accord negotiations
+Displacement Council → [mediates] → Accord negotiations
+  - Lattice Proxy Synod → [architects] → Accord governance structure
+  - Prismwell Kite Guild → [architects] → Accord trade provisions
+  - Displacement Council → [architects] → Accord humanitarian provisions
 
 Accord ratified → [establishes] → Tempered Accord (mediation structure)
 Accord → [mediates between] → Surface settlements, ring habs, outer-system worlds
-Accord → [inherits unresolved] → Bloom Zones (containment still active)
-Accord → [inherits unresolved] → Displacement Council grievances
-Accord → [inherits unresolved] → Coremark remnant activity
+
+Present-day tensions:
+Accord → [struggles with] → Bloom Zones (containment ongoing, reality unstable)
+Accord → [struggles with] → Coremark criminal operations (artifact smuggling)
+Accord → [struggles with] → New far-drift hab discoveries (who speaks for them?)
+Bloom Zones → [produce] → Relic-magnitude artifacts → black market via Coremark
+Displacement Council → [maintains] → Containment but is stretched thin
+The Adversary → [slowly expanding through] → Bloom Zone reality tears          [DM]
+Elves → [conducting hidden ops in] → Bloom Zones (primary concern now)          [DM]
 ```
 
 ---
@@ -130,38 +155,45 @@ New entities implied by the DAG. Status indicates whether they exist yet.
 
 | Entity | Status | Prominence | Era | Role |
 |--------|--------|------------|-----|------|
-| Coremark Extraction Syndicate | new | recognized | Rekindling–Bloom | Aggressively capitalist salvage corporation; industrial-scale Verge operations; negligence causes the Bloom |
-| Bloom Response Coalition | new | renowned | Silent Bloom | Emergency multi-faction coalition for Bloom containment; fractures into Bitter Reach |
-| Displacement Council | new | recognized | Silent Bloom–Accord | Political body representing Bloom refugees; key voice in Accord negotiations |
+| Coremark Extraction Syndicate | new | recognized | Rekindling–present | Aggressively capitalist salvage corp; negligence causes the Bloom; now a criminal syndicate smuggling Bloom Zone artifacts |
+| Bloom Response Coalition | new | renowned | Silent Bloom | Emergency multi-faction coalition for Bloom containment; dissolved into the Bitter Reach |
+| Displacement Council | new | recognized | Silent Bloom–present | Bloom refugee org turned neutral containment order; Grey Wardens analogue; maintains Bloom Zone cordons; trusted mediator |
 | Verge Compact | shell | recognized | Silent Bloom–present | Born from Bloom response; first system-wide regulatory body for salvage |
-| Tempered Accord | shell | renowned | Accord–present | Mediation framework; inherits unresolved Bloom-era problems |
+| Tempered Accord | shell | renowned | Accord–present | Mediation framework; architected by Synod (governance), Kite Guild (trade), Displacement Council (humanitarian) |
 
 ## People
 
 | Entity | Status | Prominence | Era | Role |
 |--------|--------|------------|-----|------|
-| Lira Vasht | new | recognized | Silent Bloom | Resonance engineer; develops first containment technology; flux point figure |
-| Accord architects | new | — | Bitter Reach–Accord | Coalition leaders who transition from emergency response to governance design |
+| Lira Vasht | new | recognized | Silent Bloom–present | Echo Ledger Conclave resonance specialist turned Displacement Council containment architect; developed the Damper Array |
 
 ## Artifacts
 
 | Entity | Status | Prominence | Era | Role |
 |--------|--------|------------|-----|------|
 | The Damper Array | new | recognized | Silent Bloom | First resonance containment device; proves Bloom can be stopped; turning-point artifact |
+| Bloom Zone relics | new | recognized | Silent Bloom–present | New relic-magnitude artifacts generated by reality distortion in Bloom Zones; not pre-collapse tech but something genuinely new |
 
 ## Locations
 
 | Entity | Status | Prominence | Era | Role |
 |--------|--------|------------|-----|------|
 | Pyre Refinery | new | recognized | Contested Reach–Bloom | Coremark facility whose overload triggers the Bloom cascade |
-| Bloom Zones | new | renowned | Silent Bloom–present | Cordoned ring hab regions; still unstable; contain pre-Bloom salvage |
+| Bloom Zones | new | renowned | Silent Bloom–present | Cordoned ring hab regions where reality is unstable; source of new relic-magnitude artifacts; containment maintained by Displacement Council |
 
 ---
 
+# Resolved Questions
+
+- **Coremark present-day status:** Criminal syndicate. Publicly discredited after the Bloom, went underground. Now smuggles Bloom Zone artifacts through black market channels.
+- **Accord architects:** Lattice Proxy Synod (governance structure), Prismwell Kite Guild (trade provisions), Displacement Council (humanitarian provisions, trusted mediator due to neutrality during Bitter Reach).
+- **Bloom Zones:** Reality doesn't work right. Dimensional instability, warped physics. New relic-magnitude artifacts are generated there — genuinely new powers, not pre-collapse tech. The Adversary seeps through the tears [DM]. Elves have increased hidden presence [DM].
+- **Displacement Council:** Neutral containment order. Grey Wardens analogue. Focused on maintaining Bloom Zone cordons. Trusted by all factions because they stayed out of the Bitter Reach. Stretched thin.
+- **Elves and the Bloom:** They didn't cause it. But the Adversary is creeping through the reality tears, making the Bloom Zones the elves' primary operational concern [DM].
+
 # Open Questions
 
-- **What is Coremark's present-day status?** Discredited after the Bloom, but are they dissolved, reformed, or operating under a new name? Remnants are referenced in the Bitter Reach.
-- **Who are the Accord architects specifically?** Lira Vasht is one candidate. Others should represent different factions/communities to show the Accord wasn't one group's idea.
-- **What's inside the Bloom Zones?** Present-day hazard and treasure. Needs detail on what makes them dangerous and what makes them worth entering.
-- **Does the Displacement Council still exist during the Accord?** If so, what's their current agenda — integration, autonomy, return to the Bloom Zones?
-- **How does the Bloom relate to elven absence?** Public knowledge: the Bloom happened because nobody understands resonance ecology as well as the ring builders did. Subtext: if the elves were still here, this wouldn't have happened.
+- **Bloom Zone relic mechanics:** What makes these artifacts different from pre-collapse tech? How does the reality distortion create them? Is it random, or does the distortion follow patterns?
+- **Displacement Council internal tensions:** Containment mission vs. members who want to reclaim their original homes. How thin can they stretch before something breaks?
+- **Coremark's network:** Who buys Bloom Zone artifacts? What are the downstream effects of relic-magnitude items hitting the black market?
+- **Lira Vasht's current status:** Still active? Leading the Council? Retired? Her relationship with the Echo Ledger Conclave (her original faction) after she left to focus on containment.
