@@ -1,6 +1,7 @@
 ---
 title: Ringglass
 type: concept
+prominence: mythic
 ---
 
 # Ringglass

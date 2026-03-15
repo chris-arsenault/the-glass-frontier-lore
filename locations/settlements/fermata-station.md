@@ -5,6 +5,7 @@ type: location
 tags: [governance, resonance, ring-hab, fluid-reality, music, social-structure]
 related: [ringglass, jazzocratic-governance]
 region: glass-frontier
+prominence: marginal
 ---
 
 # Fermata Station

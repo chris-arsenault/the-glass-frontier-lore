@@ -8,10 +8,10 @@ Wildlife, fauna, and anomalous entities.
 
 ## Fauna
 
-| Entry | Path | Status | Tags | Notes |
-|-------|------|--------|------|-------|
+| Entry | Path | Status | Prominence | Tags | Notes |
+|-------|------|--------|------------|------|-------|
 
 ## Anomalies
 
-| Entry | Path | Status | Tags | Notes |
-|-------|------|--------|------|-------|
+| Entry | Path | Status | Prominence | Tags | Notes |
+|-------|------|--------|------------|------|-------|

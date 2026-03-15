@@ -1,6 +1,7 @@
 ---
 title: The Kaleidos System
 type: concept
+prominence: mythic
 ---
 
 # The Kaleidos System

@@ -1,6 +1,7 @@
 ---
 title: Echo Rivers
 type: concept
+prominence: renowned
 ---
 
 # Echo Rivers

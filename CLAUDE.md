@@ -45,6 +45,7 @@ use the future marker: [future:Entity Name]
 - `type` — required. The entry's primary type. Determines which directory it lives in.
 - `tags` — optional. Topics and themes this entry involves. **Controlled vocabulary** — only use tags defined in [`tags.md`](tags.md). If you need a new tag, add it there first. Tags describe what an entry is *about* (e.g., `governance`, `resonance`, `trade`), not what it is *related to*.
 - `related` — optional. Slugs of other entities this entry has a direct relationship with. These are entity references, not topics. Use the filename stem (e.g., `fermata-station`, `ringglass`, `echo-ledger-conclave`). The nature of the relationship is understood from context.
+- `prominence` — optional but encouraged. How widely known this entity is. One of: `forgotten`, `marginal`, `recognized`, `renowned`, `mythic`. See [Prominence](concepts/prominence.md). This is NOT power or importance — only awareness. Gates how far references should reach in the knowledge graph.
 - `alias` — optional. Common alternative name(s) for this entry.
 - Additional fields as needed: `region:`, `era:`, `status:` etc. Add only when they carry real information.
 
@@ -54,9 +55,20 @@ Example:
 title: Olu Dent
 type: npc
 tags: [governance, resonance, music]
-related: [fermata-station, the-drone]
+related: [fermata-station]
+prominence: forgotten
 ---
 ```
+
+### Prominence and cross-references
+
+Prominence controls how far an entity's name should travel:
+- **mythic/renowned** — can be referenced from anywhere
+- **recognized** — reference within region/domain, or from broadly knowledgeable contexts
+- **marginal** — reference only from nearby entities, specialists, or direct connections
+- **forgotten** — reference only from entities with a specific, direct link
+
+When writing a new entry, check the prominence of entities you're linking to. A system-wide political overview shouldn't name-drop a marginal ring hab. A marginal hab's entry can reference mythic concepts freely — everyone knows about those.
 
 ### Multi-type entries
 
@@ -75,13 +87,14 @@ Indexes are layered, progressively more detailed:
 
 **Per-type `index.md`** (e.g. `locations/index.md`, `npcs/index.md`) — The authoritative registry for that entity type. Contains a markdown table of ALL known entities, including shells. Columns:
 
-| Entry | Path | Status | Tags | Notes |
-|-------|------|--------|------|-------|
-| Fermata Station | `settlements/fermata-station.md` | complete | governance, resonance | Full entry |
-| Glasswake Relay | — | shell | trade, ring-hab | Referenced but not yet written |
+| Entry | Path | Status | Prominence | Tags | Notes |
+|-------|------|--------|------------|------|-------|
+| Fermata Station | `settlements/fermata-station.md` | complete | marginal | governance, resonance | Full entry |
+| Glasswake Relay | — | shell | — | trade, ring-hab | Referenced but not yet written |
 
 - **Path `—`** means the entry is a shell — no file exists. The index row IS the entry for now.
 - **Status values:** `complete`, `draft`, `shell`, `needs_refinement`
+- **Prominence values:** `forgotten`, `marginal`, `recognized`, `renowned`, `mythic` — or `—` if not yet assigned. See [Prominence](concepts/prominence.md).
 - When fleshing out a shell: create the file, update Path, update Status.
 - Shell entries should never have their own files. The index is the single source of truth for what exists and what doesn't.
 

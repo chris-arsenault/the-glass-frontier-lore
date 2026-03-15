@@ -1,6 +1,7 @@
 ---
 title: Resonance
 type: concept
+prominence: mythic
 ---
 
 # Resonance

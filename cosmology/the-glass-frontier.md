@@ -1,6 +1,7 @@
 ---
 title: The Glass Frontier
 type: concept
+prominence: mythic
 ---
 
 # The Glass Frontier

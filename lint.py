@@ -62,31 +62,55 @@ def parse_taxonomy(tags_path: Path) -> set[str]:
 
 
 def parse_index_entries(index_path: Path) -> list[dict]:
-    """Extract table rows from a type index.md file."""
+    """Extract table rows from a type index.md file.
+
+    Detects column layout from the header row so it handles both
+    the old (Entry|Path|Status|Tags|Notes) and new
+    (Entry|Path|Status|Prominence|Tags|Notes) formats.
+    """
     entries = []
     text = index_path.read_text()
-    for line in text.splitlines():
-        # Match table rows: | Entry | Path | Status | Tags | Notes |
-        # Skip header and separator rows
+    lines = text.splitlines()
+
+    # Find header rows and determine column indices
+    col_map: dict[str, int] = {}
+    for i, line in enumerate(lines):
+        if line.startswith("|") and "Entry" in line:
+            headers = [h.strip().lower() for h in line.strip("|").split("|")]
+            col_map = {h: idx for idx, h in enumerate(headers)}
+            break
+
+    if not col_map:
+        return entries
+
+    tags_col = col_map.get("tags")
+    path_col = col_map.get("path")
+    status_col = col_map.get("status")
+    prominence_col = col_map.get("prominence")
+    entry_col = col_map.get("entry", 0)
+
+    for line in lines:
         if line.startswith("|") and not re.match(r"^\|[\s-]+\|", line) and "Entry" not in line:
             cols = [c.strip() for c in line.strip("|").split("|")]
-            if len(cols) >= 4:
-                entry_name = cols[0].strip()
-                path_cell = cols[1].strip()
-                status = cols[2].strip()
-                tags_cell = cols[3].strip()
 
-                # Extract path from markdown link or "—"
-                link_match = re.search(r"\[.*?\]\((.*?)\)", path_cell)
-                path = link_match.group(1) if link_match else None
+            entry_name = cols[entry_col].strip() if entry_col is not None and entry_col < len(cols) else ""
+            path_cell = cols[path_col].strip() if path_col is not None and path_col < len(cols) else "—"
+            status = cols[status_col].strip() if status_col is not None and status_col < len(cols) else ""
+            tags_cell = cols[tags_col].strip() if tags_col is not None and tags_col < len(cols) else ""
 
-                entries.append({
-                    "name": entry_name,
-                    "path": path,
-                    "status": status,
-                    "tags": [t.strip() for t in tags_cell.split(",") if t.strip()],
-                    "source": index_path,
-                })
+            if not entry_name:
+                continue
+
+            link_match = re.search(r"\[.*?\]\((.*?)\)", path_cell)
+            path = link_match.group(1) if link_match else None
+
+            entries.append({
+                "name": entry_name,
+                "path": path,
+                "status": status,
+                "tags": [t.strip() for t in tags_cell.split(",") if t.strip()],
+                "source": index_path,
+            })
     return entries
 
 
