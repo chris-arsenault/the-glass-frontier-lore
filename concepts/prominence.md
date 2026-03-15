@@ -28,6 +28,7 @@ Five tiers, from least to most widely known:
 - **Not power.** A forgotten artifact can reshape reality. A mythic institution can be toothless.
 - **Not importance.** The Drone at Fermata Station is the most important function on that hab. Its prominence is forgotten — nobody outside the station has heard of it.
 - **Not quality.** A marginal settlement might be a better place to live than a renowned one.
+- **Not inherited.** A marginal location can host a renowned event. A mythic person can come from a forgotten village. Each entity has its own prominence independent of its parent or container. Fermata Station is marginal — most people have never heard of it. The Fermata Open is recognized — musicians across the system know about the festival even if they couldn't tell you anything about the station's governance, culture, or people.
 
 ## How Prominence Is Used
 

@@ -19,3 +19,4 @@ Eras and events.
 | Entry | Path | Status | Prominence | Tags | Notes |
 |-------|------|--------|------------|------|-------|
 | The Glassfall | [events/the-glassfall.md](events/the-glassfall.md) | complete | mythic | catastrophe, origin | 2240 CE; the day the rings broke |
+| The Fermata Open | — | shell | recognized | music, trade | Annual festival at Fermata Station; the one thing musicians system-wide know about the place |
