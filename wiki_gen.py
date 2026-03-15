@@ -97,21 +97,24 @@ class RepoScanner:
     # Special pages with fixed wiki filenames that override their frontmatter title.
     # Maps repo-relative path -> wiki page name (used as title for link resolution).
     SPECIAL_PAGE_TITLES = {
-        "index.md": "Home",
-        "tags.md": "Tags",
-        "timeline.md": "Timeline",
+        "player/index.md": "Home",
+        "player/tags.md": "Tags",
+        "player/timeline.md": "Timeline",
     }
 
     def scan(self):
-        """Walk the repo and populate all mappings."""
-        for md_path in sorted(self.root.rglob("*.md")):
+        """Walk the repo and populate all mappings.
+
+        Player-facing lore lives under player/. Only files within that
+        subtree are included in wiki generation.
+        """
+        player_dir = self.root / "player"
+        for md_path in sorted(player_dir.rglob("*.md")):
             rel = md_path.relative_to(self.root)
             rel_str = str(rel)
 
-            # Skip hidden dirs and output dir
+            # Skip hidden dirs
             if any(part.startswith(".") for part in rel.parts):
-                continue
-            if rel.parts[0] in ("wiki_out", "dm"):
                 continue
             # Skip meta files
             if rel.name in SKIP_FILES:
@@ -126,7 +129,8 @@ class RepoScanner:
             self.title_to_filename[title] = title_to_wiki_filename(title)
 
             # Classify into sections for sidebar
-            section_key = rel.parts[0] if len(rel.parts) > 1 else None
+            # Paths are player/<section>/... so section_key is rel.parts[1]
+            section_key = rel.parts[1] if len(rel.parts) > 2 else None
             if section_key and section_key in SECTION_NAMES:
                 # Index files get a special name later; content pages go in the list
                 if rel.name == "index.md":
@@ -146,7 +150,7 @@ class RepoScanner:
 
         # Override per-type index pages so links resolve to "Section Index" names.
         for section_key, section_label in SECTION_NAMES.items():
-            index_rel = f"{section_key}/index.md"
+            index_rel = f"player/{section_key}/index.md"
             if index_rel in self.path_to_title:
                 old_title = self.path_to_title[index_rel]
                 wiki_name = f"{section_label} Index"
@@ -350,8 +354,8 @@ def generate_index_page(section_key: str, rel_str: str, scanner: RepoScanner) ->
 
 
 def generate_home_page(scanner: RepoScanner) -> tuple[str, str]:
-    """Generate Home.md from the top-level index.md."""
-    rel_str = "index.md"
+    """Generate Home.md from player/index.md."""
+    rel_str = "player/index.md"
     path = scanner.root / rel_str
     text = path.read_text()
     fm, body = parse_frontmatter(text)
@@ -415,7 +419,7 @@ def generate_wiki(root: Path, output_dir: Path) -> list[str]:
         rel = Path(rel_str)
 
         # Skip top-level special files handled separately
-        if rel_str in ("index.md", "tags.md", "timeline.md"):
+        if rel_str in ("player/index.md", "player/tags.md", "player/timeline.md"):
             continue
         # Skip per-type index files handled separately
         if rel.name == "index.md":
@@ -426,7 +430,7 @@ def generate_wiki(root: Path, output_dir: Path) -> list[str]:
 
     # 2. Per-type index pages
     for section_key in SECTION_NAMES:
-        index_rel = f"{section_key}/index.md"
+        index_rel = f"player/{section_key}/index.md"
         if index_rel in scanner.path_to_title:
             section_label = SECTION_NAMES[section_key]
             wiki_filename, content = generate_index_page(section_key, index_rel, scanner)
@@ -439,11 +443,11 @@ def generate_wiki(root: Path, output_dir: Path) -> list[str]:
     write_page(wiki_filename, content)
 
     # 4. Timeline
-    wiki_filename, content = generate_special_page("Timeline.md", "timeline.md", scanner)
+    wiki_filename, content = generate_special_page("Timeline.md", "player/timeline.md", scanner)
     write_page(wiki_filename, content)
 
     # 5. Tags
-    wiki_filename, content = generate_special_page("Tags.md", "tags.md", scanner)
+    wiki_filename, content = generate_special_page("Tags.md", "player/tags.md", scanner)
     write_page(wiki_filename, content)
 
     # 6. Sidebar

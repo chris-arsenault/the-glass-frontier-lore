@@ -43,9 +43,9 @@ use the future marker: [future:Entity Name]
 
 - `title` — required. The entry's name.
 - `type` — required. The entry's primary type. Determines which directory it lives in.
-- `tags` — optional. Topics and themes this entry involves. **Controlled vocabulary** — only use tags defined in [`tags.md`](tags.md). If you need a new tag, add it there first. Tags describe what an entry is *about* (e.g., `governance`, `resonance`, `trade`), not what it is *related to*.
+- `tags` — optional. Topics and themes this entry involves. **Controlled vocabulary** — only use tags defined in [`tags.md`](player/tags.md). If you need a new tag, add it there first. Tags describe what an entry is *about* (e.g., `governance`, `resonance`, `trade`), not what it is *related to*.
 - `related` — optional. Slugs of other entities this entry has a direct relationship with. These are entity references, not topics. Use the filename stem (e.g., `fermata-station`, `ringglass`, `echo-ledger-conclave`). The nature of the relationship is understood from context.
-- `prominence` — optional but encouraged. How widely known this entity is. One of: `forgotten`, `marginal`, `recognized`, `renowned`, `mythic`. See [Prominence](concepts/prominence.md). This is NOT power or importance — only awareness. Gates how far references should reach in the knowledge graph.
+- `prominence` — optional but encouraged. How widely known this entity is. One of: `forgotten`, `marginal`, `recognized`, `renowned`, `mythic`. See [Prominence](player/concepts/prominence.md). This is NOT power or importance — only awareness. Gates how far references should reach in the knowledge graph.
 - `alias` — optional. Common alternative name(s) for this entry.
 - Additional fields as needed: `region:`, `era:`, `status:` etc. Add only when they carry real information.
 
@@ -83,9 +83,9 @@ Many entries touch multiple entity types. A ring hab might involve governance, p
 
 Indexes are layered, progressively more detailed:
 
-**Top-level `index.md`** — Human-readable overview of the world. Links to cosmology entries (which are few and foundational) and to per-type indexes for everything else.
+**Top-level `player/index.md`** — Human-readable overview of the world. Links to cosmology entries (which are few and foundational) and to per-type indexes for everything else.
 
-**Per-type `index.md`** (e.g. `locations/index.md`, `npcs/index.md`) — The authoritative registry for that entity type. Contains a markdown table of ALL known entities, including shells. Columns:
+**Per-type `index.md`** (e.g. `player/locations/index.md`, `player/npcs/index.md`) — The authoritative registry for that entity type. Contains a markdown table of ALL known entities, including shells. Columns:
 
 | Entry | Path | Status | Prominence | Tags | Notes |
 |-------|------|--------|------------|------|-------|
@@ -94,14 +94,14 @@ Indexes are layered, progressively more detailed:
 
 - **Path `—`** means the entry is a shell — no file exists. The index row IS the entry for now.
 - **Status values:** `complete`, `draft`, `shell`, `needs_refinement`
-- **Prominence values:** `forgotten`, `marginal`, `recognized`, `renowned`, `mythic` — or `—` if not yet assigned. See [Prominence](concepts/prominence.md).
+- **Prominence values:** `forgotten`, `marginal`, `recognized`, `renowned`, `mythic` — or `—` if not yet assigned. See [Prominence](player/concepts/prominence.md).
 - When fleshing out a shell: create the file, update Path, update Status.
 - Shell entries should never have their own files. The index is the single source of truth for what exists and what doesn't.
 
 ## Meta Files
 
-- **`timeline.md`** — Major events only. Grounds all historical references. Update when adding events.
-- **`tags.md`** — Tag taxonomy. Check here before inventing a new tag. Update when adding tags.
+- **`player/timeline.md`** — Major events only. Grounds all historical references. Update when adding events.
+- **`player/tags.md`** — Tag taxonomy. Check here before inventing a new tag. Update when adding tags.
 
 ## File Naming
 
@@ -112,31 +112,31 @@ Indexes are layered, progressively more detailed:
 ## Directory Structure
 
 ```
-cosmology/              # the rings, resonance, echo rivers, the physical world
-concepts/               # technology, magic, religion, governance, meta-level topics
-locations/
-  regions/              # broad geographic areas
-  settlements/          # named towns, cities, stations
-  landmarks/            # notable specific places
-npcs/
-  factions/             # organized groups
-  heroes/               # notable individuals
-  monsters/             # named antagonists, villains, bosses
-history/
-  eras/                 # broad time periods
-  events/               # specific historical moments
-artifacts/
-  relics/               # unique, named, significant
-  common/               # everyday resonance-tech items
-creatures/
-  fauna/                # wildlife, animals
-  anomalies/            # strange phenomena, living or otherwise
-ships/
-  military/             # warships, patrol vessels
-  civilian/             # trade ships, transports, personal craft
-```
-
+player/                 # all player-facing lore content
+  cosmology/            # the rings, resonance, echo rivers, the physical world
+  concepts/             # technology, magic, religion, governance, meta-level topics
+  locations/
+    regions/            # broad geographic areas
+    settlements/        # named towns, cities, stations
+    landmarks/          # notable specific places
+  npcs/
+    factions/           # organized groups
+    heroes/             # notable individuals
+    monsters/           # named antagonists, villains, bosses
+  history/
+    eras/               # broad time periods
+    events/             # specific historical moments
+  artifacts/
+    relics/             # unique, named, significant
+    common/             # everyday resonance-tech items
+  creatures/
+    fauna/              # wildlife, animals
+    anomalies/          # strange phenomena, living or otherwise
+  ships/
+    military/           # warships, patrol vessels
+    civilian/           # trade ships, transports, personal craft
 dm/                     # DM-only knowledge — spoilers, hidden truths, secret motivations
+work-tracking/          # project tracking and work management
 ```
 
 New directories can be added as needed. The structure is emergent.

@@ -30,4 +30,4 @@ The orbital ring around Kaleidos broke 130 years ago. The fragments — hundreds
 
 ## Ships — [index](ships/index.md)
 
-## DM Knowledge — [index](dm/index.md) *(not published to wiki)*
+## DM Knowledge — [index](../dm/index.md) *(not published to wiki)*

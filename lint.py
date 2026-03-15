@@ -6,6 +6,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).parent
+PLAYER_DIR = ROOT / "player"
 
 # Files that are meta/infrastructure, not lore entries
 META_FILES = {
@@ -117,25 +118,37 @@ def parse_index_entries(index_path: Path) -> list[dict]:
     return entries
 
 
-SKIP_DIRS = {"wiki_out", ".git", ".github", "review-guidance"}
+SKIP_DIRS = {"wiki_out", ".git", ".github", "review-guidance", "work-tracking"}
 # DM files are linted for structure but exempt from prominence cross-ref checks
 DM_DIR = "dm"
 
+# Content directories inside player/ that contain lore entries
+LORE_DIRS = {"concepts", "cosmology", "locations", "npcs", "history", "artifacts", "creatures", "ships"}
+
 
 def collect_content_files() -> list[Path]:
-    """Find all .md files that are lore entries (not meta files)."""
+    """Find all .md files that are lore entries (not meta files).
+
+    Lore entries live under player/ and dm/.
+    """
     files = []
-    for p in ROOT.rglob("*.md"):
+    # Scan player/ subtree for lore entries
+    for p in PLAYER_DIR.rglob("*.md"):
         rel = p.relative_to(ROOT)
-        if rel.parts[0] in SKIP_DIRS:
-            continue
         if rel.name in META_FILES:
             continue
         if rel.name == "index.md":
             continue
-        if str(rel).startswith("."):
-            continue
         files.append(p)
+    # Scan dm/ subtree for DM entries
+    dm_dir = ROOT / DM_DIR
+    if dm_dir.is_dir():
+        for p in dm_dir.rglob("*.md"):
+            if p.name in META_FILES:
+                continue
+            if p.name == "index.md":
+                continue
+            files.append(p)
     return files
 
 
@@ -175,7 +188,7 @@ def main():
         warnings.append(f"WARN:  {msg}")
 
     # --- Load taxonomy ---
-    tags_path = ROOT / "tags.md"
+    tags_path = PLAYER_DIR / "tags.md"
     if not tags_path.exists():
         error("tags.md not found")
         return 1
@@ -186,9 +199,13 @@ def main():
 
     # --- Collect all index entries ---
     all_index_entries = []
-    index_files = list(ROOT.rglob("**/index.md"))
-    index_files = [f for f in index_files if f.relative_to(ROOT).name == "index.md"
-                   and f != ROOT / "index.md"]
+    index_files = list(PLAYER_DIR.rglob("**/index.md"))
+    # Exclude the top-level player/index.md — only per-type indexes
+    index_files = [f for f in index_files if f != PLAYER_DIR / "index.md"]
+    # Also include dm/index.md if it exists
+    dm_index = ROOT / DM_DIR / "index.md"
+    if dm_index.exists():
+        index_files.append(dm_index)
     for idx in index_files:
         all_index_entries.extend(parse_index_entries(idx))
 
@@ -232,8 +249,13 @@ def main():
             if isinstance(expected_dirs, str):
                 expected_dirs = (expected_dirs,)
             rel_parts = rel.parts
-            if rel_parts[0] not in expected_dirs:
-                error(f"{rel}: type '{entry_type}' should be in {'/'.join(expected_dirs)}/ but is in '{rel_parts[0]}/'")
+            # Lore files live under player/<type_dir>/..., dm files under dm/...
+            if rel_parts[0] == "player" and len(rel_parts) > 1:
+                actual_dir = rel_parts[1]
+            else:
+                actual_dir = rel_parts[0]
+            if actual_dir not in expected_dirs:
+                error(f"{rel}: type '{entry_type}' should be in {'/'.join(expected_dirs)}/ but is in '{actual_dir}/'")
         elif entry_type and entry_type not in TYPE_DIR_MAP:
             warn(f"{rel}: type '{entry_type}' has no expected directory mapping")
 

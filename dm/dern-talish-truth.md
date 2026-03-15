@@ -8,7 +8,7 @@ tags: [governance, resonance]
 
 # Dern Talish — DM Truth
 
-Public entry: [Dern Talish](../npcs/heroes/dern-talish.md)
+Public entry: [Dern Talish](../player/npcs/heroes/dern-talish.md)
 
 ## The Read-In
 

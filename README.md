@@ -13,14 +13,16 @@ This repository defines the world as it exists now: the places, factions, people
 One file per entry, cross-linked like a wiki. Entries live in directories by type:
 
 ```
-cosmology/      — the rings, resonance, echo rivers
-concepts/       — technology, magic, religion, governance
-locations/      — regions, settlements, landmarks
-npcs/           — factions, notable individuals, antagonists
-history/        — eras and events
-artifacts/      — relics and common items
-creatures/      — fauna and anomalies
-ships/          — military and civilian vessels
+player/         — all player-facing lore content
+  cosmology/    — the rings, resonance, echo rivers
+  concepts/     — technology, magic, religion, governance
+  locations/    — regions, settlements, landmarks
+  npcs/         — factions, notable individuals, antagonists
+  history/      — eras and events
+  artifacts/    — relics and common items
+  creatures/    — fauna and anomalies
+  ships/        — military and civilian vessels
+dm/             — DM-only knowledge (not published to wiki)
 ```
 
 Each type directory has an `index.md` listing all known entities — including shell entries that haven't been written yet. See [CLAUDE.md](CLAUDE.md) for conventions.

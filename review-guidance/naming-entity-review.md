@@ -56,7 +56,7 @@ Common fails:
 
 ## People Names
 
-See [naming-review.md](naming-review.md) and [naming-conventions.md](../concepts/naming-conventions.md) for the cultural/species conventions. Additional checks:
+See [naming-review.md](naming-review.md) and [naming-conventions.md](../player/concepts/naming-conventions.md) for the cultural/species conventions. Additional checks:
 - **Does the name match the character's culture and species?** Cross-check against naming conventions.
 - **If they code-switch, is that reflected?** An orc with a Sithari professional name and an orcish mononym should have both referenced.
 - **Are there nicknames or shortened forms?** Real people have these. "Lira Vashtenri" → "Lira Vasht" → "Vasht" depending on who's talking.

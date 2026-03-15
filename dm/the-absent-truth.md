@@ -8,13 +8,13 @@ tags: [species, religion, ring-era]
 
 # The Absent — DM Truth
 
-Public entry: [The Absent](../concepts/the-absent.md)
+Public entry: [The Absent](../player/concepts/the-absent.md)
 
 The folk tradition is right. The Redaction theorists are right. The elves left deliberately, cleaned the record behind them, and are still out there.
 
 ## Why They Left
 
-The [Glassfall](../history/events/the-glassfall.md) was not an accident and not a simple act of sabotage. The ring was destroyed by an external force — the Adversary.
+The [Glassfall](../player/history/events/the-glassfall.md) was not an accident and not a simple act of sabotage. The ring was destroyed by an external force — the Adversary.
 
 The elves know what the Adversary is. Nobody else does, and the elves intend to keep it that way.
 

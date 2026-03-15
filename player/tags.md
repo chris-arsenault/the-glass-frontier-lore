@@ -4,7 +4,7 @@ title: Tag Taxonomy
 
 # Tag Taxonomy
 
-Controlled vocabulary for entry frontmatter `tags` field. Tags describe **what an entry is about** — topics, themes, domains. They do not reference specific entities (use the `related` field for that; see [CLAUDE.md](CLAUDE.md)).
+Controlled vocabulary for entry frontmatter `tags` field. Tags describe **what an entry is about** — topics, themes, domains. They do not reference specific entities (use the `related` field for that; see [CLAUDE.md](../CLAUDE.md)).
 
 **New tags must be added to this file before use.** If an existing tag covers the concept, use it. If not, add the new tag here with a clear definition, then use it.
 
