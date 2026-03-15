@@ -206,9 +206,9 @@ def convert_links(body: str, source_rel: str, scanner: RepoScanner) -> str:
             # If link text is a filename/path, just use the page title
             if link_text.endswith(".md") or "/" in link_text:
                 return f"[[{wiki_title}]]"
-            # Preserve original link text when it differs from the page title
+            # GitHub wiki: [[display text|target page]]
             if link_text and link_text != wiki_title:
-                return f"[[{wiki_title}|{link_text}]]"
+                return f"[[{link_text}|{wiki_title}]]"
             return f"[[{wiki_title}]]"
 
         # Links to skipped meta files — just use the plain text
@@ -359,7 +359,7 @@ def generate_sidebar(scanner: RepoScanner) -> tuple[str, str]:
 
     for section_key, section_label in SECTION_NAMES.items():
         index_title = f"{section_label} Index"
-        lines.append(f"**[[{index_title}|{section_label}]]**\n")
+        lines.append(f"**[[{section_label}|{index_title}]]**\n")
 
         pages = sorted(scanner.section_pages.get(section_key, []))
         for page_title in pages:
@@ -432,6 +432,42 @@ def generate_wiki(root: Path, output_dir: Path) -> list[str]:
     return generated
 
 
+def lint_wiki(output_dir: Path) -> list[str]:
+    """Validate all wiki links in generated pages resolve to real pages.
+
+    Returns a list of error strings. Empty list means all links are valid.
+    """
+    # Build set of valid page names from generated filenames
+    valid_pages: set[str] = set()
+    for md_file in output_dir.glob("*.md"):
+        # Page name is the filename stem (spaces = hyphens in GitHub wiki)
+        page_name = md_file.stem
+        valid_pages.add(page_name)
+        # Also add with spaces (wiki links use spaces)
+        valid_pages.add(page_name.replace("-", " "))
+
+    errors: list[str] = []
+
+    for md_file in sorted(output_dir.glob("*.md")):
+        text = md_file.read_text()
+        # Find all wiki links: [[Target]] or [[Display|Target]]
+        for m in re.finditer(r"\[\[([^\]]+)\]\]", text):
+            link_content = m.group(1)
+            # Extract target: last part after | if piped, otherwise the whole thing
+            if "|" in link_content:
+                target = link_content.split("|")[-1].strip()
+            else:
+                target = link_content.strip()
+
+            # Normalise: GitHub wiki converts spaces to hyphens for lookup
+            target_slug = target.replace(" ", "-")
+
+            if target not in valid_pages and target_slug not in valid_pages:
+                errors.append(f"{md_file.name}: broken wiki link [[{link_content}]] — no page '{target}'")
+
+    return errors
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
         description="Generate GitHub wiki pages from the lore repository."
@@ -461,6 +497,18 @@ def main(argv: list[str] | None = None) -> int:
     print(f"Generated {len(generated)} wiki pages in {output_dir}/")
     for f in sorted(generated):
         print(f"  {f}")
+
+    # Validate wiki links
+    link_errors = lint_wiki(output_dir)
+    if link_errors:
+        print(f"\n{'─' * 40}")
+        print(f"  {len(link_errors)} broken wiki link(s):")
+        for err in sorted(link_errors):
+            print(f"  ERROR: {err}")
+        print(f"{'─' * 40}")
+        return 1
+    else:
+        print(f"\n  All wiki links valid.")
 
     return 0
 
