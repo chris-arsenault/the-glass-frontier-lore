@@ -296,6 +296,46 @@ def main():
             future_markers.append((rel, m.group(1).strip()))
             warn(f"{rel}: future reference '{m.group(1).strip()}' — no entry yet")
 
+    # --- 11. Prominence cross-reference check ---
+    # High-prominence files (mythic/renowned) should not reference low-prominence entities
+    PROMINENCE_RANK = {"forgotten": 0, "marginal": 1, "recognized": 2, "renowned": 3, "mythic": 4}
+    HIGH_THRESHOLD = PROMINENCE_RANK["renowned"]  # renowned and above are "high"
+
+    # Build path -> prominence map from content files
+    path_to_prominence: dict[str, str] = {}
+    for path in content_files:
+        rel_str = str(path.relative_to(ROOT))
+        fm = parse_frontmatter(path)
+        if fm and "prominence" in fm:
+            path_to_prominence[rel_str] = fm["prominence"]
+
+    # Also map resolved paths for link targets
+    resolved_to_prominence: dict[str, str] = {}
+    for path in content_files:
+        fm = parse_frontmatter(path)
+        if fm and "prominence" in fm:
+            resolved_to_prominence[str(path.resolve())] = fm["prominence"]
+
+    for path in content_files:
+        rel = path.relative_to(ROOT)
+        fm = parse_frontmatter(path)
+        if not fm:
+            continue
+        source_prom = fm.get("prominence", "")
+        if source_prom not in PROMINENCE_RANK:
+            continue
+        if PROMINENCE_RANK[source_prom] < HIGH_THRESHOLD:
+            continue  # Only check high-prominence sources
+
+        for link_text, link_target in collect_markdown_links(path):
+            if link_target.startswith(("http://", "https://", "#")):
+                continue
+            target_resolved = str((path.parent / link_target).resolve())
+            target_prom = resolved_to_prominence.get(target_resolved)
+            if target_prom and PROMINENCE_RANK.get(target_prom, 5) < HIGH_THRESHOLD:
+                warn(f"{rel}: {source_prom}-prominence entry links to "
+                     f"'{link_text}' which is {target_prom}-prominence")
+
     # --- Report ---
     for w in sorted(warnings):
         print(w)
