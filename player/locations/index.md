@@ -10,8 +10,9 @@ Regions, settlements, landmarks, and other named places across the Kaleidos syst
 
 | Entry | Path | Status | Prominence | Tags | Notes |
 |-------|------|--------|------------|------|-------|
+| Sithari | [settlements/sithari.md](settlements/sithari.md) | complete | mythic | surface, governance, trade, ring-era | De facto capital; largest city in the system; layered on ring-era ruins |
 | Fermata Station (The Jazzocracy) | [settlements/fermata-station.md](settlements/fermata-station.md) | complete | marginal | governance, resonance, ring-hab, fluid-reality, music | Jazz-governed ring hab; sound is load-bearing |
-| Glasswake Relay | — | shell | — | trade, ring-hab | Referenced in source material; sky-caravan hub |
+| Glasswake | — | shell | recognized | surface, trade | Surface settlement; first to reconnect with Sithari via Span Nine |
 
 ## Regions
 

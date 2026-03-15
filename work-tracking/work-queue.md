@@ -8,7 +8,7 @@ Entities ordered by what blocks what. Foundational entities first — things tha
 
 ## Tier 1: Foundations (many things reference these)
 
-1. **Kaleidos Prime** — location, mythic. Almost everything references the capital. Anchors the Sithari culture entry. Needed before: trade routes, factions, Accord, most Rekindling events.
+1. **Sithari** — location, mythic. Almost everything references the capital. Anchors the Sithari culture entry. Needed before: trade routes, factions, Accord, most Rekindling events.
 2. **Verge** — location/region, renowned. Already a shell. Needs a full entry. Referenced by: salvage, Coremark, Ratters, Bloom, kite-sails. Everything Verge-adjacent depends on this.
 3. **Tuners** — concept, recognized. First post-collapse resonance practitioners. Referenced by: all post-Famine resonance use. Establishes how resonance went from elven science to folk practice.
 
@@ -18,10 +18,10 @@ Entities ordered by what blocks what. Foundational entities first — things tha
 5. **Echo Ledger Conclave** — faction, recognized. Already a shell. Key faction for the Absent storyline and Bloom-era resonance analysis. Needed before: Lira Vashtenri, Vashtenri Thesis.
 6. **Lattice Proxy Synod** — faction, recognized. Already a shell. AI custodian brokers. Needed before: Span Nine, Accord governance.
 7. **Glasswake** — location, recognized. First reconnection partner. Needed before: Span Nine, trade networks.
-8. **Span Nine** — location/artifact, recognized. First relay. Depends on: Kaleidos Prime, Glasswake, Synod.
+8. **Span Nine** — location/artifact, recognized. First relay. Depends on: Sithari, Glasswake, Synod.
 9. **Prismwell Kite Guild** — faction, recognized. Already a shell. Trade logistics. Needed before: Keel, Corridor Disputes, Accord trade provisions.
 10. **Kite-sail** — artifact/tech, renowned. Already a shell. Depends on: ringglass, resonance. Needed before: Kite Guild details, trade networks.
-11. **Keel** — location/route, recognized. First trade route. Depends on: Kaleidos Prime, Sable Crescent, Kite Guild.
+11. **Keel** — location/route, recognized. First trade route. Depends on: Sithari, Sable Crescent, Kite Guild.
 
 ## Tier 3: Conflict Entities (Contested Reach)
 

@@ -193,12 +193,12 @@ All entities referenced in the DAG and timeline. Ordered by dependency for flesh
 
 | Entity | Status | Prominence | Era | Role |
 |--------|--------|------------|-----|------|
-| Kaleidos Prime | new | mythic | all | De facto capital; largest surface settlement; Sithari heartland |
+| Sithari | new | mythic | all | De facto capital; largest surface settlement; Sithari heartland |
 | Verge | shell | renowned | Glassfall–present | Debris field between atmosphere and orbit; salvage zone |
 | Sable Crescent | new | recognized | Signal Famine–present | Surface region; major Echo River surfacing points |
-| Glasswake | new | recognized | Rekindling–present | Surface settlement; first reconnection partner with Kaleidos Prime |
+| Glasswake | new | recognized | Rekindling–present | Surface settlement; first reconnection partner with Sithari |
 | Span Nine | new | recognized | Rekindling | First long-range resonance relay; landmark |
-| Keel | new | recognized | Rekindling–present | First major trade route; Kaleidos Prime to Sable Crescent |
+| Keel | new | recognized | Rekindling–present | First major trade route; Sithari to Sable Crescent |
 | Pyre | new | recognized | Contested Reach–Bloom | Coremark refinery ruin; Bloom cascade origin |
 | Bloom Zones | new | renowned | Silent Bloom–present | Cordoned ring hab regions; reality unstable; relic source |
 | Verathi | new | marginal | Accord | Station/settlement at center of first Accord arbitration |

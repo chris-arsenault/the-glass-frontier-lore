@@ -1,13 +1,14 @@
 ---
-title: Sithari
+title: Sitharian Culture
 type: concept
 tags: [social-structure, governance, trade]
+related: [sithari]
 prominence: renowned
 ---
 
-# Sithari
+# Sitharian Culture
 
-The culture of Kaleidos prime — specifically the settlements around the de facto capital region and the political networks that radiate outward from it. Sitharian identity is the system's prestige culture: cosmopolitan, multilingual, politically connected, and acutely aware of its own significance. Being Sithari means carrying the weight of the old world — the planet the ring was built around, the place where civilization was first re-established after the Signal Famine, the center that still considers itself the center even as the system outgrows it.
+The culture that grew from [Sithari](../locations/settlements/sithari.md), the system's de facto capital, and radiated outward. Sitharian identity is the system's prestige culture: cosmopolitan, multilingual, politically connected, and acutely aware of its own significance. Being Sitharian means carrying the weight of the old world — the planet the ring was built around, the city where civilization was first re-established after the Signal Famine, the center that still considers itself the center even as the system outgrows it.
 
 ## What It Looks Like
 
@@ -25,7 +26,7 @@ The naming convention is species-agnostic. A Sithari orc and a Sithari human sha
 
 ## Language
 
-The Sithari linguistic register is the system's default formal mode. Accord documents are drafted in Sithari conventions. Diplomatic communications follow Sithari patterns. Trade contracts use Sithari legal terminology. This isn't mandated — it emerged naturally from Kaleidos prime's political centrality — but it means that anyone who wants to operate in system-level politics learns to speak Sithari, whether they were born to it or not.
+The Sithari linguistic register is the system's default formal mode. Accord documents are drafted in Sithari conventions. Diplomatic communications follow Sithari patterns. Trade contracts use Sithari legal terminology. This isn't mandated — it emerged naturally from Sithari's political centrality — but it means that anyone who wants to operate in system-level politics learns to speak Sithari, whether they were born to it or not.
 
 The register favors precision, subordinate clauses, and a measured cadence that non-Sithari speakers sometimes describe as "slow" or "careful." Sithari speakers consider this accuracy. Everyone else considers it a way of making simple things sound important.
 
