@@ -25,6 +25,7 @@ TYPE_DIR_MAP = {
     "event": "history",
     "era": "history",
     "concept": ("concepts", "cosmology"),
+    "dm": "dm",
 }
 
 
@@ -115,6 +116,8 @@ def parse_index_entries(index_path: Path) -> list[dict]:
 
 
 SKIP_DIRS = {"wiki_out", ".git", ".github"}
+# DM files are linted for structure but exempt from prominence cross-ref checks
+DM_DIR = "dm"
 
 
 def collect_content_files() -> list[Path]:

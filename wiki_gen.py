@@ -111,7 +111,7 @@ class RepoScanner:
             # Skip hidden dirs and output dir
             if any(part.startswith(".") for part in rel.parts):
                 continue
-            if rel.parts[0] in ("wiki_out",):
+            if rel.parts[0] in ("wiki_out", "dm"):
                 continue
             # Skip meta files
             if rel.name in SKIP_FILES:
@@ -214,8 +214,10 @@ def convert_links(body: str, source_rel: str, scanner: RepoScanner) -> str:
                 return f"[[{link_text}|{wiki_title}]]"
             return f"[[{wiki_title}]]"
 
-        # Links to skipped meta files — just use the plain text
+        # Links to skipped meta files or dm/ — just use the plain text
         if scanner.is_skipped_file(source_rel, href):
+            return link_text
+        if href.startswith("dm/") or "/dm/" in href:
             return link_text
 
         # Could not resolve — keep as-is but make it a wiki link using the link text

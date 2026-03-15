@@ -58,6 +58,9 @@ Controlled vocabulary for entry frontmatter `tags` field. Tags describe **what a
 | `training` | Education, apprenticeship, attunement learning |
 | `ecology` | Environmental stewardship, conservation |
 | `navigation` | Wayfinding, piloting, route knowledge |
+| `species` | Intelligent species, biology, racial characteristics |
+| `legend` | Passed into myth; historicity debated by general population |
+| `mystery` | Unexplained gaps, unsolved questions, active investigation |
 
 ## Technology & Origin
 

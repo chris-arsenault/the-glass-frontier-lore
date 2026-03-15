@@ -136,7 +136,33 @@ ships/
   civilian/             # trade ships, transports, personal craft
 ```
 
+dm/                     # DM-only knowledge — spoilers, hidden truths, secret motivations
+```
+
 New directories can be added as needed. The structure is emergent.
+
+## DM Knowledge (`dm/`)
+
+The `dm/` directory contains information that is true in the world but not available to players or NPCs. It is **excluded from wiki generation** and should never be referenced from public entries.
+
+**Pattern:**
+- Public entries describe what NPCs know — observable facts, common theories, gaps in the record.
+- DM entries in `dm/` describe the hidden truth and cross-reference the public entry they extend.
+- Public entries must stand on their own. They should never hint at DM knowledge or read like they're holding something back. Write them as if the DM entry doesn't exist.
+- DM entries use frontmatter field `dm: true` and reference public entries via `public_entry:` field.
+
+```yaml
+---
+title: "Elves — DM Truth"
+type: dm
+dm: true
+public_entry: the-absent
+---
+```
+
+**What goes in `dm/`:** Secret motivations, hidden factions, the true cause of historical events, anything players should discover through play rather than reading.
+
+**What does NOT go in `dm/`:** Anything that's just unwritten. Shell entries and `[future:]` markers are for things we haven't fleshed out yet. `dm/` is for things that are deliberately hidden from the player-facing wiki.
 
 ## Source Material
 
