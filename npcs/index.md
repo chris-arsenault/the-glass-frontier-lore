@@ -19,14 +19,15 @@ Factions, notable individuals, and named antagonists.
 
 ## Heroes
 
-| Entry | Path | Status | Prominence | Tags | Notes |
-|-------|------|--------|------------|------|-------|
-| Dern Talish | [heroes/dern-talish.md](heroes/dern-talish.md) | complete | recognized | governance, resonance, diplomacy | First Threshold of the Displacement Council; Bloom Zone veteran |
-| Maren Lush | — | shell | forgotten | governance, music | The Chair at Fermata Station; pianist, 11-year tenure |
-| Olu Dent | — | shell | forgotten | governance, resonance, music | Drone lead at Fermata; baritone sax; refuses to attend Session |
-| Sable Korr | — | shell | forgotten | archives, governance | Standard scholar at Fermata; failed Sit-In 30 years ago |
-| Tel Vasik | — | shell | forgotten | governance, music | Guitarist; Comp player at Fermata |
-| Dez Morraine | — | shell | forgotten | activism, music | Trumpeter; Free Jazz leader at Fermata |
+| Entry | Path | Status | Prominence | Species | Culture | Tags | Notes |
+|-------|------|--------|------------|---------|---------|------|-------|
+| Dern Talish | [heroes/dern-talish.md](heroes/dern-talish.md) | complete | recognized | Human | Hab-Worlder | governance, resonance, diplomacy | First Threshold of the Displacement Council |
+| Lira Vasht | — | shell | recognized | Gnome | Sithari | resonance, archives | Damper Array inventor; Echo Ledger Conclave turned Displacement Council |
+| Maren Lush | — | shell | forgotten | Fae | Hab-Worlder | governance, music | The Chair at Fermata; coherence discipline as governance |
+| Olu Dent | — | shell | forgotten | Gnome | Hab-Worlder | governance, resonance, music | Drone lead at Fermata; feels the station in his bones |
+| Sable Korr | — | shell | forgotten | Human | Hab-Worlder | archives, governance | Standard scholar at Fermata; failed Sit-In 30 years ago |
+| Tel Vasik | — | shell | forgotten | Orc | Hab-Worlder | governance, music | Comp player at Fermata; an orc who never solos |
+| Dez Morraine | — | shell | forgotten | Human | Hab-Worlder | activism, music | Free Jazz leader at Fermata; trumpeter |
 
 ## Monsters
 
