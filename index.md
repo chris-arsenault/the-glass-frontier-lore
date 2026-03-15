@@ -13,12 +13,7 @@ The orbital ring around Kaleidos broke 130 years ago. The fragments — hundreds
 - [Timeline](timeline.md) — major events, colony founding through present day
 - [Tag Taxonomy](tags.md) — all tags used in entry frontmatter
 
-## Cosmology
-
-- [The Glass Frontier](cosmology/the-glass-frontier.md) — the shattered ring and its surviving habs
-- [The Kaleidos System](cosmology/the-kaleidos-system.md) — the solar system: planet, ring, other worlds
-- [Resonance](cosmology/resonance.md) — the energy that runs through everything
-- [Echo Rivers](cosmology/echo-rivers.md) — underground streams that carry voices from the past
+## Cosmology — [index](cosmology/index.md)
 
 ## Concepts — [index](concepts/index.md)
 

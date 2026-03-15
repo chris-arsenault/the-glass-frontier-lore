@@ -1,0 +1,50 @@
+name: Update Wiki
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  wiki:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Generate wiki pages
+        run: python wiki_gen.py wiki_out
+
+      - name: Clone wiki repository
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git clone "https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.wiki.git" wiki_repo
+
+      - name: Update wiki content
+        run: |
+          # Remove old wiki content (keep .git)
+          find wiki_repo -maxdepth 1 -not -name '.git' -not -name 'wiki_repo' -not -path 'wiki_repo' -delete 2>/dev/null || true
+          # Copy generated pages into the wiki repo
+          cp wiki_out/*.md wiki_repo/
+
+      - name: Commit and push wiki changes
+        run: |
+          cd wiki_repo
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          # Only commit and push if there are changes
+          if git diff --cached --quiet; then
+            echo "No wiki changes to commit."
+          else
+            git commit -m "Update wiki from ${GITHUB_SHA::8}"
+            git push
+          fi

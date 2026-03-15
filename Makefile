@@ -1,4 +1,4 @@
-.PHONY: lint check
+.PHONY: lint check wiki clean
 
 # Run all checks
 lint:
@@ -6,3 +6,11 @@ lint:
 
 # Alias
 check: lint
+
+# Generate wiki pages locally
+wiki:
+	@python3 wiki_gen.py wiki_out
+
+# Remove generated files
+clean:
+	@rm -rf wiki_out

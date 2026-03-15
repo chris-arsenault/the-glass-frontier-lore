@@ -9,7 +9,8 @@ ROOT = Path(__file__).parent
 
 # Files that are meta/infrastructure, not lore entries
 META_FILES = {
-    "CLAUDE.md", "index.md", "tags.md", "timeline.md", "lint.py", "Makefile",
+    "CLAUDE.md", "index.md", "tags.md", "timeline.md",
+    "lint.py", "wiki_gen.py", "Makefile",
     "README.md", "LICENSE.md",
 }
 
@@ -89,11 +90,16 @@ def parse_index_entries(index_path: Path) -> list[dict]:
     return entries
 
 
+SKIP_DIRS = {"wiki_out", ".git", ".github"}
+
+
 def collect_content_files() -> list[Path]:
     """Find all .md files that are lore entries (not meta files)."""
     files = []
     for p in ROOT.rglob("*.md"):
         rel = p.relative_to(ROOT)
+        if rel.parts[0] in SKIP_DIRS:
+            continue
         if rel.name in META_FILES:
             continue
         if rel.name == "index.md":
@@ -212,10 +218,7 @@ def main():
 
     for path in content_files:
         if path.resolve() not in indexed_paths:
-            # Check if it's a cosmology file (those are in the top-level index, not a type index)
             rel = path.relative_to(ROOT)
-            if rel.parts[0] == "cosmology":
-                continue
             warn(f"{rel}: not listed in any type index")
 
     # --- 6. Shell consistency: shells shouldn't have files ---
@@ -232,7 +235,8 @@ def main():
                 error(f"index '{e['source'].relative_to(ROOT)}' entry '{e['name']}': tag '{tag}' not in tags.md taxonomy")
 
     # --- 8. Dead links ---
-    all_md_files = list(ROOT.rglob("*.md"))
+    all_md_files = [p for p in ROOT.rglob("*.md")
+                    if p.relative_to(ROOT).parts[0] not in SKIP_DIRS]
     for path in all_md_files:
         rel = path.relative_to(ROOT)
         if str(rel).startswith("."):
