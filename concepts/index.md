@@ -13,6 +13,10 @@ Technology, magic, religion, governance, and other meta-level systems.
 | Jazzocratic Governance | [jazzocratic-governance.md](jazzocratic-governance.md) | complete | marginal | governance, music | Companion to Fermata Station location entry |
 | Attunement | — | shell | recognized | resonance, training | The process of learning to work with resonance |
 | The Absent | [the-absent.md](the-absent.md) | complete | recognized | species, legend, mystery, ring-era, archives | The elves built the ring and then vanished during the Signal Famine |
-| Species | [species.md](species.md) | complete | mythic | species | Species registry, origin types, defined/initial/slot tracking |
-| Cultures | [cultures.md](cultures.md) | complete | mythic | social-structure | Culture registry, naming conventions, defined/initial/slot tracking |
+| Humans | [humans.md](humans.md) | complete | mythic | species | Alien arrivals; largest population; neutral resonance relationship |
+| Orcs | [orcs.md](orcs.md) | complete | mythic | species | Alien; beautiful, powerful; material resonance affinity |
+| Gnomes | [gnomes.md](gnomes.md) | complete | mythic | species, resonance, ring-era | Engineered by elves; part ringglass; natural resonance attunement |
+| Fae | [fae.md](fae.md) | complete | mythic | species, resonance | Engineered; spatial dislocation disability; resonance-dependent coherence |
+| Species | [species.md](species.md) | complete | mythic | species | Species registry with slot tracking |
+| Cultures | [cultures.md](cultures.md) | complete | mythic | social-structure | Culture registry with slot tracking |
 | Resonance Depletion | — | shell | recognized | resonance | Local field depletion and recovery |
