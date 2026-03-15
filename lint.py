@@ -9,7 +9,7 @@ ROOT = Path(__file__).parent
 
 # Files that are meta/infrastructure, not lore entries
 META_FILES = {
-    "CLAUDE.md", "index.md", "tags.md", "timeline.md",
+    "CLAUDE.md", "index.md", "tags.md", "timeline.md", "causality.md",
     "lint.py", "wiki_gen.py", "Makefile",
     "README.md", "LICENSE.md",
 }

@@ -12,6 +12,7 @@ The orbital ring around Kaleidos broke 130 years ago. The fragments — hundreds
 
 - [Timeline](timeline.md) — major events, colony founding through present day
 - [Tag Taxonomy](tags.md) — all tags used in entry frontmatter
+- [Causality DAG](causality.md) — cause-and-effect chains between entities
 
 ## Cosmology — [index](cosmology/index.md)
 
