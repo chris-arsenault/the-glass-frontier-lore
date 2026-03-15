@@ -36,9 +36,9 @@ Signals restored → [confirms] → The Absence (elves gone)
 Ringglass deposits → [attract] → Independent salvage operators
 Independent salvage → [creates demand for] → Trade route infrastructure
 Trade route demand → [gives rise to] → Prismwell Kite Guild
-Ringglass value → [attracts] → Coremark Extraction Syndicate (new)
+Ringglass value → [attracts] → Coremark (new)
 
-Coremark Extraction Syndicate → [pioneers] → Industrial-scale Verge salvage
+Coremark → [pioneers] → Industrial-scale Verge salvage
 Coremark → [prioritizes profit over] → Resonance ecology stability
 Coremark → [lobbies against] → Salvage regulation efforts
 ```
@@ -55,14 +55,14 @@ Corridor Disputes → [disrupt] → Civilian trade (but never stop it)
 Forced-contact incidents → [trigger] → Ring hab defense coalitions
 
 Coremark → [expands operations into] → Mid-drift ring hab cluster
-Coremark → [overloads ringglass arrays at] → Pyre Refinery (new)
+Coremark → [overloads ringglass arrays at] → Pyre (new)
 Loss of elven knowledge → [means nobody understands] → Resonance ecology limits
 ```
 
 ## The Silent Bloom
 
 ```
-Pyre Refinery overload → [triggers] → Sympathetic resonance cascade
+Pyre overload → [triggers] → Sympathetic resonance cascade
 Resonance cascade → [causes] → The Silent Bloom
 The Bloom → [warps crystal substrate of] → Mid-drift ring habs
 The Bloom → [tears holes in local reality] → Bloom Zones
@@ -77,14 +77,14 @@ Warden-Commander → [provides cover for] → Elven operations in Bloom Zones   
 Elves → [provide] → Resources/intelligence to Displacement Council          [DM]
 
 The Bloom → [requires containment by] → Emergency coalitions
-Contested Reach rivals → [set aside disputes to form] → Bloom Response Coalition
-Bloom Response Coalition → [draws leadership from] → Existing factions:
+Contested Reach rivals → [set aside disputes to form] → Bloom Coalition
+Bloom Coalition → [draws leadership from] → Existing factions:
   - Prismwell Kite Guild → [contributes] → Logistics and transport coordination
   - Lattice Proxy Synod → [contributes] → Resonance telemetry and custodian data
   - Echo Ledger Conclave → [contributes] → Historical resonance analysis
   - Independent salvage crews → [contribute] → Verge operations expertise
 
-Bloom crisis → [discredits] → Coremark Extraction Syndicate
+Bloom crisis → [discredits] → Coremark
 Coremark negligence → [provides impetus for] → Verge Compact (regulatory body)
 Bloom containment crews → [form core of] → Verge Compact membership
 
@@ -99,8 +99,8 @@ Displacement Council → [becomes] → Grey Wardens-style neutral order (contain
 
 Resonance damping tech → [developed by] → Lira Vashtenri — resonance engineer
 Lira Vashtenri → [was member of] → Echo Ledger Conclave (pre-Bloom)
-Lira Vashtenri → [develops] → The Damper Array — first containment device
-The Damper Array → [proves] → Containment is possible → coalition gains momentum
+Lira Vashtenri → [develops] → Lira's Wall — first containment device
+Lira's Wall → [proves] → Containment is possible → coalition gains momentum
 Lira Vashtenri → [becomes] → First head of Displacement Council containment ops
 ```
 
@@ -108,7 +108,7 @@ Lira Vashtenri → [becomes] → First head of Displacement Council containment 
 
 ```
 Bloom stabilizes → [removes] → Existential pressure holding coalition together
-Old grudges + new debts → [fracture] → Bloom Response Coalition
+Old grudges + new debts → [fracture] → Bloom Coalition
 Coalition fracture → [reignites] → Contested Reach disputes (now the Bitter Reach)
 
 Bitter Reach → [is sharper than Contested Reach because] → People remember cooperating
@@ -160,8 +160,8 @@ New entities implied by the DAG. Status indicates whether they exist yet.
 
 | Entity | Status | Prominence | Era | Role |
 |--------|--------|------------|-----|------|
-| Coremark Extraction Syndicate | new | recognized | Rekindling–present | Aggressively capitalist salvage corp; negligence causes the Bloom; now a criminal syndicate smuggling Bloom Zone artifacts |
-| Bloom Response Coalition | new | renowned | Silent Bloom | Emergency multi-faction coalition for Bloom containment; dissolved into the Bitter Reach |
+| Coremark | new | recognized | Rekindling–present | Aggressively capitalist salvage corp; negligence causes the Bloom; now a criminal syndicate smuggling Bloom Zone artifacts |
+| Bloom Coalition | new | renowned | Silent Bloom | Emergency multi-faction coalition for Bloom containment; dissolved into the Bitter Reach |
 | Displacement Council | new | recognized | Silent Bloom–present | Bloom refugee org turned neutral containment order; Grey Wardens analogue; maintains Bloom Zone cordons; trusted mediator |
 | Verge Compact | shell | recognized | Silent Bloom–present | Born from Bloom response; first system-wide regulatory body for salvage |
 | Tempered Accord | shell | renowned | Accord–present | Mediation framework; architected by Synod (governance), Kite Guild (trade), Displacement Council (humanitarian) |
@@ -170,21 +170,21 @@ New entities implied by the DAG. Status indicates whether they exist yet.
 
 | Entity | Status | Prominence | Era | Role |
 |--------|--------|------------|-----|------|
-| Lira Vashtenri | new | recognized | Silent Bloom–present | Echo Ledger Conclave resonance specialist turned Displacement Council containment architect; developed the Damper Array |
+| Lira Vashtenri | new | recognized | Silent Bloom–present | Echo Ledger Conclave resonance specialist turned Displacement Council containment architect; developed the Lira's Wall |
 | Displacement Council Warden-Commander | new | recognized | present | Council leader; single point of contact with the elves [DM]; carries the secret of the Adversary [DM] |
 
 ## Artifacts
 
 | Entity | Status | Prominence | Era | Role |
 |--------|--------|------------|-----|------|
-| The Damper Array | new | recognized | Silent Bloom | First resonance containment device; proves Bloom can be stopped; turning-point artifact |
+| Lira's Wall | new | recognized | Silent Bloom | First resonance containment device; proves Bloom can be stopped; turning-point artifact |
 | Bloom Zone relics | new | recognized | Silent Bloom–present | New relic-magnitude artifacts generated by reality distortion in Bloom Zones; not pre-collapse tech but something genuinely new |
 
 ## Locations
 
 | Entity | Status | Prominence | Era | Role |
 |--------|--------|------------|-----|------|
-| Pyre Refinery | new | recognized | Contested Reach–Bloom | Coremark facility whose overload triggers the Bloom cascade |
+| Pyre | new | recognized | Contested Reach–Bloom | Coremark facility whose overload triggers the Bloom cascade |
 | Bloom Zones | new | renowned | Silent Bloom–present | Cordoned ring hab regions where reality is unstable; source of new relic-magnitude artifacts; containment maintained by Displacement Council |
 
 ---

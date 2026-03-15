@@ -117,7 +117,7 @@ def parse_index_entries(index_path: Path) -> list[dict]:
     return entries
 
 
-SKIP_DIRS = {"wiki_out", ".git", ".github"}
+SKIP_DIRS = {"wiki_out", ".git", ".github", "review-guidance"}
 # DM files are linted for structure but exempt from prominence cross-ref checks
 DM_DIR = "dm"
 

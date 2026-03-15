@@ -22,7 +22,7 @@ Factions, notable individuals, and named antagonists.
 | Entry | Path | Status | Prominence | Species | Culture | Tags | Notes |
 |-------|------|--------|------------|---------|---------|------|-------|
 | Dern Talish | [heroes/dern-talish.md](heroes/dern-talish.md) | complete | recognized | Human | Hab-Worlder | governance, resonance, diplomacy | First Threshold of the Displacement Council |
-| Lira Vashtenri | — | shell | recognized | Gnome | Sithari | resonance, archives | Damper Array inventor; Echo Ledger Conclave turned Displacement Council |
+| Lira Vashtenri | — | shell | recognized | Gnome | Sithari | resonance, archives | Lira's Wall inventor; Echo Ledger Conclave turned Displacement Council |
 | Shei Lush | — | shell | forgotten | Fae | Hab-Worlder | governance, music | The Chair at Fermata; coherence discipline as governance |
 | Ol'dent | — | shell | forgotten | Gnome | Hab-Worlder | governance, resonance, music | Drone lead at Fermata; feels the station in his bones |
 | Sable Korr | — | shell | forgotten | Human | Hab-Worlder | archives, governance | Standard scholar at Fermata; failed Sit-In 30 years ago |
