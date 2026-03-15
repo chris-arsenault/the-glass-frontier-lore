@@ -191,7 +191,7 @@ class RepoScanner:
 def convert_links(body: str, source_rel: str, scanner: RepoScanner) -> str:
     """Convert internal markdown links to wiki links; handle future markers."""
 
-    def replace_md_link(m: re.Match) -> str:
+    def replace_md_link(m: re.Match, in_table: bool = False) -> str:
         link_text = m.group(1)
         href = m.group(2)
 
@@ -206,6 +206,9 @@ def convert_links(body: str, source_rel: str, scanner: RepoScanner) -> str:
             # If link text is a filename/path, just use the page title
             if link_text.endswith(".md") or "/" in link_text:
                 return f"[[{wiki_title}]]"
+            # In table rows, never use piped links — pipe breaks the table
+            if in_table:
+                return f"[[{wiki_title}]]"
             # GitHub wiki: [[display text|target page]]
             if link_text and link_text != wiki_title:
                 return f"[[{link_text}|{wiki_title}]]"
@@ -218,13 +221,29 @@ def convert_links(body: str, source_rel: str, scanner: RepoScanner) -> str:
         # Could not resolve — keep as-is but make it a wiki link using the link text
         return f"[[{link_text}]]"
 
-    # Replace markdown links: [text](target)
-    body = re.sub(r"\[([^\]]*)\]\(([^)]+)\)", replace_md_link, body)
+    # Process line-by-line to detect table rows
+    lines = body.split("\n")
+    converted = []
+    for line in lines:
+        is_table = line.lstrip().startswith("|")
+        if is_table:
+            line = re.sub(
+                r"\[([^\]]*)\]\(([^)]+)\)",
+                lambda m: replace_md_link(m, in_table=True),
+                line,
+            )
+            # Future markers in tables: no brackets, just italic
+            line = re.sub(r"\[future:([^\]]+)\]", r"*\1 (stub)*", line)
+        else:
+            line = re.sub(
+                r"\[([^\]]*)\]\(([^)]+)\)",
+                lambda m: replace_md_link(m, in_table=False),
+                line,
+            )
+            line = re.sub(r"\[future:([^\]]+)\]", r"*\1* *(stub)*", line)
+        converted.append(line)
 
-    # Replace future markers: [future:Entity Name] -> *Entity Name* *(stub)*
-    body = re.sub(r"\[future:([^\]]+)\]", r"*\1* *(stub)*", body)
-
-    return body
+    return "\n".join(converted)
 
 
 # ---------------------------------------------------------------------------
