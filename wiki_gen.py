@@ -298,8 +298,8 @@ def build_metadata_box(fm: dict, scanner: RepoScanner) -> str:
             if found_title:
                 related_links.append(f"[[{found_title}]]")
             else:
-                # Titlecase the slug as a fallback
-                related_links.append(f"[[{slug.replace('-', ' ').title()}]]")
+                # No page exists — render as plain text, not a wiki link
+                related_links.append(f"*{slug.replace('-', ' ').title()}*")
         line += "\n>\n> **Related:** " + ", ".join(related_links)
 
     return line + "\n\n"

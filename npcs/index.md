@@ -21,6 +21,7 @@ Factions, notable individuals, and named antagonists.
 
 | Entry | Path | Status | Prominence | Tags | Notes |
 |-------|------|--------|------------|------|-------|
+| Dern Talish | [heroes/dern-talish.md](heroes/dern-talish.md) | complete | recognized | governance, resonance, diplomacy | First Threshold of the Displacement Council; Bloom Zone veteran |
 | Maren Lush | — | shell | forgotten | governance, music | The Chair at Fermata Station; pianist, 11-year tenure |
 | Olu Dent | — | shell | forgotten | governance, resonance, music | Drone lead at Fermata; baritone sax; refuses to attend Session |
 | Sable Korr | — | shell | forgotten | archives, governance | Standard scholar at Fermata; failed Sit-In 30 years ago |
