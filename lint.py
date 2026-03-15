@@ -10,6 +10,7 @@ ROOT = Path(__file__).parent
 # Files that are meta/infrastructure, not lore entries
 META_FILES = {
     "CLAUDE.md", "index.md", "tags.md", "timeline.md", "lint.py", "Makefile",
+    "README.md", "LICENSE.md",
 }
 
 # Map type field values to expected directory prefixes
@@ -257,6 +258,8 @@ def main():
     for path in all_md_files:
         rel = path.relative_to(ROOT)
         if str(rel).startswith("."):
+            continue
+        if rel.name in META_FILES:
             continue
         text = path.read_text()
         # Strip fenced code blocks
