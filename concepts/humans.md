@@ -18,7 +18,7 @@ Nothing unusual by the standards of the system. Bipedal, medium build, lifespan 
 
 Humans represent the largest single population in the system, partly because their shorter lifespans mean faster generational turnover and partly because they breed prolifically by the standards of most other species. They are the demographic default — not dominant in any qualitative sense, but numerous enough that human faces are the most common ones in most settlements.
 
-This ubiquity means humans don't have a strong species-level identity the way some smaller populations do. A human's primary identity is cultural — [Silvari](cultures.md), [Hab-Worlder](cultures.md), syndicate, independent — rather than biological. Most humans don't think about being human very often. There are too many of them for it to feel distinctive.
+This ubiquity means humans don't have a strong species-level identity the way some smaller populations do. A human's primary identity is cultural — [Sithari](cultures.md), [Hab-Worlder](cultures.md), syndicate, independent — rather than biological. Most humans don't think about being human very often. There are too many of them for it to feel distinctive.
 
 ## Relationship with Resonance
 

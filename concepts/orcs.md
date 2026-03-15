@@ -32,4 +32,4 @@ Orcs can learn attunement, but their natural affinity is physical rather than en
 
 ## Present Day
 
-Orcs are distributed across the system without a single species-level homeland or cultural center. Like humans, their primary identity is cultural rather than biological — an orc raised Silvari is Silvari first and orc second. Unlike humans, orcs are numerous enough to be common but not so numerous as to be the default, which means being orc is still *something* in a way that being human mostly isn't.
+Orcs are distributed across the system without a single species-level homeland or cultural center. Like humans, their primary identity is cultural rather than biological — an orc raised Sithari is Sithari first and orc second. Unlike humans, orcs are numerous enough to be common but not so numerous as to be the default, which means being orc is still *something* in a way that being human mostly isn't.
