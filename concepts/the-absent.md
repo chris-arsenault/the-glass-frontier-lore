@@ -2,60 +2,71 @@
 title: The Absent
 type: concept
 tags: [species, legend, mystery, ring-era, archives]
-prominence: marginal
+prominence: recognized
 ---
 
 # The Absent
 
-There is a gap in the historical record. Not an empty spot — a shaped absence, like a hole cut with precision from a piece of fabric. The pattern of what's missing is too consistent to be accidental and too thorough to be natural decay.
+The elves are gone. That much is not in dispute.
 
-Scholars who study pre-Glassfall records call it the Redaction. The folk name is simpler: the Absent.
+What is in dispute: where they went, why they left, and whether "left" is even the right word. The elves — one of the founding species of the Kaleidos system, primary architects of the [orbital ring](../cosmology/the-glass-frontier.md), and for centuries the most technically sophisticated civilization in the system — disappeared during the [Signal Famine](../history/index.md). By the time communications resumed, they were simply absent. The name stuck.
 
-## What's Known
+## Who They Were
 
-Kaleidos is a multi-species system. Humans, and others — that's unremarkable. What is remarkable is that the ring-era record describes a species that no longer appears to exist. References are fragmentary and often contradictory, because many of the primary sources have been damaged, overwritten, or simply erased.
+The elves were native to the Kaleidos system, present from before the colony era. Physically similar to humans — taller on average, with elongated ear structure, finer bone density, and significantly longer lifespans measured in centuries rather than decades. The differences were visible but not dramatic. In a crowd, you might notice. You might not.
 
-What survives, pieced together from scraps:
+They were integrated into the broader multi-species society of the ring era. They held positions in government, academia, industry, and the arts. They weren't a separate civilization — they were part of the civilization, woven through every level of it.
 
-- They were one of the original peoples of the Kaleidos system, present from before the colony era or arriving very early in it.
-- They were deeply involved in the construction of the orbital ring. Not the only builders — the ring was a multi-species undertaking — but by most surviving accounts, the primary architects. The sophistication of the ring's [resonance](../cosmology/resonance.md) engineering is frequently cited as evidence that whoever designed it understood [ringglass](ringglass.md) at a level nobody alive can replicate.
-- They were physically similar enough to humans that distinguishing them required close observation. The surviving descriptions mention elongated ear structure, subtle differences in bone density, and unusually long lifespans, but these details come from sources that may themselves be corrupted or mythologized.
-- They participated in the broader society of the ring era. They weren't isolated or secretive — at least, not then.
+But their primary contribution was the ring itself.
 
-And then, during the [Signal Famine](../history/index.md), they disappeared.
+## The Ring Builders
+
+The orbital ring was a multi-species undertaking, but the elves were its architects. The [resonance](../cosmology/resonance.md) engineering — the system of tuned crystal that carried power, data, and structural force through the entire ring — was elven science. The [ringglass](ringglass.md) lattice design, the frequency architecture, the systems that made a megastructure spanning a planet's orbit function as a single integrated machine: that was their work.
+
+This isn't controversial. Ring-era records are clear on elven authorship of the core engineering. What modern practitioners know as resonance theory is, in many cases, a simplified version of elven originals — stripped of context and attribution by time, but recognizably derived. The sophistication gap between what the ring builders achieved and what anyone alive can replicate is, in large part, the gap left by the people who understood it best.
+
+The elves didn't just build the ring. They understood it. And then they were gone, and that understanding went with them.
 
 ## The Disappearance
 
-The timing is suspicious and convenient. The Signal Famine severed communications across the system for sixty years. Records from that period are fragmentary for everyone. If you wanted to vanish — really vanish — the Famine was the window to do it.
+During the Signal Famine, communications across the system collapsed for roughly sixty years. When they resumed, the elves were not among the voices that came back online. No settlements reported elven populations. No ring habs contained elven communities. No individuals came forward.
 
-What makes the Absent different from other communities that were simply lost during the Famine is the Redaction. The gaps in the record aren't random. They follow a pattern. Across archives on Kaleidos's surface, in ring habs that had no contact with each other for decades, and in outer-system colonies, the same kinds of references are missing. Technical documents with authorship stripped. Historical accounts with participants unnamed. Administrative records with entire departments excised.
+Sixty years is a long time for most species. For elves, with their centuries-long lifespans, it's barely a generation. Whatever happened, it wasn't that they simply died out during the Famine. The timeline doesn't support it.
 
-Somebody did this deliberately. Across the entire system. During a period when coordinated action across the system was supposed to be impossible.
+What the timeline does support is something more deliberate. The Famine provided cover — communications were already down, records were already fragmenting, entire communities were already losing track of each other. If you wanted to vanish from a civilization, the Famine was the moment to do it.
 
-## The Echo River Evidence
+## The Redaction
 
-The [Echo Rivers](../cosmology/echo-rivers.md) are the hardest record to tamper with. Pre-Glassfall transmissions embedded in the planet's crystal geology can't easily be edited — the resonance imprints are distributed through kilometers of mineral-laced rock.
+The disappearance alone would be a mystery. What makes it unsettling is the Redaction.
 
-And yet, even in the rivers, there are gaps. Conversations that cut to silence mid-sentence. Station logs where one speaker's voice has been replaced by a flat harmonic hum. Archivists at the Echo Ledger Conclave have catalogued thousands of these anomalies and the pattern matches: whatever was removed from the written record, someone attempted to remove from the rivers too.
+Across the system — in archives on Kaleidos's surface, in ring habs that had no contact with each other during the Famine, in outer-system colonies — the historical record shows systematic gaps that follow a pattern. Technical documents with authorship stripped. Administrative records with entire departments excised. Historical accounts where named participants have been replaced with generic descriptions.
 
-They didn't fully succeed. Fragments survive — a word here, a phrase there, a voice speaking in a cadence that doesn't match any known living language. The Conclave treats these fragments as their most sensitive material. Some archivists have spent careers trying to reconstruct what was erased. The results are inconclusive, and the work tends to attract a particular kind of obsessive personality.
+The pattern is consistent enough that it's hard to attribute to accident. Someone went through the records. Not everywhere, and not perfectly — the elves are still in the history books, still credited with the ring, still remembered. But the personal details are gone. Individual names, family lineages, community records, cultural specifics — scraped away, leaving the broad strokes and removing the texture.
+
+The [Echo Rivers](../cosmology/echo-rivers.md) tell the same story. Pre-Glassfall transmissions embedded in the planet's crystal geology show evidence of tampering — conversations that cut to silence mid-sentence, voice signatures replaced with flat harmonic hum. The rivers are hard to edit (you're working with resonance imprints distributed through kilometers of rock), and the results are imperfect. Fragments of elven speech survive in deep deposits. The [future:Echo Ledger Conclave] treats these fragments as sensitive material. Some archivists have spent careers cataloguing what was erased and what slipped through.
 
 ## What People Think
 
-Most people in the system have never heard of the Absent. The concept has zero cultural presence outside of academic circles and the kind of late-night speculation that happens in bars near Echo River surfacing points.
+Everyone has heard of the elves. They built the ring. That's basic history — taught in schools, referenced in everyday conversation. "Elven engineering" is a common shorthand for technology that works better than anyone can explain.
 
-Among those who study it:
+The disappearance is less universally known but widely recognized as a historical fact. The elves were here, and then they weren't. Most people file it under "things that happened during the Famine" and don't think about it further.
 
-- **The mainstream academic position** is that the Absent were a pre-Glassfall culture — possibly a species, possibly an ethnic or professional group — that was devastated by the Glassfall and the Famine and simply died out. The gaps in the record are attributed to the general chaos of that period. The pattern is considered pareidolia — scholars seeing intention in noise.
+The Redaction is where opinion diverges:
 
-- **The Redaction theorists** argue the gaps are too systematic to be coincidence. Something or someone deliberately removed this group from the historical record. Whether the Absent did it to themselves or someone did it to them is the central debate. This position is considered fringe but intellectually defensible. The Echo River evidence is their strongest card.
+- **The mainstream position** is that the record gaps are a natural consequence of the Famine's chaos. Sixty years of fragmented communication degraded a lot of records. The elves were prominent, so their absence from degraded records is noticeable, but not evidence of conspiracy.
 
-- **Folk tradition** in some older settlements preserves stories of "the tall ones" or "the quiet builders" — people who were here before and then weren't. These traditions vary wildly by region and are generally treated as mythology. Some of them describe the Absent as having simply walked away — packed up, said nothing, and left. Where they went depends on who's telling the story.
+- **The Redaction theorists** argue the pattern is too systematic to be coincidence. Someone deliberately cleaned the record — and the Echo River evidence suggests it was the elves themselves. Why a civilization would erase its own detailed history while remaining in the broad strokes is the central question these scholars can't answer.
 
-## Significance
+- **Folk tradition** in older settlements preserves more specific stories. The elves didn't die. They left. Some versions say they saw something coming. Some say they're still out there, somewhere in the ring, in habs that don't show on any chart. These stories are treated as folklore by most people and as uncomfortably plausible by the scholars who study the Redaction.
 
-If the Absent were real — if a species that helped build the orbital ring deliberately erased itself from history during the Signal Famine — the implications are unsettling. It would mean someone had the capability to coordinate a system-wide operation during a period of total communication blackout. It would mean the Famine itself may not have been as absolute as the record suggests, or that the Absent had resources nobody else knew about.
+## The Open Questions
 
-And it would raise the obvious question: why? What would make a civilization erase itself?
+The elves' existence is historical fact. Their contributions are documented. Their disappearance is acknowledged.
 
-Nobody has a good answer. The Absent, if they ever existed, aren't talking.
+What nobody can explain:
+- Where did an entire species go during a sixty-year window?
+- Why does the historical record show signs of deliberate tampering?
+- If the elves cleaned their own records, what were they hiding — or hiding from?
+- Are there still elves in the system, somewhere, and if so — what have they been doing for 130 years?
+
+The last question is the one people don't ask in polite company. It implies things about the Famine, about the [Glassfall](../history/events/the-glassfall.md), and about the current state of the system that nobody is prepared to deal with.
