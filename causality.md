@@ -72,6 +72,9 @@ Bloom Zones → [generate] → New relic-magnitude artifacts (unique to zones)
 Bloom Zones → [attract] → Scavengers, researchers, desperate people
 The Adversary → [seeps through] → Reality tears in Bloom Zones             [DM]
 Elves → [increase hidden presence in] → Bloom Zones (monitoring/containing) [DM]
+Elves → [cooperate with] → Displacement Council Warden-Commander            [DM]
+Warden-Commander → [provides cover for] → Elven operations in Bloom Zones   [DM]
+Elves → [provide] → Resources/intelligence to Displacement Council          [DM]
 
 The Bloom → [requires containment by] → Emergency coalitions
 Contested Reach rivals → [set aside disputes to form] → Bloom Response Coalition
@@ -141,8 +144,10 @@ Accord → [struggles with] → Coremark criminal operations (artifact smuggling
 Accord → [struggles with] → New far-drift hab discoveries (who speaks for them?)
 Bloom Zones → [produce] → Relic-magnitude artifacts → black market via Coremark
 Displacement Council → [maintains] → Containment but is stretched thin
+Displacement Council Warden-Commander → [cooperates with] → Elves             [DM]
 The Adversary → [slowly expanding through] → Bloom Zone reality tears          [DM]
 Elves → [conducting hidden ops in] → Bloom Zones (primary concern now)          [DM]
+Elves → [have veto power over] → Warden-Commander succession                   [DM]
 ```
 
 ---
@@ -166,6 +171,7 @@ New entities implied by the DAG. Status indicates whether they exist yet.
 | Entity | Status | Prominence | Era | Role |
 |--------|--------|------------|-----|------|
 | Lira Vasht | new | recognized | Silent Bloom–present | Echo Ledger Conclave resonance specialist turned Displacement Council containment architect; developed the Damper Array |
+| Displacement Council Warden-Commander | new | recognized | present | Council leader; single point of contact with the elves [DM]; carries the secret of the Adversary [DM] |
 
 ## Artifacts
 
