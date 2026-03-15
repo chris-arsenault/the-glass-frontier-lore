@@ -47,30 +47,48 @@ The first generation after silence. Not a golden age — a raw, uncertain, somet
 
 ---
 
-## Era 4: The Fracture Wars (2340–2365 CE)
+## Era 4: The Contested Reach (2340–2355 CE)
 
-The cost of reconnection. When hundreds of communities that spent sixty years developing independently try to share resources, routes, and authority, some of those negotiations fail. The Fracture Wars are not a single conflict — they're a generation of overlapping disputes, resource contests, and territorial clashes that erupt as the system knits itself back together.
+The cost of reconnection. When hundreds of communities that spent sixty years developing independently try to share resources, routes, and authority, some of those negotiations fail. The Contested Reach is not a single conflict — it's a generation of overlapping disputes, resource contests, and territorial clashes that erupt as the system knits itself back together.
 
-The wars are real and sometimes brutal, but they are not the whole story of this era. For every conflict, there are ten negotiations. For every settlement that fights, there are fifty that trade. The wars are the failure mode of a process that mostly works — and the process keeps working even while the wars are happening. The system doesn't collapse. It argues, bleeds, and stubbornly continues to rebuild.
+The conflicts are real and sometimes brutal, but they are not the whole story of this era. For every dispute that turns violent, there are ten that get resolved over a table. The system doesn't collapse. It argues, bleeds, and stubbornly continues to rebuild.
 
 | Date | Event | Notes |
 |------|-------|-------|
 | ~2340s CE | **Salvage conflicts escalate** | Competition for high-grade ringglass in the Verge turns violent. Independent salvage crews, settlement militias, and ring hab defense forces clash over the most valuable debris fields. |
-| ~2345 CE | **The Corridor Wars** | Disputes over control of major trade routes between surface settlements. Several routes change hands multiple times. Civilian traffic is disrupted but never fully stopped — traders find alternate paths. |
+| ~2345 CE | **The Corridor Disputes** | Disputes over control of major trade routes between surface settlements. Several routes change hands multiple times. Civilian traffic is disrupted but never fully stopped — traders find alternate paths. |
 | ~2350s CE | **Ring hab standoffs** | Some ring habs that refused contact during the Rekindling now face pressure — economic, diplomatic, and occasionally military — to open their borders. Several forced-contact incidents trigger wider coalitions. |
-| ~2355–2360 CE | **The Cooling** | War fatigue sets in. The conflicts haven't produced clear winners, and the costs are mounting. A generation of people who grew up during the fighting start demanding alternatives. Multi-party negotiations begin in earnest. |
-| ~2358 CE | **[future:Verge Compact] established** | Salvage operators, tired of losing crews to rival clashes, form the first system-wide regulatory body for Verge operations. It works imperfectly but it works. Becomes a model for later accords. |
 
 ---
 
-## Era 5: The Accord (2365 CE–present)
+## Era 5: The Silent Bloom (2355–2365 CE)
 
-The current era. Born from exhaustion as much as idealism, the Tempered Accord is not a government — it's a framework for mediation, a set of shared norms that most settlements have agreed to honor most of the time. It holds because the alternative is the Fracture Wars again, and nobody wants that.
+Something worse than war.
 
-The Accord era is young. The system is reconnected but not unified. The [Glass Frontier](cosmology/the-glass-frontier.md) is accessible, inhabited, and slowly falling apart. The elves are history. The future is being written by the people who survived everything else.
+In the mid-2350s, a resonance anomaly cascades through a cluster of ring habs in the mid-drift. The cause is never fully established — the best reconstruction points to a chain of overloaded ringglass arrays in a salvage refinery that triggered sympathetic failures in neighboring fragments. The effect is devastating: uncontrolled resonance amplification that warps the crystal substrate of affected habs, rendering them structurally unstable and — in the worst cases — lethal to inhabit.
+
+The Bloom is not sentient. It is not an attack. It is an industrial accident at civilizational scale — the consequence of decades of aggressive ringglass harvesting without the elven engineering knowledge that once kept the ring's resonance ecology in balance.
+
+The Bloom cannot be fought. It can only be contained. And containment requires cooperation between communities that were, days earlier, threatening each other over trade routes and salvage rights.
+
+| Date | Event | Notes |
+|------|-------|-------|
+| ~2355 CE | **The Bloom ignites** | Resonance anomaly cascade begins in mid-drift ring habs. Uncontrolled amplification warps crystal substrate. Affected habs evacuated or lost. |
+| ~2355–2358 CE | **Emergency coalitions form** | Contested Reach disputes shelved overnight. Rival factions pool resonance specialists, salvage crews, and resources to build containment cordons around affected zones. The coalitions are improvised, fractious, and effective. |
+| ~2358 CE | **[future:Verge Compact] established** | Salvage operators formalize the first system-wide regulatory body for Verge operations, born directly from the Bloom response. Becomes a model for later accords. |
+| ~2358–2362 CE | **Containment holds, coalition cracks** | The immediate crisis stabilizes. Without the existential pressure, the coalition begins fracturing along old lines. Disputes resume — now complicated by debts, favors, and grudges accumulated during the emergency. |
+| ~2362–2365 CE | **The Bitter Reach** | The second wave of conflicts. Sharper than the first — the people fighting now have recent experience of cooperation, which makes the return to hostility feel like betrayal. But the Bloom proved something: when it mattered, they could work together. That memory doesn't prevent the fighting. It does limit it. Nobody wants to burn the bridges they just built. |
+
+---
+
+## Era 6: The Accord (2365 CE–present)
+
+The current era. Born from exhaustion, pragmatism, and the grudging admission that the Bloom coalitions worked better than anyone expected. The Tempered Accord is not a government — it's a framework for mediation, a set of shared norms that most settlements have agreed to honor most of the time. It holds because the alternative is the Bitter Reach again, and nobody wants that.
+
+The Accord era is young. The system is reconnected but not unified. The [Glass Frontier](cosmology/the-glass-frontier.md) is accessible, inhabited, and slowly falling apart. The Bloom zones are contained but not resolved. The elves are history. The future is being written by the people who survived everything else.
 
 | Date | Event | Notes |
 |------|-------|-------|
 | ~2365 CE | **Tempered Accord ratified** | The Accord is formally adopted as the inter-settlement governance framework. Not a government — a mediation structure. Signatories include surface settlements, ring habs, and outer-system representatives. |
 | ~2367 CE | **Accord enforcement tested** | First major dispute arbitrated under Accord framework. The result satisfies nobody completely, which the Accord's architects consider a success. |
-| **2369 CE** | **Present day** | The Accord holds but strains. Tensions between expansion and preservation. Old Fracture War grievances linger. New communities discovered in far-drift ring habs. The frontier is open. |
+| **2369 CE** | **Present day** | The Accord holds but strains. Tensions between expansion and preservation. Old grudges linger. Bloom zones remain cordoned. New communities discovered in far-drift ring habs. The frontier is open. |
