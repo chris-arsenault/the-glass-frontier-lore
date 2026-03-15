@@ -97,11 +97,11 @@ Displacement Council → [specializes in] → Bloom Zone containment operations
 Displacement Council → [maintains] → Containment cordons (ongoing, present-day)
 Displacement Council → [becomes] → Grey Wardens-style neutral order (containment-focused)
 
-Resonance damping tech → [developed by] → Lira Vasht — resonance engineer
-Lira Vasht → [was member of] → Echo Ledger Conclave (pre-Bloom)
-Lira Vasht → [develops] → The Damper Array — first containment device
+Resonance damping tech → [developed by] → Lira Vashtenri — resonance engineer
+Lira Vashtenri → [was member of] → Echo Ledger Conclave (pre-Bloom)
+Lira Vashtenri → [develops] → The Damper Array — first containment device
 The Damper Array → [proves] → Containment is possible → coalition gains momentum
-Lira Vasht → [becomes] → First head of Displacement Council containment ops
+Lira Vashtenri → [becomes] → First head of Displacement Council containment ops
 ```
 
 ## Coalition Fracture → Bitter Reach
@@ -170,7 +170,7 @@ New entities implied by the DAG. Status indicates whether they exist yet.
 
 | Entity | Status | Prominence | Era | Role |
 |--------|--------|------------|-----|------|
-| Lira Vasht | new | recognized | Silent Bloom–present | Echo Ledger Conclave resonance specialist turned Displacement Council containment architect; developed the Damper Array |
+| Lira Vashtenri | new | recognized | Silent Bloom–present | Echo Ledger Conclave resonance specialist turned Displacement Council containment architect; developed the Damper Array |
 | Displacement Council Warden-Commander | new | recognized | present | Council leader; single point of contact with the elves [DM]; carries the secret of the Adversary [DM] |
 
 ## Artifacts
@@ -202,4 +202,4 @@ New entities implied by the DAG. Status indicates whether they exist yet.
 - **Bloom Zone relic mechanics:** What makes these artifacts different from pre-collapse tech? How does the reality distortion create them? Is it random, or does the distortion follow patterns?
 - **Displacement Council internal tensions:** Containment mission vs. members who want to reclaim their original homes. How thin can they stretch before something breaks?
 - **Coremark's network:** Who buys Bloom Zone artifacts? What are the downstream effects of relic-magnitude items hitting the black market?
-- **Lira Vasht's current status:** Still active? Leading the Council? Retired? Her relationship with the Echo Ledger Conclave (her original faction) after she left to focus on containment.
+- **Lira Vashtenri's current status:** Still active? Leading the Council? Retired? Her relationship with the Echo Ledger Conclave (her original faction) after she left to focus on containment.

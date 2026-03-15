@@ -52,7 +52,7 @@ use the future marker: [future:Entity Name]
 Example:
 ```yaml
 ---
-title: Olu Dent
+title: Ol'dent
 type: npc
 tags: [governance, resonance, music]
 related: [fermata-station]
