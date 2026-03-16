@@ -18,7 +18,7 @@ Each culture defines distinct naming patterns — the primary species-agnostic c
 
 | Culture | Base | Population | Status | Entry |
 |---------|------|------------|--------|-------|
-| [Sithari](sithari.md) | Sithari (de facto capital) | Large | defined | [Sithari](sithari.md) |
+| [Sithari](sitharian-culture.md) | Sithari (de facto capital) | Large | defined | [Sithari](sitharian-culture.md) |
 | [Hab-Worlder](hab-worlder.md) | Ring habs (general) | Large | defined | [Hab-Worlder](hab-worlder.md) |
 | *7th-planet moon culture* | Colonized moon of the water giant | Medium | slot | — |
 | *Spiritual/druid culture* | Distributed | Medium | slot | — |

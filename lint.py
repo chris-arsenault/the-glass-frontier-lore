@@ -167,6 +167,32 @@ def collect_all_known_slugs(index_entries: list[dict], content_files: list[Path]
     return slugs
 
 
+def extract_headings(path: Path) -> list[dict]:
+    """Extract ## headings from a markdown file.
+
+    Returns list of {prose_heading, graph_heading, has_annotation} dicts.
+    Parses <!-- Canonical --> comments for graph heading mapping.
+    """
+    text = path.read_text()
+    # Strip frontmatter
+    text = re.sub(r"^---\n.*?\n---\n?", "", text, flags=re.DOTALL)
+    headings = []
+    for line in text.split("\n"):
+        m = re.match(r"^##\s+(.+)", line)
+        if m:
+            raw = m.group(1).strip()
+            comment = re.search(r"<!--\s*(.+?)\s*-->", raw)
+            if comment:
+                graph_heading = comment.group(1)
+                prose = re.sub(r"\s*<!--.*?-->\s*$", "", raw).strip()
+                prose = re.sub(r"\[future:([^\]]+)\]", r"\1", prose)
+                headings.append({"prose_heading": prose, "graph_heading": graph_heading, "has_annotation": True})
+            else:
+                prose = re.sub(r"\[future:([^\]]+)\]", r"\1", raw)
+                headings.append({"prose_heading": prose, "graph_heading": prose, "has_annotation": False})
+    return headings
+
+
 def collect_markdown_links(path: Path) -> list[tuple[str, str]]:
     """Extract (link_text, link_target) from markdown links in a file."""
     text = path.read_text()
@@ -385,6 +411,109 @@ def main():
             if target_prom and PROMINENCE_RANK.get(target_prom, 5) < HIGH_THRESHOLD:
                 warn(f"{rel}: {source_prom}-prominence entry links to "
                      f"'{link_text}' which is {target_prom}-prominence")
+
+    # --- 13. Heading annotation check: all ## headings must have <!-- Canonical --> ---
+    for path in content_files:
+        rel = path.relative_to(ROOT)
+        headings = extract_headings(path)
+        for h in headings:
+            if not h["has_annotation"] and h["prose_heading"] != h["graph_heading"]:
+                # This shouldn't happen (no annotation means they're equal by definition)
+                # but catch the case where prose heading isn't canonical
+                pass
+            if not h["has_annotation"]:
+                # Check if this heading IS a canonical heading (no annotation needed)
+                # If not, it needs one
+                canonical_headings = {
+                    "Origin", "Geography", "Governance", "Economy", "People", "Access",
+                    "Atmosphere", "Dangers", "Tensions", "Biology", "Culture", "Resonance",
+                    "History", "Present Day", "Aesthetics", "Naming", "Language", "Values",
+                    "Perception", "Structure", "Operations", "Resources", "Public Profile",
+                    "Traits", "Relationships", "Cause", "Course", "Aftermath", "Legacy",
+                    "How It Works", "Sources", "Limits", "Applications", "Trade",
+                    "Function", "Significance", "Description", "Mechanics",
+                    "Truth", "Implications", "Usage Notes",
+                }
+                if h["prose_heading"] not in canonical_headings:
+                    error(f"{rel}: heading '{h['prose_heading']}' is not canonical and has no <!-- Canonical --> annotation")
+
+    # --- 14. Graph-prose sync (requires Memgraph connection) ---
+    try:
+        from neo4j import GraphDatabase
+        driver = GraphDatabase.driver("bolt://192.168.66.3:7688", auth=("memgraph", "your-secure-password"))
+        graph_available = True
+    except Exception:
+        graph_available = False
+
+    if graph_available:
+        with driver.session() as session:
+            # 14a. All graph entities must have a title
+            result = session.run("""
+                MATCH (e:Entity)
+                WHERE e.title IS NULL OR e.title = ''
+                RETURN e.id
+            """)
+            for r in result:
+                error(f"GRAPH: entity '{r['e.id']}' has no title")
+
+            # 14b. Every prose file should have a matching graph entity
+            prose_ids = {p.stem for p in content_files}
+            result = session.run("""
+                MATCH (e:Entity)
+                WHERE e.status = 'complete'
+                RETURN e.id
+            """)
+            graph_complete_ids = {r["e.id"] for r in result}
+
+            for pid in prose_ids:
+                if pid not in graph_complete_ids:
+                    # DM files map differently — check by file stem
+                    warn(f"GRAPH: prose file '{pid}' has no matching complete entity in graph")
+
+            for gid in graph_complete_ids:
+                if gid not in prose_ids:
+                    warn(f"GRAPH: graph entity '{gid}' (complete) has no matching prose file")
+
+            # 14c. Section 1:1 match — every prose heading should exist in graph, and vice versa
+            for path in content_files:
+                rel = path.relative_to(ROOT)
+                entity_id = path.stem
+                prose_headings = extract_headings(path)
+                prose_graph_set = {h["graph_heading"] for h in prose_headings}
+
+                result = session.run("""
+                    MATCH (e:Entity {id: $eid})-[:HAS_SECTION]->(s:Section)
+                    RETURN s.heading AS heading
+                """, eid=entity_id)
+                graph_heading_set = {r["heading"] for r in result}
+
+                # Headings in prose but not in graph
+                for h in prose_graph_set - graph_heading_set:
+                    if graph_heading_set:  # Only flag if the entity exists in graph at all
+                        warn(f"GRAPH: {rel} heading '{h}' exists in prose but not in graph")
+
+                # Headings in graph but not in prose
+                for h in graph_heading_set - prose_graph_set:
+                    warn(f"GRAPH: {rel} heading '{h}' exists in graph but not in prose")
+
+            # 14d. Entity title match — prose title should match graph title
+            for path in content_files:
+                rel = path.relative_to(ROOT)
+                fm = parse_frontmatter(path)
+                if not fm or "title" not in fm:
+                    continue
+                entity_id = path.stem
+                result = session.run("""
+                    MATCH (e:Entity {id: $eid})
+                    RETURN e.title AS title
+                """, eid=entity_id)
+                record = result.single()
+                if record and record["title"] and record["title"] != fm["title"]:
+                    error(f"GRAPH: {rel} title mismatch — prose='{fm['title']}' graph='{record['title']}'")
+
+        driver.close()
+    else:
+        warn("GRAPH: Memgraph not reachable — skipping graph-prose sync checks")
 
     # --- Report ---
     for f in sorted(futures):

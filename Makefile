@@ -1,16 +1,12 @@
-.PHONY: lint check wiki graph-bootstrap clean
+.PHONY: lint check wiki clean
 
-# Run all checks (lore + wiki)
+# Run all checks (lore + wiki + graph sync)
 lint:
 	@python3 lint.py
 	@python3 wiki_gen.py wiki_out
 
 # Alias
 check: lint
-
-# Full graph rebuild (disaster recovery only)
-graph-bootstrap:
-	@python3 graph_bootstrap.py
 
 # Generate wiki pages locally (without linting)
 wiki:
