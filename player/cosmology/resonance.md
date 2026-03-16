@@ -2,6 +2,7 @@
 title: Resonance
 type: concept
 prominence: mythic
+registry: true
 tags: [resonance]
 ---
 
@@ -13,19 +14,33 @@ When the rings [shattered](../history/events/the-glassfall.md), the ringglass di
 
 That ambient energy is resonance. It's not magic. It's the residual output of an engineered system running without supervision.
 
-## How It Works
+## How It Works <!-- How It Works -->
 
-Ringglass vibrates across a spectrum of frequencies. Different frequencies produce different physical effects — not because of anything mystical, but because the crystal was designed that way. The builders encoded specific functions into specific frequency ranges.
+Resonance operates across two dimensions: **band** (what kind of effect) and **bandwidth** (how focused the application).
 
-What survives in practice:
+### The Three Bands
 
-**Structural frequencies** (low end of the spectrum). These reinforce physical bonds in materials. A piece of ringglass tuned to structural frequencies makes the things around it harder, denser, more resilient. This is the most common practical application — ringglass-reinforced building materials are standard construction on Kaleidos. The crystal is embedded in walls, foundations, bridge supports. It doesn't make things indestructible, but a ringglass-laced concrete wall will outlast a normal one by decades.
+Ringglass vibrates across a spectrum. The builders encoded specific physical effects into specific frequency ranges:
 
-**Kinetic frequencies** (mid spectrum). These convert resonance into motion — heat, force, acceleration. This is what powers most working technology. A kite-sail catches wind, but its hull contains ringglass arrays tuned to kinetic frequencies that amplify the force and let the ship move faster and more precisely than wind alone could manage. Refineries use kinetic-tuned ringglass to heat, separate, and process materials. Generators convert ambient resonance into electricity. The mid frequencies are the workhorse of the system.
+**Structural** — reinforces physical bonds. Makes materials harder, denser, more resilient. Ringglass-reinforced concrete is standard construction on Kaleidos. The most common practical application and the one with the longest history of reliable use.
 
-**Signal frequencies** (high end). These carry information. The original ring used signal-band resonance the way a civilization might use radio — for communication, data storage, coordination. In the wild, signal-frequency ringglass picks up and retransmits whatever data it encounters, which is why [Echo Rivers](echo-rivers.md) carry fragments of pre-Glassfall transmissions. Controlled signal-band arrays are used for communication, navigation, and — in the hands of the [Echo Ledger Conclave](../npcs/factions/echo-ledger-conclave.md) — recovering historical records from ambient noise.
+**Kinetic** — converts resonance into motion, heat, and force. The workhorse band. Powers [future:kite-sails], runs refineries, generates electricity. The key mechanism is momentum nullification — kinetic-tuned ringglass can redirect opposing forces into a frequency null space, producing effectively unopposed motion. This is why a kite-sail moves faster than wind alone should allow, and why resonance-powered vehicles don't obey normal friction constraints.
 
-Beyond the signal band, there are frequencies that the original ring used for core operations — the systems that held the entire structure together, managed its orbit, and coordinated the ringwide automation. Nobody accesses those now. The equipment to do so either doesn't exist or is locked inside [ring-era vaults](the-glass-frontier.md) that haven't been opened since the Glassfall.
+**Signal** — carries information. Communication, data storage, navigation. In the wild, signal-frequency ringglass picks up and retransmits whatever data it encounters, which is why [Echo Rivers](echo-rivers.md) carry fragments of pre-Glassfall transmissions. Controlled signal-band arrays are used for communication, navigation, and — in the hands of the [Echo Ledger Conclave](../npcs/factions/echo-ledger-conclave.md) — recovering historical records from ambient noise.
+
+### Bandwidth
+
+Within each band, the *bandwidth* of the application determines its power and accessibility. This is not a clean tier system — it's a continuum — but practitioners recognize three rough ranges:
+
+**Broad bandwidth** — wide, unfocused resonance. Easy to achieve, easy to maintain, limited in effect. This is what powers household devices: lanterns, stoves, compasses, basic heaters. Broad-bandwidth applications work with ambient resonance and low-grade ringglass. Anyone can use them. A broad structural application makes a wall stronger. A broad kinetic application heats a room.
+
+**Mid bandwidth** — focused resonance requiring trained [Tuners](../concepts/tuners.md) or quality ringglass arrays. This is the professional range: kite-sail engines, refinery operations, long-range communication, [Clarisant](../npcs/index.md)-grade attunement work. Mid-bandwidth applications produce the technology that runs the system's infrastructure. A mid kinetic application generates unopposed thrust. A mid signal application carries a conversation across a continent.
+
+**Narrow bandwidth** — tightly focused, poorly understood. Narrow-band resonance produces effects that don't have clear theoretical explanations. Structural narrow can locally alter physical laws. Kinetic narrow has been observed to produce translocation effects. Signal narrow borders on consciousness interface — direct information transfer without a medium.
+
+The narrow end is where the [elves](../concepts/elves.md) operated routinely and where nobody else goes without extreme caution. [future:Bloom Zone] relics, pre-Glassfall artifacts, and the deepest [future:Shear] anomalies all exhibit narrow-bandwidth characteristics. The [Lattice Proxy Synod](../npcs/factions/lattice-proxy-synod.md)'s AI custodians appear to process information at narrow signal bandwidth, which is part of why communication with them is so difficult.
+
+Most people never encounter anything beyond broad. Working professionals operate at mid. Narrow is the domain of relics, accidents, and things nobody fully controls.
 
 ## Ringglass <!-- Sources -->
 

@@ -23,6 +23,8 @@ Technology, magic, religion, governance, and other meta-level systems.
 | Species | [species.md](species.md) | complete | mythic | species | Species registry with slot tracking |
 | Cultures | [cultures.md](cultures.md) | complete | mythic | social-structure | Culture registry with slot tracking |
 | Naming Conventions | [naming-conventions.md](naming-conventions.md) | complete | mythic | social-structure | Name-forge domains for all cultures and species |
+| Practical Resonance | [practical-resonance.md](practical-resonance.md) | complete | mythic | resonance, trade, transport | Ambient fields, kite-sails, the unexpected; how resonance shows up daily |
+| Exceptional Resources | [exceptional-resources.md](exceptional-resources.md) | complete | recognized | trade, materials, resonance | Veilfire, stillwater, duskgrain, relics; resources unique to this world |
 | Resonance Depletion | — | shell | recognized | resonance | Local field depletion and recovery |
 | Ratters | — | shell | recognized | salvage, social-structure | Independent Shear salvage crew subculture |
 | Shuttered habs | — | shell | recognized | ring-hab, governance | Habs that refused reconnection during the Rekindling; some still closed |
