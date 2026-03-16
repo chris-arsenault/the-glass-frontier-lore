@@ -164,6 +164,64 @@ public_entry: elves
 
 **What does NOT go in `dm/`:** Anything that's just unwritten. Shell entries and `[future:]` markers are for things we haven't fleshed out yet. `dm/` is for things that are deliberately hidden from the player-facing wiki.
 
+## Critical: Graph Workflow
+
+**Every prose change MUST be accompanied by a graph update.** The Memgraph database at `192.168.66.3:7688` is the structured truth layer. Prose and graph must stay in sync at all times.
+
+### When creating or modifying an entry:
+
+1. **Before writing:** Query the graph for the entity's neighborhood to understand existing relationships and check for conflicts:
+   ```
+   python3 graph_cli.py query-neighborhood <entity-id>
+   ```
+
+2. **After writing the .md file:** Upsert the entity to sync prose → graph (creates/updates entity node, sections, embeddings, MENTIONS edges):
+   ```
+   python3 graph_cli.py upsert-entity player/concepts/<file>.md
+   ```
+
+3. **Add typed relationships:** Every meaningful connection between entities gets a typed edge. Do NOT use generic relationships — every edge must have a semantic type from the taxonomy:
+   ```
+   python3 graph_cli.py add-rel <source-id> <REL_TYPE> <target-id>
+   python3 graph_cli.py add-rel coremark OPERATES_IN the-shear
+   python3 graph_cli.py add-rel elves BUILT the-glass-frontier --dm
+   ```
+
+4. **Run checks:** Verify no contradictions were introduced:
+   ```
+   python3 graph_cli.py check
+   make lint
+   ```
+
+### Graph CLI commands:
+
+| Command | Use |
+|---------|-----|
+| `upsert-entity <file>` | Sync a prose file to graph (entity + sections + embeddings) |
+| `add-rel <src> <type> <tgt>` | Add a typed relationship |
+| `rm-rel <src> <type> <tgt>` | Remove a relationship |
+| `query-neighborhood <id>` | Show entity's connections |
+| `query-similar <section-id>` | Vector search for similar sections |
+| `check` | Run all contradiction checks (G1-G7, L2) |
+| `stats` | Graph statistics |
+
+### Relationship types:
+
+Check the taxonomy before creating edges. Banned types (like RELATED_TO) will be rejected:
+```
+python3 graph_cli.py add-rel <src> <type> <tgt>
+```
+The CLI validates against the taxonomy and rejects banned types.
+
+### What gets embedded:
+
+Section embeddings use entity-enriched prefix injection:
+- Primary entity attributes (type, prominence, temporal bounds, relationships)
+- Mentioned entity attributes (detected via NER against entity registry)
+- Clean prose (markdown links and future markers stripped)
+
+Embeddings are rebuilt automatically by `upsert-entity`. The vector index is rebuilt after each upsert.
+
 ## Source Material
 
 `../the-glass-frontier/docs/lore/` contains the original (non-canonical) reference material. It has useful world details buried in over-engineered game scaffolding. Use it for inspiration, not as gospel. Strip the meta-gaming layers, keep the evocative imagery.
