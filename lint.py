@@ -28,6 +28,8 @@ TYPE_DIR_MAP = {
     "occurrence": "history",
     "era": "history",
     "thread": "threads",
+    "loop": "loops",
+    "theme": "themes",
     "concept": ("concepts", "cosmology"),
     "dm": "dm",
 }
