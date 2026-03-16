@@ -22,3 +22,11 @@ Entities that exist only in DM knowledge — no player-facing entry.
 | The Adversary | External force that destroyed the ring; undefined; elves preparing for its return |
 | The Dissident | Rogue elf who taught early Tuners during the Famine; fate unknown |
 | Communication Shard | Pre-Glassfall ringglass artifact keyed to impossible frequency; Dern Talish's elven contact channel |
+
+## Narrative Structure
+
+Authorial scaffolding — not in-universe knowledge.
+
+- [Thematic Cores](themes/index.md) — questions the world asks; tensions embedded in systems
+- [Plot Threads](threads/index.md) — overarching narrative arcs with beat sequences
+- [Narrative Loops](loops/index.md) — recurring structural patterns that generate stories

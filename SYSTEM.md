@@ -175,9 +175,6 @@ player/                     # all player-facing lore
     common/
   creatures/                # fauna, anomalies
   ships/                    # military, civilian
-  themes/                   # thematic cores (index + individual)
-  threads/                  # plot threads (index + individual)
-  loops/                    # narrative loops (index + individual)
   design-principles.md      # meta worldbuilding philosophy
   world-seeds.md            # ideas for future development
   timeline.md               # major events chronology
@@ -185,6 +182,9 @@ player/                     # all player-facing lore
   causality.md              # entity-to-entity causal chains
 
 dm/                         # DM-only knowledge (not wiki-published)
+  themes/                   # thematic cores — authorial scaffolding
+  threads/                  # plot threads with beat sequences
+  loops/                    # narrative loops with instances
 review-guidance/            # writing quality docs
 research/                   # reference research (thematic craft, etc.)
 work-tracking/              # temporary operational docs

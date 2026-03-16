@@ -59,7 +59,7 @@ The fracture is constrained by the residue. Nobody wants to destroy the infrastr
 
 | Stage | Entity | Notes |
 |-------|--------|-------|
-| Crisis | [Fermata Station](../locations/settlements/fermata-station.md) | The Standards calcify, governance becomes ritual, the system drifts from improvisation toward tradition |
+| Crisis | [Fermata Station](../../player/locations/settlements/fermata-station.md) | The Standards calcify, governance becomes ritual, the system drifts from improvisation toward tradition |
 | Cooperation | [future:The Fermata Open] | Outside musicians arrive, disrupt entrenched dynamics, inject unfamiliar voices |
 | Residue | *(internal)* | New compositions enter the repertoire, new Standards are established, political landscape shifts |
 | Fracture | *(internal)* | The new Standards begin calcifying, the system drifts again |
@@ -72,7 +72,7 @@ The fracture is constrained by the residue. Nobody wants to destroy the infrastr
 |-------|--------|-------|
 | Crisis | Signal Famine (era) | 65 years of isolation, communities facing resource crisis or cultural drift |
 | Cooperation | *(The Reconnection itself)* | Glasswake reconnects, trade networks form, Span Nine links Sithari to off-world |
-| Residue | [Vantara](../npcs/factions/vantara.md), [The Keel](../locations/landmarks/keel.md) | Trade infrastructure, communication networks, economic interdependence |
+| Residue | [Vantara](../../player/npcs/factions/vantara.md), [The Keel](../../player/locations/landmarks/keel.md) | Trade infrastructure, communication networks, economic interdependence |
 | Fracture | [future:The Contested Reach] | Resource disputes, corridor conflicts, ring hab standoffs |
 
 **Status:** Complete cycle. This is the same loop at a slower timescale — the Rekindling's cooperation produces the trade infrastructure whose disruption during the Contested Reach triggers the faster Bloom cycle.

@@ -21,7 +21,7 @@ The emotional throughline is **responsibility recognized too late**. The people 
 ## Beat Sequence <!-- How It Works -->
 
 ### Beat 1: The Environment
-**Era:** 2320s–2350s | **Filled by:** [future:Coremark], [Vantara](../npcs/factions/vantara.md), [The Keel](../locations/landmarks/keel.md)
+**Era:** 2320s–2350s | **Filled by:** [future:Coremark], [Vantara](../../player/npcs/factions/vantara.md), [The Keel](../../player/locations/landmarks/keel.md)
 
 The Rekindling's trade boom creates an environment of cheap ringglass and low caution. Coremark pioneers industrial-scale Shear salvage. Vantara builds trade infrastructure. Demand outstrips understanding. Nobody is studying resonance ecology because nobody thinks resonance ecology is a thing you need to study.
 
@@ -31,7 +31,7 @@ The Rekindling's trade boom creates an environment of cheap ringglass and low ca
 ---
 
 ### Beat 2: The Span Demand
-**Era:** 2340s–2350s | **Partially filled by:** [Span Nine](../locations/landmarks/span-nine.md)
+**Era:** 2340s–2350s | **Partially filled by:** [Span Nine](../../player/locations/landmarks/span-nine.md)
 
 Span Nine gives Sithari communication capabilities nobody else can replicate. The political demand for Span-quality access grows during the Contested Reach — communication inequality is a grievance. Coremark, flush with cheap ringglass and engineering ambition, attempts to replicate the Span's properties.
 
@@ -77,7 +77,7 @@ Mass evacuation. Hab-Worlders who lose their sealed environments — the one thi
 
 The response doesn't form overnight — it takes days, maybe a week. The people who push for it are a mix: faction leaders already fed up with the Contested Reach who see an opportunity to unify, neutrals who recognize the scale of the danger, and — invisibly — elven operatives who leak the right information to the right people and provide logistical nudges (a trader offering free transport to the Bloom zones, a message transcript that reaches the right desk). [DM]
 
-The Coalition draws from existing factions: [Vantara](../npcs/factions/vantara.md) for logistics, [Lattice Proxy Synod](../npcs/factions/lattice-proxy-synod.md) for resonance telemetry, [Echo Ledger Conclave](../npcs/factions/echo-ledger-conclave.md) for historical resonance analysis, independent salvagers for Shear operations expertise.
+The Coalition draws from existing factions: [Vantara](../../player/npcs/factions/vantara.md) for logistics, [Lattice Proxy Synod](../../player/npcs/factions/lattice-proxy-synod.md) for resonance telemetry, [Echo Ledger Conclave](../../player/npcs/factions/echo-ledger-conclave.md) for historical resonance analysis, independent salvagers for Shear operations expertise.
 
 **Unfilled beat needed:** The specific people who called for the Coalition — named individuals from different factions.
 **Unfilled beat needed:** The elven nudges — specific moments of invisible intervention. [DM]
@@ -120,7 +120,7 @@ The Bloom stabilizes. The existential pressure eases. The Coalition fractures al
 ---
 
 ### Beat 10: The Ongoing
-**Era:** 2365–present | **Filled by:** [future:Displacement Council], [future:Bloom Zones], [Dern Talish](../npcs/heroes/dern-talish.md)
+**Era:** 2365–present | **Filled by:** [future:Displacement Council], [future:Bloom Zones], [Dern Talish](../../player/npcs/heroes/dern-talish.md)
 
 Containment holds but the Bloom Zones are expanding slowly. The Displacement Council is stretched thin. Dern Talish leads containment operations and secretly cooperates with elven operatives. [DM] Coremark smuggles Bloom Zone relics — including duskgrain — through the black market.
 

@@ -135,9 +135,6 @@ player/                     # all player-facing lore (published to wiki)
   ships/
     military/               # warships, patrol vessels
     civilian/               # trade ships, transports, personal craft
-  themes/                   # thematic cores (index + individual pages)
-  threads/                  # plot threads (index + individual pages)
-  loops/                    # narrative loops (index + individual pages)
   design-principles.md      # meta worldbuilding philosophy
   world-seeds.md            # ideas and texture for future development
   timeline.md               # major events chronology
@@ -145,6 +142,9 @@ player/                     # all player-facing lore (published to wiki)
   causality.md              # entity-to-entity causal DAG
 
 dm/                         # DM-only knowledge (not published to wiki)
+  themes/                   # thematic cores — authorial scaffolding
+  threads/                  # plot threads — narrative arc beat sequences
+  loops/                    # narrative loops — recurring structural patterns
 review-guidance/            # writing quality docs (naming, deslop, crosswalk)
 research/                   # long-term reference material (thematic craft, analyses)
 work-tracking/              # temporary operational docs (queue, questions, snapshots)

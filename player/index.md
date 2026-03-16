@@ -11,9 +11,6 @@ The orbital ring around Kaleidos broke 130 years ago. The fragments — hundreds
 ## About
 
 - [Design Principles](design-principles.md) — how this world is built: tone, rules, philosophy
-- [Thematic Cores](themes/index.md) — the six recurring tensions that unify the world
-- [Plot Threads](threads/index.md) — the five overarching narrative arcs
-- [Narrative Loops](loops/index.md) — structural patterns that generate stories
 - [World Seeds](world-seeds.md) — ideas and texture for future development
 
 ## Meta

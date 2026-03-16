@@ -21,7 +21,7 @@ This fear of disconnection constrains everything that follows. The Contested Rea
 ## Beat Sequence <!-- How It Works -->
 
 ### Beat 1: The Severance
-**Era:** 2240 CE | **Filled by:** [The Glassfall](../history/events/the-glassfall.md)
+**Era:** 2240 CE | **Filled by:** [The Glassfall](../../player/history/events/the-glassfall.md)
 
 The ring shatters. Communications collapse instantly. Every community is suddenly alone.
 
@@ -38,7 +38,7 @@ The ring shatters. Communications collapse instantly. Every community is suddenl
 
 **Small communities** face genuine resource crisis. They weren't built to be self-sufficient. Many fail. The ones that survive develop deep traditions of mutual aid, resourcefulness, and — eventually — rituals and festivals celebrating connection.
 
-**Large communities** (Sithari, others) stabilize through institutional strength. [Sithari](../locations/settlements/sithari.md) and [The Continuity](../index.md) flourish precisely because they don't need anyone else. Self-sufficiency becomes identity, not just survival strategy.
+**Large communities** (Sithari, others) stabilize through institutional strength. [Sithari](../../player/locations/settlements/sithari.md) and [The Continuity](../index.md) flourish precisely because they don't need anyone else. Self-sufficiency becomes identity, not just survival strategy.
 
 **Effect:** Every community develops independently — different governance, different culture, different relationship with resonance.
 **Consequence:** When they reconnect, they discover they've become strangers (Beat 5).
@@ -47,7 +47,7 @@ The ring shatters. Communications collapse instantly. Every community is suddenl
 ---
 
 ### Beat 3: The First Signal
-**Era:** ~2305 CE | **Filled by:** [Glasswake](../locations/settlements/glasswake.md), [future:Hab Meridian]
+**Era:** ~2305 CE | **Filled by:** [Glasswake](../../player/locations/settlements/glasswake.md), [future:Hab Meridian]
 
 A salvage crew in Glasswake finds a transmitter in fallen hab wreckage. Minor repair. It talks. Hab Meridian answers.
 
@@ -59,11 +59,11 @@ A salvage crew in Glasswake finds a transmitter in fallen hab wreckage. Minor re
 ---
 
 ### Beat 4: The Span
-**Era:** ~2305 CE (rediscovered) | **Filled by:** [Span Nine](../locations/landmarks/span-nine.md)
+**Era:** ~2305 CE (rediscovered) | **Filled by:** [Span Nine](../../player/locations/landmarks/span-nine.md)
 
 Pre-Glassfall hardline infrastructure — a luminous filament connecting Sithari to Pelhari and Threshold Station. It had been glowing in the sky for sixty years. Nobody understood what it was until the reconnection effort started looking up.
 
-**Effect:** Sithari gains real-time high-bandwidth communication with the [future:Clarisant] and [Lattice Proxy Synod](../npcs/factions/lattice-proxy-synod.md). A structural advantage nobody else can replicate.
+**Effect:** Sithari gains real-time high-bandwidth communication with the [future:Clarisant] and [Lattice Proxy Synod](../../player/npcs/factions/lattice-proxy-synod.md). A structural advantage nobody else can replicate.
 **Consequence:** Two-tier communication system emerges — Sithari has broadband, everyone else has improvised relays.
 **Downstream:** Communication inequality becomes a political grievance during the Contested Reach (Beat 7). The demand for Span-quality access motivates Coremark's Span replication experiment — which, combined with aggressive ringglass harvesting, causes the Bloom. The Span can't be sabotaged (intent-responsive), making it the one piece of infrastructure that's inviolable during the Reach — a symbol of both connection and inequality.
 
@@ -83,7 +83,7 @@ Surface communities reach ring habs. The cultural divergence is staggering. Comm
 ---
 
 ### Beat 6: Trade Resumes
-**Era:** ~2320s–2330s | **Filled by:** [future:Ratters], [future:Coremark], [Vantara](../npcs/factions/vantara.md), [The Keel](../locations/landmarks/keel.md)
+**Era:** ~2320s–2330s | **Filled by:** [future:Ratters], [future:Coremark], [Vantara](../../player/npcs/factions/vantara.md), [The Keel](../../player/locations/landmarks/keel.md)
 
 Salvage begins. Trade networks form. Vantara is founded to handle the boring essential work of logistics. The Keel is established as the primary orbital trade lane.
 

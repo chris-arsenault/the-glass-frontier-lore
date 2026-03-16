@@ -26,9 +26,9 @@ TYPE_DIR_MAP = {
     "ship": "ships",
     "occurrence": "history",
     "era": "history",
-    "thread": "threads",
-    "loop": "loops",
-    "theme": "themes",
+    "thread": ("threads", "dm"),
+    "loop": ("loops", "dm"),
+    "theme": ("themes", "dm"),
     "concept": ("concepts", "cosmology"),
     "dm": "dm",
 }
