@@ -26,3 +26,4 @@ Technology, magic, religion, governance, and other meta-level systems.
 | Resonance Depletion | — | shell | recognized | resonance | Local field depletion and recovery |
 | Ratters | — | shell | recognized | salvage, social-structure | Independent Shear salvage crew subculture |
 | Shuttered habs | — | shell | recognized | ring-hab, governance | Habs that refused reconnection during the Rekindling; some still closed |
+| Glassfall showers | — | shell | recognized | orbital, danger | Periodic fine debris cascades in the Shear; increase collision risk |

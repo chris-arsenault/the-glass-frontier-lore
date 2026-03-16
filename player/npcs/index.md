@@ -17,6 +17,7 @@ Factions, notable individuals, and named antagonists.
 | Verge Compact | — | shell | recognized | salvage, ringglass, trade | Verge salvage regulation and logistics |
 | Lumenshard Conservatory | — | shell | recognized | ecology, resonance | Eco-faction protecting bioluminescent groves |
 | Clarisant | — | shell | recognized | resonance, training, governance | Tuner guild; accreditation body; HQ on Pelhari |
+| The Continuity | — | shell | recognized | governance | Sithari's ruling party; unchallenged for 130 years |
 | Coremark | — | shell | recognized | salvage, ringglass, trade | Capitalist salvage corp turned criminal syndicate; negligence caused the Bloom |
 | Bloom Coalition | — | shell | renowned | governance, diplomacy | Emergency multi-faction Bloom containment coalition; dissolved during Bitter Reach |
 | Displacement Council | — | shell | recognized | governance, resonance, danger | Bloom refugee org turned neutral containment order; maintains Bloom Zone cordons |

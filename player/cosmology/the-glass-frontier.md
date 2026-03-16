@@ -31,7 +31,7 @@ The orbital space around Kaleidos — everything that used to be the ring — co
 
 **[The Shear](../locations/regions/the-shear.md)** fills the pockets and layers between habitable fragments — roughly half the orbital volume. Debris, resonance distortion, and the [ringglass](../concepts/ringglass.md) salvage industry that depends on both. The Shear has existed since the Glassfall and is, by now, broadly understood. Dangerous, but navigable. An environment people have learned to work in.
 
-**[future:Bloom Zones]** are the exception to "understood." Man-made reality tears caused by the [future:Silent Bloom] cascade of 2355, they can appear anywhere in orbit — in the Shear, adjacent to ring habs, or in otherwise clean space. Where the Shear distorts resonance, Bloom Zones break reality. They are actively expanding and require constant containment.
+**[future:Bloom Zones]** are the exception to "understood." Man-made reality tears caused by the [future:The Silent Bloom] cascade of 2355, they can appear anywhere in orbit — in the Shear, adjacent to ring habs, or in otherwise clean space. Where the Shear distorts resonance, Bloom Zones break reality. They are actively expanding and require constant containment.
 
 The boundary between ring and Shear is not sharp. A hab that was stable for decades can lose structural integrity and become Shear — just another piece of debris. A section of Shear can be stabilized, sealed, and colonized into a new hab. And a Bloom Zone can erupt next to either. The frontier is, in this sense, always moving.
 

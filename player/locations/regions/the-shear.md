@@ -63,6 +63,6 @@ The Shear and the [future:Bloom Zones] are distinct phenomena that occupy the sa
 
 The Shear is chronic — it has existed since the Glassfall, it is broadly understood, and it is mostly stabilized. Dangerous, but navigable. An environment that people have learned to work in.
 
-[future:Bloom Zones] are acute — man-made reality tears caused by the [future:Silent Bloom] cascade of 2355. They can occur anywhere in Kaleidos orbit: in the Shear, adjacent to ring habs, or in otherwise clean orbital space. Where the Shear distorts resonance, Bloom Zones break reality. They are orders of magnitude more dangerous, actively expanding, and require constant containment by the [future:Displacement Council].
+[future:Bloom Zones] are acute — man-made reality tears caused by the [future:The Silent Bloom] cascade of 2355. They can occur anywhere in Kaleidos orbit: in the Shear, adjacent to ring habs, or in otherwise clean orbital space. Where the Shear distorts resonance, Bloom Zones break reality. They are orders of magnitude more dangerous, actively expanding, and require constant containment by the [future:Displacement Council].
 
 A Bloom Zone appearing next to a stable ring hab in clean space is the nightmare scenario — and it has happened. The Shear is where you expect problems. Bloom Zones are where problems show up uninvited.

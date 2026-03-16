@@ -33,3 +33,5 @@ Regions, settlements, landmarks, and other named places across the Kaleidos syst
 | Bloom Zones | — | shell | renowned | orbital, danger, resonance | Man-made reality tears; can appear anywhere in orbit; require active containment |
 | Keel | — | shell | recognized | surface, trade, navigation | First major trade route; Sithari to Sable Crescent |
 | Verathi | — | shell | marginal | orbital, governance | Station at center of first Accord arbitration |
+| Underlayers | — | shell | recognized | surface, ring-era, danger | Sithari's deep strata; ring-era and elven construction beneath the modern city |
+| Deep Shear | — | shell | recognized | orbital, danger, resonance | Deepest pockets of the Shear; spatial distortion, alien fauna |
