@@ -1,0 +1,38 @@
+---
+title: Coremark
+type: faction
+tags: [salvage, ringglass, trade, danger]
+prominence: recognized
+---
+
+# Coremark
+
+A salvage corporation that became a criminal syndicate. Coremark pioneered industrial-scale operations in the deep [Shear](../../locations/regions/the-shear.md) during the Rekindling, made a fortune extracting [ringglass](../../concepts/ringglass.md) from places nobody else would go, and was publicly discredited after their negligence helped cause the [future:Silent Bloom]. They went underground during the Bitter Reach and haven't come back up.
+
+## Origin <!-- Origin -->
+
+Founded in the 2320s on [future:Threshold-VII] when the Shear salvage industry was young and unregulated. Coremark's founding insight was that the deep Shear — the dangerous, distorted, poorly charted pockets far from any hab — contained the highest-grade ringglass in the system. Everyone else was picking the accessible debris fields clean. Coremark went where the margins were lethal and the material was priceless.
+
+They were small but high-profile. Big technology budgets. Specialized ships and equipment for deep Shear operations. Profit-driven from the start, but not malicious — they took good care of their employees because skilled deep Shear operators were rare and hard to replace. Compensation was excellent. Retention was a business strategy, not a kindness, but the result was the same: Coremark crews were the best in the system, and they knew it.
+
+## Operations <!-- Operations -->
+
+At their peak, Coremark operated a fleet of Shear-rated [kite-sails](../../artifacts/common/kite-sail.md) running extraction missions in zones that other salvage companies wouldn't enter. Their deep Shear expertise was genuine — they developed techniques for navigating distorted resonance environments that the [future:Verge Compact] later standardized into industry practice.
+
+The problem was scale. As ringglass demand grew during the Rekindling, Coremark expanded beyond their deep Shear niche. They moved into mid-drift extraction — closer to inhabited habs, higher volume, lower margins, and fundamentally different risk profiles. Deep Shear is dangerous but isolated. Mid-drift Shear is dangerous and crowded. Coremark's aggressive methods, developed for environments where nobody else was present, became destructive when applied near civilian populations.
+
+They also backed the [future:Span replication project] — an attempt to replicate [Span Nine](../../locations/landmarks/span-nine.md)'s communication properties using industrial ringglass arrays. Cheap ringglass made the experiment economically feasible. Understanding of narrow-bandwidth resonance was not sufficient to make it physically safe.
+
+## [Shardfall](../../history/events/shardfall.md) <!-- Tensions -->
+
+The incident that turned public opinion. Coremark attempted to extract a high-value debris field in the mid-drift — outside their normal deep Shear territory, near a hab. A hab mining group had already staked a claim. Pirates complicated things. Coremark's extraction methods endangered the surrounding area.
+
+It was fine when Coremark operated in deep Shear — nobody else went there, nobody cared. But this was near a hab. The opposition was televised. The battle left both civilian and non-civilian casualties. [Shardfall](../../history/events/shardfall.md) became the moment the system decided that unregulated salvage was unacceptable. The political momentum that eventually produced the [future:Verge Compact] started here.
+
+## Present Day <!-- Present Day -->
+
+Coremark is a criminal syndicate. Single leader — [future:Duthrek] — running a mafia-style organization from [future:Threshold-VII]. The legitimate corporation was publicly discredited after the Bloom, its operations seized or boycotted during the Bitter Reach. The people and infrastructure went underground.
+
+They still do what they've always done, just illegally: deep Shear ringglass extraction in zones the Compact hasn't charted, smuggling [future:Bloom Zone] relics and [future:duskgrain] through black market channels, and protection rackets along the less-patrolled segments of [the Keel](../../locations/landmarks/keel.md). The corporate culture of "move fast, profit first" didn't change — it just stopped pretending to be legitimate.
+
+The name stuck. Everyone still calls them Coremark. They don't seem to mind.

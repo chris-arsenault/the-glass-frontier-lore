@@ -27,7 +27,7 @@ And in the present day, someone is making the same arguments Coremark made in th
 ## Beat Sequence <!-- How It Works -->
 
 ### Beat 1: The Environment
-**Era:** 2320s–2350s | **Filled by:** [future:Coremark], [Vantara](../../player/npcs/factions/vantara.md), [The Keel](../../player/locations/landmarks/keel.md)
+**Era:** 2320s–2350s | **Filled by:** [Coremark](../../player/npcs/factions/coremark.md), [Vantara](../../player/npcs/factions/vantara.md), [The Keel](../../player/locations/landmarks/keel.md)
 
 The Rekindling's trade boom creates an environment of cheap ringglass and low caution. Coremark meets a real demand — the reconnecting system needs ringglass — but they're not solving a crisis. They're taking advantage of rapid expansion and profiting. Not maliciously, but not with anyone's best interest at heart. Just a corporation doing what corporations do when regulation hasn't caught up with opportunity.
 
@@ -53,7 +53,7 @@ The Rekindling's trade boom creates an environment of cheap ringglass and low ca
 ---
 
 ### Beat 3: The Overload
-**Era:** ~2355 | **Filled by:** [future:Pyre], [future:Coremark]
+**Era:** ~2355 | **Filled by:** [Pyre](../../player/locations/landmarks/pyre.md), [Coremark](../../player/npcs/factions/coremark.md)
 
 Pyre refinery cascades. Not a single ignored warning — a general environment where nobody was looking at the right data. Like Chernobyl: a culture of complacency, safety procedures treated as bureaucratic obstacles, operators who'd seen similar readings dozens of times and nothing happened. The resonance ecology was stressed by decades of extraction, the Span replication experiment had fractured local space nearby, and Pyre's overload was the nudge that tipped a system already past its limits.
 

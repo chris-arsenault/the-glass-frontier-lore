@@ -35,7 +35,7 @@ What the Conclave actually does, day to day:
 
 **Containment support.** The [future:Displacement Council] employs Conclave archivists for [future:Bloom Zone] work. The theory — partially validated — is that understanding the resonance history of an affected region helps predict how containment cordons should be configured. The Conclave provides historical resonance analysis. The Council provides the muscle. Neither fully trusts the other's methods, and the partnership works anyway.
 
-**Relic validation.** Even [future:Coremark]'s black-market buyers need provenance. A Bloom Zone relic of uncertain origin has more value if a Conclave archivist can attest to its resonance signature. The Conclave officially does not authenticate goods of questionable provenance. Individual archivists, on their own time, occasionally do. The Conclave officially does not know about this.
+**Relic validation.** Even [Coremark](coremark.md)'s black-market buyers need provenance. A Bloom Zone relic of uncertain origin has more value if a Conclave archivist can attest to its resonance signature. The Conclave officially does not authenticate goods of questionable provenance. Individual archivists, on their own time, occasionally do. The Conclave officially does not know about this.
 
 ## Tensions <!-- Tensions -->
 

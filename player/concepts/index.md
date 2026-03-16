@@ -27,5 +27,5 @@ Technology, magic, religion, governance, and other meta-level systems.
 | Exceptional Resources | [exceptional-resources.md](exceptional-resources.md) | complete | recognized | trade, materials, resonance | Veilfire, stillwater, duskgrain, relics; resources unique to this world |
 | Resonance Depletion | — | shell | recognized | resonance | Local field depletion and recovery |
 | Ratters | — | shell | recognized | salvage, social-structure | Independent Shear salvage crew subculture |
-| Shuttered habs | — | shell | recognized | ring-hab, governance | Habs that refused reconnection during the Rekindling; some still closed |
+| Shuttered habs | [shuttered-habs.md](shuttered-habs.md) | complete | recognized | ring-hab, governance, social-structure | Habs that refused reconnection; ranges from ascended gods to reverted tribes |
 | Glassfall showers | — | shell | recognized | orbital, danger | Periodic fine debris cascades in the Shear; increase collision risk |

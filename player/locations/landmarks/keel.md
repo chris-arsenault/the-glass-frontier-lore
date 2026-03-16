@@ -39,7 +39,7 @@ What moves on the Keel:
 
 The Keel is contested and portions are dangerous.
 
-**Pirates.** The route's economic importance makes it a target. Independent raiders and organized criminal operations — including [future:Coremark] remnants — hit convoys in the gaps between patrolled segments. [Vantara](../../npcs/factions/vantara.md)'s armed escorts deter casual piracy. Determined or well-equipped pirates are a different matter.
+**Pirates.** The route's economic importance makes it a target. Independent raiders and organized criminal operations — including [Coremark](../../npcs/factions/coremark.md) remnants — hit convoys in the gaps between patrolled segments. [Vantara](../../npcs/factions/vantara.md)'s armed escorts deter casual piracy. Determined or well-equipped pirates are a different matter.
 
 **Bloom Zones.** Several [future:Bloom Zones] sit near or intersect with Keel branch routes. Reality distortion from an active zone can disrupt navigation, damage resonance equipment, and — in extreme cases — render a corridor impassable. The [future:Displacement Council] maintains containment cordons, but the zones are expanding slowly and the Keel's geometry may need to shift.
 

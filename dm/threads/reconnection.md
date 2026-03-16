@@ -70,7 +70,7 @@ Pre-Glassfall hardline infrastructure — a luminous filament connecting Sithari
 ---
 
 ### Beat 5: The Shock of Difference
-**Era:** ~2310s–2330s | **Partially filled by:** [future:Shuttered habs]
+**Era:** ~2310s–2330s | **Partially filled by:** [Shuttered habs](../../player/concepts/shuttered-habs.md)
 
 Surface communities reach ring habs. The cultural divergence is staggering. Communities that evolved in isolation for sixty years are unrecognizable. Some welcome contact — the resource-starved celebrate. Some refuse — the shuttered habs.
 
@@ -83,7 +83,7 @@ Surface communities reach ring habs. The cultural divergence is staggering. Comm
 ---
 
 ### Beat 6: Trade Resumes
-**Era:** ~2320s–2330s | **Filled by:** [future:Ratters], [future:Coremark], [Vantara](../../player/npcs/factions/vantara.md), [The Keel](../../player/locations/landmarks/keel.md)
+**Era:** ~2320s–2330s | **Filled by:** [future:Ratters], [Coremark](../../player/npcs/factions/coremark.md), [Vantara](../../player/npcs/factions/vantara.md), [The Keel](../../player/locations/landmarks/keel.md)
 
 Salvage begins. Trade networks form. Vantara is founded to handle the boring essential work of logistics. The Keel is established as the primary orbital trade lane.
 
@@ -96,7 +96,7 @@ Salvage begins. Trade networks form. Vantara is founded to handle the boring ess
 ---
 
 ### Beat 7: The Constrained Conflict
-**Era:** 2340–2355 | **Filled by:** The Contested Reach (era), [future:Shardfall], [future:Coriolis breach]
+**Era:** 2340–2355 | **Filled by:** The Contested Reach (era), [Shardfall](../../player/history/events/shardfall.md), [Coriolis breach](../../player/history/events/coriolis-breach.md)
 
 Disputes over routes, resources, hab sovereignty. But the violence is always limited by the **fear of disconnection:**
 

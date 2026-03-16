@@ -24,7 +24,7 @@ The deeper you go — pockets of Shear far from any hab, where debris density is
 
 The Shear is the system's richest source of [ringglass](../../concepts/ringglass.md). Fragments of the original ring — some still carrying their pre-Glassfall tuning — are scattered through it. Salvage is the Shear's primary industry and has been since the [future:Ratters] pioneered it in the 2320s.
 
-Operations range from one-crew skiffs running quick grabs on the Shear's edges to industrial rigs anchored to large debris masses for long-term extraction. [future:Coremark] built its empire on the industrial end. The independents work the margins. The [future:Verge Compact] regulates both, imperfectly.
+Operations range from one-crew skiffs running quick grabs on the Shear's edges to industrial rigs anchored to large debris masses for long-term extraction. [Coremark](../../npcs/factions/coremark.md) built its empire on the industrial end. The independents work the margins. The [future:Verge Compact] regulates both, imperfectly.
 
 The easy salvage was picked over decades ago. High-grade material now requires going deeper, staying longer, and accepting more risk. This is the economic engine that drives most Shear traffic — and most Shear conflict.
 
@@ -40,7 +40,7 @@ What kills people, roughly in order of frequency:
 
 **[future:Cthonic beasts].** Things live in the Shear that have no known counterparts anywhere else in the system. They are adapted to the distorted environment in ways that suggest either long evolution within it or an origin nobody has identified. They range from nuisances to existential threats. Crews in the deep Shear carry weapons and know how to use them. The beasts are rare enough that most salvage runs don't encounter them and common enough that nobody goes in unarmed.
 
-**Other people.** [future:Coremark] remnants, pirates operating from hidden stations, rival salvage crews willing to cut lines or jam signals. The Shear is vast and the Compact's enforcement is thin. Out past the patrolled routes, the only law is what you bring with you.
+**Other people.** [Coremark](../../npcs/factions/coremark.md) remnants, pirates operating from hidden stations, rival salvage crews willing to cut lines or jam signals. The Shear is vast and the Compact's enforcement is thin. Out past the patrolled routes, the only law is what you bring with you.
 
 ## Weather <!-- Dangers -->
 
@@ -52,7 +52,7 @@ Crews track these the way surface settlers track storms. The [future:Verge Compa
 
 Most people who enter the Shear leave the same day. But some stay.
 
-Mining rigs with rotating crews operate on weeks-long cycles. Research outposts studying the Shear's resonance environment or the [future:Cthonic beasts] maintain small permanent populations. And hidden stations — pirate havens, smuggler caches, [future:Coremark] black-market operations — exist in pockets of the Shear that nobody official has charted.
+Mining rigs with rotating crews operate on weeks-long cycles. Research outposts studying the Shear's resonance environment or the [future:Cthonic beasts] maintain small permanent populations. And hidden stations — pirate havens, smuggler caches, [Coremark](../../npcs/factions/coremark.md) black-market operations — exist in pockets of the Shear that nobody official has charted.
 
 These stations are hard to find, easy to lose, and dependent on the Shear's instability for their continued obscurity. A drift event that moves a debris mass can expose a hidden station to open space — or bury it deeper.
 

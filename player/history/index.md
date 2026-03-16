@@ -27,7 +27,7 @@ Eras and events.
 | The Corridor Disputes | — | shell | recognized | military, trade | ~2345 CE; trade route control disputes during the Contested Reach |
 | The Bitter Reach | — | shell | renowned | military, diplomacy | ~2362–2365 CE; second wave of conflicts after Bloom coalition fractures |
 | The Fermata Open | — | shell | recognized | music, trade | Annual festival at Fermata Station |
-| Shardfall | — | shell | recognized | salvage, military, danger | ~2340s CE; flashpoint salvage battle; dozens killed |
-| Coriolis breach | — | shell | recognized | governance, ring-hab | ~2350s CE; forced hab entry; cautionary tale for sovereignty |
+| Shardfall | [events/shardfall.md](events/shardfall.md) | complete | recognized | salvage, military, danger | ~2340s CE; three-way salvage battle near a hab; turned public opinion |
+| Coriolis Breach | [events/coriolis-breach.md](events/coriolis-breach.md) | complete | recognized | governance, ring-hab, military | ~2350s CE; forced entry into reverted garden hab; contact team slaughtered |
 | Displacement | — | shell | renowned | danger, ring-hab | ~2355 CE; mass Bloom evacuation; tens of thousands displaced |
 | Vashtenri Thesis | — | shell | marginal | archives, mystery | First academic work proposing deliberate elven erasure |

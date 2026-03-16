@@ -39,7 +39,7 @@ Ideas, examples, and texture mentioned in conversation that haven't been formali
 
 ## Black Market / Criminal
 
-- [future:Coremark] as a criminal corporation — artifact smuggling, duskgrain trafficking.
+- [Coremark](npcs/factions/coremark.md) as a criminal corporation — artifact smuggling, duskgrain trafficking.
 - Individual Conclave archivists doing **off-the-books relic authentication** for buyers of questionable provenance.
 - **Illegal drugs** beyond the honey — unspecified but present.
 
