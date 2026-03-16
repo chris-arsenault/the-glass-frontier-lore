@@ -21,7 +21,7 @@ When the ring fell, the campus held. Power stayed on. The walls stayed up. The i
 
 The transition from research outpost to capital wasn't planned. It happened because Sithari had three things nobody else did in the early Signal Famine: functioning infrastructure, an organizational culture that could scale, and walls. By the time the Famine ended, the campus was a neighborhood in a city of hundreds of thousands, and nobody remembered when the settlement had stopped being temporary.
 
-## The Layers
+## The Layers <!-- Geography -->
 
 Sithari is vertical in a way that isn't immediately obvious from the surface. The modern city sits on top of the ring-era campus, which sits on top of older construction that predates the research complex. Go down far enough and you find rooms that don't appear on any survey, corridors that follow geometries the original builders understood and nobody since has replicated, and — occasionally — sealed chambers that open onto spaces larger than they should be.
 
@@ -29,7 +29,7 @@ The stratification isn't clean. The ring-era structures weren't demolished; they
 
 Going deep is technically restricted and practically common. Urban explorers, historians, salvage operators, and people who know which cellar door leads somewhere interesting all navigate the [future:Underlayers]. The deepest levels are genuinely dangerous — not just structurally, but because the ring-era resonance systems down there are still partially active, tuned to frequencies that modern equipment can't always read. Things work differently in the deep layers. Sometimes a room is larger inside than outside. Sometimes a corridor connects two points that shouldn't be adjacent. The [elves](../../concepts/elves.md) built these spaces, and they built them to last.
 
-## [future:The Continuity]
+## [future:The Continuity] <!-- Governance -->
 
 Sithari's ruling party. They have held power effectively unchallenged since the city stabilized during the Signal Famine. Their name is their argument: the Continuity preserved civilization when everything else collapsed. They kept the lights on, maintained the walls, organized the food distribution, ran the courts, and — when contact was re-established with the rest of the system — presented a functioning city-state to a world of scattered survivors.
 
@@ -39,7 +39,7 @@ The party's identity is inseparable from the city's identity. Being Sitharian is
 
 The name carries a quiet threat that nobody in the Continuity would acknowledge: the implication is that the alternative to their governance is discontinuity. They kept civilization going. Would you like to try not having them?
 
-## The Accord Seat
+## The Accord Seat <!-- Governance -->
 
 The [future:Tempered Accord] is headquartered in Sithari, in a complex deliberately separated from the Continuity's government buildings. The analogy is the United Nations in Geneva — an international body in a national capital, technically independent, practically influenced by proximity.
 
@@ -59,7 +59,7 @@ Sithari has direct orbital access — shuttle infrastructure connecting to ring 
 
 The city is also the terminus of major surface trade routes, including the [future:Keel] connecting to the [future:Sable Crescent]. The [future:Prismwell Kite Guild] maintains its largest surface operations hub in Sithari's eastern sprawl.
 
-## What It Feels Like
+## What It Feels Like <!-- Atmosphere -->
 
 Dense, vertical, old in places you don't expect. The modern surface is clean and functional — engineered crystal facades, resonance-integrated infrastructure, wide plazas designed to impress. Below that, the city gets stranger and more interesting. Street-level neighborhoods built into the gaps between ring-era structures have a compressed, lived-in quality that the planned districts lack. The walls of the original campus surface occasionally as exposed stone amid glass towers, and locals treat them the way a European city treats Roman ruins — part of the scenery, occasionally useful, mostly ignored until a construction crew hits one and has to stop.
 

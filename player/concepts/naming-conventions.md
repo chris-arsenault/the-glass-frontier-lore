@@ -25,7 +25,7 @@ Each domain below follows the `name-forge` schema: **phonology** (sound inventor
 
 ---
 
-## Cultural Domains
+## Cultural Domains <!-- Naming -->
 
 ### Sithari
 
@@ -111,7 +111,7 @@ Functional, compact. Names are tools, not statements.
 
 ---
 
-## Species Domains
+## Species Domains <!-- Naming -->
 
 Species naming traditions exist as a secondary layer. Most people use their culture's conventions. Species-traditional names appear as: ceremonial names, deliberate throwbacks, in species-majority communities, or as intimate names within species-specific social contexts.
 
@@ -291,7 +291,7 @@ This tradition is extinct in public use — the elves are gone. Fragments surfac
 
 ---
 
-## Slot Cultures (naming TBD)
+## Slot Cultures (naming TBD) <!-- Applications -->
 
 These cultures are defined but their naming conventions haven't been established yet. Each will need a name-forge domain when fleshed out.
 

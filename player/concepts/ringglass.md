@@ -20,7 +20,7 @@ Ringglass enters the economy from three places:
 
 **Hab reclamation.** Some ring habs have more ringglass than they need — either from their own structure or from debris that's accumulated against their hulls over the decades. These habs sell surplus material, usually at premium prices, because hab-sourced ringglass tends to be the highest quality available: large, pure, and often still carrying its original tuning from the ring era.
 
-## Grades
+## Grades <!-- Sources -->
 
 Not all ringglass is equal. The trade recognizes three broad grades:
 
@@ -30,7 +30,7 @@ Not all ringglass is equal. The trade recognizes three broad grades:
 
 **Intact.** Ringglass that retains its original ring-era configuration — large sections with complex, multi-frequency tuning that no modern refinery can replicate. Intact ringglass is rare, extremely valuable, and the subject of intense competition between factions, collectors, and governments. Most of it comes from Shear salvage or hab reclamation. Some pieces contain frequency configurations that nobody alive fully understands, hinting at capabilities the original builders had that haven't been recovered.
 
-## Processing
+## Processing <!-- How It Works -->
 
 Turning raw ringglass into something useful is a physical process, not a mystical one.
 
@@ -52,7 +52,7 @@ Ringglass is the most important commodity in the [Kaleidos system](../cosmology/
 
 **Intact** ringglass doesn't really have a market in the normal sense. Pieces surface irregularly from salvage operations and hab sales. When one appears, interested parties negotiate, bid, or occasionally fight over it. The value of a given piece depends entirely on what it does — and sometimes, nobody knows what it does until they've studied it for months.
 
-## Scarcity
+## Scarcity <!-- Limits -->
 
 Ringglass is not running out — the debris field is vast and surface deposits are deep. But high-grade material is finite and getting harder to find. The easy Shear salvage was picked over decades ago. The richest surface deposits are claimed and defended. And intact ringglass, by definition, can't be manufactured; there's only what the original builders made.
 

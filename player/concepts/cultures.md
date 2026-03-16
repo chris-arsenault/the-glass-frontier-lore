@@ -14,7 +14,7 @@ Cultures are not ideologies or governments. A single culture can contain many po
 
 Each culture defines distinct naming patterns — the primary species-agnostic cultural signal. Name generation follows patterns defined in `../the-canonry` name-forge for lexographic consistency.
 
-## Culture Registry
+## Culture Registry <!-- Sources -->
 
 | Culture | Base | Population | Status | Entry |
 |---------|------|------------|--------|-------|

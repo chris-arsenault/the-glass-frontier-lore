@@ -17,7 +17,7 @@ The ring didn't vanish. It broke apart — enormous sections cracking free and d
 
 On the surface of Kaleidos, the damage was different. Debris rained down as showers of crystal fragments and dust — dangerous, but not extinction-level. The real destruction was systemic. The rings had been the backbone of the colony's infrastructure: power distribution, climate regulation, communication, orbital logistics. All of it, gone.
 
-## The Cause
+## The Cause <!-- Cause -->
 
 Nobody knows. Not with certainty.
 
@@ -27,7 +27,7 @@ Who did it, and why, is the subject of 130 years of speculation, investigation, 
 
 Most people have stopped expecting an answer. The Glassfall is history now — the kind that shapes everything but that nobody alive experienced firsthand. It matters the way an earthquake matters: not as a mystery to solve, but as the reason the landscape looks the way it does.
 
-## The Aftermath
+## The Aftermath <!-- Aftermath -->
 
 What followed the Glassfall was worse than the event itself. Communication infrastructure collapsed, plunging settlements — both on the surface and across the ring's surviving habs — into isolation. The period that followed, roughly sixty years of fragmented, disconnected survival, is called the Signal Famine.
 

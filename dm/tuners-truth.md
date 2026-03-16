@@ -10,7 +10,7 @@ tags: [resonance, species]
 
 Public entry: [Tuners](../player/concepts/tuners.md)
 
-## The Rogue Elf
+## The Rogue Elf <!-- Truth -->
 
 One of the independent origins of Tuning during the Signal Famine was not independent at all.
 
@@ -22,7 +22,7 @@ The Dissident's students became some of the most effective early Tuners. Their l
 
 The elven leadership considers the Dissident a traitor. Among the small number of elves who know the full history, opinion is more divided than the leadership would prefer. Some consider the Dissident proof that the disappearance was wrong. Others consider them proof that individual conscience can't be trusted with civilizational decisions.
 
-## DM Usage Notes
+## DM Usage Notes <!-- Usage Notes -->
 
 - The Dissident is a potential ancestor figure for PCs with Tuning ability. "Your teacher's teacher's teacher learned from someone nobody can name" is a thread that leads somewhere.
 - The Clarisant's oldest techniques contain elven fingerprints that a sufficiently knowledgeable analyst (an elf, or someone with access to deep Echo River fragments) could identify. This is a potential discovery mechanism.

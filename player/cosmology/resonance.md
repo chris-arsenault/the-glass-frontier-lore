@@ -28,7 +28,7 @@ What survives in practice:
 
 Beyond the signal band, there are frequencies that the original ring used for core operations — the systems that held the entire structure together, managed its orbit, and coordinated the ringwide automation. Nobody accesses those now. The equipment to do so either doesn't exist or is locked inside [ring-era vaults](the-glass-frontier.md) that haven't been opened since the Glassfall.
 
-## Ringglass
+## Ringglass <!-- Sources -->
 
 The material itself is the foundation of everything. See [Ringglass](../concepts/ringglass.md) for details on sourcing, grades, processing, and trade.
 
@@ -42,6 +42,6 @@ The effects also degrade with distance from ringglass. Resonance doesn't broadca
 
 And resonance is frequency-specific. A piece of ringglass tuned for structural reinforcement won't generate heat. A kinetic array won't carry signals. Retuning ringglass is possible but difficult, requires specialized equipment, and damages the crystal if done repeatedly. Most applications use purpose-cut pieces that do one thing well.
 
-## Who Controls It
+## Who Controls It <!-- Trade -->
 
 Nobody controls resonance itself — it's ambient, like weather. But the supply chain for refined ringglass is a different matter. See [Ringglass](../concepts/ringglass.md).

@@ -12,7 +12,7 @@ Beneath the surface of Kaleidos, water moves through rock that's been saturated 
 
 The result is underground rivers that carry sound. Not just any sound — voices, fragments of old transmissions, snatches of conversation from before the rings fell. Stand near a place where an Echo River surfaces and you'll hear them: faint, layered, overlapping. Mostly unintelligible. Occasionally, heartbreakingly clear.
 
-## What You Hear
+## What You Hear <!-- How It Works -->
 
 The echoes aren't recordings in any intentional sense. They're artifacts — residual impressions left in the crystal lattice when the rings were still whole and carrying data. The water picks them up, carries them, sometimes amplifies them. What surfaces is unpredictable:
 
@@ -23,7 +23,7 @@ The echoes aren't recordings in any intentional sense. They're artifacts — res
 
 The rivers don't replay on demand. You can't ask them questions. You stand, you listen, you take what comes. Some listeners spend years at the same surfacing point, cataloguing everything they hear. Others visit once and never come back — too unsettled by the intimacy of hearing dead strangers speak.
 
-## Where They Surface
+## Where They Surface <!-- Geography -->
 
 Echo Rivers surface where the underground geology forces them upward — at springs, sinkholes, cave openings, and along certain cliff faces where the crystal-bearing rock is exposed. The largest surfacing points are in the marshy lowlands of the Sable Crescent, where the water table is high and the ground is thick with crystal sediment.
 

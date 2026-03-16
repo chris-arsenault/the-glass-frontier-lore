@@ -20,7 +20,7 @@ Fae are bipedal and roughly person-shaped when coherent. Their defining biologic
 
 The transition between states is visible. A fae going diffuse looks like someone slowly becoming translucent from the edges inward — their outline blurs, their presence spreads, and eventually there's no one standing there anymore, just an occupied space. Coming back together is the reverse: a presence sharpening into a person, edges firming up, until someone is standing where a moment ago there was only air.
 
-## The Disability
+## The Disability <!-- Biology -->
 
 Spatial dislocation is not a power. It is a disability that fae have built their entire material culture around managing.
 
@@ -30,7 +30,7 @@ Spatial dislocation is not a power. It is a disability that fae have built their
 
 **Social structures** within fae communities account for diffuse-time. Meetings are scheduled around coherence cycles. Decisions have built-in delays to accommodate members who need to rest. The fae concept of punctuality is fundamentally different from that of species who can simply always be present when they choose to be.
 
-## Relationship with Resonance
+## Relationship with Resonance <!-- Resonance -->
 
 Complex. The resonance fields in coherence aids are what make fae social participation possible — resonance is their prosthetic. But the same sensitivity that makes them dependent on coherence aids also makes them vulnerable to resonance disruption. A sudden resonance shift can destabilize a fae's coherence involuntarily, which ranges from embarrassing (going partially diffuse in a meeting) to dangerous (full involuntary dispersal in a hostile environment).
 

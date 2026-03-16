@@ -12,7 +12,7 @@ Public entry: [Elves](../player/concepts/elves.md)
 
 The folk tradition is right. The Redaction theorists are right. The elves left deliberately, cleaned the record behind them, and are still out there.
 
-## Why They Left
+## Why They Left <!-- Truth -->
 
 The [Glassfall](../player/history/events/the-glassfall.md) was not an accident and not a simple act of sabotage. The ring was destroyed by an external force — the Adversary.
 
@@ -22,7 +22,7 @@ The elven leadership determined that the Adversary would return. When it does, t
 
 The decision to disappear was deliberate, collective, and agonizing. They judged that if the Adversary could find them, it could find and destroy whatever they were building. So they made themselves unfindable.
 
-## The Scrubbing
+## The Scrubbing <!-- Truth -->
 
 The Redaction was executed during the Signal Famine, which provided natural cover.
 
@@ -36,13 +36,13 @@ The operation's methods:
 
 - **Living memory** was handled through time. The Famine lasted sixty years. Elves who had been public figures simply didn't reappear when communications resumed. One generation without them, and they were history. Two, and the personal details were fading. The long elven lifespan meant individuals who made the decision were still alive to manage the transition — they watched themselves become legend.
 
-## Where They Are Now
+## Where They Are Now <!-- Truth -->
 
 Most elves live in hidden habs — ring fragments running dark, resonance signatures masked, not on any chart. These habs are where the war preparation happens: weapons development, strategic planning, training, and the slow accumulation of resources that 130 years of work by the system's most advanced species can produce.
 
 A smaller number live among the general population, passing without much difficulty — the physical differences are subtle enough that inattention is sufficient disguise. These are intelligence operatives, supply chain facilitators, and people who couldn't bring themselves to leave entirely. They maintain the Redaction: monitoring archives, intercepting discoveries that get too close, occasionally nudging scholars away from productive lines of inquiry. The Echo Ledger Conclave's most sensitive elf-related material has been stolen from their archives twice. Both thefts are unsolved.
 
-## The Adversary
+## The Adversary <!-- Truth -->
 
 The force that destroyed the orbital ring. The elves know what it is. This document does not — the details are not yet defined.
 
@@ -53,7 +53,7 @@ What is established:
 - The elves believe the coming conflict will be existential
 - The elves have been preparing for 130 years
 
-## The Bloom Zones
+## The Bloom Zones <!-- Truth -->
 
 The Silent Bloom was an industrial accident. The elves didn't cause it and had nothing to do with Coremark's negligence. But the consequence — tears in local reality across mid-drift ring habs — is now the elves' most urgent problem.
 
@@ -63,7 +63,7 @@ The elves have significantly increased their hidden presence in and around the B
 
 This is the nightmare scenario the elves have been preparing for: the Adversary finding a way back in. The Bloom Zones are the front line of a war that nobody else knows is being fought.
 
-## The Council Contact
+## The Council Contact <!-- Truth -->
 
 The Displacement Council's top leadership position — the First Threshold or equivalent — is aware of the elves and cooperates with them directly. This is the single point of contact between elven operations and the non-elven world.
 
@@ -73,7 +73,7 @@ The rank and file of the Displacement Council do not know. They believe in their
 
 This position is the loneliest job in the system. The holder cooperates with a civilization that officially doesn't exist, to fight a threat that nobody else knows about, while maintaining a public face of stoic neutrality. Succession is handled carefully — the outgoing First Threshold identifies and reads in their successor personally. The elves have veto power over the choice, which they have exercised at least once.
 
-## The Cultural Sacrifice
+## The Cultural Sacrifice <!-- Implications -->
 
 The emotional core of the elven story.
 
@@ -83,7 +83,7 @@ This was a choice. Cultural retreat, not cultural death — but the difference i
 
 Whether they're right is the question the story will eventually have to answer.
 
-## DM Usage Notes
+## DM Usage Notes <!-- Usage Notes -->
 
 - The public entry stands alone. Players can engage with the elven disappearance as a historical mystery without knowing the truth.
 - The Echo River fragments are the primary discovery mechanism. Archivists who dig deep enough will find patterns suggesting intentional, sophisticated erasure.

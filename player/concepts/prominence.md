@@ -9,7 +9,7 @@ prominence: mythic
 
 Prominence measures how widely known an entity or concept is across the Kaleidos system. It is not a measure of power, prestige, importance, or quality — only of awareness. A forgotten relic might be the most powerful artifact in the system. It's still forgotten.
 
-## Levels
+## Levels <!-- How It Works -->
 
 Five tiers, from least to most widely known:
 
@@ -23,14 +23,14 @@ Five tiers, from least to most widely known:
 
 **Mythic** — Near-universal awareness. Everyone in the system knows this exists, even if they don't understand it. The Glass Frontier itself. Resonance. The Glassfall. These are the constants of the world.
 
-## What Prominence Is Not
+## What Prominence Is Not <!-- Limits -->
 
 - **Not power.** A forgotten artifact can reshape reality. A mythic institution can be toothless.
 - **Not importance.** The Drone at Fermata Station is the most important function on that hab. Its prominence is forgotten — nobody outside the station has heard of it.
 - **Not quality.** A marginal settlement might be a better place to live than a renowned one.
 - **Not inherited.** A marginal location can host a renowned event. A mythic person can come from a forgotten village. Each entity has its own prominence independent of its parent or container. Fermata Station is marginal — most people have never heard of it. The Fermata Open is recognized — musicians across the system know about the festival even if they couldn't tell you anything about the station's governance, culture, or people.
 
-## How Prominence Is Used
+## How Prominence Is Used <!-- Applications -->
 
 Prominence defines how far an entity's references should reach in the knowledge graph. When writing or generating lore:
 

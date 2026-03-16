@@ -13,7 +13,7 @@ When the [orbital ring](../../cosmology/the-glass-frontier.md) shattered, it did
 
 The Shear is not a band or a shell. It's interstitial — woven between habitable space like damage through cracked glass. A ring hab might have clean orbital space on one side and Shear pressing against its hull on the other. Shuttle routes thread through gaps in the Shear the way mountain roads thread through passes. Some routes are stable. Some shift.
 
-## What It's Like
+## What It's Like <!-- Atmosphere -->
 
 Debris. [Ringglass](../../concepts/ringglass.md) fragments ranging from dust to structures the size of buildings, tumbling in unpredictable orbits. The resonance environment is distorted — ambient frequencies spike, cancel, and interfere in patterns that [Tuners](../../concepts/tuners.md) describe as painful noise and instruments describe as garbage data. Navigation relies on specialized equipment designed to filter the interference, and on pilots who've learned to read the Shear's moods.
 
@@ -21,7 +21,7 @@ Ships operating in the Shear are purpose-built or heavily modified. The technolo
 
 The deeper you go — pockets of Shear far from any hab, where debris density is highest and the resonance distortion is worst — the stranger it gets. [future:Deep Shear] is where the environment becomes genuinely alien: spatial relationships bend, distances don't behave, and things live there that don't live anywhere else.
 
-## Salvage
+## Salvage <!-- Economy -->
 
 The Shear is the system's richest source of [ringglass](../../concepts/ringglass.md). Fragments of the original ring — some still carrying their pre-Glassfall tuning — are scattered through it. Salvage is the Shear's primary industry and has been since the [future:Ratters] pioneered it in the 2320s.
 
@@ -43,13 +43,13 @@ What kills people, roughly in order of frequency:
 
 **Other people.** [future:Coremark] remnants, pirates operating from hidden stations, rival salvage crews willing to cut lines or jam signals. The Shear is vast and the Compact's enforcement is thin. Out past the patrolled routes, the only law is what you bring with you.
 
-## Weather
+## Weather <!-- Dangers -->
 
 The Shear has patterns, though calling them "weather" stretches the term. [future:Glassfall showers] — periodic cascades of fine debris that increase collision risk across wide areas. Resonance tides — cyclical shifts in the ambient distortion that make some regions navigable on some days and lethal on others. Drift events — large debris masses changing orbit, reshaping the Shear's geography over weeks or months.
 
 Crews track these the way surface settlers track storms. The [future:Verge Compact] maintains a forecasting service. It is frequently wrong, which everyone knows, and indispensable, which everyone also knows.
 
-## Permanent Presence
+## Permanent Presence <!-- People -->
 
 Most people who enter the Shear leave the same day. But some stay.
 
@@ -57,7 +57,7 @@ Mining rigs with rotating crews operate on weeks-long cycles. Research outposts 
 
 These stations are hard to find, easy to lose, and dependent on the Shear's instability for their continued obscurity. A drift event that moves a debris mass can expose a hidden station to open space — or bury it deeper.
 
-## Relationship to Bloom Zones
+## Relationship to Bloom Zones <!-- Tensions -->
 
 The Shear and the [future:Bloom Zones] are distinct phenomena that occupy the same orbital space.
 

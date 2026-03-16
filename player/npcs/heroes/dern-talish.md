@@ -24,13 +24,13 @@ She is in her late fifties. Human. Born in the mid-drift habs before the Bloom, 
 
 Before becoming First Threshold, she served twenty years in the Council's cordon operations, working her way from perimeter patrol to zone incursion specialist to regional operations lead. She has been inside more Bloom Zones than almost anyone alive. The experience left her with a slight tremor in her right hand — a common side effect of prolonged exposure to the zones' reality distortion — and a deep, unshakeable conviction that the cordons must hold.
 
-## What People See
+## What People See <!-- Public Profile -->
 
 A quiet, compact woman who listens more than she speaks and whose silences are more informative than most people's sentences. She does not raise her voice. She does not negotiate from a position of ideology. When factions bring their grievances to the Council, Talish asks what they need, asks what they can give, and finds the gap between the two. She is not charismatic. She is reliable, which turns out to be more valuable.
 
 Her neutrality during the Bitter Reach is the foundation of her authority. The Council refused to take sides. Talish, then a regional operations lead, personally turned away armed convoys from three different factions who tried to use cordon stations as staging points. She was shot at twice. She did not return fire. She closed the cordon gates and waited. All three convoys eventually left.
 
-## Notable Traits
+## Notable Traits <!-- Traits -->
 
 - Never eats during meetings. Will accept water. Considers shared meals a form of political intimacy she cannot afford.
 - Keeps a collection of small objects recovered from Bloom Zone perimeters — not relics, just debris. A child's toy. A door handle. A clock that still ticks at the wrong speed. She does not explain why.

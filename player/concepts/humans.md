@@ -20,7 +20,7 @@ Humans represent the largest single population in the system, partly because the
 
 This ubiquity means humans don't have a strong species-level identity the way some smaller populations do. A human's primary identity is cultural — [Sithari](cultures.md), [Hab-Worlder](cultures.md), syndicate, independent — rather than biological. Most humans don't think about being human very often. There are too many of them for it to feel distinctive.
 
-## Relationship with Resonance
+## Relationship with Resonance <!-- Resonance -->
 
 Neutral. Humans can learn, but the learning curve is steep and the ceiling is lower than it is for naturally attuned species. The best human resonance practitioners are genuinely skilled — but they'll never feel the resonance landscape the way a gnome does, and they know it.
 

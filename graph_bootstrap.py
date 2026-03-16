@@ -60,20 +60,46 @@ def parse_frontmatter(text: str) -> tuple[dict, str]:
 
 
 def extract_sections(body: str) -> list[dict]:
+    """Extract sections from markdown body.
+
+    Parses ## headings, extracting:
+    - prose_heading: the heading as written (for display)
+    - graph_heading: the canonical heading from <!-- Comment --> if present,
+                     otherwise falls back to the prose heading
+    """
     sections = []
-    current_heading = None
+    current_prose = None
+    current_graph = None
     current_lines = []
     for line in body.split("\n"):
         hm = re.match(r"^##\s+(.+)", line)
         if hm:
-            if current_heading:
-                sections.append({"heading": current_heading, "text": "\n".join(current_lines).strip()})
-            current_heading = re.sub(r"\[future:([^\]]+)\]", r"\1", hm.group(1).strip())
+            if current_prose is not None:
+                sections.append({
+                    "heading": current_graph,
+                    "prose_heading": current_prose,
+                    "text": "\n".join(current_lines).strip(),
+                })
+            raw = hm.group(1).strip()
+            # Extract canonical heading from <!-- Comment -->
+            comment_match = re.search(r"<!--\s*(.+?)\s*-->", raw)
+            if comment_match:
+                current_graph = comment_match.group(1)
+                prose = re.sub(r"\s*<!--.*?-->\s*$", "", raw).strip()
+            else:
+                current_graph = raw
+                prose = raw
+            # Strip [future:...] wrappers from prose heading for clean display
+            current_prose = re.sub(r"\[future:([^\]]+)\]", r"\1", prose)
             current_lines = []
-        elif current_heading:
+        elif current_prose is not None:
             current_lines.append(line)
-    if current_heading:
-        sections.append({"heading": current_heading, "text": "\n".join(current_lines).strip()})
+    if current_prose is not None:
+        sections.append({
+            "heading": current_graph,
+            "prose_heading": current_prose,
+            "text": "\n".join(current_lines).strip(),
+        })
     return sections
 
 
@@ -319,19 +345,20 @@ def bootstrap():
                     print(f"  Embed failed for {sec_id}: {ex}")
                     vec = None
 
+                prose_heading = section.get("prose_heading", section["heading"])
                 if vec:
                     session.run("""
                         MERGE (s:Section {id: $sid})
-                        SET s.heading = $heading, s.text = $text,
-                            s.entity_id = $eid, s.embedding = $vec
-                    """, sid=sec_id, heading=section["heading"],
+                        SET s.heading = $heading, s.prose_heading = $prose,
+                            s.text = $text, s.entity_id = $eid, s.embedding = $vec
+                    """, sid=sec_id, heading=section["heading"], prose=prose_heading,
                         text=section["text"], eid=entry["id"], vec=vec)
                 else:
                     session.run("""
                         MERGE (s:Section {id: $sid})
-                        SET s.heading = $heading, s.text = $text,
-                            s.entity_id = $eid
-                    """, sid=sec_id, heading=section["heading"],
+                        SET s.heading = $heading, s.prose_heading = $prose,
+                            s.text = $text, s.entity_id = $eid
+                    """, sid=sec_id, heading=section["heading"], prose=prose_heading,
                         text=section["text"], eid=entry["id"])
 
                 session.run("""

@@ -20,13 +20,13 @@ This is not a subjective cultural assessment. It is the near-universal reaction 
 
 Orcs are aware of this effect and have learned to navigate it, the same way anyone learns to navigate being noticed for their appearance before their substance.
 
-## The Stereotype
+## The Stereotype <!-- Culture -->
 
 The reputation for simplicity is a cultural misread. Orcs communicate with a directness that other species — particularly humans, who developed elaborate indirection as a social technology — interpret as unsophisticated. An orc will tell you what they think, what they want, and what they're willing to do about it, in that order, without padding. This is not a lack of depth. It is a communicative preference that prizes clarity over diplomacy.
 
 Orc art, architecture, and craftsmanship are anything but simple. Orc metalwork is sought after across the system. Orc music is structurally complex in ways that take trained musicians from other species years to parse. The "strong and dumb" read says more about the reader than the subject.
 
-## Relationship with Resonance
+## Relationship with Resonance <!-- Resonance -->
 
 Orcs can learn attunement, but their natural affinity is physical rather than energetic. Where a gnome feels the resonance landscape directly, an orc is more likely to feel how resonance affects materials — the way a ringglass-laced alloy responds to stress, the way a crystal structure wants to vibrate. Orc resonance practitioners tend toward structural and kinetic applications. The best orc smiths produce ringglass-integrated tools and weapons that nobody else can match, because they feel the relationship between the crystal and the metal in their hands.
 

@@ -13,7 +13,7 @@ The profession is older than the name. During the [Signal Famine](../history/ind
 
 They weren't called Tuners then. They weren't called anything. They were just the person in the settlement who could tell you whether the ringglass in the wall was about to crack, or the one on the hab who knew which corridors were safe when the resonance shifted. The profession came later. The name came later still.
 
-## The First Tuners
+## The First Tuners <!-- History -->
 
 The original practitioners are recognized retroactively as the founders of a tradition they didn't know they were starting. Different communities remember them differently:
 
@@ -23,7 +23,7 @@ The original practitioners are recognized retroactively as the founders of a tra
 
 The first generation spans the entire Famine — sixty years of independent discovery across hundreds of isolated communities. Some of their techniques survived and became foundational. Others were dead ends, literally. The diversity of early practice is why modern Tuning has so many regional variations and why the [future:Clarisant] spends considerable effort standardizing what doesn't want to be standardized.
 
-## The Clarisant
+## The Clarisant <!-- Structure -->
 
 The guild. Headquartered on [future:Pelhari], a moon of the seventh planet — far enough from the distorted space of the [future:The Shear] and the ring debris field that resonance practice is cleaner, more predictable, more suited to structured training. Satellite offices operate across the system, in Sithari, in major ring habs, on outer-system stations.
 
@@ -33,7 +33,7 @@ The guild is not a government, not a military order, and not a religion. It is c
 
 The name is old enough that most people have stopped wondering what it means. It derives from pre-Famine roots — *clear perception*, roughly — and was coined by the guild's founders, who wanted something that sounded serious without sounding threatening. They mostly succeeded.
 
-## Folk Tuners
+## Folk Tuners <!-- Culture -->
 
 Not everyone trains Clarisant. Roughly thirty percent of practicing Tuners operate outside the guild — folk practitioners who learned from family, from local tradition, from apprenticeship to another folk Tuner, or from sheer stubborn experimentation.
 
@@ -43,13 +43,13 @@ The folk tradition is not inferior to the Clarisant tradition. It is different. 
 
 The tension between folk and Clarisant Tuning is the jazz-versus-classical divide. Both produce genuine mastery. Both are suspicious of the other. Both are right to be.
 
-## The Hidden and the Unknowing
+## The Hidden and the Unknowing <!-- Culture -->
 
 Below the visible profession — guild and folk alike — there are people who can feel resonance and don't know what they're feeling. Maybe five to ten percent of the population with some degree of untrained sensitivity, experiencing it as hunches, headaches, an unexplained comfort or discomfort in certain spaces. Most never develop it further. Some do, and become folk Tuners without anyone calling it that — the hedge witch who knows which direction the water runs, the mechanic who can tell a ringglass array is misaligned by standing near it.
 
 And then there are the hidden — Tuners who practice in secret because their community doesn't tolerate it. Some habs prosecute unauthorized resonance work. Some settlements associate Tuning with the elves and treat practitioners with suspicion. Being a hidden Tuner is lonely and dangerous, and the Clarisant runs quiet programs to identify and extract people from these situations when they can.
 
-## Species and Tuning
+## Species and Tuning <!-- Resonance -->
 
 Any species can become a Tuner. The prevalence and theoretical ceiling vary:
 
@@ -59,7 +59,7 @@ Any species can become a Tuner. The prevalence and theoretical ceiling vary:
 - **[Fae](fae.md)** have a complicated relationship with Tuning. Their coherence aids are resonance-based, so every fae has baseline exposure. But developing it further risks destabilizing their already-precarious spatial identity. Fae Tuners exist and are rare.
 - **[Elves](elves.md)** were the original masters. Whatever ceiling the other species are working toward, the elves were already past it. Their absence is felt most acutely in the Tuning profession — the theoretical framework that should exist doesn't, because the people who would have built it are gone.
 
-## Extremes
+## Extremes <!-- Applications -->
 
 At the edges of practice, Tuning gets strange:
 

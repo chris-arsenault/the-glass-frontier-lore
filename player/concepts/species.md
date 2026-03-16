@@ -12,7 +12,7 @@ The Kaleidos system is home to multiple intelligent species. This is unremarkabl
 
 All known species are roughly bipedal and person-shaped.
 
-## Species Registry
+## Species Registry <!-- Sources -->
 
 | Species | Origin | Resonance Relationship | Status | Entry |
 |---------|--------|----------------------|--------|-------|

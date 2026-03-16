@@ -20,7 +20,7 @@ At rest, gnomish bones produce a barely audible harmonic hum. Gnomes themselves 
 
 Average lifespan is comparable to humans, possibly slightly shorter. The crystalline components accumulate microfractures over decades that the body can't fully repair. Elderly gnomes experience a gradual dulling of their resonance sense as the lattice degrades — the gnomish equivalent of going deaf, and treated with a similar mix of pragmatism and grief.
 
-## The Ethics
+## The Ethics <!-- Culture -->
 
 Gnomes were *made*. Designed by the elves to serve a function in the ring's infrastructure. This is historical fact, not speculation, and the ethical implications are a live issue in the present day even though nobody involved in the decision is still around to answer for it.
 
@@ -28,7 +28,7 @@ The debate is not abstract. Gnomes are people — fully autonomous, fully intell
 
 Gnomes themselves have complicated and varied feelings about this. Some consider their attunement a gift — a richer experience of the world than any other species has access to. Some consider it a brand — a reminder that they exist because someone wanted a product. Most hold both views simultaneously and don't appreciate outsiders trying to resolve the tension for them.
 
-## Relationship with Resonance
+## Relationship with Resonance <!-- Resonance -->
 
 Unmatched among living species. The elves were more knowledgeable, but gnomish attunement is more *immediate* — a gnome doesn't understand resonance intellectually, they experience it sensorially. This makes them invaluable in any resonance-related field: tuning, repair, prospecting, containment, medical applications. A gnome tuner can do in minutes what takes a human technician an hour with instruments.
 

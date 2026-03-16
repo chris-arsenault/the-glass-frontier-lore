@@ -12,7 +12,7 @@ One of the founding species of the Kaleidos system, primary architects of the [o
 
 Older folk traditions call them "the Absent" — the people who were here and then weren't. The academic literature just calls them elves.
 
-## Who They Were
+## Who They Were <!-- Biology -->
 
 The elves were native to the Kaleidos system, present from before the colony era. Physically similar to humans — taller on average, with elongated ear structure, finer bone density, and significantly longer lifespans measured in centuries rather than decades. The differences were visible but not dramatic. In a crowd, you might notice. You might not.
 
@@ -20,7 +20,7 @@ They were integrated into the broader multi-species society of the ring era. The
 
 But their primary contribution was the ring itself.
 
-## The Ring Builders
+## The Ring Builders <!-- History -->
 
 The orbital ring was a multi-species undertaking, but the elves were its architects. The [resonance](../cosmology/resonance.md) engineering — the system of tuned crystal that carried power, data, and structural force through the entire ring — was elven science. The [ringglass](ringglass.md) lattice design, the frequency architecture, the systems that made a megastructure spanning a planet's orbit function as a single integrated machine: that was their work.
 
@@ -28,7 +28,7 @@ This isn't controversial. Ring-era records are clear on elven authorship of the 
 
 The elves didn't just build the ring. They understood it. And then they were gone, and that understanding went with them.
 
-## The Disappearance
+## The Disappearance <!-- History -->
 
 During the Signal Famine, communications across the system collapsed for roughly sixty years. When they resumed, the elves were not among the voices that came back online. No settlements reported elven populations. No ring habs contained elven communities. No individuals came forward.
 
@@ -36,7 +36,7 @@ Sixty years is a long time for most species. For elves, with their centuries-lon
 
 What the timeline does support is something more deliberate. The Famine provided cover — communications were already down, records were already fragmenting, entire communities were already losing track of each other. If you wanted to vanish from a civilization, the Famine was the moment to do it.
 
-## The Redaction
+## The Redaction <!-- History -->
 
 The disappearance alone would be a mystery. What makes it unsettling is the Redaction.
 
@@ -46,7 +46,7 @@ The pattern is consistent enough that it's hard to attribute to accident. Someon
 
 The [Echo Rivers](../cosmology/echo-rivers.md) tell the same story. Pre-Glassfall transmissions embedded in the planet's crystal geology show evidence of tampering — conversations that cut to silence mid-sentence, voice signatures replaced with flat harmonic hum. The rivers are hard to edit (you're working with resonance imprints distributed through kilometers of rock), and the results are imperfect. Fragments of elven speech survive in deep deposits. The [future:Echo Ledger Conclave] treats these fragments as sensitive material. Some archivists have spent careers cataloguing what was erased and what slipped through.
 
-## What People Think
+## What People Think <!-- Perception -->
 
 Everyone has heard of the elves. They built the ring. That's basic history — taught in schools, referenced in everyday conversation. "Elven engineering" is a common shorthand for technology that works better than anyone can explain.
 
@@ -60,7 +60,7 @@ The Redaction is where opinion diverges:
 
 - **Folk tradition** in older settlements preserves more specific stories. The elves didn't die. They left. Some versions say they saw something coming. Some say they're still out there, somewhere in the ring, in habs that don't show on any chart. These stories are treated as folklore by most people and as uncomfortably plausible by the scholars who study the Redaction.
 
-## The Open Questions
+## The Open Questions <!-- Tensions -->
 
 The elves' existence is historical fact. Their contributions are documented. Their disappearance is acknowledged.
 

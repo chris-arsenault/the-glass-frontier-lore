@@ -44,7 +44,7 @@ See [Jazzocratic Governance](../../concepts/jazzocratic-governance.md) for the s
 
 **The Drone** — musicians who maintain the station's [resonant frequencies](../../cosmology/resonance.md) around the clock. Sound has structural consequences on this fragment; certain chord voicings physically hold the station together. The Drone is simultaneously the most essential function on the station and the least politically powerful, because its members can't leave their post to attend Session. Culturally revered. Practically ignored.
 
-## Notable Figures
+## Notable Figures <!-- People -->
 
 | Name | Species | Role | Notes |
 |------|---------|------|-------|
@@ -54,11 +54,11 @@ See [Jazzocratic Governance](../../concepts/jazzocratic-governance.md) for the s
 | Goruth | Orc | Comp player | Guitarist. The most politically effective person on the station who will never be accused of it. An orc who never solos, never draws attention, never leverages the directness his species is known for — his voicings during Sessions have a way of making certain resolutions feel natural and others feel forced. He describes himself as a servant of the music. He is not wrong, exactly. |
 | Dez Morrn | Human | Free Jazz leader | Trumpeter, organizer, and the reason the station's emergency repair crews stay busy. Genuinely believes the Standards have ossified into instruments of control. Also genuinely talented, which makes her harder to dismiss. Has been arrested — a concept the station barely has a framework for — twice. Both times, the Session called to resolve her case couldn't reach resolution, which she considers proof of her thesis. |
 
-## The Sit-In
+## The Sit-In <!-- Governance -->
 
 The citizenship test. You perform with the house ensemble. The evaluation isn't technical skill — it's whether you can listen, respond, hold space, and know when to stop. People train their entire lives for it. Some freeze. Some play beautifully and fail because they never once responded to what anyone else was doing. The word for someone who fails their Sit-In is said with genuine compassion, which somehow makes it worse.
 
-## The Standards
+## The Standards <!-- Governance -->
 
 The station's body of law. Not written statutes — jazz standards, each carrying accumulated meaning from every significant performance in which it was played. Calling a tune in Session isn't choosing music. It's invoking precedent.
 
@@ -68,7 +68,7 @@ Banned standards exist not by decree but by consensus. Certain tunes reopen sett
 
 New compositions are the equivalent of proposing new legislation. Most fail. The ones that enter the repertoire reshape the political landscape.
 
-## The Fermata Open
+## The Fermata Open <!-- Economy -->
 
 Once a year, Fermata Station holds the Open — a week-long festival that is simultaneously the station's biggest cultural event, its most important political season, and its primary source of trade revenue.
 
@@ -82,7 +82,7 @@ This is by design. The founders understood — or stumbled into understanding �
 
 **The Closing Session:** The last night of the Open is the Closing Session — the single most watched, most attended, most consequential performance of the year. Every unresolved political question that's been deferred gets called. The Chair picks the setlist. The room is standing-only. By tradition, the final tune is always a new composition — proposed legislation for the year ahead. Most of the station's landmark policies trace back to a Closing Session. So do most of its worst mistakes.
 
-## The Free Jazz Problem
+## The Free Jazz Problem <!-- Tensions -->
 
 A philosophical movement, an activist tradition, and occasionally a terrorist cell, often in the same room at the same time.
 
@@ -92,7 +92,7 @@ The complication: they're not entirely wrong. Some are genuinely trying to evolv
 
 The station doesn't know what to do with them. Suppressing them violates the foundational ethos. Ignoring them risks structural damage to the station. Co-opting them works until it doesn't.
 
-## Physics
+## Physics <!-- Mechanics -->
 
 The [Glass Frontier's](../../cosmology/the-glass-frontier.md) loosened physics manifests on this fragment as a material relationship between sound and structure. This is not metaphor.
 

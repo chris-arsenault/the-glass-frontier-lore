@@ -13,7 +13,7 @@ The ring didn't just disappear when it broke. It fragmented. Enormous sections �
 
 People live up there. A lot of people.
 
-## The Habs
+## The Habs <!-- Geography -->
 
 The ring fragments are called habs, and no two are alike. Before the Glassfall, they were standardized modules in an integrated system. After 130 years of isolation, drift, and improvisation, they've become anything their inhabitants made of them.
 
@@ -23,7 +23,7 @@ Other habs went their own way entirely. Cut off during the Signal Famine, they r
 
 These fluid-reality habs are the hardest to describe and the most dangerous to visit. They're also, for certain kinds of people, the most interesting places in the system.
 
-## Kaleidos Orbit
+## Kaleidos Orbit <!-- Geography -->
 
 The orbital space around Kaleidos — everything that used to be the ring — contains three distinct environments:
 
@@ -35,7 +35,7 @@ The orbital space around Kaleidos — everything that used to be the ring — co
 
 The boundary between ring and Shear is not sharp. A hab that was stable for decades can lose structural integrity and become Shear — just another piece of debris. A section of Shear can be stabilized, sealed, and colonized into a new hab. And a Bloom Zone can erupt next to either. The frontier is, in this sense, always moving.
 
-## What It Means
+## What It Means <!-- Significance -->
 
 The Glass Frontier is the defining feature of this civilization. Not Kaleidos the planet, which is one world among several in the system. The ring. It's where the oldest technology lives, where the strangest communities flourish, and where the boundaries of the possible are thinnest.
 
