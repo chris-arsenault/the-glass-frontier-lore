@@ -605,6 +605,56 @@ def main():
             for r in result:
                 error(f"GRAPH G6: spatial cycle: {' → '.join(r['cycle'])}")
 
+            # G4. Attribute collision — prose frontmatter vs graph properties
+            for path in content_files:
+                rel = path.relative_to(ROOT)
+                fm = parse_frontmatter(path)
+                if not fm:
+                    continue
+                entity_id = path.stem
+                result = session.run("""
+                    MATCH (e:Entity {id: $eid})
+                    RETURN e.prominence AS prom, e.type AS type
+                """, eid=entity_id)
+                record = result.single()
+                if not record:
+                    continue
+                # Prominence mismatch
+                if fm.get("prominence") and record["prom"] and fm["prominence"] != record["prom"]:
+                    error(f"GRAPH G4: {rel} prominence mismatch — prose='{fm['prominence']}' graph='{record['prom']}'")
+                # Type mismatch
+                if fm.get("type") and record["type"] and fm["type"] != record["type"]:
+                    error(f"GRAPH G4: {rel} type mismatch — prose='{fm['type']}' graph='{record['type']}'")
+
+            # L2. Semantic similarity — same-heading sections from different entities
+            #     with very high similarity may indicate contradiction or redundancy
+            try:
+                import numpy as np
+                result = session.run("""
+                    MATCH (sec:Section)
+                    WHERE sec.embedding IS NOT NULL AND sec.heading IS NOT NULL
+                    RETURN sec.id AS id, sec.entity_id AS eid, sec.heading AS heading, sec.embedding AS vec
+                """)
+                secs_data = [(r["id"], r["eid"], r["heading"], r["vec"]) for r in result]
+
+                from collections import defaultdict
+                by_heading = defaultdict(list)
+                for sid, eid, heading, vec in secs_data:
+                    by_heading[heading].append((sid, eid, np.array(vec)))
+
+                for heading, secs in by_heading.items():
+                    if len(secs) < 2:
+                        continue
+                    for i in range(len(secs)):
+                        for j in range(i + 1, len(secs)):
+                            _, eid_a, vec_a = secs[i]
+                            _, eid_b, vec_b = secs[j]
+                            sim = float(np.dot(vec_a, vec_b) / (np.linalg.norm(vec_a) * np.linalg.norm(vec_b)))
+                            if sim > 0.92:
+                                warn(f"GRAPH L2: [{heading}] {eid_a} ↔ {eid_b} similarity={sim:.3f} — review for redundancy or contradiction")
+            except ImportError:
+                warn("GRAPH L2: numpy not available — skipping semantic similarity checks")
+
             # G7. Orphan detection — entities with no edges at all
             result = session.run("""
                 MATCH (e:Entity)
