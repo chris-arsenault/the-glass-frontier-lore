@@ -4,159 +4,122 @@ title: Causality DAG
 
 # Causality DAG
 
-Directed cause-and-effect relationships between entities. Format: `entity → [relationship] → entity`. Grouped by era. Entities marked with `(new)` need to be created. DM-only causality marked with `[DM]`.
+Directed cause-and-effect relationships between entities. Every node is either an entity ID or an `entity::heading` reference. DM-only causality marked with `[DM]`.
 
 ---
 
 ## The Glassfall & Signal Famine
 
 ```
-The Adversary → [destroys] → Orbital Ring                                    [DM]
-Orbital Ring destruction → [causes] → The Glassfall
+The Adversary → [destroys] → The Glass Frontier                                [DM]
 The Glassfall → [severs communications] → Signal Famine
-The Glassfall → [fragments ring into] → Ring Habs (general)
-The Glassfall → [seeds surface with] → Ringglass deposits
-The Glassfall → [saturates geology, enabling] → Echo Rivers
+The Glassfall → [creates] → The Shear
+The Glassfall → [seeds surface with] → Ringglass
+The Glassfall → [enables] → Echo Rivers
 
-Signal Famine → [isolates communities, causing] → Cultural Divergence
-Cultural Divergence → [produces] → Independent resonance traditions
-Cultural Divergence → [produces] → Unique hab governance (e.g. Fermata Station)
-Signal Famine → [provides cover for] → Disappearance of the Elves              [DM]
-The Adversary → [motivates] → Disappearance of the Elves                       [DM]
-Disappearance of the Elves → [removes] → Deep resonance knowledge from system
+Signal Famine → [produces] → Tuners
+Signal Famine → [produces] → Fermata Station
+Signal Famine → [covers] → Disappearance of the Elves                         [DM]
+The Adversary → [motivates] → Disappearance of the Elves                      [DM]
+Disappearance of the Elves → [removes knowledge enabling] → The Shear::Dangers
 ```
 
 ## The Rekindling
 
 ```
-Signal Famine ends → [enables] → First long-range signals restored
-Signals restored → [reveals] → Cultural divergence / ring hab contact
-Signals restored → [confirms] → The Absence (elves gone)
+Signal Famine → [ends, enabling] → Span Nine
+Span Nine → [reconnects] → Sithari
+Span Nine → [reconnects] → Glasswake
 
-Ringglass deposits → [attract] → Independent salvage operators
-Independent salvage → [creates demand for] → Trade route infrastructure
-Trade route demand → [gives rise to] → Prismwell Kite Guild
-Ringglass value → [attracts] → Coremark (new)
+Ringglass → [attracts salvage to] → The Shear
+The Shear → [gives rise to] → Ratters
+The Shear → [gives rise to] → Coremark
+Ringglass → [creates demand for] → Prismwell Kite Guild
+Prismwell Kite Guild → [establishes] → Keel
 
-Coremark → [pioneers] → Industrial-scale Shear salvage
-Coremark → [prioritizes profit over] → Resonance ecology stability
-Coremark → [lobbies against] → Salvage regulation efforts
+Coremark → [pioneers industrial salvage in] → The Shear
 ```
 
 ## The Contested Reach
 
 ```
-Coremark dominance → [provokes] → Salvage conflicts (independent crews squeezed out)
-Trade route value → [provokes] → Corridor Disputes
-Ring hab isolation → [provokes] → Forced-contact incidents
+Coremark → [provokes] → Shardfall
+Coremark → [provokes] → The Corridor Disputes
+The Contested Reach → [pressures] → Shuttered habs
+Shuttered habs → [resists, causing] → Coriolis breach
 
-Salvage conflicts → [escalate into] → Contested Reach (era of disputes)
-Corridor Disputes → [disrupt] → Civilian trade (but never stop it)
-Forced-contact incidents → [trigger] → Ring hab defense coalitions
-
-Coremark → [expands operations into] → Mid-drift ring hab cluster
-Coremark → [overloads ringglass arrays at] → Pyre (new)
-Loss of elven knowledge → [means nobody understands] → Resonance ecology limits
+Coremark → [overloads] → Pyre
+Disappearance of the Elves → [means no one understands] → Resonance::Limits
 ```
 
 ## The Silent Bloom
 
 ```
-Pyre overload → [triggers] → Sympathetic resonance cascade
-Resonance cascade → [causes] → The Silent Bloom
-The Bloom → [warps crystal substrate of] → Mid-drift ring habs
-The Bloom → [tears holes in local reality] → Bloom Zones
-The Bloom → [forces evacuation of] → Bloom Displacement (refugee crisis)
+Pyre → [triggers] → The Silent Bloom
+The Silent Bloom → [creates] → Bloom Zones
+The Silent Bloom → [causes] → Displacement
 
-Bloom Zones → [generate] → New relic-magnitude artifacts (unique to zones)
-Bloom Zones → [attract] → Scavengers, researchers, desperate people
-The Adversary → [seeps through] → Reality tears in Bloom Zones             [DM]
-Elves → [increase hidden presence in] → Bloom Zones (monitoring/containing) [DM]
-Elves → [cooperate with] → Displacement Council First Threshold            [DM]
-First Threshold → [provides cover for] → Elven operations in Bloom Zones   [DM]
-Elves → [provide] → Resources/intelligence to Displacement Council          [DM]
+The Adversary → [seeps through] → Bloom Zones                                 [DM]
+Elves → [increase presence in] → Bloom Zones                                  [DM]
+Elves → [cooperate with] → Dern Talish                                        [DM]
 
-The Bloom → [requires containment by] → Emergency coalitions
-Contested Reach rivals → [set aside disputes to form] → Bloom Coalition
-Bloom Coalition → [draws leadership from] → Existing factions:
-  - Prismwell Kite Guild → [contributes] → Logistics and transport coordination
-  - Lattice Proxy Synod → [contributes] → Resonance telemetry and custodian data
-  - Echo Ledger Conclave → [contributes] → Historical resonance analysis
-  - Independent salvage crews → [contribute] → Verge operations expertise
+The Silent Bloom → [forces formation of] → Bloom Coalition
+Bloom Coalition ← [contributes logistics] ← Prismwell Kite Guild
+Bloom Coalition ← [contributes telemetry] ← Lattice Proxy Synod
+Bloom Coalition ← [contributes analysis] ← Echo Ledger Conclave
 
-Bloom crisis → [discredits] → Coremark
-Coremark negligence → [provides impetus for] → Verge Compact (regulatory body)
-Bloom containment crews → [form core of] → Verge Compact membership
+The Silent Bloom → [discredits] → Coremark
+The Silent Bloom → [creates impetus for] → Verge Compact
 
-Bloom Displacement → [scatters refugees into] → Existing settlements
-Bloom refugees → [create tension with] → Host communities
-Bloom refugees → [bring skills/culture from] → Lost mid-drift habs
-Bloom refugees → [organize into] → Displacement Council
+Displacement → [produces] → Displacement Council
 
-Displacement Council → [specializes in] → Bloom Zone containment operations
-Displacement Council → [maintains] → Containment cordons (ongoing, present-day)
-Displacement Council → [becomes] → Grey Wardens-style neutral order (containment-focused)
+Lira Vashtenri → [develops] → Lira's Wall
+Lira's Wall → [enables containment of] → Bloom Zones
+Lira Vashtenri → [founds containment ops for] → Displacement Council
 
-Resonance damping tech → [developed by] → Lira Vashtenri — resonance engineer
-Lira Vashtenri → [was member of] → Echo Ledger Conclave (pre-Bloom)
-Lira Vashtenri → [develops] → Lira's Wall — first containment device
-Lira's Wall → [proves] → Containment is possible → coalition gains momentum
-Lira Vashtenri → [becomes] → First head of Displacement Council containment ops
+Bloom Zones → [generate] → Bloom Zone relics
 ```
 
-## Coalition Fracture → Bitter Reach
+## The Bitter Reach
 
 ```
-Bloom stabilizes → [removes] → Existential pressure holding coalition together
-Old grudges + new debts → [fracture] → Bloom Coalition
-Coalition fracture → [reignites] → Contested Reach disputes (now the Bitter Reach)
+Bloom Coalition → [fractures into] → The Bitter Reach
+Coremark → [goes underground during] → The Bitter Reach
+Coremark → [smuggles artifacts from] → Bloom Zones
+Verge Compact → [opposes] → Coremark
 
-Bitter Reach → [is sharper than Contested Reach because] → People remember cooperating
-Bitter Reach → [is limited because] → Nobody wants to destroy the bridges they built
-Coremark → [goes underground as] → Criminal syndicate operating in Bloom-adjacent zones
-Coremark remnants → [smuggle artifacts from] → Bloom Zones
-Verge Compact → [opposes] → Coremark remnants → further entrenches Compact authority
-
-Displacement Council → [remains neutral during] → Bitter Reach
-Displacement Council → [focuses on] → Bloom Zone containment (not politics)
-Displacement Council neutrality → [earns trust from] → All factions
-Displacement Council → [becomes key mediator in] → Accord negotiations
-  (trusted precisely because they stayed out of the fighting)
+Displacement Council → [stays neutral during] → The Bitter Reach
+Displacement Council → [earns trust of] → Tempered Accord
 ```
 
 ## The Accord
 
 ```
-Bitter Reach exhaustion → [motivates] → Tempered Accord negotiations
-Memory of Bloom cooperation → [provides model for] → Accord framework
-Verge Compact success → [provides model for] → Accord framework
-Displacement Council → [mediates] → Accord negotiations
-  - Lattice Proxy Synod → [architects] → Accord governance structure
-  - Prismwell Kite Guild → [architects] → Accord trade provisions
-  - Displacement Council → [architects] → Accord humanitarian provisions
+The Bitter Reach → [exhaustion motivates] → Tempered Accord
+Verge Compact → [provides model for] → Tempered Accord
+Displacement Council → [mediates formation of] → Tempered Accord
+Lattice Proxy Synod → [architects governance of] → Tempered Accord
+Prismwell Kite Guild → [architects trade provisions of] → Tempered Accord
+Displacement Council → [architects humanitarian provisions of] → Tempered Accord
 
-Accord ratified → [establishes] → Tempered Accord (mediation structure)
-Accord → [mediates between] → Surface settlements, ring habs, outer-system worlds
+Tempered Accord → [struggles with] → Bloom Zones
+Tempered Accord → [struggles with] → Coremark
+Displacement Council → [maintains containment of] → Bloom Zones
+Dern Talish → [leads] → Displacement Council
 
-Present-day tensions:
-Accord → [struggles with] → Bloom Zones (containment ongoing, reality unstable)
-Accord → [struggles with] → Coremark criminal operations (artifact smuggling)
-Accord → [struggles with] → New far-drift hab discoveries (who speaks for them?)
-Bloom Zones → [produce] → Relic-magnitude artifacts → black market via Coremark
-Displacement Council → [maintains] → Containment but is stretched thin
-Displacement Council First Threshold → [cooperates with] → Elves             [DM]
-The Adversary → [slowly expanding through] → Bloom Zone reality tears          [DM]
-Elves → [conducting hidden ops in] → Bloom Zones (primary concern now)          [DM]
-Elves → [have veto power over] → First Threshold succession                   [DM]
+Dern Talish → [cooperates with] → Elves                                       [DM]
+The Adversary → [expanding through] → Bloom Zones                             [DM]
+Elves → [operating in] → Bloom Zones                                          [DM]
+Elves → [have veto over succession of] → Dern Talish                          [DM]
 ```
 
 ---
 
 # Entity Registry
 
-All entities referenced in the DAG and timeline. Ordered by dependency for fleshing out.
+All entities referenced in the DAG and timeline.
 
-**Status key:** `exists` = has a file. `shell` = row in an index, no file. `new` = referenced but not yet in any index.
+**Status key:** `exists` = has a file. `shell` = row in an index, no file.
 
 ## Factions
 
@@ -217,4 +180,3 @@ All entities referenced in the DAG and timeline. Ordered by dependency for flesh
 | Displacement | shell | renowned | Silent Bloom | Mass Bloom evacuation event |
 | Vashtenri Thesis | shell | marginal | Rekindling | First academic work proposing deliberate elven erasure |
 | Cthonic beasts | shell | recognized | Glassfall–present | Shear-native creatures; no known counterparts elsewhere |
-
