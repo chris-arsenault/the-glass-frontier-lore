@@ -10,9 +10,8 @@ PLAYER_DIR = ROOT / "player"
 
 # Files that are meta/infrastructure, not lore entries
 META_FILES = {
-    "CLAUDE.md", "index.md", "tags.md", "timeline.md", "causality.md",
+    "CLAUDE.md", "SYSTEM.md", "index.md", "tags.md", "timeline.md", "causality.md",
     "design-principles.md", "world-seeds.md",
-    "thematic-cores.md", "plot-threads.md", "narrative-loops.md",
     "lint.py", "wiki_gen.py", "graph_cli.py", "Makefile",
     "README.md", "LICENSE.md",
 }
@@ -123,7 +122,7 @@ def parse_index_entries(index_path: Path) -> list[dict]:
     return entries
 
 
-SKIP_DIRS = {"wiki_out", ".git", ".github", "review-guidance", "work-tracking"}
+SKIP_DIRS = {"wiki_out", ".git", ".github", "review-guidance", "work-tracking", "research"}
 # DM files are linted for structure but exempt from prominence cross-ref checks
 DM_DIR = "dm"
 

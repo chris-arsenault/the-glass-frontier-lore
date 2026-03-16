@@ -8,7 +8,7 @@ Overarching narrative arcs. Each fleshed-out thread has its own page with detail
 
 ## Fleshed Out
 
-- [The Reconnection](threads/reconnection.md) — a fractured civilization remembers it was once whole
+- [The Reconnection](reconnection.md) — a fractured civilization remembers it was once whole
 
 ## Needs Development
 

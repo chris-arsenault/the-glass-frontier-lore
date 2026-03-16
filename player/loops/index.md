@@ -10,7 +10,7 @@ Every loop follows: **NEED → PROGRESSION → CONSEQUENCE → NEW NEED**
 
 ## Fleshed Out
 
-- [Cooperation-Fracture Cycle](loops/cooperation-fracture.md) — crisis forces cooperation, cooperation produces infrastructure, pressure eases, cooperation fractures, infrastructure survives
+- [Cooperation-Fracture Cycle](cooperation-fracture.md) — crisis forces cooperation, cooperation produces infrastructure, pressure eases, cooperation fractures, infrastructure survives
 
 ## Needs Development
 

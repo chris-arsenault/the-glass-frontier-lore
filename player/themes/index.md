@@ -8,7 +8,7 @@ Questions the world asks. Not themes to be stated — tensions embedded in the w
 
 ## Fleshed Out
 
-- [What do you build when the original blueprints are gone?](themes/builders-gone.md) — inheritance vs reinvention
+- [What do you build when the original blueprints are gone?](builders-gone.md) — inheritance vs reinvention
 
 ## Needs Q&A Refinement
 
