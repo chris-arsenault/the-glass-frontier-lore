@@ -27,9 +27,9 @@ Sithari is vertical in a way that isn't immediately obvious from the surface. Th
 
 The stratification isn't clean. The ring-era structures weren't demolished; they were absorbed. A modern office tower might have a pre-Glassfall laboratory as its basement. A residential block might sit on a sealed corridor that runs for kilometers. The old walls of the original campus are still there, three or four stories below current street level, occasionally surfacing where the geography forces them up.
 
-Going deep is technically restricted and practically common. Urban explorers, historians, salvage operators, and people who know which cellar door leads somewhere interesting all navigate the underlayers. The deepest levels are genuinely dangerous — not just structurally, but because the ring-era resonance systems down there are still partially active, tuned to frequencies that modern equipment can't always read. Things work differently in the deep layers. Sometimes a room is larger inside than outside. Sometimes a corridor connects two points that shouldn't be adjacent. The [Absent](../../concepts/the-absent.md) built these spaces, and they built them to last.
+Going deep is technically restricted and practically common. Urban explorers, historians, salvage operators, and people who know which cellar door leads somewhere interesting all navigate the [future:Underlayers]. The deepest levels are genuinely dangerous — not just structurally, but because the ring-era resonance systems down there are still partially active, tuned to frequencies that modern equipment can't always read. Things work differently in the deep layers. Sometimes a room is larger inside than outside. Sometimes a corridor connects two points that shouldn't be adjacent. The [elves](../../concepts/elves.md) built these spaces, and they built them to last.
 
-## The Continuity
+## [future:The Continuity]
 
 Sithari's ruling party. They have held power effectively unchallenged since the city stabilized during the Signal Famine. Their name is their argument: the Continuity preserved civilization when everything else collapsed. They kept the lights on, maintained the walls, organized the food distribution, ran the courts, and — when contact was re-established with the rest of the system — presented a functioning city-state to a world of scattered survivors.
 

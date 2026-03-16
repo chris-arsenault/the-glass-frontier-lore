@@ -16,7 +16,7 @@ All known species are roughly bipedal and person-shaped.
 
 | Species | Origin | Resonance Relationship | Status | Entry |
 |---------|--------|----------------------|--------|-------|
-| [Elves](the-absent.md) | Native | Deeply attuned; primary resonance scientists | defined | [The Absent](the-absent.md) |
+| [Elves](elves.md) | Native | Deeply attuned; primary resonance scientists | defined | [Elves](elves.md) |
 | [Humans](humans.md) | Alien | Neutral; trainable but no natural affinity | defined | [Humans](humans.md) |
 | [Orcs](orcs.md) | Alien | Physical/material affinity; feel crystal-metal relationships | defined | [Orcs](orcs.md) |
 | [Gnomes](gnomes.md) | Engineered (by elves) | Naturally attuned; part ringglass biology | defined | [Gnomes](gnomes.md) |

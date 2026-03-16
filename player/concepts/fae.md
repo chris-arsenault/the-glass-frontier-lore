@@ -8,7 +8,7 @@ registry: true
 
 # Fae
 
-Engineered origin, created or modified during the ring era. The details of who made them and why are debated — the [Absent](the-absent.md) are the obvious candidates, but the fae predate some ring-era records in ways that don't track with a clean "the elves made them" narrative. Some scholars believe fae are a modification of a pre-existing species rather than a ground-up creation. The fae themselves consider the question irrelevant to their present circumstances, which are complicated enough without worrying about origins.
+Engineered origin, created or modified during the ring era. The details of who made them and why are debated — the [elves](elves.md) are the obvious candidates, but the fae predate some ring-era records in ways that don't track with a clean "the elves made them" narrative. Some scholars believe fae are a modification of a pre-existing species rather than a ground-up creation. The fae themselves consider the question irrelevant to their present circumstances, which are complicated enough without worrying about origins.
 
 ## Biology
 

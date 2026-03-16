@@ -10,7 +10,7 @@ Major events only. For full context on any event, follow the links. Dates are CE
 
 ## Era 1: The Ring Age (pre-2240 CE)
 
-The before. Mostly mythologized. The elves were the dominant technical civilization for centuries, the orbital ring was the backbone of everything, and other species — including humans — arrived and were integrated into a functioning multi-species society. The details are hazy. The [Echo Rivers](cosmology/echo-rivers.md) carry fragments, but nobody alive remembers this era firsthand except, possibly, the [Absent](concepts/the-absent.md).
+The before. Mostly mythologized. The elves were the dominant technical civilization for centuries, the orbital ring was the backbone of everything, and other species — including humans — arrived and were integrated into a functioning multi-species society. The details are hazy. The [Echo Rivers](cosmology/echo-rivers.md) carry fragments, but nobody alive remembers this era firsthand except, possibly, the [elves](concepts/elves.md).
 
 | Date | Event | Notes |
 |------|-------|-------|
@@ -28,7 +28,7 @@ The catastrophe and its long silence. The ring shatters, communications collapse
 |------|-------|-------|
 | **2240 CE** | **[The Glassfall](history/events/the-glassfall.md)** | The orbital ring shatters. Cause unknown — suspected sabotage. Ring fragments drift apart; many survive as isolated habs. Surface infrastructure collapses. Communication severed system-wide. <ul><li>[future:Sithari] — largest surface settlement, loses ring uplink</li><li>[future:Verge] — debris field begins forming</li></ul> |
 | 2240–2305 CE | **The Signal Famine** | ~65 years of isolation. Surface settlements, ring habs, and outer-system worlds lose contact. Cultures diverge. Independent traditions of [resonance](cosmology/resonance.md) use develop. Isolated habs evolve unique cultures and governance systems. <ul><li>[future:Tuners] — first post-collapse resonance practitioners, working from fragments without elven theory</li><li>[future:Fermata Station] — jazz governance solidifies during this period</li></ul> |
-| ~2250s–2280s CE | **Disappearance of the elves** | Over the course of several decades, the [Absent](concepts/the-absent.md) vanish. No settlements report elven populations when contact resumes. The historical record shows signs of systematic tampering during this period. <ul><li>[future:Echo Ledger Conclave] — later formed partly to study the gaps left behind</li></ul> |
+| ~2250s–2280s CE | **Disappearance of the elves** | Over the course of several decades, the [elves](concepts/elves.md) vanish. No settlements report elven populations when contact resumes. The historical record shows signs of systematic tampering during this period. <ul><li>[future:Echo Ledger Conclave] — later formed partly to study the gaps left behind</li></ul> |
 | ~2260s CE | **Echo Rivers discovered** | Settlers on Kaleidos's surface discover that underground waterways carry [audible fragments](cosmology/echo-rivers.md) of pre-Glassfall transmissions. <ul><li>[future:Sable Crescent] — region where the largest surfacing points are found</li><li>[future:Renn Duvasi] — the archivist credited with recognizing the voices weren't natural</li></ul> |
 
 ---

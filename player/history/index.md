@@ -22,7 +22,7 @@ Eras and events.
 | Entry | Path | Status | Prominence | Tags | Notes |
 |-------|------|--------|------------|------|-------|
 | The Glassfall | [events/the-glassfall.md](events/the-glassfall.md) | complete | mythic | catastrophe, origin | 2240 CE; the day the rings broke |
-| Disappearance of the Elves | — | shell | recognized | species, mystery, legend | ~2250s–2280s CE; the Absent vanish during the Signal Famine |
+| Disappearance of the Elves | — | shell | recognized | species, mystery, legend | ~2250s–2280s CE; the elves vanish during the Signal Famine |
 | The Bloom | — | shell | renowned | resonance, danger, catastrophe | ~2355 CE; resonance anomaly cascade in mid-drift ring habs |
 | The Corridor Disputes | — | shell | recognized | military, trade | ~2345 CE; trade route control disputes during the Contested Reach |
 | The Bitter Reach | — | shell | renowned | military, diplomacy | ~2362–2365 CE; second wave of conflicts after Bloom coalition fractures |

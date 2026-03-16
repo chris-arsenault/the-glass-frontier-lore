@@ -1,15 +1,16 @@
 ---
-title: The Absent
+title: Elves
 type: concept
 tags: [species, legend, mystery, ring-era, archives]
 prominence: recognized
+registry: true
 ---
 
-# The Absent
+# Elves
 
-The elves are gone. That much is not in dispute.
+One of the founding species of the Kaleidos system, primary architects of the [orbital ring](../cosmology/the-glass-frontier.md), and for centuries the most technically sophisticated civilization in the system. Then, during the [Signal Famine](../history/index.md), they disappeared. Where they went, why they left, and whether "left" is even the right word are questions that 130 years of scholarship haven't answered.
 
-What is in dispute: where they went, why they left, and whether "left" is even the right word. The elves — one of the founding species of the Kaleidos system, primary architects of the [orbital ring](../cosmology/the-glass-frontier.md), and for centuries the most technically sophisticated civilization in the system — disappeared during the [Signal Famine](../history/index.md). By the time communications resumed, they were simply absent. The name stuck.
+Older folk traditions call them "the Absent" — the people who were here and then weren't. The academic literature just calls them elves.
 
 ## Who They Were
 

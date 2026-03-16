@@ -8,7 +8,7 @@ registry: true
 
 # Gnomes
 
-Bioengineered by the [elves](the-absent.md) during the ring era. Gnomes were designed — there is no polite way around the word — to interface with the orbital ring's [resonance](../cosmology/resonance.md) systems. Their biology incorporates [ringglass](ringglass.md) at a fundamental level: crystalline structures threaded through their skeletal system and nervous tissue, grown in place rather than implanted. A gnome is, in a very literal sense, part crystal.
+Bioengineered by the [elves](elves.md) during the ring era. Gnomes were designed — there is no polite way around the word — to interface with the orbital ring's [resonance](../cosmology/resonance.md) systems. Their biology incorporates [ringglass](ringglass.md) at a fundamental level: crystalline structures threaded through their skeletal system and nervous tissue, grown in place rather than implanted. A gnome is, in a very literal sense, part crystal.
 
 ## Biology
 

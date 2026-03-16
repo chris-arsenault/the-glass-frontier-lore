@@ -15,7 +15,7 @@ Entities ordered by what blocks what. Foundational entities first — things tha
 ## Tier 2: Rekindling Infrastructure (the reconnection skeleton)
 
 4. **Sable Crescent** — location, recognized. Echo River heartland. Needed before: Echo Ledger Conclave, Renn Duvasi, Keel trade route.
-5. **Echo Ledger Conclave** — faction, recognized. Already a shell. Key faction for the Absent storyline and Bloom-era resonance analysis. Needed before: Lira Vashtenri, Vashtenri Thesis.
+5. **Echo Ledger Conclave** — faction, recognized. Already a shell. Key faction for the elves storyline and Bloom-era resonance analysis. Needed before: Lira Vashtenri, Vashtenri Thesis.
 6. **Lattice Proxy Synod** — faction, recognized. Already a shell. AI custodian brokers. Needed before: Span Nine, Accord governance.
 7. **Glasswake** — location, recognized. First reconnection partner. Needed before: Span Nine, trade networks.
 8. **Span Nine** — location/artifact, recognized. First relay. Depends on: Sithari, Glasswake, Synod.
@@ -51,5 +51,5 @@ Entities ordered by what blocks what. Foundational entities first — things tha
 ## Tier 6: Supporting / Leaf Entities
 
 28. **Renn Duvasi** — person, recognized. Depends on: Sable Crescent, Echo Rivers. Leaf — nothing else depends on this.
-29. **Vashtenri Thesis** — concept, marginal. Depends on: Conclave, the Absent. Leaf.
+29. **Vashtenri Thesis** — concept, marginal. Depends on: Conclave, the elves. Leaf.
 30. **Bloom Zone relics** — concept, recognized. Depends on: Bloom Zones. Leaf (for now — will become important when fleshed out).

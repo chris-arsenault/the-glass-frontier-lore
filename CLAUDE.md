@@ -22,6 +22,7 @@ A canonical lore repository for The Glass Frontier, a game world set in the Kale
 - **Show, don't specify.** Describe what a place feels like, what a faction cares about, what an artifact does — not its entity ID or moderation hook.
 - **Keep entries concise.** A few paragraphs is ideal. Long entries should be split.
 - **Play it straight.** Even the strangest elements are presented matter-of-factly. The absurdity comes from the fiction being taken seriously, not from the author nudging the reader.
+- **Name entities, don't describe them.** When prose references something that could be its own entity — a faction, a location, a person, an artifact — use a `[future:Name]` marker rather than describing the concept inline without naming it. This creates trackable placeholders for future entries. "The [future:Continuity] has governed Sithari for 130 years" not "the ruling party has governed for 130 years." Every named thing in the world should be discoverable.
 
 ## Entry Format
 
@@ -156,7 +157,7 @@ The `dm/` directory contains information that is true in the world but not avail
 title: "Elves — DM Truth"
 type: dm
 dm: true
-public_entry: the-absent
+public_entry: elves
 ---
 ```
 
