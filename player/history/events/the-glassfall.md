@@ -1,6 +1,6 @@
 ---
 title: The Glassfall
-type: event
+type: occurrence
 date: 2240 CE
 prominence: mythic
 tags: [catastrophe, origin]

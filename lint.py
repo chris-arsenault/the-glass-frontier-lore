@@ -518,7 +518,16 @@ def main():
                 for h in graph_heading_set - prose_graph_set:
                     warn(f"GRAPH: {rel} heading '{h}' exists in graph but not in prose")
 
-            # 14d. All graph edge types must exist in taxonomy
+            # 14d. All graph entities must have a type
+            result = session.run("""
+                MATCH (e:Entity)
+                WHERE e.type IS NULL OR e.type = ''
+                RETURN e.id
+            """)
+            for r in result:
+                error(f"GRAPH: entity '{r['e.id']}' has no type")
+
+            # 14e. All graph edge types must exist in taxonomy
             result = session.run("""
                 MATCH ()-[r]->()
                 WHERE type(r) <> 'HAS_SECTION' AND type(r) <> 'ALLOWS_HEADING'
