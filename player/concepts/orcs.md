@@ -18,7 +18,7 @@ And they are beautiful.
 
 This is not a subjective cultural assessment. It is the near-universal reaction of every other species in the system upon first encounter. Orc bone structure is striking. Their skin tones range across deep, saturated hues — charcoals, deep greens, rich earth tones — with a clarity that catches light. Their features are strong and precisely proportioned in a way that other species find arresting before they find anything else. The combination of physical power and aesthetic impact is, for many non-orcs, genuinely disorienting the first time they encounter it.
 
-Orcs are aware of this effect. They have complicated feelings about it, the same way anyone has complicated feelings about being noticed for their appearance before their substance.
+Orcs are aware of this effect and have learned to navigate it, the same way anyone learns to navigate being noticed for their appearance before their substance.
 
 ## The Stereotype
 

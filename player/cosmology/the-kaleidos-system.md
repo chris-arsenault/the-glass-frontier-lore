@@ -2,6 +2,7 @@
 title: The Kaleidos System
 type: concept
 prominence: mythic
+tags: [orbital]
 ---
 
 # The Kaleidos System

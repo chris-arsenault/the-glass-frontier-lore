@@ -32,7 +32,7 @@ Gnomes themselves have complicated and varied feelings about this. Some consider
 
 Unmatched among living species. The elves were more knowledgeable, but gnomish attunement is more *immediate* — a gnome doesn't understand resonance intellectually, they experience it sensorially. This makes them invaluable in any resonance-related field: tuning, repair, prospecting, containment, medical applications. A gnome tuner can do in minutes what takes a human technician an hour with instruments.
 
-The downside is overexposure. Gnomes are more sensitive to resonance disruption than other species. The [Bloom Zones](../locations/index.md) are acutely dangerous for gnomes — the reality distortion registers as intense sensory overload, and prolonged exposure causes crystal lattice damage that accelerates the aging process. Gnomish Displacement Council operatives are rare, respected, and closely monitored for exposure limits.
+The downside is overexposure. Gnomes are more sensitive to resonance disruption than other species. The [future:Bloom Zones] are acutely dangerous for gnomes — the reality distortion registers as intense sensory overload, and prolonged exposure causes crystal lattice damage that accelerates the aging process. Gnomish Displacement Council operatives are rare, respected, and closely monitored for exposure limits.
 
 ## Present Day
 

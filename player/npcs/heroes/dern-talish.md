@@ -35,4 +35,4 @@ Her neutrality during the Bitter Reach is the foundation of her authority. The C
 - Never eats during meetings. Will accept water. Considers shared meals a form of political intimacy she cannot afford.
 - Keeps a collection of small objects recovered from Bloom Zone perimeters — not relics, just debris. A child's toy. A door handle. A clock that still ticks at the wrong speed. She does not explain why.
 - Her hand tremor is worse when she's tired, which is most of the time. She compensates by keeping her right hand in her pocket or wrapped around a cup. Most people who meet her think she's just reserved. The cordon crews know what it means.
-- Speaks three languages fluently and understands fragments of two more, including one that linguists cannot identify. She claims she picked it up from Echo River exposure during a containment operation. This is technically true.
+- Speaks three languages fluently and understands fragments of two more, including one that linguists cannot identify. She picked it up from Echo River exposure during a containment operation.

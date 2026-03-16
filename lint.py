@@ -312,7 +312,23 @@ def main():
             if tag in known_slugs and tag not in valid_tags:
                 warn(f"index entry '{e['name']}': tag '{tag}' looks like an entity reference, not a topic tag")
 
-    # --- 10. Future markers: [future:Name] in prose ---
+    # --- 10. DM leakage in player entries ---
+    DM_LEAKAGE_PHRASES = [
+        "technically true", "in truth", "what they don't know",
+        "the real reason", "the truth is", "in reality",
+        "what really happened", "secretly", "unbeknownst",
+    ]
+    for path in content_files:
+        rel = path.relative_to(ROOT)
+        if rel.parts[0] != "player":
+            continue
+        text = path.read_text().lower()
+        text = re.sub(r"```.*?```", "", text, flags=re.DOTALL)
+        for phrase in DM_LEAKAGE_PHRASES:
+            if phrase in text:
+                error(f"{rel}: possible DM leakage — contains phrase '{phrase}'")
+
+    # --- 11. Future markers: [future:Name] in prose ---
     future_markers = []
     for path in all_md_files:
         rel = path.relative_to(ROOT)

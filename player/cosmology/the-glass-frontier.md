@@ -2,6 +2,7 @@
 title: The Glass Frontier
 type: concept
 prominence: mythic
+tags: [orbital, ring-hab, salvage]
 ---
 
 # The Glass Frontier

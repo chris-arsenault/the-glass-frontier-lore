@@ -25,7 +25,7 @@ The first generation spans the entire Famine — sixty years of independent disc
 
 ## The Clarisant
 
-The guild. Headquartered on [future:Pelhari], a moon of the seventh planet — far enough from the distorted space of the [future:Verge] and the ring debris field that resonance practice is cleaner, more predictable, more suited to structured training. Satellite offices operate across the system, in Sithari, in major ring habs, on outer-system stations.
+The guild. Headquartered on [future:Pelhari], a moon of the seventh planet — far enough from the distorted space of the [future:Shear] and the ring debris field that resonance practice is cleaner, more predictable, more suited to structured training. Satellite offices operate across the system, in Sithari, in major ring habs, on outer-system stations.
 
 The Clarisant is a professional accreditation body first and a community second. They train Tuners, certify competence, set safety standards, and provide the institutional credibility that keeps Tuning from being feared. A Clarisant-trained Tuner carries a credential that means something in any settlement that recognizes the guild — which is most of them. The credential says: this person has been evaluated, their abilities are understood, and they operate within professional norms.
 

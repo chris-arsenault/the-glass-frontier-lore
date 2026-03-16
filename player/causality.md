@@ -72,8 +72,8 @@ Bloom Zones → [generate] → New relic-magnitude artifacts (unique to zones)
 Bloom Zones → [attract] → Scavengers, researchers, desperate people
 The Adversary → [seeps through] → Reality tears in Bloom Zones             [DM]
 Elves → [increase hidden presence in] → Bloom Zones (monitoring/containing) [DM]
-Elves → [cooperate with] → Displacement Council Warden-Commander            [DM]
-Warden-Commander → [provides cover for] → Elven operations in Bloom Zones   [DM]
+Elves → [cooperate with] → Displacement Council First Threshold            [DM]
+First Threshold → [provides cover for] → Elven operations in Bloom Zones   [DM]
 Elves → [provide] → Resources/intelligence to Displacement Council          [DM]
 
 The Bloom → [requires containment by] → Emergency coalitions
@@ -144,10 +144,10 @@ Accord → [struggles with] → Coremark criminal operations (artifact smuggling
 Accord → [struggles with] → New far-drift hab discoveries (who speaks for them?)
 Bloom Zones → [produce] → Relic-magnitude artifacts → black market via Coremark
 Displacement Council → [maintains] → Containment but is stretched thin
-Displacement Council Warden-Commander → [cooperates with] → Elves             [DM]
+Displacement Council First Threshold → [cooperates with] → Elves             [DM]
 The Adversary → [slowly expanding through] → Bloom Zone reality tears          [DM]
 Elves → [conducting hidden ops in] → Bloom Zones (primary concern now)          [DM]
-Elves → [have veto power over] → Warden-Commander succession                   [DM]
+Elves → [have veto power over] → First Threshold succession                   [DM]
 ```
 
 ---
@@ -166,18 +166,19 @@ All entities referenced in the DAG and timeline. Ordered by dependency for flesh
 | Echo Ledger Conclave | shell | recognized | Rekindling–present | Archivists; Echo River custodians; founded to study the Absence |
 | Lattice Proxy Synod | shell | recognized | Rekindling–present | Human-AI custodian brokers; resonance telemetry; Accord governance architects |
 | Prismwell Kite Guild | shell | recognized | Rekindling–present | Aerial trade logistics; kite-sail operators; Accord trade architects |
-| Coremark | new | recognized | Rekindling–present | Capitalist salvage corp → criminal syndicate; negligence causes the Bloom |
+| Coremark | shell | recognized | Rekindling–present | Capitalist salvage corp → criminal syndicate; negligence causes the Bloom |
 | Verge Compact | shell | recognized | Silent Bloom–present | Salvage regulatory body; born from Bloom response |
-| Bloom Coalition | new | renowned | Silent Bloom | Emergency multi-faction containment coalition; dissolved into Bitter Reach |
-| Displacement Council | new | recognized | Silent Bloom–present | Bloom refugees → neutral containment order; Grey Wardens analogue |
+| Bloom Coalition | shell | renowned | Silent Bloom | Emergency multi-faction containment coalition; dissolved into Bitter Reach |
+| Displacement Council | shell | recognized | Silent Bloom–present | Bloom refugees → neutral containment order; Grey Wardens analogue |
 | Lumenshard Conservatory | shell | recognized | Rekindling–present | Eco-faction; bioluminescent groves |
+| Clarisant | shell | recognized | Rekindling–present | Tuner guild; accreditation body; HQ on Pelhari |
 
 ## People
 
 | Entity | Status | Prominence | Era | Role |
 |--------|--------|------------|-----|------|
-| Renn Duvasi | new | recognized | Signal Famine | Archivist who first identified Echo River voices as non-natural |
-| Lira Vashtenri | new | recognized | Silent Bloom–present | Gnome resonance engineer; built Lira's Wall; Conclave → Displacement Council |
+| Renn Duvasi | shell | recognized | Signal Famine | Archivist who first identified Echo River voices as non-natural |
+| Lira Vashtenri | shell | recognized | Silent Bloom–present | Gnome resonance engineer; built Lira's Wall; Conclave → Displacement Council |
 | Dern Talish | exists | recognized | Bitter Reach–present | Human; Fourth First Threshold of Displacement Council |
 
 ## Artifacts / Tech
@@ -185,33 +186,35 @@ All entities referenced in the DAG and timeline. Ordered by dependency for flesh
 | Entity | Status | Prominence | Era | Role |
 |--------|--------|------------|-----|------|
 | Kite-sail | shell | renowned | Rekindling–present | Resonance-powered trade vessel |
-| Lira's Wall | new | recognized | Silent Bloom | First resonance containment device; turning-point artifact |
-| Bloom Zone relics | new | recognized | Silent Bloom–present | New relic-magnitude artifacts from reality distortion |
-| Compact Charter | new | recognized | Silent Bloom | Verge Compact founding document |
+| Lira's Wall | shell | recognized | Silent Bloom | First resonance containment device; turning-point artifact |
+| Bloom Zone relics | shell | recognized | Silent Bloom–present | New relic-magnitude artifacts from reality distortion |
+| Compact Charter | shell | recognized | Silent Bloom | Verge Compact founding document |
 
 ## Locations
 
 | Entity | Status | Prominence | Era | Role |
 |--------|--------|------------|-----|------|
-| Sithari | new | mythic | all | De facto capital; largest surface settlement; Sithari heartland |
-| Shear | shell | renowned | Glassfall–present | Uninhabitable debris zone between atmosphere and ring habs; salvage zone |
-| Sable Crescent | new | recognized | Signal Famine–present | Surface region; major Echo River surfacing points |
-| Glasswake | new | recognized | Rekindling–present | Surface settlement; first reconnection partner with Sithari |
-| Span Nine | new | recognized | Rekindling | First long-range resonance relay; landmark |
-| Keel | new | recognized | Rekindling–present | First major trade route; Sithari to Sable Crescent |
-| Pyre | new | recognized | Contested Reach–Bloom | Coremark refinery ruin; Bloom cascade origin |
-| Bloom Zones | new | renowned | Silent Bloom–present | Cordoned ring hab regions; reality unstable; relic source |
-| Verathi | new | marginal | Accord | Station/settlement at center of first Accord arbitration |
+| Sithari | exists | mythic | all | De facto capital; largest surface settlement; Sithari heartland |
+| Shear | exists | renowned | Glassfall–present | Uninhabitable debris pockets; ~50% of Kaleidos orbit; salvage zone |
+| Sable Crescent | shell | recognized | Signal Famine–present | Surface region; major Echo River surfacing points |
+| Glasswake | shell | recognized | Rekindling–present | Surface settlement; first reconnection partner with Sithari |
+| Span Nine | shell | recognized | Rekindling | First long-range resonance relay; landmark |
+| Keel | shell | recognized | Rekindling–present | First major trade route; Sithari to Sable Crescent |
+| Pyre | shell | recognized | Contested Reach–Bloom | Coremark refinery ruin; Bloom cascade origin |
+| Bloom Zones | shell | renowned | Silent Bloom–present | Man-made reality tears; can appear anywhere in orbit |
+| Verathi | shell | marginal | Accord | Station at center of first Accord arbitration |
+| Pelhari | shell | recognized | Rekindling–present | Moon of 7th planet; Clarisant guild HQ |
 
 ## Concepts / Events
 
 | Entity | Status | Prominence | Era | Role |
 |--------|--------|------------|-----|------|
-| Tuners | new | recognized | Signal Famine–present | First post-collapse resonance practitioners |
-| Shuttered habs | new | recognized | Rekindling–present | Habs that refused reconnection; some still closed |
-| Ratters | new | recognized | Rekindling–present | Independent salvage crew subculture |
-| Shardfall | new | recognized | Contested Reach | Flashpoint salvage battle; dozens killed |
-| Coriolis breach | new | recognized | Contested Reach | Forced hab entry; cautionary tale for sovereignty |
-| Displacement | new | renowned | Silent Bloom | Mass Bloom evacuation event |
-| Vashtenri Thesis | new | marginal | Rekindling | First academic work proposing deliberate elven erasure |
+| Tuners | exists | recognized | Signal Famine–present | Post-collapse resonance practitioners; the Clarisant guild |
+| Shuttered habs | shell | recognized | Rekindling–present | Habs that refused reconnection; some still closed |
+| Ratters | shell | recognized | Rekindling–present | Independent salvage crew subculture |
+| Shardfall | shell | recognized | Contested Reach | Flashpoint salvage battle; dozens killed |
+| Coriolis breach | shell | recognized | Contested Reach | Forced hab entry; cautionary tale for sovereignty |
+| Displacement | shell | renowned | Silent Bloom | Mass Bloom evacuation event |
+| Vashtenri Thesis | shell | marginal | Rekindling | First academic work proposing deliberate elven erasure |
+| Cthonic beasts | shell | recognized | Glassfall–present | Shear-native creatures; no known counterparts elsewhere |
 

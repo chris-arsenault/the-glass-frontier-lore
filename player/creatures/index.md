@@ -15,3 +15,4 @@ Wildlife, fauna, and anomalous entities.
 
 | Entry | Path | Status | Prominence | Tags | Notes |
 |-------|------|--------|------------|------|-------|
+| Cthonic beasts | — | shell | recognized | danger, orbital | Shear-native creatures; no known counterparts elsewhere |

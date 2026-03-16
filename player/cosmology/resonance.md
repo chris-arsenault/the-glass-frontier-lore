@@ -2,6 +2,8 @@
 title: Resonance
 type: concept
 prominence: mythic
+tags: [resonance]
+related: [ringglass]
 ---
 
 # Resonance

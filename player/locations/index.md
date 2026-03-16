@@ -20,6 +20,7 @@ Regions, settlements, landmarks, and other named places across the Kaleidos syst
 | Entry | Path | Status | Prominence | Tags | Notes |
 |-------|------|--------|------------|------|-------|
 | The Shear | [regions/the-shear.md](regions/the-shear.md) | complete | renowned | salvage, orbital, danger, resonance | Uninhabitable debris pockets filling ~50% of Kaleidos orbit; salvage territory |
+| Sable Crescent | — | shell | recognized | surface, resonance, archives | Surface region; major Echo River surfacing points |
 
 ## Landmarks
 
@@ -27,3 +28,8 @@ Regions, settlements, landmarks, and other named places across the Kaleidos syst
 |-------|------|--------|------------|------|-------|
 | The Pale Shard | — | shell | recognized | orbital, navigation | Named ring fragment; shadow used for weather prediction |
 | The Choir Fragment | — | shell | recognized | orbital, resonance | Named ring fragment said to sing when it catches the light |
+| Span Nine | — | shell | recognized | surface, resonance | First long-range resonance relay; landmark between Sithari and Glasswake |
+| Pyre | — | shell | recognized | orbital, salvage, danger | Coremark refinery ruin; Bloom cascade origin point |
+| Bloom Zones | — | shell | renowned | orbital, danger, resonance | Man-made reality tears; can appear anywhere in orbit; require active containment |
+| Keel | — | shell | recognized | surface, trade, navigation | First major trade route; Sithari to Sable Crescent |
+| Verathi | — | shell | marginal | orbital, governance | Station at center of first Accord arbitration |

@@ -24,3 +24,5 @@ Technology, magic, religion, governance, and other meta-level systems.
 | Cultures | [cultures.md](cultures.md) | complete | mythic | social-structure | Culture registry with slot tracking |
 | Naming Conventions | [naming-conventions.md](naming-conventions.md) | complete | mythic | social-structure | Name-forge domains for all cultures and species |
 | Resonance Depletion | — | shell | recognized | resonance | Local field depletion and recovery |
+| Ratters | — | shell | recognized | salvage, social-structure | Independent Shear salvage crew subculture |
+| Shuttered habs | — | shell | recognized | ring-hab, governance | Habs that refused reconnection during the Rekindling; some still closed |

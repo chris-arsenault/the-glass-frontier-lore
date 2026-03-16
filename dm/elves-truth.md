@@ -65,13 +65,13 @@ This is the nightmare scenario the elves have been preparing for: the Adversary 
 
 ## The Council Contact
 
-The Displacement Council's top leadership position — the Warden-Commander or equivalent — is aware of the elves and cooperates with them directly. This is the single point of contact between elven operations and the non-elven world.
+The Displacement Council's top leadership position — the First Threshold or equivalent — is aware of the elves and cooperates with them directly. This is the single point of contact between elven operations and the non-elven world.
 
-The arrangement is pragmatic. The elves need a human organization maintaining the cordons and controlling access to the Bloom Zones. The Council needs resources, intelligence, and occasional interventions that arrive from no identifiable source. The Warden-Commander knows the truth: the containment mission is cover for something larger, the "unexplained successes" are elven operations, and the reality tears are not just an industrial aftereffect.
+The arrangement is pragmatic. The elves need a human organization maintaining the cordons and controlling access to the Bloom Zones. The Council needs resources, intelligence, and occasional interventions that arrive from no identifiable source. The First Threshold knows the truth: the containment mission is cover for something larger, the "unexplained successes" are elven operations, and the reality tears are not just an industrial aftereffect.
 
-The rank and file of the Displacement Council do not know. They believe in their mission — containment of a resonance anomaly — and that belief is genuine and correct as far as it goes. The Warden-Commander carries the weight of knowing it goes further.
+The rank and file of the Displacement Council do not know. They believe in their mission — containment of a resonance anomaly — and that belief is genuine and correct as far as it goes. The First Threshold carries the weight of knowing it goes further.
 
-This position is the loneliest job in the system. The holder cooperates with a civilization that officially doesn't exist, to fight a threat that nobody else knows about, while maintaining a public face of stoic neutrality. Succession is handled carefully — the outgoing Warden-Commander identifies and reads in their successor personally. The elves have veto power over the choice, which they have exercised at least once.
+This position is the loneliest job in the system. The holder cooperates with a civilization that officially doesn't exist, to fight a threat that nobody else knows about, while maintaining a public face of stoic neutrality. Succession is handled carefully — the outgoing First Threshold identifies and reads in their successor personally. The elves have veto power over the choice, which they have exercised at least once.
 
 ## The Cultural Sacrifice
 

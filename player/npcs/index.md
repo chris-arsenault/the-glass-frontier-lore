@@ -17,6 +17,9 @@ Factions, notable individuals, and named antagonists.
 | Verge Compact | — | shell | recognized | salvage, ringglass, trade | Verge salvage regulation and logistics |
 | Lumenshard Conservatory | — | shell | recognized | ecology, resonance | Eco-faction protecting bioluminescent groves |
 | Clarisant | — | shell | recognized | resonance, training, governance | Tuner guild; accreditation body; HQ on Pelhari |
+| Coremark | — | shell | recognized | salvage, ringglass, trade | Capitalist salvage corp turned criminal syndicate; negligence caused the Bloom |
+| Bloom Coalition | — | shell | renowned | governance, diplomacy | Emergency multi-faction Bloom containment coalition; dissolved during Bitter Reach |
+| Displacement Council | — | shell | recognized | governance, resonance, danger | Bloom refugee org turned neutral containment order; maintains Bloom Zone cordons |
 
 ## Heroes
 
@@ -29,6 +32,7 @@ Factions, notable individuals, and named antagonists.
 | Sable Korr | — | shell | forgotten | Human | Hab-Worlder | archives, governance | Standard scholar at Fermata; failed Sit-In 30 years ago |
 | Goruth | — | shell | forgotten | Orc | Hab-Worlder | governance, music | Comp player at Fermata; an orc who never solos |
 | Dez Morrn | — | shell | forgotten | Human | Hab-Worlder | activism, music | Free Jazz leader at Fermata; trumpeter |
+| Renn Duvasi | — | shell | recognized | Human | Sithari | archives, resonance | First to identify Echo River voices as non-natural |
 
 ## Monsters
 
