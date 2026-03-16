@@ -9,6 +9,9 @@ Usage:
     python graph_cli.py query-similar <section_id>    # Find similar sections via vector search
     python graph_cli.py check                         # Run all contradiction checks
     python graph_cli.py stats                         # Graph statistics
+    python graph_cli.py snapshot [name]               # Save graph snapshot
+    python graph_cli.py restore <name>                # Restore from snapshot
+    python graph_cli.py snapshots                     # List available snapshots
 """
 
 import argparse
@@ -23,6 +26,7 @@ from neo4j import GraphDatabase
 ROOT = Path(__file__).parent
 PLAYER_DIR = ROOT / "player"
 DM_DIR = ROOT / "dm"
+SNAPSHOT_DIR = ROOT / "work-tracking" / "snapshots"
 
 BOLT_URI = "bolt://192.168.66.3:7688"
 GRAPH_AUTH = ("memgraph", "your-secure-password")
@@ -36,6 +40,136 @@ EMBED_MODEL = "nomic-embed-text"
 
 def get_driver():
     return GraphDatabase.driver(BOLT_URI, auth=GRAPH_AUTH)
+
+
+def snapshot_graph(name: str | None = None) -> Path:
+    """Save full graph state to a JSON file. Returns the snapshot path."""
+    from datetime import datetime
+    SNAPSHOT_DIR.mkdir(parents=True, exist_ok=True)
+
+    if not name:
+        name = datetime.now().strftime("%Y%m%d-%H%M%S")
+
+    path = SNAPSHOT_DIR / f"{name}.json"
+    driver = get_driver()
+    snapshot = {"nodes": [], "relationships": [], "embeddings": {}}
+
+    with driver.session() as s:
+        result = s.run("MATCH (n) RETURN id(n) AS nid, labels(n) AS labels, properties(n) AS props")
+        for r in result:
+            props = dict(r["props"])
+            has_emb = "embedding" in props
+            if has_emb:
+                snapshot["embeddings"][str(r["nid"])] = props.pop("embedding")
+            snapshot["nodes"].append({
+                "nid": r["nid"], "labels": r["labels"], "props": props,
+                "has_embedding": has_emb,
+            })
+
+        result = s.run("MATCH (a)-[r]->(b) RETURN id(a) AS src, id(b) AS tgt, type(r) AS t, properties(r) AS p")
+        for r in result:
+            snapshot["relationships"].append({
+                "src_nid": r["src"], "tgt_nid": r["tgt"],
+                "rel_type": r["t"], "props": dict(r["p"]) if r["p"] else {},
+            })
+
+    driver.close()
+
+    with open(path, "w") as f:
+        json.dump(snapshot, f)
+
+    n_nodes = len(snapshot["nodes"])
+    n_rels = len(snapshot["relationships"])
+    n_emb = len(snapshot["embeddings"])
+    size_mb = path.stat().st_size / 1024 / 1024
+    print(f"Snapshot saved: {path.name} ({n_nodes} nodes, {n_rels} rels, {n_emb} embeddings, {size_mb:.1f}MB)")
+    return path
+
+
+def restore_graph(name: str) -> bool:
+    """Restore graph from a snapshot file. DESTRUCTIVE — replaces entire graph."""
+    path = SNAPSHOT_DIR / f"{name}.json"
+    if not path.exists():
+        print(f"Snapshot not found: {path}")
+        return False
+
+    with open(path) as f:
+        snapshot = json.load(f)
+
+    driver = get_driver()
+    with driver.session() as s:
+        # Clear
+        s.run("MATCH (n) DETACH DELETE n")
+
+        # Recreate nodes (map old nid → new node via temp property)
+        nid_to_id = {}  # old nid → entity/section id for matching
+        for node in snapshot["nodes"]:
+            labels = ":".join(node["labels"])
+            props = node["props"]
+            nid = node["nid"]
+
+            # Store the old nid temporarily for relationship recreation
+            props["_old_nid"] = nid
+
+            # Build SET clause
+            param_keys = {k: v for k, v in props.items()}
+            set_parts = ", ".join(f"n.{k} = ${k}" for k in param_keys)
+
+            s.run(f"CREATE (n:{labels}) SET {set_parts}", **param_keys)
+
+        # Restore embeddings
+        for nid_str, vec in snapshot.get("embeddings", {}).items():
+            nid = int(nid_str)
+            s.run("MATCH (n) WHERE n._old_nid = $nid SET n.embedding = $vec",
+                  nid=nid, vec=vec)
+
+        # Recreate relationships
+        for rel in snapshot["relationships"]:
+            props = rel["props"]
+            props_str = ", ".join(f"r.{k} = ${k}" for k in props)
+            set_clause = f"SET {props_str}" if props_str else ""
+            s.run(f"""
+                MATCH (a), (b)
+                WHERE a._old_nid = $src AND b._old_nid = $tgt
+                CREATE (a)-[r:{rel['rel_type']}]->(b)
+                {set_clause}
+            """, src=rel["src_nid"], tgt=rel["tgt_nid"], **props)
+
+        # Remove temp property
+        s.run("MATCH (n) WHERE n._old_nid IS NOT NULL REMOVE n._old_nid")
+
+        # Rebuild vector index
+        try:
+            s.run("DROP VECTOR INDEX section_embeddings")
+        except Exception:
+            pass
+        try:
+            s.run('CREATE VECTOR INDEX section_embeddings ON :Section(embedding) '
+                  'WITH CONFIG {"dimension": 768, "capacity": 10000, "metric": "cos"}')
+        except Exception:
+            pass
+
+        r = s.run("MATCH (n) RETURN count(n) AS c").single()
+        print(f"Restored: {r['c']} nodes")
+        r = s.run("MATCH ()-[r]->() RETURN count(r) AS c").single()
+        print(f"  {r['c']} relationships")
+
+    driver.close()
+    return True
+
+
+def auto_snapshot(operation: str):
+    """Take an automatic pre-operation snapshot."""
+    from datetime import datetime
+    name = f"auto-{operation}-{datetime.now().strftime('%Y%m%d-%H%M%S')}"
+    snapshot_graph(name)
+
+    # Keep only last 5 auto snapshots
+    auto_files = sorted(SNAPSHOT_DIR.glob("auto-*.json"), key=lambda p: p.stat().st_mtime)
+    while len(auto_files) > 5:
+        old = auto_files.pop(0)
+        old.unlink()
+        print(f"  Pruned old snapshot: {old.name}")
 
 
 def embed(text: str) -> list[float]:
@@ -177,6 +311,9 @@ def cmd_upsert_entity(args):
     if not path.exists():
         print(f"File not found: {path}")
         return 1
+
+    # Auto-snapshot before destructive operation
+    auto_snapshot("upsert")
 
     fm, body = parse_frontmatter(path)
     if not fm.get("title"):
@@ -527,6 +664,34 @@ def cmd_stats(args):
     return 0
 
 
+def cmd_snapshot(args):
+    """Save a graph snapshot."""
+    snapshot_graph(args.name)
+    return 0
+
+
+def cmd_restore(args):
+    """Restore from a snapshot. DESTRUCTIVE."""
+    print(f"WARNING: This will replace the entire graph with snapshot '{args.name}'.")
+    if restore_graph(args.name):
+        return 0
+    return 1
+
+
+def cmd_list_snapshots(args):
+    """List available snapshots."""
+    SNAPSHOT_DIR.mkdir(parents=True, exist_ok=True)
+    files = sorted(SNAPSHOT_DIR.glob("*.json"), key=lambda p: p.stat().st_mtime, reverse=True)
+    if not files:
+        print("No snapshots found.")
+        return 0
+    print(f"Snapshots ({len(files)}):")
+    for f in files:
+        size_mb = f.stat().st_size / 1024 / 1024
+        print(f"  {f.stem:40} {size_mb:.1f}MB")
+    return 0
+
+
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
@@ -559,6 +724,14 @@ def main():
     sub.add_parser("check", help="Run contradiction checks")
     sub.add_parser("stats", help="Graph statistics")
 
+    p = sub.add_parser("snapshot", help="Save graph snapshot")
+    p.add_argument("name", nargs="?", help="Snapshot name (default: timestamp)")
+
+    p = sub.add_parser("restore", help="Restore from snapshot (DESTRUCTIVE)")
+    p.add_argument("name", help="Snapshot name")
+
+    sub.add_parser("snapshots", help="List available snapshots")
+
     args = parser.parse_args()
     if not args.command:
         parser.print_help()
@@ -572,6 +745,9 @@ def main():
         "query-similar": cmd_similar,
         "check": cmd_check,
         "stats": cmd_stats,
+        "snapshot": cmd_snapshot,
+        "restore": cmd_restore,
+        "snapshots": cmd_list_snapshots,
     }
     return commands[args.command](args)
 

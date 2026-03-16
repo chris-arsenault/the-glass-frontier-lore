@@ -164,6 +164,18 @@ public_entry: elves
 
 **What does NOT go in `dm/`:** Anything that's just unwritten. Shell entries and `[future:]` markers are for things we haven't fleshed out yet. `dm/` is for things that are deliberately hidden from the player-facing wiki.
 
+## Critical: Graph Safety
+
+**NEVER write or execute ad-hoc Python scripts that modify the graph.** All graph writes go through `graph_cli.py`. The CLI takes automatic snapshots before destructive operations. Ad-hoc scripts bypass this protection and have already caused data loss.
+
+**Before ANY graph modification:**
+1. Take a snapshot: `python3 graph_cli.py snapshot before-<description>`
+2. If the operation involves a query that creates or deletes nodes/edges, **run the query as a read-only DRY RUN first** — replace `CREATE`/`MERGE`/`DELETE`/`SET` with `RETURN` to see what would be affected
+3. Review the dry run results before executing
+4. Use the CLI commands, not raw Cypher in scripts
+
+**If something goes wrong:** `python3 graph_cli.py restore <snapshot-name>`
+
 ## Critical: Graph Workflow
 
 **Every prose change MUST be accompanied by a graph update.** The Memgraph database at `192.168.66.3:7688` is the structured truth layer. Prose and graph must stay in sync at all times.
