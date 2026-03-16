@@ -127,8 +127,8 @@ All entities referenced in the DAG and timeline.
 | Entity | Status | Prominence | Era | Role |
 |--------|--------|------------|-----|------|
 | Tempered Accord | shell | renowned | Accord–present | Mediation framework; architected by Synod, Kite Guild, Displacement Council |
-| Echo Ledger Conclave | shell | recognized | Rekindling–present | Archivists; Echo River custodians; founded to study the Absence |
-| Lattice Proxy Synod | shell | recognized | Rekindling–present | Human-AI custodian brokers; resonance telemetry; Accord governance architects |
+| Echo Ledger Conclave | exists | recognized | Rekindling–present | Archivists; Echo River custodians; founded to study the Absence |
+| Lattice Proxy Synod | exists | recognized | Rekindling–present | Human-AI custodian brokers; resonance telemetry; Accord governance architects |
 | Vantara | exists | recognized | Rekindling–present | Travel and logistics corp; kite-sail fleets, hospitality, route infrastructure |
 | Coremark | shell | recognized | Rekindling–present | Capitalist salvage corp → criminal syndicate; negligence causes the Bloom |
 | Verge Compact | shell | recognized | Silent Bloom–present | Salvage regulatory body; born from Bloom response |
@@ -160,7 +160,7 @@ All entities referenced in the DAG and timeline.
 |--------|--------|------------|-----|------|
 | Sithari | exists | mythic | all | De facto capital; largest surface settlement; Sithari heartland |
 | Shear | exists | renowned | Glassfall–present | Uninhabitable debris pockets; ~50% of Kaleidos orbit; salvage zone |
-| Sable Crescent | shell | recognized | Signal Famine–present | Surface region; major Echo River surfacing points |
+| Sable Crescent | exists | recognized | Signal Famine–present | Surface region; major Echo River surfacing points |
 | Glasswake | exists | recognized | Rekindling–present | Mining town; first post-Famine reconnection with Hab Meridian |
 | Span Nine | exists | recognized | Ring Age–present | Pre-Glassfall hardline conduit; Sithari to Pelhari and Threshold Station |
 | The Keel | exists | recognized | Rekindling–present | Primary orbital trade lane; contested, partly lawless |

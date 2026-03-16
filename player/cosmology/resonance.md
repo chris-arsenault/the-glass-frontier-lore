@@ -24,7 +24,7 @@ Ringglass vibrates across a spectrum. The builders encoded specific physical eff
 
 **Structural** — reinforces physical bonds. Makes materials harder, denser, more resilient. Ringglass-reinforced concrete is standard construction on Kaleidos. The most common practical application and the one with the longest history of reliable use.
 
-**Kinetic** — converts resonance into motion, heat, and force. The workhorse band. Powers [future:kite-sails], runs refineries, generates electricity. The key mechanism is momentum nullification — kinetic-tuned ringglass can redirect opposing forces into a frequency null space, producing effectively unopposed motion. This is why a kite-sail moves faster than wind alone should allow, and why resonance-powered vehicles don't obey normal friction constraints.
+**Kinetic** — converts resonance into motion, heat, and force. The workhorse band. Powers [kite-sails](../concepts/practical-resonance.md), runs refineries, generates electricity. The key mechanism is momentum nullification — kinetic-tuned ringglass can redirect opposing forces into a frequency null space, producing effectively unopposed motion. This is why a kite-sail moves faster than wind alone should allow, and why resonance-powered vehicles don't obey normal friction constraints.
 
 **Signal** — carries information. Communication, data storage, navigation. In the wild, signal-frequency ringglass picks up and retransmits whatever data it encounters, which is why [Echo Rivers](echo-rivers.md) carry fragments of pre-Glassfall transmissions. Controlled signal-band arrays are used for communication, navigation, and — in the hands of the [Echo Ledger Conclave](../npcs/factions/echo-ledger-conclave.md) — recovering historical records from ambient noise.
 
@@ -38,7 +38,7 @@ Within each band, the *bandwidth* of the application determines its power and ac
 
 **Narrow bandwidth** — tightly focused, poorly understood. Narrow-band resonance produces effects that don't have clear theoretical explanations. Structural narrow can locally alter physical laws. Kinetic narrow has been observed to produce translocation effects. Signal narrow borders on consciousness interface — direct information transfer without a medium.
 
-The narrow end is where the [elves](../concepts/elves.md) operated routinely and where nobody else goes without extreme caution. [future:Bloom Zone] relics, pre-Glassfall artifacts, and the deepest [future:Shear] anomalies all exhibit narrow-bandwidth characteristics. The [Lattice Proxy Synod](../npcs/factions/lattice-proxy-synod.md)'s AI custodians appear to process information at narrow signal bandwidth, which is part of why communication with them is so difficult.
+The narrow end is where the [elves](../concepts/elves.md) operated routinely and where nobody else goes without extreme caution. [future:Bloom Zone] relics, pre-Glassfall artifacts, and the deepest [Shear](../locations/regions/the-shear.md) anomalies all exhibit narrow-bandwidth characteristics. The [Lattice Proxy Synod](../npcs/factions/lattice-proxy-synod.md)'s AI custodians appear to process information at narrow signal bandwidth, which is part of why communication with them is so difficult.
 
 Most people never encounter anything beyond broad. Working professionals operate at mid. Narrow is the domain of relics, accidents, and things nobody fully controls.
 

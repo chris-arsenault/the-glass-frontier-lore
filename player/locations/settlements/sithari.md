@@ -56,7 +56,7 @@ This is both a strength and a vulnerability. Sithari's economic centrality depen
 
 Sithari has direct orbital access — shuttle infrastructure connecting to ring habs. Some habs serve as entry points to the Shear for salvage crews. Shuttle traffic is routine. A space elevator was attempted during the Rekindling; the project was abandoned due to political prioritization rather than technical failure, and the debate about resuming it surfaces every few years.
 
-The city is also the terminus of major surface trade routes, including the [The Keel](../landmarks/keel.md) connecting to the [Sable Crescent](../regions/sable-crescent.md). The [Vantara](../../npcs/factions/vantara.md) maintains its largest surface operations hub in Sithari's eastern sprawl.
+The city is a major node on [the Keel](../landmarks/keel.md) — the system's primary orbital trade lane. Surface-access spurs connect Sithari's docking infrastructure to the orbital corridor. [Vantara](../../npcs/factions/vantara.md) maintains its largest surface operations hub in Sithari's eastern sprawl.
 
 ## What It Feels Like <!-- Atmosphere -->
 

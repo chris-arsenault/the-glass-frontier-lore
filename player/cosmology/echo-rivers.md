@@ -7,7 +7,7 @@ tags: [resonance, signal-freq, archives]
 
 # Echo Rivers
 
-Beneath the surface of Kaleidos, water moves through rock that's been saturated with crystal dust from 130 years of [Glassfall](../history/events/the-glassfall.md) debris. As it flows through these mineral-laced channels, it picks up [resonance](resonance.md) — specifically, the high-band frequencies that once carried data through the orbital rings.
+Beneath the surface of Kaleidos, water moves through rock that's been saturated with crystal dust from 130 years of [Glassfall](../history/events/the-glassfall.md) debris. As it flows through these mineral-laced channels, it picks up [resonance](resonance.md) — specifically, the signal-band frequencies that once carried data through the orbital rings.
 
 The result is underground rivers that carry sound. Not just any sound — voices, fragments of old transmissions, snatches of conversation from before the rings fell. Stand near a place where an Echo River surfaces and you'll hear them: faint, layered, overlapping. Mostly unintelligible. Occasionally, heartbreakingly clear.
 
@@ -26,7 +26,7 @@ The rivers don't replay on demand. You can't ask them questions. You stand, you 
 
 Echo Rivers surface where the underground geology forces them upward — at springs, sinkholes, cave openings, and along certain cliff faces where the crystal-bearing rock is exposed. The largest surfacing points are in the marshy lowlands of the Sable Crescent, where the water table is high and the ground is thick with crystal sediment.
 
-Some settlements have built around surfacing points. Others avoid them deliberately. There's a practical concern — high-band resonance in quantity can cause headaches, disorientation, and in rare cases a kind of waking dream state where the listener loses track of which voice is theirs and which belongs to the river. The Conclave calls this "drift" and considers it an occupational hazard. Everyone else calls it a good reason to keep your distance.
+Some settlements have built around surfacing points. Others avoid them deliberately. There's a practical concern — signal-band resonance in quantity can cause headaches, disorientation, and in rare cases a kind of waking dream state where the listener loses track of which voice is theirs and which belongs to the river. The Conclave calls this "drift" and considers it an occupational hazard. Everyone else calls it a good reason to keep your distance.
 
 ## Significance
 

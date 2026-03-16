@@ -417,6 +417,32 @@ def main():
                 warn(f"{rel}: {source_prom}-prominence entry links to "
                      f"'{link_text}' which is {target_prom}-prominence")
 
+    # --- 12b. Double-article link detector ---
+    for path in content_files:
+        rel = path.relative_to(ROOT)
+        text = path.read_text()
+        text = re.sub(r"```.*?```", "", text, flags=re.DOTALL)
+        for m in re.finditer(r'(?:the|The)\s+\[(?:The|the)\s+', text):
+            # Find the line number
+            pos = m.start()
+            line_num = text[:pos].count("\n") + 1
+            error(f"{rel}:{line_num}: double article — '{m.group().strip()}'")
+
+    # --- 12c. Non-standard resonance band vocabulary ---
+    # Flag "high-band" or "low-band" when used as resonance terms
+    # (followed by frequency/frequencies/resonance), not as general English
+    NON_STANDARD_PATTERNS = [
+        r"high-band\s+(?:frequenc|resonance)",
+        r"low-band\s+(?:frequenc|resonance)",
+    ]
+    for path in content_files:
+        rel = path.relative_to(ROOT)
+        text = path.read_text().lower()
+        text = re.sub(r"```.*?```", "", text, flags=re.DOTALL)
+        for pattern in NON_STANDARD_PATTERNS:
+            if re.search(pattern, text):
+                error(f"{rel}: non-standard resonance term — use structural/kinetic/signal + broad/mid/narrow")
+
     # --- 13. Duplicate file stems ---
     stems: dict[str, Path] = {}
     for path in content_files:

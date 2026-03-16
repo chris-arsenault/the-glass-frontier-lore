@@ -19,7 +19,7 @@ Depletion is a real concern. Draw too much from a local field too quickly and th
 
 ## Transport <!-- Applications -->
 
-[future:Kite-sails] are the general-purpose motive engine of the system. They operate on kinetic-band resonance: ringglass arrays tuned to redirect opposing forces into a frequency null space, producing effectively unopposed momentum. A kite-sail doesn't fight friction — it makes friction happen somewhere else. The result is a vehicle that moves through air, vacuum, or the [Shear](../locations/regions/the-shear.md) with efficiency that conventional thrust can't match.
+[Kite-sails](../artifacts/common/kite-sail.md) are the general-purpose motive engine of the system. They operate on kinetic-band resonance: ringglass arrays tuned to redirect opposing forces into a frequency null space, producing effectively unopposed momentum. A kite-sail doesn't fight friction — it makes friction happen somewhere else. The result is a vehicle that moves through air, vacuum, or the [Shear](../locations/regions/the-shear.md) with efficiency that conventional thrust can't match.
 
 Kite-sails range from single-crew skiffs to heavy cargo haulers. The technology is mature and well-understood at broad and mid bandwidth. Surface transport, orbital shuttles, inter-hab transit, and Shear salvage operations all use kite-sail variants. The name is historical — early models used literal sails to catch wind, augmented by kinetic arrays. Modern kite-sails don't need wind, but the name stuck.
 
