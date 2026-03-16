@@ -1,25 +1,16 @@
-.PHONY: lint check wiki graph graph-check clean
+.PHONY: lint check wiki graph-bootstrap clean
 
-# Run all checks (lore + wiki + graph)
+# Run all checks (lore + wiki)
 lint:
 	@python3 lint.py
 	@python3 wiki_gen.py wiki_out
-	@python3 graph_sync.py --check-only
 
 # Alias
 check: lint
 
-# Sync lore to graph and run contradiction checks
-graph:
-	@python3 graph_sync.py
-
-# Re-sync graph from scratch
-graph-reset:
-	@python3 graph_sync.py --clear
-
-# Run graph contradiction checks only
-graph-check:
-	@python3 graph_sync.py --check-only
+# Full graph rebuild (disaster recovery only)
+graph-bootstrap:
+	@python3 graph_bootstrap.py
 
 # Generate wiki pages locally (without linting)
 wiki:
