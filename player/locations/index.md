@@ -32,10 +32,10 @@ Regions, settlements, landmarks, and other named places across the Kaleidos syst
 |-------|------|--------|------------|------|-------|
 | The Pale Shard | — | shell | recognized | orbital, navigation | Named ring fragment; shadow used for weather prediction |
 | The Choir Fragment | — | shell | recognized | orbital, resonance | Named ring fragment said to sing when it catches the light |
-| Span Nine | — | shell | recognized | surface, resonance | First long-range resonance relay; landmark between Sithari and Glasswake |
+| Span Nine | [landmarks/span-nine.md](landmarks/span-nine.md) | complete | recognized | ring-era, resonance, signal-freq, orbital | Pre-Glassfall hardline conduit; Sithari to Pelhari and Threshold Station |
 | Pyre | — | shell | recognized | orbital, salvage, danger | Coremark refinery ruin; Bloom cascade origin point |
 | Bloom Zones | — | shell | renowned | orbital, danger, resonance | Man-made reality tears; can appear anywhere in orbit; require active containment |
-| Keel | — | shell | recognized | surface, trade, navigation | First major trade route; Sithari to Sable Crescent |
+| The Keel | [landmarks/keel.md](landmarks/keel.md) | complete | recognized | trade, orbital, danger, navigation | Primary orbital trade lane; ringglass production through Sithari to Ashvane |
 | Verathi | — | shell | marginal | orbital, governance | Station at center of first Accord arbitration |
 | Underlayers | — | shell | recognized | surface, ring-era, danger | Sithari's deep strata; ring-era and elven construction beneath the modern city |
 | Deep Shear | — | shell | recognized | orbital, danger, resonance | Deepest pockets of the Shear; spatial distortion, alien fauna |

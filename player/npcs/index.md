@@ -13,7 +13,7 @@ Factions, notable individuals, and named antagonists.
 | Tempered Accord | — | shell | renowned | governance, diplomacy | Mediating council for inter-settlement cooperation; referenced in Glassfall entry |
 | Echo Ledger Conclave | [factions/echo-ledger-conclave.md](factions/echo-ledger-conclave.md) | complete | recognized | archives, resonance, signal-freq, governance | Archivists; Echo River custodians; knowledge gatekeepers; HQ in Sable Crescent |
 | Lattice Proxy Synod | [factions/lattice-proxy-synod.md](factions/lattice-proxy-synod.md) | complete | recognized | ring-era, AI, governance, resonance | Interface with ring-era AI custodians; ritual-based communication; HQ at Threshold Station |
-| Prismwell Kite Guild | — | shell | recognized | trade, transport, navigation | Aerial trade corridor operators |
+| Vantara | [factions/vantara.md](factions/vantara.md) | complete | recognized | trade, transport, governance | Travel and logistics corp; kite-sail fleets, hospitality, route infrastructure |
 | Verge Compact | — | shell | recognized | salvage, ringglass, trade | Verge salvage regulation and logistics |
 | Lumenshard Conservatory | — | shell | recognized | ecology, resonance | Eco-faction protecting bioluminescent groves |
 | Clarisant | — | shell | recognized | resonance, training, governance | Tuner guild; accreditation body; HQ on Pelhari |

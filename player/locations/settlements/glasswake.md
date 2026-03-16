@@ -27,6 +27,6 @@ The reconnection history adds a secondary economy: tourism. Glasswake is the Ply
 
 A working town that happens to be famous. The streets are dusty from the mines. The buildings are practical — ringglass-reinforced stone, functional architecture, no pretension. The fallen hab fragment dominates the skyline as a ridge of fused crystal along the town's eastern edge, weathered into something that looks almost natural if you don't know what you're looking at.
 
-[future:Span Nine] — the relay that carried the first signal — is a landmark on the ridge between Glasswake and [Sithari](sithari.md). Tourists hike to it. Locals use it as a reference point for directions. "Past Span Nine, take the left fork."
+[Span Nine](../landmarks/span-nine.md) — the relay that carried the first signal — is a landmark on the ridge between Glasswake and [Sithari](sithari.md). Tourists hike to it. Locals use it as a reference point for directions. "Past Span Nine, take the left fork."
 
-The [future:Keel] trade route terminates here, connecting Glasswake to the [Sable Crescent](../regions/sable-crescent.md) via Sithari. This makes the town a minor trade waypoint — not a hub, but a place where kite-sails stop and crews resupply.
+The [The Keel](../landmarks/keel.md) trade route terminates here, connecting Glasswake to the [Sable Crescent](../regions/sable-crescent.md) via Sithari. This makes the town a minor trade waypoint — not a hub, but a place where kite-sails stop and crews resupply.

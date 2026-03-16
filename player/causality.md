@@ -27,15 +27,16 @@ Disappearance of the Elves → [removes knowledge enabling] → The Shear::Dange
 ## The Rekindling
 
 ```
-Signal Famine → [ends, enabling] → Span Nine
-Span Nine → [reconnects] → Sithari
-Span Nine → [reconnects] → Glasswake
+Glasswake → [rediscovers transmitter, reconnects with] → Hab Meridian
+Span Nine → [rediscovered, connects] → Sithari
+Span Nine → [rediscovered, connects] → Pelhari
+Span Nine → [rediscovered, connects] → Threshold Station
 
 Ringglass → [attracts salvage to] → The Shear
 The Shear → [gives rise to] → Ratters
 The Shear → [gives rise to] → Coremark
-Ringglass → [creates demand for] → Prismwell Kite Guild
-Prismwell Kite Guild → [establishes] → Keel
+Ringglass → [creates demand for] → Vantara
+Vantara → [establishes] → The Keel
 
 Coremark → [pioneers industrial salvage in] → The Shear
 ```
@@ -64,7 +65,7 @@ Elves → [increase presence in] → Bloom Zones                                
 Elves → [cooperate with] → Dern Talish                                        [DM]
 
 The Silent Bloom → [forces formation of] → Bloom Coalition
-Bloom Coalition ← [contributes logistics] ← Prismwell Kite Guild
+Bloom Coalition ← [contributes logistics] ← Vantara
 Bloom Coalition ← [contributes telemetry] ← Lattice Proxy Synod
 Bloom Coalition ← [contributes analysis] ← Echo Ledger Conclave
 
@@ -99,7 +100,7 @@ The Bitter Reach → [exhaustion motivates] → Tempered Accord
 Verge Compact → [provides model for] → Tempered Accord
 Displacement Council → [mediates formation of] → Tempered Accord
 Lattice Proxy Synod → [architects governance of] → Tempered Accord
-Prismwell Kite Guild → [architects trade provisions of] → Tempered Accord
+Vantara → [architects trade provisions of] → Tempered Accord
 Displacement Council → [architects humanitarian provisions of] → Tempered Accord
 
 Tempered Accord → [struggles with] → Bloom Zones
@@ -128,7 +129,7 @@ All entities referenced in the DAG and timeline.
 | Tempered Accord | shell | renowned | Accord–present | Mediation framework; architected by Synod, Kite Guild, Displacement Council |
 | Echo Ledger Conclave | shell | recognized | Rekindling–present | Archivists; Echo River custodians; founded to study the Absence |
 | Lattice Proxy Synod | shell | recognized | Rekindling–present | Human-AI custodian brokers; resonance telemetry; Accord governance architects |
-| Prismwell Kite Guild | shell | recognized | Rekindling–present | Aerial trade logistics; kite-sail operators; Accord trade architects |
+| Vantara | exists | recognized | Rekindling–present | Travel and logistics corp; kite-sail fleets, hospitality, route infrastructure |
 | Coremark | shell | recognized | Rekindling–present | Capitalist salvage corp → criminal syndicate; negligence causes the Bloom |
 | Verge Compact | shell | recognized | Silent Bloom–present | Salvage regulatory body; born from Bloom response |
 | Bloom Coalition | shell | renowned | Silent Bloom | Emergency multi-faction containment coalition; dissolved into Bitter Reach |
@@ -148,7 +149,7 @@ All entities referenced in the DAG and timeline.
 
 | Entity | Status | Prominence | Era | Role |
 |--------|--------|------------|-----|------|
-| Kite-sail | shell | renowned | Rekindling–present | Resonance-powered trade vessel |
+| Kite-sail | exists | renowned | Rekindling–present | General motive engine; momentum nullification; flitters to capital class |
 | Lira's Wall | shell | recognized | Silent Bloom | First resonance containment device; turning-point artifact |
 | Bloom Zone relics | shell | recognized | Silent Bloom–present | New relic-magnitude artifacts from reality distortion |
 | Compact Charter | shell | recognized | Silent Bloom | Verge Compact founding document |
@@ -160,9 +161,9 @@ All entities referenced in the DAG and timeline.
 | Sithari | exists | mythic | all | De facto capital; largest surface settlement; Sithari heartland |
 | Shear | exists | renowned | Glassfall–present | Uninhabitable debris pockets; ~50% of Kaleidos orbit; salvage zone |
 | Sable Crescent | shell | recognized | Signal Famine–present | Surface region; major Echo River surfacing points |
-| Glasswake | shell | recognized | Rekindling–present | Surface settlement; first reconnection partner with Sithari |
-| Span Nine | shell | recognized | Rekindling | First long-range resonance relay; landmark |
-| Keel | shell | recognized | Rekindling–present | First major trade route; Sithari to Sable Crescent |
+| Glasswake | exists | recognized | Rekindling–present | Mining town; first post-Famine reconnection with Hab Meridian |
+| Span Nine | exists | recognized | Ring Age–present | Pre-Glassfall hardline conduit; Sithari to Pelhari and Threshold Station |
+| The Keel | exists | recognized | Rekindling–present | Primary orbital trade lane; contested, partly lawless |
 | Pyre | shell | recognized | Contested Reach–Bloom | Coremark refinery ruin; Bloom cascade origin |
 | Bloom Zones | shell | renowned | Silent Bloom–present | Man-made reality tears; can appear anywhere in orbit |
 | Verathi | shell | marginal | Accord | Station at center of first Accord arbitration |

@@ -17,6 +17,7 @@ Unique relics and common resonance-tech items.
 
 | Entry | Path | Status | Prominence | Tags | Notes |
 |-------|------|--------|------------|------|-------|
+| Kite-sail | [common/kite-sail.md](common/kite-sail.md) | complete | renowned | transport, resonance, kinetic-freq, trade | General motive engine; momentum nullification; flitters to capital class |
 | Crystal-core lantern | — | shell | mythic | ringglass, household, kinetic-freq | Common household light source; everyone has one |
 | Tuning compass | — | shell | renowned | ringglass, navigation, signal-freq | Resonance-based navigation tool |
 | Bloom Zone relics | — | shell | recognized | resonance, danger | New relic-magnitude artifacts from reality distortion; not pre-collapse tech |
