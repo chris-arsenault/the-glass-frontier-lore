@@ -112,34 +112,49 @@ Indexes are layered, progressively more detailed:
 ## Directory Structure
 
 ```
-player/                 # all player-facing lore content
-  cosmology/            # the rings, resonance, echo rivers, the physical world
-  concepts/             # technology, magic, religion, governance, meta-level topics
+player/                     # all player-facing lore (published to wiki)
+  cosmology/                # the rings, resonance, echo rivers, the physical world
+  concepts/                 # technology, magic, species, cultures, governance
   locations/
-    regions/            # broad geographic areas
-    settlements/        # named towns, cities, stations
-    landmarks/          # notable specific places
+    regions/                # broad geographic areas
+    settlements/            # named towns, cities, stations
+    landmarks/              # notable specific places
   npcs/
-    factions/           # organized groups
-    heroes/             # notable individuals
-    monsters/           # named antagonists, villains, bosses
+    factions/               # organized groups
+    heroes/                 # notable individuals
+    monsters/               # named antagonists, villains, bosses
   history/
-    eras/               # broad time periods
-    events/             # specific historical moments
+    eras/                   # broad time periods
+    events/                 # specific historical moments
   artifacts/
-    relics/             # unique, named, significant
-    common/             # everyday resonance-tech items
+    relics/                 # unique, named, significant
+    common/                 # everyday resonance-tech items
   creatures/
-    fauna/              # wildlife, animals
-    anomalies/          # strange phenomena, living or otherwise
+    fauna/                  # wildlife, animals
+    anomalies/              # strange phenomena, living or otherwise
   ships/
-    military/           # warships, patrol vessels
-    civilian/           # trade ships, transports, personal craft
-dm/                     # DM-only knowledge — spoilers, hidden truths, secret motivations
-work-tracking/          # project tracking and work management
+    military/               # warships, patrol vessels
+    civilian/               # trade ships, transports, personal craft
+  themes/                   # thematic cores (index + individual pages)
+  threads/                  # plot threads (index + individual pages)
+  loops/                    # narrative loops (index + individual pages)
+  design-principles.md      # meta worldbuilding philosophy
+  world-seeds.md            # ideas and texture for future development
+  timeline.md               # major events chronology
+  tags.md                   # controlled tag vocabulary
+  causality.md              # entity-to-entity causal DAG
+
+dm/                         # DM-only knowledge (not published to wiki)
+review-guidance/            # writing quality docs (naming, deslop, crosswalk)
+research/                   # long-term reference material (thematic craft, analyses)
+work-tracking/              # temporary operational docs (queue, questions, snapshots)
+
+CLAUDE.md                   # this file — authoring conventions
+SYSTEM.md                   # technical architecture (graph, embedding, CLI, lint)
+README.md                   # repo overview
 ```
 
-New directories can be added as needed. The structure is emergent.
+New directories can be added as needed. The structure is emergent. See `SYSTEM.md` for technical details on the graph, embedding pipeline, and tooling.
 
 ## DM Knowledge (`dm/`)
 
