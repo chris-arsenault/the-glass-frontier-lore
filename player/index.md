@@ -8,6 +8,11 @@ A shattered ring world. A planet dusted in crystal. A solar system full of peopl
 
 The orbital ring around Kaleidos broke 130 years ago. The fragments — hundreds of them, many still habitable — drifted apart. The surface was cut off from orbit. The other worlds in the system carried on alone. When everyone finally reconnected, they discovered they'd become strangers. That reconciliation is ongoing, messy, and alive.
 
+## About
+
+- [Design Principles](design-principles.md) — how this world is built: tone, rules, philosophy
+- [World Seeds](world-seeds.md) — ideas and texture for future development
+
 ## Meta
 
 - [Timeline](timeline.md) — major events, colony founding through present day

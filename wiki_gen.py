@@ -100,6 +100,8 @@ class RepoScanner:
         "player/index.md": "Home",
         "player/tags.md": "Tags",
         "player/timeline.md": "Timeline",
+        "player/design-principles.md": "Design Principles",
+        "player/world-seeds.md": "World Seeds",
     }
 
     def scan(self):
@@ -450,7 +452,15 @@ def generate_wiki(root: Path, output_dir: Path) -> list[str]:
     wiki_filename, content = generate_special_page("Tags.md", "player/tags.md", scanner)
     write_page(wiki_filename, content)
 
-    # 6. Sidebar
+    # 6. Design Principles
+    wiki_filename, content = generate_special_page("Design-Principles.md", "player/design-principles.md", scanner)
+    write_page(wiki_filename, content)
+
+    # 7. World Seeds
+    wiki_filename, content = generate_special_page("World-Seeds.md", "player/world-seeds.md", scanner)
+    write_page(wiki_filename, content)
+
+    # 8. Sidebar
     wiki_filename, content = generate_sidebar(scanner)
     write_page(wiki_filename, content)
 

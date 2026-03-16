@@ -11,7 +11,8 @@ PLAYER_DIR = ROOT / "player"
 # Files that are meta/infrastructure, not lore entries
 META_FILES = {
     "CLAUDE.md", "index.md", "tags.md", "timeline.md", "causality.md",
-    "lint.py", "wiki_gen.py", "Makefile",
+    "design-principles.md", "world-seeds.md",
+    "lint.py", "wiki_gen.py", "graph_cli.py", "Makefile",
     "README.md", "LICENSE.md",
 }
 
