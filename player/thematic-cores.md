@@ -10,13 +10,17 @@ Each core is framed as a question, a system that embodies it, and a test for whe
 
 ---
 
-## 1. "What happens when the builders leave?"
+## 1. "What do you build when the original blueprints are gone?"
 
-Resonance was engineered by the elves. Ringglass was shaped by elven science. The ring was elven architecture. The elves are gone. Everything that remains is an inheritance nobody fully understands — maintained by people working from fragments, approximations, and trial-and-error.
+Resonance was engineered by the elves. Ringglass was shaped by elven science. The ring was elven architecture. The elves are gone. What remains is an inheritance nobody fully understands — and a civilization that keeps building anyway, from fragments, approximations, and improvisation that sometimes produces things the original builders never imagined.
 
-**The system:** The band/bandwidth model. Broad bandwidth is accessible to everyone. Mid bandwidth requires training. Narrow bandwidth is where the elves operated and where nobody else goes safely. The entire technological civilization runs on the broad and mid range of a system designed for narrow. The Bloom happened in the gap between what was built and what is understood.
+**The system:** The band/bandwidth model. Broad bandwidth is accessible to everyone. Mid bandwidth requires training. Narrow bandwidth is where the elves operated and where nobody else goes safely. The entire technological civilization runs on the broad and mid range of a system designed for narrow. The Bloom happened in the gap between what was built and what is understood. But the Tuners — who reinvented resonance practice without elven theory — sometimes understand local conditions better than the original science would have predicted.
 
-**The test:** Does this entry show someone depending on something they didn't build and can't fully explain? The Synod's ritual-based AI communication. The Tuners reinventing resonance theory from scratch. Sithari's underlayers with non-euclidean geometry nobody can replicate. The Shear's resonance ecology that nobody manages because the managers are gone.
+**The opposition:** This is not just loss. The Tuners didn't recover elven science — they built something new. Folk Tuning works in ways the Clarisant's academic approach can't replicate, precisely because it wasn't derived from the original framework. The Synod's rituals are superstition-as-engineering, and they work. New builders emerge. New approaches appear. The question isn't "how do we get back what was lost" — it's "what do we make from here."
+
+**Multi-scale:** System-wide (resonance technology stack is post-elven improvisation), faction (the Synod inhabiting a station they don't control), settlement (a hab that lost its charismatic leader and became something unexpected), personal (Lira Vashtenri leaving the Conclave to build containment ops from scratch).
+
+**The test:** Does this entry show someone building from inheritance they didn't choose? Does it show the tension between recovering what was lost and inventing what comes next?
 
 ---
 

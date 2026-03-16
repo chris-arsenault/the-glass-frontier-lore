@@ -17,6 +17,11 @@ Ideas, examples, and texture mentioned in conversation that haven't been formali
 - **Crystallized aura** ("god juice") — some kind of condensed resonance essence. Mentioned but not defined. Possibly related to duskgrain or a distinct phenomenon.
 - **Echo River water with original voices intact** — unpurified stillwater sold to collectors. Pre-Glassfall conversations you can listen to. Extreme black market prices.
 
+## Thematic Seeds
+
+- A **hab whose charismatic leader left** — the community was held together by force of personality, and now that person is gone. What does the hab become? Not a tragedy — an evolution. The theme of "what do you build when the original blueprints are gone?" at settlement scale. The opposition expression: maybe the hab is *better* without the leader, in ways nobody expected.
+- **The Tuners as reinvention, not recovery** — they didn't get elven science back, they built something different. Folk Tuning vs Clarisant academic Tuning is inheritance vs reinvention playing out in real time. The folk approach is sometimes better for local conditions precisely because it wasn't built from the original theory.
+
 ## Locations / Scenarios
 
 - A **secret gambling den** where an artifact lets you gamble with lifespan. Not metaphorical — you literally wager years.
