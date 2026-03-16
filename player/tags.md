@@ -14,7 +14,7 @@ Controlled vocabulary for entry frontmatter `tags` field. Tags describe **what a
 |-----|---------|
 | `ring-hab` | A habitat on the Glass Frontier ring fragments |
 | `surface` | Located on Kaleidos's planetary surface |
-| `orbital` | In orbit or the Verge |
+| `orbital` | In orbit, the ring, or the Shear |
 | `outer-system` | Beyond Kaleidos orbit |
 
 ## Physics & Environment
@@ -35,7 +35,7 @@ Controlled vocabulary for entry frontmatter `tags` field. Tags describe **what a
 | `ringglass` | Involves ringglass as a material or commodity |
 | `materials` | Physical resources, raw or processed |
 | `trade` | Commerce, supply chains, economics |
-| `salvage` | Verge salvage operations, scavenging |
+| `salvage` | Shear salvage operations, scavenging |
 | `household` | Everyday items, domestic technology |
 
 ## Governance & Society

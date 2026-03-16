@@ -38,7 +38,7 @@ Independent salvage → [creates demand for] → Trade route infrastructure
 Trade route demand → [gives rise to] → Prismwell Kite Guild
 Ringglass value → [attracts] → Coremark (new)
 
-Coremark → [pioneers] → Industrial-scale Verge salvage
+Coremark → [pioneers] → Industrial-scale Shear salvage
 Coremark → [prioritizes profit over] → Resonance ecology stability
 Coremark → [lobbies against] → Salvage regulation efforts
 ```
@@ -194,7 +194,7 @@ All entities referenced in the DAG and timeline. Ordered by dependency for flesh
 | Entity | Status | Prominence | Era | Role |
 |--------|--------|------------|-----|------|
 | Sithari | new | mythic | all | De facto capital; largest surface settlement; Sithari heartland |
-| Verge | shell | renowned | Glassfall–present | Debris field between atmosphere and orbit; salvage zone |
+| Shear | shell | renowned | Glassfall–present | Uninhabitable debris zone between atmosphere and ring habs; salvage zone |
 | Sable Crescent | new | recognized | Signal Famine–present | Surface region; major Echo River surfacing points |
 | Glasswake | new | recognized | Rekindling–present | Surface settlement; first reconnection partner with Sithari |
 | Span Nine | new | recognized | Rekindling | First long-range resonance relay; landmark |

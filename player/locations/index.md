@@ -19,7 +19,7 @@ Regions, settlements, landmarks, and other named places across the Kaleidos syst
 
 | Entry | Path | Status | Prominence | Tags | Notes |
 |-------|------|--------|------------|------|-------|
-| The Verge | — | shell | renowned | salvage, orbital, danger | The contested band between atmosphere and orbit; referenced in multiple entries |
+| The Shear | — | shell | renowned | salvage, orbital, danger | Uninhabitable debris zone; salvage territory; resonance distortion; referenced in multiple entries |
 
 ## Landmarks
 

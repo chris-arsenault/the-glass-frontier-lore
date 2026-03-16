@@ -22,14 +22,18 @@ Other habs went their own way entirely. Cut off during the Signal Famine, they r
 
 These fluid-reality habs are the hardest to describe and the most dangerous to visit. They're also, for certain kinds of people, the most interesting places in the system.
 
-## Getting There
+## The Ring and the Shear
 
-The Glass Frontier isn't remote. It's right there — visible from anywhere on Kaleidos's surface, a glittering band across the sky. Getting to it is a matter of technology and will. Shuttle traffic between the surface and the ring is routine in well-connected regions. Deeper into the frontier — the far-drift habs, the unstable fragments, the zones where the debris is thick enough to shred a hull — that takes better ships and more nerve.
+The Glass Frontier contains two fundamentally different environments:
 
-The ring is also the gateway to the rest of the [Kaleidos system](the-kaleidos-system.md). Most interplanetary traffic routes through ring-based stations and commerce hubs, because that's where the old infrastructure — docking systems, navigation beacons, [resonance](resonance.md) relay networks — is densest.
+**The ring** is what most people mean when they say "the frontier" — the surviving habs, the inhabited fragments, the places where people live. Shuttle traffic between the surface and the ring is routine in well-connected regions. The ring is also the gateway to the rest of the [Kaleidos system](the-kaleidos-system.md). Most interplanetary traffic routes through ring-based stations and commerce hubs, because that's where the old infrastructure — docking systems, navigation beacons, [resonance](resonance.md) relay networks — is densest.
+
+**[future:The Shear]** is everything between the ring and the surface that isn't habitable — the debris field, the glass dust, the zones where ringglass fragments tumble in unstable orbits and the resonance environment is distorted and dangerous. The Shear is where salvage happens, where fortunes are made harvesting [ringglass](../concepts/ringglass.md), and where people die when the debris shifts or the resonance spikes. Ring habs sit within or above the Shear; some serve as entry points for salvage crews heading deeper in.
+
+The boundary between ring and Shear is not sharp. A hab that was stable for decades can lose structural integrity and become Shear — just another piece of debris. A section of Shear can be stabilized, sealed, and colonized into a new hab. The frontier is, in this sense, always moving.
 
 ## What It Means
 
-The Glass Frontier is the defining feature of this civilization. Not Kaleidos the planet, which is one world among several in the system. The ring. It's where the oldest technology lives, where the strangest communities flourish, where fortunes are made salvaging pre-Glassfall relics, and where the boundaries of the possible are thinnest.
+The Glass Frontier is the defining feature of this civilization. Not Kaleidos the planet, which is one world among several in the system. The ring. It's where the oldest technology lives, where the strangest communities flourish, and where the boundaries of the possible are thinnest.
 
-It's also, still, slowly falling apart. The debris field grows. Habs that were stable for decades occasionally lose structural integrity and have to be evacuated — or don't get evacuated in time. The ring is not safe. It's not tame. But it is, emphatically, alive.
+It's also, still, slowly falling apart. The Shear grows. Habs that were stable for decades occasionally collapse into it. The ring is not safe. It's not tame. But it is, emphatically, alive.
