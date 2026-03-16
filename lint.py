@@ -626,34 +626,33 @@ def main():
                 if fm.get("type") and record["type"] and fm["type"] != record["type"]:
                     error(f"GRAPH G4: {rel} type mismatch — prose='{fm['type']}' graph='{record['type']}'")
 
-            # L2. Semantic similarity — same-heading sections from different entities
-            #     with very high similarity may indicate contradiction or redundancy
-            try:
-                import numpy as np
+            # L2. Semantic similarity — for each section, find nearest neighbors
+            #     via vector index. Flag same-heading pairs with high similarity.
+            seen_pairs = set()
+            result = session.run("""
+                MATCH (sec:Section)
+                WHERE sec.embedding IS NOT NULL AND sec.heading IS NOT NULL
+                RETURN sec.id AS sid, sec.entity_id AS eid, sec.heading AS heading, sec.embedding AS vec
+            """)
+            all_sections = [(r["sid"], r["eid"], r["heading"], r["vec"]) for r in result]
+
+            for sid, eid, heading, vec in all_sections:
                 result = session.run("""
-                    MATCH (sec:Section)
-                    WHERE sec.embedding IS NOT NULL AND sec.heading IS NOT NULL
-                    RETURN sec.id AS id, sec.entity_id AS eid, sec.heading AS heading, sec.embedding AS vec
-                """)
-                secs_data = [(r["id"], r["eid"], r["heading"], r["vec"]) for r in result]
-
-                from collections import defaultdict
-                by_heading = defaultdict(list)
-                for sid, eid, heading, vec in secs_data:
-                    by_heading[heading].append((sid, eid, np.array(vec)))
-
-                for heading, secs in by_heading.items():
-                    if len(secs) < 2:
-                        continue
-                    for i in range(len(secs)):
-                        for j in range(i + 1, len(secs)):
-                            _, eid_a, vec_a = secs[i]
-                            _, eid_b, vec_b = secs[j]
-                            sim = float(np.dot(vec_a, vec_b) / (np.linalg.norm(vec_a) * np.linalg.norm(vec_b)))
-                            if sim > 0.92:
-                                warn(f"GRAPH L2: [{heading}] {eid_a} ↔ {eid_b} similarity={sim:.3f} — review for redundancy or contradiction")
-            except ImportError:
-                warn("GRAPH L2: numpy not available — skipping semantic similarity checks")
+                    CALL vector_search.search("section_embeddings", 5, $vec)
+                    YIELD node, similarity
+                    WITH node, similarity
+                    WHERE node.id <> $sid
+                    AND node.heading = $heading
+                    AND similarity > 0.92
+                    RETURN node.entity_id AS other_eid, similarity AS sim
+                """, vec=vec, sid=sid, heading=heading)
+                for r in result:
+                    pair = tuple(sorted([eid, r["other_eid"]]))
+                    pair_key = (heading, pair)
+                    if pair_key not in seen_pairs:
+                        seen_pairs.add(pair_key)
+                        warn(f"GRAPH L2: [{heading}] {pair[0]} ↔ {pair[1]} "
+                             f"similarity={r['sim']:.3f} — review for redundancy")
 
             # G7. Orphan detection — entities with no edges at all
             result = session.run("""
