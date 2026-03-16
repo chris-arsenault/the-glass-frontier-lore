@@ -2,7 +2,6 @@
 title: Sitharian Culture
 type: concept
 tags: [social-structure, governance, trade]
-related: [sithari]
 prominence: renowned
 ---
 

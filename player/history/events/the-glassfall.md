@@ -4,7 +4,6 @@ type: event
 date: 2240 CE
 prominence: mythic
 tags: [catastrophe, origin]
-related: [the-glass-frontier]
 ---
 
 # The Glassfall

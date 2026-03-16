@@ -2,7 +2,6 @@
 title: Sithari
 type: location
 tags: [surface, governance, trade, ring-era]
-related: [ringglass, resonance, tempered-accord]
 prominence: mythic
 registry: true
 ---

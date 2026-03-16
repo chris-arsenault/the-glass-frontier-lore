@@ -3,7 +3,6 @@ title: Echo Rivers
 type: concept
 prominence: renowned
 tags: [resonance, signal-freq, archives]
-related: [resonance]
 ---
 
 # Echo Rivers

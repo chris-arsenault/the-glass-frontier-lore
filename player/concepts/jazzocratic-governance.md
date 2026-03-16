@@ -2,7 +2,6 @@
 title: Jazzocratic Governance
 type: concept
 tags: [governance, music, social-structure]
-related: [fermata-station]
 prominence: marginal
 ---
 

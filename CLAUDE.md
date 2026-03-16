@@ -45,7 +45,7 @@ use the future marker: [future:Entity Name]
 - `title` — required. The entry's name.
 - `type` — required. The entry's primary type. Determines which directory it lives in.
 - `tags` — optional. Topics and themes this entry involves. **Controlled vocabulary** — only use tags defined in [`tags.md`](player/tags.md). If you need a new tag, add it there first. Tags describe what an entry is *about* (e.g., `governance`, `resonance`, `trade`), not what it is *related to*.
-- `related` — optional. Slugs of other entities this entry has a direct relationship with. These are entity references, not topics. Use the filename stem (e.g., `fermata-station`, `ringglass`, `echo-ledger-conclave`). The nature of the relationship is understood from context.
+- `related` — **DEPRECATED.** Entity relationships are tracked in the graph database with typed edges (LEADS, DEPENDS_ON, LOCATED_IN, etc.) not generic frontmatter lists. Do not add new `related:` fields. Existing ones will be removed as entries are touched.
 - `prominence` — optional but encouraged. How widely known this entity is. One of: `forgotten`, `marginal`, `recognized`, `renowned`, `mythic`. See [Prominence](player/concepts/prominence.md). This is NOT power or importance — only awareness. Gates how far references should reach in the knowledge graph.
 - `alias` — optional. Common alternative name(s) for this entry.
 - Additional fields as needed: `region:`, `era:`, `status:` etc. Add only when they carry real information.
@@ -56,7 +56,6 @@ Example:
 title: Ol'dent
 type: npc
 tags: [governance, resonance, music]
-related: [fermata-station]
 prominence: forgotten
 ---
 ```

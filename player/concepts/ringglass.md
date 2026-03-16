@@ -3,7 +3,6 @@ title: Ringglass
 type: concept
 prominence: mythic
 tags: [resonance, materials, trade]
-related: [resonance]
 ---
 
 # Ringglass

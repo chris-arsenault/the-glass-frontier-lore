@@ -264,13 +264,9 @@ def main():
             if tag not in valid_tags:
                 error(f"{rel}: tag '{tag}' not in tags.md taxonomy — add it there first or use an existing tag")
 
-        # 3. Relationship validation
-        related = fm.get("related", [])
-        if isinstance(related, str):
-            related = [related]
-        for slug in related:
-            if slug not in known_slugs:
-                future(f"{rel}: related slug '{slug}' — no matching entity")
+        # 3. Deprecated related field
+        if "related" in fm:
+            error(f"{rel}: 'related' field is deprecated — relationships are tracked in the graph with typed edges")
 
         # 4. Type-directory alignment
         entry_type = fm.get("type", "")
@@ -496,7 +492,22 @@ def main():
                 for h in graph_heading_set - prose_graph_set:
                     warn(f"GRAPH: {rel} heading '{h}' exists in graph but not in prose")
 
-            # 14d. Entity title match — prose title should match graph title
+            # 14d. No banned relationship types in graph
+            result = session.run("""
+                MATCH (t:Taxonomy:RelationType {category: 'banned'})
+                RETURN t.name AS banned_type
+            """)
+            banned_types = [r["banned_type"] for r in result]
+            for bt in banned_types:
+                result = session.run(f"""
+                    MATCH ()-[r:{bt}]->()
+                    RETURN count(r) AS c
+                """)
+                count = result.single()["c"]
+                if count > 0:
+                    error(f"GRAPH: {count} '{bt}' edge(s) exist — this relationship type is banned")
+
+            # 14e. Entity title match — prose title should match graph title
             for path in content_files:
                 rel = path.relative_to(ROOT)
                 fm = parse_frontmatter(path)

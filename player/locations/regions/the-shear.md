@@ -2,7 +2,6 @@
 title: The Shear
 type: location
 tags: [orbital, salvage, danger, resonance]
-related: [ringglass, the-glass-frontier]
 prominence: renowned
 registry: true
 ---

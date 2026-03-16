@@ -2,7 +2,6 @@
 title: Dern Talish
 type: npc
 tags: [governance, resonance, diplomacy]
-related: [displacement-council, bloom-zones]
 prominence: recognized
 species: human
 culture: hab-worlder
