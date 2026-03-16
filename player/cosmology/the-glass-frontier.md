@@ -22,15 +22,17 @@ Other habs went their own way entirely. Cut off during the Signal Famine, they r
 
 These fluid-reality habs are the hardest to describe and the most dangerous to visit. They're also, for certain kinds of people, the most interesting places in the system.
 
-## The Ring and the Shear
+## Kaleidos Orbit
 
-The Glass Frontier contains two fundamentally different environments:
+The orbital space around Kaleidos — everything that used to be the ring — contains three distinct environments:
 
 **The ring** is what most people mean when they say "the frontier" — the surviving habs, the inhabited fragments, the places where people live. Shuttle traffic between the surface and the ring is routine in well-connected regions. The ring is also the gateway to the rest of the [Kaleidos system](the-kaleidos-system.md). Most interplanetary traffic routes through ring-based stations and commerce hubs, because that's where the old infrastructure — docking systems, navigation beacons, [resonance](resonance.md) relay networks — is densest.
 
-**[future:The Shear]** is everything between the ring and the surface that isn't habitable — the debris field, the glass dust, the zones where ringglass fragments tumble in unstable orbits and the resonance environment is distorted and dangerous. The Shear is where salvage happens, where fortunes are made harvesting [ringglass](../concepts/ringglass.md), and where people die when the debris shifts or the resonance spikes. Ring habs sit within or above the Shear; some serve as entry points for salvage crews heading deeper in.
+**[The Shear](../locations/regions/the-shear.md)** fills the pockets and layers between habitable fragments — roughly half the orbital volume. Debris, resonance distortion, and the [ringglass](../concepts/ringglass.md) salvage industry that depends on both. The Shear has existed since the Glassfall and is, by now, broadly understood. Dangerous, but navigable. An environment people have learned to work in.
 
-The boundary between ring and Shear is not sharp. A hab that was stable for decades can lose structural integrity and become Shear — just another piece of debris. A section of Shear can be stabilized, sealed, and colonized into a new hab. The frontier is, in this sense, always moving.
+**[future:Bloom Zones]** are the exception to "understood." Man-made reality tears caused by the [future:Silent Bloom] cascade of 2355, they can appear anywhere in orbit — in the Shear, adjacent to ring habs, or in otherwise clean space. Where the Shear distorts resonance, Bloom Zones break reality. They are actively expanding and require constant containment.
+
+The boundary between ring and Shear is not sharp. A hab that was stable for decades can lose structural integrity and become Shear — just another piece of debris. A section of Shear can be stabilized, sealed, and colonized into a new hab. And a Bloom Zone can erupt next to either. The frontier is, in this sense, always moving.
 
 ## What It Means
 

@@ -19,7 +19,7 @@ Regions, settlements, landmarks, and other named places across the Kaleidos syst
 
 | Entry | Path | Status | Prominence | Tags | Notes |
 |-------|------|--------|------------|------|-------|
-| The Shear | — | shell | renowned | salvage, orbital, danger | Uninhabitable debris zone; salvage territory; resonance distortion; referenced in multiple entries |
+| The Shear | [regions/the-shear.md](regions/the-shear.md) | complete | renowned | salvage, orbital, danger, resonance | Uninhabitable debris pockets filling ~50% of Kaleidos orbit; salvage territory |
 
 ## Landmarks
 
