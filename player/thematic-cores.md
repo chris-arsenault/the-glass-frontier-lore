@@ -4,66 +4,69 @@ title: Thematic Cores
 
 # Thematic Cores
 
-Recurring tensions and messages that unify how entities are written. Not every entry touches every theme — but pivotal moments, faction motivations, and character arcs should resonate with one or more of these. They are the "why" behind the "what."
+Questions the world asks. Not themes to be stated — tensions embedded in the world's systems that generate stories when entities interact with them. If you can remove the thematic language and still see the tension operating in the mechanics, it's structural. If not, it's decorative.
 
-When writing a new entry, consider: which of these themes does this entity embody, challenge, or complicate?
-
----
-
-## 1. The Price of Knowledge
-
-Knowing costs something. The Echo Ledger Conclave hoards knowledge and calls it custodianship. The Lattice Proxy Synod communicates with gods they don't understand through rituals they can't explain. The Redaction theorists dig into elven history and attract a specific kind of obsessive personality. Dern Talish carries a secret that hasn't let her sleep in six years.
-
-Knowledge is power, but it is also burden. The people who know the most are rarely the happiest. The Conclave's archivists spend careers cataloguing dead strangers' voices. The Synod's proxies perform rituals that work for reasons nobody can articulate. Knowing *how* without knowing *why* is its own kind of ignorance.
-
-**Shows up in:** Echo Ledger Conclave, Lattice Proxy Synod, Dern Talish, the Absent/Redaction, Echo Rivers, Tuners (folk vs academic tension)
+Each core is framed as a question, a system that embodies it, and a test for whether a new entry engages with it.
 
 ---
 
-## 2. Cooperation Against the Odds
+## 1. "What happens when the builders leave?"
 
-When it matters, they work together. The Bloom Coalition formed overnight from factions that were shooting at each other days before. The Verge Compact emerged because salvagers got tired of killing each other. The Tempered Accord exists because the Bitter Reach proved that the alternative was worse.
+Resonance was engineered by the elves. Ringglass was shaped by elven science. The ring was elven architecture. The elves are gone. Everything that remains is an inheritance nobody fully understands — maintained by people working from fragments, approximations, and trial-and-error.
 
-This is the hopecore nerve. Not naive optimism — earned cooperation that emerges from exhaustion, pragmatism, and the grudging admission that collective action works better than anyone expected. The cooperation is always imperfect, always temporary, always under threat of fracture. And it keeps happening anyway.
+**The system:** The band/bandwidth model. Broad bandwidth is accessible to everyone. Mid bandwidth requires training. Narrow bandwidth is where the elves operated and where nobody else goes safely. The entire technological civilization runs on the broad and mid range of a system designed for narrow. The Bloom happened in the gap between what was built and what is understood.
 
-**Shows up in:** Bloom Coalition, Tempered Accord, Displacement Council neutrality, Verge Compact, the Fermata Open (outsiders disrupting calcified systems), Span Nine (infrastructure that connects)
-
----
-
-## 3. The Cost of Absence
-
-When the people who understand leave, the things they built break in ways nobody can fix. The elves vanished and took deep resonance knowledge with them. The Bloom happened because nobody understood the resonance ecology well enough to prevent it. The Shear is more dangerous than it needs to be because the maintenance manual was written in a language nobody speaks.
-
-This is not nostalgia for a golden age. It's the concrete, material consequence of losing institutional knowledge. The Conclave can catalogue what was lost but can't replace it. The Clarisant trains Tuners but can't teach what the elves knew. The gap between what was built and what can be maintained is the system's most persistent vulnerability.
-
-**Shows up in:** The Absent/elves, the Silent Bloom (industrial accident from knowledge loss), Tuners (reinventing what was lost), Bloom Zones (consequences that compound), duskgrain (the corruption nobody recognizes because the people who would have recognized it are gone)
+**The test:** Does this entry show someone depending on something they didn't build and can't fully explain? The Synod's ritual-based AI communication. The Tuners reinventing resonance theory from scratch. Sithari's underlayers with non-euclidean geometry nobody can replicate. The Shear's resonance ecology that nobody manages because the managers are gone.
 
 ---
 
-## 4. Identity Through Adversity
+## 2. "How do strangers learn to share a world?"
 
-You are what you survived. Sithari is defined by being the place that kept going. Hab-Worlders share an identity forged by sealed environments and the constant awareness that the walls are all that stand between them and vacuum. The Displacement Council became what it is because its members lost their homes. The Contested Reach and Bitter Reach didn't destroy the system — they produced the Accord.
+The Signal Famine lasted sixty years. Every community developed independently. When they reconnected, they discovered they'd become incompatible — different governance, different values, different relationships with resonance, different names for the same things. The Contested Reach was the cost of reconnection. The Accord is the ongoing attempt to coexist without agreement.
 
-The adversity is real and the cost is real. But the identity that emerges from it is genuine. This is not "what doesn't kill you makes you stronger" — it's "what you survive shapes what you become, and the shape is yours to choose."
+**The system:** Cultures are orthogonal to species. A Sitharian orc and a Hab-Worlder orc are more different from each other than two Sitharians of different species. The naming conventions make this visible — you can hear someone's cultural origin before you see their biology. The system encodes the problem: shared biology doesn't produce shared culture. Sixty years of isolation did the rest.
 
-**Shows up in:** Sithari/The Continuity, Hab-Worlder culture, Displacement Council, Glasswake (fame from accident), Fermata Station (governance from a bar), every faction origin story
-
----
-
-## 5. The Tension Between Preservation and Progress
-
-Do you protect what exists or build what's next? The Conclave preserves the past. The Continuity preserves stability. The shuttered habs preserve their isolation. Meanwhile, Vantara expands into new routes, the Verge Compact tries to regulate an industry that outpaces its rules, and far-drift habs are being contacted by a civilization they may not want to join.
-
-Neither side is wrong. Preservation without progress is stagnation. Progress without preservation is the Bloom — aggressive exploitation without understanding what you're breaking. The Accord tries to hold both in tension. It mostly fails. The failure is productive.
-
-**Shows up in:** Tempered Accord, Coremark (progress without caution), Conclave (preservation as gatekeeping), shuttered habs, far drift discoveries, Bloom Zones (what happens when you don't preserve), Vantara (corporate progress)
+**The test:** Does this entry show the friction between communities that developed separately? Shuttered habs refusing contact. The Keel's patchwork jurisdiction. Vantara's bland consistency as a substitute for genuine common ground. The Accord's mediating framework that satisfies nobody completely.
 
 ---
 
-## 6. Personal Sacrifice to the Greater Good
+## 3. "Can you build something together while you're still fighting?"
 
-The elves erased themselves from history to prepare for a war nobody else knows about. Dern Talish carries a secret that isolates her from everyone she leads. The Drone at Fermata Station maintains the resonance that holds the station together and has no political voice because they can't leave their post. Lira Vashtenri left the Conclave — and every professional relationship she had — because containment work was more important than archival work.
+The Bloom Coalition formed from factions that were shooting at each other. The Verge Compact emerged from salvagers who were competing lethally. The Tempered Accord was designed by people with fresh Bitter Reach grievances. Every shared structure in the system was built by people who hadn't finished their previous argument.
 
-The sacrifice is always specific and always costly. It's not abstract martyrdom — it's the gnome who can't attend the meeting because someone has to keep the lights on. The leader who can't explain her decisions because the explanation would compromise the mission. The species that gave up being known so they could prepare for what's coming.
+**The system:** The cooperation-fracture cycle. Crisis forces cooperation. Cooperation produces infrastructure (the Compact, the Coalition, the Accord). The crisis eases and the cooperation fractures — but the infrastructure survives. Each cycle leaves more shared structure than the last, even though the participants didn't intend to build it.
 
-**Shows up in:** Elves/the Absent (cultural sacrifice), Dern Talish (the loneliest job), Fermata Station's Drone, Lira Vashtenri (leaving the Conclave), Displacement Council (staying neutral when everyone else fights)
+**The test:** Does this entry show cooperation that is imperfect, grudging, or motivated by pragmatism rather than idealism? The Bloom Coalition's improvised, fractious effectiveness. Vantara's neutrality as enlightened self-interest. The Displacement Council's trust earned by refusing to take sides.
+
+---
+
+## 4. "What do you become when the world reshapes you?"
+
+Fermata Station's governance grew from a bar. Sithari's identity grew from a research campus that happened to have walls. The Displacement Council grew from refugees who needed containment, not governance. The fae cycle between presence and absence because their biology doesn't fit three-dimensional space. Nobody chose these identities — they emerged from what people survived.
+
+**The system:** Prominence is not inherited. A marginal place can host a renowned event. A mythic person can come from a forgotten village. Identity flows from circumstance, not design — and the circumstance is often catastrophic.
+
+**The test:** Does this entry show identity formed by what happened to people, not what they planned? Glasswake's accidental fame. The Continuity's 130-year grip on power born from having walls during the Famine. Dern Talish's career shaped by a hand tremor from Bloom Zone exposure.
+
+---
+
+## 5. "Who decides what gets remembered?"
+
+The Echo Rivers carry voices that nobody chose to preserve. The Conclave decides who hears them. The elves decided to erase their own detailed history while leaving the broad strokes. The Continuity decides what Sithari's institutions teach. Every archive is a political act — what's kept, what's lost, and what's deliberately removed all shape what the present believes about the past.
+
+**The system:** Echo Rivers are the material expression — resonance imprints in crystal geology that can't be easily edited. Stillwater is the controlled version — purified, writable, readable, owned. The gap between the uncontrollable (rivers) and the controllable (archives) is where the politics of memory happens.
+
+**The test:** Does this entry show someone controlling, contesting, or being surprised by what the world remembers? The Conclave's three failed forced-openings by the Accord. The Redaction theorists noticing what's missing. Echo River fragments that surface at inconvenient times.
+
+---
+
+## How These Work in Practice
+
+These cores are not labels to attach to entities. They are questions to ask when writing:
+
+1. Read the question.
+2. Does this entity's existence engage with it?
+3. If yes, does the engagement show genuine tension (not just "this is important")?
+4. If no, that's fine — not every entity touches every core. But an entity that touches none is worth examining.
+
+The graph enforces this through RESONATES_WITH edges connecting entities to theme nodes. The edge should be traceable to a specific mechanical connection, not just "this entity is thematically related."
