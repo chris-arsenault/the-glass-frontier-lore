@@ -552,6 +552,47 @@ def cmd_similar(args):
     return 0
 
 
+def cmd_overlap(args):
+    """Search for semantic overlap with a concept description."""
+    driver = get_driver()
+    vec = embed(args.query)
+    with driver.session() as s:
+        result = s.run("""
+            CALL vector_search.search("section_embeddings", $n, $vec)
+            YIELD node, similarity
+            WITH node, similarity
+            RETURN node.entity_id AS entity, node.heading AS canonical,
+                   coalesce(node.prose_heading, node.heading) AS section,
+                   round(similarity * 1000) / 1000 AS sim
+            ORDER BY sim DESC
+        """, vec=vec, n=args.count)
+        results = list(result)
+        if not results:
+            print("No results.")
+            driver.close()
+            return 1
+
+        # Group by entity for cleaner output
+        by_entity = {}
+        for r in results:
+            eid = r["entity"]
+            if eid not in by_entity:
+                by_entity[eid] = []
+            by_entity[eid].append((r["section"], r["canonical"], r["sim"]))
+
+        print(f"Semantic overlap for: \"{args.query}\"")
+        print(f"{'─' * 60}")
+        for eid, sections in sorted(by_entity.items(), key=lambda x: max(s[2] for s in x[1]), reverse=True):
+            top_sim = max(s[2] for s in sections)
+            print(f"\n  {eid} (best: {top_sim})")
+            for section, canonical, sim in sorted(sections, key=lambda x: x[2], reverse=True):
+                label = f"{section}" if section == canonical else f"{section} [{canonical}]"
+                print(f"    {sim}  {label}")
+
+    driver.close()
+    return 0
+
+
 def cmd_check(args):
     """Run all graph contradiction checks."""
     driver = get_driver()
@@ -721,6 +762,10 @@ def main():
     p.add_argument("section_id", help="Section ID (e.g. resonance::how-it-works)")
     p.add_argument("-n", "--count", type=int, default=10, help="Number of results")
 
+    p = sub.add_parser("overlap", help="Search for semantic overlap with a concept")
+    p.add_argument("query", help="Natural language description of the concept")
+    p.add_argument("-n", "--count", type=int, default=10, help="Number of results")
+
     sub.add_parser("check", help="Run contradiction checks")
     sub.add_parser("stats", help="Graph statistics")
 
@@ -743,6 +788,7 @@ def main():
         "rm-rel": cmd_rm_rel,
         "query-neighborhood": cmd_neighborhood,
         "query-similar": cmd_similar,
+        "overlap": cmd_overlap,
         "check": cmd_check,
         "stats": cmd_stats,
         "snapshot": cmd_snapshot,
