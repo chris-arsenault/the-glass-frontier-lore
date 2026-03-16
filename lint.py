@@ -12,6 +12,7 @@ PLAYER_DIR = ROOT / "player"
 META_FILES = {
     "CLAUDE.md", "index.md", "tags.md", "timeline.md", "causality.md",
     "design-principles.md", "world-seeds.md",
+    "thematic-cores.md", "plot-threads.md", "narrative-loops.md",
     "lint.py", "wiki_gen.py", "graph_cli.py", "Makefile",
     "README.md", "LICENSE.md",
 }
