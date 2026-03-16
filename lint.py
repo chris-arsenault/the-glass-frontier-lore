@@ -547,7 +547,75 @@ def main():
                 if count > 0:
                     error(f"GRAPH: {count} '{bt}' edge(s) exist — this relationship type is banned")
 
-            # 14e. Entity title match — prose title should match graph title
+            # --- graph.md spec checks ---
+
+            # G1. Dangling references — MENTIONS edges pointing to entities with no title
+            result = session.run("""
+                MATCH (s:Section)-[:MENTIONS]->(e:Entity)
+                WHERE e.title IS NULL OR e.title = ''
+                RETURN DISTINCT s.entity_id AS source, e.id AS dangling
+            """)
+            for r in result:
+                error(f"GRAPH G1: section in '{r['source']}' mentions dangling entity '{r['dangling']}'")
+
+            # G2. Causal cycle detection — CAUSES chain should be a DAG
+            result = session.run("""
+                MATCH path = (a:Entity)-[:CAUSES*2..10]->(a)
+                RETURN [n IN nodes(path) | coalesce(n.title, n.id)] AS cycle
+                LIMIT 5
+            """)
+            for r in result:
+                cycle_str = " → ".join(r["cycle"][:5])
+                error(f"GRAPH G2: causal cycle detected: {cycle_str}...")
+
+            # G3. Temporal coherence — entity with valid_to shouldn't have
+            #     CAUSES edges to entities whose valid_from is AFTER the source's valid_to
+            result = session.run("""
+                MATCH (a:Entity)-[:CAUSES]->(b:Entity)
+                WHERE a.valid_to IS NOT NULL AND b.valid_from IS NOT NULL
+                AND b.valid_from > a.valid_to
+                RETURN a.title AS source, a.valid_to AS source_end,
+                       b.title AS target, b.valid_from AS target_start
+            """)
+            for r in result:
+                error(f"GRAPH G3: '{r['source']}' (ends {r['source_end']}) "
+                      f"causes '{r['target']}' (starts {r['target_start']}) — temporal paradox")
+
+            # G5. Antisymmetry — directional relationships shouldn't have
+            #     contradictory reverses (A GOVERNS B and B GOVERNS A)
+            antisymmetric_types = [
+                "GOVERNS", "LEADS", "CREATED", "DESTROYED", "BUILT",
+                "DESIGNED", "TRAINS", "REGULATES", "CHAIRS",
+            ]
+            for rel_type in antisymmetric_types:
+                result = session.run(f"""
+                    MATCH (a:Entity)-[:{rel_type}]->(b:Entity)-[:{rel_type}]->(a)
+                    RETURN a.title AS a_title, b.title AS b_title
+                """)
+                for r in result:
+                    error(f"GRAPH G5: antisymmetry violation — '{r['a_title']}' and "
+                          f"'{r['b_title']}' both {rel_type} each other")
+
+            # G6. Spatial consistency — PART_OF should not form cycles
+            result = session.run("""
+                MATCH path = (a:Entity)-[:PART_OF*2..5]->(a)
+                RETURN [n IN nodes(path) | coalesce(n.title, n.id)] AS cycle
+                LIMIT 5
+            """)
+            for r in result:
+                error(f"GRAPH G6: spatial cycle: {' → '.join(r['cycle'])}")
+
+            # G7. Orphan detection — entities with no edges at all
+            result = session.run("""
+                MATCH (e:Entity)
+                WHERE e.status = 'complete'
+                AND NOT EXISTS { MATCH (e)-[]-() }
+                RETURN e.id, e.title
+            """)
+            for r in result:
+                warn(f"GRAPH G7: entity '{r['e.title']}' ({r['e.id']}) has no relationships")
+
+            # 14f. Entity title match — prose title should match graph title
             for path in content_files:
                 rel = path.relative_to(ROOT)
                 fm = parse_frontmatter(path)
