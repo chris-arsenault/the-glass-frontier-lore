@@ -11,10 +11,10 @@ Every loop follows: **NEED → PROGRESSION → CONSEQUENCE → NEW NEED**
 ## Fleshed Out
 
 - [Cooperation-Fracture Cycle](cooperation-fracture.md) — crisis forces cooperation, cooperation produces infrastructure, pressure eases, cooperation fractures, infrastructure survives
+- [Knowledge Decay](knowledge-decay.md) — knowledge built, pushed too far, lost, reinvented as something different
 
 ## Needs Development
 
-- **Knowledge Decay** — knowledge created, hoarded, lost, rediscovered in degraded form
 - **Corruption Progression** — states progress through stages: healthy → exposed → compromised → crisis → recovery or collapse
 - **Cultural Memory** — events mark things, things enshrine practices, practices commemorate events
 - **Prominence Oscillation** — entities rise and fall, the oscillation itself tells a story

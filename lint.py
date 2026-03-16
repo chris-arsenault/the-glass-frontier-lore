@@ -348,6 +348,9 @@ def main():
         rel = path.relative_to(ROOT)
         if rel.parts[0] != "player":
             continue
+        fm = parse_frontmatter(path)
+        if fm and fm.get("contains_dm") == "true":
+            continue  # Thread/loop files that explicitly contain DM beats
         text = path.read_text().lower()
         text = re.sub(r"```.*?```", "", text, flags=re.DOTALL)
         for phrase in DM_LEAKAGE_PHRASES:

@@ -1,6 +1,7 @@
 ---
 title: "Thread: The Reconnection"
 type: thread
+contains_dm: true
 ---
 
 # Thread: The Reconnection
