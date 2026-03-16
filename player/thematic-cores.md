@@ -64,6 +64,20 @@ The Echo Rivers carry voices that nobody chose to preserve. The Conclave decides
 
 ---
 
+## 6. "Just because you can reach it, should you?"
+
+The Span replication experiment caused the Bloom. Coremark had the ringglass, the motivation (Span-quality communication for everyone), and enough knowledge to attempt something that looked possible. They didn't have enough knowledge to know why it wasn't. The result was a civilizational-scale industrial accident that created reality tears across the ring.
+
+**The system:** The resonance bandwidth model's narrow end. Narrow-band effects are where the elves operated — and where current practitioners encounter phenomena they can measure but not predict. The Bloom was a narrow-band cascade triggered by mid-band operators pushing into territory they thought was mid-band. The boundary between "well-understood" and "catastrophically not" is invisible until you cross it.
+
+**The opposition:** The Span replication attempt was motivated by a genuine injustice — communication inequality between Sithari (which has the Span) and everyone else. Coremark wasn't evil. They were trying to solve a real problem. The opposition to this theme isn't "recklessness is bad" (a platitude) — it's "the problem was real and nobody else was solving it." The Clarisant exists partly as an institutional answer: training and accreditation as a substitute for the knowledge that was lost. But the Clarisant is conservative by nature, and conservatism doesn't build new Spans.
+
+**Multi-scale:** System-wide (the Bloom), faction (Coremark's descent from ambitious to negligent to criminal), personal (any Tuner pushing into mid-bandwidth territory they haven't been trained for), cultural (the Contested Reach's unwritten rule about not fighting near comm infrastructure — the system knows, collectively, that some things are too important to risk).
+
+**The test:** Does this entry show someone reaching for capability that might be beyond their understanding? Does the entry treat both the reaching and the risk as legitimate?
+
+---
+
 ## How These Work in Practice
 
 These cores are not labels to attach to entities. They are questions to ask when writing:
