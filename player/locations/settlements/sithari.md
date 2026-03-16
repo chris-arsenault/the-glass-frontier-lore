@@ -56,7 +56,7 @@ This is both a strength and a vulnerability. Sithari's economic centrality depen
 
 Sithari has direct orbital access — shuttle infrastructure connecting to ring habs. Some habs serve as entry points to the Shear for salvage crews. Shuttle traffic is routine. A space elevator was attempted during the Rekindling; the project was abandoned due to political prioritization rather than technical failure, and the debate about resuming it surfaces every few years.
 
-The city is also the terminus of major surface trade routes, including the [future:Keel] connecting to the [future:Sable Crescent]. The [future:Prismwell Kite Guild] maintains its largest surface operations hub in Sithari's eastern sprawl.
+The city is also the terminus of major surface trade routes, including the [future:Keel] connecting to the [Sable Crescent](../regions/sable-crescent.md). The [future:Prismwell Kite Guild] maintains its largest surface operations hub in Sithari's eastern sprawl.
 
 ## What It Feels Like <!-- Atmosphere -->
 

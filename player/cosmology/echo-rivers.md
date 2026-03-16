@@ -18,7 +18,7 @@ The echoes aren't recordings in any intentional sense. They're artifacts — res
 - Routine transmissions between ring stations. Logistics, schedules, the mundane business of a functioning orbital system.
 - Personal messages. Someone calling home. A child's voice. Laughter from a party that happened two centuries ago.
 - Technical data. Strings of numbers, calibration sequences, system reports that mean nothing unless you know the context.
-- And very rarely, something from the days immediately before or during the Glassfall itself. These fragments are the most sought-after and the most contested. The [future:Echo Ledger Conclave] claims custodianship over all such material.
+- And very rarely, something from the days immediately before or during the Glassfall itself. These fragments are the most sought-after and the most contested. The [Echo Ledger Conclave](../npcs/factions/echo-ledger-conclave.md) claims custodianship over all such material.
 
 The rivers don't replay on demand. You can't ask them questions. You stand, you listen, you take what comes. Some listeners spend years at the same surfacing point, cataloguing everything they hear. Others visit once and never come back — too unsettled by the intimacy of hearing dead strangers speak.
 

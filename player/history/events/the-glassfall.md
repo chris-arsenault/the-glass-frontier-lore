@@ -22,7 +22,7 @@ Nobody knows. Not with certainty.
 
 The prevailing theory is sabotage — some kind of internal attack that triggered a structural cascade. The evidence for this is mostly negative: the rings were engineered to survive natural stresses far beyond anything Kaleidos's orbit could produce. Something deliberate had to have initiated the failure.
 
-Who did it, and why, is the subject of 130 years of speculation, investigation, and increasingly entrenched disagreement. The [future:Lattice Proxy Synod] maintains classified archives from the ring-era custodian AIs that might contain answers. Whether they've found anything and aren't sharing, or genuinely don't know, is itself a source of tension.
+Who did it, and why, is the subject of 130 years of speculation, investigation, and increasingly entrenched disagreement. The [Lattice Proxy Synod](../../npcs/factions/lattice-proxy-synod.md) maintains classified archives from the ring-era custodian AIs that might contain answers. Whether they've found anything and aren't sharing, or genuinely don't know, is itself a source of tension.
 
 Most people have stopped expecting an answer. The Glassfall is history now — the kind that shapes everything but that nobody alive experienced firsthand. It matters the way an earthquake matters: not as a mystery to solve, but as the reason the landscape looks the way it does.
 
