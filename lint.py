@@ -180,12 +180,16 @@ def collect_markdown_links(path: Path) -> list[tuple[str, str]]:
 def main():
     errors = []
     warnings = []
+    futures = []
 
     def error(msg: str):
-        errors.append(f"ERROR: {msg}")
+        errors.append(f"ERROR:  {msg}")
 
     def warn(msg: str):
-        warnings.append(f"WARN:  {msg}")
+        warnings.append(f"WARN:   {msg}")
+
+    def future(msg: str):
+        futures.append(f"FUTURE: {msg}")
 
     # --- Load taxonomy ---
     tags_path = PLAYER_DIR / "tags.md"
@@ -240,7 +244,7 @@ def main():
             related = [related]
         for slug in related:
             if slug not in known_slugs:
-                warn(f"{rel}: related slug '{slug}' does not match any known entity (file or shell)")
+                future(f"{rel}: related slug '{slug}' — no matching entity")
 
         # 4. Type-directory alignment
         entry_type = fm.get("type", "")
@@ -321,7 +325,7 @@ def main():
         text_no_code = re.sub(r"```.*?```", "", text, flags=re.DOTALL)
         for m in re.finditer(r"\[future:([^\]]+)\]", text_no_code):
             future_markers.append((rel, m.group(1).strip()))
-            warn(f"{rel}: future reference '{m.group(1).strip()}' — no entry yet")
+            future(f"{rel}: '{m.group(1).strip()}' — no entry yet")
 
     # --- 11. Prominence cross-reference check ---
     # High-prominence files (mythic/renowned) should not reference low-prominence entities
@@ -367,18 +371,21 @@ def main():
                      f"'{link_text}' which is {target_prom}-prominence")
 
     # --- Report ---
+    for f in sorted(futures):
+        print(f)
     for w in sorted(warnings):
         print(w)
     for e in sorted(errors):
         print(e)
 
-    total = len(errors) + len(warnings)
     print(f"\n{'─' * 40}")
-    print(f"  {len(errors)} error(s), {len(warnings)} warning(s)")
+    print(f"  {len(errors)} error(s), {len(warnings)} warning(s), {len(futures)} future(s)")
     if errors:
         print(f"  Lint FAILED")
+    elif warnings:
+        print(f"  Lint passed (with warnings)")
     else:
-        print(f"  Lint passed{' (with warnings)' if warnings else ''}")
+        print(f"  Lint passed")
     print(f"{'─' * 40}")
 
     return 1 if errors else 0
