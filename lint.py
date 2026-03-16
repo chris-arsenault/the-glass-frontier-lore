@@ -351,6 +351,9 @@ def main():
                 error(f"{rel}: possible DM leakage — contains phrase '{phrase}'")
 
     # --- 11. Future markers: [future:Name] in prose ---
+    # Build set of complete entry stems for stale detection
+    complete_stems = {p.stem for p in content_files}
+
     future_markers = []
     for path in all_md_files:
         rel = path.relative_to(ROOT)
@@ -362,8 +365,13 @@ def main():
         # Strip fenced code blocks
         text_no_code = re.sub(r"```.*?```", "", text, flags=re.DOTALL)
         for m in re.finditer(r"\[future:([^\]]+)\]", text_no_code):
-            future_markers.append((rel, m.group(1).strip()))
-            future(f"{rel}: '{m.group(1).strip()}' — no entry yet")
+            name = m.group(1).strip()
+            slug = re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
+            if slug in complete_stems:
+                error(f"{rel}: stale [future:{name}] — {slug}.md exists, use a real link")
+            else:
+                future_markers.append((rel, name))
+                future(f"{rel}: '{name}' — no entry yet")
 
     # --- 11. Prominence cross-reference check ---
     # High-prominence files (mythic/renowned) should not reference low-prominence entities
@@ -408,7 +416,24 @@ def main():
                 warn(f"{rel}: {source_prom}-prominence entry links to "
                      f"'{link_text}' which is {target_prom}-prominence")
 
-    # --- 13. Heading annotation check: all ## headings must have <!-- Canonical --> ---
+    # --- 13. Duplicate file stems ---
+    stems: dict[str, Path] = {}
+    for path in content_files:
+        if path.stem in stems:
+            error(f"Duplicate entity ID: {path.stem} exists at both "
+                  f"{stems[path.stem].relative_to(ROOT)} and {path.relative_to(ROOT)}")
+        stems[path.stem] = path
+
+    # --- 13b. DM files must have public_entry field ---
+    for path in content_files:
+        rel = path.relative_to(ROOT)
+        if rel.parts[0] != "dm":
+            continue
+        fm = parse_frontmatter(path)
+        if fm and fm.get("dm") == "true" and "public_entry" not in fm:
+            error(f"{rel}: DM entry missing 'public_entry' field")
+
+    # --- 14. Heading annotation check: all ## headings must have <!-- Canonical --> ---
     for path in content_files:
         rel = path.relative_to(ROOT)
         headings = extract_headings(path)
@@ -492,7 +517,22 @@ def main():
                 for h in graph_heading_set - prose_graph_set:
                     warn(f"GRAPH: {rel} heading '{h}' exists in graph but not in prose")
 
-            # 14d. No banned relationship types in graph
+            # 14d. All graph edge types must exist in taxonomy
+            result = session.run("""
+                MATCH ()-[r]->()
+                WHERE type(r) <> 'HAS_SECTION' AND type(r) <> 'ALLOWS_HEADING'
+                RETURN DISTINCT type(r) AS rel_type
+            """)
+            graph_rel_types = {r["rel_type"] for r in result}
+            result = session.run("""
+                MATCH (t:Taxonomy:RelationType)
+                RETURN t.name AS name
+            """)
+            taxonomy_rel_types = {r["name"] for r in result}
+            for rt in graph_rel_types - taxonomy_rel_types:
+                error(f"GRAPH: relationship type '{rt}' exists in graph but not in taxonomy")
+
+            # 14e. No banned relationship types in graph
             result = session.run("""
                 MATCH (t:Taxonomy:RelationType {category: 'banned'})
                 RETURN t.name AS banned_type
