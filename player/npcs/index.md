@@ -16,6 +16,7 @@ Factions, notable individuals, and named antagonists.
 | Prismwell Kite Guild | — | shell | recognized | trade, transport, navigation | Aerial trade corridor operators |
 | Verge Compact | — | shell | recognized | salvage, ringglass, trade | Verge salvage regulation and logistics |
 | Lumenshard Conservatory | — | shell | recognized | ecology, resonance | Eco-faction protecting bioluminescent groves |
+| Clarisant | — | shell | recognized | resonance, training, governance | Tuner guild; accreditation body; HQ on Pelhari |
 
 ## Heroes
 
