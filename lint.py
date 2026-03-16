@@ -23,9 +23,8 @@ TYPE_DIR_MAP = {
     "artifact": "artifacts",
     "creature": "creatures",
     "ship": "ships",
-    "event": "history",
-    "era": "history",
     "occurrence": "history",
+    "era": "history",
     "concept": ("concepts", "cosmology"),
     "dm": "dm",
 }
