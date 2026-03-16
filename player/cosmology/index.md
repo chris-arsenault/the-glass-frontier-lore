@@ -12,3 +12,5 @@ The physical world, its energy systems, and the celestial structures that define
 | The Kaleidos System | [the-kaleidos-system.md](the-kaleidos-system.md) | complete | mythic | | The solar system: planet, ring, other worlds |
 | Resonance | [resonance.md](resonance.md) | complete | mythic | resonance | The energy system that runs through everything |
 | Echo Rivers | [echo-rivers.md](echo-rivers.md) | complete | renowned | resonance, signal-freq | Underground streams that carry voices from the past |
+| Kaleidos | — | shell | mythic | | The planet itself; surface world beneath the ring |
+| Kaleidos Orbit | — | shell | mythic | orbital | The orbital space containing the ring, the Shear, and Bloom Zones |
