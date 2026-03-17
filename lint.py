@@ -696,21 +696,22 @@ def main():
                         warn(f"GRAPH L2: [{heading}] {pair[0]} ↔ {pair[1]} "
                              f"similarity={r['sim']:.3f} — review for redundancy")
 
-            # G7a. Location entities must have a spatial relationship
-            SPATIAL_RELS = ["ORBITS", "ON_SURFACE_OF", "IN_ORBIT_OF", "INNER_OF",
-                           "LOCATED_IN", "PART_OF", "HEADQUARTERED_IN", "TERMINUS_OF", "HOSTS"]
-            spatial_check = " OR ".join(f'type(r) = "{rt}"' for rt in SPATIAL_RELS)
+            # G7a. Location entities must have a spatial HIERARCHY relationship
+            # These tell you WHERE a place IS (not what's at it)
+            SPATIAL_HIERARCHY_RELS = ["ORBITS", "ON_SURFACE_OF", "IN_ORBIT_OF",
+                                     "INNER_OF", "LOCATED_IN", "PART_OF"]
+            spatial_check = " OR ".join(f'type(r) = "{rt}"' for rt in SPATIAL_HIERARCHY_RELS)
             result = session.run(f"""
                 MATCH (e:Entity)
                 WHERE e.type = 'location' AND e.status = 'complete'
                 AND NOT EXISTS {{
-                    MATCH (e)-[r]-()
+                    MATCH (e)-[r]->()
                     WHERE {spatial_check}
                 }}
                 RETURN e.id, e.title
             """)
             for r in result:
-                warn(f"GRAPH: location '{r['e.title']}' ({r['e.id']}) has no spatial relationship")
+                warn(f"GRAPH: location '{r['e.title']}' ({r['e.id']}) has no spatial hierarchy relationship (WHERE is it?)")
 
             # G7. Orphan detection — entities with no edges at all
             result = session.run("""
