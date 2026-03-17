@@ -237,9 +237,10 @@ def main():
     # Exclude the top-level player/index.md — only per-type indexes
     index_files = [f for f in index_files if f != PLAYER_DIR / "index.md"]
     # Also include dm/index.md if it exists
-    dm_index = ROOT / DM_DIR / "index.md"
-    if dm_index.exists():
-        index_files.append(dm_index)
+    dm_dir = ROOT / DM_DIR
+    if dm_dir.is_dir():
+        for dm_idx in dm_dir.rglob("index.md"):
+            index_files.append(dm_idx)
     for idx in index_files:
         all_index_entries.extend(parse_index_entries(idx))
 
@@ -300,9 +301,6 @@ def main():
     for path in content_files:
         if path.resolve() not in indexed_paths:
             rel = path.relative_to(ROOT)
-            # dm/ subdirectory files (themes, threads, loops) use their own index format
-            if rel.parts[0] == "dm" and len(rel.parts) > 2:
-                continue
             warn(f"{rel}: not listed in any type index")
 
     # --- 6. Shell consistency: shells shouldn't have files ---

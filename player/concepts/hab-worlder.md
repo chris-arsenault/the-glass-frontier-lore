@@ -21,7 +21,7 @@ Every Hab-Worlder, regardless of which hab they come from, knows the following t
 
 ## What They Don't Share <!-- Values -->
 
-Almost everything else. The cultural range within the Hab-Worlder umbrella is enormous. [Fermata Station](../locations/settlements/fermata-station.md) is Hab-Worlder. So is a disciplined military outpost. So is a hab that runs on anarchist consensus. So is a hab where the lights haven't been fully on in thirty years and the residents navigate by resonance hum and memory.
+Almost everything else. The cultural range within the Hab-Worlder umbrella is enormous. A hab governed by structured musical improvisation is Hab-Worlder. So is a disciplined military outpost. So is a hab that runs on anarchist consensus. So is a hab where the lights haven't been fully on in thirty years and the residents navigate by resonance hum and memory.
 
 Hab-Worlder naming conventions vary significantly by hab and region. There is no single naming pattern — instead, there are clusters of patterns that share certain features (shorter names, practical over ornamental, often referencing habitat functions or locations within the hab). Two Hab-Worlders from different habs might not recognize each other's naming style, but they'll recognize the *type* of naming style: functional, compact, designed for small spaces where everyone knows everyone.
 

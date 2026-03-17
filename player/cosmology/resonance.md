@@ -44,9 +44,7 @@ Most people never encounter anything beyond broad. Working professionals operate
 
 ## Ringglass <!-- Sources -->
 
-The material itself is the foundation of everything. See [Ringglass](../concepts/ringglass.md) for details on sourcing, grades, processing, and trade.
-
-The short version: raw ringglass falls from the debris field or is mined from surface deposits where it's been accumulating for 130 years. It comes in varying grades of purity and resonance alignment. Unprocessed fragments can be useful — a chunk of raw ringglass will resonate at whatever frequency its crystal structure happens to favor — but refined ringglass, cut and tuned to specific frequencies, is vastly more effective and correspondingly more valuable.
+Resonance requires a physical medium. That medium is [ringglass](../concepts/ringglass.md) — the crystalline material the ring was built from, now scattered across the system as debris, sediment, and salvage. See the [ringglass entry](../concepts/ringglass.md) for sourcing, grades, processing, and trade.
 
 ## Limits
 
