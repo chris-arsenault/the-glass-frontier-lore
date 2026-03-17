@@ -696,6 +696,77 @@ def main():
                         warn(f"GRAPH L2: [{heading}] {pair[0]} ↔ {pair[1]} "
                              f"similarity={r['sim']:.3f} — review for redundancy")
 
+            # L3. Entity-level semantic overlap — two complete entities of the same
+            #     type whose sections are broadly similar (not just one matching heading)
+            result = session.run("""
+                MATCH (e:Entity)
+                WHERE e.status = 'complete'
+                AND e.type IS NOT NULL
+                RETURN e.id AS eid, e.type AS etype
+            """)
+            complete_entities = [(r["eid"], r["etype"]) for r in result]
+
+            # Group by type, excluding registries
+            result_reg = session.run("""
+                MATCH (e:Entity)
+                WHERE e.status = 'complete'
+                RETURN e.id AS eid, e.type AS etype,
+                       CASE WHEN e.file_path CONTAINS 'registry' THEN true
+                            ELSE false END AS is_reg
+            """)
+            registry_ids = set()
+            by_type = {}
+            for r in result_reg:
+                if r["is_reg"]:
+                    registry_ids.add(r["eid"])
+                by_type.setdefault(r["etype"], []).append(r["eid"])
+
+            # Also check the prose for registry: true
+            for path in content_files:
+                fm = parse_frontmatter(path)
+                if fm and fm.get("registry") == "true":
+                    registry_ids.add(path.stem)
+
+            for etype, eids in by_type.items():
+                if len(eids) < 2:
+                    continue
+                for i in range(len(eids)):
+                    for j in range(i + 1, len(eids)):
+                        eid_a, eid_b = eids[i], eids[j]
+                        # Skip if either is a registry entry
+                        if eid_a in registry_ids or eid_b in registry_ids:
+                            continue
+                        result = session.run("""
+                            MATCH (sa:Section {entity_id: $a})
+                            WHERE sa.embedding IS NOT NULL
+                            WITH collect(sa.embedding) AS vecs_a
+                            MATCH (sb:Section {entity_id: $b})
+                            WHERE sb.embedding IS NOT NULL
+                            WITH vecs_a, collect(sb.embedding) AS vecs_b
+                            RETURN vecs_a, vecs_b
+                        """, a=eid_a, b=eid_b)
+                        r = result.single()
+                        if not r or not r["vecs_a"] or not r["vecs_b"]:
+                            continue
+                        try:
+                            import numpy as np
+                            vecs_a = [np.array(v) for v in r["vecs_a"]]
+                            vecs_b = [np.array(v) for v in r["vecs_b"]]
+                            sims = []
+                            for va in vecs_a:
+                                for vb in vecs_b:
+                                    sim = float(np.dot(va, vb) / (np.linalg.norm(va) * np.linalg.norm(vb)))
+                                    sims.append(sim)
+                            avg_sim = sum(sims) / len(sims) if sims else 0
+                            if avg_sim > 0.88:
+                                error(f"GRAPH L3: entity overlap — '{eid_a}' and '{eid_b}' "
+                                      f"(both type:{etype}) avg similarity={avg_sim:.3f} — likely duplicates, consider merging")
+                            elif avg_sim > 0.84:
+                                warn(f"GRAPH L3: entity overlap — '{eid_a}' and '{eid_b}' "
+                                     f"(both type:{etype}) avg similarity={avg_sim:.3f} — review for redundancy")
+                        except ImportError:
+                            pass
+
             # G7a. Location entities must have a spatial HIERARCHY relationship
             # These tell you WHERE a place IS (not what's at it)
             SPATIAL_HIERARCHY_RELS = ["ORBITS", "ON_SURFACE_OF", "IN_ORBIT_OF",
