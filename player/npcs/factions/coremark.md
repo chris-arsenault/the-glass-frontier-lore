@@ -11,7 +11,7 @@ A salvage corporation that became a criminal syndicate. Coremark pioneered indus
 
 ## Origin <!-- Origin -->
 
-Founded in the 2320s on [future:Threshold-VII] when the Shear salvage industry was young and unregulated. Coremark's founding insight was that the deep Shear — the dangerous, distorted, poorly charted pockets far from any hab — contained the highest-grade ringglass in the system. Everyone else was picking the accessible debris fields clean. Coremark went where the margins were lethal and the material was priceless.
+Founded in the 2320s on [future:Korvath] when the Shear salvage industry was young and unregulated. Coremark's founding insight was that the deep Shear — the dangerous, distorted, poorly charted pockets far from any hab — contained the highest-grade ringglass in the system. Everyone else was picking the accessible debris fields clean. Coremark went where the margins were lethal and the material was priceless.
 
 They were small but high-profile. Big technology budgets. Specialized ships and equipment for deep Shear operations. Profit-driven from the start, but not malicious — they took good care of their employees because skilled deep Shear operators were rare and hard to replace. Compensation was excellent. Retention was a business strategy, not a kindness, but the result was the same: Coremark crews were the best in the system, and they knew it.
 
@@ -31,7 +31,7 @@ It was fine when Coremark operated in deep Shear — nobody else went there, nob
 
 ## Present Day <!-- Present Day -->
 
-Coremark is a criminal syndicate. Single leader — [future:Duthrek] — running a mafia-style organization from [future:Threshold-VII]. The legitimate corporation was publicly discredited after the Bloom, its operations seized or boycotted during the Bitter Reach. The people and infrastructure went underground.
+Coremark is a criminal syndicate. Single leader — [future:Duthrek] — running a mafia-style organization from [future:Korvath]. The legitimate corporation was publicly discredited after the Bloom, its operations seized or boycotted during the Bitter Reach. The people and infrastructure went underground.
 
 They still do what they've always done, just illegally: deep Shear ringglass extraction in zones the Compact hasn't charted, smuggling [future:Bloom Zone] relics and [future:duskgrain] through black market channels, and protection rackets along the less-patrolled segments of [the Keel](../../locations/landmarks/keel.md). The corporate culture of "move fast, profit first" didn't change — it just stopped pretending to be legitimate.
 
