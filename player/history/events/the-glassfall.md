@@ -3,6 +3,7 @@ title: The Glassfall
 type: occurrence
 date: 2240 CE
 prominence: mythic
+prominence_xrefs: [lattice-proxy-synod]
 tags: [catastrophe, origin]
 ---
 

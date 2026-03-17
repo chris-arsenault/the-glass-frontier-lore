@@ -3,6 +3,7 @@ title: Displacement
 type: occurrence
 tags: [danger, ring-hab]
 prominence: renowned
+prominence_xrefs: [displacement-council]
 ---
 
 # Displacement

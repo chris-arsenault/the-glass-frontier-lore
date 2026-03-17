@@ -3,6 +3,7 @@ title: Bloom Zones
 type: location
 tags: [orbital, danger, resonance]
 prominence: renowned
+prominence_xrefs: [coremark, displacement-council, pyre, tuners]
 ---
 
 # Bloom Zones

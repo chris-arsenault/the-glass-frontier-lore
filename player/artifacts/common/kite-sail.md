@@ -3,6 +3,7 @@ title: Kite-sail
 type: artifact
 tags: [transport, resonance, kinetic-freq, trade]
 prominence: renowned
+prominence_xrefs: [tuners, vantara, keel]
 ---
 
 # Kite-sail

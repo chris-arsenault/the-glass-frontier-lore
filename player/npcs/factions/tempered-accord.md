@@ -3,6 +3,7 @@ title: Tempered Accord
 type: faction
 tags: [governance, diplomacy]
 prominence: renowned
+prominence_xrefs: [lattice-proxy-synod, vantara, displacement-council, shear-compact]
 ---
 
 # Tempered Accord

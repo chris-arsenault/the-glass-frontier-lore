@@ -3,6 +3,7 @@ title: Practical Resonance
 type: concept
 tags: [resonance, trade, transport]
 prominence: mythic
+prominence_xrefs: [tuners]
 ---
 
 # Practical Resonance

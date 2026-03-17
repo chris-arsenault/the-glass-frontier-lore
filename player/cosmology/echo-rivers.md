@@ -2,6 +2,7 @@
 title: Echo Rivers
 type: concept
 prominence: renowned
+prominence_xrefs: [echo-ledger-conclave]
 tags: [resonance, signal-freq, archives]
 ---
 

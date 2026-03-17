@@ -300,6 +300,9 @@ def main():
     for path in content_files:
         if path.resolve() not in indexed_paths:
             rel = path.relative_to(ROOT)
+            # dm/ subdirectory files (themes, threads, loops) use their own index format
+            if rel.parts[0] == "dm" and len(rel.parts) > 2:
+                continue
             warn(f"{rel}: not listed in any type index")
 
     # --- 6. Shell consistency: shells shouldn't have files ---
@@ -414,12 +417,21 @@ def main():
         if PROMINENCE_RANK[source_prom] < HIGH_THRESHOLD:
             continue  # Only check high-prominence sources
 
+        # Expected cross-references declared in frontmatter
+        expected_xrefs = fm.get("prominence_xrefs", [])
+        if isinstance(expected_xrefs, str):
+            expected_xrefs = [expected_xrefs]
+
         for link_text, link_target in collect_markdown_links(path):
             if link_target.startswith(("http://", "https://", "#")):
                 continue
             target_resolved = str((path.parent / link_target).resolve())
             target_prom = resolved_to_prominence.get(target_resolved)
             if target_prom and PROMINENCE_RANK.get(target_prom, 5) < HIGH_THRESHOLD:
+                # Check if this target is in the expected cross-refs
+                target_stem = Path(link_target).stem
+                if target_stem in expected_xrefs:
+                    continue
                 warn(f"{rel}: {source_prom}-prominence entry links to "
                      f"'{link_text}' which is {target_prom}-prominence")
 
