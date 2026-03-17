@@ -101,9 +101,6 @@ class RepoScanner:
         "player/tags.md": "Tags",
         "player/timeline.md": "Timeline",
         "player/design-principles.md": "Design Principles",
-        "player/thematic-cores.md": "Thematic Cores",
-        "player/plot-threads.md": "Plot Threads",
-        "player/narrative-loops.md": "Narrative Loops",
         "player/world-seeds.md": "World Seeds",
     }
 
@@ -463,19 +460,7 @@ def generate_wiki(root: Path, output_dir: Path) -> list[str]:
     wiki_filename, content = generate_special_page("World-Seeds.md", "player/world-seeds.md", scanner)
     write_page(wiki_filename, content)
 
-    # 8. Thematic Cores
-    wiki_filename, content = generate_special_page("Thematic-Cores.md", "player/thematic-cores.md", scanner)
-    write_page(wiki_filename, content)
-
-    # 9. Plot Threads
-    wiki_filename, content = generate_special_page("Plot-Threads.md", "player/plot-threads.md", scanner)
-    write_page(wiki_filename, content)
-
-    # 10. Narrative Loops
-    wiki_filename, content = generate_special_page("Narrative-Loops.md", "player/narrative-loops.md", scanner)
-    write_page(wiki_filename, content)
-
-    # 11. Sidebar
+    # 8. Sidebar
     wiki_filename, content = generate_sidebar(scanner)
     write_page(wiki_filename, content)
 
