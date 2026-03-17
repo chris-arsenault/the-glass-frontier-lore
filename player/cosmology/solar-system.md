@@ -20,7 +20,7 @@ The inner world. Too hot for comfort, habitable with effort. Close enough to the
 
 ### 2. Kaleidos
 
-The homeworld. The ring. [Sithari](../locations/settlements/sithari.md). Everything this wiki is mostly about. See [The Kaleidos System](the-kaleidos-system.md) and [The Glass Frontier](the-glass-frontier.md).
+The homeworld. The ring. [Sithari](../locations/settlements/sithari.md). Everything this wiki is mostly about. See [The Glass Frontier](the-glass-frontier.md).
 
 **[Threshold Station](../locations/landmarks/span-nine.md)** sits at the L1 Lagrange point between Kaleidos and the sun — the [Lattice Proxy Synod](../npcs/factions/lattice-proxy-synod.md)'s home, a pre-Glassfall station housing ring-era AI custodians.
 

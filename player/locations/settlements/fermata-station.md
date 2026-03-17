@@ -71,7 +71,7 @@ New compositions are the equivalent of proposing new legislation. Most fail. The
 
 Once a year, Fermata Station holds the Open — a week-long festival that is simultaneously the station's biggest cultural event, its most important political season, and its primary source of trade revenue.
 
-**What it looks like:** Musicians from across the [ring](../../cosmology/the-glass-frontier.md) and the wider [Kaleidos system](../../cosmology/the-kaleidos-system.md) travel to Fermata to play. The station's docking capacity triples with temporary moorings. The bars fill. The corridors fill. The sound fills every compartment, which has structural consequences the Drone spends months preparing for.
+**What it looks like:** Musicians from across the [ring](../../cosmology/the-glass-frontier.md) and the wider [Kaleidos system](../../cosmology/solar-system.md) travel to Fermata to play. The station's docking capacity triples with temporary moorings. The bars fill. The corridors fill. The sound fills every compartment, which has structural consequences the Drone spends months preparing for.
 
 **What it means politically:** The Open is the one week where outsiders can sit in on Sessions. Not vote — but play. Visiting musicians bring unfamiliar idioms, unfamiliar standards, unfamiliar ears. The regular Players lose their home-court advantage. Power dynamics that have been stable all year get disrupted by someone who doesn't know the local rules and doesn't care.
 

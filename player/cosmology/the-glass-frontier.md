@@ -27,7 +27,7 @@ These fluid-reality habs are the hardest to describe and the most dangerous to v
 
 The orbital space around Kaleidos — everything that used to be the ring — contains three distinct environments:
 
-**The ring** is what most people mean when they say "the frontier" — the surviving habs, the inhabited fragments, the places where people live. Shuttle traffic between the surface and the ring is routine in well-connected regions. The ring is also the gateway to the rest of the [Kaleidos system](the-kaleidos-system.md). Most interplanetary traffic routes through ring-based stations and commerce hubs, because that's where the old infrastructure — docking systems, navigation beacons, [resonance](resonance.md) relay networks — is densest.
+**The ring** is what most people mean when they say "the frontier" — the surviving habs, the inhabited fragments, the places where people live. Shuttle traffic between the surface and the ring is routine in well-connected regions. The ring is also the gateway to the rest of the [solar system](solar-system.md). Most interplanetary traffic routes through ring-based stations and commerce hubs, because that's where the old infrastructure — docking systems, navigation beacons, [resonance](resonance.md) relay networks — is densest.
 
 **[The Shear](../locations/regions/the-shear.md)** fills the pockets and layers between habitable fragments — roughly half the orbital volume. Debris, resonance distortion, and the [ringglass](../concepts/ringglass.md) salvage industry that depends on both. The Shear has existed since the Glassfall and is, by now, broadly understood. Dangerous, but navigable. An environment people have learned to work in.
 

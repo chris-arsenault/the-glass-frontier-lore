@@ -43,7 +43,7 @@ Turning raw ringglass into something useful is a physical process, not a mystica
 
 ## Trade
 
-Ringglass is the most important commodity in the [Kaleidos system](../cosmology/the-kaleidos-system.md). Its trade defines economies, funds factions, and drives conflict.
+Ringglass is the most important commodity in the [Kaleidos system](../cosmology/solar-system.md). Its trade defines economies, funds factions, and drives conflict.
 
 **Aggregate** moves in bulk. It's heavy, cheap per unit, and consumed in enormous quantities by the construction industry. Bulk transport from mining regions to population centers is steady, boring, essential work.
 
