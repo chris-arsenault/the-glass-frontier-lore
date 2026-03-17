@@ -17,7 +17,7 @@ They were small but high-profile. Big technology budgets. Specialized ships and 
 
 ## Operations <!-- Operations -->
 
-At their peak, Coremark operated a fleet of Shear-rated [kite-sails](../../artifacts/common/kite-sail.md) running extraction missions in zones that other salvage companies wouldn't enter. Their deep Shear expertise was genuine — they developed techniques for navigating distorted resonance environments that the [future:Verge Compact] later standardized into industry practice.
+At their peak, Coremark operated a fleet of Shear-rated [kite-sails](../../artifacts/common/kite-sail.md) running extraction missions in zones that other salvage companies wouldn't enter. Their deep Shear expertise was genuine — they developed techniques for navigating distorted resonance environments that the [Shear Compact](../../npcs/factions/shear-compact.md) later standardized into industry practice.
 
 The problem was scale. As ringglass demand grew during the Rekindling, Coremark expanded beyond their deep Shear niche. They moved into mid-drift extraction — closer to inhabited habs, higher volume, lower margins, and fundamentally different risk profiles. Deep Shear is dangerous but isolated. Mid-drift Shear is dangerous and crowded. Coremark's aggressive methods, developed for environments where nobody else was present, became destructive when applied near civilian populations.
 
@@ -27,7 +27,7 @@ They also backed the [future:Span replication project] — an attempt to replica
 
 The incident that turned public opinion. Coremark attempted to extract a high-value debris field in the mid-drift — outside their normal deep Shear territory, near a hab. A hab mining group had already staked a claim. Pirates complicated things. Coremark's extraction methods endangered the surrounding area.
 
-It was fine when Coremark operated in deep Shear — nobody else went there, nobody cared. But this was near a hab. The opposition was televised. The battle left both civilian and non-civilian casualties. [Shardfall](../../history/events/shardfall.md) became the moment the system decided that unregulated salvage was unacceptable. The political momentum that eventually produced the [future:Verge Compact] started here.
+It was fine when Coremark operated in deep Shear — nobody else went there, nobody cared. But this was near a hab. The opposition was televised. The battle left both civilian and non-civilian casualties. [Shardfall](../../history/events/shardfall.md) became the moment the system decided that unregulated salvage was unacceptable. The political momentum that eventually produced the [Shear Compact](../../npcs/factions/shear-compact.md) started here.
 
 ## Present Day <!-- Present Day -->
 

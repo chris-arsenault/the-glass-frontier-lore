@@ -10,8 +10,8 @@ Unique relics and common resonance-tech items.
 
 | Entry | Path | Status | Prominence | Tags | Notes |
 |-------|------|--------|------------|------|-------|
-| Lira's Wall | — | shell | recognized | resonance, danger | First resonance containment device; turning point in Bloom response |
-| Compact Charter | — | shell | recognized | governance, trade | Verge Compact founding document; first system-wide regulatory framework |
+| Lira's Wall | [relics/liras-wall.md](relics/liras-wall.md) | complete | recognized | resonance, danger | Stillwater damping buoy network; first containment device |
+| Compact Charter | — | shell | recognized | governance, trade | Shear Compact founding document; first system-wide regulatory framework |
 
 ## Common
 

@@ -27,7 +27,7 @@ One team member survived. The details of their escape are not widely publicized,
 
 The Coriolis breach ended the forced-contact era. The surviving team member's testimony was devastating — not because the community was savage, but because it was *coherent*. The inhabitants of Hab Coriolis had a functioning society. They weren't suffering. They weren't waiting to be rescued. They had built something that worked for them, and the contact team had violated it.
 
-The political impact was immediate and lasting. Forced entry went from "controversial but sometimes necessary" to "unconscionable." The [future:Tempered Accord]'s sovereignty provisions — habs can legally refuse contact, and no faction may force entry — trace directly to this incident.
+The political impact was immediate and lasting. Forced entry went from "controversial but sometimes necessary" to "unconscionable." The [Tempered Accord](../../npcs/factions/tempered-accord.md)'s sovereignty provisions — habs can legally refuse contact, and no faction may force entry — trace directly to this incident.
 
 ## Legacy <!-- Legacy -->
 

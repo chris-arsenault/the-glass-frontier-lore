@@ -70,7 +70,7 @@ Bloom Coalition ← [contributes telemetry] ← Lattice Proxy Synod
 Bloom Coalition ← [contributes analysis] ← Echo Ledger Conclave
 
 The Silent Bloom → [discredits] → Coremark
-The Silent Bloom → [creates impetus for] → Verge Compact
+The Silent Bloom → [creates impetus for] → Shear Compact
 
 Displacement → [produces] → Displacement Council
 
@@ -87,7 +87,7 @@ Bloom Zones → [generate] → Bloom Zone relics
 Bloom Coalition → [fractures into] → The Bitter Reach
 Coremark → [goes underground during] → The Bitter Reach
 Coremark → [smuggles artifacts from] → Bloom Zones
-Verge Compact → [opposes] → Coremark
+Shear Compact → [opposes] → Coremark
 
 Displacement Council → [stays neutral during] → The Bitter Reach
 Displacement Council → [earns trust of] → Tempered Accord
@@ -97,7 +97,7 @@ Displacement Council → [earns trust of] → Tempered Accord
 
 ```
 The Bitter Reach → [exhaustion motivates] → Tempered Accord
-Verge Compact → [provides model for] → Tempered Accord
+Shear Compact → [provides model for] → Tempered Accord
 Displacement Council → [mediates formation of] → Tempered Accord
 Lattice Proxy Synod → [architects governance of] → Tempered Accord
 Vantara → [architects trade provisions of] → Tempered Accord
@@ -131,7 +131,7 @@ All entities referenced in the DAG and timeline.
 | Lattice Proxy Synod | exists | recognized | Rekindling–present | Human-AI custodian brokers; resonance telemetry; Accord governance architects |
 | Vantara | exists | recognized | Rekindling–present | Travel and logistics corp; kite-sail fleets, hospitality, route infrastructure |
 | Coremark | shell | recognized | Rekindling–present | Capitalist salvage corp → criminal syndicate; negligence causes the Bloom |
-| Verge Compact | shell | recognized | Silent Bloom–present | Salvage regulatory body; born from Bloom response |
+| Shear Compact | shell | recognized | Silent Bloom–present | Salvage regulatory body; born from Bloom response |
 | Bloom Coalition | shell | renowned | Silent Bloom | Emergency multi-faction containment coalition; dissolved into Bitter Reach |
 | Displacement Council | shell | recognized | Silent Bloom–present | Bloom refugees → neutral containment order; Grey Wardens analogue |
 | Lumenshard Conservatory | shell | recognized | Rekindling–present | Eco-faction; bioluminescent groves |
@@ -152,7 +152,7 @@ All entities referenced in the DAG and timeline.
 | Kite-sail | exists | renowned | Rekindling–present | General motive engine; momentum nullification; flitters to capital class |
 | Lira's Wall | shell | recognized | Silent Bloom | First resonance containment device; turning-point artifact |
 | Bloom Zone relics | shell | recognized | Silent Bloom–present | New relic-magnitude artifacts from reality distortion |
-| Compact Charter | shell | recognized | Silent Bloom | Verge Compact founding document |
+| Compact Charter | shell | recognized | Silent Bloom | Shear Compact founding document |
 
 ## Locations
 

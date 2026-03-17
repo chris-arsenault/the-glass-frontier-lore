@@ -34,7 +34,7 @@ Regions, settlements, landmarks, and other named places across the Kaleidos syst
 | The Choir Fragment | — | shell | recognized | orbital, resonance | Named ring fragment said to sing when it catches the light |
 | Span Nine | [landmarks/span-nine.md](landmarks/span-nine.md) | complete | recognized | ring-era, resonance, signal-freq, orbital | Pre-Glassfall hardline conduit; Sithari to Pelhari and Threshold Station |
 | Pyre | [landmarks/pyre.md](landmarks/pyre.md) | complete | recognized | orbital, salvage, danger, resonance | Coremark refinery ruin inside a Bloom Zone; Bloom cascade origin |
-| Bloom Zones | — | shell | renowned | orbital, danger, resonance | Man-made reality tears; can appear anywhere in orbit; require active containment |
+| Bloom Zones | [landmarks/bloom-zones.md](landmarks/bloom-zones.md) | complete | renowned | orbital, danger, resonance | Reality tears; variable manifestation; expanding; also in the Fracture |
 | The Keel | [landmarks/keel.md](landmarks/keel.md) | complete | recognized | trade, orbital, danger, navigation | Primary orbital trade lane; ringglass production through Sithari to Ashvane |
 | Verathi | — | shell | marginal | orbital, governance | Station at center of first Accord arbitration |
 | Underlayers | — | shell | recognized | surface, ring-era, danger | Sithari's deep strata; ring-era and elven construction beneath the modern city |

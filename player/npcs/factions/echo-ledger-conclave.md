@@ -31,9 +31,9 @@ What the Conclave actually does, day to day:
 
 **Listening.** Teams stationed at Echo River surfacing points throughout the Sable Crescent and beyond, cataloguing what comes through. Shifts are long. Most of what surfaces is noise — fragments, partial transmissions, data sequences. The valuable material is rare and unpredictable. A listener might spend months at a single surfacing point before hearing anything significant.
 
-**Authentication.** When someone claims an artifact is pre-Glassfall, when a legal dispute hinges on historical precedent, when a faction needs to verify a claim about the Ring Age — they come to the Conclave. The archivists cross-reference Echo River fragments, surviving written records, and their own accumulated knowledge to assess whether a claim holds up. This service is not free, and the Conclave's assessment carries legal weight under the [future:Tempered Accord].
+**Authentication.** When someone claims an artifact is pre-Glassfall, when a legal dispute hinges on historical precedent, when a faction needs to verify a claim about the Ring Age — they come to the Conclave. The archivists cross-reference Echo River fragments, surviving written records, and their own accumulated knowledge to assess whether a claim holds up. This service is not free, and the Conclave's assessment carries legal weight under the [Tempered Accord](tempered-accord.md).
 
-**Containment support.** The [future:Displacement Council] employs Conclave archivists for [future:Bloom Zone] work. The theory — partially validated — is that understanding the resonance history of an affected region helps predict how containment cordons should be configured. The Conclave provides historical resonance analysis. The Council provides the muscle. Neither fully trusts the other's methods, and the partnership works anyway.
+**Containment support.** The [Displacement Council](displacement-council.md) employs Conclave archivists for [future:Bloom Zone] work. The theory — partially validated — is that understanding the resonance history of an affected region helps predict how containment cordons should be configured. The Conclave provides historical resonance analysis. The Council provides the muscle. Neither fully trusts the other's methods, and the partnership works anyway.
 
 **Relic validation.** Even [Coremark](coremark.md)'s black-market buyers need provenance. A Bloom Zone relic of uncertain origin has more value if a Conclave archivist can attest to its resonance signature. The Conclave officially does not authenticate goods of questionable provenance. Individual archivists, on their own time, occasionally do. The Conclave officially does not know about this.
 
@@ -41,7 +41,7 @@ What the Conclave actually does, day to day:
 
 The Conclave hoards knowledge. This is not a criticism — it's their self-description. They consider themselves custodians, not distributors. Knowledge shared carelessly is knowledge misused. Knowledge kept carefully is knowledge preserved.
 
-This philosophy makes them valuable and infuriating in roughly equal measure. The [future:Tempered Accord] has attempted to mandate broader access to Conclave archives three times. Three times the Conclave has complied with the letter and ignored the spirit, releasing material so carefully redacted that it was technically public and practically useless.
+This philosophy makes them valuable and infuriating in roughly equal measure. The [Tempered Accord](tempered-accord.md) has attempted to mandate broader access to Conclave archives three times. Three times the Conclave has complied with the letter and ignored the spirit, releasing material so carefully redacted that it was technically public and practically useless.
 
 Their relationship with [Sithari](../../locations/settlements/sithari.md) and the [future:Continuity] is grudgingly positive. Both factions value knowledge, but for different reasons — the Continuity wants knowledge that serves governance, the Conclave wants knowledge that serves knowledge. They share when the interests align and politely obstruct when they don't. The Conclave recognizes that their institutional independence could be worse. The Continuity recognizes that forcibly opening the archives would cost more politically than it's worth.
 
@@ -53,4 +53,4 @@ The Conclave is secure, solvent, and slightly too pleased with itself. Their exp
 
 The Bloom containment work has raised their profile. Before the Silent Bloom, the Conclave was a niche academic institution. Now they're a faction with practical relevance to the system's biggest ongoing crisis. Some senior archivists are uncomfortable with this. Others are enjoying it more than they'd admit.
 
-[future:Lira Vashtenri] left the Conclave to join the [future:Displacement Council], taking her resonance expertise with her. The Conclave considers this a personal betrayal dressed up as public service. Lira considers it the most useful thing she's ever done. They are both correct.
+[Lira Vashtenri](../heroes/lira-vashtenri.md) left the Conclave to join the [Displacement Council](displacement-council.md), taking her resonance expertise with her. The Conclave considers this a personal betrayal dressed up as public service. Lira considers it the most useful thing she's ever done. They are both correct.

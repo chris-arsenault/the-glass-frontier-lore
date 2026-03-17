@@ -27,7 +27,7 @@ The hab was watching. The engagement was visible from the hab's observation deck
 
 Dozens dead — Coremark operators, hab miners, pirates, and hab civilians killed by the resonance cascade's effects on their home. The casualty count was significant but not unprecedented for the Contested Reach. What made Shardfall different was visibility. A hab had watched it happen. Recordings circulated system-wide.
 
-The political impact was immediate. Shardfall became the argument for regulation. Every subsequent proposal for Shear oversight referenced it. The momentum that eventually produced the [future:Verge Compact] started here — not from the casualties alone, but from the undeniable footage of a corporation's deep Shear methods being applied near someone's home.
+The political impact was immediate. Shardfall became the argument for regulation. Every subsequent proposal for Shear oversight referenced it. The momentum that eventually produced the [Shear Compact](../../npcs/factions/shear-compact.md) started here — not from the casualties alone, but from the undeniable footage of a corporation's deep Shear methods being applied near someone's home.
 
 ## Legacy <!-- Legacy -->
 

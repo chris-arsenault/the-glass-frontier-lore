@@ -127,7 +127,7 @@ The Bloom forces cooperation. The Reconnection thread's contribution: **cooperat
 ---
 
 ### Beat 9: The Framework
-**Era:** 2365–present | **Filled by:** [future:Tempered Accord]
+**Era:** 2365–present | **Filled by:** [Tempered Accord](../../player/npcs/factions/tempered-accord.md)
 
 Born from exhaustion, pragmatism, and the Bloom cooperation's proof of concept. Not a government — a mediation structure. Free communication is a cultural given baked into it, not a provision that needs defending.
 

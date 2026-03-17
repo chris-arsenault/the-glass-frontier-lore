@@ -38,7 +38,7 @@ The question isn't "how do we get back what was lost" — it's "what do we make 
 | System | The entire resonance technology stack is post-elven improvisation | [Resonance](../../player/cosmology/resonance.md), [Practical Resonance](../../player/concepts/practical-resonance.md) |
 | Faction | The Synod inhabits a station they don't fully control, using rituals they can't explain | [Lattice Proxy Synod](../../player/npcs/factions/lattice-proxy-synod.md) |
 | Settlement | *(seed)* A hab whose charismatic leader left — what does the community become after? | unfilled |
-| Personal | Lira Vashtenri left the Conclave to build containment ops from scratch | [future:Lira Vashtenri] |
+| Personal | Lira Vashtenri left the Conclave to build containment ops from scratch | [Lira Vashtenri](../../player/npcs/heroes/lira-vashtenri.md) |
 | Opposition | The Tuners reinvented resonance practice — folk approach sometimes better than original theory | [Tuners](../../player/concepts/tuners.md) |
 
 ---

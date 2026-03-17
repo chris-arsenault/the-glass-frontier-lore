@@ -23,7 +23,7 @@ Between these extremes: habs with functioning societies that simply prefer isola
 
 ## Sovereignty <!-- Governance -->
 
-Under the [future:Tempered Accord], habs can legally refuse contact. This was hard-won. The [Coriolis Breach](../history/events/coriolis-breach.md) — a forced-entry incident during the Contested Reach — was the defining argument for hab sovereignty, and the Accord's framers wrote the lesson into the governance structure.
+Under the [Tempered Accord](../npcs/factions/tempered-accord.md), habs can legally refuse contact. This was hard-won. The [Coriolis Breach](../history/events/coriolis-breach.md) — a forced-entry incident during the Contested Reach — was the defining argument for hab sovereignty, and the Accord's framers wrote the lesson into the governance structure.
 
 Sovereignty is not perfectly settled. Many habs operate as micro-nations with their own rules — social, sometimes physical (resonance-altered environments where different laws of nature apply) — but consider themselves part of the [future:Ring Collective], the loose political body representing connected ring hab interests. Shuttered habs are, by definition, outside this collective. Whether the Accord's sovereignty provisions protect communities that don't recognize the Accord is a philosophical question that the legal framework handles by not answering it.
 

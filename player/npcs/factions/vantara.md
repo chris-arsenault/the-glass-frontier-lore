@@ -19,7 +19,7 @@ A conventional corporation with conventional corporate structures. Board of dire
 
 The CEO carries the title **Chief Experience Officer**, because the current one — [future:Davan Koralis] — believes that Vantara's core product is the experience of travel, not the logistics of it. This is both sincere and insufferable in the way that corporate vision statements tend to be. It also reflects a genuine institutional priority: Vantara invests heavily in the quality of its waystations, its crew training, and the comfort of its passenger vessels.
 
-Vantara is publicly traded, politically neutral, and genuinely multinational — operations span surface settlements, ring habs, outer-system stations, and [the Keel](../../locations/landmarks/keel.md) trade lane. Their neutrality is economic, not ideological. They don't take sides because taking sides is bad for business. This makes them useful to the [future:Tempered Accord] as a logistics backbone that everyone can work with.
+Vantara is publicly traded, politically neutral, and genuinely multinational — operations span surface settlements, ring habs, outer-system stations, and [the Keel](../../locations/landmarks/keel.md) trade lane. Their neutrality is economic, not ideological. They don't take sides because taking sides is bad for business. This makes them useful to the [Tempered Accord](../../npcs/factions/tempered-accord.md) as a logistics backbone that everyone can work with.
 
 ## Operations <!-- Operations -->
 
@@ -27,7 +27,7 @@ Vantara is publicly traded, politically neutral, and genuinely multinational —
 
 **Hospitality.** Waystations along major routes, hotels in settlements, crew rest facilities at ring hab docking ports. The quality is consistent and consistently average — not bad, not memorable, reliably clean and functional. Some people find this comforting. Others call it soulless. Vantara's branding team considers both reactions acceptable.
 
-**Route management.** Vantara doesn't own trade routes — nobody does, formally — but they maintain the infrastructure: navigation beacons, refueling stations, emergency rescue coverage. This is expensive public-good work that Vantara performs because it supports their core business and because nobody else was going to do it. The [future:Tempered Accord] subsidizes some of it. The rest comes from usage fees that everyone complains about and everyone pays.
+**Route management.** Vantara doesn't own trade routes — nobody does, formally — but they maintain the infrastructure: navigation beacons, refueling stations, emergency rescue coverage. This is expensive public-good work that Vantara performs because it supports their core business and because nobody else was going to do it. The [Tempered Accord](../../npcs/factions/tempered-accord.md) subsidizes some of it. The rest comes from usage fees that everyone complains about and everyone pays.
 
 **Armed escorts.** During the Contested Reach, Vantara started arming convoy escorts after their ships were targeted on disputed corridors. The escorts remain. Piracy on [the Keel](../../locations/landmarks/keel.md) and other routes is an ongoing problem, and Vantara's security division is the largest private armed force operating in civilian space. They are not a military. They are very clear about this. Their ships carry weapons anyway.
 

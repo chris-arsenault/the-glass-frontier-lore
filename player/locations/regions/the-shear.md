@@ -24,7 +24,7 @@ The deeper you go — pockets of Shear far from any hab, where debris density is
 
 The Shear is the system's richest source of [ringglass](../../concepts/ringglass.md). Fragments of the original ring — some still carrying their pre-Glassfall tuning — are scattered through it. Salvage is the Shear's primary industry and has been since the [future:Ratters] pioneered it in the 2320s.
 
-Operations range from one-crew skiffs running quick grabs on the Shear's edges to industrial rigs anchored to large debris masses for long-term extraction. [Coremark](../../npcs/factions/coremark.md) built its empire on the industrial end. The independents work the margins. The [future:Verge Compact] regulates both, imperfectly.
+Operations range from one-crew skiffs running quick grabs on the Shear's edges to industrial rigs anchored to large debris masses for long-term extraction. [Coremark](../../npcs/factions/coremark.md) built its empire on the industrial end. The independents work the margins. The [Shear Compact](../../npcs/factions/shear-compact.md) regulates both, imperfectly.
 
 The easy salvage was picked over decades ago. High-grade material now requires going deeper, staying longer, and accepting more risk. This is the economic engine that drives most Shear traffic — and most Shear conflict.
 
@@ -46,7 +46,7 @@ What kills people, roughly in order of frequency:
 
 The Shear has patterns, though calling them "weather" stretches the term. [future:Glassfall showers] — periodic cascades of fine debris that increase collision risk across wide areas. Resonance tides — cyclical shifts in the ambient distortion that make some regions navigable on some days and lethal on others. Drift events — large debris masses changing orbit, reshaping the Shear's geography over weeks or months.
 
-Crews track these the way surface settlers track storms. The [future:Verge Compact] maintains a forecasting service. It is frequently wrong, which everyone knows, and indispensable, which everyone also knows.
+Crews track these the way surface settlers track storms. The [Shear Compact](../../npcs/factions/shear-compact.md) maintains a forecasting service. It is frequently wrong, which everyone knows, and indispensable, which everyone also knows.
 
 ## Permanent Presence <!-- People -->
 
@@ -58,10 +58,10 @@ These stations are hard to find, easy to lose, and dependent on the Shear's inst
 
 ## Relationship to Bloom Zones <!-- Tensions -->
 
-The Shear and the [future:Bloom Zones] are distinct phenomena that occupy the same orbital space.
+The Shear and the [Bloom Zones](../../locations/landmarks/bloom-zones.md) are distinct phenomena that occupy the same orbital space.
 
 The Shear is chronic — it has existed since the Glassfall, it is broadly understood, and it is mostly stabilized. Dangerous, but navigable. An environment that people have learned to work in.
 
-[future:Bloom Zones] are acute — man-made reality tears caused by the [future:The Silent Bloom] cascade of 2355. They can occur anywhere in Kaleidos orbit: in the Shear, adjacent to ring habs, or in otherwise clean orbital space. Where the Shear distorts resonance, Bloom Zones break reality. They are orders of magnitude more dangerous, actively expanding, and require constant containment by the [future:Displacement Council].
+[Bloom Zones](../../locations/landmarks/bloom-zones.md) are acute — man-made reality tears caused by the [future:The Silent Bloom] cascade of 2355. They can occur anywhere in Kaleidos orbit: in the Shear, adjacent to ring habs, or in otherwise clean orbital space. Where the Shear distorts resonance, Bloom Zones break reality. They are orders of magnitude more dangerous, actively expanding, and require constant containment by the [Displacement Council](../../npcs/factions/displacement-council.md).
 
 A Bloom Zone appearing next to a stable ring hab in clean space is the nightmare scenario — and it has happened. The Shear is where you expect problems. Bloom Zones are where problems show up uninvited.

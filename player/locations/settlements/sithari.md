@@ -40,7 +40,7 @@ The name carries a quiet threat that nobody in the Continuity would acknowledge:
 
 ## The Accord Seat <!-- Governance -->
 
-The [future:Tempered Accord] is headquartered in Sithari, in a complex deliberately separated from the Continuity's government buildings. The analogy is the United Nations in Geneva — an international body in a national capital, technically independent, practically influenced by proximity.
+The [Tempered Accord](../../npcs/factions/tempered-accord.md) is headquartered in Sithari, in a complex deliberately separated from the Continuity's government buildings. The analogy is the United Nations in Geneva — an international body in a national capital, technically independent, practically influenced by proximity.
 
 This arrangement was a compromise. Other settlements wanted the Accord seated somewhere neutral. Sithari argued that they had the infrastructure, the security, and the institutional capacity. They were right, and everyone resented them for it. The Accord operates independently, staffed by representatives from across the system, but the physical reality of being in Sithari — eating Sitharian food, hearing Sitharian language, navigating Sitharian bureaucracy — shapes the institution in ways that are hard to quantify and impossible to ignore.
 

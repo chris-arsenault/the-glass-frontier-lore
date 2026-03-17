@@ -44,7 +44,7 @@ A shattered planet. What remains is an asteroid belt — but not an ancient one.
 
 The similarity to the Kaleidos ring is noted and debated. People hypothesize connections — but it's more "glass shatters in similar patterns" than a proven link. The Fracture is far older than the ring's destruction. The timescales don't match. Most people file it under "the universe is strange" and move on.
 
-**The Bloom is here.** Reality tears — unmistakably similar to [future:Bloom Zones] in Kaleidos orbit — have manifested in the Fracture's asteroid field. This is public knowledge, but most people either don't believe it or don't care. Those who look closely are deeply concerned: the Bloom near Kaleidos has known causes (Coremark's overload, the Span replication experiment). Why is it in the Fracture? Why not anywhere else? Nobody has a good answer.
+**The Bloom is here.** Reality tears — unmistakably similar to [Bloom Zones](../locations/landmarks/bloom-zones.md) in Kaleidos orbit — have manifested in the Fracture's asteroid field. This is public knowledge, but most people either don't believe it or don't care. Those who look closely are deeply concerned: the Bloom near Kaleidos has known causes (Coremark's overload, the Span replication experiment). Why is it in the Fracture? Why not anywhere else? Nobody has a good answer.
 
 The Fracture is also home to [future:Cthonic beasts] of a different character than those in the [Shear](../locations/regions/the-shear.md) — primarily natural space fauna rather than resonance-distortion creatures. Pirates operate freely in the belt. Between the beasts, the pirates, and the reality tears, the Fracture is one of the most dangerous regions in the system.
 

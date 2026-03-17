@@ -65,4 +65,4 @@ At the edges of practice, Tuning gets strange:
 
 - There are habs where only Tuners are permitted to live — communities that have organized their entire social structure around resonance sensitivity.
 - There is a deep-space station, far from any planet or ring fragment, that is held together structurally by the sustained concentration of its Tuner residents. If they stop, the station fails.
-- The [future:Bloom Zones] are the ultimate test. The reality distortion there registers as overwhelming sensory noise for any Tuner. [Gnomes](gnomes.md) are particularly vulnerable. The [future:Displacement Council] employs Tuners for containment work, but exposure limits are strict and the burnout rate is high.
+- The [Bloom Zones](../locations/landmarks/bloom-zones.md) are the ultimate test. The reality distortion there registers as overwhelming sensory noise for any Tuner. [Gnomes](gnomes.md) are particularly vulnerable. The [Displacement Council](../npcs/factions/displacement-council.md) employs Tuners for containment work, but exposure limits are strict and the burnout rate is high.

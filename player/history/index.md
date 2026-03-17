@@ -29,5 +29,5 @@ Eras and events.
 | The Fermata Open | — | shell | recognized | music, trade | Annual festival at Fermata Station |
 | Shardfall | [events/shardfall.md](events/shardfall.md) | complete | recognized | salvage, military, danger | ~2340s CE; three-way salvage battle near a hab; turned public opinion |
 | Coriolis Breach | [events/coriolis-breach.md](events/coriolis-breach.md) | complete | recognized | governance, ring-hab, military | ~2350s CE; forced entry into reverted garden hab; contact team slaughtered |
-| Displacement | — | shell | renowned | danger, ring-hab | ~2355 CE; mass Bloom evacuation; tens of thousands displaced |
+| Displacement | [events/displacement.md](events/displacement.md) | complete | renowned | danger, ring-hab | ~2355 CE; mass Bloom evacuation; tens of thousands displaced |
 | Vashtenri Thesis | — | shell | marginal | archives, mystery | First academic work proposing deliberate elven erasure |

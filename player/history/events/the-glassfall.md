@@ -32,7 +32,7 @@ What followed the Glassfall was worse than the event itself. Communication infra
 
 During the Famine, communities that had been part of a single interconnected colony became separate cultures. Surface settlements diverged from each other. Ring habs, sealed and self-sustaining but cut off, evolved in ways nobody on the ground could have predicted — some maintaining the old civilization's technology with eerie fidelity, others reinventing themselves entirely. And beyond Kaleidos, the other worlds in the [system](../../cosmology/solar-system.md) carried on with their own versions of survival.
 
-When contact was eventually re-established, these differences had to be negotiated rather than erased. That negotiation is, in many ways, still ongoing. The [future:Tempered Accord] is the current framework for it — but "current" doesn't mean "settled."
+When contact was eventually re-established, these differences had to be negotiated rather than erased. That negotiation is, in many ways, still ongoing. The [Tempered Accord](../../npcs/factions/tempered-accord.md) is the current framework for it — but "current" doesn't mean "settled."
 
 ## Legacy
 

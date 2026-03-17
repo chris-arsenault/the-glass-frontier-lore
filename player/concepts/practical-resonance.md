@@ -15,7 +15,7 @@ Most of Kaleidos and the inhabited ring has enough ringglass in the environment 
 
 Settlements can amplify the local field using resonance concentrators — large ringglass arrays that collect and focus ambient energy into a denser local field. These aren't power plants. They're more like signal boosters. A settlement with a good concentrator has a richer resonance environment, which means household devices work better, mid-bandwidth applications are more reliable, and [Tuners](tuners.md) find the working conditions more comfortable.
 
-Depletion is a real concern. Draw too much from a local field too quickly and the ringglass goes quiet until ambient energy replenishes. Settlements manage this through usage norms and, in larger cities, through [future:Tempered Accord] resonance allocation frameworks that nobody enjoys dealing with.
+Depletion is a real concern. Draw too much from a local field too quickly and the ringglass goes quiet until ambient energy replenishes. Settlements manage this through usage norms and, in larger cities, through [Tempered Accord](../npcs/factions/tempered-accord.md) resonance allocation frameworks that nobody enjoys dealing with.
 
 ## Transport <!-- Applications -->
 

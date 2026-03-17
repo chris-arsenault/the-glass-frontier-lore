@@ -19,7 +19,7 @@ The overload wasn't a single dramatic failure. It was Chernobyl: a culture of co
 
 ## Present Day <!-- Present Day -->
 
-Pyre is one of the most dangerous and valuable sites in the system. The Bloom Zone that formed around it contains some of the most severe reality distortion anywhere in Kaleidos orbit — spatial relationships are unreliable, resonance frequencies stack in unpredictable ways, and the boundary between the zone and normal space requires constant [future:Displacement Council] containment.
+Pyre is one of the most dangerous and valuable sites in the system. The Bloom Zone that formed around it contains some of the most severe reality distortion anywhere in Kaleidos orbit — spatial relationships are unreliable, resonance frequencies stack in unpredictable ways, and the boundary between the zone and normal space requires constant [Displacement Council](../../npcs/factions/displacement-council.md) containment.
 
 It is also a rich source of [future:Bloom Zone relics] and [future:duskgrain]. The same reality distortion that makes Pyre lethal also produces artifacts of narrow-bandwidth power that don't exist anywhere else. [Coremark](../../npcs/factions/coremark.md)'s black market operations include runs into Pyre's periphery — former employees who know the refinery's layout navigating the warped interior for salvage that commands extraordinary prices.
 

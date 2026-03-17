@@ -30,7 +30,7 @@ Key characteristics:
 
 The cooperation produces lasting artifacts that outlive the crisis: institutions, infrastructure, relationships, debts. These are not planned — they're byproducts of the cooperation that turn out to be too useful to dismantle.
 
-The residue is the cycle's real output. The Verge Compact was an emergency measure that became a regulatory body. The Displacement Council was a refugee organization that became a containment order. The relationships forged under pressure become the political connective tissue of the next era.
+The residue is the cycle's real output. The Shear Compact was an emergency measure that became a regulatory body. The Displacement Council was a refugee organization that became a containment order. The relationships forged under pressure become the political connective tissue of the next era.
 
 ### Stage 4: Fracture
 
@@ -48,9 +48,9 @@ The fracture is constrained by the residue. Nobody wants to destroy the infrastr
 |-------|--------|-------|
 | Crisis | [future:The Silent Bloom] | Resonance cascade tears reality across mid-drift habs |
 | Cooperation | [future:Bloom Coalition] | Emergency coalition draws from Vantara, Synod, Conclave, independent salvagers |
-| Residue | [future:Verge Compact] | Emergency salvage regulation becomes permanent regulatory body |
-| Residue | [future:Displacement Council] | Refugee advocacy becomes neutral containment order |
-| Residue | [future:Lira's Wall] | First containment device, proof that cooperation produces real capability |
+| Residue | [Shear Compact](../../player/npcs/factions/shear-compact.md) | Emergency salvage regulation becomes permanent regulatory body |
+| Residue | [Displacement Council](../../player/npcs/factions/displacement-council.md) | Refugee advocacy becomes neutral containment order |
+| Residue | [Lira's Wall](../../player/artifacts/relics/liras-wall.md) | First containment device, proof that cooperation produces real capability |
 | Fracture | [future:The Bitter Reach] | Coalition fractures, second wave of sharper conflicts |
 
 **Status:** Complete cycle. The Tempered Accord emerges from the fracture's exhaustion — seeding the next cycle's residue.
@@ -83,7 +83,7 @@ The fracture is constrained by the residue. Nobody wants to destroy the infrastr
 
 Each cycle leaves more shared infrastructure than the last:
 - **Rekindling cycle** → trade networks, communication, economic interdependence
-- **Bloom cycle** → regulatory bodies (Verge Compact), containment order (Displacement Council), governance framework (Tempered Accord)
+- **Bloom cycle** → regulatory bodies (Shear Compact), containment order (Displacement Council), governance framework (Tempered Accord)
 - **Next cycle** → (unfilled — the Accord's residue will shape whatever cooperation emerges from the next crisis)
 
 The system ratchets. Cooperation is always temporary. The infrastructure it leaves behind is not. This is the hopecore mechanism: not "things get better" but "each catastrophe produces tools that make the next response slightly more effective."

@@ -15,7 +15,7 @@ contains_dm: true
 The Bloom thread is driven by guilt that transforms into responsibility. The people who built the Coalition are the same generation that let Coremark operate unchecked. The Displacement Council's mission isn't heroic — it's obligatory. You broke it, you contain it.
 
 This guilt echoes forward at every scale:
-- The Verge Compact's regulatory zeal comes from "never again" — its entire philosophy is a reaction to the permissive era that enabled the Bloom
+- The Shear Compact's regulatory zeal comes from "never again" — its entire philosophy is a reaction to the permissive era that enabled the Bloom
 - The Tempered Accord's caution around ringglass policy is Bloom-shaped
 - [Dern Talish](../../player/npcs/heroes/dern-talish.md)'s obsessive containment discipline is personal — she was a child when the Bloom took her home
 - "That's what they said about Pyre" is a phrase people use to shut down reckless proposals
@@ -62,7 +62,7 @@ Pyre refinery cascades. Not a single ignored warning — a general environment w
 ---
 
 ### Beat 4: The Cascade
-**Era:** 2355 | **Filled by:** [future:The Silent Bloom], [future:Bloom Zones]
+**Era:** 2355 | **Filled by:** [future:The Silent Bloom], [Bloom Zones](../../player/locations/landmarks/bloom-zones.md)
 
 The Bloom doesn't manifest uniformly — its expression depends on the local resonance environment, the crystal substrate, the specific frequencies involved. In some places, walls develop a translucency that isn't transparency — not see-through but not committed to being solid. In others, sound arrives from directions it shouldn't. In others, spatial relationships stop being reliable — a corridor that was ten meters long is now thirty, or three. In the worst zones, the concept of "direction" softens.
 
@@ -73,7 +73,7 @@ The Bloom doesn't manifest uniformly — its expression depends on the local res
 ---
 
 ### Beat 5: The Displacement
-**Era:** 2355–2358 | **Filled by:** [future:Displacement]
+**Era:** 2355–2358 | **Filled by:** [Displacement](../../player/history/events/displacement.md)
 
 Mass evacuation. Hab-Worlders who defined themselves by their sealed environment lose the thing that made them who they are. The exit-checking, air-listening, load-bearing social awareness — all built for a specific hab. In a refugee camp on the surface, those instincts have no object.
 
@@ -101,7 +101,7 @@ The [future:Lumenshard Conservatory] is the last major faction to join. They ini
 ---
 
 ### Beat 7: The Turning Point
-**Era:** ~2357 | **Partially filled by:** [future:Lira Vashtenri], [future:Lira's Wall]
+**Era:** ~2357 | **Partially filled by:** [Lira Vashtenri](../../player/npcs/heroes/lira-vashtenri.md), [Lira's Wall](../../player/artifacts/relics/liras-wall.md)
 
 Lira Vashtenri is a Shear mechanic. Coremark-employed. Blue collar. She works at a refinery — not Pyre, a different one — and somebody notices that her installation has almost none of the maintenance issues that plague other Shear refineries. They trace it to her. She's been making adjustments to the ringglass arrays by feel — small modifications not in any manual that keep the resonance ecology around her installation stable.
 
@@ -114,9 +114,9 @@ Lira's Wall is a resonance damping array tuned to the specific frequencies the c
 ---
 
 ### Beat 8: The Institutions
-**Era:** 2358–2362 | **Filled by:** [future:Verge Compact], [future:Displacement Council]
+**Era:** 2358–2362 | **Filled by:** [Shear Compact](../../player/npcs/factions/shear-compact.md), [Displacement Council](../../player/npcs/factions/displacement-council.md)
 
-Emergency measures become permanent. The Verge Compact formalizes salvage regulation — its founding charter includes a neutrality provision and a structured mediation process that everyone hates and everyone uses because it's better than fighting. This becomes the legal template the Accord architects adapt.
+Emergency measures become permanent. The Shear Compact formalizes salvage regulation — its founding charter includes a neutrality provision and a structured mediation process that everyone hates and everyone uses because it's better than fighting. This becomes the legal template the Accord architects adapt.
 
 The Displacement Council writes neutrality into its founding charter from day one — a direct lesson from watching the Coalition fracture. Taking sides destroys the trust you need for containment. Lira Vashtenri founds the Council's containment operations, scaling her instinctive approach into a training program.
 
@@ -136,7 +136,7 @@ The Bloom stabilizes. The existential pressure eases. Old disputes resurface, sh
 ---
 
 ### Beat 10: The Ongoing
-**Era:** 2365–present | **Filled by:** [future:Displacement Council], [future:Bloom Zones], [Dern Talish](../../player/npcs/heroes/dern-talish.md)
+**Era:** 2365–present | **Filled by:** [Displacement Council](../../player/npcs/factions/displacement-council.md), [Bloom Zones](../../player/locations/landmarks/bloom-zones.md), [Dern Talish](../../player/npcs/heroes/dern-talish.md)
 
 Containment holds but the Bloom Zones are expanding slowly. The Displacement Council is stretched thin. Dern Talish leads containment and secretly cooperates with elven operatives. [DM] Coremark smuggles Bloom Zone relics — including duskgrain — through the black market.
 
