@@ -34,7 +34,7 @@ Every system of magic or technology must be concrete. Brandon Sanderson as a dir
 
 No deus ex machina. No "Gandalf winks to kill a dragon." No "Kessel spice run" without Kessel being a source of spice and the economics making sense.
 
-The resonance system has defined bands and bandwidths. Ringglass has a supply chain. Kite-sails work via momentum nullification. These details exist so the world holds together under scrutiny.
+The resonance system has defined bands and bandwidths. Ringglass has a supply chain. Kites work via momentum nullification. These details exist so the world holds together under scrutiny.
 
 ## Real-World Defaults
 
@@ -49,6 +49,26 @@ Prominence measures how widely known something is. Not power, not prestige, not 
 **Prominence is not inherited.** A marginal location can host a renowned event. A mythic person can come from a forgotten village. Each entity has its own prominence independent of its parent.
 
 **Prominence gates cross-references.** A system-wide political overview shouldn't name-drop a marginal ring hab. A marginal hab's entry can reference mythic concepts freely. This prevents world-shrinking — the feeling that everything is connected to everything.
+
+## The World Has a Past Tense
+
+Many entities are dead, dissolved, or dormant. The present-day player encounters them through legacy — ruins, institutions they founded, techniques they invented, stories people tell. Worldbuilding must give equal weight to entities that are no longer active.
+
+When writing an entity, the temporal focus should be the era when it was most active, not the present day. Lira Vashtenri's entry is about a Shear mechanic during the Silent Bloom, not about an elderly gnome in 2438. The present-day state is a coda, not the entry. The Bloom Coalition dissolved decades ago — its entry describes what it did, not what replaced it.
+
+This applies to the graph too. Historical relationships (with end dates) are as important as current ones. The narrative engine needs to traverse the past as well as the present.
+
+## Viewpoints and Titans
+
+NPCs fall into three tiers: regular NPCs, viewpoint characters, and titans. Most NPCs are regular — a few relationships, a role in the world. The elevated tiers serve specific narrative functions.
+
+**Viewpoint characters** are NPCs whose stories a player enters mid-arc. They are the player's ground-level introduction to a thread or theme. Their backstories generate minor entities — forgotten locations, marginal factions, personal incidents that only matter because this character interacts with them. Viewpoints are narrative generators: writing one should produce 5-10 shell entries. They are typically recognized or marginal prominence. Their connections are specific and high-fidelity, mostly to low-prominence things.
+
+**Titans** are NPCs (or institutions) whose decisions shaped the world the player walks through. Known through reputation and consequences. Described through impact, not interiority. Their entries are shorter — mystique comes from restraint. They generate renowned/mythic shells. The player navigates a titan's consequences long before engaging directly.
+
+The player experiences viewpoint paths first (personal, investigative) and titan paths later (confrontational, system-scale). When a titan becomes aware of a viewpoint character, that is a narrative event, not the default.
+
+See `review-guidance/narrative-roles-guide.md` for full guidance, detection criteria, and graph signatures.
 
 ## Species and Cultures Are Orthogonal
 

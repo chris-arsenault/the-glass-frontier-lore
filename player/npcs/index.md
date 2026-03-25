@@ -10,10 +10,10 @@ Factions, notable individuals, and named antagonists.
 
 | Entry | Path | Status | Prominence | Tags | Notes |
 |-------|------|--------|------------|------|-------|
-| Tempered Accord | [factions/tempered-accord.md](factions/tempered-accord.md) | complete | renowned | governance, diplomacy | System-wide mediation framework; UN analogy; 4 years old; ducks |
+| Tempered Accord | [factions/tempered-accord.md](factions/tempered-accord.md) | complete | renowned | governance, diplomacy | System-wide mediation framework; 4 years old; ducks |
 | Echo Ledger Conclave | [factions/echo-ledger-conclave.md](factions/echo-ledger-conclave.md) | complete | recognized | archives, resonance, signal-freq, governance | Archivists; Echo River custodians; knowledge gatekeepers; HQ in Sable Crescent |
 | Lattice Proxy Synod | [factions/lattice-proxy-synod.md](factions/lattice-proxy-synod.md) | complete | recognized | ring-era, AI, governance, resonance | Interface with ring-era AI custodians; ritual-based communication; HQ at Threshold Station |
-| Vantara | [factions/vantara.md](factions/vantara.md) | complete | recognized | trade, transport, governance | Travel and logistics corp; kite-sail fleets, hospitality, route infrastructure |
+| Vantara | [factions/vantara.md](factions/vantara.md) | complete | recognized | trade, transport, governance | Travel and logistics corp; kite fleets, hospitality, route infrastructure |
 | Shear Compact | [factions/shear-compact.md](factions/shear-compact.md) | complete | recognized | salvage, ringglass, trade, governance | Regulatory body for Shear salvage; standards board, not enforcement |
 | Lumenshard Conservatory | — | shell | recognized | ecology, resonance | Eco-faction protecting bioluminescent groves |
 | Clarisant | — | shell | recognized | resonance, training, governance | Tuner guild; accreditation body; HQ on Pelhari |

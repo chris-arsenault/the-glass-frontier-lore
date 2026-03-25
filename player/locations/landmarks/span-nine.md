@@ -1,6 +1,6 @@
 ---
 title: Span Nine
-type: location
+type: installation
 tags: [ring-era, resonance, signal-freq, orbital]
 prominence: recognized
 ---
@@ -27,4 +27,4 @@ Span Nine was rediscovered during the Rekindling, after the Signal Famine ended 
 
 Before the Span, communication between Kaleidos's surface and off-world installations was slow, unreliable, and bandwidth-limited. With it, [Sithari](../settlements/sithari.md) has real-time signal-bandwidth links to the [future:Clarisant] guild on Pelhari and the Synod's AI custodians at Threshold Station. This connectivity is a significant part of Sithari's continued centrality — the capital's access to the Span is a structural advantage that other settlements cannot replicate.
 
-The Span is also a reminder. Whoever built it — and the engineering is consistent with [elven](../../concepts/elves.md) work, though no surviving record credits them specifically — operated at a level of capability that the current civilization cannot approach. The filament has survived the Glassfall, 130 years of orbital debris, and every attempt to study it, and it continues to function perfectly. It is the most visible evidence that the Ring Age produced things nobody alive knows how to make.
+The Span is also a reminder. Whoever built it — and the engineering is consistent with [elven](../../concepts/species/elves.md) work, though no surviving record credits them specifically — operated at a level of capability that the current civilization cannot approach. The filament has survived the Glassfall, two centuries of orbital debris, and every attempt to study it, and it continues to function perfectly. It is the most visible evidence that the Ring Age produced things nobody alive knows how to make.

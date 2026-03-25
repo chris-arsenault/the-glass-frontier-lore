@@ -19,4 +19,4 @@ Unresolved design questions. Address as entities are fleshed out.
 - **Bloom Zone relic mechanics:** What makes these artifacts different from pre-collapse tech? How does the reality distortion create them? Is it random, or does the distortion follow patterns?
 - **Displacement Council internal tensions:** Containment mission vs. members who want to reclaim their original homes. How thin can they stretch before something breaks?
 - **Coremark's network:** Who buys Bloom Zone artifacts? What are the downstream effects of relic-magnitude items hitting the black market?
-- **Lira Vashtenri's current status:** Still active? Leading the Council? Retired? Her relationship with the Echo Ledger Conclave (her original faction) after she left to focus on containment.
+- **Lira Vashtenri's current status:** Still active in containment ops. Never was a Conclave member — always Coremark. Her stillwater supply relationship with the Conclave is purely transactional. What is she doing NOW beyond maintaining containment methodology?

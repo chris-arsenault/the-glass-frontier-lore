@@ -51,7 +51,7 @@ Patterns that only become visible across multiple entries:
 ### The Specific Detail Test
 
 For any sentence that feels generic, ask: "What specific thing could replace this?" Replace:
-- "The system is connected but unevenly" → name two settlements and say one has daily shuttle service while the other waits weeks for a kite-sail
+- "The system is connected but unevenly" → name two settlements and say one has daily shuttle service while the other waits weeks for a kite
 - "Tensions between expansion and preservation" → name the specific tension (who wants to expand into what, who's preserving what, and why)
 - "The implications are significant" → delete
 

@@ -1,6 +1,6 @@
 ---
 title: Bloom Zones
-type: location
+type: geographic_location
 tags: [orbital, danger, resonance]
 prominence: renowned
 prominence_xrefs: [coremark, displacement-council, pyre, tuners]
@@ -18,7 +18,7 @@ No two zones manifest the same way. The distortion depends on the local resonanc
 
 In some zones, walls develop a translucency that isn't transparency — not see-through, but not committed to being solid. In others, sound arrives from directions it shouldn't. In others, spatial relationships stop being reliable — a corridor that was ten meters long is now thirty, or three. In the worst zones, the concept of "direction" softens.
 
-[Tuners](../../concepts/tuners.md) describe the resonance landscape inside a zone as saturated — so dense with information that signal-to-noise collapses. [Gnomes](../../concepts/gnomes.md) are hit worst — their crystal-laced nervous systems pick up the distortion directly. [Fae](../../concepts/fae.md) have an unexpected advantage — the spatial dislocation they manage daily is exactly the skill set the zones demand.
+[Tuners](../../concepts/tuners.md) describe the resonance landscape inside a zone as saturated — so dense with information that signal-to-noise collapses. [Gnomes](../../concepts/species/gnomes.md) are hit worst — their crystal-laced nervous systems pick up the distortion directly. [Fae](../../concepts/species/fae.md) have an unexpected advantage — the spatial dislocation they manage daily is exactly the skill set the zones demand.
 
 ## Growth <!-- Mechanics -->
 

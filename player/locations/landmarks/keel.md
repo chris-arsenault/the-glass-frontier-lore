@@ -1,6 +1,6 @@
 ---
 title: The Keel
-type: location
+type: installation
 tags: [trade, orbital, salvage, danger, navigation]
 prominence: recognized
 ---
@@ -29,9 +29,9 @@ What moves on the Keel:
 
 **Ringglass** — raw, refined, and intact. The Keel exists because ringglass needs to get from where it's mined to where it's used, and every settlement in the system uses it. Bulk aggregate moves in heavy haulers. Refined product moves under escort. Intact pieces move under heavy escort, and the security premium is a significant fraction of the cargo's value.
 
-**Manufactured goods.** Resonance-integrated technology manufactured in ring habs — everything from household lanterns to kite-sail components. The ring habs have the skilled labor and the ringglass access. The surface has the population and the demand.
+**Manufactured goods.** Resonance-integrated technology manufactured in ring habs — everything from household lanterns to kite components. The ring habs have the skilled labor and the ringglass access. The surface has the population and the demand.
 
-**Veilfire.** Refined fuel flowing from processing facilities to consumption points. A steady, unglamorous trade that underpins everything else.
+**Microcavities.** Sealed ringglass fuel cells flowing from processing facilities to consumption points. A steady, unglamorous trade that underpins everything else.
 
 **People.** Passenger traffic on the Keel is substantial. Workers, merchants, migrants, tourists. [Vantara](../../npcs/factions/vantara.md) runs scheduled passenger service along the full route.
 

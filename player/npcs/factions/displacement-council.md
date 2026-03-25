@@ -19,11 +19,11 @@ The first leader burned out quickly in the early chaos — the job was impossibl
 
 ## Operations <!-- Operations -->
 
-**Containment.** The Council's primary mission. Cordon stations around every known [Bloom Zone](../../locations/landmarks/bloom-zones.md), crewed by rotating teams who monitor the zones' boundaries and deploy damping buoys when expansion threatens. The containment technology is based on [future:Lira's Wall] — stillwater resonance dampers that calm the cascade frequencies along zone boundaries. Each buoy represents [future:stillwater] that the [Echo Ledger Conclave](echo-ledger-conclave.md) wishes were storing history instead of holding back reality tears.
+**Containment.** The Council's primary mission. Cordon stations around every known [Bloom Zone](../../locations/landmarks/bloom-zones.md), crewed by rotating teams who monitor the zones' boundaries and deploy damping buoys when expansion threatens. The containment technology is based on [Lira's Wall](../../artifacts/relics/liras-wall.md) — [stillwater](../../concepts/stillwater.md) resonance dampers that calm the cascade frequencies along zone boundaries. Each buoy represents [stillwater](../../concepts/stillwater.md) that the [Echo Ledger Conclave](echo-ledger-conclave.md) wishes were storing history instead of holding back reality tears.
 
 **Humanitarian.** The Council still supports displaced communities — settlement integration, resource advocacy, cultural preservation for Bloom diaspora populations.
 
-**Recruitment.** The Council draws from Bloom survivors, [Tuners](../../concepts/tuners.md) willing to work in extreme resonance conditions, and [fae](../../concepts/fae.md) whose spatial dislocation management skills translate directly to Bloom Zone operations. [Gnomes](../../concepts/gnomes.md) are valuable for calibration but strictly exposure-limited.
+**Recruitment.** The Council draws from Bloom survivors, [Tuners](../../concepts/tuners.md) willing to work in extreme resonance conditions, and [fae](../../concepts/species/fae.md) whose spatial dislocation management skills translate directly to Bloom Zone operations. [Gnomes](../../concepts/species/gnomes.md) are valuable for calibration but strictly exposure-limited.
 
 ## Tensions <!-- Tensions -->
 
@@ -33,4 +33,4 @@ The Council's neutrality is its greatest asset and its greatest constraint. Trus
 
 ## Present Day <!-- Present Day -->
 
-[Dern Talish](../../npcs/heroes/dern-talish.md) leads. Containment holds. The situation is not improving.
+[Dern Talish](../../npcs/heroes/dern-talish.md) leads. Containment holds. The zones have not contracted.

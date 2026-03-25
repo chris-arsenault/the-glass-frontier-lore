@@ -2,13 +2,13 @@
 title: "Resonance Corruption — DM Truth"
 type: dm
 dm: true
-public_entry: exceptional-resources
+public_entry: duskgrain
 tags: [resonance, danger]
 ---
 
 # Resonance Corruption — DM Truth
 
-Public entry: [Exceptional Resources](../player/concepts/exceptional-resources.md) (duskgrain section)
+Public entry: [Duskgrain](../player/concepts/duskgrain.md)
 
 ## The Corruption <!-- Truth -->
 
@@ -18,7 +18,7 @@ Where the Adversary's presence touches normal space — in Bloom Zones, in deep 
 
 The public understanding (concentrated resonance energy) is not wrong — duskgrain does contain resonance, and it does release it when triggered. But the resonance inside duskgrain is contaminated. Prolonged exposure produces effects that map to addiction: heightened resonance sensitivity, euphoria, gradually narrowing perception. Users become more attuned — and more aligned with the Adversary's dimensional framework.
 
-The psychedelic honey that circulates on the black market is produced by insects whose hives are located near duskgrain deposits. The honey carries trace amounts of the corruption. The effects are mild at low doses (heightened perception, vivid dreams, enhanced resonance sensitivity) and severe at sustained use (reality perception disorders, dimensional bleeding, eventually a complete inability to maintain coherent spatial identity — a condition that resembles advanced fae dislocation but is not related).
+The psychedelic honey that circulates on the black market is produced by insects whose hives are located near duskgrain deposits. The honey carries trace amounts of the corruption. The effects are mild at low doses (heightened perception, vivid dreams, enhanced resonance sensitivity) and severe at sustained use (reality perception disorders, dimensional bleeding, eventually a complete inability to maintain coherent spatial identity — a condition that resembles advanced fae dislocation).
 
 ## The Elves Know <!-- Truth -->
 

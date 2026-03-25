@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 """Lore wiki linter. Enforces structural cohesion across entries and indexes."""
 
+import json
 import re
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).parent
 PLAYER_DIR = ROOT / "player"
+ACCEPTED_OVERLAPS_FILE = ROOT / "work-tracking" / "accepted-overlaps.json"
 
 # Files that are meta/infrastructure, not lore entries
 META_FILES = {
@@ -18,18 +20,30 @@ META_FILES = {
 
 # Map type field values to expected directory prefixes
 TYPE_DIR_MAP = {
-    "location": "locations",
+    # World Atlas
+    "geographic_location": ("locations", "cosmology"),
+    "installation": ("locations", "cosmology"),
     "faction": "npcs",
     "npc": "npcs",
     "artifact": "artifacts",
     "creature": "creatures",
-    "ship": "ships",
-    "occurrence": "history",
+    "incident": "history",
+    "conflict": "history",
+    "transport": "ships",
+    "rumor": "history",
+    "edict": "concepts",
+    # Player Reference
+    "species": ("concepts", "species"),
+    "culture": ("concepts", "cultures"),
+    "ability": "concepts",
+    "resource": ("concepts", "artifacts"),
+    "phenomenon": ("concepts", "cosmology"),
+    "concept": ("concepts", "cosmology"),
+    # Structural
     "era": "history",
     "thread": ("threads", "dm"),
     "loop": ("loops", "dm"),
     "theme": ("themes", "dm"),
-    "concept": ("concepts", "cosmology"),
     "dm": "dm",
 }
 
@@ -122,7 +136,7 @@ def parse_index_entries(index_path: Path) -> list[dict]:
     return entries
 
 
-SKIP_DIRS = {"wiki_out", ".git", ".github", "review-guidance", "work-tracking", "research"}
+SKIP_DIRS = {"wiki_out", ".git", ".github", "review-guidance", "work-tracking", "research", "node_modules", "tools"}
 # DM files are linted for structure but exempt from prominence cross-ref checks
 DM_DIR = "dm"
 
@@ -678,6 +692,12 @@ def main():
                 if fm.get("type") and record["type"] and fm["type"] != record["type"]:
                     error(f"GRAPH G4: {rel} type mismatch — prose='{fm['type']}' graph='{record['type']}'")
 
+            # Load accepted overlap pairs
+            accepted_pairs = set()
+            if ACCEPTED_OVERLAPS_FILE.exists():
+                for a in json.loads(ACCEPTED_OVERLAPS_FILE.read_text()):
+                    accepted_pairs.add(tuple(sorted(a["pair"])))
+
             # L2. Semantic similarity — for each section, find nearest neighbors
             #     via vector index. Flag same-heading pairs with high similarity.
             seen_pairs = set()
@@ -689,6 +709,7 @@ def main():
             all_sections = [(r["sid"], r["eid"], r["heading"], r["vec"]) for r in result]
 
             for sid, eid, heading, vec in all_sections:
+                # Same-heading pairs: threshold 0.92
                 result = session.run("""
                     CALL vector_search.search("section_embeddings", 5, $vec)
                     YIELD node, similarity
@@ -696,15 +717,92 @@ def main():
                     WHERE node.id <> $sid
                     AND node.heading = $heading
                     AND similarity > 0.92
-                    RETURN node.entity_id AS other_eid, similarity AS sim
+                    RETURN node.id AS other_sid, node.entity_id AS other_eid, similarity AS sim
                 """, vec=vec, sid=sid, heading=heading)
                 for r in result:
+                    sec_pair = tuple(sorted([sid, r["other_sid"]]))
+                    if sec_pair in accepted_pairs:
+                        continue
                     pair = tuple(sorted([eid, r["other_eid"]]))
                     pair_key = (heading, pair)
                     if pair_key not in seen_pairs:
                         seen_pairs.add(pair_key)
                         warn(f"GRAPH L2: [{heading}] {pair[0]} ↔ {pair[1]} "
                              f"similarity={r['sim']:.3f} — review for redundancy")
+                # Cross-heading pairs: higher threshold 0.93 (catches content in wrong section)
+                result = session.run("""
+                    CALL vector_search.search("section_embeddings", 5, $vec)
+                    YIELD node, similarity
+                    WITH node, similarity
+                    WHERE node.id <> $sid
+                    AND node.entity_id <> $eid
+                    AND node.heading <> $heading
+                    AND similarity > 0.93
+                    RETURN node.id AS other_sid, node.entity_id AS other_eid, node.heading AS other_heading, similarity AS sim
+                """, vec=vec, sid=sid, heading=heading, eid=eid)
+                for r in result:
+                    sec_pair = tuple(sorted([sid, r["other_sid"]]))
+                    if sec_pair in accepted_pairs:
+                        continue
+                    pair = tuple(sorted([eid, r["other_eid"]]))
+                    pair_key = (heading + "↔" + r["other_heading"], pair)
+                    if pair_key not in seen_pairs:
+                        seen_pairs.add(pair_key)
+                        warn(f"GRAPH L2x: [{heading}↔{r['other_heading']}] {pair[0]} ↔ {pair[1]} "
+                             f"similarity={r['sim']:.3f} — cross-heading duplication")
+
+            # L2p. Plain-space similarity (no attribute enrichment — better for duplication)
+            seen_plain = set()
+            result = session.run("""
+                MATCH (sec:Section)
+                WHERE sec.embedding_plain IS NOT NULL AND sec.heading IS NOT NULL
+                RETURN sec.id AS sid, sec.entity_id AS eid, sec.heading AS heading, sec.embedding_plain AS vec
+            """)
+            plain_sections = [(r["sid"], r["eid"], r["heading"], r["vec"]) for r in result]
+
+            for sid, eid, heading, vec in plain_sections:
+                # Same-heading: threshold 0.89 (lower than enriched 0.92 since plain has lower baseline)
+                result = session.run("""
+                    CALL vector_search.search("section_embeddings_plain", 5, $vec)
+                    YIELD node, similarity
+                    WITH node, similarity
+                    WHERE node.id <> $sid
+                    AND node.entity_id <> $eid
+                    AND node.heading = $heading
+                    AND similarity > 0.89
+                    RETURN node.id AS other_sid, node.entity_id AS other_eid, similarity AS sim
+                """, vec=vec, sid=sid, heading=heading, eid=eid)
+                for r in result:
+                    sec_pair = tuple(sorted([sid, r["other_sid"]]))
+                    if sec_pair in accepted_pairs:
+                        continue
+                    pair = tuple(sorted([eid, r["other_eid"]]))
+                    pair_key = (heading, pair)
+                    if pair_key not in seen_plain and pair_key not in seen_pairs:
+                        seen_plain.add(pair_key)
+                        warn(f"GRAPH L2p: [{heading}] {pair[0]} ↔ {pair[1]} "
+                             f"similarity={r['sim']:.3f} (plain) — review for duplication")
+                # Cross-heading: threshold 0.89
+                result = session.run("""
+                    CALL vector_search.search("section_embeddings_plain", 5, $vec)
+                    YIELD node, similarity
+                    WITH node, similarity
+                    WHERE node.id <> $sid
+                    AND node.entity_id <> $eid
+                    AND node.heading <> $heading
+                    AND similarity > 0.89
+                    RETURN node.id AS other_sid, node.entity_id AS other_eid, node.heading AS other_heading, similarity AS sim
+                """, vec=vec, sid=sid, heading=heading, eid=eid)
+                for r in result:
+                    sec_pair = tuple(sorted([sid, r["other_sid"]]))
+                    if sec_pair in accepted_pairs:
+                        continue
+                    pair = tuple(sorted([eid, r["other_eid"]]))
+                    pair_key = (heading + "↔" + r["other_heading"], pair)
+                    if pair_key not in seen_plain and pair_key not in seen_pairs:
+                        seen_plain.add(pair_key)
+                        warn(f"GRAPH L2px: [{heading}↔{r['other_heading']}] {pair[0]} ↔ {pair[1]} "
+                             f"similarity={r['sim']:.3f} (plain) — cross-heading duplication")
 
             # L3. Entity-level semantic overlap — two complete entities of the same
             #     type whose sections are broadly similar (not just one matching heading)

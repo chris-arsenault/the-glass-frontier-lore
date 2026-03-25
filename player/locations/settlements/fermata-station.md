@@ -1,7 +1,7 @@
 ---
 title: Fermata Station
 alias: The Jazzocracy
-type: location
+type: installation
 tags: [governance, resonance, ring-hab, fluid-reality, music, social-structure]
 region: glass-frontier
 prominence: marginal
@@ -25,7 +25,17 @@ The [Signal Famine](../../history/index.md) sealed it. Cut off from the rest of 
 
 ## How It Works
 
-See [Jazzocratic Governance](../../concepts/jazzocratic-governance.md) for the system in abstract. In practice:
+Three principles hold the system together:
+
+**Authority is performative.** You govern by playing. Political power flows to those who can hold a room — not through volume or virtuosity, but through the ability to listen, respond, and shape the direction of a collective improvisation.
+
+**Law is repertoire.** The station's legal framework is encoded in jazz standards — pieces that carry accumulated political meaning from every significant session in which they were played. Calling a tune invokes precedent. Composing a new one proposes new law.
+
+**Citizenship is auditioned.** Full political participation requires passing the Sit-In — a performance evaluated not on technical skill but on the ability to listen and respond. The criteria are genuinely subjective, which is both the system's greatest strength and its most obvious vulnerability.
+
+The system works because it selects for people who can read a room, compromise in real time, and subordinate ego to collective output. The musical framework also makes power dynamics visible — everyone in the room can hear who's leading, who's following, and who's bulldozing.
+
+In practice:
 
 **The Session** is the primary governing body. An open jam session where policy is proposed, contested, and resolved through musical dialogue. Factions bring competing themes. Resolution is whatever the room converges on. Sessions are public. Attendance is not mandatory. Absence is noted.
 
@@ -71,7 +81,7 @@ New compositions are the equivalent of proposing new legislation. Most fail. The
 
 Once a year, Fermata Station holds the Open — a week-long festival that is simultaneously the station's biggest cultural event, its most important political season, and its primary source of trade revenue.
 
-**What it looks like:** Musicians from across the [ring](../../cosmology/the-glass-frontier.md) and the wider [Kaleidos system](../../cosmology/solar-system.md) travel to Fermata to play. The station's docking capacity triples with temporary moorings. The bars fill. The corridors fill. The sound fills every compartment, which has structural consequences the Drone spends months preparing for.
+**What it looks like:** Musicians from across the [ring](../../cosmology/the-glass-frontier.md) and the wider [Kaleidos system](../../cosmology/kaleidos-system.md) travel to Fermata to play. The station's docking capacity triples with temporary moorings. The bars fill. The corridors fill. The sound fills every compartment, which has structural consequences the Drone spends months preparing for.
 
 **What it means politically:** The Open is the one week where outsiders can sit in on Sessions. Not vote — but play. Visiting musicians bring unfamiliar idioms, unfamiliar standards, unfamiliar ears. The regular Players lose their home-court advantage. Power dynamics that have been stable all year get disrupted by someone who doesn't know the local rules and doesn't care.
 
@@ -95,7 +105,7 @@ The station doesn't know what to do with them. Suppressing them violates the fou
 
 The [Glass Frontier's](../../cosmology/the-glass-frontier.md) loosened physics manifests on this fragment as a material relationship between sound and structure. This is not metaphor.
 
-**[Resonance](../../cosmology/resonance.md)** — certain frequencies and chord voicings have load-bearing properties. The Drone exists because if they stop playing, bulkheads fail. The fragment's [ringglass](../../concepts/ringglass.md) structure responds to sustained harmonic input in the signal-frequency range, and 130 years of continuous music have tuned the station's crystal lattice to depend on it.
+**[Resonance](../../cosmology/resonance.md)** — certain frequencies and chord voicings have load-bearing properties. The Drone exists because if they stop playing, bulkheads fail. The fragment's [ringglass](../../concepts/ringglass.md) structure responds to sustained harmonic input in the signal-frequency range, and two centuries of continuous music have tuned the station's crystal lattice to depend on it.
 
 **Dissonance** — unresolved harmonic tension causes material stress. Minor at small scale (a bad practice session might crack a window). Catastrophic at volume (a coordinated free jazz action could breach a hull).
 

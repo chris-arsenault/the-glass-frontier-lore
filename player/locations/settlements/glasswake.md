@@ -1,6 +1,6 @@
 ---
 title: Glasswake
-type: location
+type: installation
 tags: [surface, trade, ring-era]
 prominence: recognized
 ---
@@ -29,4 +29,4 @@ A working town that happens to be famous. The streets are dusty from the mines. 
 
 [Span Nine](../landmarks/span-nine.md) — the relay that carried the first signal — is a landmark on the ridge between Glasswake and [Sithari](sithari.md). Tourists hike to it. Locals use it as a reference point for directions. "Past Span Nine, take the left fork."
 
-A surface-access spur connects Glasswake to [the Keel](../landmarks/keel.md), the system's primary orbital trade lane. This makes the town a minor waypoint — not a hub, but a place where kite-sails descending from the Keel stop and crews resupply.
+A surface-access spur connects Glasswake to [the Keel](../landmarks/keel.md), the system's primary orbital trade lane. This makes the town a minor waypoint — not a hub, but a place where kites descending from the Keel stop and crews resupply.

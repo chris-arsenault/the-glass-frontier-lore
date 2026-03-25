@@ -39,4 +39,4 @@ The fae's spatial dislocation syndrome exists at the intersection of memory and 
 
 ## The Test <!-- Significance -->
 
-Does this entry show someone making a decision about what to share, preserve, or withhold — and treating both the sharing and the withholding as having real consequences? The test isn't "is memory important" (platitude) but "does the entry show the razor's edge between constructive and destructive disclosure?"
+The theme is present when an entry shows someone making a decision about what to share, preserve, or withhold — and both the sharing and the withholding carry real consequences. The test is not whether memory matters (a platitude) but whether the entry shows the razor's edge between constructive and destructive disclosure.

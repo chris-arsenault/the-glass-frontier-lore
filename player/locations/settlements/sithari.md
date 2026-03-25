@@ -1,6 +1,6 @@
 ---
 title: Sithari
-type: location
+type: installation
 tags: [surface, governance, trade, ring-era]
 prominence: mythic
 registry: true
@@ -26,21 +26,21 @@ Sithari is vertical in a way that isn't immediately obvious from the surface. Th
 
 The stratification isn't clean. The ring-era structures weren't demolished; they were absorbed. A modern office tower might have a pre-Glassfall laboratory as its basement. A residential block might sit on a sealed corridor that runs for kilometers. The old walls of the original campus are still there, three or four stories below current street level, occasionally surfacing where the geography forces them up.
 
-Going deep is technically restricted and practically common. Urban explorers, historians, salvage operators, and people who know which cellar door leads somewhere interesting all navigate the [future:Underlayers]. The deepest levels are genuinely dangerous — not just structurally, but because the ring-era resonance systems down there are still partially active, tuned to frequencies that modern equipment can't always read. Things work differently in the deep layers. Sometimes a room is larger inside than outside. Sometimes a corridor connects two points that shouldn't be adjacent. The [elves](../../concepts/elves.md) built these spaces, and they built them to last.
+Going deep is technically restricted and practically common. Urban explorers, historians, salvage operators, and people who know which cellar door leads somewhere interesting all navigate the [future:Underlayers]. The deepest levels are genuinely dangerous — not just structurally, but because the ring-era resonance systems down there are still partially active, tuned to frequencies that modern equipment can't always read. Things work differently in the deep layers. Sometimes a room is larger inside than outside. Sometimes a corridor connects two points that shouldn't be adjacent. The [elves](../../concepts/species/elves.md) built these spaces, and they built them to last.
 
 ## [future:The Continuity] <!-- Governance -->
 
 Sithari's ruling party. They have held power effectively unchallenged since the city stabilized during the Signal Famine. Their name is their argument: the Continuity preserved civilization when everything else collapsed. They kept the lights on, maintained the walls, organized the food distribution, ran the courts, and — when contact was re-established with the rest of the system — presented a functioning city-state to a world of scattered survivors.
 
-The Continuity is not a dictatorship. Sithari has a traditional democratic structure — elections, representatives, a free press, institutional checks. The Continuity wins because they've been winning for 130 years and nobody with a credible alternative has emerged. Their critics call this a lack of imagination. Their supporters call it evidence that the system works. Both are right.
+The Continuity is not a dictatorship. Sithari has a traditional democratic structure — elections, representatives, a free press, institutional checks. The Continuity wins because they've been winning since the Glassfall and nobody with a credible alternative has emerged. Their critics call this a lack of imagination. Their supporters call it evidence that the system works. Both readings have historical support.
 
-The party's identity is inseparable from the city's identity. Being Sitharian is not a political statement — it's a civic one, like being a New Yorker. But the Continuity's fingerprints are on every institution, every procedure, every default assumption about how things should be organized. Opposition parties exist. They don't win.
+The party's identity is inseparable from the city's identity. Being Sitharian is not a political statement — it's a civic one, like being from Fermata — a relationship to a place, not a political faction. But the Continuity's fingerprints are on every institution, every procedure, every default assumption about how things should be organized. Opposition parties exist. They don't win.
 
 The name carries a quiet threat that nobody in the Continuity would acknowledge: the implication is that the alternative to their governance is discontinuity. They kept civilization going. Would you like to try not having them?
 
 ## The Accord Seat <!-- Governance -->
 
-The [Tempered Accord](../../npcs/factions/tempered-accord.md) is headquartered in Sithari, in a complex deliberately separated from the Continuity's government buildings. The analogy is the United Nations in Geneva — an international body in a national capital, technically independent, practically influenced by proximity.
+The [Tempered Accord](../../npcs/factions/tempered-accord.md) is headquartered in Sithari, in a complex deliberately separated from the Continuity's government buildings. The Accord is an international body seated in a national capital — technically independent, practically influenced by proximity.
 
 This arrangement was a compromise. Other settlements wanted the Accord seated somewhere neutral. Sithari argued that they had the infrastructure, the security, and the institutional capacity. They were right, and everyone resented them for it. The Accord operates independently, staffed by representatives from across the system, but the physical reality of being in Sithari — eating Sitharian food, hearing Sitharian language, navigating Sitharian bureaucracy — shapes the institution in ways that are hard to quantify and impossible to ignore.
 

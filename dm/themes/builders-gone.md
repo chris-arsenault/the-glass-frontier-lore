@@ -35,7 +35,7 @@ The question isn't "how do we get back what was lost" — it's "what do we make 
 
 | Scale | Expression | Entity |
 |-------|-----------|--------|
-| System | The entire resonance technology stack is post-elven improvisation | [Resonance](../../player/cosmology/resonance.md), [Practical Resonance](../../player/concepts/practical-resonance.md) |
+| System | The entire resonance technology stack is post-elven improvisation | [Resonance](../../player/cosmology/resonance.md) |
 | Faction | The Synod inhabits a station they don't fully control, using rituals they can't explain | [Lattice Proxy Synod](../../player/npcs/factions/lattice-proxy-synod.md) |
 | Settlement | *(seed)* A hab whose charismatic leader left — what does the community become after? | unfilled |
 | Personal | Lira Vashtenri left the Conclave to build containment ops from scratch | [Lira Vashtenri](../../player/npcs/heroes/lira-vashtenri.md) |
@@ -45,6 +45,4 @@ The question isn't "how do we get back what was lost" — it's "what do we make 
 
 ## The Test <!-- Significance -->
 
-Does this entry show someone building from inheritance they didn't choose? Does it show the tension between recovering what was lost and inventing what comes next? Can you see both sides — the cost of the gap AND the value of the improvisation?
-
-If the entry only shows loss, it's incomplete. If the entry only shows innovation, it's ignoring the cost. The theme lives in the tension between both.
+The theme is present when an entry shows someone building from inheritance they didn't choose — and the tension between recovering what was lost and inventing what comes next is visible. Entries that only show loss are incomplete. Entries that only show innovation ignore the cost. The theme lives in the friction between both.

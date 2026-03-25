@@ -12,7 +12,7 @@ contains_dm: true
 
 ## The Emotional Core <!-- Description -->
 
-The Signal Famine was 65 years of not knowing who else survived. For small communities, this was existential — they weren't built to sustain themselves. For large communities like Sithari, it forged an identity of self-sufficiency that persists to this day. Both experiences left a deep, shared legacy: **communication is sacred.** Not as a political stance, but as a cultural given — the way free speech is a given, not a debate topic.
+The Signal Famine was 165 years of not knowing who else survived. For small communities, this was existential — they weren't built to sustain themselves. For large communities like Sithari, it forged an identity of self-sufficiency that persists to this day. Both experiences left a deep, shared legacy: **communication is sacred.** Not as a political stance, but as a cultural given — the way free speech is a given, not a debate topic.
 
 This fear of disconnection constrains everything that follows. The Contested Reach was tame because nobody wanted to risk the network. The Accord holds because the alternative is silence. The comm hub incident is the defining "line you don't cross" because crossing it threatens the one thing everyone agrees matters.
 
@@ -21,7 +21,7 @@ This fear of disconnection constrains everything that follows. The Contested Rea
 ## Beat Sequence <!-- How It Works -->
 
 ### Beat 1: The Severance
-**Era:** 2240 CE | **Filled by:** [The Glassfall](../../player/history/events/the-glassfall.md)
+**Era:** 2140 CE | **Filled by:** [The Glassfall](../../player/history/events/the-glassfall.md)
 
 The ring shatters. Communications collapse instantly. Every community is suddenly alone.
 
@@ -32,9 +32,9 @@ The ring shatters. Communications collapse instantly. Every community is suddenl
 ---
 
 ### Beat 2: The Divergence
-**Era:** 2240–2305 CE | **Filled by:** Signal Famine (era)
+**Era:** 2140–2305 CE | **Filled by:** Signal Famine (era)
 
-65 years of isolation produces two kinds of communities:
+165 years of isolation produces two kinds of communities:
 
 **Small communities** face genuine resource crisis. They weren't built to be self-sufficient. Many fail. The ones that survive develop deep traditions of mutual aid, resourcefulness, and — eventually — rituals and festivals celebrating connection.
 
@@ -74,7 +74,7 @@ Pre-Glassfall hardline infrastructure — a luminous filament connecting Sithari
 
 Surface communities reach ring habs. The cultural divergence is staggering. Communities that evolved in isolation for sixty years are unrecognizable. Some welcome contact — the resource-starved celebrate. Some refuse — the shuttered habs.
 
-**Unfilled beat needed:** A specific first-contact story that embodies the shock. Not "it was staggering" — a named community, a named moment, something that went wrong or right in a way that became a story people tell.
+[future:First Contact Story] — a named community, a named moment, something that went wrong or right in a way that became a story people tell.
 
 **Effect:** The system discovers it is no longer one civilization.
 **Consequence:** The naive assumption that reconnection = reunion dies. What follows is negotiation between strangers, not homecoming.
@@ -87,7 +87,7 @@ Surface communities reach ring habs. The cultural divergence is staggering. Comm
 
 Salvage begins. Trade networks form. Vantara is founded to handle the boring essential work of logistics. The Keel is established as the primary orbital trade lane.
 
-**Unfilled beat needed:** The specific resource scarcity that drove the first trades — not "ringglass generally" but what did settlement X need from hab Y that they couldn't produce themselves?
+[future:First Trade Crisis] — the specific scarcity that drove the first trades, the named settlement that needed what only another community could provide.
 
 **Effect:** Economic interdependence. Communities that were self-sufficient during the Famine become dependent on trade.
 **Consequence:** Disconnection would now hurt MORE than during the Famine — communities have forgotten how to do without.
@@ -104,7 +104,7 @@ Disputes over routes, resources, hab sovereignty. But the violence is always lim
 - Remote mining rigs are fair game — they're already disconnected
 - Vantara's trade infrastructure is treated as off-limits by unspoken agreement
 
-**Unfilled beat — high prominence:** The comm hub incident. A faction storms and holds a civilian communication hub to control information flow. Their allies disown them immediately. This becomes the defining "line you don't cross" — the moment that later gets codified as a specific Accord provision.
+[future:Comm Hub Incident] — a faction storms and holds a civilian communication hub to control information flow. This becomes the defining line that nobody crosses.
 
 **Span downstream:** Communication inequality (from Beat 4) becomes a Contested Reach grievance. The demand for Span-quality access feeds into the Span replication attempt.
 

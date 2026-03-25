@@ -1,6 +1,7 @@
 ---
 title: Lira Vashtenri
 type: npc
+narrative_role: viewpoint
 tags: [resonance, salvage]
 prominence: recognized
 species: gnome
@@ -9,7 +10,7 @@ culture: sithari
 
 # Lira Vashtenri
 
-A [gnome](../../concepts/gnomes.md) Shear mechanic who became the architect of [Bloom Zone](../../locations/landmarks/bloom-zones.md) containment. [Coremark](../factions/coremark.md)-employed before the Bloom, overlooked, blue collar. The person who figured out how to stop reality from coming apart — not through theory, but through instinct refined by years of keeping ringglass arrays stable in environments that wanted to break them.
+A [gnome](../../concepts/species/gnomes.md) Shear mechanic who became the architect of [Bloom Zone](../../locations/landmarks/bloom-zones.md) containment. [Coremark](../factions/coremark.md)-employed before the Bloom, overlooked, blue collar. The person who figured out how to stop reality from coming apart — not through theory, but through instinct refined by years of keeping ringglass arrays stable in environments that wanted to break them.
 
 ## Public Profile <!-- Public Profile -->
 
@@ -25,10 +26,10 @@ Her gnomish biology is the foundation. The crystal-laced nervous system that eve
 
 She is, by Coremark's standards, one piece of the corporation's partial redemption. Not enough to redeem them. But proof that the corporation wasn't uniformly rotten — that somewhere in the profit-driven machine, someone was doing careful work because careful work mattered.
 
-Sitharian-cultured by upbringing — the formal naming pattern, the measured speech. But her career was blue collar, her expertise was hands-on, and her contributions came from doing, not theorizing. The [Echo Ledger Conclave](../factions/echo-ledger-conclave.md) considers her departure a personal betrayal. She considers it the most useful thing she's ever done.
+Sitharian-cultured by upbringing — the formal naming pattern, the measured speech. But her career was blue collar, her expertise was hands-on, and her contributions came from doing, not theorizing.
 
 ## History <!-- History -->
 
 After developing the containment buoy network, Lira founded the [Displacement Council](../factions/displacement-council.md)'s containment operations — scaling her instinctive approach into a training program. She didn't lead the Council (that was [future:Oram Sells], then [Dern Talish](dern-talish.md)), but the containment methodology is hers.
 
-Her relationship with the Conclave — her original faction before Coremark recruited her — is complicated. She left the Conclave's academic resonance work for Coremark's practical operations because she wanted to do things, not study things. After the Bloom, when her containment work required the Conclave's [future:stillwater] for damping buoys, she had to negotiate with the institution she'd left. The Conclave provides the stillwater. They wish there was another way.
+After the Bloom, her containment work required [stillwater](../../concepts/stillwater.md) for damping buoys. The [Echo Ledger Conclave](../factions/echo-ledger-conclave.md) produces most of the system's stillwater supply, and they had no reason to prioritize a former refinery mechanic's requisitions. Securing that supply line — convincing an academic institution to divert resources toward an unproven containment method proposed by someone they'd never heard of — was its own battle.

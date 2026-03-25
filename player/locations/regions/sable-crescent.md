@@ -1,6 +1,6 @@
 ---
 title: Sable Crescent
-type: location
+type: geographic_location
 tags: [surface, resonance, archives, signal-freq]
 prominence: recognized
 ---

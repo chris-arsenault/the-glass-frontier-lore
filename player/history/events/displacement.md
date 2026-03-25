@@ -1,6 +1,6 @@
 ---
 title: Displacement
-type: occurrence
+type: incident
 tags: [danger, ring-hab]
 prominence: renowned
 prominence_xrefs: [displacement-council]
@@ -8,13 +8,13 @@ prominence_xrefs: [displacement-council]
 
 # Displacement
 
-The mass evacuation of mid-drift ring habs during the [future:Silent Bloom] cascade, beginning 2355 CE. Tens of thousands of [Hab-Worlders](../../concepts/hab-worlder.md) lost their sealed environments — the thing that defined their identity — in days to weeks.
+The mass evacuation of mid-drift ring habs during the [future:Silent Bloom] cascade, beginning 2355 CE. Tens of thousands of [Hab-Worlders](../../concepts/cultures/hab-worlder.md) lost their sealed environments — the thing that defined their identity — in days to weeks.
 
 ## Course <!-- Course -->
 
 The evacuation was mostly chaotic. Some habs handled it with discipline — organized departures, resource triage, designated reception points. Others fell apart. The Bloom cascade didn't give consistent warning: some habs had hours between the first resonance distortion and structural failure, others had days. The variance made coordinated response impossible.
 
-Some people were trapped — in sections that sealed automatically, in habs that lost communication before evacuation orders reached them. Some stayed behind, not by clear choice but by the kind of denial that keeps people in their homes during hurricanes. They didn't believe the readings. They'd seen resonance fluctuations before. This time was different, and by the time they recognized it, leaving wasn't an option.
+Some people were trapped — in sections that sealed automatically, in habs that lost communication before evacuation orders reached them. Some stayed behind, not by clear choice but by the kind of denial that keeps people in their homes during a cascade warning. They didn't believe the readings. They'd seen resonance fluctuations before. This time was different, and by the time they recognized it, leaving wasn't an option.
 
 Nobody stayed by genuine informed choice. The Bloom Zones are not habitable by anyone's definition.
 

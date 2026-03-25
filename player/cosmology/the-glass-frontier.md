@@ -1,6 +1,6 @@
 ---
 title: The Glass Frontier
-type: concept
+type: geographic_location
 prominence: mythic
 tags: [orbital, ring-hab, salvage]
 ---
@@ -15,7 +15,7 @@ People live up there. A lot of people.
 
 ## The Habs <!-- Geography -->
 
-The ring fragments are called habs, and no two are alike. Before the Glassfall, they were standardized modules in an integrated system. After 130 years of isolation, drift, and improvisation, they've become anything their inhabitants made of them.
+The ring fragments are called habs, and no two are alike. Before the Glassfall, they were standardized modules in an integrated system. After generations of isolation, drift, and improvisation, they've become anything their inhabitants made of them.
 
 Some habs maintained continuity with the old ring civilization and still run on the original infrastructure — vast, clean, quietly miraculous technology that would look like magic if you'd only ever lived dirtside. These are places where the legacy of the ring's builders is still tangible, where systems designed by minds far more sophisticated than anything currently operating still hum along, doing their work. The people living in them don't always understand what they have. They just know the lights come on and the air stays fresh.
 
@@ -27,7 +27,7 @@ These fluid-reality habs are the hardest to describe and the most dangerous to v
 
 The orbital space around Kaleidos — everything that used to be the ring — contains three distinct environments:
 
-**The ring** is what most people mean when they say "the frontier" — the surviving habs, the inhabited fragments, the places where people live. Shuttle traffic between the surface and the ring is routine in well-connected regions. The ring is also the gateway to the rest of the [solar system](solar-system.md). Most interplanetary traffic routes through ring-based stations and commerce hubs, because that's where the old infrastructure — docking systems, navigation beacons, [resonance](resonance.md) relay networks — is densest.
+**The ring** is what most people mean when they say "the frontier" — the surviving habs, the inhabited fragments, the places where people live. Shuttle traffic between the surface and the ring is routine in well-connected regions. The ring is also the gateway to the rest of the [Kaleidos system](kaleidos-system.md). Most interplanetary traffic routes through ring-based stations and commerce hubs, because that's where the old infrastructure — docking systems, navigation beacons, [resonance](resonance.md) relay networks — is densest.
 
 **[The Shear](../locations/regions/the-shear.md)** fills the pockets and layers between habitable fragments — roughly half the orbital volume. Debris, resonance distortion, and the [ringglass](../concepts/ringglass.md) salvage industry that depends on both. The Shear has existed since the Glassfall and is, by now, broadly understood. Dangerous, but navigable. An environment people have learned to work in.
 
@@ -40,3 +40,4 @@ The boundary between ring and Shear is not sharp. A hab that was stable for deca
 The Glass Frontier is the defining feature of this civilization. Not Kaleidos the planet, which is one world among several in the system. The ring. It's where the oldest technology lives, where the strangest communities flourish, and where the boundaries of the possible are thinnest.
 
 It's also, still, slowly falling apart. The Shear grows. Habs that were stable for decades occasionally collapse into it. The ring is not safe. It's not tame. But it is, emphatically, alive.
+

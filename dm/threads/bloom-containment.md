@@ -66,9 +66,9 @@ Pyre refinery cascades. Not a single ignored warning — a general environment w
 
 The Bloom doesn't manifest uniformly — its expression depends on the local resonance environment, the crystal substrate, the specific frequencies involved. In some places, walls develop a translucency that isn't transparency — not see-through but not committed to being solid. In others, sound arrives from directions it shouldn't. In others, spatial relationships stop being reliable — a corridor that was ten meters long is now thirty, or three. In the worst zones, the concept of "direction" softens.
 
-[Tuners](../../player/concepts/tuners.md) describe the resonance landscape going from structured to saturated — so dense with information that signal-to-noise collapses. [Gnomes](../../player/concepts/gnomes.md) are hit worst — their crystal-laced nervous systems pick up the cascade directly. Gnomish workers in the affected zones are the first to feel it and the most debilitated, but later become invaluable for calibrating containment equipment — they can sense what instruments can't measure.
+[Tuners](../../player/concepts/tuners.md) describe the resonance landscape going from structured to saturated — so dense with information that signal-to-noise collapses. [Gnomes](../../player/concepts/species/gnomes.md) are hit worst — their crystal-laced nervous systems pick up the cascade directly. Gnomish workers in the affected zones are the first to feel it and the most debilitated, but later become invaluable for calibrating containment equipment — they can sense what instruments can't measure.
 
-[Fae](../../player/concepts/fae.md) have an unexpected advantage. The spatial dislocation they manage every day — forcing coherence, navigating the boundary between diffuse and present — is exactly the skill set the Bloom Zones demand. Fae operatives require more effort to maintain spatial identity in the zones, but they're used to that effort. Where other species find the reality distortion disorienting, fae find it familiar.
+[Fae](../../player/concepts/species/fae.md) have an unexpected advantage. The spatial dislocation they manage every day — forcing coherence, navigating the boundary between diffuse and present — is exactly the skill set the Bloom Zones demand. Fae operatives require more effort to maintain spatial identity in the zones, but they're used to that effort. Where other species find the reality distortion disorienting, fae find it familiar.
 
 ---
 
@@ -77,7 +77,7 @@ The Bloom doesn't manifest uniformly — its expression depends on the local res
 
 Mass evacuation. Hab-Worlders who defined themselves by their sealed environment lose the thing that made them who they are. The exit-checking, air-listening, load-bearing social awareness — all built for a specific hab. In a refugee camp on the surface, those instincts have no object.
 
-**Callback ← Hab-Worlder:** The [Hab-Worlder](../../player/concepts/hab-worlder.md) entry describes the identity. This beat tests it — what happens when the identity's foundation is removed?
+**Callback ← Hab-Worlder:** The [Hab-Worlder](../../player/concepts/cultures/hab-worlder.md) entry describes the identity. This beat tests it — what happens when the identity's foundation is removed?
 
 **Downstream → Displacement Council:** The Council recruits from Bloom diaspora communities. They have expertise in the resonance environment that broke, and personal motivation to contain it.
 
@@ -154,3 +154,9 @@ Containment holds but the Bloom Zones are expanding slowly. The Displacement Cou
 - **"Just because you can reach it, should you?"** — Span replication + Coremark overreach; the opposition voice is genuine (people needed ringglass)
 - **"Can you build something together while you're still fighting?"** — the Coalition; the Lumenshard holdout; institutions that outlive cooperation
 - **"Who decides what gets remembered?"** — "that's what they said about Pyre" fading as the generation ages out; the knowledge decay loop cycling again
+
+---
+
+## Seed: The Opened Buoy <!-- Usage Notes -->
+
+Someone removes a stillwater damping buoy from Lira's Wall and cracks it open, expecting to find preserved memories inside — the way Conclave archival stillwater holds data. What they find instead is instructive about the nature of the Bloom: the stillwater didn't store the cascade frequencies, it *absorbed* them. The contents reveal something about what the Bloom actually is at the frequency level, not what anyone expected.

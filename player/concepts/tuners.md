@@ -15,7 +15,7 @@ They weren't called Tuners then. They weren't called anything. They were just th
 
 ## The First Tuners <!-- History -->
 
-The original practitioners are recognized retroactively as the founders of a tradition they didn't know they were starting. Different communities remember them differently:
+The original practitioners are recognized retroactively as the founders of a tradition that would outlast the crisis that created it. Different communities remember them differently:
 
 - **Primers** — the academic term. Dry, institutional, used in Clarisant literature.
 - **Wildfelt** — the folk term. More respectful than it sounds. These people felt something wild and didn't flinch.
@@ -51,13 +51,7 @@ And then there are the hidden — Tuners who practice in secret because their co
 
 ## Species and Tuning <!-- Resonance -->
 
-Any species can become a Tuner. The prevalence and theoretical ceiling vary:
-
-- **[Gnomes](gnomes.md)** are born with the sense already active. Gnomish Tuners are refining what's already there, not building it from scratch. They are disproportionately represented in the profession and at its highest levels.
-- **[Humans](humans.md)** train the hardest for the least natural return. Human Tuners compensate with methodical technique and instrument-building — if you can't feel it directly, build something that translates it into data you can read.
-- **[Orcs](orcs.md)** tend toward material Tuning — feeling how resonance interacts with physical substances. Orc smiths who are also Tuners produce the best ringglass-integrated metalwork in the system.
-- **[Fae](fae.md)** have a complicated relationship with Tuning. Their coherence aids are resonance-based, so every fae has baseline exposure. But developing it further risks destabilizing their already-precarious spatial identity. Fae Tuners exist and are rare.
-- **[Elves](elves.md)** were the original masters. Whatever ceiling the other species are working toward, the elves were already past it. Their absence is felt most acutely in the Tuning profession — the theoretical framework that should exist doesn't, because the people who would have built it are gone.
+Any species can become a Tuner. Each brings different strengths and limitations — see individual species entries for details ([gnomes](species/gnomes.md), [humans](species/humans.md), [orcs](species/orcs.md), [fae](species/fae.md)). Gnomes are disproportionately represented at the highest levels; humans compensate with methodology and instrumentation; orcs gravitate toward material Tuning; fae are rare due to coherence risks. The [elves](species/elves.md) were the original masters, and their absence is felt most acutely here — the theoretical framework that should exist doesn't, because the people who would have built it are gone.
 
 ## Extremes <!-- Applications -->
 
@@ -65,4 +59,4 @@ At the edges of practice, Tuning gets strange:
 
 - There are habs where only Tuners are permitted to live — communities that have organized their entire social structure around resonance sensitivity.
 - There is a deep-space station, far from any planet or ring fragment, that is held together structurally by the sustained concentration of its Tuner residents. If they stop, the station fails.
-- The [Bloom Zones](../locations/landmarks/bloom-zones.md) are the ultimate test. The reality distortion there registers as overwhelming sensory noise for any Tuner. [Gnomes](gnomes.md) are particularly vulnerable. The [Displacement Council](../npcs/factions/displacement-council.md) employs Tuners for containment work, but exposure limits are strict and the burnout rate is high.
+- The [Bloom Zones](../locations/landmarks/bloom-zones.md) are the ultimate test. The reality distortion there registers as overwhelming sensory noise for any Tuner. [Gnomes](species/gnomes.md) are particularly vulnerable. The [Displacement Council](../npcs/factions/displacement-council.md) employs Tuners for containment work, but exposure limits are strict and the burnout rate is high.

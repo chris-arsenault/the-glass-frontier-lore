@@ -15,7 +15,7 @@ type: loop
 
 An external threat or shared problem that no single group can address alone. The crisis must be severe enough that existing disputes become trivial by comparison — not "we should work together" but "we will die separately."
 
-The crisis is typically non-sentient or structural, not an enemy to be defeated. The Bloom was a resonance cascade, not an invasion. The Famine was silence, not war. This matters because a common enemy unifies differently than a common problem — enemies create permanent alliances, problems create temporary ones.
+The crisis is typically non-sentient or structural, not an enemy to be defeated. The Bloom was a resonance cascade, not an invasion. The Famine was silence, not war. This matters because a common enemy produces a different kind of cooperation than a common problem — fighting an enemy builds shared identity, solving a problem builds shared infrastructure. The loop runs on the second kind.
 
 ### Stage 2: Cooperation
 
@@ -24,7 +24,7 @@ Groups set aside existing disputes to address the shared problem. The cooperatio
 Key characteristics:
 - Leadership drawn from existing factions, not new ones
 - Existing infrastructure repurposed (trade networks become supply lines, communication relays become coordination channels)
-- The cooperation produces results that surprise the participants — they didn't know they could work together this well
+- The cooperation produces results that surprise the participants — coordinated capability previously untested
 
 ### Stage 3: Residue
 
@@ -70,7 +70,7 @@ The fracture is constrained by the residue. Nobody wants to destroy the infrastr
 
 | Stage | Entity | Notes |
 |-------|--------|-------|
-| Crisis | Signal Famine (era) | 65 years of isolation, communities facing resource crisis or cultural drift |
+| Crisis | Signal Famine (era) | 165 years of isolation, communities facing resource crisis or cultural drift |
 | Cooperation | *(The Reconnection itself)* | Glasswake reconnects, trade networks form, Span Nine links Sithari to off-world |
 | Residue | [Vantara](../../player/npcs/factions/vantara.md), [The Keel](../../player/locations/landmarks/keel.md) | Trade infrastructure, communication networks, economic interdependence |
 | Fracture | [future:The Contested Reach] | Resource disputes, corridor conflicts, ring hab standoffs |

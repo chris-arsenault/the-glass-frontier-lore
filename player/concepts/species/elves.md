@@ -1,6 +1,6 @@
 ---
 title: Elves
-type: concept
+type: species
 tags: [species, legend, mystery, ring-era, archives]
 prominence: recognized
 registry: true
@@ -8,9 +8,7 @@ registry: true
 
 # Elves
 
-One of the founding species of the Kaleidos system, primary architects of the [orbital ring](../cosmology/the-glass-frontier.md), and for centuries the most technically sophisticated civilization in the system. Then, during the [Signal Famine](../history/index.md), they disappeared. Where they went, why they left, and whether "left" is even the right word are questions that 130 years of scholarship haven't answered.
-
-Older folk traditions call them "the Absent" — the people who were here and then weren't. The academic literature just calls them elves.
+One of the founding species of the Kaleidos system, primary architects of the [orbital ring](../../cosmology/the-glass-frontier.md), and for centuries the most technically sophisticated civilization in the system. Then, during the [Signal Famine](../../history/index.md), they disappeared. Where they went, why they left, and whether "left" is even the right word are questions that 130 years of scholarship haven't answered.
 
 ## Who They Were <!-- Biology -->
 
@@ -22,7 +20,7 @@ But their primary contribution was the ring itself.
 
 ## The Ring Builders <!-- History -->
 
-The orbital ring was a multi-species undertaking, but the elves were its architects. The [resonance](../cosmology/resonance.md) engineering — the system of tuned crystal that carried power, data, and structural force through the entire ring — was elven science. The [ringglass](ringglass.md) lattice design, the frequency architecture, the systems that made a megastructure spanning a planet's orbit function as a single integrated machine: that was their work.
+The orbital ring was a multi-species undertaking, but the elves were its architects. The [resonance](../../cosmology/resonance.md) engineering — the system of tuned crystal that carried power, data, and structural force through the entire ring — was elven science. The [ringglass](../ringglass.md) lattice design, the frequency architecture, the systems that made a megastructure spanning a planet's orbit function as a single integrated machine: that was their work.
 
 This isn't controversial. Ring-era records are clear on elven authorship of the core engineering. What modern practitioners know as resonance theory is, in many cases, a simplified version of elven originals — stripped of context and attribution by time, but recognizably derived. The sophistication gap between what the ring builders achieved and what anyone alive can replicate is, in large part, the gap left by the people who understood it best.
 
@@ -44,7 +42,7 @@ Across the system — in archives on Kaleidos's surface, in ring habs that had n
 
 The pattern is consistent enough that it's hard to attribute to accident. Someone went through the records. Not everywhere, and not perfectly — the elves are still in the history books, still credited with the ring, still remembered. But the personal details are gone. Individual names, family lineages, community records, cultural specifics — scraped away, leaving the broad strokes and removing the texture.
 
-The [Echo Rivers](../cosmology/echo-rivers.md) tell the same story. Pre-Glassfall transmissions embedded in the planet's crystal geology show evidence of tampering — conversations that cut to silence mid-sentence, voice signatures replaced with flat harmonic hum. The rivers are hard to edit (you're working with resonance imprints distributed through kilometers of rock), and the results are imperfect. Fragments of elven speech survive in deep deposits. The [Echo Ledger Conclave](../npcs/factions/echo-ledger-conclave.md) treats these fragments as sensitive material. Some archivists have spent careers cataloguing what was erased and what slipped through.
+The [Echo Rivers](../../cosmology/echo-rivers.md) tell the same story. Pre-Glassfall transmissions embedded in the planet's crystal geology show evidence of tampering — conversations that cut to silence mid-sentence, voice signatures replaced with flat harmonic hum. The rivers are hard to edit (you're working with resonance imprints distributed through kilometers of rock), and the results are imperfect. Fragments of elven speech survive in deep deposits. The [Echo Ledger Conclave](../../npcs/factions/echo-ledger-conclave.md) treats these fragments as sensitive material. Some archivists have spent careers cataloguing what was erased and what slipped through.
 
 ## What People Think <!-- Perception -->
 
@@ -68,6 +66,6 @@ What nobody can explain:
 - Where did an entire species go during a sixty-year window?
 - Why does the historical record show signs of deliberate tampering?
 - If the elves cleaned their own records, what were they hiding — or hiding from?
-- Are there still elves in the system, somewhere, and if so — what have they been doing for 130 years?
+- Are there still elves in the system, somewhere, and if so — what have they been doing for over two centuries?
 
-The last question is the one people don't ask in polite company. It implies things about the Famine, about the [Glassfall](../history/events/the-glassfall.md), and about the current state of the system that nobody is prepared to deal with.
+The last question is the one people don't ask in polite company. It implies things about the Famine, about the [Glassfall](../../history/events/the-glassfall.md), and about the current state of the system that nobody is prepared to deal with.

@@ -1,6 +1,7 @@
 ---
 title: Dern Talish
 type: npc
+narrative_role: viewpoint
 tags: [governance, resonance, diplomacy]
 prominence: recognized
 species: human
@@ -25,13 +26,13 @@ Before becoming First Threshold, she served twenty years in the Council's cordon
 
 ## What People See <!-- Public Profile -->
 
-A quiet, compact woman who listens more than she speaks and whose silences are more informative than most people's sentences. She does not raise her voice. She does not negotiate from a position of ideology. When factions bring their grievances to the Council, Talish asks what they need, asks what they can give, and finds the gap between the two. She is not charismatic. She is reliable, which turns out to be more valuable.
+A quiet, compact woman who listens more than she speaks and whose silences are more informative than most people's sentences. She does not raise her voice. She does not negotiate from a position of ideology. When factions bring their grievances to the Council, Talish asks what they need, asks what they can give, and finds the gap between the two. Her authority comes from reliability rather than charisma.
 
 Her neutrality during the Bitter Reach is the foundation of her authority. The Council refused to take sides. Talish, then a regional operations lead, personally turned away armed convoys from three different factions who tried to use cordon stations as staging points. She was shot at twice. She did not return fire. She closed the cordon gates and waited. All three convoys eventually left.
 
 ## Notable Traits <!-- Traits -->
 
 - Never eats during meetings. Will accept water. Considers shared meals a form of political intimacy she cannot afford.
-- Keeps a collection of small objects recovered from Bloom Zone perimeters — not relics, just debris. A child's toy. A door handle. A clock that still ticks at the wrong speed. She does not explain why.
-- Her hand tremor is worse when she's tired, which is most of the time. She compensates by keeping her right hand in her pocket or wrapped around a cup. Most people who meet her think she's just reserved. The cordon crews know what it means.
+- Keeps a collection of small objects recovered from Bloom Zone perimeters — not relics, just debris. A child's toy. A door handle. A clock that still ticks at the wrong speed.
+- Her hand tremor is worse when she's tired. She compensates by keeping her right hand in her pocket or wrapped around a cup. Most people who meet her think she's just reserved. The cordon crews know what it means.
 - Speaks three languages fluently and understands fragments of two more, including one that linguists cannot identify. She picked it up from Echo River exposure during a containment operation.

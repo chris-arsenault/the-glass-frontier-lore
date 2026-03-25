@@ -1,6 +1,6 @@
 ---
 title: Fae
-type: concept
+type: species
 tags: [species, resonance]
 prominence: mythic
 registry: true

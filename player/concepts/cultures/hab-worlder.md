@@ -1,6 +1,6 @@
 ---
 title: Hab-Worlder
-type: concept
+type: culture
 tags: [social-structure, ring-hab]
 prominence: renowned
 ---

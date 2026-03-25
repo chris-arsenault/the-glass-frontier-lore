@@ -1,6 +1,6 @@
 ---
 title: Shuttered Habs
-type: concept
+type: phenomenon
 tags: [ring-hab, governance, social-structure]
 prominence: recognized
 ---
@@ -15,7 +15,7 @@ Every shuttered hab has its own reason. Some are ideological — communities tha
 
 The range is extraordinary:
 
-At one extreme, there are habs that have undergone accelerated evolution — resonance-influenced biological and cognitive change sustained over 130 years in sealed, saturated environments. The inhabitants have reached a near-godlike state. They do their own thing. People leave them alone because why would you provoke the functionally omnipotent beings next door. These habs aren't shuttered in any meaningful sense — they're just operating on a plane that the rest of the system can't meaningfully interact with.
+At one extreme, there is at least one documented case of accelerated evolution — a hab deep in [the Shear](../locations/regions/the-shear.md) where resonance-influenced biological and cognitive change, sustained over generations in a sealed, saturated environment, has produced inhabitants who appear to have reached a near-godlike state. They do their own thing. People leave them alone because why would you provoke the functionally omnipotent beings next door. That hab isn't shuttered in any meaningful sense — it's operating on a plane that the rest of the system can't meaningfully interact with. Whether any other shuttered hab has undergone similar transformation is unknown. The Shear makes surveying difficult, and most expeditions that get close enough to find out don't come back with clear answers.
 
 At the other extreme, there are habs that reverted. Garden habs where the environmental controls drifted, the interior rewilded, and the inhabitants adapted by abandoning technology entirely. Tribal communities that are self-sufficient, no longer understand the machinery around them, and consider outsiders demons to be killed on sight. These habs are shuttered because the people inside no longer have the framework to understand what "contact" means.
 
@@ -33,4 +33,4 @@ Mixed. Per community, per individual. Some people pity the shuttered habs. Some 
 
 The ascended habs provoke awe and unease in roughly equal measure. The reverted habs provoke horror and fascination. The quietly isolationist habs provoke mostly indifference — they're not dramatic enough to have opinions about.
 
-The one universal: nobody tries to force them open anymore. Not after Coriolis.
+Most communities have learned not to force them open. Coriolis made the cost of that approach vivid enough that few are willing to repeat it — though "few" is not "none," and the political pressure to reclaim shuttered territory has never fully gone away.

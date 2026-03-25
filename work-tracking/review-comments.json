@@ -1,0 +1,650 @@
+[
+  {
+    "id": "mmv8ckehddo9",
+    "file": "dm/corruption-truth.md",
+    "highlight": "but is not related).",
+    "comment": "remove",
+    "line": null,
+    "timestamp": "2026-03-17T23:14:56.201Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmvfv97co1hs",
+    "file": "player/artifacts/common/kite-sail.md",
+    "highlight": "Kite-sail",
+    "comment": "change name. kite-sail is redundant and not related to resoance or the drive mechanism. i'm thinking Kinetic Inverse Transport Engine (KITE) for short.  this leavs all the kite/sail imagery intact but has been grounding",
+    "line": null,
+    "timestamp": "2026-03-18T02:45:25.464Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmvfvuuq4njc",
+    "file": "player/artifacts/common/kite-sail.md",
+    "highlight": "truck needs a mechanic to drive",
+    "comment": "domain leakage - what is a truck?",
+    "line": null,
+    "timestamp": "2026-03-18T02:45:53.522Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmvfxl5ofo9x",
+    "file": "player/artifacts/common/kite-sail.md",
+    "highlight": "Veilfire",
+    "comment": "changename. veilfire is the name of a recent primary concept in dragon age. choose something more resnance themed. microcavities (cavities have standing resonant waves) or similar. you have some freedom here",
+    "line": null,
+    "timestamp": "2026-03-18T02:47:14.268Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmvfym5y3dhv",
+    "file": "player/artifacts/common/kite-sail.md",
+    "highlight": "robo-ubers",
+    "comment": "ubers is domain leakage - this was an eexmaple for you, not for the world lore",
+    "line": null,
+    "timestamp": "2026-03-18T02:48:02.230Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmvfztxz3hno",
+    "file": "player/artifacts/common/kite-sail.md",
+    "highlight": "[future:Flitters]. Autonomous local kite-sails — the robo-ubers. Short-range, single-passenger or small-cargo, operating within and between settlements. Ubiquitous. Taking a flitter is like calling a cab.\n\nPersonal craft. Sub-orbital or space-capable vessels owned by individuals. Upper-middle-class luxury — the equivalent of owning a nice sailboat. Comfortable enough for extended trips, not built for deep Shear or interplanetary hauls.\n\nCommercial haulers and passenger vessels. The Vantara fleet and independent operators. Cargo haulers running the Keel and other trade lanes. Passenger liners between major settlements. Fast couriers. This is the backbone of system commerce.\n\nShear-rated vessels. Salvage crews, mining rigs, survey ships. Carry additional structural-band arrays for reality stabilization shielding. The Shear's resonance distortion can interfere with kinetic fields if local physics aren't anchored.\n\nMilitary. Warships and patrol vessels — remnants of the Contested Reach and Bitter Reach eras, maintained because piracy is ongoing. Vantara operates the largest private armed escort fleet. Various factions maintain their own. Kinetic fields can be used offensively, which is technically possible and socially frowned upon.",
+    "comment": "there are a number of real world examples in here that need to be removed.",
+    "line": null,
+    "timestamp": "2026-03-18T02:48:58.967Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmvg1xvx9xfs",
+    "file": "player/artifacts/relics/liras-wall.md",
+    "highlight": "Bloom Zone boundaries follow the crystal substrate's natural resonance fault lines",
+    "comment": "bloom zones are primarily a space bound location, so crystal substrate and fault lines don't make sense",
+    "line": null,
+    "timestamp": "2026-03-18T02:50:37.390Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmvg3fe7aa7r",
+    "file": "player/artifacts/relics/liras-wall.md",
+    "highlight": "Every buoy deployed is stillwater that isn't preserving history. The Displacement Council maintains the network. The Conclave supplies the stillwater. The tension between these two needs — containment and preservation — is one of the system's quietest and most consequential ongoing negotiations.",
+    "comment": "future beat: some removes a bouy and tries to look inside as if the still water held memories. what they find is instructive as to the nature of the bloom",
+    "line": null,
+    "timestamp": "2026-03-18T02:51:46.735Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmvgexneqtxi",
+    "file": "dm/loops/cooperation-fracture.md",
+    "highlight": "This matters because a common enemy unifies differently than a common problem — enemies create permanent alliances, problems create temporary ones.",
+    "comment": "i dont think this is accurate. the difference is the kind of result the cooperation achives, not the longevity of the alliances",
+    "line": null,
+    "timestamp": "2026-03-18T03:00:43.610Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmvgjsssrawh",
+    "file": "player/cosmology/resonance.md",
+    "highlight": "The orbital rings were built from a crystalline material — now called ringglass — that vibrates at stable, predictable frequencies when energized. The original builders used this property to move power, data, and physical force through the ring structure without cables or broadcast towers. The crystal itself was the medium. Tune a section of ringglass to the right frequency, and it would pass energy along to the next section, and the next, like a vibration traveling down a wire.\n\nWhen the rings shattered, the ringglass didn't stop vibrating. It scattered — across the surface of Kaleidos, into orbit, into the soil and water — and it kept resonating. Not in the organized, purposeful way the builders intended, but in a diffuse, ambient hum that permeates the environment anywhere ringglass is present. Which, after 130 years of settling debris, is almost everywhere on Kaleidos and throughout the ring habs.\n\nThat ambient energy is resonance. It's not magic. It's the residual output of an engineered system running without supervision.",
+    "comment": "this section needs to be reworked slightly - ringglass is not the source of resonance, it is the most stable expression of it. but we state elsewhere that resonance is ambient - and we want to be able to use it on planets other the kaledios. ringglass is an amplifier, not a source",
+    "line": null,
+    "timestamp": "2026-03-18T03:04:30.604Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmvgk3ybgw8v",
+    "file": "player/cosmology/resonance.md",
+    "highlight": "The Three Bands",
+    "comment": "three known bands. lets leave room for expansion",
+    "line": null,
+    "timestamp": "2026-03-18T03:04:45.059Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmvgm9u9djo3",
+    "file": "player/cosmology/resonance.md",
+    "highlight": "Narrow bandwidth",
+    "comment": "add a note after this on a theoriticaly single wavelength resonance (similar to LASER). fronteir tech for the elves. therorictcal now",
+    "line": null,
+    "timestamp": "2026-03-18T03:06:26.001Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmvgngj7w2g9",
+    "file": "player/cosmology/resonance.md",
+    "highlight": "the crystalline material the ring",
+    "comment": "the ubiquitous (not only) material is ring glass.",
+    "line": null,
+    "timestamp": "2026-03-18T03:07:21.331Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmvhq3jqa8hn",
+    "file": "player/cosmology/kaleidos-system.md",
+    "highlight": "Everything this wiki i",
+    "comment": "supposed to be written in universe",
+    "line": null,
+    "timestamp": "2026-03-18T03:37:24.086Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmvhr0grdcmp",
+    "file": "player/cosmology/kaleidos-system.md",
+    "highlight": "Coremark's presence — first as a legitimate corporation, now as a criminal syndicate — dominates the local political landscape without being the only thing there.",
+    "comment": "it doesn't dominate the landscape - its a player not the king",
+    "line": null,
+    "timestamp": "2026-03-18T03:38:06.747Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmvhrgum51qq",
+    "file": "player/cosmology/kaleidos-system.md",
+    "highlight": "Sol and Saturn — which makes interplanetary travel practical. One planet to the next is a day's transit a",
+    "comment": "domain leak",
+    "line": null,
+    "timestamp": "2026-03-18T03:38:27.982Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmvhrmpl2kc1",
+    "file": "player/cosmology/kaleidos-system.md",
+    "highlight": "Venus-like",
+    "comment": "domain leak",
+    "line": null,
+    "timestamp": "2026-03-18T03:38:35.577Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmvhsbux5qfi",
+    "file": "player/cosmology/kaleidos-system.md",
+    "highlight": "1. [future:Crucible]",
+    "comment": "source of mineral hypothesised to be unrefined ringglass",
+    "line": null,
+    "timestamp": "2026-03-18T03:39:08.169Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmvht09nzuj8",
+    "file": "player/cosmology/kaleidos-system.md",
+    "highlight": "it's standard-issue, the way cold-weather clothing is standard on an ice world.",
+    "comment": "good example of NOT leaking domain when using a reference example",
+    "line": null,
+    "timestamp": "2026-03-18T03:39:39.803Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmvhtsxjhpvs",
+    "file": "player/cosmology/kaleidos-system.md",
+    "highlight": "— a candidate for one of the undefined culture slots",
+    "comment": "this is written in the wrong register. thosuld be marked like [future:AshavaneCulture] or something like that",
+    "line": null,
+    "timestamp": "2026-03-18T03:40:16.951Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmvhvzznr3yu",
+    "file": "player/cosmology/kaleidos-system.md",
+    "highlight": "Terminus]",
+    "comment": "better name that isn't quite so on the nose. there are 1000 planets named terminus in sci fi at this exact solar system location",
+    "line": null,
+    "timestamp": "2026-03-18T03:41:59.411Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmvhwcs301y7",
+    "file": "player/cosmology/kaleidos-system.md",
+    "highlight": "The Solar Syste",
+    "comment": "solar is sol. should keep the Kaeldious System",
+    "line": null,
+    "timestamp": "2026-03-18T03:42:15.987Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmvhwu78vncp",
+    "file": "player/cosmology/kaleidos-system.md",
+    "highlight": "There is no DM answer here",
+    "comment": "Incorrect use of lanauge",
+    "line": null,
+    "timestamp": "2026-03-18T03:42:38.564Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmvm9iwk3m8h",
+    "file": "player/cosmology/resonance.md",
+    "highlight": "Most people never encounter anything beyond broad. Working professionals operate at mid",
+    "comment": "KITES directly contradict this.",
+    "line": null,
+    "timestamp": "2026-03-18T05:44:28.916Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmvma64prk6o",
+    "file": "player/cosmology/resonance.md",
+    "highlight": "a thread of pure color, impossibly thin and impossibly intense.",
+    "comment": "LASER is acceptable here",
+    "line": null,
+    "timestamp": "2026-03-18T05:44:59.017Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmvmykcaxcb3",
+    "file": "player/concepts/species/elves.md",
+    "highlight": "Older folk traditions call them \"the Absent\" — the people who were here and then weren't. The academic literature just calls them elves.",
+    "comment": "incorrect. this was just a name you came up with we never changed.  older folk traditions wouldnt have a special name for them - they only disapaeared 60ish years ago",
+    "line": null,
+    "timestamp": "2026-03-18T06:03:57.178Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmvn2ks0zx1q",
+    "file": "player/concepts/exceptional-resources.md",
+    "highlight": "no real-world analogue,",
+    "comment": "domain leak.  'have several rsousrces of note'",
+    "line": null,
+    "timestamp": "2026-03-18T06:07:04.368Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmvn87j08k9h",
+    "file": "player/concepts/exceptional-resources.md",
+    "highlight": "and Coremark is the primary channel.",
+    "comment": "remove coremark. look genreally for how often coremark is ferenced. they are not some big bad organization to attribute all smugling to. their a criminal syndicate. and an imporatnt one but not the only generally speak this is a trap you keep falling into, and you need to update your writing guidance - we have a limited subset of entities because we are in the early stages of fleshing out the world. you must resist the temptation to attribute everything to something predefined. it makes the world much smaller than it should be.",
+    "line": null,
+    "timestamp": "2026-03-18T06:11:27.132Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmvnmyio37x5",
+    "file": "player/concepts/species/orcs.md",
+    "highlight": "Orc art, architecture, and craftsmanship are anything but simple. Orc metalwork is sought after across the system. Orc music is structurally complex in ways that take trained musicians from other species years to parse. The \"strong and dumb\" read says more about the reader than the subject.",
+    "comment": "this part risks orcs being the best at everythign. they're strong, have high endurance, are buetiful, expert crafts people, and smart.  we need to give some some serious flaws",
+    "line": null,
+    "timestamp": "2026-03-18T06:22:55.296Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmvnp9rynl3h",
+    "file": "player/concepts/practical-resonance.md",
+    "highlight": "are the general-purpose motive engine of the system. They operate on kinetic-band resonance: ringglass arrays tuned to redirect opposing forces into a frequency null space, producing ef",
+    "comment": "this section is a repeat. we should check why it doesn't score high similarity in our checks. we should change it to a See: KITES sytle refernce",
+    "line": null,
+    "timestamp": "2026-03-18T06:24:43.198Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmvnryvmierf",
+    "file": "player/concepts/prominence.md",
+    "highlight": "Prominence defines how far an entity's references should reach in the knowledge graph. When writing or generating lore:",
+    "comment": "this is instruction for you, or maybe the DM. it's definintly written in world. we may need a seperate out of universe player facing guide for these kinds of things which describe how to utilize the world",
+    "line": null,
+    "timestamp": "2026-03-18T06:26:49.042Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmvnsj3472r8",
+    "file": "player/concepts/ringglass.md",
+    "highlight": "It is the physical basis for all resonance technology. Without it, nothing works.",
+    "comment": "need to update with the refined resonance where ringglass is an amplifier not a source",
+    "line": null,
+    "timestamp": "2026-03-18T06:27:15.232Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmvnvmxnsh2e",
+    "file": "player/concepts/ringglass.md",
+    "highlight": "Trade",
+    "comment": "combine this section with the grades since it has the same subsections",
+    "line": null,
+    "timestamp": "2026-03-18T06:29:40.187Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmvnyb9vzanp",
+    "file": "player/concepts/shuttered-habs.md",
+    "highlight": "The one universal: nobody tries to force them open anymore. Not after Coriolis",
+    "comment": "remove. to blunt a statement",
+    "line": null,
+    "timestamp": "2026-03-18T06:31:45.043Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmvnys4223hq",
+    "file": "player/concepts/shuttered-habs.md",
+    "highlight": ", there are habs that have undergone accelerated evolution — resonance-influenced biological and cognitive change sustained over 130 years in sealed, saturated environments. The inhabitants have reached a near-godlike state. They do their own thing. People leave them alone because why would you provoke the functionally omnipotent beings next door. These habs aren't shuttered in any meaningful sense — they're just operating on a plane that the rest of the system can't meaningfully interact with.",
+    "comment": "this makes them seem more common place. there are one maybe two of these",
+    "line": null,
+    "timestamp": "2026-03-18T06:32:06.866Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmvo1bhd7fyv",
+    "file": "player/concepts/cultures/sitharian-culture.md",
+    "highlight": "Naming Conventions",
+    "comment": "this section belong under naming - we need a mechanism for see Naming:Sithari instead of repeating content",
+    "line": null,
+    "timestamp": "2026-03-18T06:34:05.281Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmvo3kx3ykte",
+    "file": "player/concepts/cultures/sitharian-culture.md",
+    "highlight": "which surprises nobody and irritates everyone.",
+    "comment": "there are too many of these snide comments in this article.  if we want to express discomfort with sithari domeince it should be done in ways other then tact on clauses like this.  this is a general writing pattern you need to watchout for and potentially add detection for",
+    "line": null,
+    "timestamp": "2026-03-18T06:35:50.823Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmvo4zib7u7r",
+    "file": "player/concepts/cultures/sitharian-culture.md",
+    "highlight": "Perception",
+    "comment": "see above comment. this section does what all the snide after clauses were trying to do, without making it seem like a 10th grade edge lord wrote the prose.  this is the way to do it.",
+    "line": null,
+    "timestamp": "2026-03-18T06:36:56.387Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmvo73ggdjcb",
+    "file": "player/concepts/tuners.md",
+    "highlight": "tradition they didn't know they were starting",
+    "comment": "this clause about 'they didnt know' is an oft repeated one. we need to watch out for this wink to the reader. it's becoming too noticable",
+    "line": null,
+    "timestamp": "2026-03-18T06:38:34.816Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmwb93utzbdw",
+    "file": "player/concepts/cultures/jazzocratic-governance.md",
+    "highlight": "Jazzocratic Governance",
+    "comment": "this entire artcile should be a subset of fermata station",
+    "line": null,
+    "timestamp": "2026-03-18T17:23:59.813Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmwzna70r4mc",
+    "file": "player/concepts/exceptional-resources.md",
+    "highlight": "Exceptional Resources",
+    "comment": "this should actually be 4 seperate articles. mircocavities, stillwater,duskgrain and relics. the exceptional resource should be transformed into more of a life in the system that contains the header paragraph and some other more mundane details",
+    "line": null,
+    "timestamp": "2026-03-19T04:46:51.996Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmwzqiguw556",
+    "file": "player/concepts/practical-resonance.md",
+    "highlight": "This is a world where the infrastructure accounts",
+    "comment": "move this subsection to the life on kaleido entry (ref in comments on exception resoruces)",
+    "line": null,
+    "timestamp": "2026-03-19T04:49:22.686Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmwzr0ikuw06",
+    "file": "player/concepts/practical-resonance.md",
+    "highlight": "Most of Kaleidos and the inhabited ring has enough ringglass in the environment — soil, rock, building",
+    "comment": "this section belongs on the resoncance page",
+    "line": null,
+    "timestamp": "2026-03-19T04:49:46.076Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmwzrct1xgfs",
+    "file": "player/concepts/practical-resonance.md",
+    "highlight": "Practical Resonance",
+    "comment": "after moving the two useful sections to their correct homes, delete the rest of this page.",
+    "line": null,
+    "timestamp": "2026-03-19T04:50:02.005Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmx00vxkwb4b",
+    "file": "player/artifacts/common/resonant-instruments.md",
+    "highlight": "into resonance at arbitrary frequencies within the mid band.",
+    "comment": "arbitrary fequencies and bandwiths. some virtuosos get get near to narrow band coherence",
+    "line": null,
+    "timestamp": "2026-03-19T04:57:26.696Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmx02867ozxo",
+    "file": "player/artifacts/common/resonant-instruments.md",
+    "highlight": "difference between reading a map and navigating by stars — both get you there, but one requires a lifetime of practice and produces results the other cannot.",
+    "comment": "not a very good analogy, try something else",
+    "line": null,
+    "timestamp": "2026-03-19T04:58:29.215Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmx02s82n97m",
+    "file": "player/artifacts/common/resonant-instruments.md",
+    "highlight": "instrument channels.",
+    "comment": "add a blurb about how diffrent instruments are tuned to diffrent bands (kinetic, signal, etc)",
+    "line": null,
+    "timestamp": "2026-03-19T04:58:55.202Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmx03qwcpn9u",
+    "file": "player/artifacts/common/resonant-instruments.md",
+    "highlight": "is the baseline requirement, and that alone limits the pool to a subset of trained Tuners. B",
+    "comment": "deaf people play music. restarte this as as soft nudge, not a hard requirement",
+    "line": null,
+    "timestamp": "2026-03-19T04:59:40.140Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmx04nwyjqqm",
+    "file": "player/artifacts/common/resonant-instruments.md",
+    "highlight": "human-made,",
+    "comment": "not only human, replace with something like 'contemprary made'",
+    "line": null,
+    "timestamp": "2026-03-19T05:00:22.930Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmx06jdbcxta",
+    "file": "player/artifacts/common/resonant-instruments.md",
+    "highlight": "At Fermata Station, the line between musical performance and resonance engineering is thin enough to be meaningless.",
+    "comment": "remove this. add instead a blub about how most capital ships will employ one - adhoc structural stability, siganl jamming or broadcasting, etc. not needing a specialized device and being able to acomplish a range of tasks is a huge advantage",
+    "line": null,
+    "timestamp": "2026-03-19T05:01:50.351Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmx3o3ifkcmb",
+    "file": "player/history/events/coriolis-breach.md",
+    "highlight": "A forced-entry incident during the Contested Reach in which a well-intentioned faction broke into a shuttered hab and discovered that good intentions don't survive contact with a community that considers you a demon. The contact team was slaughtered. One survivor returned. The incident ended the debate over whether shuttered habs should be opened by force.",
+    "comment": "this belong in an aftermath or something",
+    "line": null,
+    "timestamp": "2026-03-19T06:39:28.455Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmx3pcdnj9xk",
+    "file": "player/history/events/coriolis-breach.md",
+    "highlight": "an enclosed environment where the original life-support systems had drifted, the interior had rewilded into dense pre-technological biome, and the inhabitants had adapted by abandoning technology entirely over the course of the Signal Famine.",
+    "comment": "this (and a few other things) make me think we should add 100 years or more to the signal famine. one generation isn't enough even for accelerated evolution",
+    "line": null,
+    "timestamp": "2026-03-19T06:40:26.603Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmx3pxzkx701",
+    "file": "player/history/events/coriolis-breach.md",
+    "highlight": "A non-Sitharian faction",
+    "comment": "don't declare non-sitharian. this is over reliance on established entities",
+    "line": null,
+    "timestamp": "2026-03-19T06:40:54.608Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmx3spytogwo",
+    "file": "player/history/events/coriolis-breach.md",
+    "highlight": "became the foundational document for the Accord's sovereignty provisions.",
+    "comment": "this doesn't make sense. the provisions are widly publiciezed. the survirors account should motivate the creation of the provions, but not be a central input to them",
+    "line": null,
+    "timestamp": "2026-03-19T06:43:04.181Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmx3th2gdhmk",
+    "file": "player/history/events/coriolis-breach.md",
+    "highlight": "is a recognized-prominence",
+    "comment": "just recognized",
+    "line": null,
+    "timestamp": "2026-03-19T06:43:39.304Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmx3vh0dvbub",
+    "file": "player/concepts/life-in-the-system.md",
+    "highlight": "uns through daily life the way low-voltage current runs through a wired",
+    "comment": "no anlogy. low-voltage is domain mixing",
+    "line": null,
+    "timestamp": "2026-03-19T06:45:12.541Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmx3vtdqsvkh",
+    "file": "player/concepts/life-in-the-system.md",
+    "highlight": "than a light switch. I",
+    "comment": "domain mixing",
+    "line": null,
+    "timestamp": "2026-03-19T06:45:28.574Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmx3ww8m3f7i",
+    "file": "player/concepts/life-in-the-system.md",
+    "highlight": "[future:Flitters]",
+    "comment": "no future - flitters is unlikly to be its own entry, just a subsection of kites",
+    "line": null,
+    "timestamp": "2026-03-19T06:46:18.934Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mmz7eycwgydo",
+    "file": "player/locations/landmarks/bloom-zones.md",
+    "highlight": "artifacts nobody understands.",
+    "comment": "remove nobody understands - tic",
+    "line": null,
+    "timestamp": "2026-03-20T17:59:52.688Z",
+    "status": "open"
+  },
+  {
+    "id": "mmz7fl2r3hkp",
+    "file": "player/locations/landmarks/bloom-zones.md",
+    "highlight": "the crystal substrate,",
+    "comment": "no crystal substrate these are in space.  need to do a general search for this term",
+    "line": null,
+    "timestamp": "2026-03-20T18:00:22.131Z",
+    "status": "open"
+  },
+  {
+    "id": "mmz7l842wsfp",
+    "file": "player/locations/landmarks/bloom-zones.md",
+    "highlight": ", but the connections follow non-spatial or higher-dimensional logi",
+    "comment": "frame this as 'fronteir research hypothesisis these connections'",
+    "line": null,
+    "timestamp": "2026-03-20T18:04:45.266Z",
+    "status": "open"
+  },
+  {
+    "id": "mmz7mf0bojez",
+    "file": "player/locations/landmarks/bloom-zones.md",
+    "highlight": "and it has happened.",
+    "comment": "ccreate a future: Xyloathax  (the name of a hab that a bloom zone appeared next to)",
+    "line": null,
+    "timestamp": "2026-03-20T18:05:40.859Z",
+    "status": "open"
+  },
+  {
+    "id": "mmz7skftyqeu",
+    "file": "player/locations/landmarks/keel.md",
+    "highlight": "The route is well-charted and well-serviced — Vantara maintains navigation beacons, refueling stations, and waystations along its length.",
+    "comment": "expand this to safe travels / acomadations / truck stops / etc that have appeared along many poritions of the keel.  don't make it all vantara - this is the same degenerate example descrepency. vantara is a large well known company, but they are not a monopoly. over use causes the world to feel small",
+    "line": null,
+    "timestamp": "2026-03-20T18:10:27.833Z",
+    "status": "open"
+  },
+  {
+    "id": "mmz7u387dh3t",
+    "file": "player/locations/landmarks/keel.md",
+    "highlight": "doesn't claim sovereignty.",
+    "comment": "vantara is a travel and logistics company. this is another overuse",
+    "line": null,
+    "timestamp": "2026-03-20T18:11:38.839Z",
+    "status": "open"
+  },
+  {
+    "id": "mmz7z4lgo9io",
+    "file": "player/locations/landmarks/span-nine.md",
+    "highlight": "A shining white filament stretching from",
+    "comment": "this probably requires more explanation. this span was discovered later - why is it connecting three major places? there might be a history that pelhari was built around it. but sithari and thershold both predate the activation of span nine, and it's too much of a coincidence that the only broadband comm device known happen to be thre",
+    "line": null,
+    "timestamp": "2026-03-20T18:15:33.892Z",
+    "status": "open"
+  },
+  {
+    "id": "mmz823x0knwu",
+    "file": "player/locations/landmarks/span-nine.md",
+    "highlight": "With it, Sithari has real-time signal-bandwidth links to the [future:Clarisant] guild on Pelhari and the Synod's AI custodians at Threshold Station. This connectivity is a significant part of Sithari's continued centrality — the capital's access to the Span is a structural advantage that other settlements cannot replicate.",
+    "comment": "see baove - consider span nine terminus near sithari but geographically distinct. important side location, but not actually in the capital",
+    "line": null,
+    "timestamp": "2026-03-20T18:17:52.980Z",
+    "status": "open"
+  },
+  {
+    "id": "mmz8bsbqsj4t",
+    "file": "player/locations/regions/the-shear.md",
+    "highlight": "built its empire on the industrial end. The independents work the margins",
+    "comment": "coremwark reference does make sense here, but it shouldn't be the only corperation or group referenced thoughout the article. severe overuse. add a few future stubs",
+    "line": null,
+    "timestamp": "2026-03-20T18:25:24.518Z",
+    "status": "open"
+  },
+  {
+    "id": "mmz8d1jxrsfb",
+    "file": "player/locations/regions/the-shear.md",
+    "highlight": "[future:Cthonic beasts].",
+    "comment": "can't use the term chtonic. thats an internal descriptor. we should come up with our own phrase that isn't real word anchored",
+    "line": null,
+    "timestamp": "2026-03-20T18:26:23.133Z",
+    "status": "open"
+  },
+  {
+    "id": "mmz8dvvxux1i",
+    "file": "player/locations/regions/the-shear.md",
+    "highlight": "black-market operations — exist in pockets of the Shear that nobody official has charted.",
+    "comment": "coremark overuse",
+    "line": null,
+    "timestamp": "2026-03-20T18:27:02.445Z",
+    "status": "open"
+  },
+  {
+    "id": "mmz8j1wk5umy",
+    "file": "player/locations/regions/the-shear.md",
+    "highlight": "The Shear is chronic — it has existed since the Glassfall, it is broadly understood, and it is mostly stabilized. Dangerous, but navigable. An environment that people have learned to work in.",
+    "comment": "it didn't exist before the glassfall. it was caused by the glass fall",
+    "line": null,
+    "timestamp": "2026-03-20T18:31:03.524Z",
+    "status": "open"
+  },
+  {
+    "id": "mmz8kbp11xzl",
+    "file": "player/locations/regions/the-shear.md",
+    "highlight": "A Bloom Zone appearing next to a stable ring hab in clean space is the nightmare scenario — and it has happened. The Shear is where you expect problems. Bloom Zones are where problems show up uninvited.",
+    "comment": "duplicate of bloom zone content and this has no business in the sheer",
+    "line": null,
+    "timestamp": "2026-03-20T18:32:02.869Z",
+    "status": "open"
+  },
+  {
+    "id": "mmz8ls6vrp5w",
+    "file": "player/locations/settlements/fermata-station.md",
+    "highlight": "The system works better than it has any right to, and worse than its inhabitants believe.",
+    "comment": "tongune in cheek. reword or remove",
+    "line": null,
+    "timestamp": "2026-03-20T18:33:10.903Z",
+    "status": "open"
+  }
+]

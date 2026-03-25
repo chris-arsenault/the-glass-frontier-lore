@@ -1,2 +1,4 @@
 wiki_out/
 work-tracking/snapshots/
+__pycache__/
+node_modules/

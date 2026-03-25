@@ -1,6 +1,6 @@
 ---
 title: Humans
-type: concept
+type: species
 tags: [species]
 prominence: mythic
 registry: true
@@ -12,13 +12,13 @@ Alien arrivals. Humans reached the Kaleidos system around 2050 CE, during the he
 
 ## Biology
 
-Nothing unusual by the standards of the system. Bipedal, medium build, lifespan measured in decades. No natural resonance affinity — humans can learn [attunement](../cosmology/resonance.md) through training, but it requires deliberate study and practice in a way that comes intuitively to [gnomes](gnomes.md) or came naturally to the elves. A human resonance practitioner is always working harder for the same result, which produces a particular kind of stubborn, methodical expertise that other species sometimes find impressive and sometimes find exhausting.
+Nothing unusual by the standards of the system. Bipedal, medium build, lifespan measured in decades. No natural resonance affinity — humans can learn [attunement](../../cosmology/resonance.md) through training, but it requires deliberate study and practice in a way that comes intuitively to [gnomes](gnomes.md) or came naturally to the elves. A human resonance practitioner is always working harder for the same result, which produces a particular kind of stubborn, methodical expertise that other species sometimes find impressive and sometimes find exhausting.
 
 ## Present Day
 
 Humans represent the largest single population in the system, partly because their shorter lifespans mean faster generational turnover and partly because they breed prolifically by the standards of most other species. They are the demographic default — not dominant in any qualitative sense, but numerous enough that human faces are the most common ones in most settlements.
 
-This ubiquity means humans don't have a strong species-level identity the way some smaller populations do. A human's primary identity is cultural — [Sithari](cultures.md), [Hab-Worlder](cultures.md), syndicate, independent — rather than biological. Most humans don't think about being human very often. There are too many of them for it to feel distinctive.
+This ubiquity means humans don't have a strong species-level identity the way some smaller populations do. A human's primary identity is cultural — [Sithari](../cultures/cultures.md), [Hab-Worlder](../cultures/cultures.md), syndicate, independent — rather than biological. Most humans don't think about being human very often. There are too many of them for it to feel distinctive.
 
 ## Relationship with Resonance <!-- Resonance -->
 

@@ -1,0 +1,160 @@
+{
+  "player/artifacts/common/kite-sail.md": {
+    "complete": "2026-03-18T06:02:25.459Z",
+    "reviewed": "2026-03-18T06:02:25.459Z"
+  },
+  "player/artifacts/common/resonant-instruments.md": {
+    "complete": "2026-03-19T05:15:14.217Z",
+    "reviewed": "2026-03-19T05:15:14.217Z"
+  },
+  "player/artifacts/relics/liras-wall.md": {
+    "complete": "2026-03-18T06:02:27.609Z",
+    "reviewed": "2026-03-18T06:02:27.609Z"
+  },
+  "player/concepts/cultures/cultures.md": {
+    "complete": "2026-03-18T17:19:37.690Z",
+    "reviewed": "2026-03-18T17:19:37.690Z"
+  },
+  "player/concepts/cultures/hab-worlder.md": {
+    "complete": "2026-03-18T17:23:35.718Z",
+    "reviewed": "2026-03-18T17:23:35.718Z"
+  },
+  "player/concepts/cultures/jazzocratic-governance.md": {
+    "complete": "2026-03-18T06:40:39.563Z",
+    "reviewed": "2026-03-18T06:40:39.563Z"
+  },
+  "player/concepts/cultures/naming-conventions.md": {
+    "complete": "2026-03-18T17:24:03.861Z",
+    "reviewed": "2026-03-18T17:24:03.861Z"
+  },
+  "player/concepts/cultures/sitharian-culture.md": {
+    "complete": "2026-03-19T04:43:59.705Z",
+    "reviewed": "2026-03-19T04:43:59.705Z"
+  },
+  "player/concepts/practical-resonance.md": {
+    "complete": "2026-03-19T04:47:35.590Z",
+    "reviewed": "2026-03-19T04:47:35.590Z"
+  },
+  "player/concepts/prominence.md": {
+    "complete": "2026-03-19T04:50:40.592Z",
+    "reviewed": "2026-03-19T04:50:40.592Z"
+  },
+  "player/concepts/ringglass.md": {
+    "complete": "2026-03-19T04:51:26.450Z",
+    "reviewed": "2026-03-19T04:51:26.450Z"
+  },
+  "player/concepts/shuttered-habs.md": {
+    "complete": "2026-03-19T04:52:44.651Z",
+    "reviewed": "2026-03-19T04:52:44.651Z"
+  },
+  "player/concepts/species/elves.md": {
+    "complete": "2026-03-19T04:44:50.961Z",
+    "reviewed": "2026-03-19T04:44:50.961Z"
+  },
+  "player/concepts/species/fae.md": {
+    "complete": "2026-03-18T06:14:24.525Z",
+    "reviewed": "2026-03-18T06:14:24.525Z"
+  },
+  "player/concepts/species/gnomes.md": {
+    "complete": "2026-03-18T06:16:48.576Z",
+    "reviewed": "2026-03-18T06:16:48.576Z"
+  },
+  "player/concepts/species/humans.md": {
+    "complete": "2026-03-18T06:20:16.837Z",
+    "reviewed": "2026-03-18T06:20:16.837Z"
+  },
+  "player/concepts/species/orcs.md": {
+    "complete": "2026-03-18T06:22:20.760Z",
+    "reviewed": "2026-03-18T06:22:20.760Z"
+  },
+  "player/concepts/species/species.md": {
+    "complete": "2026-03-18T17:27:01.601Z",
+    "reviewed": "2026-03-18T17:27:01.601Z"
+  },
+  "player/concepts/tuners.md": {
+    "complete": "2026-03-19T04:56:12.872Z",
+    "reviewed": "2026-03-19T04:56:12.872Z"
+  },
+  "player/artifacts/relics/bloom-relics.md": {
+    "status": "approved",
+    "at": "2026-03-19T05:55:14.566Z",
+    "reviewed": "2026-03-19T05:57:05.143Z"
+  },
+  "player/concepts/duskgrain.md": {
+    "reviewed": "2026-03-19T05:58:48.067Z"
+  },
+  "player/concepts/exceptional-resources.md": {
+    "reviewed": "2026-03-19T05:58:53.156Z"
+  },
+  "player/concepts/microcavities.md": {
+    "reviewed": "2026-03-19T05:58:55.068Z"
+  },
+  "player/concepts/stillwater.md": {
+    "reviewed": "2026-03-19T06:03:00.361Z"
+  },
+  "player/cosmology/echo-rivers.md": {
+    "reviewed": "2026-03-19T06:03:24.086Z",
+    "complete": "2026-03-19T06:03:26.248Z"
+  },
+  "player/cosmology/kaleidos-system.md": {
+    "reviewed": "2026-03-19T06:03:48.477Z",
+    "complete": "2026-03-19T06:03:48.941Z"
+  },
+  "player/cosmology/resonance.md": {
+    "reviewed": "2026-03-19T06:03:54.652Z",
+    "complete": "2026-03-19T06:03:54.989Z"
+  },
+  "player/cosmology/the-glass-frontier.md": {
+    "reviewed": "2026-03-19T06:24:25.524Z",
+    "complete": "2026-03-19T06:24:27.683Z"
+  },
+  "player/history/events/coriolis-breach.md": {
+    "complete": "2026-03-19T06:39:02.692Z",
+    "reviewed": "2026-03-19T07:06:58.483Z"
+  },
+  "player/history/events/displacement.md": {
+    "complete": "2026-03-19T06:49:03.859Z",
+    "reviewed": "2026-03-19T06:49:04.534Z"
+  },
+  "player/history/events/the-glassfall.md": {
+    "complete": "2026-03-19T06:52:49.637Z",
+    "reviewed": "2026-03-19T06:52:50.119Z"
+  },
+  "player/concepts/life-in-the-system.md": {
+    "complete": "2026-03-19T06:54:07.488Z",
+    "reviewed": "2026-03-19T07:06:38.867Z"
+  },
+  "player/history/events/shardfall.md": {
+    "complete": "2026-03-19T07:31:31.496Z",
+    "reviewed": "2026-03-19T07:31:31.895Z"
+  },
+  "player/locations/landmarks/bloom-zones.md": {
+    "complete": "2026-03-20T18:03:00.434Z"
+  },
+  "player/locations/landmarks/keel.md": {
+    "complete": "2026-03-20T18:03:04.280Z"
+  },
+  "player/locations/landmarks/span-nine.md": {
+    "complete": "2026-03-20T18:03:13.063Z"
+  },
+  "player/locations/regions/sable-crescent.md": {
+    "complete": "2026-03-20T18:03:15.849Z",
+    "reviewed": "2026-03-20T18:20:27.942Z"
+  },
+  "player/locations/regions/the-shear.md": {
+    "complete": "2026-03-20T18:03:18.313Z"
+  },
+  "player/locations/settlements/fermata-station.md": {
+    "complete": "2026-03-20T18:03:21.704Z"
+  },
+  "player/locations/settlements/glasswake.md": {
+    "complete": "2026-03-20T18:03:25.037Z"
+  },
+  "player/locations/settlements/sithari.md": {
+    "complete": "2026-03-20T18:03:27.882Z"
+  },
+  "player/locations/landmarks/pyre.md": {
+    "complete": "2026-03-20T18:13:18.652Z",
+    "reviewed": "2026-03-20T18:13:18.987Z"
+  }
+}

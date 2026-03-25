@@ -36,6 +36,7 @@ This pattern applies to ALL content types: locations, factions, NPCs, concepts, 
 - `tags` — from frontmatter, validated against taxonomy
 - `valid_from`, `valid_to` — temporal bounds (year CE, nullable)
 - `dm_only` — boolean
+- `narrative_role` — viewpoint/titan (nullable). See `review-guidance/narrative-roles-guide.md`
 - `file_path` — relative path to prose file
 
 ### Section Attributes
@@ -59,6 +60,16 @@ All relationships are semantically typed. Generic relationships (RELATED_TO) are
 **Narrative:** HAS_BEAT, FILLS_BEAT, AT_STAGE, RESONATES_WITH
 **DM:** HIDING_FROM, SEEPING_THROUGH, EXTENDS
 **Banned:** RELATED_TO
+
+### Temporal Edges
+
+Relationship types have a `temporal` flag in the taxonomy. Temporal relationships represent ongoing states that change over time — they carry `valid_from` and `valid_to` properties (integer year CE, nullable).
+
+**Temporal (state relationships):** GOVERNS, GOVERNED_BY, LEADS, CHAIRS, REGULATES, MEMBER_OF, OPERATES_IN, HEADQUARTERED_IN, COOPERATES_WITH, INHABITS, POSSESSES, STUDIES, MAINTAINS, TRAINS, HOSTS, SUPPLIES, EMPLOYED_BY, OWNED_BY, LOCATED_IN, PRACTICED_BY, CARRIES
+
+**Non-temporal (inherent or point-in-time):** All causal, spatial/astronomical, technical, narrative, and meta relationships.
+
+Edge temporal bounds are independent of entity temporal bounds. An edge can have a narrower window than its entities (e.g., a faction that exists 2320–present may only govern a location 2340–2355). The G8 check validates that edge bounds don't exceed entity bounds.
 
 ### Taxonomy
 
@@ -114,6 +125,7 @@ Used for: semantic overlap detection, theme matching, loop stage matching, pre-w
 | G5: Antisymmetry | Directional rels (GOVERNS, LEADS) can't be bidirectional |
 | G6: Spatial cycles | PART_OF cycle detection |
 | G7: Orphan detection | Complete entities with zero edges |
+| G8: Edge temporal coherence | Temporal edges missing valid_from; edge bounds exceeding entity bounds |
 | Banned relationships | RELATED_TO or other banned types in graph |
 | Untyped entities | Entity nodes missing type attribute |
 | Title match | Prose title must match graph title |
@@ -132,9 +144,10 @@ All graph operations go through `graph_cli.py`:
 | Command | Purpose |
 |---------|---------|
 | `upsert-entity <file>` | Sync prose → graph (entity, sections, embeddings, MENTIONS) |
-| `add-rel <src> <TYPE> <tgt>` | Add typed relationship (validates against taxonomy) |
+| `add-rel <src> <TYPE> <tgt> [--from Y] [--to Y]` | Add typed relationship with optional temporal bounds |
 | `rm-rel <src> <TYPE> <tgt>` | Remove relationship |
-| `query-neighborhood <id>` | Show entity connections |
+| `query-neighborhood <id>` | Show entity connections (with temporal bounds) |
+| `query-at <id> --year Y` | Show entity neighborhood at a point in time |
 | `query-similar <section-id>` | Vector search for similar sections |
 | `overlap "<concept>"` | Semantic overlap check for pre-write planning |
 | `check` | Run all contradiction checks |

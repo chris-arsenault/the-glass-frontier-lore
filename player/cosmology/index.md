@@ -13,4 +13,4 @@ The physical world, its energy systems, and the celestial structures that define
 | Echo Rivers | [echo-rivers.md](echo-rivers.md) | complete | renowned | resonance, signal-freq | Underground streams that carry voices from the past |
 | Kaleidos | — | shell | mythic | | The planet itself; surface world beneath the ring |
 | Kaleidos Orbit | — | shell | mythic | orbital | The orbital space containing the ring, the Shear, and Bloom Zones |
-| The Solar System | [solar-system.md](solar-system.md) | complete | mythic | orbital | 8 planets, compact system, ~1 week transit end to end |
+| The Kaleidos System | [kaleidos-system.md](kaleidos-system.md) | complete | mythic | orbital | 8 planets, compact system, ~1 week transit end to end |

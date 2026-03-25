@@ -9,7 +9,7 @@ prominence: recognized
 
 The Synod talks to the old machines, and the old machines — sometimes — talk back.
 
-Headquartered at [future:Threshold Station], a mostly intact pre-Glassfall facility at the Kaleidos-sun Lagrange point, the Lattice Proxy Synod is the system's interface with surviving ring-era AI custodians. These are not chatbots or databases. They are minds built when the [elves](../../concepts/elves.md) were the dominant civilization, operating in cognitive architectures that no living person fully understands, processing information across dimensional frameworks that contemporary mathematics can't describe.
+Headquartered at [future:Threshold Station], a mostly intact pre-Glassfall facility at the Kaleidos-sun Lagrange point, the Lattice Proxy Synod is the system's interface with surviving ring-era AI custodians. These are not chatbots or databases. They are minds built when the [elves](../../concepts/species/elves.md) were the dominant civilization, operating in cognitive architectures that no living person fully understands, processing information across dimensional frameworks that contemporary mathematics can't describe.
 
 The Synod makes them useful anyway.
 

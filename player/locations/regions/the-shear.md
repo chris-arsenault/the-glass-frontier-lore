@@ -1,6 +1,6 @@
 ---
 title: The Shear
-type: location
+type: geographic_location
 tags: [orbital, salvage, danger, resonance]
 prominence: renowned
 registry: true
@@ -16,7 +16,7 @@ The Shear is not a band or a shell. It's interstitial — woven between habitabl
 
 Debris. [Ringglass](../../concepts/ringglass.md) fragments ranging from dust to structures the size of buildings, tumbling in unpredictable orbits. The resonance environment is distorted — ambient frequencies spike, cancel, and interfere in patterns that [Tuners](../../concepts/tuners.md) describe as painful noise and instruments describe as garbage data. Navigation relies on specialized equipment designed to filter the interference, and on pilots who've learned to read the Shear's moods.
 
-Ships operating in the Shear are purpose-built or heavily modified. The technology is well-developed at this point — 130 years of iteration — but "well-developed" means "mature enough to be accessible," not "safe." The analogy is cold-weather gear: you won't survive without it, but it's easy to get and most people know how to use it. The Shear kills the careless and the unlucky, not the unprepared.
+Ships operating in the Shear are purpose-built or heavily modified. The technology is well-developed at this point — generations of refinement — but "well-developed" means "mature enough to be accessible," not "safe." The technology is mature enough to be standard equipment — ships built for the Shear come ready. The Shear kills the careless and the unlucky, not the unprepared.
 
 The deeper you go — pockets of Shear far from any hab, where debris density is highest and the resonance distortion is worst — the stranger it gets. [future:Deep Shear] is where the environment becomes genuinely alien: spatial relationships bend, distances don't behave, and things live there that don't live anywhere else.
 

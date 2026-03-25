@@ -1,0 +1,132 @@
+[
+  {
+    "section_a": "tempered-accord::tensions",
+    "entity_a": "tempered-accord",
+    "heading_a": "Tensions",
+    "section_b": "sithari::governance",
+    "entity_b": "sithari",
+    "heading_b": "Governance",
+    "similarity": 0.9682,
+    "space": "enriched"
+  },
+  {
+    "section_a": "tempered-accord::structure",
+    "entity_a": "tempered-accord",
+    "heading_a": "Structure",
+    "section_b": "sithari::governance",
+    "entity_b": "sithari",
+    "heading_b": "Governance",
+    "similarity": 0.9573,
+    "space": "enriched"
+  },
+  {
+    "section_a": "tempered-accord::structure",
+    "entity_a": "tempered-accord",
+    "heading_a": "Structure",
+    "section_b": "sithari::governance",
+    "entity_b": "sithari",
+    "heading_b": "Governance",
+    "similarity": 0.9141,
+    "space": "plain"
+  },
+  {
+    "section_a": "builders-gone::description",
+    "entity_a": "builders-gone",
+    "heading_a": "Description",
+    "section_b": "elves::history",
+    "entity_b": "elves",
+    "heading_b": "History",
+    "similarity": 0.9135,
+    "space": "plain"
+  },
+  {
+    "section_a": "gnomes::resonance",
+    "entity_a": "gnomes",
+    "heading_a": "Resonance",
+    "section_b": "tuners::resonance",
+    "entity_b": "tuners",
+    "heading_b": "Resonance",
+    "similarity": 0.9091,
+    "space": "plain"
+  },
+  {
+    "section_a": "tempered-accord::tensions",
+    "entity_a": "tempered-accord",
+    "heading_a": "Tensions",
+    "section_b": "sithari::governance",
+    "entity_b": "sithari",
+    "heading_b": "Governance",
+    "similarity": 0.9084,
+    "space": "plain"
+  },
+  {
+    "section_a": "kaleidos-system::applications",
+    "entity_a": "kaleidos-system",
+    "heading_a": "Applications",
+    "section_b": "life-in-the-system::applications",
+    "entity_b": "life-in-the-system",
+    "heading_b": "Applications",
+    "similarity": 0.9079,
+    "space": "plain"
+  },
+  {
+    "section_a": "life-in-the-system::applications",
+    "entity_a": "life-in-the-system",
+    "heading_a": "Applications",
+    "section_b": "kite-sail::applications",
+    "entity_b": "kite-sail",
+    "heading_b": "Applications",
+    "similarity": 0.9063,
+    "space": "plain"
+  },
+  {
+    "section_a": "knowledge-decay::how-it-works",
+    "entity_a": "knowledge-decay",
+    "heading_a": "How It Works",
+    "section_b": "builders-gone::description",
+    "entity_b": "builders-gone",
+    "heading_b": "Description",
+    "similarity": 0.905,
+    "space": "plain"
+  },
+  {
+    "section_a": "shear-compact::origin",
+    "entity_a": "shear-compact",
+    "heading_a": "Origin",
+    "section_b": "tempered-accord::origin",
+    "entity_b": "tempered-accord",
+    "heading_b": "Origin",
+    "similarity": 0.9005,
+    "space": "plain"
+  },
+  {
+    "section_a": "bloom-containment::how-it-works",
+    "entity_a": "bloom-containment",
+    "heading_a": "How It Works",
+    "section_b": "reconnection::how-it-works",
+    "entity_b": "reconnection",
+    "heading_b": "How It Works",
+    "similarity": 0.8961,
+    "space": "plain"
+  },
+  {
+    "section_a": "tuners-truth::truth",
+    "entity_a": "tuners-truth",
+    "heading_a": "Truth",
+    "section_b": "elves-truth::truth",
+    "entity_b": "elves-truth",
+    "heading_b": "Truth",
+    "similarity": 0.8951,
+    "space": "plain"
+  },
+  {
+    "section_a": "resonance::applications",
+    "entity_a": "resonance",
+    "heading_a": "Applications",
+    "section_b": "life-in-the-system::how-it-works",
+    "entity_b": "life-in-the-system",
+    "heading_b": "How It Works",
+    "similarity": 0.8942,
+    "space": "plain"
+  }
+]

@@ -24,6 +24,16 @@ A canonical lore repository for The Glass Frontier, a game world set in the Kale
 - **Play it straight.** Even the strangest elements are presented matter-of-factly. The absurdity comes from the fiction being taken seriously, not from the author nudging the reader.
 - **Name entities, don't describe them.** When prose references something that could be its own entity — a faction, a location, a person, an artifact — use a `[future:Name]` marker rather than describing the concept inline without naming it. This creates trackable placeholders for future entries. "The [future:Continuity] has governed Sithari for 130 years" not "the ruling party has governed for 130 years." Every named thing in the world should be discoverable.
 
+### In-universe voice (critical)
+
+All prose must be written from inside the world. There is no Earth. Three violations to watch for:
+
+1. **Domain leakage** — real-world references used as comparisons. No trucks, taxis, sailboats, Venus, Sol, Uber. Comparisons must use in-world referents or universal physical concepts. Good: "the way cold-weather clothing is standard on an ice world." Bad: "like calling a cab."
+2. **Wrong register** — design language in lore prose. Never write "this wiki", "DM answer", "culture slot", "will likely become its own entry", or "not yet defined" (as an authoring state). An entry can say "the cause remains unknown" (in-world gap) but never "this hasn't been written yet" (authoring gap). Use `[future:Name]` markers instead.
+3. **Author's notes in prose** — notes meant for collaborators that ended up in published text. Describing what a concept is *for* in the setting rather than what it *is* in the world.
+
+See `review-guidance/voice-review-prompt.md` for the reusable review prompt.
+
 ## Entry Format
 
 Every entry is a markdown file with YAML frontmatter:
@@ -31,7 +41,7 @@ Every entry is a markdown file with YAML frontmatter:
 ```markdown
 ---
 title: Entry Name
-type: location | faction | npc | artifact | creature | ship | event | concept
+type: see Kind Taxonomy below
 tags: [governance, resonance, trade]
 ---
 
@@ -47,6 +57,7 @@ use the future marker: [future:Entity Name]
 - `tags` — optional. Topics and themes this entry involves. **Controlled vocabulary** — only use tags defined in [`tags.md`](player/tags.md). If you need a new tag, add it there first. Tags describe what an entry is *about* (e.g., `governance`, `resonance`, `trade`), not what it is *related to*.
 - `related` — **DEPRECATED.** Entity relationships are tracked in the graph database with typed edges (LEADS, DEPENDS_ON, LOCATED_IN, etc.) not generic frontmatter lists. Do not add new `related:` fields. Existing ones will be removed as entries are touched.
 - `prominence` — optional but encouraged. How widely known this entity is. One of: `forgotten`, `marginal`, `recognized`, `renowned`, `mythic`. See [Prominence](player/concepts/prominence.md). This is NOT power or importance — only awareness. Gates how far references should reach in the knowledge graph.
+- `narrative_role` — optional. One of: `viewpoint`, `titan`. For NPCs that serve elevated narrative functions. See `review-guidance/narrative-roles-guide.md`. Most NPCs don't have this field.
 - `alias` — optional. Common alternative name(s) for this entry.
 - Additional fields as needed: `region:`, `era:`, `status:` etc. Add only when they carry real information.
 
@@ -69,6 +80,24 @@ Prominence controls how far an entity's name should travel:
 - **forgotten** — reference only from entities with a specific, direct link
 
 When writing a new entry, check the prominence of entities you're linking to. A system-wide political overview shouldn't name-drop a marginal ring hab. A marginal hab's entry can reference mythic concepts freely — everyone knows about those.
+
+### Kind Taxonomy
+
+Entity kinds are grouped into three categories. Full details and relationship budgets in `review-guidance/graph-topology-guide.md`.
+
+**World Atlas** (named entities — the primary graph):
+`npc`, `geographic_location`, `installation`, `faction`, `artifact`, `creature`, `transport`, `incident`, `conflict`, `rumor`, `edict`
+
+**Player Reference** (general knowledge — highly connected hubs):
+`species`, `culture`, `ability`, `resource`, `phenomenon`, `concept`
+
+**Structural** (engine mechanics):
+`era`, `dm`, `thread`, `loop`, `theme`
+
+When choosing a type for a new entry:
+- If it's a named, specific thing in the world → atlas kind
+- If it describes how the world works (species traits, materials, systems) → reference kind
+- If it's DM-only or narrative structure → structural kind
 
 ### Multi-type entries
 
@@ -114,7 +143,9 @@ Indexes are layered, progressively more detailed:
 ```
 player/                     # all player-facing lore (published to wiki)
   cosmology/                # the rings, resonance, echo rivers, the physical world
-  concepts/                 # technology, magic, species, cultures, governance
+  concepts/                 # resources, abilities, phenomena, professions, meta
+    species/                # biological types
+    cultures/               # social patterns, naming conventions
   locations/
     regions/                # broad geographic areas
     settlements/            # named towns, cities, stations
@@ -149,9 +180,16 @@ review-guidance/            # writing quality docs (naming, deslop, crosswalk)
 research/                   # long-term reference material (thematic craft, analyses)
 work-tracking/              # temporary operational docs (queue, questions, snapshots)
 
+tools/
+  review-app/               # inline review tool (Vite + React + Express)
+
 CLAUDE.md                   # this file — authoring conventions
 SYSTEM.md                   # technical architecture (graph, embedding, CLI, lint)
 README.md                   # repo overview
+review.py                   # review tracking CLI (pending, mark, stale, status)
+lint.py                     # lore linter
+graph_cli.py                # graph database CLI
+wiki_gen.py                 # wiki generation
 ```
 
 New directories can be added as needed. The structure is emergent. See `SYSTEM.md` for technical details on the graph, embedding pipeline, and tooling.
@@ -225,11 +263,12 @@ public_entry: elves
 | Command | Use |
 |---------|-----|
 | `upsert-entity <file>` | Sync a prose file to graph (entity + sections + embeddings) |
-| `add-rel <src> <type> <tgt>` | Add a typed relationship |
+| `add-rel <src> <type> <tgt> [--from Y] [--to Y]` | Add a typed relationship (temporal bounds for state rels) |
 | `rm-rel <src> <type> <tgt>` | Remove a relationship |
-| `query-neighborhood <id>` | Show entity's connections |
+| `query-neighborhood <id>` | Show entity's connections (with temporal bounds) |
+| `query-at <id> --year Y` | Show entity neighborhood at a point in time |
 | `query-similar <section-id>` | Vector search for similar sections |
-| `check` | Run all contradiction checks (G1-G7, L2) |
+| `check` | Run all contradiction checks (G1-G8, L2) |
 | `stats` | Graph statistics |
 
 ### Relationship types:
@@ -242,12 +281,53 @@ The CLI validates against the taxonomy and rejects banned types.
 
 ### What gets embedded:
 
-Section embeddings use entity-enriched prefix injection:
-- Primary entity attributes (type, prominence, temporal bounds, relationships)
-- Mentioned entity attributes (detected via NER against entity registry)
-- Clean prose (markdown links and future markers stripped)
+Two parallel embedding spaces are maintained per section:
+- **Enriched** (`embedding`): entity-attribute prefix injection + clean prose. Better for semantic similarity queries ("find things related to X").
+- **Plain** (`embedding_plain`): clean prose only, no attribute injection. Better for content duplication detection (avoids entity-attribute clustering).
 
-Embeddings are rebuilt automatically by `upsert-entity`. The vector index is rebuilt after each upsert.
+Both are rebuilt automatically by `upsert-entity`. Both have separate vector indices (`section_embeddings`, `section_embeddings_plain`). Lint L2 checks run against both spaces.
+
+## Review Workflow
+
+Review tracking uses `review.py` and the review app (`tools/review-app/`).
+
+### CLI commands:
+
+| Command | Use |
+|---------|-----|
+| `python3 review.py pending` | List files modified since last review (pipe to voice prompt) |
+| `python3 review.py mark <file> [...]` | Mark file(s) as auto-reviewed after fixing issues |
+| `python3 review.py stale` | Show review comments that are stale (file was fixed since comment) |
+| `python3 review.py status` | Summary: reviewed/total counts |
+| `python3 review.py gaps` | Show archetype taxonomy gaps (thin entity categories) |
+| `python3 review.py overlaps` | Generate overlap report for review app |
+| `python3 review.py topology` | Graph topology health check (edges/entity, degree, 2-hop reachability) |
+
+### After modifying prose:
+
+1. Upsert to graph: `python3 graph_cli.py upsert-entity <file>`
+2. Run lint: `python3 lint.py`
+3. Mark auto-reviewed: `python3 review.py mark <file>`
+4. **Resolve addressed comments:** After fixing review comments, mark them as resolved in `work-tracking/review-comments.json` by setting `status: "resolved"` on each addressed comment. This is mandatory — do not leave addressed comments as open.
+
+### Two review systems (independent):
+
+- **Auto review** (`work-tracking/review-status.json`) — tracked by `review.py mark`. Records when Claude ran voice prompts and fixed issues.
+- **Manual review** (`work-tracking/manual-review-status.json`) — tracked by the UI "Mark reviewed" button. Records when the user personally signed off on a file.
+
+### Review data:
+
+- `work-tracking/review-comments.json` — inline review comments (from the review app)
+- `work-tracking/review-status.json` — auto review timestamps
+- `work-tracking/manual-review-status.json` — manual review timestamps
+- `work-tracking/overlap-report.json` — L2 overlap report (generated by `review.py overlaps`)
+- `work-tracking/accepted-overlaps.json` — section pairs accepted as legitimate overlap (excluded from L2 lint warnings)
+- `review-guidance/voice-review-prompt.md` — reusable LLM prompt for domain/register review
+- `review-guidance/writing-guidance.md` — mandatory writing rules (entity attribution, clause patterns, cross-references)
+
+### Review app:
+
+`cd tools/review-app && npm run dev` — Word-doc-style inline review tool on `:3456`. Highlights text with comments, shows stale vs active comments, supports marking files as reviewed from the UI.
 
 ## Source Material
 

@@ -126,10 +126,10 @@ All entities referenced in the DAG and timeline.
 
 | Entity | Status | Prominence | Era | Role |
 |--------|--------|------------|-----|------|
-| Tempered Accord | shell | renowned | Accord–present | Mediation framework; architected by Synod, Kite Guild, Displacement Council |
+| Tempered Accord | shell | renowned | Accord–present | Mediation framework; architected by Synod, KITE Guild, Displacement Council |
 | Echo Ledger Conclave | exists | recognized | Rekindling–present | Archivists; Echo River custodians; founded to study the Absence |
 | Lattice Proxy Synod | exists | recognized | Rekindling–present | Human-AI custodian brokers; resonance telemetry; Accord governance architects |
-| Vantara | exists | recognized | Rekindling–present | Travel and logistics corp; kite-sail fleets, hospitality, route infrastructure |
+| Vantara | exists | recognized | Rekindling–present | Travel and logistics corp; kite fleets, hospitality, route infrastructure |
 | Coremark | shell | recognized | Rekindling–present | Capitalist salvage corp → criminal syndicate; negligence causes the Bloom |
 | Shear Compact | shell | recognized | Silent Bloom–present | Salvage regulatory body; born from Bloom response |
 | Bloom Coalition | shell | renowned | Silent Bloom | Emergency multi-faction containment coalition; dissolved into Bitter Reach |
@@ -149,7 +149,7 @@ All entities referenced in the DAG and timeline.
 
 | Entity | Status | Prominence | Era | Role |
 |--------|--------|------------|-----|------|
-| Kite-sail | exists | renowned | Rekindling–present | General motive engine; momentum nullification; flitters to capital class |
+| KITE | exists | renowned | Rekindling–present | General motive engine; momentum nullification; flitters to capital class |
 | Lira's Wall | shell | recognized | Silent Bloom | First resonance containment device; turning-point artifact |
 | Bloom Zone relics | shell | recognized | Silent Bloom–present | New relic-magnitude artifacts from reality distortion |
 | Compact Charter | shell | recognized | Silent Bloom | Shear Compact founding document |

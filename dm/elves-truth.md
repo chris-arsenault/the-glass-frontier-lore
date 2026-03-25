@@ -8,7 +8,7 @@ tags: [species, religion, ring-era]
 
 # Elves — DM Truth
 
-Public entry: [Elves](../player/concepts/elves.md)
+Public entry: [Elves](../player/concepts/species/elves.md)
 
 The folk tradition is right. The Redaction theorists are right. The elves left deliberately, cleaned the record behind them, and are still out there.
 
@@ -38,20 +38,20 @@ The operation's methods:
 
 ## Where They Are Now <!-- Truth -->
 
-Most elves live in hidden habs — ring fragments running dark, resonance signatures masked, not on any chart. These habs are where the war preparation happens: weapons development, strategic planning, training, and the slow accumulation of resources that 130 years of work by the system's most advanced species can produce.
+Most elves live in hidden habs — ring fragments running dark, resonance signatures masked, not on any chart. These habs are where the war preparation happens: weapons development, strategic planning, training, and the slow accumulation of resources that over two centuries of work by the system's most advanced species can produce.
 
 A smaller number live among the general population, passing without much difficulty — the physical differences are subtle enough that inattention is sufficient disguise. These are intelligence operatives, supply chain facilitators, and people who couldn't bring themselves to leave entirely. They maintain the Redaction: monitoring archives, intercepting discoveries that get too close, occasionally nudging scholars away from productive lines of inquiry. The Echo Ledger Conclave's most sensitive elf-related material has been stolen from their archives twice. Both thefts are unsolved.
 
 ## The Adversary <!-- Truth -->
 
-The force that destroyed the orbital ring. The elves know what it is. This document does not — the details are not yet defined.
+The force that destroyed the orbital ring. The elves know what it is. The nature and specifics remain [future:Adversary — full detail].
 
 What is established:
 - External to the Kaleidos system
 - Capable of destroying ring-scale megastructures
 - The elves believe it will return
 - The elves believe the coming conflict will be existential
-- The elves have been preparing for 130 years
+- The elves have been preparing for over two centuries
 
 ## The Bloom Zones <!-- Truth -->
 
@@ -88,7 +88,7 @@ Whether they're right is the question the story will eventually have to answer.
 - The public entry stands alone. Players can engage with the elven disappearance as a historical mystery without knowing the truth.
 - The Echo River fragments are the primary discovery mechanism. Archivists who dig deep enough will find patterns suggesting intentional, sophisticated erasure.
 - Elven operatives in the general population are potential NPCs — not villains, but people bearing an enormous secret and an enormous sacrifice. Some doubt. Some are tired. None are evil.
-- The hidden habs are potential locations. What's inside is 130 years of preparation by the system's most technically advanced civilization.
+- The hidden habs are potential locations. What's inside is over two centuries of preparation by the system's most technically advanced civilization.
 - The Bloom Zones are the active front line. Elven operatives in and around the zones are the closest thing to combat troops in the hidden war. Some Displacement Council members may notice patterns in their "unexplained successes" — containment that works better than it should, threats that resolve before the Council gets there.
 - The Adversary is a campaign-level threat. Don't define it until you need to.
 - The key dramatic question for any elf NPC: was the sacrifice worth it? The answer should be genuinely uncertain.

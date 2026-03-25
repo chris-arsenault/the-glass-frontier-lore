@@ -1,6 +1,6 @@
 ---
 title: Naming Conventions
-type: concept
+type: culture
 tags: [social-structure]
 prominence: mythic
 registry: true
@@ -10,8 +10,7 @@ registry: true
 
 Names in the Kaleidos system are primarily cultural, not species-based. Culture determines naming pattern. Species occasionally influences names as a secondary layer — traditional species-rooted names used as throwbacks, ceremonial names, or by people making a deliberate statement.
 
-Each domain below follows the `name-forge` schema: **phonology** (sound inventory), **morphology** (word construction), **style** (presentation rules). These will eventually be implemented as name-forge config files.
-
+Each domain below follows the `name-forge` schema: **phonology** (sound inventory), **morphology** (word construction), **style** (presentation rules).
 **Structural variety across traditions:**
 
 | Tradition | Structure | Example |
@@ -293,8 +292,7 @@ This tradition is extinct in public use — the elves are gone. Fragments surfac
 
 ## Slot Cultures (naming TBD) <!-- Applications -->
 
-These cultures are defined but their naming conventions haven't been established yet. Each will need a name-forge domain when fleshed out.
-
+These cultures are defined but their naming conventions haven't been established yet.
 | Culture | Structural instinct | Notes |
 |---------|-------------------|-------|
 | *7th-planet moon* | TBD | Water giant context likely shapes phonology — aquatic influence? |

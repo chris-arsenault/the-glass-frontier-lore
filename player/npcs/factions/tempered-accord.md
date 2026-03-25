@@ -14,12 +14,9 @@ The Accord is four years old.
 
 ## Origin <!-- Origin -->
 
-Born from exhaustion, pragmatism, and the grudging admission that the [future:Bloom Coalition]'s cooperation worked better than anyone expected. When the Bitter Reach proved that the system couldn't go back to uncoordinated competition, and when the [Shear Compact](shear-compact.md)'s regulatory model proved that emergency structures could become permanent ones, the conditions for a broader framework existed.
+Born from exhaustion. The [future:Bloom Coalition] proved that cooperation worked. The [future:Bitter Reach] proved that the system couldn't survive without it. The [Shear Compact](shear-compact.md) proved that emergency structures could become permanent. By the time the fighting stopped, the preconditions for a broader framework were already in place — they just needed someone to write them down.
 
-The architects:
-- The [Lattice Proxy Synod](lattice-proxy-synod.md) provided the governance structure — derived from AI custodian outputs that the Synod presented with enough confidence to be persuasive and enough humility to be trusted. Whether they fully understood what they were presenting is a question nobody asks.
-- [Vantara](vantara.md) shaped the trade provisions — route standards, commerce frameworks, the logistics infrastructure that makes system-wide coordination physically possible.
-- The [Displacement Council](displacement-council.md) provided the humanitarian provisions and served as the trusted mediator — trusted precisely because they stayed out of the Bitter Reach.
+Three institutions shaped the Accord's architecture: the [Lattice Proxy Synod](lattice-proxy-synod.md) provided a governance model derived from AI custodian outputs, [Vantara](vantara.md) shaped the trade provisions and logistics standards, and the [Displacement Council](displacement-council.md) contributed the humanitarian framework and served as trusted mediator.
 
 Ratified approximately 2365 CE. Signatories include surface settlements, ring habs, and outer-system representatives.
 
@@ -27,7 +24,7 @@ Ratified approximately 2365 CE. Signatories include surface settlements, ring ha
 
 The Accord operates from a district in [Sithari](../../locations/settlements/sithari.md) — a complex deliberately separated from the Continuity's government buildings. Tranquil. An artificial lake. Ducks. The architectural statement is intentional: this is not a seat of power, it's a place where disputes come to be resolved.
 
-The analogy is the United Nations — an international body in a national capital, technically independent, practically influenced by proximity. Other settlements wanted the Accord seated somewhere neutral. Sithari argued they had the infrastructure. They were right, and everyone resented them for it.
+The Accord is an international body in a national capital — technically independent, practically shaped by proximity. Other settlements wanted the Accord seated somewhere neutral. Sithari argued they had the infrastructure. They were right, and everyone resented them for it.
 
 The Accord's operations rely on member organizations for actual enforcement. It carries weight because people say it does. The sanctions for violating an Accord provision are reputational and economic — expulsion from the framework means losing access to the Compact's mediation, Vantara's trade infrastructure, and the legal recognition that makes inter-settlement commerce possible.
 

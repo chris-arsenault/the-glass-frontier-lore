@@ -59,4 +59,4 @@ The objects she keeps from the Bloom Zone perimeters are real and meaningful to 
 - Her tremor and the collection are tells. An observant PC might notice the tremor is inconsistent, or that her "keepsakes" behave strangely.
 - The communication shard is a plot device. If it's stolen or compromised, the elven contact channel goes dark. The elves would consider this a catastrophic breach.
 - Her frustration with the elves' refusal to explain the Adversary is a potential wedge. A PC who can offer answers — or claims to — would have her attention immediately.
-- She is fundamentally good, deeply tired, and holding together through discipline rather than hope. She is the hopecore ethos taken to its logical extreme: doing the right thing when you can't see why it will work.
+- She is fundamentally good, deeply tired, and holding together through discipline rather than hope. She does the right thing when she can't see why it will work, and she has been doing it long enough that the persistence itself has become her defining trait.

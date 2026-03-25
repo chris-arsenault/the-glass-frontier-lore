@@ -45,7 +45,7 @@ This philosophy makes them valuable and infuriating in roughly equal measure. Th
 
 Their relationship with [Sithari](../../locations/settlements/sithari.md) and the [future:Continuity] is grudgingly positive. Both factions value knowledge, but for different reasons — the Continuity wants knowledge that serves governance, the Conclave wants knowledge that serves knowledge. They share when the interests align and politely obstruct when they don't. The Conclave recognizes that their institutional independence could be worse. The Continuity recognizes that forcibly opening the archives would cost more politically than it's worth.
 
-Within the Conclave, the Redaction theorists — archivists who believe the [elven](../../concepts/elves.md) historical gaps are evidence of deliberate tampering — are a respected fringe. Not mainstream, not suppressed. The kind of position that gets you invited to interesting dinners and passed over for administrative promotion. The eccentric professor, not the ideological dissident.
+Within the Conclave, the Redaction theorists — archivists who believe the [elven](../../concepts/species/elves.md) historical gaps are evidence of deliberate tampering — are a respected fringe. Not mainstream, not suppressed. The kind of position that gets you invited to interesting dinners and passed over for administrative promotion. The eccentric professor, not the ideological dissident.
 
 ## Present Day <!-- Present Day -->
 

@@ -3,6 +3,7 @@ title: Prominence
 type: concept
 tags: [governance]
 prominence: mythic
+prominence_xrefs: [fermata-station, vantara]
 ---
 
 # Prominence
@@ -30,14 +31,8 @@ Five tiers, from least to most widely known:
 - **Not quality.** A marginal settlement might be a better place to live than a renowned one.
 - **Not inherited.** A marginal location can host a renowned event. A mythic person can come from a forgotten village. Each entity has its own prominence independent of its parent or container. Fermata Station is marginal — most people have never heard of it. The Fermata Open is recognized — musicians across the system know about the festival even if they couldn't tell you anything about the station's governance, culture, or people.
 
-## How Prominence Is Used <!-- Applications -->
+## How Prominence Works in Practice <!-- Applications -->
 
-Prominence defines how far an entity's references should reach in the knowledge graph. When writing or generating lore:
+Prominence shapes what people talk about and what they've never heard of. A merchant on the Keel knows about [Vantara](../npcs/factions/vantara.md) (renowned) and [resonance](../cosmology/resonance.md) (mythic) but has probably never heard of [Fermata Station](../locations/settlements/fermata-station.md) (marginal) unless they've been there. A Tuner on Fermata knows the station intimately but might not know the name of any specific [Bloom Zone](../locations/landmarks/bloom-zones.md) buoy operator — that knowledge lives at a different scale.
 
-- A **mythic** entity can be referenced from anywhere. Everyone knows about it.
-- A **renowned** entity can be referenced from most contexts, but might be unknown in deeply isolated communities.
-- A **recognized** entity should be referenced within its region or domain, and by people with broad knowledge elsewhere.
-- A **marginal** entity should only be referenced by nearby entities, specialists, or people who have direct experience with it.
-- A **forgotten** entity should almost never be referenced except by entities with a direct, specific connection.
-
-This prevents a small ring hab from showing up in system-wide political discussions, or a local legend from being treated as common knowledge.
+The practical effect is that most people's knowledge has hard boundaries. Mythic concepts are shared context across the entire system. Everything below that is progressively more local, more specialized, more dependent on having been in the right place or the right trade. Two people from opposite ends of the system can discuss the Glassfall. They probably can't discuss each other's neighborhoods.

@@ -1,6 +1,6 @@
 ---
 title: Echo Rivers
-type: concept
+type: phenomenon
 prominence: renowned
 prominence_xrefs: [echo-ledger-conclave]
 tags: [resonance, signal-freq, archives]
@@ -8,7 +8,7 @@ tags: [resonance, signal-freq, archives]
 
 # Echo Rivers
 
-Beneath the surface of Kaleidos, water moves through rock that's been saturated with crystal dust from 130 years of [Glassfall](../history/events/the-glassfall.md) debris. As it flows through these mineral-laced channels, it picks up [resonance](resonance.md) — specifically, the signal-band frequencies that once carried data through the orbital rings.
+Beneath the surface of Kaleidos, water moves through rock that's been saturated with crystal dust from two centuries of [Glassfall](../history/events/the-glassfall.md) debris. As it flows through these mineral-laced channels, it picks up [resonance](resonance.md) — specifically, the signal-band frequencies that once carried data through the orbital rings.
 
 The result is underground rivers that carry sound. Not just any sound — voices, fragments of old transmissions, snatches of conversation from before the rings fell. Stand near a place where an Echo River surfaces and you'll hear them: faint, layered, overlapping. Mostly unintelligible. Occasionally, heartbreakingly clear.
 
@@ -31,6 +31,6 @@ Some settlements have built around surfacing points. Others avoid them deliberat
 
 ## Significance
 
-The Echo Rivers are Kaleidos's accidental archive — a phenomenon specific to the planet's surface, where crystal dust has had 130 years to saturate the geology. Ring habs have their own versions of residual memory, but nothing quite like the rivers. They preserve fragments of a civilization that otherwise exists only in salvaged hardware and half-understood ruins. For historians and archivists, they're invaluable. For everyone else, they're eerie — a reminder that the ground itself remembers things the living have forgotten.
+The Echo Rivers are Kaleidos's accidental archive — a phenomenon specific to the planet's surface, where crystal dust has had two centuries to saturate the geology. Ring habs have their own versions of residual memory, but nothing quite like the rivers. They preserve fragments of a civilization that otherwise exists only in salvaged hardware and half-understood ruins. For historians and archivists, they're invaluable. For everyone else, they're eerie — a reminder that the ground itself remembers things the living have forgotten.
 
-Some people find comfort in them. Some find grief. The rivers don't care either way. They just flow.
+Some people find comfort in them. Some find grief. The rivers are indifferent to human interpretation.

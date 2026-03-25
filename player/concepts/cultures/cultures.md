@@ -1,6 +1,6 @@
 ---
 title: Cultures
-type: concept
+type: culture
 tags: [social-structure]
 prominence: mythic
 registry: true
@@ -28,5 +28,3 @@ Each culture defines distinct naming patterns — the primary species-agnostic c
 | *Open* | — | — | slot | — |
 | *Open* | — | — | slot | — |
 | *Open* | — | — | slot | — |
-
-Status: `defined` = individual entry exists. `slot` = reserved, needs development. `bucket` = catch-all category.
