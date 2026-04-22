@@ -72,3 +72,19 @@ All prose is written from inside the world. See CLAUDE.md "In-universe voice" se
 - **Author's notes** — no meta-commentary about narrative function
 
 Use `review-guidance/voice-review-prompt.md` for systematic checks.
+
+## 6. Artifacts Are Story Drivers
+
+Named artifacts are not inventory items. They are characters with history, consequence, and — in some cases — agency. A named artifact should have the weight of Callandor, the Horn of Valere, or the Silmarils.
+
+**Artifacts have identity.** A named artifact isn't "a resonance amplifier" — it's *this specific* resonance amplifier, with a name people know, a history people argue about, and properties that matter. Naming an artifact is a commitment: this object matters enough to be remembered.
+
+**Artifacts drive action.** People want them, fear them, seek them, hide them, fight over them. An artifact that sits in a museum and does nothing interesting is a display piece, not a story driver. Every artifact entry should imply at least one active tension: who wants it? Who has it? What happens if it's used?
+
+**Artifacts have costs.** The Sanderson rule applies doubly here. Every artifact's power has a defined cost, limit, or danger. The more powerful the artifact, the more dangerous or costly it is to use. No free power.
+
+**Artifacts can have agency.** In a world where resonance is a physical force and ringglass carries information, artifacts made from pre-Glassfall materials may retain tendencies. Not sentience in the human sense, but resonance patterns that influence their environment and their wielder. An elven-era artifact might "want" to be used in certain ways — not because it thinks, but because its crystal structure naturally amplifies certain frequencies and dampens others. This is hard-system agency: explainable through resonance mechanics, but experienced by the user as the object having preferences.
+
+**Bloom-generated artifacts are wild.** Bloom Zone relics are created by reality distortion acting on crystal substrate. They don't follow elven design principles. They're the equivalent of natural mutations — sometimes beneficial, sometimes dangerous, always unpredictable.
+
+**The test:** Every time prose mentions a resonance effect, a piece of technology, or a mysterious object, ask: should this be a named artifact? The bar is: "could a player want to find this?" If yes, name it.

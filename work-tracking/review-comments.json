@@ -646,5 +646,68 @@
     "line": null,
     "timestamp": "2026-03-20T18:33:10.903Z",
     "status": "open"
+  },
+  {
+    "id": "mn6q8h5cpq3n",
+    "file": "dm/entity-bank-schema.md",
+    "highlight": "Factions",
+    "comment": "/ doesnt work in subtype name. choose one. (criminal, political, trade, etc).  add relgious",
+    "line": null,
+    "timestamp": "2026-03-26T00:21:06.384Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mn6q9wryq36m",
+    "file": "dm/entity-bank-schema.md",
+    "highlight": "NPCs",
+    "comment": "you've just redefined the faction subtypes. npcs are not just faction leaders. they are heros, bankers, hermits, ship captains, leaders, etc. more profesion or archtie type oriented. redo the entire thing",
+    "line": null,
+    "timestamp": "2026-03-26T00:22:13.294Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mn6qchn3nc3g",
+    "file": "dm/entity-bank-schema.md",
+    "highlight": "Installations",
+    "comment": "there should be somsething for very small - taverns, the opera house, sithari sewers.  this seems like a new subtype",
+    "line": null,
+    "timestamp": "2026-03-26T00:24:13.647Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mn6qdxnafnnj",
+    "file": "dm/entity-bank-schema.md",
+    "highlight": "Geographic Locations",
+    "comment": "need a more fine grained option like above. volcanos, hot springs, the iron mine on selcec",
+    "line": null,
+    "timestamp": "2026-03-26T00:25:21.046Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mn6qevigv5ri",
+    "file": "dm/entity-bank-schema.md",
+    "highlight": "Design Philosophy",
+    "comment": "this belongs in a secion other than the schema. place it in writing / world building guidance along with other prinicples",
+    "line": null,
+    "timestamp": "2026-03-26T00:26:04.936Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mn6qg33jpmjs",
+    "file": "dm/entity-bank-schema.md",
+    "highlight": "Sub-kinds",
+    "comment": "these are not the correct sub kinds. sub kind for artifiacts should be their type, not their origin. weapons, instruments, books, armor, etc.",
+    "line": null,
+    "timestamp": "2026-03-26T00:27:01.423Z",
+    "status": "resolved"
+  },
+  {
+    "id": "mn6qhllfnz9j",
+    "file": "dm/entity-bank-schema.md",
+    "highlight": "Entity Bank Schema",
+    "comment": "you are missing most of the currently empty kinds. creatures, vehicals, etc. make sure you reference the kind list to further this schema",
+    "line": null,
+    "timestamp": "2026-03-26T00:28:12.051Z",
+    "status": "resolved"
   }
 ]
