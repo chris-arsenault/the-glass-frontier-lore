@@ -9,7 +9,7 @@ prominence: recognized
 
 A mining town on Kaleidos's surface, built around the ruins of a ring hab fragment that fell during the [Glassfall](../../history/events/the-glassfall.md). The fragment's inter-hab communication equipment — buried in the wreckage for sixty years — turned out to need only minor repair to function. Glasswake didn't set out to reconnect the world. A salvage crew poking through old wreckage found a transmitter that still had power, and one of them knew enough to make it talk.
 
-That was roughly 2305 CE. The first long-range signal after the Signal Famine went from Glasswake to [future:Hab Meridian], a ring hab whose receiver happened to still be listening. The reconnection began with two communities that stumbled into it.
+That was roughly 2305 CE. The first long-range signal after the Signal Famine went from Glasswake to [Hab Meridian](hab-meridian.md), a ring hab whose receiver happened to still be listening. The reconnection began with two communities that stumbled into it.
 
 ## Origin <!-- Origin -->
 

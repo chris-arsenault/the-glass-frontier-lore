@@ -16,7 +16,7 @@ The name comes from its shape on a navigation chart — a long central spine wit
 The Keel is not a road. It's a corridor through orbital space — a navigable path through the ring, skirting Shear zones, connecting the major nodes where things are produced, refined, and consumed. The route threads between ring habs, passes through managed Shear corridors where debris has been cleared or stabilized, and includes several transition points between orbital and surface-access zones.
 
 Key nodes along the Keel:
-- **Shear production zones** — where [future:Ratters] and industrial operations harvest raw ringglass from the debris field
+- **Shear production zones** — where [Ratters](../../concepts/ratters.md) and industrial operations harvest raw ringglass from the debris field
 - **Refinement habs** — ring habs that specialize in cutting, tuning, and processing ringglass from aggregate to refined grade
 - **[Sithari](../settlements/sithari.md)** — the financial and regulatory hub where contracts are settled and certifications issued
 - **[future:Ashvane]** — the far terminus; a major settlement that anchors the route's other end

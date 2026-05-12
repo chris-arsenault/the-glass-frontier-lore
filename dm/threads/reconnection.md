@@ -47,7 +47,7 @@ The ring shatters. Communications collapse instantly. Every community is suddenl
 ---
 
 ### Beat 3: The First Signal
-**Era:** ~2305 CE | **Filled by:** [Glasswake](../../player/locations/settlements/glasswake.md), [future:Hab Meridian]
+**Era:** ~2305 CE | **Filled by:** [Glasswake](../../player/locations/settlements/glasswake.md), [Hab Meridian](../../player/locations/settlements/hab-meridian.md)
 
 A salvage crew in Glasswake finds a transmitter in fallen hab wreckage. Minor repair. It talks. Hab Meridian answers.
 
@@ -63,7 +63,7 @@ A salvage crew in Glasswake finds a transmitter in fallen hab wreckage. Minor re
 
 Pre-Glassfall hardline infrastructure — a luminous filament connecting Sithari to Pelhari and Threshold Station. It had been glowing in the sky for sixty years. Nobody understood what it was until the reconnection effort started looking up.
 
-**Effect:** Sithari gains real-time high-bandwidth communication with the [future:Clarisant] and [Lattice Proxy Synod](../../player/npcs/factions/lattice-proxy-synod.md). A structural advantage nobody else can replicate.
+**Effect:** Sithari gains real-time high-bandwidth communication with the [Clarisant](../../player/npcs/factions/clarisant.md) and [Lattice Proxy Synod](../../player/npcs/factions/lattice-proxy-synod.md). A structural advantage nobody else can replicate.
 **Consequence:** Two-tier communication system emerges — Sithari has broadband, everyone else has improvised relays.
 **Downstream:** Communication inequality becomes a political grievance during the Contested Reach (Beat 7). The demand for Span-quality access motivates Coremark's Span replication experiment — which, combined with aggressive ringglass harvesting, causes the Bloom. The Span can't be sabotaged (intent-responsive), making it the one piece of infrastructure that's inviolable during the Reach — a symbol of both connection and inequality.
 
@@ -83,7 +83,7 @@ Surface communities reach ring habs. The cultural divergence is staggering. Comm
 ---
 
 ### Beat 6: Trade Resumes
-**Era:** ~2320s–2330s | **Filled by:** [future:Ratters], [Coremark](../../player/npcs/factions/coremark.md), [Vantara](../../player/npcs/factions/vantara.md), [The Keel](../../player/locations/landmarks/keel.md)
+**Era:** ~2320s–2330s | **Filled by:** [Ratters](../../player/concepts/ratters.md), [Coremark](../../player/npcs/factions/coremark.md), [Vantara](../../player/npcs/factions/vantara.md), [The Keel](../../player/locations/landmarks/keel.md)
 
 Salvage begins. Trade networks form. Vantara is founded to handle the boring essential work of logistics. The Keel is established as the primary orbital trade lane.
 

@@ -46,7 +46,7 @@ The similarity to the Kaleidos ring is noted and debated. People hypothesize con
 
 **The Bloom is here.** Reality tears — unmistakably similar to [Bloom Zones](../locations/landmarks/bloom-zones.md) in Kaleidos orbit — have manifested in the Fracture's asteroid field. This is public knowledge, but most people either don't believe it or don't care. Those who look closely are deeply concerned: the Bloom near Kaleidos has known causes (Coremark's overload, the Span replication experiment). Why is it in the Fracture? Why not anywhere else? Nobody has a good answer.
 
-The Fracture is also home to [future:Cthonic beasts] of a different character than those in the [Shear](../locations/regions/the-shear.md) — primarily natural space fauna rather than resonance-distortion creatures. Pirates operate freely in the belt. Between the beasts, the pirates, and the reality tears, the Fracture is one of the most dangerous regions in the system.
+The Fracture is also home to [Cthonic beasts](../creatures/anomalies/cthonic-beasts.md) of a different character than those in the [Shear](../locations/regions/the-shear.md) — primarily natural space fauna rather than resonance-distortion creatures. Pirates operate freely in the belt. Between the beasts, the pirates, and the reality tears, the Fracture is one of the most dangerous regions in the system.
 
 [Coremark](../npcs/factions/coremark.md) has operations here. The lawlessness suits them.
 
@@ -54,7 +54,7 @@ The Fracture is also home to [future:Cthonic beasts] of a different character th
 
 A water giant. Enormous, deep-ocean planet with no solid surface. The planet itself hosts ginormous unintelligent creatures that live in the depths — vast, slow-moving things that some people hunt for sport and others worship as gods. They are not gods. They are very large and very dumb. The worship says more about the worshippers than the creatures.
 
-The inhabited spaces are the moons. Several are colonized, each with its own character. [future:Pelhari] — the [future:Clarisant] guild's headquarters — is the most prominent. The moons share a lunar culture shaped by the gas giant's visual dominance in their sky and the practical reality of living in a system of co-orbiting worlds.
+The inhabited spaces are the moons. Several are colonized, each with its own character. [Pelhari](../locations/settlements/pelhari.md) — the [Clarisant](../npcs/factions/clarisant.md) guild's headquarters — is the most prominent. The moons share a lunar culture shaped by the gas giant's visual dominance in their sky and the practical reality of living in a system of co-orbiting worlds.
 
 ### 8. [future:Lithren]
 
@@ -66,7 +66,7 @@ Research stations operate on and around Lithren. The population is tiny — scie
 
 ## Deep Space <!-- Mechanics -->
 
-The spaces between planets are not empty. Deep-space stations, military outposts, research facilities, and less legitimate operations dot the interplanetary void. A space casino here. A military listening post there. A smuggler's cache. A [future:Clarisant] retreat for advanced resonance training far from any planetary resonance field.
+The spaces between planets are not empty. Deep-space stations, military outposts, research facilities, and less legitimate operations dot the interplanetary void. A space casino here. A military listening post there. A smuggler's cache. A [Clarisant](../npcs/factions/clarisant.md) retreat for advanced resonance training far from any planetary resonance field.
 
 Population centers are not exclusively planetary. The system is a network, not a set of isolated worlds.
 

@@ -21,6 +21,6 @@ The technology is mid-bandwidth kinetic and signal work — within the range of 
 
 Lira's Wall proved that the Bloom could be stopped. Before the first buoy deployment, the prevailing assumption was that the zones would expand until they ran out of ringglass-dense space to distort — which, in a system built on ringglass, meant everywhere. The Wall turned "unstoppable catastrophe" into "difficult but manageable problem."
 
-The [future:Bloom Coalition] almost didn't approve the deployment. The buoys required stillwater — the Conclave's most valuable archival medium, irreplaceable in the quantities needed. Committing it to containment meant choosing the present over the past. The Conclave recognized the need. They have not stopped wishing there was another way.
+The [Bloom Coalition](../../npcs/factions/bloom-coalition.md) almost didn't approve the deployment. The buoys required stillwater — the Conclave's most valuable archival medium, irreplaceable in the quantities needed. Committing it to containment meant choosing the present over the past. The Conclave recognized the need. They have not stopped wishing there was another way.
 
 Every buoy deployed is stillwater that isn't preserving history. The [Displacement Council](../../npcs/factions/displacement-council.md) maintains the network. The Conclave supplies the stillwater. The tension between these two needs — containment and preservation — is one of the system's quietest and most consequential ongoing negotiations.

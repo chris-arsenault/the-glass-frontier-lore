@@ -13,7 +13,7 @@ A neutral containment order born from the [Displacement](../../history/events/di
 
 The Council formed around 2358 CE from Bloom refugees who organized first for advocacy — demanding settlement rights, resource access, recognition — and then evolved into something the system needed more: a dedicated containment force. The people who'd lost their habs to the Bloom turned out to be the ones best equipped to contain it.
 
-Neutrality was written into the founding charter from day one. The [future:Bloom Coalition] had just fractured into the Bitter Reach, and the founders watched cooperation die because factions used the crisis for political leverage. The Council's charter explicitly prohibits taking sides in inter-faction disputes. Containment requires everyone's cooperation. You can't maintain cordons if half the system won't talk to you.
+Neutrality was written into the founding charter from day one. The [Bloom Coalition](bloom-coalition.md) had just fractured into the Bitter Reach, and the founders watched cooperation die because factions used the crisis for political leverage. The Council's charter explicitly prohibits taking sides in inter-faction disputes. Containment requires everyone's cooperation. You can't maintain cordons if half the system won't talk to you.
 
 The first leader burned out quickly in the early chaos — the job was impossible at that scale with those resources. [future:Oram Sells] became the second First Threshold, held the position for eleven years, and built the Council into what it is today. [Dern Talish](../../npcs/heroes/dern-talish.md) is the fourth.
 

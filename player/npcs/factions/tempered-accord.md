@@ -14,7 +14,7 @@ The Accord is four years old.
 
 ## Origin <!-- Origin -->
 
-Born from exhaustion. The [future:Bloom Coalition] proved that cooperation worked. The [future:Bitter Reach] proved that the system couldn't survive without it. The [Shear Compact](shear-compact.md) proved that emergency structures could become permanent. By the time the fighting stopped, the preconditions for a broader framework were already in place — they just needed someone to write them down.
+Born from exhaustion. The [Bloom Coalition](bloom-coalition.md) proved that cooperation worked. The [future:Bitter Reach] proved that the system couldn't survive without it. The [Shear Compact](shear-compact.md) proved that emergency structures could become permanent. By the time the fighting stopped, the preconditions for a broader framework were already in place — they just needed someone to write them down.
 
 Three institutions shaped the Accord's architecture: the [Lattice Proxy Synod](lattice-proxy-synod.md) provided a governance model derived from AI custodian outputs, [Vantara](vantara.md) shaped the trade provisions and logistics standards, and the [Displacement Council](displacement-council.md) contributed the humanitarian framework and served as trusted mediator.
 

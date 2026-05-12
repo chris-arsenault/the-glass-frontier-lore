@@ -9,7 +9,7 @@ era: 2378–2396
 
 # Bloom Coalition
 
-The unified operational command that contained the [Silent Bloom](../../history/events/displacement.md) during the first eighteen years of its expansion. Not a political body and not a treaty organization — the Coalition was an operational structure that drew personnel directly from every faction with a stake in containment and answered to a single chain of command. It existed for one purpose: keep the [Bloom Zones](../../locations/landmarks/bloom-zones.md) from spreading. It did the job. It dissolved on schedule.
+The unified operational command that contained the [future:Silent Bloom] during the first eighteen years of its expansion. Not a political body and not a treaty organization — the Coalition was an operational structure that drew personnel directly from every faction with a stake in containment and answered to a single chain of command. It existed for one purpose: keep the [Bloom Zones](../../locations/landmarks/bloom-zones.md) from spreading. It did the job. It dissolved on schedule.
 
 The Coalition is not active in the present day. Its successor for cordon operations is the [Displacement Council](displacement-council.md). Its successor for cross-faction emergency coordination is, in spirit if not in name, the [Tempered Accord](tempered-accord.md).
 

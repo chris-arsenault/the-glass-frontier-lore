@@ -47,7 +47,7 @@ The fracture is constrained by the residue. Nobody wants to destroy the infrastr
 | Stage | Entity | Notes |
 |-------|--------|-------|
 | Crisis | [future:The Silent Bloom] | Resonance cascade tears reality across mid-drift habs |
-| Cooperation | [future:Bloom Coalition] | Emergency coalition draws from Vantara, Synod, Conclave, independent salvagers |
+| Cooperation | [Bloom Coalition](../../player/npcs/factions/bloom-coalition.md) | Emergency coalition draws from Vantara, Synod, Conclave, independent salvagers |
 | Residue | [Shear Compact](../../player/npcs/factions/shear-compact.md) | Emergency salvage regulation becomes permanent regulatory body |
 | Residue | [Displacement Council](../../player/npcs/factions/displacement-council.md) | Refugee advocacy becomes neutral containment order |
 | Residue | [Lira's Wall](../../player/artifacts/relics/liras-wall.md) | First containment device, proof that cooperation produces real capability |

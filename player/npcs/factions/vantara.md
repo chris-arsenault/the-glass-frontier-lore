@@ -37,7 +37,7 @@ Vantara is a corporation, and it behaves like one. Their services are affordable
 
 The criticism — that Vantara desaturates everything it touches into corporate-average quality — is probably fair. The counterargument — that before Vantara, long-haul trade routes had no rest facilities, no rescue coverage, and no reliable scheduling — is also fair. Both assessments hold weight.
 
-The [future:Ratters] and independent operators view Vantara with the mix of resentment and grudging reliance that independent operators everywhere feel toward large companies that provide infrastructure they can't build themselves. Vantara's route beacons and rescue coverage keep independents alive. Vantara's pricing squeezes independents' margins. The relationship is stable and unhappy.
+The [Ratters](../../concepts/ratters.md) and independent operators view Vantara with the mix of resentment and grudging reliance that independent operators everywhere feel toward large companies that provide infrastructure they can't build themselves. Vantara's route beacons and rescue coverage keep independents alive. Vantara's pricing squeezes independents' margins. The relationship is stable and unhappy.
 
 ## Present Day <!-- Present Day -->
 

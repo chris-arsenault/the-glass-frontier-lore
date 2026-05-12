@@ -16,7 +16,7 @@ A [gnome](../../concepts/species/gnomes.md) Shear mechanic who became the archit
 
 Lira worked at a Coremark refinery — not [Pyre](../../locations/landmarks/pyre.md), a different one. She maintained ringglass arrays in the deep [Shear](../../locations/regions/the-shear.md), making adjustments by feel that weren't in any maintenance manual. Small modifications to tuning, alignment changes that she couldn't fully explain, corrections that kept the resonance ecology around her installation stable while every other deep Shear refinery fought chronic maintenance issues.
 
-Nobody noticed until the Bloom. When the [future:Bloom Coalition] needed containment expertise and nothing was working, someone traced the maintenance records and found a refinery that hadn't reported the chronic issues plaguing every other Shear installation. They traced it to the mechanic.
+Nobody noticed until the Bloom. When the [Bloom Coalition](../factions/bloom-coalition.md) needed containment expertise and nothing was working, someone traced the maintenance records and found a refinery that hadn't reported the chronic issues plaguing every other Shear installation. They traced it to the mechanic.
 
 Lira was pulled from her regular work, given resources she'd never had, and asked to scale what she'd been doing instinctively to the Bloom Zone boundary. She figured out that Bloom Zone boundaries follow the crystal substrate's natural fault lines — the distortion flows along existing resonance channels. Dampen the channels, stop the flow.
 

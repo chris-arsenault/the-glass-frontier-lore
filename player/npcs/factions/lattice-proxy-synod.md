@@ -9,7 +9,7 @@ prominence: recognized
 
 The Synod talks to the old machines, and the old machines — sometimes — talk back.
 
-Headquartered at [future:Threshold Station], a mostly intact pre-Glassfall facility at the Kaleidos-sun Lagrange point, the Lattice Proxy Synod is the system's interface with surviving ring-era AI custodians. These are not chatbots or databases. They are minds built when the [elves](../../concepts/species/elves.md) were the dominant civilization, operating in cognitive architectures that no living person fully understands, processing information across dimensional frameworks that contemporary mathematics can't describe.
+Headquartered at [Threshold Station](../../locations/settlements/threshold-station.md), a mostly intact pre-Glassfall facility at the Kaleidos-sun Lagrange point, the Lattice Proxy Synod is the system's interface with surviving ring-era AI custodians. These are not chatbots or databases. They are minds built when the [elves](../../concepts/species/elves.md) were the dominant civilization, operating in cognitive architectures that no living person fully understands, processing information across dimensional frameworks that contemporary mathematics can't describe.
 
 The Synod makes them useful anyway.
 
@@ -35,7 +35,7 @@ Leadership is held by the [future:Voice Proximate] — the most senior proxy, se
 
 **Governance consultation.** The custodians were designed for regulatory oversight. When the Synod queries them on governance questions — dispute resolution frameworks, resource allocation models, jurisdictional boundaries — the responses are surprisingly coherent. The [Tempered Accord](tempered-accord.md)'s governance structure was substantially derived from Synod-mediated AI outputs, which the Synod presented to the Accord negotiations with enough confidence to be persuasive and enough humility to be trusted. Whether the Synod fully understood what they were presenting is a question that nobody asks in polite company.
 
-**Resonance telemetry.** The custodians monitor resonance activity across the system in ways that modern instruments can't replicate. During the [future:Silent Bloom], the Synod's telemetry data was critical to the [future:Bloom Coalition]'s containment efforts — they could see the cascade propagating before surface instruments detected it. This cemented the Synod's practical relevance and earned them a permanent seat at the crisis response table.
+**Resonance telemetry.** The custodians monitor resonance activity across the system in ways that modern instruments can't replicate. During the [future:Silent Bloom], the Synod's telemetry data was critical to the [Bloom Coalition](bloom-coalition.md)'s containment efforts — they could see the cascade propagating before surface instruments detected it. This cemented the Synod's practical relevance and earned them a permanent seat at the crisis response table.
 
 ## Tensions <!-- Tensions -->
 

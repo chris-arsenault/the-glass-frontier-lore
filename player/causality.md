@@ -132,10 +132,10 @@ All entities referenced in the DAG and timeline.
 | Vantara | exists | recognized | Rekindling–present | Travel and logistics corp; kite fleets, hospitality, route infrastructure |
 | Coremark | shell | recognized | Rekindling–present | Capitalist salvage corp → criminal syndicate; negligence causes the Bloom |
 | Shear Compact | shell | recognized | Silent Bloom–present | Salvage regulatory body; born from Bloom response |
-| Bloom Coalition | shell | renowned | Silent Bloom | Emergency multi-faction containment coalition; dissolved into Bitter Reach |
+| Bloom Coalition | exists | renowned | Silent Bloom | Emergency multi-faction containment coalition; dissolved into Bitter Reach |
 | Displacement Council | shell | recognized | Silent Bloom–present | Bloom refugees → neutral containment order; Grey Wardens analogue |
 | Lumenshard Conservatory | shell | recognized | Rekindling–present | Eco-faction; bioluminescent groves |
-| Clarisant | shell | recognized | Rekindling–present | Tuner guild; accreditation body; HQ on Pelhari |
+| Clarisant | exists | recognized | Rekindling–present | Tuner guild; accreditation body; HQ on Pelhari |
 
 ## People
 
@@ -167,7 +167,7 @@ All entities referenced in the DAG and timeline.
 | Pyre | shell | recognized | Contested Reach–Bloom | Coremark refinery ruin; Bloom cascade origin |
 | Bloom Zones | shell | renowned | Silent Bloom–present | Man-made reality tears; can appear anywhere in orbit |
 | Verathi | shell | marginal | Accord | Station at center of first Accord arbitration |
-| Pelhari | shell | recognized | Rekindling–present | Moon of 7th planet; Clarisant guild HQ |
+| Pelhari | exists | recognized | Rekindling–present | Moon of 7th planet; Clarisant guild HQ |
 
 ## Concepts / Events
 
@@ -175,9 +175,9 @@ All entities referenced in the DAG and timeline.
 |--------|--------|------------|-----|------|
 | Tuners | exists | recognized | Signal Famine–present | Post-collapse resonance practitioners; the Clarisant guild |
 | Shuttered habs | shell | recognized | Rekindling–present | Habs that refused reconnection; some still closed |
-| Ratters | shell | recognized | Rekindling–present | Independent salvage crew subculture |
+| Ratters | exists | recognized | Rekindling–present | Independent salvage crew subculture |
 | Shardfall | shell | recognized | Contested Reach | Flashpoint salvage battle; dozens killed |
 | Coriolis breach | shell | recognized | Contested Reach | Forced hab entry; cautionary tale for sovereignty |
 | Displacement | shell | renowned | Silent Bloom | Mass Bloom evacuation event |
 | Vashtenri Thesis | shell | marginal | Rekindling | First academic work proposing deliberate elven erasure |
-| Cthonic beasts | shell | recognized | Glassfall–present | Shear-native creatures; no known counterparts elsewhere |
+| Cthonic beasts | exists | recognized | Glassfall–present | Shear-native creatures; no known counterparts elsewhere |

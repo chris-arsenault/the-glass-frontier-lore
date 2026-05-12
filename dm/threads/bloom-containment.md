@@ -86,7 +86,7 @@ Mass evacuation. Hab-Worlders who defined themselves by their sealed environment
 ---
 
 ### Beat 6: The Coalition
-**Era:** 2355–2358 | **Filled by:** [future:Bloom Coalition]
+**Era:** 2355–2358 | **Filled by:** [Bloom Coalition](../../player/npcs/factions/bloom-coalition.md)
 
 The response takes days to a week. The people who push for it: faction leaders fed up with the Contested Reach who see an opportunity to unify, neutrals who recognize the danger's scale, and — invisibly — elven operatives leaking the right message transcript to the right desk, a trader (elf in disguise) offering free transport to the Bloom zones, small nudges that put the right people in the right places. [DM]
 

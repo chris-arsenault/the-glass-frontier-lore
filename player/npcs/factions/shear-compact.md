@@ -11,7 +11,7 @@ The system's regulatory body for [Shear](../../locations/regions/the-shear.md) s
 
 ## Origin <!-- Origin -->
 
-The Compact formed in 2358 CE, directly from the [future:Bloom Coalition]'s emergency response. Salvage operators who'd spent the Contested Reach competing lethally found themselves cooperating on containment logistics and realized that shared safety standards would have prevented some of the disasters that led to the Bloom. The founding charter includes a neutrality provision and a structured mediation process — borrowed from what worked during the Coalition.
+The Compact formed in 2358 CE, directly from the [Bloom Coalition](bloom-coalition.md)'s emergency response. Salvage operators who'd spent the Contested Reach competing lethally found themselves cooperating on containment logistics and realized that shared safety standards would have prevented some of the disasters that led to the Bloom. The founding charter includes a neutrality provision and a structured mediation process — borrowed from what worked during the Coalition.
 
 [Shardfall](../../history/events/shardfall.md) was the political catalyst. The Compact exists because Shardfall proved that unregulated Shear operations endanger everyone, and the Bloom proved that the consequences can be civilizational.
 

@@ -19,7 +19,7 @@ The claim stuck because nobody else wanted the job. Cataloguing fragments of dea
 
 ## Structure <!-- Structure -->
 
-Mid-tier faction — larger than a guild, smaller than a government. The Conclave operates from [future:Thornvault], their headquarters in the Sable Crescent: a castle-like complex built on a natural bridge spanning a canyon, positioned to face the glasslight at dusk. The architecture is deliberately imposing — soaring crystal-laced buttresses, open galleries that channel ambient river sound through the halls. The building is a statement: we are serious people doing serious work.
+Mid-tier faction — larger than a guild, smaller than a government. The Conclave operates from [Thornvault](../../locations/settlements/thornvault.md), their headquarters in the Sable Crescent: a castle-like complex built on a natural bridge spanning a canyon, positioned to face the glasslight at dusk. The architecture is deliberately imposing — soaring crystal-laced buttresses, open galleries that channel ambient river sound through the halls. The building is a statement: we are serious people doing serious work.
 
 Satellite offices exist in [Sithari](../../locations/settlements/sithari.md) (for political and legal access), several ring habs (for hab-specific archive consultation), and at least two [future:Bloom Zone] cordon stations (for containment support). The satellites are small — a few archivists with portable playback equipment and a secure connection to Thornvault's central records.
 

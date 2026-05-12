@@ -25,7 +25,7 @@ The architecture is functional and beautiful in roughly equal measure. The cryst
 
 Thornvault has two practical approaches.
 
-**The high road** runs along the canyon's eastern rim from [future:Ledgerfall](ledgerfall.md), the nearest settlement, a half-day's travel away. The road is well-maintained, well-traveled by Conclave business, and unimpressive. Most visitors arrive this way. The road ends at the eastern terminus of the bridge, where the Vault's formal entrance and visitor reception sit.
+**The high road** runs along the canyon's eastern rim from [future:Ledgerfall], the nearest settlement, a half-day's travel away. The road is well-maintained, well-traveled by Conclave business, and unimpressive. Most visitors arrive this way. The road ends at the eastern terminus of the bridge, where the Vault's formal entrance and visitor reception sit.
 
 **The river path** is for archivists and authorized personnel. A series of switchback stairs cut into the western canyon wall connect the bridge's underside to the river's edge, where small Conclave craft can dock at a sheltered landing. The river path is how senior archivists access the lower galleries and how the Conclave moves material it does not want to display publicly. The path is patrolled and not signposted.
 
@@ -47,7 +47,7 @@ The bulk of the holdings is Echo River transcription: recorded fragments, decode
 
 Alongside the transcription archive are the verified pre-Glassfall artifacts the Conclave has acquired or authenticated. The artifact holdings are small in number and large in significance. Most are recordings — physical media, ringglass-encoded data, occasionally items that play back when handled correctly. Some are objects whose function the Conclave has not determined and is in no hurry to publish guesses about.
 
-The deepest holdings — material in the lower galleries that has not been moved upward and probably will not be — include sequences from the [future:disappearance period](../../cosmology/the-disappearance.md) that the Conclave has classified as unreleased. The classification is not formally secret. The material is available to credentialed researchers who file the right request and accept the right conditions. The Conclave's quiet position is that some of what surfaced in those years was not meant for general circulation and is better held than published. The position is not universally shared inside the Conclave. The argument is old and has not been resolved.
+The deepest holdings — material in the lower galleries that has not been moved upward and probably will not be — include sequences from the [future:Disappearance] period that the Conclave has classified as unreleased. The classification is not formally secret. The material is available to credentialed researchers who file the right request and accept the right conditions. The Conclave's quiet position is that some of what surfaced in those years was not meant for general circulation and is better held than published. The position is not universally shared inside the Conclave. The argument is old and has not been resolved.
 
 ## Present Day <!-- Present Day -->
 

@@ -21,11 +21,11 @@ The original practitioners are recognized retroactively as the founders of a tra
 - **Wildfelt** — the folk term. More respectful than it sounds. These people felt something wild and didn't flinch.
 - **Reckless** — what some communities called them, and not affectionately. Early Tuning killed people. Not every settlement appreciated someone experimenting with forces they didn't understand.
 
-The first generation spans the entire Famine — sixty years of independent discovery across hundreds of isolated communities. Some of their techniques survived and became foundational. Others were dead ends, literally. The diversity of early practice is why modern Tuning has so many regional variations and why the [future:Clarisant] spends considerable effort standardizing what doesn't want to be standardized.
+The first generation spans the entire Famine — sixty years of independent discovery across hundreds of isolated communities. Some of their techniques survived and became foundational. Others were dead ends, literally. The diversity of early practice is why modern Tuning has so many regional variations and why the [Clarisant](../npcs/factions/clarisant.md) spends considerable effort standardizing what doesn't want to be standardized.
 
 ## The Clarisant <!-- Structure -->
 
-The guild. Headquartered on [future:Pelhari], a moon of the seventh planet — far enough from the distorted space of [the Shear](../locations/regions/the-shear.md) and the ring debris field that resonance practice is cleaner, more predictable, more suited to structured training. Satellite offices operate across the system, in Sithari, in major ring habs, on outer-system stations.
+The guild. Headquartered on [Pelhari](../locations/settlements/pelhari.md), a moon of the seventh planet — far enough from the distorted space of [the Shear](../locations/regions/the-shear.md) and the ring debris field that resonance practice is cleaner, more predictable, more suited to structured training. Satellite offices operate across the system, in Sithari, in major ring habs, on outer-system stations.
 
 The Clarisant is a professional accreditation body first and a community second. They train Tuners, certify competence, set safety standards, and provide the institutional credibility that keeps Tuning from being feared. A Clarisant-trained Tuner carries a credential that means something in any settlement that recognizes the guild — which is most of them. The credential says: this person has been evaluated, their abilities are understood, and they operate within professional norms.
 
