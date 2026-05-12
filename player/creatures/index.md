@@ -15,4 +15,4 @@ Wildlife, fauna, and anomalous entities.
 
 | Entry | Path | Status | Prominence | Tags | Notes |
 |-------|------|--------|------------|------|-------|
-| Cthonic beasts | — | shell | recognized | danger, orbital | Shear-native creatures; no known counterparts elsewhere |
+| Cthonic beasts | [anomalies/cthonic-beasts.md](anomalies/cthonic-beasts.md) | complete | recognized | danger, orbital, resonance, ecology, mystery | Polyphyletic Shear creatures; too many eyes and mouths; folk-known to be from elsewhere |

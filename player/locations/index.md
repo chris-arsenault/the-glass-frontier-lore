@@ -13,11 +13,11 @@ Regions, settlements, landmarks, and other named places across the Kaleidos syst
 | Sithari | [settlements/sithari.md](settlements/sithari.md) | complete | mythic | surface, governance, trade, ring-era | De facto capital; largest city in the system; layered on ring-era ruins |
 | Fermata Station (The Jazzocracy) | [settlements/fermata-station.md](settlements/fermata-station.md) | complete | marginal | governance, resonance, ring-hab, fluid-reality, music | Jazz-governed ring hab; sound is load-bearing |
 | Glasswake | [settlements/glasswake.md](settlements/glasswake.md) | complete | recognized | surface, trade, ring-era | Mining town; first post-Famine reconnection; Plymouth Rock of the Rekindling |
-| Pelhari | — | shell | recognized | outer-system, training, resonance | Moon of the 7th planet (water giant); Clarisant guild headquarters |
-| Threshold Station | — | shell | recognized | orbital, ring-era, AI | Pre-Glassfall station at Lagrange point; Lattice Proxy Synod HQ |
-| Hab Meridian | — | shell | recognized | ring-hab | Ring hab; first to reconnect with Glasswake after the Famine |
+| Pelhari | [settlements/pelhari.md](settlements/pelhari.md) | complete | recognized | outer-system, training, resonance, trade, ring-era | Moon of the 7th planet; vertical crater city; Clarisant academy; Span Nine terminus |
+| Threshold Station | [settlements/threshold-station.md](settlements/threshold-station.md) | complete | recognized | orbital, ring-era, AI, governance, resonance | Pre-Glassfall sun-aligned spindle at L1; Synod HQ; sealed sectors; Span Nine terminus |
+| Hab Meridian | [settlements/hab-meridian.md](settlements/hab-meridian.md) | complete | recognized | ring-hab, archives, trade, rebuilding, social-structure | Ring hab; living-history museum at hab scale; the Period Arc; first reconnection with Glasswake |
 | Ledgerfall | — | shell | marginal | surface, archives | Settlement in the Sable Crescent |
-| Thornvault | — | shell | recognized | surface, archives, resonance | Echo Ledger Conclave headquarters; castle on a canyon bridge |
+| Thornvault | [settlements/thornvault.md](settlements/thornvault.md) | complete | recognized | surface, archives, resonance, signal-freq, governance | Echo Ledger Conclave HQ; bridge-castle spanning an Echo River canyon; vertical depth = archive depth |
 
 ## Regions
 
@@ -38,4 +38,4 @@ Regions, settlements, landmarks, and other named places across the Kaleidos syst
 | The Keel | [landmarks/keel.md](landmarks/keel.md) | complete | recognized | trade, orbital, danger, navigation | Primary orbital trade lane; ringglass production through Sithari to Ashvane |
 | Verathi | — | shell | marginal | orbital, governance | Station at center of first Accord arbitration |
 | Underlayers | — | shell | recognized | surface, ring-era, danger | Sithari's deep strata; ring-era and elven construction beneath the modern city |
-| Deep Shear | — | shell | recognized | orbital, danger, resonance | Deepest pockets of the Shear; spatial distortion, alien fauna |
+| Deep Shear | [landmarks/deep-shear.md](landmarks/deep-shear.md) | complete | recognized | orbital, danger, resonance, salvage | Deepest pockets of the Shear; the hush; layered distortion; pre-Glassfall finds |

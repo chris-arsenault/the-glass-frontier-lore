@@ -27,6 +27,6 @@ Technology, magic, religion, governance, and other meta-level systems.
 | Stillwater | [stillwater.md](stillwater.md) | complete | recognized | resonance, signal-freq, materials | Purified Echo River water; extraordinary data storage medium |
 | Duskgrain | [duskgrain.md](duskgrain.md) | complete | recognized | resonance, danger, materials | Crystallized resonance; powerful and volatile |
 | Resonance Depletion | — | shell | recognized | resonance | Local field depletion and recovery |
-| Ratters | — | shell | recognized | salvage, social-structure | Independent Shear salvage crew subculture |
+| Ratters | [ratters.md](ratters.md) | complete | recognized | salvage, social-structure, orbital, trade | Independent Shear salvage subculture; long-rat flotillas; sacred debt; universal distress |
 | Shuttered habs | [shuttered-habs.md](shuttered-habs.md) | complete | recognized | ring-hab, governance, social-structure | Habs that refused reconnection; ranges from ascended gods to reverted tribes |
 | Glassfall showers | — | shell | recognized | orbital, danger | Periodic fine debris cascades in the Shear; increase collision risk |

@@ -16,10 +16,10 @@ Factions, notable individuals, and named antagonists.
 | Vantara | [factions/vantara.md](factions/vantara.md) | complete | recognized | trade, transport, governance | Travel and logistics corp; kite fleets, hospitality, route infrastructure |
 | Shear Compact | [factions/shear-compact.md](factions/shear-compact.md) | complete | recognized | salvage, ringglass, trade, governance | Regulatory body for Shear salvage; standards board, not enforcement |
 | Lumenshard Conservatory | — | shell | recognized | ecology, resonance | Eco-faction protecting bioluminescent groves |
-| Clarisant | — | shell | recognized | resonance, training, governance | Tuner guild; accreditation body; HQ on Pelhari |
+| Clarisant | [factions/clarisant.md](factions/clarisant.md) | complete | recognized | resonance, training, governance, social-structure | Tuner guild; accreditation body; chapter-house dispatch; HQ on Pelhari |
 | The Continuity | — | shell | recognized | governance | Sithari's ruling party; unchallenged for 130 years |
 | Coremark | [factions/coremark.md](factions/coremark.md) | complete | recognized | salvage, ringglass, trade, danger | Deep Shear pioneer → Bloom cause → mafia crime syndicate |
-| Bloom Coalition | — | shell | renowned | governance, diplomacy | Emergency multi-faction Bloom containment coalition; dissolved during Bitter Reach |
+| Bloom Coalition | [factions/bloom-coalition.md](factions/bloom-coalition.md) | complete | renowned | governance, diplomacy, resonance, danger, rebuilding | Unified operational command for Bloom containment 2378–2396; dissolved on schedule; predecessor of the Displacement Council and Accord |
 | Displacement Council | [factions/displacement-council.md](factions/displacement-council.md) | complete | recognized | governance, resonance, danger | Neutral containment order; Bloom Zone cordons; stillwater buoy network |
 
 ## Heroes
