@@ -30,3 +30,10 @@ incident :coriolis_breach do
     The survivor — #{future "Venn Talis"} — is a recognized figure in the present day. Not active — a recluse who gave testimony, refused further public engagement, and withdrew from the faction that mounted the expedition. Their account is studied in diplomatic training programs. "Coriolis" is shorthand in Accord politics for the consequences of assuming your values are universal.
   PROSE
 end
+
+relate :rel_coriolis_breach_caused_tempered_accord, :caused, :coriolis_breach, :tempered_accord do
+  prose "Coriolis ended the forced-contact era: forced entry went from controversial-but-sometimes-necessary to unconscionable. When the #{ref :tempered_accord, "Tempered Accord"} was drafted years later, its sovereignty provisions — habs may legally refuse contact, and no faction may force entry — existed because of what happened here."
+end
+relate :rel_venn_talis_participated_in_coriolis_breach, :participated_in, :venn_talis, :coriolis_breach do
+  prose "#{ref :venn_talis, "Venn Talis"} was the sole survivor of the contact team — and whose testimony, devastating because the reverted community was coherent rather than savage, is now studied in diplomatic training."
+end

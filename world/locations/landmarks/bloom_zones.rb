@@ -8,7 +8,7 @@ geographic_location :bloom_zones do
   prose <<~PROSE
     Man-made reality tears. Places where the #{ref :resonance, "resonance"} environment has broken so thoroughly that physics stops behaving consistently. They exist in Kaleidos orbit — in the #{ref :the_shear, "Shear"}, adjacent to ring habs, in otherwise clean orbital space — and, for reasons nobody can explain, in the #{future "Fracture"}'s asteroid belt.
 
-    The Bloom Zones were created by the #{future "Silent Bloom"} cascade of 2355 CE. They are expanding slowly. They require constant containment by the #{ref :displacement_council, "Displacement Council"}. They are the system's most dangerous ongoing crisis and its most productive source of artifacts nobody understands.
+    The Bloom Zones were created by the #{future "Silent Bloom"} cascade of 2378 CE. They are expanding slowly. They require constant containment by the #{ref :displacement_council, "Displacement Council"}. They are the system's most dangerous ongoing crisis and its most productive source of artifacts nobody understands.
   PROSE
   prose <<~PROSE, section: :atmosphere, heading: "What They're Like"
     No two zones manifest the same way. The distortion depends on the local resonance environment, the crystal substrate, the specific frequencies involved.

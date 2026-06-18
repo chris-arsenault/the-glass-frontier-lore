@@ -49,7 +49,7 @@ thread :bloom_containment do
     ---
 
     ### Beat 3: The Overload
-    **Era:** ~2355 | **Filled by:** #{ref :pyre, "Pyre"}, #{ref :coremark, "Coremark"}
+    **Era:** ~2378 | **Filled by:** #{ref :pyre, "Pyre"}, #{ref :coremark, "Coremark"}
 
     Pyre refinery cascades. Not a single ignored warning — a general environment where nobody was looking at the right data. Like Chernobyl: a culture of complacency, safety procedures treated as bureaucratic obstacles, operators who'd seen similar readings dozens of times and nothing happened. The resonance ecology was stressed by decades of extraction, the Span replication experiment had fractured local space nearby, and Pyre's overload was the nudge that tipped a system already past its limits.
 
@@ -58,7 +58,7 @@ thread :bloom_containment do
     ---
 
     ### Beat 4: The Cascade
-    **Era:** 2355 | **Filled by:** #{future "The Silent Bloom"}, #{ref :bloom_zones, "Bloom Zones"}
+    **Era:** 2378 | **Filled by:** #{future "The Silent Bloom"}, #{ref :bloom_zones, "Bloom Zones"}
 
     The Bloom doesn't manifest uniformly — its expression depends on the local resonance environment, the crystal substrate, the specific frequencies involved. In some places, walls develop a translucency that isn't transparency — not see-through but not committed to being solid. In others, sound arrives from directions it shouldn't. In others, spatial relationships stop being reliable — a corridor that was ten meters long is now thirty, or three. In the worst zones, the concept of "direction" softens.
 
@@ -69,7 +69,7 @@ thread :bloom_containment do
     ---
 
     ### Beat 5: The Displacement
-    **Era:** 2355–2358 | **Filled by:** #{ref :displacement, "Displacement"}
+    **Era:** 2378–2384 | **Filled by:** #{ref :displacement, "Displacement"}
 
     Mass evacuation. Hab-Worlders who defined themselves by their sealed environment lose the thing that made them who they are. The exit-checking, air-listening, load-bearing social awareness — all built for a specific hab. In a refugee camp on the surface, those instincts have no object.
 
@@ -82,7 +82,7 @@ thread :bloom_containment do
     ---
 
     ### Beat 6: The Coalition
-    **Era:** 2355–2358 | **Filled by:** #{ref :bloom_coalition, "Bloom Coalition"}
+    **Era:** 2378–2384 | **Filled by:** #{ref :bloom_coalition, "Bloom Coalition"}
 
     The response takes days to a week. The people who push for it: faction leaders fed up with the Contested Reach who see an opportunity to unify, neutrals who recognize the danger's scale, and — invisibly — elven operatives leaking the right message transcript to the right desk, a trader (elf in disguise) offering free transport to the Bloom zones, small nudges that put the right people in the right places. [DM]
 
@@ -156,3 +156,17 @@ thread :bloom_containment do
     Someone removes a stillwater damping buoy from Lira's Wall and cracks it open, expecting to find preserved memories inside — the way Conclave archival stillwater holds data. What they find instead is instructive about the nature of the Bloom: the stillwater didn't store the cascade frequencies, it *absorbed* them. The contents reveal something about what the Bloom actually is at the frequency level, not what anyone expected.
   PROSE
 end
+
+relate :rel_bc_fills_coremark, :fills_beat, :bloom_containment, :coremark do prose "#{ref :coremark, "Coremark"} fills the Environment and Overload beats: the unchecked extraction that set the stage and the refinery it ran at Pyre." end
+relate :rel_bc_fills_vantara, :fills_beat, :bloom_containment, :vantara do prose "#{ref :vantara, "Vantara"} fills the Environment beat: its safety-margin culture is a reaction to the permissive Rekindling era." end
+relate :rel_bc_fills_keel, :fills_beat, :bloom_containment, :keel do prose "#{ref :keel, "the Keel"} fills the Environment beat: the lane that carried the cheap-ringglass boom." end
+relate :rel_bc_fills_span_nine, :fills_beat, :bloom_containment, :span_nine do prose "#{ref :span_nine, "Span Nine"} fills the Span Demand beat: the inimitable infrastructure whose inequality drove the replication project." end
+relate :rel_bc_fills_pyre, :fills_beat, :bloom_containment, :pyre do prose "#{ref :pyre, "Pyre"} fills the Overload beat: the refinery cascade that tipped a stressed resonance ecology over." end
+relate :rel_bc_fills_bloom_zones, :fills_beat, :bloom_containment, :bloom_zones do prose "The #{ref :bloom_zones, "Bloom Zones"} fill the Cascade and Ongoing beats: the distorted reality the cascade produced." end
+relate :rel_bc_fills_displacement, :fills_beat, :bloom_containment, :displacement do prose "The #{ref :displacement, "Displacement"} fills the Refugees beat: the evacuation that stripped Hab-Worlders of their defining environment." end
+relate :rel_bc_fills_bloom_coalition, :fills_beat, :bloom_containment, :bloom_coalition do prose "The #{ref :bloom_coalition, "Bloom Coalition"} fills the Coalition beat: the multi-faction response to the cascade." end
+relate :rel_bc_fills_lira, :fills_beat, :bloom_containment, :lira_vashtenri do prose "#{ref :lira_vashtenri, "Lira Vashtenri"} fills the Turning Point beat: the Shear mechanic whose instinct became the containment principle." end
+relate :rel_bc_fills_liras_wall, :fills_beat, :bloom_containment, :liras_wall do prose "#{ref :liras_wall, "Lira's Wall"} fills the Turning Point beat: the damping array that first held a Bloom boundary." end
+relate :rel_bc_fills_shear_compact, :fills_beat, :bloom_containment, :shear_compact do prose "The #{ref :shear_compact, "Shear Compact"} fills the Institutions beat: emergency salvage regulation made permanent." end
+relate :rel_bc_fills_displacement_council, :fills_beat, :bloom_containment, :displacement_council do prose "The #{ref :displacement_council, "Displacement Council"} fills the Institutions and Ongoing beats: the neutral body that holds the cordon." end
+relate :rel_bc_fills_dern_talish, :fills_beat, :bloom_containment, :dern_talish do prose "#{ref :dern_talish, "Dern Talish"} fills the Ongoing beat: she leads present-day containment, the tremor and the collection signalling the zones still change." end

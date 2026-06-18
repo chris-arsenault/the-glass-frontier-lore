@@ -52,3 +52,13 @@ end
 relate :rel_builders_gone_embodies_liras_wall, :embodies, :builders_gone, :liras_wall do
   prose "#{ref :liras_wall, "Lira's Wall"} embodies the hopeful side: new builders, building from inheritance they didn't choose, making something the originals never imagined."
 end
+
+relate :rel_builders_gone_embodies_resonance, :embodies, :builders_gone, :resonance do
+  prose "The entire #{ref :resonance, "resonance"} technology stack is post-elven improvisation — broad and mid band running a system designed for narrow."
+end
+relate :rel_builders_gone_embodies_synod, :embodies, :builders_gone, :lattice_proxy_synod do
+  prose "The #{ref :lattice_proxy_synod, "Lattice Proxy Synod"} inhabits a station it does not fully control, working through rituals it cannot explain."
+end
+relate :rel_builders_gone_embodies_lira, :embodies, :builders_gone, :lira_vashtenri do
+  prose "#{ref :lira_vashtenri, "Lira Vashtenri"} left the Conclave to build containment ops from scratch, from inheritance she did not choose."
+end

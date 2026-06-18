@@ -38,7 +38,7 @@ loop :cooperation_fracture do
     ---
   PROSE
   prose <<~PROSE, section: :how_it_works, heading: "Instances"
-    ### The Bloom Cycle (macro, 2355–2365)
+    ### The Bloom Cycle (macro, 2378–2407)
 
     | Stage | Entity | Notes |
     |-------|--------|-------|
@@ -84,3 +84,11 @@ loop :cooperation_fracture do
     The system ratchets. Cooperation is always temporary. The infrastructure it leaves behind is not. This is the hopecore mechanism: not "things get better" but "each catastrophe produces tools that make the next response slightly more effective."
   PROSE
 end
+
+relate :rel_cf_stage_bloom_coalition, :has_stage, :cooperation_fracture, :bloom_coalition do prose "Cooperation stage of the Bloom cycle: the #{ref :bloom_coalition, "Bloom Coalition"} drew emergency leadership from rival factions." end
+relate :rel_cf_stage_shear_compact, :has_stage, :cooperation_fracture, :shear_compact do prose "Residue stage: emergency salvage rules hardened into the permanent #{ref :shear_compact, "Shear Compact"}." end
+relate :rel_cf_stage_displacement_council, :has_stage, :cooperation_fracture, :displacement_council do prose "Residue stage: refugee advocacy became the neutral #{ref :displacement_council, "Displacement Council"}." end
+relate :rel_cf_stage_liras_wall, :has_stage, :cooperation_fracture, :liras_wall do prose "Residue stage: #{ref :liras_wall, "Lira's Wall"}, proof the cooperation produced real capability." end
+relate :rel_cf_stage_fermata, :has_stage, :cooperation_fracture, :fermata_station do prose "Crisis stage of the Fermata micro-cycle: at #{ref :fermata_station, "Fermata Station"} the Standards calcify and improvisation drifts toward ritual." end
+relate :rel_cf_stage_vantara, :has_stage, :cooperation_fracture, :vantara do prose "Residue of the Rekindling cycle: #{ref :vantara, "Vantara"} as enduring trade infrastructure born of cooperation." end
+relate :rel_cf_stage_keel, :has_stage, :cooperation_fracture, :keel do prose "Residue of the Rekindling cycle: #{ref :keel, "the Keel"} as enduring economic interdependence." end

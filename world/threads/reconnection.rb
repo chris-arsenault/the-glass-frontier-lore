@@ -92,7 +92,7 @@ thread :reconnection do
     ---
 
     ### Beat 7: The Constrained Conflict
-    **Era:** 2340–2355 | **Filled by:** The Contested Reach (era), #{ref :shardfall, "Shardfall"}, #{ref :coriolis_breach, "Coriolis breach"}
+    **Era:** 2340–2378 | **Filled by:** The Contested Reach (era), #{ref :shardfall, "Shardfall"}, #{ref :coriolis_breach, "Coriolis breach"}
 
     Disputes over routes, resources, hab sovereignty. But the violence is always limited by the **fear of disconnection:**
 
@@ -113,7 +113,7 @@ thread :reconnection do
     ---
 
     ### Beat 8: The Test
-    **Era:** 2355–2365 | **Intersection with:** Bloom Containment thread
+    **Era:** 2378–2407 | **Intersection with:** Bloom Containment thread
 
     The Bloom forces cooperation. The Reconnection thread's contribution: **cooperation works because the communication infrastructure survived the Contested Reach.** The Bloom Coalition can coordinate because nobody broke the network during the Reach. The fear of disconnection, which constrained the conflict, now enables the response.
 
@@ -147,3 +147,18 @@ thread :reconnection do
     - **"Just because you can reach it, should you?"** — Span replication → Bloom
   PROSE
 end
+
+relate :rel_rc_fills_glassfall, :fills_beat, :reconnection, :the_glassfall do prose "The #{ref :the_glassfall, "Glassfall"} fills the Severance beat: the ring shatters and communications collapse." end
+relate :rel_rc_fills_sithari, :fills_beat, :reconnection, :sithari do prose "#{ref :sithari, "Sithari"} fills the Divergence beat: a community that stabilized through institutional strength into self-sufficiency-as-identity." end
+relate :rel_rc_fills_continuity, :fills_beat, :reconnection, :the_continuity do prose "The #{ref :the_continuity, "Continuity"} fills the Divergence beat: the institutional strength that let Sithari flourish without needing anyone else." end
+relate :rel_rc_fills_glasswake, :fills_beat, :reconnection, :glasswake do prose "#{ref :glasswake, "Glasswake"} fills the First Signal beat: the salvage crew that made a dead transmitter talk." end
+relate :rel_rc_fills_hab_meridian, :fills_beat, :reconnection, :hab_meridian do prose "#{ref :hab_meridian, "Hab Meridian"} fills the First Signal beat: the hab that answered." end
+relate :rel_rc_fills_span_nine, :fills_beat, :reconnection, :span_nine do prose "#{ref :span_nine, "Span Nine"} fills the Span beat: pre-Glassfall hardline that handed Sithari a broadband advantage." end
+relate :rel_rc_fills_shuttered_habs, :fills_beat, :reconnection, :shuttered_habs do prose "The #{ref :shuttered_habs, "shuttered habs"} fill the Shock-of-Difference beat: communities that refused contact when it came." end
+relate :rel_rc_fills_ratters, :fills_beat, :reconnection, :ratters do prose "The #{ref :ratters, "ratters"} fill the Trade-Resumes beat: salvage crews reopening the networks." end
+relate :rel_rc_fills_coremark, :fills_beat, :reconnection, :coremark do prose "#{ref :coremark, "Coremark"} fills the Trade-Resumes beat: an early extraction operator in the reconnection boom." end
+relate :rel_rc_fills_vantara, :fills_beat, :reconnection, :vantara do prose "#{ref :vantara, "Vantara"} fills the Trade-Resumes beat: founded to handle the logistics of the reopening networks." end
+relate :rel_rc_fills_keel, :fills_beat, :reconnection, :keel do prose "#{ref :keel, "the Keel"} fills the Trade-Resumes beat: established as the primary orbital trade lane." end
+relate :rel_rc_fills_shardfall, :fills_beat, :reconnection, :shardfall do prose "#{ref :shardfall, "Shardfall"} fills the Constrained-Conflict beat: a Contested Reach flashpoint bounded by the fear of disconnection." end
+relate :rel_rc_fills_coriolis, :fills_beat, :reconnection, :coriolis_breach do prose "The #{ref :coriolis_breach, "Coriolis Breach"} fills the Constrained-Conflict beat: a forced-entry incident that became a sovereignty rallying point." end
+relate :rel_rc_fills_tempered_accord, :fills_beat, :reconnection, :tempered_accord do prose "The #{ref :tempered_accord, "Tempered Accord"} fills the Framework beat: the mediation structure born of Bloom cooperation and Famine memory." end

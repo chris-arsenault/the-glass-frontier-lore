@@ -75,3 +75,7 @@ end
 relate :rel_the_false_form_seeping_through_bloom_zones, :seeping_through, :the_false_form, :bloom_zones, dm: true do
   prose "Its influence leaks back in through the #{ref :bloom_zones, "Bloom Zones"} — pressure through a crack, the open figure showing through where reality can no longer close."
 end
+
+relate :rel_the_false_form_caused_duskgrain, :caused, :the_false_form, :duskgrain, dm: true do
+  prose "#{ref :duskgrain, "Duskgrain"} is the False Form made matter — fragments of the figure that will not close, crystallized; which is why prolonged exposure tunes a person toward a geometry that is not ours."
+end
