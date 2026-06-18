@@ -54,6 +54,7 @@ Controlled vocabulary for entry frontmatter `tags` field. Tags describe **what a
 |-----|---------|
 | `music` | Music as cultural or structural force |
 | `religion` | Belief systems, spiritual practice |
+| `cosmology` | The fundamental order of reality; metaphysics of resonance, the Three Forms, the wider cosmic order |
 | `archives` | Record-keeping, history preservation, memory |
 | `training` | Education, apprenticeship, attunement learning |
 | `ecology` | Environmental stewardship, conservation |

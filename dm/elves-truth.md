@@ -44,7 +44,7 @@ A smaller number live among the general population, passing without much difficu
 
 ## The Adversary <!-- Truth -->
 
-The force that destroyed the orbital ring. The elves know what it is. The nature and specifics remain [future:Adversary — full detail].
+The force that destroyed the orbital ring. The elves know what it is: the [False Form](the-false-form-truth.md) — the figure that will not close, given will. It is the same thing the public cosmology of [The Three Forms](../player/cosmology/the-three-forms.md) draws as the impossible third panel and dismisses as an abstraction. The elves know it is no abstraction. See [The False Form — DM Truth](the-false-form-truth.md) for the full account.
 
 What is established:
 - External to the Kaleidos system

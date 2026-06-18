@@ -12,6 +12,7 @@ Directed cause-and-effect relationships between entities. Every node is either a
 
 ```
 The Adversary → [destroys] → The Glass Frontier                                [DM]
+The Adversary ≡ The False Form → [is the third figure of] → The Three Forms     [DM]
 The Glassfall → [severs communications] → Signal Famine
 The Glassfall → [creates] → The Shear
 The Glassfall → [seeds surface with] → Ringglass

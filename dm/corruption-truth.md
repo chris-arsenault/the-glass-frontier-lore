@@ -12,9 +12,9 @@ Public entry: [Duskgrain](../player/concepts/duskgrain.md)
 
 ## The Corruption <!-- Truth -->
 
-Duskgrain is not a natural byproduct of sustained resonance. It is the physical residue of the [future:Adversary]'s influence bleeding through reality tears.
+Duskgrain is not a natural byproduct of sustained resonance. It is the physical residue of the [Adversary](the-false-form-truth.md)'s influence bleeding through reality tears.
 
-Where the Adversary's presence touches normal space — in Bloom Zones, in deep Shear pockets, in places where narrow-bandwidth resonance has weakened the boundary — it leaves behind crystallized fragments of itself. These are duskgrain. The substance is, in a very literal sense, solidified alien intent.
+Where the Adversary's presence touches normal space — in Bloom Zones, in deep Shear pockets, in places where narrow-bandwidth resonance has weakened the boundary — it leaves behind crystallized fragments of itself. These are duskgrain. The substance is, in a very literal sense, solidified alien intent — or, in the language of [The False Form](the-false-form-truth.md), solidified non-closing figure: fragments of a geometry that cannot exist, frozen into matter that nonetheless does.
 
 The public understanding (concentrated resonance energy) is not wrong — duskgrain does contain resonance, and it does release it when triggered. But the resonance inside duskgrain is contaminated. Prolonged exposure produces effects that map to addiction: heightened resonance sensitivity, euphoria, gradually narrowing perception. Users become more attuned — and more aligned with the Adversary's dimensional framework.
 

@@ -14,3 +14,7 @@ The physical world, its energy systems, and the celestial structures that define
 | Kaleidos | — | shell | mythic | | The planet itself; surface world beneath the ring |
 | Kaleidos Orbit | — | shell | mythic | orbital | The orbital space containing the ring, the Shear, and Bloom Zones |
 | The Kaleidos System | [kaleidos-system.md](kaleidos-system.md) | complete | mythic | orbital | 8 planets, compact system, ~1 week transit end to end |
+| The Three Forms | [the-three-forms.md](the-three-forms.md) | complete | mythic | resonance, cosmology, religion | Oldest cosmology of resonance: coherence is closure into a figure |
+| The False Form | [the-false-form.md](the-false-form.md) | complete | renowned | resonance, cosmology, legend | The impossible third figure; treated as an abstraction of falsehood |
+| The Tetrahedron | — | shell | mythic | resonance, cosmology | The lawful figure of Form (structural band); covered in The Three Forms |
+| The Triangulum | — | shell | mythic | resonance, cosmology | The lawful figure of Will (kinetic band); covered in The Three Forms |
