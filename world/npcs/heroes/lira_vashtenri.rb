@@ -30,3 +30,10 @@ npc :lira_vashtenri do
     After the Bloom, her containment work required #{ref :stillwater, "stillwater"} for damping buoys. The #{ref :echo_ledger_conclave, "Echo Ledger Conclave"} produces most of the system's stillwater supply, and they had no reason to prioritize a former refinery mechanic's requisitions. Securing that supply line — convincing an academic institution to divert resources toward an unproven containment method proposed by someone they'd never heard of — was its own battle.
   PROSE
 end
+
+relate :rel_lira_designed_liras_wall, :designed, :lira_vashtenri, :liras_wall do
+  prose "Lira Vashtenri designed #{ref :liras_wall, "Lira's Wall"} — the containment architecture that made the Bloom Zones survivable, built from scratch by someone who left the archives to do it."
+end
+relate :rel_lira_member_of_displacement_council, :member_of, :lira_vashtenri, :displacement_council, since: 2384 do
+  prose "She built her containment operation into what became the #{ref :displacement_council, "Displacement Council"}, and has run inside it ever since."
+end

@@ -67,3 +67,7 @@ concept :resonance do
     Nobody controls resonance itself — it's ambient, like weather. But the supply chain for refined ringglass is a different matter. See #{ref :ringglass, "Ringglass"}.
   PROSE
 end
+
+relate :rel_resonance_conducted_by_ringglass, :conducted_by, :resonance, :ringglass do
+  prose "Resonance travels through #{ref :ringglass, "ringglass"} — through crystal, crystal-laced rock, and crystal-bearing water — and fades fast away from it, which is why all resonance technology is ringglass technology."
+end

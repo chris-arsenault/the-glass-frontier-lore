@@ -42,3 +42,10 @@ resource :ringglass do
     This creates a slow squeeze. Aggregate stays cheap. Refined stays profitable but competitive. And intact pieces become rarer and more valuable with every year that passes.
   PROSE
 end
+
+relate :rel_ringglass_powers_resonance, :powers, :ringglass, :resonance do
+  prose "Ringglass is what makes #{ref :resonance, "resonance"} usable: the medium that concentrates and channels an energy that is otherwise too diffuse to work."
+end
+relate :rel_ringglass_sourced_from_the_shear, :sourced_from, :ringglass, :the_shear do
+  prose "The richest supply is salvaged from the #{ref :the_shear, "Shear"}, which is why the debris field is the most contested ground in the system."
+end

@@ -65,3 +65,10 @@ creature :cthonic_beasts do
     The beasts are not going away. The Deep continues to open onto somewhere. Whatever is on the other side continues to send things through. The crews who work the Shear regard this as the situation rather than the problem, and they regard the situation as theirs to live in.
   PROSE
 end
+
+relate :rel_cthonic_inhabits_the_shear, :inhabits, :cthonic_beasts, :the_shear, since: 2140 do
+  prose "The cthonic beasts live in the #{ref :the_shear, "Shear"}, things that took to the distorted resonance the way other creatures take to weather."
+end
+relate :rel_cthonic_inhabits_deep_shear, :inhabits, :cthonic_beasts, :deep_shear, since: 2140 do
+  prose "They are worst in the #{ref :deep_shear, "deep Shear"}, where salvage crews tell the stories that keep new hands from going alone."
+end

@@ -23,3 +23,7 @@ geographic_location :sable_crescent do
     The light at dusk is distinctive. Exposed crystal strata in the canyon walls catch the setting sun and refract it through the mist rising from the swamps. The locals call it glasslight. Tourists come to see it. The #{ref :echo_ledger_conclave, "Echo Ledger Conclave"} built their headquarters to face it.
   PROSE
 end
+
+relate :rel_sable_crescent_on_surface_kaleidos, :on_surface_of, :sable_crescent, :kaleidos do
+  prose "Sable Crescent is a surface region of #{ref :kaleidos, "Kaleidos"} — and the place where the Echo Rivers surface most clearly, which has shaped everything about it."
+end

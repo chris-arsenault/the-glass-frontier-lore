@@ -30,3 +30,7 @@ incident :shardfall do
     Drossmark Industries did not survive the Contested Reach. The political fallout from Shardfall, combined with escalating Reach-era conflicts, broke the company. Its assets were absorbed by competitors, its personnel scattered across smaller operations. The name is remembered only in connection with the event that killed it.
   PROSE
 end
+
+relate :rel_shardfall_caused_shear_compact, :caused, :shardfall, :shear_compact do
+  prose "The deaths at Shardfall turned public opinion against unregulated salvage and produced the #{ref :shear_compact, "Shear Compact"} — regulation written in the aftermath of a disaster."
+end

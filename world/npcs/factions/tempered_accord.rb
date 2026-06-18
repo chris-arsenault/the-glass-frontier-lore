@@ -40,3 +40,7 @@ faction :tempered_accord do
     The Accord holds. The ducks are fine. Whether either condition is permanent remains to be seen.
   PROSE
 end
+
+relate :rel_tempered_accord_hq_sithari, :headquartered_in, :tempered_accord, :sithari, since: 2423 do
+  prose "The Accord keeps its standing offices at #{ref :sithari, "Sithari"} — convenient, central, and a constant low irritation to a city that would rather not host anyone's authority but its own."
+end

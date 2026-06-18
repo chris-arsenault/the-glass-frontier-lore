@@ -39,3 +39,10 @@ species :fae do
     The fae relationship with the system's other engineered species — gnomes — is complicated. Both were made. Both live with the consequences. But gnomes were given a gift (attunement) while fae were given a burden (dislocation). The solidarity is real but asymmetric.
   PROSE
 end
+
+relate :rel_fae_depends_on_gnomes, :depends_on, :fae, :gnomes do
+  prose "The fae depend on the #{ref :gnomes, "gnomes"} — the best coherence aids are gnomish-made, an economic tie neither engineered species is quite comfortable with."
+end
+relate :rel_fae_depends_on_resonance, :depends_on, :fae, :resonance do
+  prose "More fundamentally they depend on #{ref :resonance, "resonance"} itself: the fields in their coherence aids are the prosthetic that makes a coherent life possible."
+end

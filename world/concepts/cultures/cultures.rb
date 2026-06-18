@@ -27,3 +27,10 @@ culture :cultures do
     | *Open* | — | — | slot | — |
   PROSE
 end
+
+relate :rel_cultures_extends_hab_worlder, :extends, :cultures, :hab_worlder do
+  prose "#{ref :hab_worlder, "Hab-worlder"} culture is one of the major registers catalogued here."
+end
+relate :rel_cultures_extends_sitharian, :extends, :cultures, :sitharian_culture do
+  prose "So is #{ref :sitharian_culture, "Sitharian"} culture, the system's prestige register."
+end

@@ -26,3 +26,7 @@ incident :displacement do
     The Displacement is the system's most recent mass trauma. Everyone alive remembers it or knows someone who lived through it. It is not history — it is current events, still unfolding, still producing consequences.
   PROSE
 end
+
+relate :rel_displacement_caused_displacement_council, :caused, :displacement, :displacement_council do
+  prose "The mass evacuation it forced is what called the #{ref :displacement_council, "Displacement Council"} into being — an emergency body that never got to stop being one."
+end

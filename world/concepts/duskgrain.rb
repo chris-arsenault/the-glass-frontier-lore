@@ -34,3 +34,13 @@ resource :duskgrain do
     - The elves' hidden presence in Bloom Zones is partly about containing duskgrain spread. Some of Dern Talish's "unexplained successes" in containment involve elven operatives destroying duskgrain deposits before they can be harvested.
   PROSE
 end
+
+relate :rel_duskgrain_manifests_at_bloom_zones, :manifests_at, :duskgrain, :bloom_zones do
+  prose "Duskgrain forms where reality is thinnest — in and around the #{ref :bloom_zones, "Bloom Zones"}, and in the deep Shear pockets that behave the same way."
+end
+relate :rel_duskgrain_derived_from_resonance, :derived_from, :duskgrain, :resonance do
+  prose "It is, in the plainest reading, #{ref :resonance, "resonance"} that has solidified — narrow-band energy held in one place long enough to become a thing you can hold."
+end
+relate :rel_duskgrain_derived_from_the_false_form, :derived_from, :duskgrain, :the_false_form, dm: true do
+  prose "The truer reading: it is frozen #{ref :the_false_form, "False Form"} — fragments of a geometry that cannot close, crystallized into matter that nonetheless persists."
+end

@@ -57,3 +57,7 @@ faction :bloom_coalition do
     The Coalition is sometimes invoked rhetorically in present-day politics: as a model when cooperation is needed, as a warning when emergency powers are being expanded. The invocations are mostly empty. The Coalition was a specific institution for a specific crisis, and the conditions that produced it were not replicable on purpose. It worked because the alternative was worse. It dissolved because the alternative was, eventually, better.
   PROSE
 end
+
+relate :rel_bloom_coalition_caused_the_bitter_reach, :caused, :bloom_coalition, :the_bitter_reach do
+  prose "When the Coalition finally dissolved, the disputes it had frozen came back sharper than before — the #{ref :the_bitter_reach, "Bitter Reach"}, the betrayal of a cooperation people had briefly believed in."
+end

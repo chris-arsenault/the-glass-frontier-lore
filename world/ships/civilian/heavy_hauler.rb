@@ -76,3 +76,7 @@ transport :heavy_hauler do
     A career on the haulers is a respectable life. The wages are decent. The work is steady. The crews are good company. The vessels are large enough to feel like home and small enough that everyone aboard knows everyone else. People raise families on the haulers — children born aboard, schooled in port stops, working the watch by the time they are old enough — and many of those children stay in the trade. The hauler population is older than the general working-spacer population and substantially more stable. The system runs on what they carry. They know it. They take the work seriously.
   PROSE
 end
+
+relate :rel_heavy_hauler_operates_the_keel, :operates_in, :heavy_hauler, :the_keel, since: 2335 do
+  prose "The heavy haulers work #{ref :the_keel, "the Keel"} — slow, enormous, and the backbone of bulk freight along the main orbital lane."
+end

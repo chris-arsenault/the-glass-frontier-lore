@@ -35,3 +35,7 @@ concept :the_three_forms do
     What is not in dispute is the smaller, stranger echo of the cosmology that walks around in daylight: the #{ref :fae, "fae"}, whose every waking hour is the work of holding a coherent figure against the pull toward the diffuse. A fae concentrating into a single clear shape, and bleeding back out into an occupied haze when the effort fails, is the closing of the figure made flesh — order held by will, at the scale of one person. The keepers point to the fae and say: this is the whole cosmos, in a body you can shake hands with. The fae, who have to live it, are generally less moved by the comparison.
   PROSE
 end
+
+relate :rel_three_forms_derived_from_resonance, :derived_from, :the_three_forms, :resonance do
+  prose "The Three Forms is, at bottom, a cosmology of #{ref :resonance, "resonance"} — the claim that a coherent vibration has a shape, and that to tune well is to help it close."
+end

@@ -22,3 +22,10 @@ species :humans do
     This produces two reactions: a pragmatic culture of tool-building (if you can't feel it directly, build instruments that translate it into something you can read) and an occasional chip-on-the-shoulder competitiveness with attuned species that is mostly good-natured and occasionally not.
   PROSE
 end
+
+relate :rel_humans_inhabit_sithari, :inhabits, :humans, :sithari, since: 2050 do
+  prose "Humans are the majority on the surface, #{ref :sithari, "Sithari"} chief among their settlements."
+end
+relate :rel_humans_inhabit_tgf, :inhabits, :humans, :the_glass_frontier, since: 2050 do
+  prose "They are spread thickly through the #{ref :the_glass_frontier, "Glass Frontier"} too — arrivals who were integrated into ring society and outlasted the ring."
+end

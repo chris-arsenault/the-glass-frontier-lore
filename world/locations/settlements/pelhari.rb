@@ -53,3 +53,10 @@ installation :pelhari do
     The sky turns. The terraces light and dim. The work continues.
   PROSE
 end
+
+relate :rel_pelhari_orbits_vastine, :orbits, :pelhari, :vastine do
+  prose "Pelhari orbits #{ref :vastine, "Vastine"}, far enough out that its independence was never really in question."
+end
+relate :rel_pelhari_terminus_span_nine, :terminus_of, :pelhari, :span_nine do
+  prose "It holds the midpoint of #{ref :span_nine, "Span Nine"}, the relay that keeps the old conduit's signal coherent across the gap."
+end

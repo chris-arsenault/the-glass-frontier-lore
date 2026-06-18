@@ -55,3 +55,10 @@ concept :ratters do
     The subculture is not romantic about itself. Ratters die in the Shear at rates that surface people do not believe when told. The work is hard, the margins are thin, and the long-rat structure is fragile under stress. But the structure has held. The debts get paid. The distress calls get answered. The next generation of skiff captains is already learning the cant.
   PROSE
 end
+
+relate :rel_ratters_operates_the_shear, :operates_in, :ratters, :the_shear, since: 2320 do
+  prose "Ratters work the #{ref :the_shear, "Shear"} — independent salvage crews, no corporation behind them, taking the risks for the whole take."
+end
+relate :rel_ratters_operates_deep_shear, :operates_in, :ratters, :deep_shear, since: 2320 do
+  prose "The boldest push into the #{ref :deep_shear, "deep Shear"}, where the grade is highest, the charts run out, and #{ref :coremark, "Coremark"} territory is best avoided."
+end

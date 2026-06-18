@@ -72,3 +72,10 @@ concept :tuners do
     - The Dissident's fate is undefined. They could be dead, hidden, or — given elven lifespans — still alive somewhere.
   PROSE
 end
+
+relate :rel_tuners_emerged_during_signal_famine, :emerged_during, :tuners, :signal_famine do
+  prose "Tuners emerged during the #{ref :signal_famine, "Signal Famine"}, when isolated communities relearned by hand what the ring-era systems had once automated."
+end
+relate :rel_tuners_practiced_with_resonant_instruments, :practiced_by, :tuners, :resonant_instruments, since: 2260 do
+  prose "Much of the craft is carried in #{ref :resonant_instruments, "resonant instruments"} — the tuned tools through which a Tuner learns to feel and shape resonance."
+end

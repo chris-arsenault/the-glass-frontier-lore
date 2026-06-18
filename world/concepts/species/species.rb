@@ -25,3 +25,10 @@ species :species do
     | *Open* | — | — | slot | — |
   PROSE
 end
+
+relate :rel_species_extends_humans, :extends, :species, :humans do
+  prose "#{ref :humans, "Humans"} are one of the system's peoples catalogued here — the largest population, with a neutral relationship to resonance."
+end
+relate :rel_species_extends_elves, :extends, :species, :elves do
+  prose "The #{ref :elves, "elves"} are another — the founding species, vanished, and still the largest gap in the record."
+end

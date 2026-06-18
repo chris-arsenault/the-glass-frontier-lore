@@ -33,3 +33,7 @@ concept :prominence do
     The practical effect is that most people's knowledge has hard boundaries. Mythic concepts are shared context across the entire system. Everything below that is progressively more local, more specialized, more dependent on having been in the right place or the right trade. Two people from opposite ends of the system can discuss the Glassfall. They probably can't discuss each other's neighborhoods.
   PROSE
 end
+
+relate :rel_prominence_depends_on_resonance, :depends_on, :prominence, :resonance do
+  prose "Even how far a name travels is, in this system, a #{ref :resonance, "resonance"} matter: word moves along the same crystal-bound channels everything else does, and fades the same way with distance."
+end

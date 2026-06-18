@@ -28,3 +28,10 @@ geographic_location :bloom_zones do
     Why is the Bloom there? Why not anywhere else? Those who look closely are deeply concerned. Most people either don't believe it or don't care. The connection is one of the system's open questions with no satisfying answer.
   PROSE
 end
+
+relate :rel_bloom_zones_in_orbit_of_kaleidos, :in_orbit_of, :bloom_zones, :kaleidos do
+  prose "The Bloom Zones sit in #{ref :kaleidos, "Kaleidos"}'s orbit, clustered across the mid-drift ring fragments where the cascade first took hold."
+end
+relate :rel_bloom_zones_in_orbit_of_the_fracture, :in_orbit_of, :bloom_zones, :the_fracture do
+  prose "Their outer edge reaches toward #{ref :the_fracture, "the Fracture"}, where the distortion is worst and the cordons thinnest."
+end

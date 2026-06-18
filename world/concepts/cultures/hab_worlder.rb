@@ -32,3 +32,13 @@ culture :hab_worlder do
     The one context where the label carries unambiguous weight is the Bloom displacement. Hab-Worlders who lost their habs during the Silent Bloom share a specific subset of the identity: people who know what it means to lose a sealed environment. The Displacement Council draws heavily from this population, and the phrase "I'm Hab-Worlder" carries a different resonance when spoken by someone whose hab no longer exists.
   PROSE
 end
+
+relate :rel_hab_worlder_originated_in_tgf, :originated_in, :hab_worlder, :the_glass_frontier do
+  prose "Hab-worlder culture was born in the #{ref :the_glass_frontier, "Glass Frontier"} — sixty years of sealed, self-sufficient habs each becoming its own small world."
+end
+relate :rel_hab_worlder_manifests_at_tgf, :manifests_at, :hab_worlder, :the_glass_frontier do
+  prose "It is still strongest there, in the ring fragments where being from a hab means something specific about who you trust and how you live."
+end
+relate :rel_hab_worlder_depends_on_shuttered_habs, :depends_on, :hab_worlder, :shuttered_habs do
+  prose "Its sharpest expression survives in the #{ref :shuttered_habs, "shuttered habs"} — the fragments that refused reconnection and kept their isolation on purpose."
+end

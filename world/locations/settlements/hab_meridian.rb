@@ -64,3 +64,10 @@ installation :hab_meridian do
     The signal Aless Vorrith answered in 2305 is still played, daily, in the radio room she once worked in, by people whose grandparents knew her. The conversation is forty-three minutes long. Visitors who want to hear the whole thing have to schedule a slot. Most do.
   PROSE
 end
+
+relate :rel_hab_meridian_part_of_kaleidos_orbit, :part_of, :hab_meridian, :kaleidos_orbit do
+  prose "Hab Meridian rides #{ref :kaleidos_orbit, "Kaleidos orbit"}, one of the larger surviving fragments and an early, deliberate experiment in reconnection."
+end
+relate :rel_hab_meridian_cooperates_glasswake, :cooperates_with, :hab_meridian, :glasswake, since: 2305 do
+  prose "Its first formal tie was to #{ref :glasswake, "Glasswake"} — the embassy exchange that became a model for how a ring hab and a surface settlement could deal as equals."
+end

@@ -39,3 +39,10 @@ species :orcs do
     The lack of a cultural center combines with the species' natural conservatism to produce a recognizable pattern: orc communities, wherever they form, tend to become self-reinforcing. The traditions are maintained. The standards are upheld. New arrivals are welcomed if they meet those standards and quietly frozen out if they don't. This isn't hostility — orcs will tell you it's quality control, and they'll mean it — but the practical effect is that orc-majority communities are some of the most stable settlements in the system and some of the slowest to respond when stability stops being what's needed. An orc neighborhood in a city that's changing around it will be the last block to adapt and the first to wonder why nobody else values doing things properly anymore.
   PROSE
 end
+
+relate :rel_orcs_inhabit_tgf, :inhabits, :orcs, :the_glass_frontier, since: 2080 do
+  prose "Orcs have lived across the #{ref :the_glass_frontier, "Glass Frontier"} since the colony era, woven into ring society long before it broke."
+end
+relate :rel_orcs_attuned_ringglass, :practiced_by, :orcs, :ringglass, since: 2080 do
+  prose "They carry a marked affinity for #{ref :ringglass, "ringglass"} — a material resonance sense that makes good orc salvagers and better orc smiths."
+end

@@ -12,3 +12,10 @@ resource :microcavities do
     The cells are small — most are thumbnail-sized or smaller — and are traded in standardized racks. A full rack looks like a tray of tiny glass seeds, each one humming faintly if you hold it close enough to feel.
   PROSE
 end
+
+relate :rel_microcavities_derived_from_ringglass, :derived_from, :microcavities, :ringglass do
+  prose "Microcavities are worked #{ref :ringglass, "ringglass"} — crystal cut to hold a dense charge of resonance in a small, stable space."
+end
+relate :rel_microcavities_sourced_from_the_shear, :sourced_from, :microcavities, :the_shear do
+  prose "The grade that holds charge best comes out of the #{ref :the_shear, "Shear"}, which keeps the supply expensive and the salvage crews busy."
+end

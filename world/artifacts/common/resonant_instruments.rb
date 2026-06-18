@@ -23,3 +23,7 @@ resource :resonant_instruments do
     Resonant instruments are the closest thing the system has to pre-Glassfall resonance capability. The #{ref :elves, "elves"} worked resonance without ringglass as a matter of course — their entire civilization ran on direct resonance manipulation. Resonant players are rediscovering fragments of that capability through craft and practice rather than inherited knowledge. The instruments themselves are contemporary-made, imperfect, limited — but they prove that ringglass is a convenience, not a requirement. Resonance responds to anyone who can speak its language precisely enough.
   PROSE
 end
+
+relate :rel_resonant_instruments_depends_on_resonance, :depends_on, :resonant_instruments, :resonance do
+  prose "Resonant instruments are nothing without #{ref :resonance, "resonance"} — they are the tuned tools through which a practitioner feels and shapes it."
+end

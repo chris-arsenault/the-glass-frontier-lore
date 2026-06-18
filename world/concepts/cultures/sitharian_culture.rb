@@ -37,3 +37,10 @@ culture :sitharian_culture do
     Sithari who travel outside the capital region learn quickly that "I'm from the capital" can close as many doors as it opens. The smart ones learn to read the room. Those who don't adapt find their cultural prestige complicates rather than helps.
   PROSE
 end
+
+relate :rel_sitharian_originated_in_sithari, :originated_in, :sitharian_culture, :sithari do
+  prose "Sitharian culture is the culture of #{ref :sithari, "Sithari"} — the surface city whose habits became the system's idea of prestige."
+end
+relate :rel_sitharian_manifests_at_sithari, :manifests_at, :sitharian_culture, :sithari do
+  prose "It is densest in the city itself, where lineage, register, and standing are read in how a person speaks before they say anything."
+end

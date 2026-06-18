@@ -51,3 +51,7 @@ installation :thornvault do
     The work continues. The records grow. The river keeps surfacing. Thornvault keeps listening.
   PROSE
 end
+
+relate :rel_thornvault_located_in_sable_crescent, :located_in, :thornvault, :sable_crescent, since: 2308 do
+  prose "Thornvault sits within #{ref :sable_crescent, "Sable Crescent"} — the deep, defensible archive where the Conclave keeps what it least wants stolen, and twice has been."
+end

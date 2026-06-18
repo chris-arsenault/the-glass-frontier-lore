@@ -14,3 +14,10 @@ artifact :bloom_relics do
     **Named relics** exist — unique artifacts with individual reputations. A tome said to grant good fortune to its readers. A spear forged in dimensions that shouldn't coexist, capable of piercing any known material and extremely difficult to store safely. These circulate through legend, private collections, and occasionally the black market. Each one is a story.
   PROSE
 end
+
+relate :rel_bloom_relics_manifests_at_bloom_zones, :manifests_at, :bloom_relics, :bloom_zones do
+  prose "Bloom relics come out of the #{ref :bloom_zones, "Bloom Zones"} — artifacts the distorted reality there produces and nobody fully understands."
+end
+relate :rel_bloom_relics_derived_from_resonance, :derived_from, :bloom_relics, :resonance do
+  prose "They register as #{ref :resonance, "resonance"} artifacts of relic magnitude, behaving in ways standard ringglass theory says they shouldn't."
+end

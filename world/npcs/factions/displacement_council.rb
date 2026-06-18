@@ -30,3 +30,10 @@ faction :displacement_council do
     #{ref :dern_talish, "Dern Talish"} leads. Containment holds. The zones have not contracted.
   PROSE
 end
+
+relate :rel_dc_maintains_bloom_zones, :maintains, :displacement_council, :bloom_zones, since: 2384 do
+  prose "The Council's whole purpose is the #{ref :bloom_zones, "Bloom Zones"}: cordoning them, watching them, and holding the line that keeps the distortion from spreading."
+end
+relate :rel_dc_maintains_liras_wall, :maintains, :displacement_council, :liras_wall, since: 2384 do
+  prose "It maintains #{ref :liras_wall, "Lira's Wall"} — the containment system the cordons are built around — as its single most important piece of infrastructure."
+end

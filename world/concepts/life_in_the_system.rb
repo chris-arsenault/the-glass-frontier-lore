@@ -34,3 +34,10 @@ concept :life_in_the_system do
     This is not chaos. It's a civilization that has learned to build its systems with tolerance for the unexpected, because the alternative is building systems that break every time reality hiccups.
   PROSE
 end
+
+relate :rel_life_depends_on_resonance, :depends_on, :life_in_the_system, :resonance do
+  prose "Daily life across the system rests on #{ref :resonance, "resonance"}: it lights the lamps, warms the rooms, and moves the ships."
+end
+relate :rel_life_depends_on_ringglass, :depends_on, :life_in_the_system, :ringglass do
+  prose "And on #{ref :ringglass, "ringglass"}, the crystal that makes resonance usable — which is why salvage rights are a matter people kill over."
+end

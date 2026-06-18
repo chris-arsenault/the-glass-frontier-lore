@@ -27,3 +27,10 @@ faction :shear_compact do
     It is also, increasingly, tested. Ringglass demand is growing. The Compact's extraction limits slow supply. Someone is always making the argument that safety standards are too conservative — the same argument #{ref :coremark, "Coremark"} made before Pyre, in different words, from different mouths. "That's what they said about Pyre" still works as a response. It won't work forever.
   PROSE
 end
+
+relate :rel_shear_compact_regulates_the_shear, :regulates, :shear_compact, :the_shear, since: 2383 do
+  prose "The Compact exists to regulate the #{ref :the_shear, "Shear"} — charting working zones, certifying operators, and trying to make a lethal industry survivable."
+end
+relate :rel_shear_compact_regulates_ratters, :regulates, :shear_compact, :ratters, since: 2383 do
+  prose "That includes the #{ref :ratters, "ratters"}, the independent crews it would rather license than chase, with uneven success."
+end

@@ -22,3 +22,7 @@ artifact :liras_wall do
     Every buoy deployed is stillwater that isn't preserving history. The #{ref :displacement_council, "Displacement Council"} maintains the network. The Conclave supplies the stillwater. The tension between these two needs — containment and preservation — is one of the system's quietest and most consequential ongoing negotiations.
   PROSE
 end
+
+relate :rel_liras_wall_depends_on_stillwater, :depends_on, :liras_wall, :stillwater do
+  prose "Lira's Wall depends on #{ref :stillwater, "Stillwater"} — the deep-water resonance reservoir that gives the containment field something stable to anchor against."
+end

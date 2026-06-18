@@ -53,3 +53,7 @@ geographic_location :deep_shear do
     The Deep Shear is one of the most reliably dangerous places in the system. It is also the source of the most valuable salvage anyone trades. The two facts are inseparable. The hush continues. The pockets shift. The Deep-runners pass charts to apprentices. Coremark loses ships and replaces them. The Conclave waits for the next interesting fragment. Somewhere in the inner Deep, things that nobody has charted continue to be there.
   PROSE
 end
+
+relate :rel_deep_shear_part_of_the_shear, :part_of, :deep_shear, :the_shear do
+  prose "The deep Shear is the worst of the #{ref :the_shear, "Shear"} — the far, distorted, poorly charted pockets where the grade is highest and the dying easiest."
+end

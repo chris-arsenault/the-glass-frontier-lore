@@ -22,3 +22,10 @@ installation :pyre do
     The name is what Coremark crews called the facility. When the cascade hit and the refinery burned with pale resonance fire visible across the mid-drift, the name took on its other meaning. The name has carried both meanings since.
   PROSE
 end
+
+relate :rel_pyre_caused_the_silent_bloom, :caused, :pyre, :the_silent_bloom do
+  prose "Pyre is where it started: the refinery whose overload tipped the #{ref :the_silent_bloom, "Silent Bloom"} into cascade. Its name is a sentence now."
+end
+relate :rel_pyre_in_orbit_of_kaleidos, :in_orbit_of, :pyre, :kaleidos do
+  prose "What's left of it holds a dead orbit of #{ref :kaleidos, "Kaleidos"}, a wreck nobody salvages and nobody approaches."
+end

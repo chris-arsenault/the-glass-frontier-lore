@@ -296,3 +296,10 @@ culture :naming_conventions do
     | *Syndicate* | TBD | Code names? Earned names like orc mononyms but darker? |
   PROSE
 end
+
+relate :rel_naming_extends_sitharian, :extends, :naming_conventions, :sitharian_culture do
+  prose "#{ref :sitharian_culture, "Sitharian"} naming is the most formal register documented here, all lineage and standing."
+end
+relate :rel_naming_extends_hab_worlder, :extends, :naming_conventions, :hab_worlder do
+  prose "#{ref :hab_worlder, "Hab-worlder"} naming is the counterweight — practical, hab-rooted, and indifferent to surface prestige."
+end

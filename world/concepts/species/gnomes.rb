@@ -39,3 +39,7 @@ species :gnomes do
     Gnomish communities exist, particularly in settlements built around major ringglass processing operations, but gnomes don't have a species-level homeland. Like most species in the system, their primary identity is cultural.
   PROSE
 end
+
+relate :rel_gnomes_attuned_to_resonance, :attuned_to, :gnomes, :resonance do
+  prose "Gnomes are attuned to #{ref :resonance, "resonance"} by design — part ringglass themselves, they read and work it with an ease no other species matches."
+end

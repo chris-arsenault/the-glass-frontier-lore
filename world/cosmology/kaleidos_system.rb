@@ -78,3 +78,7 @@ geographic_location :kaleidos_system do
     The system is compressed enough that no destination is truly remote — just inconvenient. Lithren is the farthest, and even that is a week's journey, not a season's.
   PROSE
 end
+
+relate :rel_kaleidos_system_depends_on_resonance, :depends_on, :kaleidos_system, :resonance do
+  prose "Everything in the system runs on #{ref :resonance, "resonance"} — the ambient energy that permeates every body in it, from the surface to the outer worlds."
+end

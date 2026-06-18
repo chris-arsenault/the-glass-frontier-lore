@@ -54,3 +54,10 @@ installation :threshold_station do
     Threshold is not a peaceful place. It is a calm one. The work is steady; the seals hold; the proxies keep talking to whatever they talk to; the corridors stay quiet in their particular way. The arrangement is older than the people running it. Most weeks, nothing happens that the station's residents would describe as interesting. They prefer it that way, and so does everyone else.
   PROSE
 end
+
+relate :rel_threshold_in_orbit_of_kaleidos, :in_orbit_of, :threshold_station, :kaleidos do
+  prose "Threshold Station holds an orbit of #{ref :kaleidos, "Kaleidos"}, a ring-era installation that outlived its builders and most of their intentions."
+end
+relate :rel_threshold_terminus_span_nine, :terminus_of, :threshold_station, :span_nine do
+  prose "It anchors the far end of #{ref :span_nine, "Span Nine"}, the one length of pre-Glassfall hardline still carrying signal."
+end

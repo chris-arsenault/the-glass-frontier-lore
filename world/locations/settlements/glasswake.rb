@@ -27,3 +27,10 @@ installation :glasswake do
     A surface-access spur connects Glasswake to #{ref :keel, "the Keel"}, the system's primary orbital trade lane. This makes the town a minor waypoint — not a hub, but a place where kites descending from the Keel stop and crews resupply.
   PROSE
 end
+
+relate :rel_glasswake_on_surface_kaleidos, :on_surface_of, :glasswake, :kaleidos do
+  prose "Glasswake sits on the surface of #{ref :kaleidos, "Kaleidos"} — one of the two settlements that first reconnected when the long silence broke."
+end
+relate :rel_glasswake_located_in_kaleidos, :located_in, :glasswake, :kaleidos, since: 2160 do
+  prose "It has held its stretch of coast since the early Famine, a surface town that kept its lights on through the worst of the isolation."
+end
