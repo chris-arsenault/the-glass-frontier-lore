@@ -61,3 +61,16 @@ end
 relate :rel_bloom_coalition_caused_the_bitter_reach, :caused, :bloom_coalition, :the_bitter_reach do
   prose "When the Coalition finally dissolved, the disputes it had frozen came back sharper than before — the #{ref :the_bitter_reach, "Bitter Reach"}, the betrayal of a cooperation people had briefly believed in."
 end
+
+# --- lifecycle (queryable `standing`; the detailed account is in the sections above) ---
+moment :bloom_coalition_formed, year: 2380, of: :bloom_coalition do
+  prose "By 2380 the factions improvising against the Bloom agreed the response needed one head. A five-page charter, signed at an unrecorded meeting in #{ref :sithari, "Sithari"}, stood the Coalition up as a unified command — with a dissolution clause built in from the first day."
+  effects { set :bloom_coalition, standing: :active }
+end
+moment :bloom_coalition_hands_off_cordons, year: 2384, of: :bloom_coalition do
+  prose "In 2384 it handed the physical cordons to the new #{ref :displacement_council, "Displacement Council"}, keeping only the cross-faction coordination — the politics of holding cooperation together while the system drifted back toward fighting."
+end
+moment :bloom_coalition_dissolved, year: 2396, of: :bloom_coalition do
+  prose "It dissolved on schedule in 2396 — not bitterly, just spent. The Council had absorbed the work; the coordination role had decayed into formalities. The Hand of the Coalition title was retired, and the protocols waited twenty-seven years for the #{ref :tempered_accord, "Tempered Accord"} to borrow them."
+  effects { set :bloom_coalition, standing: :dissolved }
+end
