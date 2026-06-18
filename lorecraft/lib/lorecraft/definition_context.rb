@@ -5,7 +5,7 @@ require_relative "markers"
 module Lorecraft
   # The object every world file is evaluated against. It exposes the top-level
   # DSL — `schema`, `timeline`, the entity-kind constructors (`faction`,
-  # `location`, ...), `event`, `genesis`, and `relate` — and forwards each to
+  # `location`, ...), `moment`, `genesis`, and `relate` — and forwards each to
   # the World registry.
   class DefinitionContext
     def initialize(world)
@@ -19,7 +19,7 @@ module Lorecraft
       # on this context so they route through method_missing to define_entity.
       @world.schema.kinds.each_key do |kind|
         next unless self.class.method_defined?(kind) || self.class.private_method_defined?(kind)
-        next if %i[schema timeline genesis event relate].include?(kind)
+        next if %i[schema timeline genesis moment relate].include?(kind)
 
         self.class.send(:undef_method, kind)
       end
@@ -29,14 +29,16 @@ module Lorecraft
       @world.timeline.instance_eval(&block)
     end
 
-    # `genesis :id, at: { era:, year: }` — bootstrap standing facts.
-    def genesis(id, at:, dm: false, &block)
-      @world.define_event(id: id, at: at, genesis: true, dm: dm, &block)
+    # `genesis :id, year: N` (or `at:`) — bootstrap standing facts.
+    def genesis(id, year: nil, at: nil, dm: false, &block)
+      @world.define_moment(id: id, at: (at || year), genesis: true, dm: dm, &block)
     end
 
-    # `event :id, at:/span:, type: :war` — a narrative event with effects.
-    def event(id, at: nil, span: nil, type: :incident, dm: false, seq: nil, &block)
-      @world.define_event(id: id, at: at, span: span, kind: type, dm: dm, seq: seq, &block)
+    # `moment :id, year: N, of: :entity do prose; effects end` — a thing that
+    # happens to an entity in a given year. `of:` is the entity whose page the
+    # prose renders on; `span:` for things that run over a range of years.
+    def moment(id, year: nil, at: nil, span: nil, of: nil, type: :incident, dm: false, seq: nil, &block)
+      @world.define_moment(id: id, at: (at || year), span: span, of: of, kind: type, dm: dm, seq: seq, &block)
     end
 
     # `page :id, title:, wiki:` — an authored standalone wiki page (not an entity).
@@ -68,42 +70,42 @@ module Lorecraft
     end
   end
 
-  # The body of an `event`/`genesis` block.
-  class EventBuilder
+  # The body of an `moment`/`genesis` block.
+  class MomentBuilder
     include Markers
 
-    def initialize(event, world)
-      @event = event
+    def initialize(moment, world)
+      @moment = moment
       @world = world
     end
 
-    def title(value) = @event.static_attr(:title, value)
+    def title(value) = @moment.static_attr(:title, value)
     alias name title
-    def tags(*values) = @event.static_attr(:tags, values.flatten.map(&:to_sym))
-    def prominence(value) = @event.static_attr(:prominence, value.to_sym)
-    def actor(id) = @event.static_attr(:actor, id.to_sym)
-    def participants(*ids) = @event.static_attr(:participants, ids.flatten.map(&:to_sym))
-    def outcome(subject, result) = @event.static_attr(:outcome, [subject.to_sym, result.to_sym])
+    def tags(*values) = @moment.static_attr(:tags, values.flatten.map(&:to_sym))
+    def prominence(value) = @moment.static_attr(:prominence, value.to_sym)
+    def actor(id) = @moment.static_attr(:actor, id.to_sym)
+    def participants(*ids) = @moment.static_attr(:participants, ids.flatten.map(&:to_sym))
+    def outcome(subject, result) = @moment.static_attr(:outcome, [subject.to_sym, result.to_sym])
 
     def prose(text, section: :main, heading: nil, at: nil, dm: false)
-      @event.add_prose(text, section: section, heading: heading, at: at, dm: dm)
+      @moment.add_prose(text, section: section, heading: heading, at: at, dm: dm)
     end
 
-    def effects(&block) = EffectsBuilder.new(@event, @world).instance_eval(&block)
+    def effects(&block) = EffectsBuilder.new(@moment, @world).instance_eval(&block)
 
     def method_missing(name, *args)
       return super if args.empty?
-      @event.static_attr(name, args.size == 1 ? args.first : args)
+      @moment.static_attr(name, args.size == 1 ? args.first : args)
     end
 
     def respond_to_missing?(*) = true
   end
 
   # The body of an `effects do … end` block. Each verb appends Effect records to
-  # the owning event; the Resolver applies them in tick order.
+  # the owning moment; the Resolver applies them in year order.
   class EffectsBuilder
-    def initialize(event, world)
-      @event = event
+    def initialize(moment, world)
+      @moment = moment
       @world = world
     end
 
@@ -137,7 +139,7 @@ module Lorecraft
     private
 
     def add(verb, **kw)
-      @event.add_effect(Effect.new(verb: verb, **kw))
+      @moment.add_effect(Effect.new(verb: verb, **kw))
     end
   end
 end

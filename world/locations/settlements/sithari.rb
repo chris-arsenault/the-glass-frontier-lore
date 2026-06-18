@@ -58,3 +58,19 @@ installation :sithari do
     Everyone speaks Sitharian. Everyone who doesn't learns to. The register is precise, measured, and carries an assumption of competence that can feel like warmth or condescension depending on which end of it you're on.
   PROSE
 end
+
+relate :rel_sithari_on_surface_of_kaleidos, :on_surface_of, :sithari, :kaleidos do
+  prose "Sithari sits on the surface of #{ref :kaleidos, "Kaleidos"} — the largest planetside settlement and the system's prestige register."
+end
+relate :rel_sithari_depends_on_ringglass, :depends_on, :sithari, :ringglass do
+  prose "Its wealth runs on #{ref :ringglass, "ringglass"}: Sithari is where Shear salvage is graded, financed, and turned into respectable money."
+end
+relate :rel_sithari_depends_on_resonance, :depends_on, :sithari, :resonance do
+  prose "Like every major settlement it runs on #{ref :resonance, "resonance"} — but Sithari runs on more of it, and more conspicuously, than anywhere else."
+end
+relate :rel_sithari_hosts_tempered_accord, :hosts, :sithari, :tempered_accord, since: 2423 do
+  prose "Since the Accord's founding it has hosted the #{ref :tempered_accord, "Tempered Accord"}'s standing offices — a convenience the city wields and resents in equal measure."
+end
+relate :rel_sithari_terminus_keel, :terminus_of, :sithari, :keel do
+  prose "It is the surface terminus of #{ref :keel, "the Keel"}, where the orbital trade lane finally touches ground."
+end

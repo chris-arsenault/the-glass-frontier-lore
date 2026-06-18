@@ -5,7 +5,7 @@ require_relative "markers"
 module Lorecraft
   # A node in the world: a stable symbol id, a kind, static attributes, owned
   # prose, and (resolved on demand) dynamic state. Dynamic state is never stored
-  # here — it is the fold of events, computed by the Resolver. The entity only
+  # here — it is the fold of moments, computed by the Resolver. The entity only
   # holds what is constant: who it is, not what has happened to it.
   class Entity
     attr_reader :id, :kind, :static_attrs, :prose_blocks, :derives, :source_file
@@ -84,7 +84,7 @@ module Lorecraft
       def prose(text, section: :main, heading: nil, at: nil, dm: false)
         @entity.prose_blocks << ProseBlock.new(
           text: text, section: section.to_sym, heading: heading,
-          at_tick: at && @world.timeline.tick_for(at),
+          at_year: at && @world.timeline.year_for(at),
           dm: dm, order: (@prose_order += 1)
         )
       end

@@ -58,3 +58,16 @@ faction :clarisant do
     None of this is yet a crisis. The Clarisant's institutional posture has always been that the work is the answer to the questions about the work. They keep training. They keep certifying. They keep showing up.
   PROSE
 end
+
+relate :rel_clarisant_trains_tuners, :trains, :clarisant, :tuners, since: 2310 do
+  prose "The Clarisant trains and certifies #{ref :tuners, "Tuners"} — a medical-board-style guild that gatekeeps in the name of public safety rather than dogma."
+end
+relate :rel_clarisant_hq_pelhari, :headquartered_in, :clarisant, :pelhari, since: 2310 do
+  prose "It is headquartered at #{ref :pelhari, "Pelhari"}, from which its satellite offices reach as far as the routes allow."
+end
+relate :rel_clarisant_on_surface_pelhari, :on_surface_of, :clarisant, :pelhari do
+  prose "Its central halls sit on the surface at Pelhari, deliberately unthreatening for an institution that decides who may safely touch resonance."
+end
+relate :rel_clarisant_cooperates_displacement_council, :cooperates_with, :clarisant, :displacement_council, since: 2384 do
+  prose "It lends certified Tuners to the #{ref :displacement_council, "Displacement Council"} for containment work, under strict exposure limits the Council is glad to honour."
+end

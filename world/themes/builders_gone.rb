@@ -42,3 +42,13 @@ theme :builders_gone do
     The theme is present when an entry shows someone building from inheritance they didn't choose — and the tension between recovering what was lost and inventing what comes next is visible. Entries that only show loss are incomplete. Entries that only show innovation ignore the cost. The theme lives in the friction between both.
   PROSE
 end
+
+relate :rel_builders_gone_embodies_glassfall, :embodies, :builders_gone, :the_glassfall do
+  prose "The theme begins with the #{ref :the_glassfall, "Glassfall"}: the builders' greatest work outlives the builders, and breaks, and nobody left understands why."
+end
+relate :rel_builders_gone_embodies_tuners, :embodies, :builders_gone, :tuners do
+  prose "The #{ref :tuners, "Tuners"} are its other face — people who reinvented resonance practice from fragments, sometimes bettering the original science precisely because they didn't inherit it."
+end
+relate :rel_builders_gone_embodies_liras_wall, :embodies, :builders_gone, :liras_wall do
+  prose "#{ref :liras_wall, "Lira's Wall"} embodies the hopeful side: new builders, building from inheritance they didn't choose, making something the originals never imagined."
+end

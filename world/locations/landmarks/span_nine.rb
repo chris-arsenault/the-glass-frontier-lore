@@ -26,3 +26,13 @@ installation :span_nine do
     The Span is also a reminder. Whoever built it — and the engineering is consistent with #{ref :elves, "elven"} work, though no surviving record credits them specifically — operated at a level of capability that the current civilization cannot approach. The filament has survived the Glassfall, two centuries of orbital debris, and every attempt to study it, and it continues to function perfectly. It is the most visible evidence that the Ring Age produced things nobody alive knows how to make.
   PROSE
 end
+
+relate :rel_span_nine_in_sithari, :located_in, :span_nine, :sithari, since: 2305 do
+  prose "Span Nine grounds at #{ref :sithari, "Sithari"}, one of the three nodes its pre-Glassfall hardline still binds together."
+end
+relate :rel_span_nine_in_pelhari, :located_in, :span_nine, :pelhari, since: 2305 do
+  prose "Its midpoint passes through #{ref :pelhari, "Pelhari"}, the relay that keeps the old conduit's signal coherent across the gap."
+end
+relate :rel_span_nine_in_threshold_station, :located_in, :span_nine, :threshold_station, since: 2305 do
+  prose "Its far end terminates at #{ref :threshold_station, "Threshold Station"}, completing the only intact length of ring-era hardline anyone has managed to bring back into service."
+end

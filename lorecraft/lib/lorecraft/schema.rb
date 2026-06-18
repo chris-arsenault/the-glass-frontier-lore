@@ -2,7 +2,7 @@
 
 module Lorecraft
   # The compiler authority. Declares what kinds of entity exist, what relation
-  # types are legal (and their rules), which effect verbs events may use, and
+  # types are legal (and their rules), which effect verbs moments may use, and
   # the controlled vocabularies the repository enforces (tags, section headings,
   # prominence levels). Every declaration and every effect is validated against
   # this.
@@ -13,7 +13,7 @@ module Lorecraft
       keyword_init: true
     )
 
-    # Static attributes are declared on an entity and never touched by event
+    # Static attributes are declared on an entity and never touched by moment
     # effects. Dynamic state is the opposite: only ever changed by effects.
     # These are the known static attribute names; an effect targeting one is a
     # compile error (spec §8.3). Everything else an effect sets is dynamic.

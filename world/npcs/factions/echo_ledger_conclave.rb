@@ -82,3 +82,19 @@ faction :echo_ledger_conclave do
     #{ref :lira_vashtenri, "Lira Vashtenri"} left the Conclave to join the #{ref :displacement_council, "Displacement Council"}, taking her resonance expertise with her. The Conclave considers this a personal betrayal dressed up as public service. Lira considers it the most useful thing she's ever done. They are both correct.
   PROSE
 end
+
+relate :rel_elc_studies_echo_rivers, :studies, :echo_ledger_conclave, :echo_rivers, since: 2310 do
+  prose "The Conclave exists to read the #{ref :echo_rivers, "Echo Rivers"} — cataloguing the pre-Glassfall fragments that surface in deep crystal, and the conspicuous gaps where something was scrubbed out."
+end
+relate :rel_elc_hq_sable_crescent, :headquartered_in, :echo_ledger_conclave, :sable_crescent, since: 2310 do
+  prose "Its principal seat is in #{ref :sable_crescent, "Sable Crescent"}, where the largest river surfacing points are."
+end
+relate :rel_elc_hq_thornvault, :headquartered_in, :echo_ledger_conclave, :thornvault, since: 2310 do
+  prose "Its archives proper sit deeper, at #{ref :thornvault, "Thornvault"} — the vault from which its most sensitive elf-related material has twice been stolen, both thefts unsolved."
+end
+relate :rel_elc_supplies_stillwater, :supplies, :echo_ledger_conclave, :stillwater, since: 2313 do
+  prose "It feeds recovered records to #{ref :stillwater, "Stillwater"}, the preservation effort that keeps what the rivers give up from decaying a second time."
+end
+relate :rel_elc_member_of_bloom_coalition, :member_of, :echo_ledger_conclave, :bloom_coalition, since: 2380, till: 2396 do
+  prose "Through the Bloom emergency it sat in the #{ref :bloom_coalition, "Bloom Coalition"}, lending archival and analytical weight until the coalition dissolved."
+end

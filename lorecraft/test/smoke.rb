@@ -25,7 +25,7 @@ world = Lorecraft.define do
     era :the_drift,        starts: 0, length: 100
     era :the_long_quiet,   length: 60
     era :the_reconnection, length: 40
-    now era: :the_reconnection, year: 14   # tick 174
+    now era: :the_reconnection, year: 14   # year 174
   end
 
   concept :glassreach do
@@ -66,7 +66,7 @@ world = Lorecraft.define do
     end
   end
 
-  event :seizure_of_glasswright_quarter, at: { era: :the_long_quiet, year: 9 }, type: :incident do
+  moment :seizure_of_glasswright_quarter, at: { era: :the_long_quiet, year: 9 }, type: :incident do
     actor :sable_concord
     prose "The siege lasted forty days; the Quarter answered to the Concord."
     effects do
@@ -87,13 +87,13 @@ def check(label)
 end
 
 # Tick math
-check("tick: drift y12 == 12") { world.timeline.tick_for(era: :the_drift, year: 12) == 12 }
-check("tick: long_quiet y9 == 109") { world.timeline.tick_for(era: :the_long_quiet, year: 9) == 109 }
-check("tick: now == 174") { world.timeline.tick_for(:now) == 174 }
+check("year: drift y12 == 12") { world.timeline.year_for(era: :the_drift, year: 12) == 12 }
+check("year: long_quiet y9 == 109") { world.timeline.year_for(era: :the_long_quiet, year: 9) == 109 }
+check("year: now == 174") { world.timeline.year_for(:now) == 174 }
 
 # Temporal fold / state-at-T
-check("controls empty before settlement (tick 0)") { world.at(0).out(:sable_concord, :controls).empty? }
-check("controls ashfall after settlement (tick 12)") { world.at(12).out(:sable_concord, :controls) == [:ashfall_reach] }
+check("controls empty before settlement (year 0)") { world.at(0).out(:sable_concord, :controls).empty? }
+check("controls ashfall after settlement (year 12)") { world.at(12).out(:sable_concord, :controls) == [:ashfall_reach] }
 check("controls both after seizure (now)") do
   world.at(:now).out(:sable_concord, :controls).sort == %i[ashfall_reach glasswright_quarter]
 end
@@ -129,7 +129,7 @@ graph = JSON.parse(Lorecraft::Render::Graph.new(world).render)
 check("graph has 6 nodes") { graph["nodes"].size == 6 }
 controls_edges = graph["edges"].select { |e| e["rel"] == "controls" }
 check("graph has 2 controls edges") { controls_edges.size == 2 }
-check("graph ashfall edge opens at tick 12") { controls_edges.any? { |e| e["tgt"] == "ashfall_reach" && e["from"] == 12 } }
+check("graph ashfall edge opens at year 12") { controls_edges.any? { |e| e["tgt"] == "ashfall_reach" && e["from"] == 12 } }
 
 # Timeline strip
 strip = Lorecraft::Render::Timeline.new(world).render(entity: :glasswright_quarter)

@@ -59,3 +59,19 @@ concept :the_false_form do
     This entry supersedes the prior "The Adversary" placeholder. The Adversary and the False Form are the same thing: the figure that will not close, given will. References elsewhere in the hidden material that point to *the Adversary* mean this.
   PROSE
 end
+
+relate :rel_the_false_form_part_of_the_three_forms, :part_of, :the_false_form, :the_three_forms do
+  prose "It is the impossible third figure of the #{ref :the_three_forms, "Three Forms"} — the one the triptych draws and then disowns."
+end
+relate :rel_the_false_form_destroyed_the_glass_frontier, :destroyed, :the_false_form, :the_glass_frontier, dm: true do
+  prose "It was the False Form, not any internal sabotage, that broke the ring into the #{ref :the_glass_frontier, "Glass Frontier"}."
+end
+relate :rel_the_false_form_caused_the_glassfall, :caused, :the_false_form, :the_glassfall, dm: true do
+  prose "The #{ref :the_glassfall, "Glassfall"} was its work — the moment a geometry that should not exist pressed hard enough on the system to shatter its grandest structure."
+end
+relate :rel_the_false_form_caused_disappearance_of_the_elves, :caused, :the_false_form, :disappearance_of_the_elves, dm: true do
+  prose "And it is why the elves are gone: a threat you cannot fight by being a visible target is a threat you disappear from."
+end
+relate :rel_the_false_form_seeping_through_bloom_zones, :seeping_through, :the_false_form, :bloom_zones, dm: true do
+  prose "Its influence leaks back in through the #{ref :bloom_zones, "Bloom Zones"} — pressure through a crack, the open figure showing through where reality can no longer close."
+end

@@ -85,7 +85,7 @@ module Lorecraft
     end
 
     def check_stale_futures
-      (pages + @world.events.values).each do |owner|
+      (pages + @world.moments.values).each do |owner|
         owner.prose_blocks.each do |b|
           Markers.scan(b.text) do |_m, bind|
             next unless bind[:kind] == :future
@@ -158,7 +158,7 @@ module Lorecraft
 
     # ref(path:) targets a non-entity file — confirm it exists on disk.
     def check_path_refs_exist
-      (pages + @world.events.values).each do |owner|
+      (pages + @world.moments.values).each do |owner|
         owner.prose_blocks.each do |b|
           Markers.scan(b.text) do |_m, bind|
             next unless bind[:kind] == :ref && bind[:path]

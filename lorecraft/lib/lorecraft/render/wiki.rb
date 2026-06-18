@@ -27,18 +27,18 @@ module Lorecraft
       end
 
       def render(out:, at: :now, **)
-        tick = @world.timeline.tick_for(at)
+        year = @world.timeline.year_for(at)
         dir = Pathname.new(out)
         FileUtils.rm_rf(dir)
         dir.mkpath
         written = []
         write = lambda { |name, body| (dir + name).write(body); written << name }
 
-        public_entities.each { |n| write.call(wiki_filename(n.title), content_page(n, tick)) }
+        public_entities.each { |n| write.call(wiki_filename(n.title), content_page(n, year)) }
         @world.authored_pages.each_value do |p|
           next unless %i[all player].include?(p.audience)
 
-          write.call("#{p.wiki_name}.md", authored_page(p, tick))
+          write.call("#{p.wiki_name}.md", authored_page(p, year))
         end
         write.call("Tags.md", tags_page)
         write.call("Timeline.md", timeline_page)
@@ -70,15 +70,15 @@ module Lorecraft
       end
 
       # Resolve ref/rel/future bindings in prose directly to GitHub wiki links.
-      def wikitext(text, subject, tick)
+      def wikitext(text, subject, year)
         out = text.dup
         Markers.scan(text) do |match, b|
-          out = out.sub(match, binding_to_wiki(b, subject, tick))
+          out = out.sub(match, binding_to_wiki(b, subject, year))
         end
         out
       end
 
-      def binding_to_wiki(b, subject, tick)
+      def binding_to_wiki(b, subject, year)
         case b[:kind]
         when :future
           "*#{b[:name]}* *(stub)*"
@@ -90,29 +90,41 @@ module Lorecraft
             b[:text] || b[:id]&.to_s || b[:path] || "" # DM / shell / non-entity → plain text
           end
         when :rel
-          @world.at(tick).out(subject, b[:verb]).filter_map do |t|
+          @world.at(year).out(subject, b[:verb]).filter_map do |t|
             n = @world[t]
             "[[#{n.title}]]" if wiki_visible?(n)
           end.join(", ")
         end
       end
 
-      def content_page(node, tick)
+      def content_page(node, year)
         body = +""
         node.prose_blocks.each do |b|
-          next if b.dm? || !b.visible_at?(tick, audience: :player)
+          next if b.dm? || !b.visible_at?(year, audience: :player)
 
           body << "## #{b.heading}\n\n" if b.section != :main && b.heading
-          body << wikitext(b.text, node.id, tick).strip << "\n\n"
+          body << wikitext(b.text, node.id, year).strip << "\n\n"
         end
+        # An entity's history (moments, oldest first) and connections
+        # (relationships) render as further plain paragraphs on its page.
+        connection_paragraphs(node, year).each { |para| body << para << "\n\n" }
         metadata_box(node) + body.strip + "\n"
       end
 
-      def authored_page(page, tick)
+      # Prose paragraphs from this entity's moments + relationships (player
+      # audience: DM moments/relationships and DM prose blocks excluded).
+      def connection_paragraphs(node, year)
+        owners = moments_for(node.id) + relationships_for(node.id)
+        owners.reject(&:dm?).flat_map do |owner|
+          owner.prose_blocks.reject(&:dm?).map { |b| wikitext(b.text, node.id, year).strip }
+        end.reject(&:empty?)
+      end
+
+      def authored_page(page, year)
         body = +""
         page.prose_blocks.each do |b|
           body << "## #{b[:heading]}\n\n" if b[:heading]
-          body << wikitext(b[:text], page.id, tick).strip << "\n\n"
+          body << wikitext(b[:text], page.id, year).strip << "\n\n"
         end
         body.strip + "\n"
       end

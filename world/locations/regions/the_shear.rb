@@ -59,3 +59,16 @@ geographic_location :the_shear do
     A Bloom Zone appearing next to a stable ring hab in clean space is the nightmare scenario — and it has happened. The Shear is where you expect problems. Bloom Zones are where problems show up uninvited.
   PROSE
 end
+
+relate :rel_shear_in_orbit_of_kaleidos, :in_orbit_of, :the_shear, :kaleidos do
+  prose "The Shear hangs in #{ref :kaleidos, "Kaleidos"}'s orbit, a turbulent band of wreckage and distorted resonance riding the same lanes the ring once occupied."
+end
+relate :rel_shear_part_of_kaleidos_orbit, :part_of, :the_shear, :kaleidos_orbit do
+  prose "It is the most dangerous stretch of #{ref :kaleidos_orbit, "Kaleidos orbit"} — the churning debris field where atmosphere gives way to open space."
+end
+relate :rel_shear_caused_coremark, :caused, :the_shear, :coremark do
+  prose "The Shear's lethal, ringglass-rich deep pockets are what made #{ref :coremark, "Coremark"} possible — a company built entirely on going where the salvage was richest and the dying easiest."
+end
+relate :rel_shear_caused_ratters, :caused, :the_shear, :ratters do
+  prose "It also bred the #{ref :ratters, "ratters"}: the independent crews who work the Shear without a corporation's backing, and a whole scavenger subculture with them."
+end

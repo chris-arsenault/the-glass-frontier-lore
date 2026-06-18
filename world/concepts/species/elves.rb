@@ -142,3 +142,22 @@ species :elves do
     - The Bloom Zone relics are a wild card. They're created by contact between normal reality and the Adversary's influence. Are they weapons? Tools? Side effects? The elves don't fully understand them either, and Coremark is smuggling them into the broader system.
   PROSE
 end
+
+relate :rel_elves_built_the_glass_frontier, :built, :elves, :the_glass_frontier do
+  prose "The elves built the orbital ring that became the #{ref :the_glass_frontier, "Glass Frontier"} — a generational megastructure project, and the single fact about them no Redaction could erase."
+end
+relate :rel_elves_designed_resonance, :designed, :elves, :resonance do
+  prose "The science of #{ref :resonance, "resonance"} was theirs: the frequency architecture, the tuned-crystal lattice, the whole system that made the ring function as one machine. What modern practitioners use is a simplified inheritance of elven originals."
+end
+relate :rel_elves_created_gnomes, :created, :elves, :gnomes do
+  prose "The #{ref :gnomes, "gnomes"} are an elven creation — engineered, part ringglass, born to attune to resonance in ways no other species manages naturally."
+end
+relate :rel_elves_disappeared_during_signal_famine, :disappeared_during, :elves, :signal_famine do
+  prose "They vanished across the Signal Famine, the sixty-year silence that gave a deliberate disappearance the cover of a natural one."
+end
+relate :rel_elves_cooperates_with_displacement_council, :cooperates_with, :elves, :displacement_council, since: 2384, dm: true do
+  prose "Through the Bloom era the hidden elves have run a quiet, deniable cooperation with the #{ref :displacement_council, "Displacement Council"} — the one human institution read in on the truth."
+end
+relate :rel_elves_hiding_from_the_false_form, :hiding_from, :elves, :the_false_form, dm: true do
+  prose "Everything they have done since the ring fell is hiding — and preparing — against the #{ref :the_false_form, "False Form"}, the thing they believe destroyed it and will return."
+end

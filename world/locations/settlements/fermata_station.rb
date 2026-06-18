@@ -108,3 +108,13 @@ installation :fermata_station do
     - Beauty vs. justice. Sometimes the most musically satisfying resolution isn't the fair one. The station has no mechanism for distinguishing between the two.
   PROSE
 end
+
+relate :rel_fermata_in_orbit_of_kaleidos, :in_orbit_of, :fermata_station, :kaleidos do
+  prose "Fermata holds a quiet orbit of #{ref :kaleidos, "Kaleidos"}, far enough from the busy lanes that its strange internal life goes mostly unwatched."
+end
+relate :rel_fermata_depends_on_ringglass, :depends_on, :fermata_station, :ringglass do
+  prose "Like any hab it depends on #{ref :ringglass, "ringglass"} for power and structure, traded in through the same routes that bring everything else."
+end
+relate :rel_fermata_located_in_tgf, :located_in, :fermata_station, :the_glass_frontier, since: 2140 do
+  prose "It is one of the surviving fragments of the #{ref :the_glass_frontier, "Glass Frontier"} — a hab that came through the Glassfall intact and went its own way during the long silence that followed."
+end

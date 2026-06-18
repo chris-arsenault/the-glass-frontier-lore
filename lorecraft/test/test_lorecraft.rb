@@ -38,7 +38,7 @@ def sample_world
     genesis :seed, at: { era: :early, year: 10 } do
       effects { set :concord, controls: :reach }
     end
-    event :seizure, at: { era: :late, year: 5 } do
+    moment :seizure, at: { era: :late, year: 5 } do
       effects { transfer :controls, from: :reach, to: :quarter, subject: :concord }
     end
   end
@@ -47,10 +47,10 @@ end
 class TimelineTest < Minitest::Test
   def setup = @w = sample_world
 
-  def test_tick_conversion
-    assert_equal 10, @w.timeline.tick_for(era: :early, year: 10)
-    assert_equal 105, @w.timeline.tick_for(era: :late, year: 5)
-    assert_equal 150, @w.timeline.tick_for(:now)
+  def test_year_conversion
+    assert_equal 10, @w.timeline.year_for(era: :early, year: 10)
+    assert_equal 105, @w.timeline.year_for(era: :late, year: 5)
+    assert_equal 150, @w.timeline.year_for(:now)
   end
 
   def test_era_at
@@ -59,7 +59,7 @@ class TimelineTest < Minitest::Test
   end
 
   def test_year_outside_era_raises
-    assert_raises(Lorecraft::DefinitionError) { @w.timeline.tick_for(era: :early, year: 200) }
+    assert_raises(Lorecraft::DefinitionError) { @w.timeline.year_for(era: :early, year: 200) }
   end
 end
 
@@ -97,10 +97,10 @@ class ExistenceTest < Minitest::Test
         entity_type :thing
         effect :create; effect :destroy
       end
-      timeline { era :t, starts: 0, length: 100; now tick: 50 }
+      timeline { era :t, starts: 0, length: 100; now year: 50 }
       thing :widget do name "Widget" end
-      genesis :born, at: { tick: 10 } do effects { create :widget } end
-      event  :gone, at: { tick: 40 } do effects { destroy :widget } end
+      genesis :born, at: { year: 10 } do effects { create :widget } end
+      moment  :gone, at: { year: 40 } do effects { destroy :widget } end
     end
     refute w.at(5).exists?(:widget)
     assert w.at(20).exists?(:widget)
@@ -114,12 +114,12 @@ class ExistenceTest < Minitest::Test
         relation :controls, temporal: true
         effect :set; effect :create
       end
-      timeline { era :t, starts: 0, length: 100; now tick: 50 }
+      timeline { era :t, starts: 0, length: 100; now year: 50 }
       faction :f do name "F" end
       location :l do name "L" end
       # create f at 30, but use it at 10 → violation
-      genesis :early_use, at: { tick: 10 } do effects { set :f, controls: :l } end
-      event :birth, at: { tick: 30 } do effects { create :f } end
+      genesis :early_use, at: { year: 10 } do effects { set :f, controls: :l } end
+      moment :birth, at: { year: 30 } do effects { create :f } end
     end
     problems = w.validate
     assert(problems.any? { |p| p.include?("causality") }, "expected a causality problem, got: #{problems}")
@@ -134,7 +134,7 @@ class ValidatorTest < Minitest::Test
   def test_unresolved_ref_is_caught
     w = Lorecraft.define do
       schema { entity_type :concept }
-      timeline { era :t, starts: 0, length: 10; now tick: 1 }
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
       concept :a do name "A"; prose "links to #{ref :nonexistent}" end
     end
     assert(w.validate.any? { |p| p.include?("unknown id nonexistent") })
@@ -143,7 +143,7 @@ class ValidatorTest < Minitest::Test
   def test_unknown_tag_is_caught
     w = Lorecraft.define do
       schema { entity_type :concept; tag :ok }
-      timeline { era :t, starts: 0, length: 10; now tick: 1 }
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
       concept :a do name "A"; tags :ok, :bogus end
     end
     assert(w.validate.any? { |p| p.include?("tag 'bogus'") })
@@ -155,9 +155,9 @@ class ValidatorTest < Minitest::Test
         entity_type :concept
         effect :set
       end
-      timeline { era :t, starts: 0, length: 10; now tick: 1 }
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
       concept :a do name "A" end
-      genesis :g, at: { tick: 0 } do effects { set :a, prominence: :mythic } end
+      genesis :g, at: { year: 0 } do effects { set :a, prominence: :mythic } end
     end
     assert(w.validate.any? { |p| p.include?("static attribute prominence") })
   end
@@ -169,11 +169,11 @@ class ValidatorTest < Minitest::Test
         relation :capital, temporal: true, cardinality: :one
         effect :set
       end
-      timeline { era :t, starts: 0, length: 100; now tick: 50 }
+      timeline { era :t, starts: 0, length: 100; now year: 50 }
       faction :f do name "F" end
       location :a do name "A" end
       location :b do name "B" end
-      genesis :g, at: { tick: 0 } do
+      genesis :g, at: { year: 0 } do
         effects do
           set :f, capital: :a
           set :f, capital: :b # two live :one edges → violation
@@ -191,10 +191,10 @@ class ValidatorTest < Minitest::Test
         relation :ally_of, temporal: true, symmetric: true
         effect :set
       end
-      timeline { era :t, starts: 0, length: 100; now tick: 50 }
+      timeline { era :t, starts: 0, length: 100; now year: 50 }
       faction :a do name "A" end
       faction :b do name "B" end
-      genesis :g, at: { tick: 0 } do
+      genesis :g, at: { year: 0 } do
         effects do
           set :a, rival_of: :b
           set :a, ally_of: :b
@@ -211,10 +211,10 @@ class ValidatorTest < Minitest::Test
         relation :controls, temporal: true, domain: :faction, range: :location
         effect :set
       end
-      timeline { era :t, starts: 0, length: 100; now tick: 50 }
+      timeline { era :t, starts: 0, length: 100; now year: 50 }
       faction :f do name "F" end
       location :l do name "L" end
-      genesis :g, at: { tick: 0 } do effects { set :l, controls: :f } end # reversed
+      genesis :g, at: { year: 0 } do effects { set :l, controls: :f } end # reversed
     end
     problems = w.validate
     assert(problems.any? { |p| p.include?("domain") || p.include?("range") })
@@ -226,7 +226,7 @@ class ValidatorTest < Minitest::Test
         entity_type :concept
         entity_type :secret, wiki: false
       end
-      timeline { era :t, starts: 0, length: 10; now tick: 1 }
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
       secret :hidden do name "Hidden"; dm! end
       concept :public_page do name "Public"; prose "see #{ref :hidden}" end
     end
@@ -255,7 +255,7 @@ class MarkdownRenderTest < Minitest::Test
   def test_future_marker_renders_as_stub
     w = Lorecraft.define do
       schema { entity_type :concept }
-      timeline { era :t, starts: 0, length: 10; now tick: 1 }
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
       concept :a do name "A"; prose "the #{future 'Unwritten Thing'} matters" end
     end
     page = Lorecraft::Render::Markdown.new(w).page_markdown(w.entity(:a))
@@ -269,17 +269,17 @@ class GraphRenderTest < Minitest::Test
     @graph = JSON.parse(Lorecraft::Render::Graph.new(@w).render)
   end
 
-  def test_nodes_exclude_genesis_events
+  def test_nodes_exclude_genesis_moments
     ids = @graph["nodes"].map { |n| n["id"] }
     refute_includes ids, "seed"      # genesis is not a page
-    assert_includes ids, "seizure"   # narrative event is
+    assert_includes ids, "seizure"   # narrative moment is
     assert_includes ids, "concord"
   end
 
   def test_edges_have_intervals
     controls = @graph["edges"].select { |e| e["rel"] == "controls" }
     reach = controls.find { |e| e["tgt"] == "reach" }
-    assert_equal 10, reach["from"]      # opened at genesis tick
+    assert_equal 10, reach["from"]      # opened at genesis year
     assert_equal 105, reach["to"]       # closed by the seizure transfer
   end
 end
@@ -292,7 +292,7 @@ class LinterTest < Minitest::Test
   def test_dm_phrase_leakage
     findings = lint do
       schema { entity_type :concept }
-      timeline { era :t, starts: 0, length: 10; now tick: 1 }
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
       concept :a do name "A"; prose "The truth is, this leaks." end
     end
     assert(findings.any? { |f| f.level == :error && f.message.include?("DM leakage") })
@@ -301,7 +301,7 @@ class LinterTest < Minitest::Test
   def test_double_article
     findings = lint do
       schema { entity_type :concept }
-      timeline { era :t, starts: 0, length: 10; now tick: 1 }
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
       concept :a do name "A"; prose "visiting the #{ref(:b, 'The Reach')} today" end
       concept :b do name "The Reach" end
     end
@@ -315,10 +315,10 @@ class LinterTest < Minitest::Test
         relation :causes, temporal: false
         effect :set
       end
-      timeline { era :t, starts: 0, length: 10; now tick: 1 }
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
       incident :a do name "A" end
       incident :b do name "B" end
-      genesis :g, at: { tick: 0 } do
+      genesis :g, at: { year: 0 } do
         effects { set :a, causes: :b; set :b, causes: :a }
       end
     end
@@ -328,7 +328,7 @@ class LinterTest < Minitest::Test
   def test_orphan_detection
     findings = lint do
       schema { entity_type :concept }
-      timeline { era :t, starts: 0, length: 10; now tick: 1 }
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
       concept :lonely do name "Lonely" end
     end
     assert(findings.any? { |f| f.message.include?("orphan") && f.message.include?("lonely") })
@@ -341,7 +341,7 @@ class WikiRenderTest < Minitest::Test
     Dir.mktmpdir do |dir|
       w = Lorecraft.define do
         schema { entity_type :concept; entity_type :secret, wiki: false }
-        timeline { era :t, starts: 0, length: 10; now tick: 1 }
+        timeline { era :t, starts: 0, length: 10; now year: 1 }
         concept :reach do name "The Reach" end
         concept :a do name "A"; prose "near #{ref :reach} and #{future 'Soon'}" end
         secret :hidden do name "Hidden"; dm! end
@@ -368,12 +368,12 @@ class PageAndGeneratedPagesTest < Minitest::Test
         timeline do
           era :early, starts: 2000, length: 200, title: "The Early Age",
               description: "Where it began."
-          now tick: 2100
+          now year: 2100
         end
         concept :resonance do name "Resonance"; tags :resonance end
         incident :a do name "The Spark" end
         incident :b do name "The Fire" end
-        genesis :g, at: { tick: 2010 } do effects { set :a, caused: :b } end
+        genesis :g, at: { year: 2010 } do effects { set :a, caused: :b } end
         page :home, title: "Home", wiki: "Home" do
           prose "See #{ref :resonance} to start."
         end
@@ -406,6 +406,46 @@ class PageAndGeneratedPagesTest < Minitest::Test
     build do |_wiki, _dir, w|
       assert_nil w.entity(:home)
       assert w.authored_pages.key?(:home)
+    end
+  end
+end
+
+class MomentHistoryTest < Minitest::Test
+  def build_world
+    Lorecraft.define do
+      schema do
+        entity_type :faction, :location
+        relation :operates_in, temporal: true
+        effect :set; effect :create; effect :destroy
+      end
+      timeline { era :t, starts: 2000, length: 500; now year: 2435 }
+      faction :coremark do name "Coremark" end
+      location :shear do name "The Shear" end
+      moment :coremark_founded, year: 2322, of: :coremark do
+        prose "Coremark opened in the deep #{ref :shear}."
+        effects { set :coremark, standing: :legitimate; set :coremark, operates_in: :shear }
+      end
+      moment :coremark_falls, year: 2407, of: :coremark do
+        prose "Coremark went criminal."
+        effects { set :coremark, standing: :criminal }
+      end
+    end
+  end
+
+  def test_dynamic_standing_folds_over_years
+    w = build_world
+    assert_nil w.at(2300).attr(:coremark, :standing)
+    assert_equal :legitimate, w.at(2350).attr(:coremark, :standing)
+    assert_equal :criminal, w.at(2420).attr(:coremark, :standing)
+    assert_equal [:shear], w.at(:now).out(:coremark, :operates_in)
+  end
+
+  def test_moment_prose_renders_as_paragraph_on_entity_page
+    w = build_world
+    Dir.mktmpdir do |dir|
+      page = Lorecraft::Render::Wiki.new(w, root: dir).send(:content_page, w.entity(:coremark), 2435)
+      assert_includes page, "Coremark went criminal."
+      assert_includes page, "[[The Shear]]"
     end
   end
 end

@@ -48,3 +48,19 @@ installation :keel do
     The fundamental tension is economic: the Keel is too valuable for anyone to control exclusively and too important for anyone to ignore. #{ref :vantara, "Vantara"} maintains the infrastructure but doesn't claim sovereignty. #{ref :sithari, "Sithari"} regulates the financial layer but can't police the corridor. The #{ref :shear_compact, "Shear Compact"} has jurisdiction over Shear segments but not the open-space portions. The result is a patchwork of overlapping authorities, gaps between them, and people who make their living in those gaps.
   PROSE
 end
+
+relate :rel_keel_in_orbit_of_kaleidos, :in_orbit_of, :keel, :kaleidos do
+  prose "The Keel runs through #{ref :kaleidos, "Kaleidos"} orbit — the main trade lane threading the inhabited ring fragments end to end."
+end
+relate :rel_keel_in_orbit_of_ashenmaw, :in_orbit_of, :keel, :ashenmaw do
+  prose "Its far arc swings out past #{ref :ashenmaw, "Ashenmaw"}, the lonely outer anchor of the lane."
+end
+relate :rel_keel_terminus_sithari, :terminus_of, :keel, :sithari do
+  prose "At the surface end the Keel grounds at #{ref :sithari, "Sithari"}, the largest market it serves."
+end
+relate :rel_keel_terminus_glasswake, :terminus_of, :keel, :glasswake do
+  prose "#{ref :glasswake, "Glasswake"} is its other principal terminus, the first surface settlement the lane reconnected."
+end
+relate :rel_keel_terminus_ashvane, :terminus_of, :keel, :ashvane do
+  prose "Outbound traffic terminates at #{ref :ashvane, "Ashvane"}, the far-end settlement that depends on the lane for nearly everything."
+end

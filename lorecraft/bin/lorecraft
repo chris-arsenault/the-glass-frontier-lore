@@ -8,7 +8,7 @@
 #   lorecraft render build/tree        # regenerate the markdown tree
 #   lorecraft render build/wiki --audience player   # player-facing only
 #   lorecraft graph [out.json]         # graph projection (Memgraph replacement)
-#   lorecraft timeline <entity-id>     # life-of-entity event strip
+#   lorecraft timeline <entity-id>     # life-of-entity moment strip
 #   lorecraft stats
 Encoding.default_external = Encoding::UTF_8
 Encoding.default_internal = Encoding::UTF_8
@@ -119,7 +119,7 @@ when "timeline"
 when "stats"
   w = load_world
   puts "entities:  #{w.entities.size}"
-  puts "events:    #{w.events.size}"
+  puts "moments:   #{w.moments.size}"
   puts "relations: #{w.relation_instances.size}"
   puts "effects:   #{w.all_effects.size}"
   kinds = w.entities.values.group_by(&:kind).transform_values(&:size).sort_by { |_, v| -v }

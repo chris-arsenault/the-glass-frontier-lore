@@ -53,12 +53,12 @@ module Lorecraft
         end
       end
 
-      @world.events.each_value do |ev|
+      @world.moments.each_value do |ev|
         if (a = ev.static_attrs[:actor]) && !known?(a)
-          err("event #{ev.id}: actor → unknown id #{a}")
+          err("moment #{ev.id}: actor → unknown id #{a}")
         end
         Array(ev.static_attrs[:participants]).each do |p|
-          err("event #{ev.id}: participant → unknown id #{p}") unless known?(p)
+          err("moment #{ev.id}: participant → unknown id #{p}") unless known?(p)
         end
       end
 
@@ -116,7 +116,7 @@ module Lorecraft
       end
     end
 
-    # §8.4 — folding to the last tick raises on any use-before-create /
+    # §8.4 — folding to the last year raises on any use-before-create /
     # use-after-destroy.
     def check_causality
       last = @world.timeline.total_span.last
@@ -234,13 +234,13 @@ module Lorecraft
         key = [eff.subject, eff.relation]
         case eff.verb
         when :set
-          open[key][eff.target] ||= entry[:tick]
+          open[key][eff.target] ||= entry[:year]
         when :clear
           if eff.target
             from = open[key].delete(eff.target)
-            result[key] << { target: eff.target, from: from || entry[:tick], to: entry[:tick] } if from
+            result[key] << { target: eff.target, from: from || entry[:year], to: entry[:year] } if from
           else
-            open[key].each { |t, from| result[key] << { target: t, from: from, to: entry[:tick] } }
+            open[key].each { |t, from| result[key] << { target: t, from: from, to: entry[:year] } }
             open[key].clear
           end
         end
@@ -260,7 +260,7 @@ module Lorecraft
     def label(owner)
       case owner
       when Entity then "#{owner.kind} #{owner.id}"
-      when Event then "event #{owner.id}"
+      when Moment then "moment #{owner.id}"
       when RelationInstance then "relation #{owner.id}"
       else owner.to_s
       end

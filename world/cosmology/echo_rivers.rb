@@ -31,3 +31,13 @@ phenomenon :echo_rivers do
     Some people find comfort in them. Some find grief. The rivers are indifferent to human interpretation.
   PROSE
 end
+
+relate :rel_echo_conducted_by_resonance, :conducted_by, :echo_rivers, :resonance do
+  prose "The rivers are a #{ref :resonance, "resonance"} phenomenon: signal-band imprints conducted through crystal-laced rock and water rather than any flowing thing."
+end
+relate :rel_echo_carries_transmissions, :carries, :echo_rivers, :pre_glassfall_transmissions, since: 2140 do
+  prose "What they carry are #{ref :pre_glassfall_transmissions, "pre-Glassfall transmissions"} — fragments of voices and signal from before the ring broke, surfacing decades and centuries out of their own time."
+end
+relate :rel_echo_located_in_sable_crescent, :located_in, :echo_rivers, :sable_crescent, since: 2140 do
+  prose "Their richest surfacing points are in #{ref :sable_crescent, "Sable Crescent"}, where the deepest crystal deposits hold the clearest fragments."
+end

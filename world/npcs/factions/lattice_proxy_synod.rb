@@ -49,3 +49,13 @@ faction :lattice_proxy_synod do
     The #{ref :tempered_accord, "Tempered Accord"} relies on them. The #{future "Continuity"} respects them at arm's length. The #{ref :echo_ledger_conclave, "Echo Ledger Conclave"} finds them professionally interesting and personally unnerving. Everyone else just uses the navigation data and tries not to think too hard about where it comes from.
   PROSE
 end
+
+relate :rel_lps_hq_threshold_station, :headquartered_in, :lattice_proxy_synod, :threshold_station, since: 2305 do
+  prose "The Synod inhabits #{ref :threshold_station, "Threshold Station"} — a ring-era installation it occupies but does not fully control, tending custodian AIs it communicates with through ritual rather than understanding."
+end
+relate :rel_lps_operates_tempered_accord, :operates_in, :lattice_proxy_synod, :tempered_accord, since: 2423 do
+  prose "Since the Accord it operates within the #{ref :tempered_accord, "Tempered Accord"}'s framework, its AI-mediated data treated as a strange but valuable input to system governance."
+end
+relate :rel_lps_member_of_bloom_coalition, :member_of, :lattice_proxy_synod, :bloom_coalition, since: 2380, till: 2396 do
+  prose "It joined the #{ref :bloom_coalition, "Bloom Coalition"} during the emergency, its custodian archives contributing to containment work until the coalition came apart."
+end

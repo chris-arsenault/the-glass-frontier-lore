@@ -40,3 +40,13 @@ faction :vantara do
     The company's bland competence is, in its way, a marker of civilization. Reliable infrastructure enables the system's more volatile pursuits.
   PROSE
 end
+
+relate :rel_vantara_operates_sithari, :operates_in, :vantara, :sithari, since: 2330 do
+  prose "Vantara runs its aerial trade logistics out of #{ref :sithari, "Sithari"}, the surface hub where the system's freight is brokered."
+end
+relate :rel_vantara_operates_keel, :operates_in, :vantara, :keel, since: 2330 do
+  prose "Its convoys work #{ref :keel, "the Keel"} — the main orbital lane — which is also where its armed escorts earn their keep."
+end
+relate :rel_vantara_member_of_bloom_coalition, :member_of, :vantara, :bloom_coalition, since: 2380, till: 2396 do
+  prose "It carried the #{ref :bloom_coalition, "Bloom Coalition"}'s logistics through the containment years, moving people and material the cordons couldn't."
+end

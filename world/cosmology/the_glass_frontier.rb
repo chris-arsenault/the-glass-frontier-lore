@@ -37,3 +37,10 @@ geographic_location :the_glass_frontier do
     It's also, still, slowly falling apart. The Shear grows. Habs that were stable for decades occasionally collapse into it. The ring is not safe. It's not tame. But it is, emphatically, alive.
   PROSE
 end
+
+relate :rel_tgf_orbits_kaleidos, :orbits, :the_glass_frontier, :kaleidos do
+  prose "The Frontier still rings #{ref :kaleidos, "Kaleidos"} the way the old structure always did — a broken halo of habs and debris bound to the planet's orbit, circling it now as a scattered archipelago rather than a single band."
+end
+relate :rel_tgf_part_of_kaleidos_system, :part_of, :the_glass_frontier, :kaleidos_system do
+  prose "It is one body among many in the #{ref :kaleidos_system, "Kaleidos system"}: the most populous, the most fractured, and the one the rest of the system measures itself against."
+end

@@ -79,3 +79,19 @@ npc :dern_talish do
     - She is fundamentally good, deeply tired, and holding together through discipline rather than hope. She does the right thing when she can't see why it will work, and she has been doing it long enough that the persistence itself has become her defining trait.
   PROSE
 end
+
+relate :rel_dern_talish_leads_displacement_council, :leads, :dern_talish, :displacement_council, since: 2432 do
+  prose "As First Threshold she leads the #{ref :displacement_council, "Displacement Council"} — responsible for every containment cordon around every Bloom Zone in the system."
+end
+relate :rel_dern_talish_born_in_the_glass_frontier, :born_in, :dern_talish, :the_glass_frontier do
+  prose "She was born in the mid-drift habs of the #{ref :the_glass_frontier, "Glass Frontier"} and evacuated as a child during the displacement — a Bloom refugee who grew up to run the cordons."
+end
+relate :rel_dern_talish_operates_in_bloom_zones, :operates_in, :dern_talish, :bloom_zones, since: 2412 do
+  prose "Twenty years of cordon work put her inside more #{ref :bloom_zones, "Bloom Zones"} than almost anyone alive — and left her with the tremor to prove it."
+end
+relate :rel_dern_talish_cooperates_with_elves, :cooperates_with, :dern_talish, :elves, since: 2432, dm: true do
+  prose "She is the single human point of contact with the hidden #{ref :elves, "elves"} — the loneliest cooperation in the system, conducted through a shard she never lets out of her reach."
+end
+relate :rel_dern_talish_possesses_communication_shard, :possesses, :dern_talish, :communication_shard, since: 2432, dm: true do
+  prose "The #{ref :communication_shard, "communication shard"} — a pre-Glassfall artifact keyed to an impossible frequency — is her only channel to them, and irreplaceable if lost."
+end

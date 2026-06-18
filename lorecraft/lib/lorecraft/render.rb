@@ -21,7 +21,7 @@ module Lorecraft
       end
     end
 
-    # Maps an entity/event kind to its directory under player/ when an explicit
+    # Maps an entity/moment kind to its directory under player/ when an explicit
     # `path` was not declared. Parity for imported content comes from the stored
     # `path`; this is the fallback for freshly-authored nodes.
     KIND_DIRS = {
@@ -29,8 +29,8 @@ module Lorecraft
       resource: "concepts", species: "concepts/species", culture: "concepts/cultures",
       geographic_location: "locations/regions", installation: "locations/landmarks",
       faction: "npcs/factions", npc: "npcs/heroes", creature: "creatures/fauna",
-      artifact: "artifacts/relics", transport: "ships", incident: "history/events",
-      conflict: "history/events", edict: "history/events", rumor: "history/events",
+      artifact: "artifacts/relics", transport: "ships", incident: "history/moments",
+      conflict: "history/moments", edict: "history/moments", rumor: "history/moments",
       cosmology: "cosmology", era: "history/eras"
     }.freeze
 
@@ -63,19 +63,30 @@ module Lorecraft
         n.respond_to?(:title) ? n.title : id.to_s.split("_").map(&:capitalize).join(" ")
       end
 
+      # The moments (history beats) that belong on this entity's page, oldest
+      # first. Genesis bootstraps are excluded (no narrative).
+      def moments_for(id)
+        @world.moments.values.reject(&:genesis?).select { |m| m.home == id.to_sym }.sort_by(&:year)
+      end
+
+      # The relationships sourced from this entity (its outgoing connections).
+      def relationships_for(id)
+        @world.relation_instances.values.select { |r| r.source == id.to_sym }
+      end
+
       # Rewrite ref/rel/future markers in `text` into markdown, relative to
-      # `from_path`, at render tick `tick`.
-      def resolve_prose(text, from_path:, tick:)
+      # `from_path`, at render year `year`.
+      def resolve_prose(text, from_path:, year:)
         out = text.dup
         Markers.scan(text) do |match, b|
-          out = out.sub(match, render_binding(b, from_path, tick))
+          out = out.sub(match, render_binding(b, from_path, year))
         end
         out
       end
 
       private
 
-      def render_binding(b, from_path, tick)
+      def render_binding(b, from_path, year)
         case b[:kind]
         when :future
           "[future:#{b[:name]}]"
@@ -88,7 +99,7 @@ module Lorecraft
             b[:text] || b[:id].to_s
           end
         when :rel
-          targets = @world.at(tick).out(@rel_subject_for, b[:verb]) rescue []
+          targets = @world.at(year).out(@rel_subject_for, b[:verb]) rescue []
           targets = [b[:target]].compact if b[:target]
           targets.map { |t| link(title_for(t), path_index[t], from_path, nil) if path_index[t] }
                  .compact.join(", ")
@@ -117,7 +128,7 @@ module Lorecraft
       SKIP_ATTRS = %i[path].freeze
 
       def render(out:, at: :now, audience: :all)
-        tick = @world.timeline.tick_for(at)
+        year = @world.timeline.year_for(at)
         root = Pathname.new(out)
         written = []
         @world.pages.each do |node|
@@ -128,17 +139,17 @@ module Lorecraft
           rel = page_path(node)
           file = root.join(rel)
           file.dirname.mkpath
-          file.write(page_markdown(node, tick: tick, audience: audience))
+          file.write(page_markdown(node, year: year, audience: audience))
           written << rel
         end
         written
       end
 
       # Render a single page to a markdown string (used by tests/parity diff).
-      def page_markdown(node, tick: nil, audience: :all)
-        tick ||= @world.timeline.now_tick
+      def page_markdown(node, year: nil, audience: :all)
+        year ||= @world.timeline.now_year
         from_path = page_path(node)
-        +frontmatter(node) + "\n# #{node.title}\n\n" + body(node, from_path, tick, audience)
+        +frontmatter(node) + "\n# #{node.title}\n\n" + body(node, from_path, year, audience)
       end
 
       private
@@ -171,17 +182,27 @@ module Lorecraft
         end
       end
 
-      def body(node, from_path, tick, audience)
+      def body(node, from_path, year, audience)
         @rel_subject_for = node.id
-        blocks = node.prose_blocks.select { |b| b.visible_at?(tick, audience: audience.equal?(:all) ? :all : :player) }
+        blocks = node.prose_blocks.select { |b| b.visible_at?(year, audience: audience.equal?(:all) ? :all : :player) }
         main = blocks.select { |b| b.section == :main }
         sectioned = blocks.reject { |b| b.section == :main }
 
-        parts = main.map { |b| resolve_prose(b.text, from_path: from_path, tick: tick).strip }
+        parts = main.map { |b| resolve_prose(b.text, from_path: from_path, year: year).strip }
         sectioned.each do |b|
           heading = b.heading || humanize(b.section)
           parts << "## #{heading} <!-- #{humanize(b.section)} -->\n\n" +
-                   resolve_prose(b.text, from_path: from_path, tick: tick).strip
+                   resolve_prose(b.text, from_path: from_path, year: year).strip
+        end
+        player = !audience.equal?(:all)
+        (moments_for(node.id) + relationships_for(node.id)).each do |owner|
+          next if player && owner.respond_to?(:dm?) && owner.dm?
+
+          owner.prose_blocks.each do |b|
+            next if player && b.dm?
+
+            parts << resolve_prose(b.text, from_path: from_path, year: year).strip
+          end
         end
         parts.join("\n\n") + "\n"
       end
@@ -194,8 +215,8 @@ module Lorecraft
     # ---- graph JSON (Memgraph replacement) ------------------------------
     class Graph < Base
       def render(at: :now, audience: :all, pretty: true)
-        tick = @world.timeline.tick_for(at)
-        data = { generated_at_tick: tick, nodes: nodes(audience), edges: edges(tick, audience) }
+        year = @world.timeline.year_for(at)
+        data = { generated_at_year: year, nodes: nodes(audience), edges: edges(year, audience) }
         pretty ? JSON.pretty_generate(data) : JSON.generate(data)
       end
 
@@ -215,11 +236,11 @@ module Lorecraft
         end
       end
 
-      def edges(tick, audience)
+      def edges(year, audience)
         intervals(audience).map do |e|
           { src: e[:subject], rel: e[:relation], tgt: e[:target],
             from: e[:from], to: e[:to], dm: e[:dm],
-            live_at_render: e[:from] <= tick && (e[:to].nil? || tick < e[:to]) }
+            live_at_render: e[:from] <= year && (e[:to].nil? || year < e[:to]) }
         end
       end
 
@@ -234,14 +255,14 @@ module Lorecraft
 
           key = [eff.subject, eff.relation, eff.target]
           case eff.verb
-          when :set then open[key] ||= { tick: entry[:tick], dm: entry[:dm] }
+          when :set then open[key] ||= { year: entry[:year], dm: entry[:dm] }
           when :clear
             if eff.target
               o = open.delete(key)
-              result << close(key, o, entry[:tick]) if o
+              result << close(key, o, entry[:year]) if o
             else
               open.keys.select { |k| k[0] == eff.subject && k[1] == eff.relation }.each do |k|
-                result << close(k, open.delete(k), entry[:tick])
+                result << close(k, open.delete(k), entry[:year])
               end
             end
           end
@@ -250,9 +271,9 @@ module Lorecraft
         result
       end
 
-      def close(key, opened, to_tick)
+      def close(key, opened, to_year)
         { subject: key[0], relation: key[1], target: key[2],
-          from: opened[:tick], to: to_tick, dm: opened[:dm] }
+          from: opened[:year], to: to_year, dm: opened[:dm] }
       end
     end
 
@@ -263,7 +284,7 @@ module Lorecraft
         rows = @world.all_effects.select { |e| touches?(e[:effect], id) }
                      .map { |e| describe(e) }
         header = "# Timeline — #{title_for(id)}\n\n"
-        header + (rows.empty? ? "_No recorded events._\n" : rows.uniq.join("\n") + "\n")
+        header + (rows.empty? ? "_No recorded moments._\n" : rows.uniq.join("\n") + "\n")
       end
 
       private
@@ -272,8 +293,8 @@ module Lorecraft
 
       def describe(entry)
         eff = entry[:effect]
-        era = @world.timeline.era_at(entry[:tick])
-        when_s = era ? "#{era.name} +#{entry[:tick] - era.start_tick}" : "tick #{entry[:tick]}"
+        era = @world.timeline.era_at(entry[:year])
+        when_s = era ? "#{era.name} +#{entry[:year] - era.start_year}" : "year #{entry[:year]}"
         verb = eff.relation ? "#{eff.verb} #{eff.relation} → #{eff.target}" : "#{eff.verb} #{eff.attr || eff.subject}"
         "- **#{when_s}** (#{entry[:source]}): #{verb}"
       end

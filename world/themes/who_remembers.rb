@@ -36,3 +36,13 @@ theme :who_remembers do
     The theme is present when an entry shows someone making a decision about what to share, preserve, or withhold — and both the sharing and the withholding carry real consequences. The test is not whether memory matters (a platitude) but whether the entry shows the razor's edge between constructive and destructive disclosure.
   PROSE
 end
+
+relate :rel_who_remembers_embodies_echo_rivers, :embodies, :who_remembers, :echo_rivers do
+  prose "The #{ref :echo_rivers, "Echo Rivers"} are this theme made literal — the past surfacing, half-audible, out of its own time, demanding to be heard."
+end
+relate :rel_who_remembers_embodies_elc, :embodies, :who_remembers, :echo_ledger_conclave do
+  prose "The #{ref :echo_ledger_conclave, "Echo Ledger Conclave"} are the ones who choose to listen — and the ones who discover, cataloguing the gaps, that someone has been editing the record."
+end
+relate :rel_who_remembers_embodies_stillwater, :embodies, :who_remembers, :stillwater do
+  prose "#{ref :stillwater, "Stillwater"} is the act of keeping — the quiet, unglamorous work of making sure what was recovered is not lost a second time."
+end

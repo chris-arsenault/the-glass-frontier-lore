@@ -24,20 +24,29 @@ incident :the_glassfall do
 
     Most people have stopped expecting an answer. The Glassfall is history now — the kind that shapes everything but that nobody alive experienced firsthand. It matters the way an earthquake matters: not as a mystery to solve, but as the reason the landscape looks the way it does.
   PROSE
-  prose <<~PROSE, section: :aftermath, heading: "The Aftermath"
-    What followed the Glassfall was worse than the event itself. Communication infrastructure collapsed, plunging settlements — both on the surface and across the ring's surviving habs — into isolation. The period that followed, roughly sixty years of fragmented, disconnected survival, is called the Signal Famine.
+end
 
-    During the Famine, communities that had been part of a single interconnected colony became separate cultures. Surface settlements diverged from each other. Ring habs, sealed and self-sustaining but cut off, evolved in ways nobody on the ground could have predicted — some maintaining the old civilization's technology with eerie fidelity, others reinventing themselves entirely. And beyond Kaleidos, the other worlds in the #{ref :kaleidos_system, "system"} carried on with their own versions of survival.
-
-    When contact was eventually re-established, these differences had to be negotiated rather than erased. That negotiation is, in many ways, still ongoing. The #{ref :tempered_accord, "Tempered Accord"} is the current framework for it — but "current" doesn't mean "settled."
+# --- what the Glassfall caused (the consequences that define modern Kaleidos) ---
+relate :rel_the_glassfall_destroyed_the_glass_frontier, :destroyed, :the_glassfall, :the_glass_frontier do
+  prose <<~PROSE
+    The ring did not vanish — it shattered. Enormous sections cracked free and drifted into new orbits, and what had been one continuous structure became the #{ref :the_glass_frontier, "Glass Frontier"}: hundreds of surviving habs, a growing debris field, and the raw material for most resonance technology. The integrated machine was destroyed; the archipelago it left behind is where everyone now lives.
   PROSE
-  prose <<~PROSE, section: :legacy, heading: "Legacy"
-    The Glassfall left three things that define modern Kaleidos:
+end
 
-    **The frontier.** The #{ref :the_glass_frontier, "Glass Frontier"} itself — hundreds of surviving ring habs, a growing debris field, and the raw material for most resonance-based technology. What was one structure became an archipelago.
+relate :rel_the_glassfall_caused_signal_famine, :caused, :the_glassfall, :signal_famine do
+  prose <<~PROSE
+    What followed was worse than the event itself. Communication infrastructure collapsed, plunging settlements — surface and ring habs alike — into roughly sixty years of fragmented, disconnected survival: the Signal Famine. Communities that had been one interconnected colony became separate cultures. Surface settlements diverged from each other; sealed ring habs evolved in ways nobody could have predicted — some keeping the old technology with eerie fidelity, others reinventing themselves entirely — and the other worlds in the #{ref :kaleidos_system, "system"} carried on alone. When contact was finally re-established, those differences had to be negotiated rather than erased, a negotiation that — through the #{ref :tempered_accord, "Tempered Accord"} — is in many ways still ongoing.
+  PROSE
+end
 
-    **The divergence.** Sixty years of isolation produced a civilization where no two places do things the same way. Surface settlements, ring habs, outer worlds — each developed its own culture, its own relationship with #{ref :resonance, "resonance"}, its own stories. Unity is a goal, not a fact.
+relate :rel_the_glassfall_caused_the_shear, :caused, :the_glassfall, :the_shear do
+  prose <<~PROSE
+    The same break that scattered the habs filled the orbital lanes with wreckage. Trailing debris from the cracking ring settled into a turbulent, resonance-distorted band between atmosphere and orbit — the #{ref :the_shear, "Shear"} — which has been the system's most dangerous and most lucrative salvage ground ever since.
+  PROSE
+end
 
-    **The question.** Who broke the rings? It's not the most important question in the system — people have more immediate concerns — but it's the one that never quite goes away.
+relate :rel_the_glassfall_caused_echo_rivers, :caused, :the_glassfall, :echo_rivers do
+  prose <<~PROSE
+    When the ring broke, its #{ref :ringglass, "ringglass"} rained across Kaleidos and settled into the planet's crust and waterways — still holding the faint imprint of the transmissions it had once carried. Those buried, half-audible fragments of pre-Glassfall signal are the #{ref :echo_rivers, "Echo Rivers"}.
   PROSE
 end
