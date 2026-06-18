@@ -141,30 +141,30 @@ Point-in-time events (CAUSED, CREATED, DESTROYED), structural/astronomical (PART
 
 ### When adding temporal edges
 
-```
-python3 graph_cli.py add-rel coremark OPERATES_IN the-shear --from 2320
-python3 graph_cli.py add-rel the-continuity GOVERNS sithari --from 2245
-python3 graph_cli.py add-rel bloom-coalition COOPERATES_WITH displacement-council --from 2355 --to 2362
+Edges are authored in `world/` (CE years are absolute ticks). A `relate` instance, or an event effect:
+
+```ruby
+relate :coremark_in_shear, :operates_in, :coremark, :the_shear, since: { tick: 2320 }
+relate :continuity_gov_sithari, :governs, :the_continuity, :sithari, since: { tick: 2245 }
+relate :bloom_coop, :cooperates_with, :bloom_coalition, :displacement_council,
+       since: { tick: 2355 }, till: { tick: 2362 }
 ```
 
-The CLI warns when a temporal-typed edge is added without `--from`. The G8 check validates:
-- Temporal edge has `valid_from`
-- Edge bounds don't start before either entity exists
-- Edge bounds don't extend past either entity's end
+Validation rejects edges whose interval falls outside either endpoint's existence.
 
 ### Point-in-time queries
 
 ```
-python3 graph_cli.py query-at sithari --year 2340
+ruby lorecraft/bin/lorecraft graph --at 2340   # whole-world projection at a year
 ```
 
-Shows the neighborhood filtered to edges and entities active at that year. Edges without temporal bounds are assumed always-active (shown but unfiltered).
+In Ruby: `world.at(2340).out(:sithari)` / `.in(:sithari)` — state folded to that tick. Non-temporal edges are always active.
 
 ## When Adding Relationships
 
-Before adding a relationship, run `review.py gaps` to check archetype fill state. If the relationship would make an entity the sole representative of its archetype in yet another context, use a `[future:]` marker instead.
+Before adding a relationship, consider archetype fill state by hand — if the relationship would make an entity the sole representative of its archetype in yet another context, prefer a `#{future "Name"}` marker instead.
 
-After adding relationships to an entity, run `query-neighborhood` and verify:
+After adding relationships to an entity, query its neighborhood (`world.at(:now).out(id)`) and verify:
 - At least 3 typed relationships (not counting MENTIONS/HAS_SECTION)
 - Connections to at least 2 different entity kinds
 - At least one temporal relationship (era or occurrence link)
@@ -172,7 +172,7 @@ After adding relationships to an entity, run `query-neighborhood` and verify:
 
 ## Current Deficiencies
 
-*Updated after topology remediation. Run `review.py topology` for live numbers.*
+*Updated after topology remediation. Run `make topology` for live numbers.*
 
 ### Resolved
 - ~~Zero-degree entities~~ — fixed (was 19, now 0)
@@ -186,7 +186,7 @@ After adding relationships to an entity, run `query-neighborhood` and verify:
 4. **New kinds empty** — transport, rumor, edict, conflict have no entities yet. These will populate as the world grows.
 5. **Occurrence → incident/conflict split pending** — current occurrences need reclassifying.
 6. **Ability extraction pending** — resonance bands, tuning techniques currently buried in concept entries, need extracting to `ability` kind.
-7. **43 temporal edges missing bounds** — all existing state relationships (GOVERNS, LEADS, MEMBER_OF, etc.) lack `valid_from`/`valid_to`. Run `python3 graph_cli.py check` to see the full G8 backlog.
+7. **43 temporal edges missing bounds** — all existing state relationships (GOVERNS, LEADS, MEMBER_OF, etc.) lack `valid_from`/`valid_to`. (temporal-bound backlog from the old graph; revisit as edges gain `since:`/`till:`).
 
 ### Future (for scale)
 8. **No relationship strength** — all edges equally weighted.

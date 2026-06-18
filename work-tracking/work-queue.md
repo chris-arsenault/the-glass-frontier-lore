@@ -44,7 +44,7 @@ For each viewpoint, generate 5-10 shell entities (forgotten/marginal) that only 
 
 ### After shell generation
 - Add EMPLOYED_BY, LOCATED_IN, OPERATES_IN edges with temporal bounds
-- Run `review.py topology` to verify degree and unique connection targets
+- Run `make topology` to verify degree and unique connection targets
 - Each new shell should be a single index row (no files yet)
 
 ---
@@ -99,7 +99,7 @@ Identifying 1-2 titans will generate renowned/mythic shell entities that fill ga
 
 ## Priority 6: Graph Topology Improvements
 
-Run `review.py topology` for live numbers. Current deficiencies:
+Run `make topology` for live numbers. Current deficiencies:
 
 1. **Edge density 3.5 vs 4+ target.** Viewpoint entity generation (P2) will help.
 2. **Culture kind poorly connected** — 11/15 2-hop reachability. Needs cross-kind bridges as culture entities grow.

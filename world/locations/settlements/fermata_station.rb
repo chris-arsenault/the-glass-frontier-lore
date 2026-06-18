@@ -18,7 +18,7 @@ installation :fermata_station do
 
     A hundred and thirty years of ordinary human behavior did the rest.
 
-    The #{ref nil, "Signal Famine", path: "player/history/index.md"} sealed it. Cut off from the rest of the ring and the surface, Fermata had no model for governance except the one it was already practicing. By the time contact was re-established decades later, the system had calcified into something no outside observer would have designed on purpose and no inside resident could imagine replacing.
+    The #{ref :signal_famine, "Signal Famine"} sealed it. Cut off from the rest of the ring and the surface, Fermata had no model for governance except the one it was already practicing. By the time contact was re-established decades later, the system had calcified into something no outside observer would have designed on purpose and no inside resident could imagine replacing.
   PROSE
   prose <<~PROSE, section: :how_it_works, heading: "How It Works"
     Three principles hold the system together:

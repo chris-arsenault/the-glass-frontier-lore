@@ -1,0 +1,207 @@
+# frozen_string_literal: true
+
+require "fileutils"
+require_relative "../markers"
+
+module Lorecraft
+  module Render
+    # GitHub-wiki generator. Produces a flat set of `Title.md` pages with
+    # `[[wiki links]]`, resolved directly from prose ref/future bindings. Renders
+    # entity pages, authored `page` constructs, and fully GENERATED meta pages
+    # (Tags, Timeline, Causality) + per-type indexes + a sidebar. Player audience
+    # only — DM entities, shells, and DM edges are excluded.
+    #
+    # Nothing is read from disk: the wiki is a pure projection of `world/`.
+    class Wiki < Base
+      SECTION_LABELS = {
+        "concepts" => "Concepts", "cosmology" => "Cosmology", "locations" => "Locations",
+        "npcs" => "NPCs", "history" => "History", "artifacts" => "Artifacts",
+        "creatures" => "Creatures", "ships" => "Ships"
+      }.freeze
+
+      CAUSAL_VERBS = %i[causes caused caused_by].freeze
+
+      def initialize(world, root: Dir.pwd)
+        super(world)
+        @root = Pathname.new(root)
+      end
+
+      def render(out:, at: :now, **)
+        tick = @world.timeline.tick_for(at)
+        dir = Pathname.new(out)
+        FileUtils.rm_rf(dir)
+        dir.mkpath
+        written = []
+        write = lambda { |name, body| (dir + name).write(body); written << name }
+
+        public_entities.each { |n| write.call(wiki_filename(n.title), content_page(n, tick)) }
+        @world.authored_pages.each_value do |p|
+          next unless %i[all player].include?(p.audience)
+
+          write.call("#{p.wiki_name}.md", authored_page(p, tick))
+        end
+        write.call("Tags.md", tags_page)
+        write.call("Timeline.md", timeline_page)
+        write.call("Causality.md", causality_page)
+        index_pages.each { |name, body| write.call(name, body) }
+        write.call("_Sidebar.md", sidebar)
+        written
+      end
+
+      private
+
+      def public_entities
+        @world.pages.reject { |n| !wiki_visible?(n) }
+      end
+
+      def shell?(n) = n.respond_to?(:[]) && n[:status].to_s == "shell"
+      def wiki_filename(title) = "#{title.gsub(' ', '-')}.md"
+
+      # A node belongs in the player wiki only if it has a title, is not DM-only,
+      # is not a shell, and its kind is a wiki kind (excludes the structural
+      # kinds — theme/thread/loop/dm — which are authorial scaffolding).
+      def wiki_visible?(node)
+        return false unless node.respond_to?(:title)
+        return false if node.respond_to?(:dm?) && node.dm?
+        return false if shell?(node)
+        return false if node.respond_to?(:kind) && !@world.schema.wiki_kind?(node.kind)
+
+        true
+      end
+
+      # Resolve ref/rel/future bindings in prose directly to GitHub wiki links.
+      def wikitext(text, subject, tick)
+        out = text.dup
+        Markers.scan(text) do |match, b|
+          out = out.sub(match, binding_to_wiki(b, subject, tick))
+        end
+        out
+      end
+
+      def binding_to_wiki(b, subject, tick)
+        case b[:kind]
+        when :future
+          "*#{b[:name]}* *(stub)*"
+        when :ref
+          node = b[:id] && @world[b[:id]]
+          if wiki_visible?(node)
+            b[:text] && b[:text] != node.title ? "[[#{b[:text]}|#{node.title}]]" : "[[#{node.title}]]"
+          else
+            b[:text] || b[:id]&.to_s || b[:path] || "" # DM / shell / non-entity → plain text
+          end
+        when :rel
+          @world.at(tick).out(subject, b[:verb]).filter_map do |t|
+            n = @world[t]
+            "[[#{n.title}]]" if wiki_visible?(n)
+          end.join(", ")
+        end
+      end
+
+      def content_page(node, tick)
+        body = +""
+        node.prose_blocks.each do |b|
+          next if b.dm? || !b.visible_at?(tick, audience: :player)
+
+          body << "## #{b.heading}\n\n" if b.section != :main && b.heading
+          body << wikitext(b.text, node.id, tick).strip << "\n\n"
+        end
+        metadata_box(node) + body.strip + "\n"
+      end
+
+      def authored_page(page, tick)
+        body = +""
+        page.prose_blocks.each do |b|
+          body << "## #{b[:heading]}\n\n" if b[:heading]
+          body << wikitext(b[:text], page.id, tick).strip << "\n\n"
+        end
+        body.strip + "\n"
+      end
+
+      def metadata_box(node)
+        parts = ["**Type:** #{node.kind}"]
+        parts << "**Tags:** #{node.tags.join(', ')}" unless node.tags.empty?
+        parts << "**Region:** #{node[:region]}" if node[:region]
+        parts << "**Alias:** #{Array(node[:alias]).join(', ')}" if node[:alias] && !Array(node[:alias]).empty?
+        "> #{parts.join(' | ')}\n\n"
+      end
+
+      # ---- generated meta pages -------------------------------------------
+
+      def tags_page
+        rows = @world.schema.tags.sort.map { |name, desc| "| `#{name}` | #{desc} |" }
+        "# Tags\n\nControlled vocabulary for entry tags.\n\n" \
+          "| Tag | Meaning |\n|-----|---------|\n#{rows.join("\n")}\n"
+      end
+
+      def timeline_page
+        out = +"# Timeline\n\nMajor eras of the Kaleidos system, oldest first.\n\n"
+        @world.timeline.eras.each do |era|
+          out << "## #{era.title || era.name}\n\n"
+          out << "#{era.description.strip}\n\n" if era.description
+        end
+        out
+      end
+
+      # Causal DAG, generated from the world's causal edges (DM edges excluded).
+      def causality_page
+        edges = causal_edges
+        out = +"# Causality\n\nCause-and-effect relationships between entities.\n\n"
+        if edges.empty?
+          out << "_No causal relationships recorded._\n"
+        else
+          edges.sort_by { |s, t| [s.to_s, t.to_s] }.each do |s, t|
+            sn = @world[s]
+            tn = @world[t]
+            next unless wiki_visible?(sn) && wiki_visible?(tn)
+
+            out << "- [[#{sn.title}]] → [[#{tn.title}]]\n"
+          end
+        end
+        out
+      end
+
+      # [cause, effect] pairs from non-DM causal edges (caused_by reversed).
+      def causal_edges
+        @world.all_effects.reject { |e| e[:dm] }.filter_map do |e|
+          eff = e[:effect]
+          next unless eff.verb == :set && CAUSAL_VERBS.include?(eff.relation)
+
+          eff.relation == :caused_by ? [eff.target, eff.subject] : [eff.subject, eff.target]
+        end.uniq
+      end
+
+      def index_pages
+        by_section = Hash.new { |h, k| h[k] = [] }
+        public_entities.each do |n|
+          section = page_path(n).split("/")[1] # player/<section>/...
+          by_section[section] << n if SECTION_LABELS.key?(section)
+        end
+        by_section.map do |section, nodes|
+          label = SECTION_LABELS[section]
+          rows = nodes.sort_by(&:title).map do |n|
+            "| [[#{n.title}]] | #{n.kind} | #{n.prominence || '—'} | #{n.tags.join(', ')} |"
+          end
+          body = "# #{label} Index\n\n| Entry | Type | Prominence | Tags |\n|---|---|---|---|\n#{rows.join("\n")}\n"
+          ["#{label}-Index.md", body]
+        end
+      end
+
+      def sidebar
+        out = +"**[[Home]]**\n\n[[Timeline]] | [[Tags]] | [[Causality]]\n\n---\n\n"
+        by_section = Hash.new { |h, k| h[k] = [] }
+        public_entities.each do |n|
+          section = page_path(n).split("/")[1]
+          by_section[section] << n.title if SECTION_LABELS.key?(section)
+        end
+        SECTION_LABELS.each do |section, label|
+          next unless by_section.key?(section)
+
+          out << "**[[#{label}|#{label} Index]]**\n\n"
+          by_section[section].sort.each { |t| out << "- [[#{t}]]\n" }
+          out << "\n"
+        end
+        out
+      end
+    end
+  end
+end

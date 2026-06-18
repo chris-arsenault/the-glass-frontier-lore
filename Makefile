@@ -1,25 +1,34 @@
-.PHONY: lint check wiki graph-check graph-stats clean
+.PHONY: validate lint check wiki graph stats topology test clean
 
-# Run all checks (lore + wiki + graph)
+LC := ruby lorecraft/bin/lorecraft
+
+# Hard structural validation (raises on any invariant violation).
+validate:
+	@$(LC) validate
+
+# Graded lore quality findings (errors / warnings / futures).
 lint:
-	@python3 lint.py
-	@python3 wiki_gen.py wiki_out
+	@$(LC) lint
 
-# Alias
-check: lint
+# Run both gates.
+check: validate lint
 
-# Graph contradiction checks
-graph-check:
-	@python3 graph_cli.py check
-
-# Graph statistics
-graph-stats:
-	@python3 graph_cli.py stats
-
-# Generate wiki pages locally (without linting)
+# Generate the GitHub wiki into wiki_out/ (the only markdown output; CI
+# publishes it to the wiki repo, it is never committed here).
 wiki:
-	@python3 wiki_gen.py wiki_out
+	@$(LC) wiki wiki_out
 
-# Remove generated files
+# Graph JSON projection, stats, topology.
+graph:
+	@$(LC) graph build/graph.json
+stats:
+	@$(LC) stats
+topology:
+	@$(LC) topology
+
+# Engine unit tests.
+test:
+	@ruby lorecraft/test/test_lorecraft.rb
+
 clean:
-	@rm -rf wiki_out
+	@rm -rf wiki_out build

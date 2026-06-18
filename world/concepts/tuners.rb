@@ -7,7 +7,7 @@ concept :tuners do
   prose <<~PROSE
     People who can feel #{ref :resonance, "resonance"}. Not "use resonance technology" — anyone can flip a switch on a #{ref :ringglass, "ringglass"}-powered lantern. Tuners have trained a specific perceptual sense: the ability to feel the local resonance landscape directly, the way a musician with perfect pitch hears intervals without thinking. The crystal hums, the ground vibrates, the air carries harmonics that most people walk through without noticing. Tuners notice.
 
-    The profession is older than the name. During the #{ref nil, "Signal Famine", path: "player/history/index.md"}, people in isolated settlements independently figured out that they could learn to feel what the ring-era systems had once automated. Some reverse-engineered salvaged equipment. Some stumbled into it by accident — a #{future "Renn Duvasi"}-style moment of noticing something nobody else did. Some had artifacts that responded to their attention in ways they didn't expect. The learning was slow, dangerous, and entirely without theory. The elves had understood resonance as a science. The first Tuners understood it as a craft — or didn't understand it at all, and did it anyway.
+    The profession is older than the name. During the #{ref :signal_famine, "Signal Famine"}, people in isolated settlements independently figured out that they could learn to feel what the ring-era systems had once automated. Some reverse-engineered salvaged equipment. Some stumbled into it by accident — a #{future "Renn Duvasi"}-style moment of noticing something nobody else did. Some had artifacts that responded to their attention in ways they didn't expect. The learning was slow, dangerous, and entirely without theory. The elves had understood resonance as a science. The first Tuners understood it as a craft — or didn't understand it at all, and did it anyway.
 
     They weren't called Tuners then. They weren't called anything. They were just the person in the settlement who could tell you whether the ringglass in the wall was about to crack, or the one on the hab who knew which corridors were safe when the resonance shifted. The profession came later. The name came later still.
   PROSE
@@ -52,5 +52,23 @@ concept :tuners do
     - There are habs where only Tuners are permitted to live — communities that have organized their entire social structure around resonance sensitivity.
     - There is a deep-space station, far from any planet or ring fragment, that is held together structurally by the sustained concentration of its Tuner residents. If they stop, the station fails.
     - The #{ref :bloom_zones, "Bloom Zones"} are the ultimate test. The reality distortion there registers as overwhelming sensory noise for any Tuner. #{ref :gnomes, "Gnomes"} are particularly vulnerable. The #{ref :displacement_council, "Displacement Council"} employs Tuners for containment work, but exposure limits are strict and the burnout rate is high.
+  PROSE
+
+  # ---- Hidden (DM) truth ----
+  prose <<~PROSE, section: :truth, heading: "The Rogue Elf", dm: true
+    One of the independent origins of Tuning during the Signal Famine was not independent at all.
+
+    An elf — name unrecorded in any surviving document, referred to in the DM material only as the Dissident — rejected the collective decision to disappear. They believed that stripping the system of resonance knowledge was a greater crime than the risk of exposure. While the rest of their species scrubbed themselves from history and retreated to hidden habs, the Dissident walked in the other direction.
+
+    They settled in a surface community during the early Famine and began teaching. Not as an elf — they passed as human, which the physical differences make possible — but as a resonance practitioner sharing what they knew. Their students didn't learn elven theory. They learned a simplified, human-accessible version of it: practical techniques for feeling and working with resonance, stripped of the deep framework that would have taken decades of elven training to convey.
+
+    The Dissident's students became some of the most effective early Tuners. Their lineage is traceable — several modern Clarisant techniques descend from this single teaching line, though the guild doesn't know the origin. The Dissident themselves vanished after approximately twenty years, either recalled by elven authorities, killed, or simply moving on. There is no record of what happened to them.
+
+    The elven leadership considers the Dissident a traitor. Among the small number of elves who know the full history, opinion is more divided than the leadership would prefer. Some consider the Dissident proof that the disappearance was wrong. Others consider them proof that individual conscience can't be trusted with civilizational decisions.
+  PROSE
+  prose <<~PROSE, section: :usage_notes, heading: "DM Usage Notes", dm: true
+    - The Dissident is a potential ancestor figure for PCs with Tuning ability. "Your teacher's teacher's teacher learned from someone nobody can name" is a thread that leads somewhere.
+    - The Clarisant's oldest techniques contain elven fingerprints that a sufficiently knowledgeable analyst (an elf, or someone with access to deep Echo River fragments) could identify. This is a potential discovery mechanism.
+    - The Dissident's fate is undefined. They could be dead, hidden, or — given elven lifespans — still alive somewhere.
   PROSE
 end

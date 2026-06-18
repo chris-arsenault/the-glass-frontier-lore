@@ -49,6 +49,60 @@ when "validate"
     problems.each { |p| puts "  - #{p}" }
     exit 1
   end
+when "lint"
+  findings = load_world.lint
+  by = findings.group_by(&:level)
+  %i[future warn error].each do |lvl|
+    (by[lvl] || []).each { |f| puts "#{lvl.to_s.upcase.ljust(7)} #{f.message}" }
+  end
+  e = (by[:error] || []).size
+  w = (by[:warn] || []).size
+  fu = (by[:future] || []).size
+  puts "\n#{'─' * 40}\n  #{e} error(s), #{w} warning(s), #{fu} future(s)"
+  exit(e.positive? ? 1 : 0)
+when "wiki"
+  out = ARGV.shift or abort("usage: lorecraft wiki OUT_DIR")
+  files = load_world.render(:wiki, out: out, at: at)
+  puts "generated #{files.size} wiki pages → #{out}/"
+when "topology"
+  w = load_world
+  rels = w.relationships
+  ents = w.entities.values.reject { |e| e[:status].to_s == "shell" }
+  deg = Hash.new(0)
+  rels.each { |s, _v, t| deg[s] += 1; deg[t] += 1 }
+  degs = ents.map { |e| deg[e.id] }.sort
+  n = ents.size
+  mean = degs.empty? ? 0 : degs.sum.to_f / degs.size
+  median = degs.empty? ? 0 : degs[degs.size / 2]
+  zero = ents.select { |e| deg[e.id].zero? }
+  puts "=== Topology ==="
+  puts "  entities (non-shell): #{n}"
+  puts "  typed edges:          #{rels.size}"
+  puts "  edges/entity:         #{(rels.size.to_f / n).round(1)}  (target 4+)"
+  puts "  mean degree:          #{mean.round(1)}  (target 5+)"
+  puts "  median degree:        #{median}  (target 4+)"
+  puts "  zero-degree:          #{zero.size}/#{n}  (target 0)"
+  unless zero.empty?
+    puts "  zero-degree entities:"
+    zero.sort_by(&:kind).each { |e| puts "    #{e.kind.to_s.ljust(20)} #{e.id}" }
+  end
+when "review"
+  sub = ARGV.shift || "status"
+  rt = Lorecraft::ReviewTracker.new
+  case sub
+  when "pending" then puts rt.pending
+  when "mark"
+    abort("usage: lorecraft review mark <file>...") if ARGV.empty?
+    rt.mark(ARGV).each { |m| puts "  marked: #{m}" }
+  when "status"
+    s = rt.status_summary
+    puts "#{s[:reviewed]}/#{s[:total]} reviewed, #{s[:pending]} pending"
+  when "stale"
+    r = rt.stale
+    puts "#{r[:stale].size} stale, #{r[:active].size} active"
+    r[:stale].each { |c| puts "  STALE #{c['file']}: #{c['comment'].to_s[0, 60]}" }
+  else abort "unknown review subcommand: #{sub}"
+  end
 when "render"
   out = ARGV.shift or abort("usage: lorecraft render OUT_DIR [--audience player] [--at TICK]")
   w = load_world

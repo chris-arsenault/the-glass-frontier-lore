@@ -54,9 +54,9 @@ use the future marker: [future:Entity Name]
 
 - `title` — required. The entry's name.
 - `type` — required. The entry's primary type. Determines which directory it lives in.
-- `tags` — optional. Topics and themes this entry involves. **Controlled vocabulary** — only use tags defined in [`tags.md`](player/tags.md). If you need a new tag, add it there first. Tags describe what an entry is *about* (e.g., `governance`, `resonance`, `trade`), not what it is *related to*.
+- `tags` — optional. Topics and themes this entry involves. **Controlled vocabulary** — only use tags declared in `world/schema.rb` (`tag :name, "meaning"`). If you need a new tag, add it there first. Tags describe what an entry is *about* (e.g., `governance`, `resonance`, `trade`), not what it is *related to*.
 - `related` — **DEPRECATED.** Entity relationships are tracked in the graph database with typed edges (LEADS, DEPENDS_ON, LOCATED_IN, etc.) not generic frontmatter lists. Do not add new `related:` fields. Existing ones will be removed as entries are touched.
-- `prominence` — optional but encouraged. How widely known this entity is. One of: `forgotten`, `marginal`, `recognized`, `renowned`, `mythic`. See [Prominence](player/concepts/prominence.md). This is NOT power or importance — only awareness. Gates how far references should reach in the knowledge graph.
+- `prominence` — optional but encouraged. How widely known this entity is. One of: `forgotten`, `marginal`, `recognized`, `renowned`, `mythic`. See the Prominence concept (`world/concepts/prominence.rb`). This is NOT power or importance — only awareness. Gates how far references should reach in the knowledge graph.
 - `narrative_role` — optional. One of: `viewpoint`, `titan`. For NPCs that serve elevated narrative functions. See `review-guidance/narrative-roles-guide.md`. Most NPCs don't have this field.
 - `alias` — optional. Common alternative name(s) for this entry.
 - Additional fields as needed: `region:`, `era:`, `status:` etc. Add only when they carry real information.
@@ -110,89 +110,54 @@ Many entries touch multiple entity types. A ring hab might involve governance, p
 
 ## Index System
 
-Indexes are layered, progressively more detailed:
+Indexes are **generated** from the world registry by the wiki render — they are an artifact, not a source you hand-maintain. The authoritative registry is `world/` itself: every entity is a node, so per-type indexes fall out of the model.
 
-**Top-level `player/index.md`** — Human-readable overview of the world. Links to cosmology entries (which are few and foundational) and to per-type indexes for everything else.
+- **Status values:** `complete`, `draft`, `shell`, `needs_refinement` — declared on the entity (`status :complete`).
+- **Prominence values:** `forgotten`, `marginal`, `recognized`, `renowned`, `mythic`. See the Prominence concept (`world/concepts/prominence.rb`).
+- **Shells** — entities that are referenced but not yet written — are real nodes with `status :shell` and no page. They appear in indexes and can be edge endpoints, but the markdown/wiki render skips them (no file). Use `#{future "Name"}` in prose for a thing that has no entity at all yet.
+- To flesh out a shell: drop `status :shell`, give it a `path`, and write its prose.
 
-**Per-type `index.md`** (e.g. `player/locations/index.md`, `player/npcs/index.md`) — The authoritative registry for that entity type. Contains a markdown table of ALL known entities, including shells. Columns:
+## Meta Files (all in the DSL now — no standalone markdown)
 
-| Entry | Path | Status | Prominence | Tags | Notes |
-|-------|------|--------|------------|------|-------|
-| Fermata Station | `settlements/fermata-station.md` | complete | marginal | governance, resonance | Full entry |
-| Glasswake Relay | — | shell | — | trade, ring-hab | Referenced but not yet written |
-
-- **Path `—`** means the entry is a shell — no file exists. The index row IS the entry for now.
-- **Status values:** `complete`, `draft`, `shell`, `needs_refinement`
-- **Prominence values:** `forgotten`, `marginal`, `recognized`, `renowned`, `mythic` — or `—` if not yet assigned. See [Prominence](player/concepts/prominence.md).
-- When fleshing out a shell: create the file, update Path, update Status.
-- Shell entries should never have their own files. The index is the single source of truth for what exists and what doesn't.
-
-## Meta Files
-
-- **`player/timeline.md`** — Major events only. Grounds all historical references. Update when adding events.
-- **`player/tags.md`** — Tag taxonomy. Check here before inventing a new tag. Update when adding tags.
+- **Tags** — the controlled vocabulary lives in `world/schema.rb` (`tag :name, "meaning"`). Add a tag there before using it. The **Tags** wiki page is generated from it.
+- **Timeline** — eras (with descriptions) live in `world/timeline.rb`. The **Timeline** wiki page is generated from them.
+- **Causality** — the cause-and-effect view is generated from the world's causal edges (`caused`/`causes`); there is no causality file to maintain.
+- **Home** and other hand-authored wiki pages are `page` constructs in `world/pages.rb`.
 
 ## File Naming
 
-- Lowercase, hyphenated: `glasswake-relay.md`, `prismwell-kite-guild.md`
-- One file per entry
-- Place files in the matching category directory
+- Lowercase, hyphenated entity ids → underscored symbols in the DSL (`the-false-form` → `:the_false_form`); the original slug is preserved in the entity's `path` attribute.
+- One `.rb` file per entity, under `world/<type>/<id>.rb`.
 
 ## Directory Structure
 
 ```
-player/                     # all player-facing lore (published to wiki)
-  cosmology/                # the rings, resonance, echo rivers, the physical world
-  concepts/                 # resources, abilities, phenomena, professions, meta
-    species/                # biological types
-    cultures/               # social patterns, naming conventions
-  locations/
-    regions/                # broad geographic areas
-    settlements/            # named towns, cities, stations
-    landmarks/              # notable specific places
-  npcs/
-    factions/               # organized groups
-    heroes/                 # notable individuals
-    monsters/               # named antagonists, villains, bosses
-  history/
-    eras/                   # broad time periods
-    events/                 # specific historical moments
-  artifacts/
-    relics/                 # unique, named, significant
-    common/                 # everyday resonance-tech items
-  creatures/
-    fauna/                  # wildlife, animals
-    anomalies/              # strange phenomena, living or otherwise
-  ships/
-    military/               # warships, patrol vessels
-    civilian/               # trade ships, transports, personal craft
-  design-principles.md      # meta worldbuilding philosophy
-  world-seeds.md            # ideas and texture for future development
-  timeline.md               # major events chronology
-  tags.md                   # controlled tag vocabulary
-  causality.md              # entity-to-entity causal DAG
+world/                      # THE SOURCE OF TRUTH — Lorecraft DSL
+  schema.rb                 # entity kinds, relation taxonomy, effect verbs, tags, sections
+  timeline.rb               # eras (fixed boundaries, descriptions); CE year = tick
+  pages.rb                  # authored standalone wiki pages (Home, …) — `page` constructs
+  cosmology/ concepts/ locations/ npcs/ history/ artifacts/ creatures/ ships/
+                            # one <id>.rb per entity (kind → directory)
+  _shells.rb                # shell stubs: referenced-but-unwritten entities
+  _edges.rb                 # relationship edges (relate instances)
 
-dm/                         # DM-only knowledge (not published to wiki)
-  themes/                   # thematic cores — authorial scaffolding
-  threads/                  # plot threads — narrative arc beat sequences
-  loops/                    # narrative loops — recurring structural patterns
-review-guidance/            # writing quality docs (naming, deslop, crosswalk)
-research/                   # long-term reference material (thematic craft, analyses)
-work-tracking/              # temporary operational docs (queue, questions, snapshots)
+lorecraft/                  # the engine (Ruby): lib/, bin/lorecraft, tools/, test/
+docs/                       # repo documentation, NOT player-facing
+  design-principles.md      # worldbuilding philosophy
+  world-seeds.md            # ideas for future development
+  entity-bank-schema.md     # archetype/stub-inventory schema (the inventory itself = shells)
+review-guidance/            # writing quality docs (voice, naming, topology)
+research/                   # long-term reference material
+work-tracking/              # operational docs (queue, questions, review status)
+tools/review-app/           # inline review tool (Vite + React + Express)
 
-tools/
-  review-app/               # inline review tool (Vite + React + Express)
-
-CLAUDE.md                   # this file — authoring conventions
-SYSTEM.md                   # technical architecture (graph, embedding, CLI, lint)
-README.md                   # repo overview
-review.py                   # review tracking CLI (pending, mark, stale, status)
-lint.py                     # lore linter
-graph_cli.py                # graph database CLI
-wiki_gen.py                 # wiki generation
+CLAUDE.md / AGENTS.md       # this file — authoring conventions (kept in sync)
+SYSTEM.md                   # technical architecture (the Lorecraft engine)
+Makefile                    # validate / lint / wiki / graph / test targets
+.github/workflows/wiki.yml  # CI: validate + build wiki from world/ → publish to wiki repo
 ```
 
-New directories can be added as needed. The structure is emergent. See `SYSTEM.md` for technical details on the graph, embedding pipeline, and tooling.
+**There is no committed markdown lore tree.** The only markdown output is the GitHub wiki, generated by CI (`make wiki`) from `world/` and published to the wiki repo — never committed here. Edit `world/`. See `SYSTEM.md` for the engine and `lorecraft/README.md` for authoring the DSL.
 
 ## DM Knowledge (`dm/`)
 
@@ -217,117 +182,57 @@ public_entry: elves
 
 **What does NOT go in `dm/`:** Anything that's just unwritten. Shell entries and `[future:]` markers are for things we haven't fleshed out yet. `dm/` is for things that are deliberately hidden from the player-facing wiki.
 
-## Critical: Graph Safety
+## Critical: Lorecraft Workflow
 
-**NEVER write or execute ad-hoc Python scripts that modify the graph.** All graph writes go through `graph_cli.py`. The CLI takes automatic snapshots before destructive operations. Ad-hoc scripts bypass this protection and have already caused data loss.
+The world is authored as a **[Lorecraft](lorecraft/README.md) DSL** — Ruby files under `world/`. The in-memory object graph Lorecraft builds is the structured truth layer; there is no separate database to keep in sync. The GitHub wiki and the graph JSON are **render targets**, regenerated from `world/`. No markdown lore is committed to this repo.
 
-**Before ANY graph modification:**
-1. Take a snapshot: `python3 graph_cli.py snapshot before-<description>`
-2. If the operation involves a query that creates or deletes nodes/edges, **run the query as a read-only DRY RUN first** — replace `CREATE`/`MERGE`/`DELETE`/`SET` with `RETURN` to see what would be affected
-3. Review the dry run results before executing
-4. Use the CLI commands, not raw Cypher in scripts
-
-**If something goes wrong:** `python3 graph_cli.py restore <snapshot-name>`
-
-## Critical: Graph Workflow
-
-**Every prose change MUST be accompanied by a graph update.** The Memgraph database at `192.168.66.3:7688` is the structured truth layer. Prose and graph must stay in sync at all times.
+**Safety:** `world/` is versioned by git — that is the snapshot/restore mechanism. Commit before a large rewrite. There is no committed markdown to hand-edit; edit the `world/` files and let CI rebuild the wiki.
 
 ### When creating or modifying an entry:
 
-1. **Before writing:** Query the graph for the entity's neighborhood to understand existing relationships and check for conflicts:
+1. **Look at the neighborhood.** Read the entity's `world/<type>/<id>.rb` and the edges it appears in (`world/_edges.rb`).
+2. **Edit the world file.** Static facts as attributes (`name`, `tags`, `prominence`, …); prose via `prose` blocks; cross-links via `#{ref :other_id}`; unwritten things via `#{future "Name"}`.
+3. **Add typed relationships.** Every meaningful connection is a typed edge from the schema — a `relate :id, :verb, :src, :tgt` (optionally `since:`/`till:`/`dm: true`) or an event effect. Unknown/banned relation types are rejected by the validator.
+4. **Validate and lint:**
    ```
-   python3 graph_cli.py query-neighborhood <entity-id>
-   ```
-
-2. **After writing the .md file:** Upsert the entity to sync prose → graph (creates/updates entity node, sections, embeddings, MENTIONS edges):
-   ```
-   python3 graph_cli.py upsert-entity player/concepts/<file>.md
+   make check          # validate (hard invariants) + lint (graded findings)
    ```
 
-3. **Add typed relationships:** Every meaningful connection between entities gets a typed edge. Do NOT use generic relationships — every edge must have a semantic type from the taxonomy:
-   ```
-   python3 graph_cli.py add-rel <source-id> <REL_TYPE> <target-id>
-   python3 graph_cli.py add-rel coremark OPERATES_IN the-shear
-   python3 graph_cli.py add-rel elves BUILT the-glass-frontier --dm
-   ```
-
-4. **Run checks:** Verify no contradictions were introduced:
-   ```
-   python3 graph_cli.py check
-   make lint
-   ```
-
-### Graph CLI commands:
+### Commands (`make <target>` or `ruby lorecraft/bin/lorecraft <cmd>`):
 
 | Command | Use |
 |---------|-----|
-| `upsert-entity <file>` | Sync a prose file to graph (entity + sections + embeddings) |
-| `add-rel <src> <type> <tgt> [--from Y] [--to Y]` | Add a typed relationship (temporal bounds for state rels) |
-| `rm-rel <src> <type> <tgt>` | Remove a relationship |
-| `query-neighborhood <id>` | Show entity's connections (with temporal bounds) |
-| `query-at <id> --year Y` | Show entity neighborhood at a point in time |
-| `query-similar <section-id>` | Vector search for similar sections |
-| `check` | Run all contradiction checks (G1-G8, L2) |
-| `stats` | Graph statistics |
+| `validate` | Hard structural invariants (refs resolve, domain/range, cardinality, causality, DM-leak). Raises. |
+| `lint` | Graded findings: errors / warnings (prominence reach, orphans, double-article, …) / futures. |
+| `wiki <out>` | Generate the GitHub wiki from `world/` (player audience; DM excluded). |
+| `wiki <out>` | Generate the GitHub wiki (player audience only). |
+| `graph [out.json]` | Node/edge JSON projection at a point in time. |
+| `stats` / `topology` | Counts by kind; degree/reachability health. |
+| `timeline <id>` | Life-of-entity event strip. |
 
-### Relationship types:
-
-Check the taxonomy before creating edges. Banned types (like RELATED_TO) will be rejected:
-```
-python3 graph_cli.py add-rel <src> <type> <tgt>
-```
-The CLI validates against the taxonomy and rejects banned types.
-
-### What gets embedded:
-
-Two parallel embedding spaces are maintained per section:
-- **Enriched** (`embedding`): entity-attribute prefix injection + clean prose. Better for semantic similarity queries ("find things related to X").
-- **Plain** (`embedding_plain`): clean prose only, no attribute injection. Better for content duplication detection (avoids entity-attribute clustering).
-
-Both are rebuilt automatically by `upsert-entity`. Both have separate vector indices (`section_embeddings`, `section_embeddings_plain`). Lint L2 checks run against both spaces.
+Historical state is a query, not a stored field: `world.at(era: :the_accord, year: 5).out(:coremark, :operates_in)`.
 
 ## Review Workflow
 
-Review tracking uses `review.py` and the review app (`tools/review-app/`).
+Review tracking is `lorecraft review <pending|mark|stale|status>` — git-mtime vs recorded review time, stored in `work-tracking/review-status.json` (unchanged format). The embedding-backed `overlaps`/`gaps` reports are **retired** (they required the Memgraph vector index).
 
-### CLI commands:
+### After modifying an entry:
 
-| Command | Use |
-|---------|-----|
-| `python3 review.py pending` | List files modified since last review (pipe to voice prompt) |
-| `python3 review.py mark <file> [...]` | Mark file(s) as auto-reviewed after fixing issues |
-| `python3 review.py stale` | Show review comments that are stale (file was fixed since comment) |
-| `python3 review.py status` | Summary: reviewed/total counts |
-| `python3 review.py gaps` | Show archetype taxonomy gaps (thin entity categories) |
-| `python3 review.py overlaps` | Generate overlap report for review app |
-| `python3 review.py topology` | Graph topology health check (edges/entity, degree, 2-hop reachability) |
+1. `make check`
+2. `ruby lorecraft/bin/lorecraft review mark <file>`
+3. **Resolve addressed comments** in `work-tracking/review-comments.json` (set `status: "resolved"`). Mandatory.
 
-### After modifying prose:
+### Review data & guidance:
 
-1. Upsert to graph: `python3 graph_cli.py upsert-entity <file>`
-2. Run lint: `python3 lint.py`
-3. Mark auto-reviewed: `python3 review.py mark <file>`
-4. **Resolve addressed comments:** After fixing review comments, mark them as resolved in `work-tracking/review-comments.json` by setting `status: "resolved"` on each addressed comment. This is mandatory — do not leave addressed comments as open.
-
-### Two review systems (independent):
-
-- **Auto review** (`work-tracking/review-status.json`) — tracked by `review.py mark`. Records when Claude ran voice prompts and fixed issues.
-- **Manual review** (`work-tracking/manual-review-status.json`) — tracked by the UI "Mark reviewed" button. Records when the user personally signed off on a file.
-
-### Review data:
-
-- `work-tracking/review-comments.json` — inline review comments (from the review app)
-- `work-tracking/review-status.json` — auto review timestamps
-- `work-tracking/manual-review-status.json` — manual review timestamps
-- `work-tracking/overlap-report.json` — L2 overlap report (generated by `review.py overlaps`)
-- `work-tracking/accepted-overlaps.json` — section pairs accepted as legitimate overlap (excluded from L2 lint warnings)
+- `work-tracking/review-status.json` — auto review timestamps (`review mark`)
+- `work-tracking/manual-review-status.json` — manual sign-off (review app UI)
+- `work-tracking/review-comments.json` — inline review comments
 - `review-guidance/voice-review-prompt.md` — reusable LLM prompt for domain/register review
 - `review-guidance/writing-guidance.md` — mandatory writing rules (entity attribution, clause patterns, cross-references)
 
 ### Review app:
 
-`cd tools/review-app && npm run dev` — Word-doc-style inline review tool on `:3456`. Highlights text with comments, shows stale vs active comments, supports marking files as reviewed from the UI.
+`cd tools/review-app && npm run dev` — inline review tool on `:3456`. Note: it was built against the old markdown tree; until it's updated for the DSL, review against the generated wiki (`make wiki`) and port fixes back into the matching `world/` file.
 
 ## Source Material
 

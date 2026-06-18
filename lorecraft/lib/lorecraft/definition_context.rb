@@ -39,6 +39,11 @@ module Lorecraft
       @world.define_event(id: id, at: at, span: span, kind: type, dm: dm, seq: seq, &block)
     end
 
+    # `page :id, title:, wiki:` — an authored standalone wiki page (not an entity).
+    def page(id, title: nil, wiki: nil, audience: :all, &block)
+      @world.define_page(id: id, title: title, wiki: wiki, audience: audience, &block)
+    end
+
     # `relate :id, :rival_of, :a, :b, since: {...}` — promote an edge to a
     # named, addressable, prose-owning relation instance.
     def relate(id, verb, source, target, since: nil, till: nil, dm: false, &block)

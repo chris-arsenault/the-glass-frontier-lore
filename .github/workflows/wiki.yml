@@ -14,13 +14,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
         with:
-          python-version: "3.12"
+          ruby-version: "3.3"
 
-      - name: Generate wiki pages
-        run: python wiki_gen.py wiki_out
+      - name: Validate the world
+        run: ruby lorecraft/bin/lorecraft validate
+
+      - name: Generate wiki pages from world/
+        run: ruby lorecraft/bin/lorecraft wiki wiki_out
 
       - name: Clone wiki repository
         env:

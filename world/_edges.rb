@@ -3,7 +3,6 @@
 relate :rel_cultures_extends_hab_worlder, :extends, :cultures, :hab_worlder
 relate :rel_cultures_extends_sitharian_culture, :extends, :cultures, :sitharian_culture
 relate :rel_elves_cooperates_with_displacement_council, :cooperates_with, :elves, :displacement_council, since: { tick: 2384 }, dm: true
-relate :rel_elves_hiding_from_the_adversary, :hiding_from, :elves, :the_adversary, dm: true
 relate :rel_elves_disappeared_during_signal_famine, :disappeared_during, :elves, :signal_famine
 relate :rel_elves_designed_resonance, :designed, :elves, :resonance
 relate :rel_elves_built_the_glass_frontier, :built, :elves, :the_glass_frontier
@@ -59,9 +58,6 @@ relate :rel_dern_talish_born_in_the_glass_frontier, :born_in, :dern_talish, :the
 relate :rel_dern_talish_cooperates_with_elves, :cooperates_with, :dern_talish, :elves, since: { tick: 2432 }, dm: true
 relate :rel_dern_talish_possesses_communication_shard, :possesses, :dern_talish, :communication_shard, since: { tick: 2432 }, dm: true
 relate :rel_dern_talish_operates_in_bloom_zones, :operates_in, :dern_talish, :bloom_zones, since: { tick: 2412 }
-relate :rel_dern_talish_truth_extends_dern_talish, :extends, :dern_talish_truth, :dern_talish, dm: true
-relate :rel_elves_truth_extends_elves, :extends, :elves_truth, :elves, dm: true
-relate :rel_tuners_truth_extends_tuners, :extends, :tuners_truth, :tuners, dm: true
 relate :rel_ratters_operates_in_the_shear, :operates_in, :ratters, :the_shear, since: { tick: 2320 }
 relate :rel_ratters_operates_in_deep_shear, :operates_in, :ratters, :deep_shear, since: { tick: 2320 }
 relate :rel_kaleidos_orbits_the_sun, :orbits, :kaleidos, :the_sun
@@ -129,9 +125,7 @@ relate :rel_kite_sail_depends_on_microcavities, :depends_on, :kite_sail, :microc
 relate :rel_signal_famine_caused_tuners, :caused, :signal_famine, :tuners
 relate :rel_signal_famine_caused_fermata_station, :caused, :signal_famine, :fermata_station
 relate :rel_signal_famine_caused_disappearance_of_the_elves, :caused, :signal_famine, :disappearance_of_the_elves, dm: true
-relate :rel_the_adversary_destroyed_the_glass_frontier, :destroyed, :the_adversary, :the_glass_frontier, dm: true
-relate :rel_the_adversary_seeping_through_bloom_zones, :seeping_through, :the_adversary, :bloom_zones, dm: true
-relate :rel_the_adversary_caused_disappearance_of_the_elves, :caused, :the_adversary, :disappearance_of_the_elves, dm: true
+relate :rel_the_false_form_caused_disappearance_of_the_elves, :caused, :the_false_form, :disappearance_of_the_elves, dm: true
 relate :rel_the_dissident_taught_tuners, :taught, :the_dissident, :tuners, dm: true
 relate :rel_the_dissident_member_of_elves, :member_of, :the_dissident, :elves, since: { tick: 2050 }, dm: true
 relate :rel_threshold_station_in_orbit_of_kaleidos, :in_orbit_of, :threshold_station, :kaleidos
@@ -163,7 +157,6 @@ relate :rel_the_fracture_orbits_the_sun, :orbits, :the_fracture, :the_sun
 relate :rel_the_fracture_inner_of_vastine, :inner_of, :the_fracture, :vastine
 relate :rel_vastine_orbits_the_sun, :orbits, :vastine, :the_sun
 relate :rel_liras_wall_depends_on_stillwater, :depends_on, :liras_wall, :stillwater
-relate :rel_corruption_truth_extends_duskgrain, :extends, :corruption_truth, :duskgrain
 relate :rel_kaleidos_system_depends_on_resonance, :depends_on, :kaleidos_system, :resonance
 relate :rel_resonant_instruments_depends_on_resonance, :depends_on, :resonant_instruments, :resonance
 relate :rel_microcavities_derived_from_ringglass, :derived_from, :microcavities, :ringglass
@@ -182,4 +175,3 @@ relate :rel_the_false_form_part_of_the_three_forms, :part_of, :the_false_form, :
 relate :rel_the_false_form_destroyed_the_glass_frontier, :destroyed, :the_false_form, :the_glass_frontier, dm: true
 relate :rel_the_false_form_caused_the_glassfall, :caused, :the_false_form, :the_glassfall, dm: true
 relate :rel_the_false_form_seeping_through_bloom_zones, :seeping_through, :the_false_form, :bloom_zones, dm: true
-relate :rel_the_false_form_truth_extends_the_false_form, :extends, :the_false_form_truth, :the_false_form, dm: true

@@ -6,7 +6,7 @@ Mandatory rules for all lore prose. Follow these before, during, and after writi
 
 **Never default to a known entity when the archetype has unfilled slots.**
 
-Before attributing an action, resource, or relationship to an existing entity, run `python3 review.py gaps` and check whether that entity's archetype category is full. If it isn't, strongly prefer a `[future:]` marker for a new entity.
+Before attributing an action, resource, or relationship to an existing entity, consider whether that entity's archetype category is already well-represented. If a category is thin, strongly prefer a `#{future "Name"}` marker for a new entity over overloading a known one. (The automated archetype-gap report was retired with the graph; use judgement and the existing roster.)
 
 **Examples:**
 - Smuggling → DON'T write "Coremark channels." Criminal Syndicate has 2 open slots. Write "black market networks" or `[future:syndicate name]`.

@@ -7,6 +7,7 @@ require_relative "prose"
 require_relative "entity"
 require_relative "event"
 require_relative "relation"
+require_relative "page"
 require_relative "definition_context"
 
 module Lorecraft
@@ -15,7 +16,7 @@ module Lorecraft
   # Loading is a deterministic two pass over the content files; querying state
   # at a time is delegated to the Resolver (lazily built and memoised per tick).
   class World
-    attr_reader :schema, :timeline, :entities, :events, :relation_instances
+    attr_reader :schema, :timeline, :entities, :events, :relation_instances, :authored_pages
 
     def initialize
       @schema = Schema.new
@@ -23,6 +24,7 @@ module Lorecraft
       @entities = {}
       @events = {}
       @relation_instances = {}
+      @authored_pages = {}
       @load_index = 0
       @resolvers = {}
     end
@@ -78,6 +80,13 @@ module Lorecraft
       )
       EventBuilder.new(event, self).instance_eval(&block) if block
       @events[id] = event
+    end
+
+    def define_page(id:, title: nil, wiki: nil, audience: :all, &block)
+      id = id.to_sym
+      raise DefinitionError, "duplicate page id #{id}" if @authored_pages.key?(id)
+
+      @authored_pages[id] = Page.new(id: id, title: title, wiki: wiki, audience: audience).build(&block)
     end
 
     def define_relation_instance(id:, verb:, source:, target:, since: nil, till: nil, dm: false, &block)
@@ -145,6 +154,17 @@ module Lorecraft
       @all_effects = list.sort_by { |e| e[:key] }
     end
 
+    # Distinct relationship triples [subject, verb, target] across all time —
+    # the atemporal graph view, used for structural lint checks (cycles,
+    # antisymmetry, orphans).
+    def relationships
+      @relationships ||= all_effects
+                         .map { |e| e[:effect] }
+                         .select { |eff| eff.verb == :set && eff.relation }
+                         .map { |eff| [eff.subject, eff.relation, eff.target] }
+                         .uniq
+    end
+
     # State of the world at a tick (existence, dynamic attrs, live edges).
     def at(point = :now)
       tick = @timeline.tick_for(point)
@@ -159,6 +179,10 @@ module Lorecraft
       Validator.new(self).validate
     end
 
+    def lint(root: Dir.pwd)
+      Linter.new(self, root: root).run
+    end
+
     def validate!
       Validator.new(self).validate!
     end
@@ -167,4 +191,5 @@ end
 
 require_relative "resolver"
 require_relative "validator"
+require_relative "linter"
 require_relative "render"

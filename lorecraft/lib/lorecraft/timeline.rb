@@ -12,7 +12,7 @@ module Lorecraft
   #     now era: :the_reconnection, year: 14            # tick 174
   #   end
   class Timeline
-    Era = Struct.new(:name, :start_tick, :length, keyword_init: true) do
+    Era = Struct.new(:name, :start_tick, :length, :title, :description, keyword_init: true) do
       # Half-open interval [start_tick, end_tick).
       def end_tick = start_tick + length
       def covers?(tick) = tick >= start_tick && tick < end_tick
@@ -29,7 +29,7 @@ module Lorecraft
     # Declare the next era. `starts:` is optional — if omitted, the era begins
     # where the previous one ended (the common case). The first era must have a
     # known start (defaults to 0).
-    def era(name, length:, starts: nil)
+    def era(name, length:, starts: nil, title: nil, description: nil)
       name = name.to_sym
       raise DefinitionError, "duplicate era #{name}" if @by_name.key?(name)
       raise DefinitionError, "era #{name} length must be positive" unless length.positive?
@@ -39,7 +39,7 @@ module Lorecraft
         raise DefinitionError, "era #{name} starts (#{starts}) before previous era ends (#{@eras.last.end_tick})"
       end
 
-      e = Era.new(name: name, start_tick: start_tick, length: length)
+      e = Era.new(name: name, start_tick: start_tick, length: length, title: title, description: description)
       @eras << e
       @by_name[name] = e
       e

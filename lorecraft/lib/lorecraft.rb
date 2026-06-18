@@ -24,3 +24,4 @@ module Lorecraft
 end
 
 require_relative "lorecraft/world"
+require_relative "lorecraft/review"

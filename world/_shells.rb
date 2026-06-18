@@ -138,11 +138,6 @@ era :the_accord do
   status :shell
   prominence :renowned
 end
-dm :the_adversary do
-  name "The Adversary"
-  status :shell
-  dm!
-end
 conflict :the_bitter_reach do
   name "The Bitter Reach"
   status :shell
@@ -173,7 +168,7 @@ conflict :the_corridor_disputes do
   status :shell
   prominence :recognized
 end
-dm :the_dissident do
+npc :the_dissident do
   name "The Dissident"
   status :shell
   dm!

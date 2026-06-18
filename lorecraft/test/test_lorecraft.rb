@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
 $LOAD_PATH.unshift File.expand_path("../lib", __dir__)
+Encoding.default_external = Encoding::UTF_8
+Encoding.default_internal = Encoding::UTF_8
 require "minitest/autorun"
+require "tmpdir"
 require "lorecraft"
 
 # A small, well-formed world reused across tests.
@@ -278,6 +281,132 @@ class GraphRenderTest < Minitest::Test
     reach = controls.find { |e| e["tgt"] == "reach" }
     assert_equal 10, reach["from"]      # opened at genesis tick
     assert_equal 105, reach["to"]       # closed by the seizure transfer
+  end
+end
+
+class LinterTest < Minitest::Test
+  def lint(&block)
+    Lorecraft.define(&block).lint(root: Dir.mktmpdir)
+  end
+
+  def test_dm_phrase_leakage
+    findings = lint do
+      schema { entity_type :concept }
+      timeline { era :t, starts: 0, length: 10; now tick: 1 }
+      concept :a do name "A"; prose "The truth is, this leaks." end
+    end
+    assert(findings.any? { |f| f.level == :error && f.message.include?("DM leakage") })
+  end
+
+  def test_double_article
+    findings = lint do
+      schema { entity_type :concept }
+      timeline { era :t, starts: 0, length: 10; now tick: 1 }
+      concept :a do name "A"; prose "visiting the #{ref(:b, 'The Reach')} today" end
+      concept :b do name "The Reach" end
+    end
+    assert(findings.any? { |f| f.message.include?("double article") })
+  end
+
+  def test_causal_cycle
+    findings = lint do
+      schema do
+        entity_type :incident
+        relation :causes, temporal: false
+        effect :set
+      end
+      timeline { era :t, starts: 0, length: 10; now tick: 1 }
+      incident :a do name "A" end
+      incident :b do name "B" end
+      genesis :g, at: { tick: 0 } do
+        effects { set :a, causes: :b; set :b, causes: :a }
+      end
+    end
+    assert(findings.any? { |f| f.message.include?("causal cycle") })
+  end
+
+  def test_orphan_detection
+    findings = lint do
+      schema { entity_type :concept }
+      timeline { era :t, starts: 0, length: 10; now tick: 1 }
+      concept :lonely do name "Lonely" end
+    end
+    assert(findings.any? { |f| f.message.include?("orphan") && f.message.include?("lonely") })
+  end
+end
+
+class WikiRenderTest < Minitest::Test
+  def test_wiki_links_and_dm_exclusion
+    require "tmpdir"
+    Dir.mktmpdir do |dir|
+      w = Lorecraft.define do
+        schema { entity_type :concept; entity_type :secret, wiki: false }
+        timeline { era :t, starts: 0, length: 10; now tick: 1 }
+        concept :reach do name "The Reach" end
+        concept :a do name "A"; prose "near #{ref :reach} and #{future 'Soon'}" end
+        secret :hidden do name "Hidden"; dm! end
+      end
+      files = Lorecraft::Render::Wiki.new(w, root: dir).render(out: File.join(dir, "wiki"))
+      page = File.read(File.join(dir, "wiki", "A.md"))
+      assert_includes page, "[[The Reach]]"
+      assert_includes page, "*(stub)*"
+      refute(files.any? { |f| f.include?("Hidden") }, "DM page leaked into wiki")
+    end
+  end
+end
+
+class PageAndGeneratedPagesTest < Minitest::Test
+  def build
+    Dir.mktmpdir do |dir|
+      w = Lorecraft.define do
+        schema do
+          entity_type :incident, :concept
+          relation :caused, temporal: false
+          effect :set
+          tag :resonance, "the energy system"
+        end
+        timeline do
+          era :early, starts: 2000, length: 200, title: "The Early Age",
+              description: "Where it began."
+          now tick: 2100
+        end
+        concept :resonance do name "Resonance"; tags :resonance end
+        incident :a do name "The Spark" end
+        incident :b do name "The Fire" end
+        genesis :g, at: { tick: 2010 } do effects { set :a, caused: :b } end
+        page :home, title: "Home", wiki: "Home" do
+          prose "See #{ref :resonance} to start."
+        end
+      end
+      yield Lorecraft::Render::Wiki.new(w, root: dir), dir, w
+    end
+  end
+
+  def test_authored_page_renders_with_links
+    build do |wiki, dir, _w|
+      wiki.render(out: File.join(dir, "w"))
+      home = File.read(File.join(dir, "w", "Home.md"))
+      assert_includes home, "[[Resonance]]"
+    end
+  end
+
+  def test_generated_tags_timeline_causality
+    build do |wiki, dir, _w|
+      wiki.render(out: File.join(dir, "w"))
+      tags = File.read(File.join(dir, "w", "Tags.md"))
+      timeline = File.read(File.join(dir, "w", "Timeline.md"))
+      causal = File.read(File.join(dir, "w", "Causality.md"))
+      assert_includes tags, "`resonance`"
+      assert_includes timeline, "The Early Age"
+      assert_includes causal, "[[The Spark]] → [[The Fire]]"
+    end
+  end
+
+  def test_page_is_not_an_entity
+    build do |_wiki, _dir, w|
+      assert_nil w.entity(:home)
+      assert w.authored_pages.key?(:home)
+    end
   end
 end
 

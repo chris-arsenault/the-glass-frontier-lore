@@ -33,7 +33,7 @@ concept :resonance do
 
     **Broad bandwidth** — wide, unfocused resonance. Easy to achieve, easy to maintain, limited in effect. This is what powers household devices: lanterns, stoves, compasses, basic heaters. Broad-bandwidth applications work with ambient resonance and low-grade ringglass. Anyone can use them. A broad structural application makes a wall stronger. A broad kinetic application heats a room.
 
-    **Mid bandwidth** — focused resonance requiring trained #{ref :tuners, "Tuners"} or quality ringglass arrays. This is the professional range: kite engines, refinery operations, long-range communication, #{ref nil, "Clarisant", path: "player/npcs/index.md"}-grade attunement work. Mid-bandwidth applications produce the technology that runs the system's infrastructure. A mid kinetic application generates unopposed thrust. A mid signal application carries a conversation across a continent.
+    **Mid bandwidth** — focused resonance requiring trained #{ref :tuners, "Tuners"} or quality ringglass arrays. This is the professional range: kite engines, refinery operations, long-range communication, #{ref :clarisant, "Clarisant"}-grade attunement work. Mid-bandwidth applications produce the technology that runs the system's infrastructure. A mid kinetic application generates unopposed thrust. A mid signal application carries a conversation across a continent.
 
     **Narrow bandwidth** — tightly focused, poorly understood. Narrow-band resonance produces effects that don't have clear theoretical explanations. Structural narrow can locally alter physical laws. Kinetic narrow has been observed to produce translocation effects. Signal narrow borders on consciousness interface — direct information transfer without a medium.
 
