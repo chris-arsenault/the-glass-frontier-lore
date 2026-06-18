@@ -1,0 +1,41 @@
+# frozen_string_literal: true
+
+# Dev tasks for the Lorecraft engine. Run from the repo root:
+#   rake -f lorecraft/Rakefile test
+#   rake -f lorecraft/Rakefile parity
+#   rake -f lorecraft/Rakefile import
+ROOT = File.expand_path("..", __dir__)
+
+desc "Run the engine unit test suite"
+task :test do
+  sh "ruby #{__dir__}/test/test_lorecraft.rb"
+end
+
+desc "End-to-end smoke test on a hand-built world"
+task :smoke do
+  sh "ruby #{__dir__}/test/smoke.rb"
+end
+
+desc "(Re)import the markdown corpus + snapshot into world/"
+task :import do
+  Dir.chdir(ROOT) { sh "ruby lorecraft/tools/import.rb" }
+end
+
+desc "Round-trip parity: render world/ and diff against the original markdown"
+task :parity do
+  Dir.chdir(ROOT) { sh "ruby lorecraft/tools/parity.rb" }
+end
+
+desc "Validate the migrated world"
+task :validate do
+  Dir.chdir(ROOT) { sh "ruby lorecraft/bin/lorecraft validate" }
+end
+
+desc "Full check: tests + import + validate + parity"
+task check: :test do
+  Rake::Task[:import].invoke
+  Rake::Task[:validate].invoke
+  Rake::Task[:parity].invoke
+end
+
+task default: :check

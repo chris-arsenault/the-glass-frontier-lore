@@ -1,0 +1,76 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# Lorecraft CLI — the day-to-day entry point. Replaces the graph_cli / lint /
+# wiki_gen workflow for the DSL world.
+#
+#   lorecraft validate                 # load world/**, run the validator
+#   lorecraft render build/tree        # regenerate the markdown tree
+#   lorecraft render build/wiki --audience player   # player-facing only
+#   lorecraft graph [out.json]         # graph projection (Memgraph replacement)
+#   lorecraft timeline <entity-id>     # life-of-entity event strip
+#   lorecraft stats
+Encoding.default_external = Encoding::UTF_8
+Encoding.default_internal = Encoding::UTF_8
+$LOAD_PATH.unshift File.expand_path("../lib", __dir__)
+require "lorecraft"
+
+GLOB = ENV.fetch("LORECRAFT_GLOB", "world/**/*.rb")
+
+def load_world
+  Lorecraft.load(GLOB)
+rescue => e
+  warn "load error: #{e.message}"
+  exit 2
+end
+
+def opt(args, flag, default = nil)
+  i = args.index(flag)
+  return default unless i
+
+  val = args[i + 1]
+  args.delete_at(i + 1)
+  args.delete_at(i)
+  val
+end
+
+cmd = ARGV.shift || "validate"
+audience = opt(ARGV, "--audience", "all").to_sym
+at = opt(ARGV, "--at", "now")
+at = at == "now" ? :now : Integer(at)
+
+case cmd
+when "validate"
+  problems = load_world.validate
+  if problems.empty?
+    puts "✓ world is valid"
+  else
+    puts "✗ #{problems.size} problem(s):"
+    problems.each { |p| puts "  - #{p}" }
+    exit 1
+  end
+when "render"
+  out = ARGV.shift or abort("usage: lorecraft render OUT_DIR [--audience player] [--at TICK]")
+  w = load_world
+  w.validate! rescue (warn "refusing to render an invalid world; run `lorecraft validate`"; exit 1)
+  files = w.render(:markdown, out: out, audience: audience, at: at)
+  puts "rendered #{files.size} pages → #{out}/"
+when "graph"
+  out = ARGV.shift
+  json = load_world.render(:graph, audience: audience, at: at)
+  if out then File.write(out, json); puts "graph → #{out}" else puts json end
+when "timeline"
+  id = ARGV.shift or abort("usage: lorecraft timeline <entity-id>")
+  puts load_world.render(:timeline, entity: id, at: at)
+when "stats"
+  w = load_world
+  puts "entities:  #{w.entities.size}"
+  puts "events:    #{w.events.size}"
+  puts "relations: #{w.relation_instances.size}"
+  puts "effects:   #{w.all_effects.size}"
+  kinds = w.entities.values.group_by(&:kind).transform_values(&:size).sort_by { |_, v| -v }
+  puts "by kind:"
+  kinds.each { |k, v| puts "  #{v.to_s.rjust(4)}  #{k}" }
+else
+  abort "unknown command: #{cmd}\nsee the header of bin/lorecraft for usage"
+end

@@ -1,0 +1,80 @@
+geographic_location :kaleidos_system do
+  name "The Kaleidos System"
+  path "player/cosmology/kaleidos-system.md"
+  tags :orbital
+  prominence :mythic
+  registry true
+
+  prose <<~PROSE
+    Eight planets orbiting a star the elves named in their own language. Everyone else just calls it the sun. The system is compact by cosmic standards — the outermost planet's orbit would fit inside the inner reaches of a larger star's domain — which makes interplanetary travel practical. One planet to the next is a day's transit at minimum, a week for the farther runs. Fast scout ships cut that. Cargo haulers add to it.
+
+    Population centers are not exclusively planet-bound. Ring habs, orbital stations, deep-space facilities, and #{ref :span_nine, "Threshold Station"} at the Kaleidos-sun Lagrange point all host significant communities. But the big population centers are planetary or lunar.
+  PROSE
+  prose <<~PROSE, section: :description, heading: "The Planets"
+    ### 1. #{future "Crucible"}
+
+    The inner world. Too hot for comfort, habitable with effort. Close enough to the sun that surface operations require heat management gear, but not so close that it's uninhabitable. Mining is the primary industry — the proximity to the star produces mineral formations that don't occur further out, including dense crystalline deposits that some geologists believe are unrefined #{ref :ringglass, "ringglass"} in its raw mineral state. Small population, practical culture, the kind of place where people go to make money and leave.
+
+    ### 2. Kaleidos
+
+    The homeworld. The ring. #{ref :sithari, "Sithari"}. The world at the center of this account. See #{ref :the_glass_frontier, "The Glass Frontier"}.
+
+    **#{ref :span_nine, "Threshold Station"}** sits at the L1 Lagrange point between Kaleidos and the sun — the #{ref :lattice_proxy_synod, "Lattice Proxy Synod"}'s home, a pre-Glassfall station housing ring-era AI custodians.
+
+    ### 3. #{future "Korvath"}
+
+    A comfortable rocky world, larger than Kaleidos. #{ref :coremark, "Coremark"}'s headquarters — close enough to Kaleidos nearspace that deep #{ref :the_shear, "Shear"} operations are logistically viable, far enough to be out from under Sithari's political shadow. The planet itself supports a moderate population with its own settlements and economy. Coremark's presence — first as a legitimate corporation, now as a criminal syndicate — casts a long shadow over local politics, though Korvath's own settlements and institutions hold their own.
+
+    ### 4. #{future "Vitrael"}
+
+    Exotic. A crushing, superheated atmosphere whose chemistry produces metal rain, crystallized mineral storms, and surface conditions that are beautiful from orbit and lethal at ground level. Habitation is entirely station-based — orbital platforms and high-atmosphere installations that harvest exotic materials from the planet's weather systems. Small, specialized population. The kind of place that attracts researchers, thrill-seekers, and people who find conventional planets boring.
+
+    ### 5. #{future "Ashenmaw"}
+
+    A gas giant. The planet itself is not habitable, but its thermal output bleeds onto its moons, creating environments that run hot. #{future "Ashvane"} — the #{ref :keel, "Keel"}'s far terminus — is a moon of Ashenmaw. The settlement requires specialized heat management equipment to inhabit, but the gear isn't exotic — it's standard-issue, the way cold-weather clothing is standard on an ice world. Life on Ashvane is shaped by the heat the way life in the #{ref :sable_crescent, "Sable Crescent"} is shaped by the rivers.
+
+    The #{future "Ashvane culture"} is distinct from anything in the inner system. Far from Kaleidos, shaped by a specialized environment, and anchoring a major trade lane, the people who live on a gas giant's volcanic moon have developed differently than those who live in Sithari's crystal towers.
+
+    ### 6. #{future "The Fracture"}
+
+    A shattered planet. What remains is an asteroid belt — but not an ancient one. The destruction is cosmically recent, geologically obvious. The fragments are too large, too jagged, too clearly the remains of a world that was whole not long ago. There is no debate about what this was. The question is what broke it.
+
+    The similarity to the Kaleidos ring is noted and debated. People hypothesize connections — but it's more "glass shatters in similar patterns" than a proven link. The Fracture is far older than the ring's destruction. The timescales don't match. Most people file it under "the universe is strange" and move on.
+
+    **The Bloom is here.** Reality tears — unmistakably similar to #{ref :bloom_zones, "Bloom Zones"} in Kaleidos orbit — have manifested in the Fracture's asteroid field. This is public knowledge, but most people either don't believe it or don't care. Those who look closely are deeply concerned: the Bloom near Kaleidos has known causes (Coremark's overload, the Span replication experiment). Why is it in the Fracture? Why not anywhere else? Nobody has a good answer.
+
+    The Fracture is also home to #{ref :cthonic_beasts, "Cthonic beasts"} of a different character than those in the #{ref :the_shear, "Shear"} — primarily natural space fauna rather than resonance-distortion creatures. Pirates operate freely in the belt. Between the beasts, the pirates, and the reality tears, the Fracture is one of the most dangerous regions in the system.
+
+    #{ref :coremark, "Coremark"} has operations here. The lawlessness suits them.
+
+    ### 7. #{future "Vastine"}
+
+    A water giant. Enormous, deep-ocean planet with no solid surface. The planet itself hosts ginormous unintelligent creatures that live in the depths — vast, slow-moving things that some people hunt for sport and others worship as gods. They are not gods. They are very large and very dumb. The worship says more about the worshippers than the creatures.
+
+    The inhabited spaces are the moons. Several are colonized, each with its own character. #{ref :pelhari, "Pelhari"} — the #{ref :clarisant, "Clarisant"} guild's headquarters — is the most prominent. The moons share a lunar culture shaped by the gas giant's visual dominance in their sky and the practical reality of living in a system of co-orbiting worlds.
+
+    ### 8. #{future "Lithren"}
+
+    The outermost planet. Cold. Too cold to support life as we know it — and yet something lived here once, in the open. Ancient ruins — non-elven, predating anything in the system's recorded history — dot the surface. A civilization thrived here, somehow, in conditions that should make that impossible. The ruins are architecturally distinct from anything the elves built.
+
+    Theories abound. A species with radically different biology. Technology that made the cold irrelevant. A warmer past that cooled. Nobody knows. The ruins are studied, debated, and remain unexplained.
+
+    Research stations operate on and around Lithren. The population is tiny — scientists, archaeologists, and the support infrastructure they need. Getting there takes nearly a week. The isolation is the point for some and the deterrent for others.
+  PROSE
+  prose <<~PROSE, section: :mechanics, heading: "Deep Space"
+    The spaces between planets are not empty. Deep-space stations, military outposts, research facilities, and less legitimate operations dot the interplanetary void. A space casino here. A military listening post there. A smuggler's cache. A #{ref :clarisant, "Clarisant"} retreat for advanced resonance training far from any planetary resonance field.
+
+    Population centers are not exclusively planetary. The system is a network, not a set of isolated worlds.
+  PROSE
+  prose <<~PROSE, section: :applications, heading: "Transit"
+    Interplanetary travel uses #{ref :kite_sail, "KITE"} technology. Transit times planet-to-planet:
+
+    - Adjacent planets: ~1 day (fast ship), 2-3 days (cargo hauler)
+    - Kaleidos to Ashenmaw (planet 5): ~3 days
+    - Kaleidos to Vastine (planet 7): ~5-6 days
+    - Kaleidos to Lithren (planet 8): ~7 days (fast ship), longer for heavy transport
+    - Fast scout ships can cut these significantly
+
+    The system is compressed enough that no destination is truly remote — just inconvenient. Lithren is the farthest, and even that is a week's journey, not a season's.
+  PROSE
+end
