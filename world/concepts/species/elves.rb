@@ -23,8 +23,6 @@ species :elves do
     The elves didn't just build the ring. They understood it. And then they were gone, and that understanding went with them.
   PROSE
   prose <<~PROSE, section: :history, heading: "The Disappearance"
-    During the Signal Famine, communications across the system collapsed for roughly sixty years. When they resumed, the elves were not among the voices that came back online. No settlements reported elven populations. No ring habs contained elven communities. No individuals came forward.
-
     Sixty years is a long time for most species. For elves, with their centuries-long lifespans, it's barely a generation. Whatever happened, it wasn't that they simply died out during the Famine. The timeline doesn't support it.
 
     What the timeline does support is something more deliberate. The Famine provided cover — communications were already down, records were already fragmenting, entire communities were already losing track of each other. If you wanted to vanish from a civilization, the Famine was the moment to do it.
@@ -160,4 +158,14 @@ relate :rel_elves_cooperates_with_displacement_council, :cooperates_with, :elves
 end
 relate :rel_elves_hiding_from_the_false_form, :hiding_from, :elves, :the_false_form, dm: true do
   prose "Everything they have done since the ring fell is hiding — and preparing — against the #{ref :the_false_form, "False Form"}, the thing they believe destroyed it and will return."
+end
+
+relate :rel_elves_operate_in_bloom_zones, :operates_in, :elves, :bloom_zones, since: 2378, dm: true do
+  prose "Since the Bloom opened, the hidden elves have concentrated their presence in and around the #{ref :bloom_zones, "Bloom Zones"} — monitoring the incursion, studying the tears, and preparing countermeasures. It is their primary operational focus."
+end
+
+# --- history (moment) ---
+moment :elves_vanish, year: 2305, of: :elves do
+  prose "When communications resumed after roughly sixty years of #{ref :signal_famine, "Signal Famine"}, the elves were not among the voices that came back online. No settlement reported elven populations; no ring hab contained an elven community; no individuals came forward. Their centuries-long lifespans rule out simple die-off — whatever happened, it was not attrition."
+  effects { set :elves, standing: :vanished }
 end

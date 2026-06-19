@@ -12,19 +12,13 @@ npc :dern_talish do
 
     The title is as unglamorous as the organization. "First Threshold" — the person who stands at the boundary and decides what crosses it. In practice, it means Dern Talish is responsible for every containment cordon around every Bloom Zone in the system, for the welfare of every Council operative maintaining those cordons, and for the political neutrality that keeps the Council trusted by factions that trust nothing else.
 
-    She has held the position for six years. She is the fourth First Threshold. She does not enjoy the job. She is very good at it.
+    She does not enjoy the job. She is very good at it.
   PROSE
   prose <<~PROSE, section: :public_profile, heading: "Public Profile"
-    Talish is the face the Displacement Council shows the system. She appears at Accord mediations, addresses inter-settlement disputes that touch on Bloom Zone policy, and periodically tours the cordon stations to inspect operations and — more importantly — to be seen inspecting them. The Council's authority depends on the perception that it takes its work seriously and plays no favorites. Talish embodies this with a directness that some find reassuring and others find abrasive.
-
-    She is in her late fifties. Human. Born in the mid-drift habs before the Bloom, evacuated as a child during the displacement. She has no memory of her original home — she was four years old — but she carries the registration tattoo that all Bloom evacuees received, faded to near-invisibility on her left wrist. She has never had it removed.
-
-    Before becoming First Threshold, she served twenty years in the Council's cordon operations, working her way from perimeter patrol to zone incursion specialist to regional operations lead. She has been inside more Bloom Zones than almost anyone alive. The experience left her with a slight tremor in her right hand — a common side effect of prolonged exposure to the zones' reality distortion — and a deep, unshakeable conviction that the cordons must hold.
+    Talish is the face the Displacement Council shows the system. She appears at Accord mediations, addresses inter-settlement disputes that touch on Bloom Zone policy, and periodically tours the cordon stations to inspect operations and — more importantly — to be seen inspecting them. The Council's authority depends on the perception that it takes its work seriously and plays no favorites. Talish embodies this with a directness that some find reassuring and others find abrasive. She is in her late fifties, human, and carries the registration tattoo that all Bloom evacuees received, faded to near-invisibility on her left wrist. She has never had it removed.
   PROSE
   prose <<~PROSE, section: :public_profile, heading: "What People See"
-    A quiet, compact woman who listens more than she speaks and whose silences are more informative than most people's sentences. She does not raise her voice. She does not negotiate from a position of ideology. When factions bring their grievances to the Council, Talish asks what they need, asks what they can give, and finds the gap between the two. Her authority comes from reliability rather than charisma.
-
-    Her neutrality during the Bitter Reach is the foundation of her authority. The Council refused to take sides. Talish, then a regional operations lead, personally turned away armed convoys from three different factions who tried to use cordon stations as staging points. She was shot at twice. She did not return fire. She closed the cordon gates and waited. All three convoys eventually left.
+    A quiet, compact woman who listens more than she speaks and whose silences are more informative than most people's sentences. She does not raise her voice. She does not negotiate from a position of ideology. When factions bring their grievances to the Council, Talish asks what they need, asks what they can give, and finds the gap between the two. Her authority comes from reliability rather than charisma — and from a neutrality, tested in the Bitter Reach, that nobody has been able to buy or break since.
   PROSE
   prose <<~PROSE, section: :traits, heading: "Notable Traits"
     - Never eats during meetings. Will accept water. Considers shared meals a form of political intimacy she cannot afford.
@@ -34,13 +28,6 @@ npc :dern_talish do
   PROSE
 
   # ---- Hidden (DM) truth ----
-  prose <<~PROSE, section: :truth, heading: "The Read-In", dm: true
-    Talish was read in by her predecessor, Oram Sells, three months before he died of complications from prolonged Bloom Zone exposure. Sells had held the position for eleven years. He told her everything in a single conversation in a sealed room at Cordon Station Nine. The elves. The Adversary. The reality tears. The hidden war.
-
-    She didn't believe him. He showed her the contact protocol — a resonance-tuned ringglass shard keyed to a frequency that shouldn't exist in any modern instrument. She activated it. An elf answered.
-
-    That was six years ago. She has not had a full night's sleep since.
-  PROSE
   prose <<~PROSE, section: :truth, heading: "The Arrangement", dm: true
     Talish maintains direct communication with elven operations through the shard — a pre-Glassfall artifact that the elves provided to the first First Threshold during the early Bloom response, when it became clear they needed a human counterpart. The shard cannot be replicated. If it's lost, the contact channel is lost. Talish keeps it on her person at all times, disguised as a personal keepsake.
 
@@ -94,4 +81,24 @@ relate :rel_dern_talish_cooperates_with_elves, :cooperates_with, :dern_talish, :
 end
 relate :rel_dern_talish_possesses_communication_shard, :possesses, :dern_talish, :communication_shard, since: 2432, dm: true do
   prose "The #{ref :communication_shard, "communication shard"} — a pre-Glassfall artifact keyed to an impossible frequency — is her only channel to them, and irreplaceable if lost."
+end
+
+# --- history (moments) ---
+moment :dern_talish_evacuated, year: 2378, of: :dern_talish do
+  prose "Four years old when the #{ref :the_silent_bloom, "Silent Bloom"} took her mid-drift home, Talish was carried out in the displacement and given the registration tattoo every Bloom evacuee wore. She has no memory of the hab she lost. She has never had the tattoo removed."
+  effects { set :dern_talish, standing: :bloom_evacuee }
+end
+moment :dern_talish_cordon_career, year: 2412, of: :dern_talish do
+  prose "She gave twenty years to the Council's cordon operations, rising from perimeter patrol to zone-incursion specialist to regional operations lead — inside more #{ref :bloom_zones, "Bloom Zones"} than almost anyone alive. The work left her with a tremor in her right hand and an unshakeable conviction that the cordons must hold."
+  effects { set :dern_talish, standing: :regional_operations_lead }
+end
+moment :dern_talish_turns_back_convoys, year: 2415, of: :dern_talish do
+  prose "During the #{ref :the_bitter_reach, "Bitter Reach"}, a regional operations lead, Talish personally turned away armed convoys from three factions trying to use cordon stations as staging points. She was shot at twice. She did not return fire — she closed the cordon gates and waited. All three convoys eventually left. That neutrality became the foundation of her authority."
+end
+moment :dern_talish_becomes_first_threshold, year: 2432, of: :dern_talish do
+  prose "After twenty years on the cordons she was named the fourth First Threshold of the #{ref :displacement_council, "Displacement Council"} — the person who stands at the boundary of every Bloom Zone and decides what crosses it. She did not want the job."
+  effects { set :dern_talish, standing: :first_threshold }
+end
+moment :dern_talish_read_in, year: 2432, of: :dern_talish, dm: true do
+  prose "Three months before he died of Bloom-exposure complications, her predecessor Oram Sells read her in — the #{ref :elves, "elves"}, the Adversary, the reality tears, the hidden war — in a single conversation in a sealed room at Cordon Station Nine. She did not believe him until he showed her the #{ref :communication_shard, "contact protocol"} and she activated it, and an elf answered. She has not slept a full night since."
 end
