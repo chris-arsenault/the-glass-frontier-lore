@@ -62,3 +62,7 @@ end
 relate :rel_ratters_operates_deep_shear, :operates_in, :ratters, :deep_shear, since: 2320 do
   prose "The boldest push into the #{ref :deep_shear, "deep Shear"}, where the grade is highest, the charts run out, and #{ref :coremark, "Coremark"} territory is best avoided."
 end
+
+relate :rel_ratters_operate_in_glasswake, :operates_in, :ratters, :glasswake do
+  prose "#{ref :glasswake, "Glasswake"}'s dock fringe is the most common public-facing Ratter port — where flotillas put in to sell salvage, hire on, and settle debts."
+end

@@ -347,3 +347,11 @@ end
 relate :rel_venn_talis_member_coriolis_breach, :member_of, :venn_talis, :coriolis_breach, since: 2358, till: 2363 do
   prose "#{ref :venn_talis, "Venn Talis"} was at the heart of the #{ref :coriolis_breach, "Coriolis Breach"} — the forced-entry incident that became a rallying point for hab sovereignty."
 end
+
+# --- the Dissident's hidden history (dm moments) ---
+moment :dissident_begins_teaching, year: 2160, of: :the_dissident, dm: true do
+  prose "Rejecting the collective decision to vanish, the #{ref :the_dissident, "Dissident"} settled in a surface community in the early #{ref :signal_famine, "Signal Famine"}, passing as human, and began teaching a simplified, human-accessible resonance craft — seeding one of the founding lineages of #{ref :tuners, "Tuning"}."
+end
+moment :dissident_vanishes, year: 2180, of: :the_dissident, dm: true do
+  prose "After roughly twenty years the Dissident vanished — recalled by elven authorities, killed, or simply moved on. No record survives. The teaching line outlived the teacher, and the #{ref :clarisant, "Clarisant"} still carries techniques with elven fingerprints it cannot read."
+end

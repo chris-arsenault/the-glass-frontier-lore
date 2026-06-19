@@ -44,3 +44,7 @@ end
 relate :rel_sitharian_manifests_at_sithari, :manifests_at, :sitharian_culture, :sithari do
   prose "It is densest in the city itself, where lineage, register, and standing are read in how a person speaks before they say anything."
 end
+
+relate :rel_tempered_accord_originated_in_sitharian, :originated_in, :tempered_accord, :sitharian_culture do
+  prose "The #{ref :tempered_accord, "Tempered Accord"} was substantially architected by Sithari political thinkers — its procedural rigor, its institutional memory, and its bureaucratic inertia all bear the Sithari stamp, which other cultures have not failed to notice."
+end

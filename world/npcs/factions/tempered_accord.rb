@@ -43,3 +43,7 @@ moment :tempered_accord_ratified, year: 2423, of: :tempered_accord do
   prose "Born from exhaustion at the end of the #{ref :the_bitter_reach, "Bitter Reach"}. The #{ref :bloom_coalition, "Bloom Coalition"} had proved cooperation worked; the Bitter Reach proved the system couldn't survive without it; the #{ref :shear_compact, "Shear Compact"} proved emergency structures could become permanent. By the time the fighting stopped the preconditions only needed writing down. Three institutions shaped it: the #{ref :lattice_proxy_synod, "Lattice Proxy Synod"} supplied an AI-derived governance model, #{ref :vantara, "Vantara"} the trade provisions, and the #{ref :displacement_council, "Displacement Council"} the humanitarian framework and the trusted-mediator role."
   effects { set :tempered_accord, standing: :active }
 end
+
+relate :rel_tempered_accord_regulates_shuttered_habs, :regulates, :tempered_accord, :shuttered_habs do
+  prose "Its sovereignty provisions legally permit the #{ref :shuttered_habs, "shuttered habs"} to refuse contact — the hard-won principle, born at Coriolis, that no faction may force entry."
+end

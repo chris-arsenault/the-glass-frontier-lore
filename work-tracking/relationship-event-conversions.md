@@ -7,7 +7,20 @@ Verbs/years from the agent determinations. `standing` is the dynamic attr.
 - Edges added: `the_false_form caused duskgrain` (dm); `coriolis_breach caused tempered_accord`; `venn_talis participated_in coriolis_breach`; `displacement caused_by the_silent_bloom`; `builders_gone embodies {resonance, lattice_proxy_synod, lira_vashtenri}`; thread `fills_beat` rosters (bloom_containment ×13, reconnection ×14); loop `has_stage` rosters (cooperation_fracture ×7, knowledge_decay ×5).
 - Date fix: Silent Bloom 2355 → **2378** across 7 files (the_glass_frontier, displacement, bloom_zones, the_shear, reconnection, bloom_containment, cooperation_fracture).
 
-## TODO — moment conversions (Origin/History prose → moments with effects)
+## STATUS: moment conversions COMPLETE
+
+All Origin/History prose below has been lifted into moments (driving `standing`)
+or relationships, per the agent determinations. 42 moments, 222 relations; the
+world validates clean, lint 0 errors, wiki 0 broken links. Note: `create`
+effects were avoided for entities carrying timeless structural relates (a hard
+existence bound conflicts with them) — used `standing`/prose instead.
+
+Done by folder: factions (7), landmarks (4), settlements (6), npcs/heroes (2),
+species/elves (1), artifacts/liras_wall (1), plus the marginal concept/culture
+edges and the dm Dissident moments. The deferred items (drossmark, hab_coriolis,
+pale_star/geld_marrick) remain blocked on those entities not yet existing.
+
+## DONE — moment conversions (Origin/History prose → moments with effects)
 
 ### npcs/factions
 - **displacement_council**: `formed` ~2382 (standing :active); `takes_cordons` 2384; `oram_sells_leads` 2385 (set oram_sells leads). +relate dern_talish leads.
