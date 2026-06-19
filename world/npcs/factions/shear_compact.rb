@@ -7,11 +7,6 @@ faction :shear_compact do
   prose <<~PROSE
     The system's regulatory body for #{ref :the_shear, "Shear"} salvage operations. Not an enforcement agency — a standards board. The Compact sets safety requirements, certifies operators, maintains forecasting services, and issues fines when people cut corners. It has no armed enforcement arm. Its authority comes from the fact that most people, at this point, recognize the value of not repeating what happened at #{ref :pyre, "Pyre"}.
   PROSE
-  prose <<~PROSE, section: :origin, heading: "Origin"
-    The Compact formed in 2358 CE, directly from the #{ref :bloom_coalition, "Bloom Coalition"}'s emergency response. Salvage operators who'd spent the Contested Reach competing lethally found themselves cooperating on containment logistics and realized that shared safety standards would have prevented some of the disasters that led to the Bloom. The founding charter includes a neutrality provision and a structured mediation process — borrowed from what worked during the Coalition.
-
-    #{ref :shardfall, "Shardfall"} was the political catalyst. The Compact exists because Shardfall proved that unregulated Shear operations endanger everyone, and the Bloom proved that the consequences can be civilizational.
-  PROSE
   prose <<~PROSE, section: :operations, heading: "Operations"
     **Certification.** Operators who want to work the Shear legally carry a Compact certification. The process involves equipment inspection, crew competency assessment, and compliance with extraction limits. Certification doesn't guarantee safety — it guarantees minimum standards.
 
@@ -33,4 +28,10 @@ relate :rel_shear_compact_regulates_the_shear, :regulates, :shear_compact, :the_
 end
 relate :rel_shear_compact_regulates_ratters, :regulates, :shear_compact, :ratters, since: 2383 do
   prose "That includes the #{ref :ratters, "ratters"}, the independent crews it would rather license than chase, with uneven success."
+end
+
+# --- history (moments) ---
+moment :shear_compact_formed, year: 2383, of: :shear_compact do
+  prose "The Compact formed out of the #{ref :bloom_coalition, "Bloom Coalition"}'s emergency response: salvage operators who had spent the Contested Reach competing lethally found themselves cooperating on containment logistics, and realized shared safety standards would have prevented some of the disasters that led to the Bloom. #{ref :shardfall, "Shardfall"} was the political catalyst — proof that unregulated Shear work endangers everyone — and the Bloom proved the consequences could be civilizational. The charter borrowed the Coalition's neutrality provision and structured mediation."
+  effects { set :shear_compact, standing: :active }
 end

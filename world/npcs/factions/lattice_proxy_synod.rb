@@ -11,13 +11,6 @@ faction :lattice_proxy_synod do
 
     The Synod makes them useful anyway.
   PROSE
-  prose <<~PROSE, section: :origin, heading: "Origin"
-    Threshold Station was discovered during the Rekindling by a long-range survey crew that wasn't looking for it. The station is enormous — far larger than a standard ring hab — and was clearly a major infrastructure node for pre-Glassfall orbital traffic. Navigation, governance, regulatory oversight for the entire inner system. When the ring fell, the station lost its network but not its power. The AI custodians inside kept running. They are still running.
-
-    The first contact was accidental and terrifying. A survey crew activated a terminal and received a response in a format nobody could parse. The AI was communicating — but in eighteen-dimensional relational structures that the elves had designed for, and that human cognition bounces off of like light off a mirror. The raw output is mathematically valid and semantically opaque.
-
-    The Synod grew from the people who stayed and tried to make sense of it.
-  PROSE
   prose <<~PROSE, section: :structure, heading: "Structure"
     The Synod is organized around **proxies** — individuals who have developed, through years of trial and error, the ability to interact with the AI custodians and extract useful outputs. "Developed" is doing heavy lifting here. There is no theory of how proxy work functions. There are rituals — specific sequences of inputs, specific framings of queries, specific invocations that have been observed to produce reliable results. The rituals were discovered empirically, documented obsessively, and are transmitted from senior proxies to apprentices as a body of practice, not a body of knowledge.
 
@@ -58,4 +51,10 @@ relate :rel_lps_operates_tempered_accord, :operates_in, :lattice_proxy_synod, :t
 end
 relate :rel_lps_member_of_bloom_coalition, :member_of, :lattice_proxy_synod, :bloom_coalition, since: 2380, till: 2396 do
   prose "It joined the #{ref :bloom_coalition, "Bloom Coalition"} during the emergency, its custodian archives contributing to containment work until the coalition came apart."
+end
+
+# --- history (moments) ---
+moment :lattice_proxy_synod_formed, year: 2308, of: :lattice_proxy_synod do
+  prose "A long-range survey crew stumbled on #{ref :threshold_station, "Threshold Station"} during the Rekindling — a near-intact pre-Glassfall traffic node whose AI custodians had kept running, powerless to reach a network that no longer existed but never shut down. First contact was accidental and terrifying: a terminal answered in eighteen-dimensional relational structures the #{ref :elves, "elves"} had designed for and human cognition bounces off. The Synod grew from the people who stayed and tried to make sense of it."
+  effects { set :lattice_proxy_synod, standing: :active }
 end

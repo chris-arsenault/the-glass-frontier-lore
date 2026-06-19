@@ -9,11 +9,6 @@ faction :echo_ledger_conclave do
 
     The Conclave exists because the #{ref :echo_rivers, "Echo Rivers"} exist, and because someone had to take responsibility for what surfaces in them. They are headquartered in the #{ref :sable_crescent, "Sable Crescent"}, where the rivers are densest, and they have made themselves indispensable to anyone who needs the past authenticated, interpreted, or — occasionally — suppressed.
   PROSE
-  prose <<~PROSE, section: :origin, heading: "Origin"
-    The Conclave formed during the Rekindling, roughly 2310 CE, when reconnecting settlements began comparing notes about the #{ref :echo_rivers, "Echo Rivers"} and realized the same phenomenon was surfacing across the planet. Early archivists were just listeners — people who sat near surfacing points and wrote down what they heard. The Conclave organized them, standardized their methods, and — critically — claimed custodianship over the material.
-
-    The claim stuck because nobody else wanted the job. Cataloguing fragments of dead strangers' conversations is not glamorous work. It attracts a specific personality: patient, obsessive, comfortable with ambiguity, and inclined to treat knowledge as an end in itself. The Conclave selected for these traits and has been selecting for them ever since.
-  PROSE
   prose <<~PROSE, section: :structure, heading: "Structure"
     Mid-tier faction — larger than a guild, smaller than a government. The Conclave operates from #{ref :thornvault, "Thornvault"}, their headquarters in the Sable Crescent: a castle-like complex built on a natural bridge spanning a canyon, positioned to face the glasslight at dusk. The architecture is deliberately imposing — soaring crystal-laced buttresses, open galleries that channel ambient river sound through the halls. The building is a statement: we are serious people doing serious work.
 
@@ -97,4 +92,10 @@ relate :rel_elc_supplies_stillwater, :supplies, :echo_ledger_conclave, :stillwat
 end
 relate :rel_elc_member_of_bloom_coalition, :member_of, :echo_ledger_conclave, :bloom_coalition, since: 2380, till: 2396 do
   prose "Through the Bloom emergency it sat in the #{ref :bloom_coalition, "Bloom Coalition"}, lending archival and analytical weight until the coalition dissolved."
+end
+
+# --- history (moments) ---
+moment :echo_ledger_conclave_formed, year: 2310, of: :echo_ledger_conclave do
+  prose "The Conclave formed during the Rekindling, when reconnecting settlements compared notes about the #{ref :echo_rivers, "Echo Rivers"} and realized the same fragments were surfacing planet-wide. The early archivists were just listeners — people who sat near surfacing points and wrote down what they heard. The Conclave organized them, standardized their methods, and claimed custodianship over the material. The claim stuck because nobody else wanted the job: cataloguing the conversations of dead strangers attracts a specific patient, obsessive, ambiguity-tolerant personality, and the Conclave has been selecting for it ever since."
+  effects { set :echo_ledger_conclave, standing: :active }
 end

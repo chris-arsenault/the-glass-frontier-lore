@@ -7,13 +7,6 @@ faction :displacement_council do
   prose <<~PROSE
     A neutral containment order born from the #{ref :displacement, "Displacement"} refugee crisis. The Council maintains #{ref :bloom_zones, "Bloom Zone"} containment cordons, provides humanitarian support to displaced communities, and serves as a trusted mediator precisely because they refused to take sides during the Bitter Reach.
   PROSE
-  prose <<~PROSE, section: :origin, heading: "Origin"
-    The Council formed around 2358 CE from Bloom refugees who organized first for advocacy — demanding settlement rights, resource access, recognition — and then evolved into something the system needed more: a dedicated containment force. The people who'd lost their habs to the Bloom turned out to be the ones best equipped to contain it.
-
-    Neutrality was written into the founding charter from day one. The #{ref :bloom_coalition, "Bloom Coalition"} had just fractured into the Bitter Reach, and the founders watched cooperation die because factions used the crisis for political leverage. The Council's charter explicitly prohibits taking sides in inter-faction disputes. Containment requires everyone's cooperation. You can't maintain cordons if half the system won't talk to you.
-
-    The first leader burned out quickly in the early chaos — the job was impossible at that scale with those resources. #{future "Oram Sells"} became the second First Threshold, held the position for eleven years, and built the Council into what it is today. #{ref :dern_talish, "Dern Talish"} is the fourth.
-  PROSE
   prose <<~PROSE, section: :operations, heading: "Operations"
     **Containment.** The Council's primary mission. Cordon stations around every known #{ref :bloom_zones, "Bloom Zone"}, crewed by rotating teams who monitor the zones' boundaries and deploy damping buoys when expansion threatens. The containment technology is based on #{ref :liras_wall, "Lira's Wall"} — #{ref :stillwater, "stillwater"} resonance dampers that calm the cascade frequencies along zone boundaries. Each buoy represents #{ref :stillwater, "stillwater"} that the #{ref :echo_ledger_conclave, "Echo Ledger Conclave"} wishes were storing history instead of holding back reality tears.
 
@@ -36,4 +29,13 @@ relate :rel_dc_maintains_bloom_zones, :maintains, :displacement_council, :bloom_
 end
 relate :rel_dc_maintains_liras_wall, :maintains, :displacement_council, :liras_wall, since: 2384 do
   prose "It maintains #{ref :liras_wall, "Lira's Wall"} — the containment system the cordons are built around — as its single most important piece of infrastructure."
+end
+
+# --- history (moments) ---
+moment :displacement_council_formed, year: 2380, of: :displacement_council do
+  prose "Born from the #{ref :displacement, "Displacement"} — Bloom refugees who first organized for advocacy (settlement rights, resource access, recognition) and turned out to be the people best equipped to contain the thing that had displaced them. Neutrality was written into the founding charter from day one: the founders had just watched the #{ref :bloom_coalition, "Bloom Coalition"} strain as factions used the crisis for leverage, and they prohibited the Council from ever taking sides. You cannot hold cordons if half the system won't talk to you."
+  effects { set :displacement_council, standing: :active }
+end
+moment :displacement_council_takes_cordons, year: 2384, of: :displacement_council do
+  prose "It formalized as a standing containment order and took the physical Bloom cordons over from the #{ref :bloom_coalition, "Bloom Coalition"}. The first generation of Thresholds came straight from the Coalition's field-command leads. The first burned out fast — the job was impossible at that scale — and #{future "Oram Sells"} became the second First Threshold, held it eleven years, and built the Council into its modern form. #{ref :dern_talish, "Dern Talish"} is the fourth."
 end

@@ -9,7 +9,7 @@ faction :vantara do
 
     The system's largest travel and logistics corporation. Vantara operates #{ref :kite_sail, "KITE"} fleets, manages trade route infrastructure, runs hospitality venues across the ring and major surface settlements, and generally positions itself as the entity that makes moving through the Kaleidos system comfortable, reliable, and — if you pay for the premium tier — pleasant.
 
-    The name is corporate-smooth by design. Vantara was founded during the Rekindling when the first inter-settlement trade networks needed someone to handle the boring parts: scheduling, maintenance, crew rotation, waystation provisioning. The founders understood that the money wasn't in the cargo — it was in making the journey tolerable for the people carrying it.
+    The name is corporate-smooth by design.
   PROSE
   prose <<~PROSE, section: :structure, heading: "Structure"
     Vantara operates under conventional corporate structures. Two details set it apart:
@@ -25,7 +25,7 @@ faction :vantara do
 
     **Route management.** Vantara doesn't own trade routes — nobody does, formally — but they maintain the infrastructure: navigation beacons, refueling stations, emergency rescue coverage. This is expensive public-good work that Vantara performs because it supports their core business and because nobody else was going to do it. The #{ref :tempered_accord, "Tempered Accord"} subsidizes some of it. The rest comes from usage fees that everyone complains about and everyone pays.
 
-    **Armed escorts.** During the Contested Reach, Vantara started arming convoy escorts after their ships were targeted on disputed corridors. The escorts remain. Piracy on #{ref :keel, "the Keel"} and other routes is an ongoing problem, and Vantara's security division is the largest private armed force operating in civilian space. They are not a military. They are very clear about this. Their ships carry weapons anyway.
+    **Armed escorts.** Piracy on #{ref :keel, "the Keel"} and other routes is an ongoing problem, and Vantara's security division is the largest private armed force operating in civilian space. They are not a military. They are very clear about this. Their ships carry weapons anyway.
   PROSE
   prose <<~PROSE, section: :tensions, heading: "Tensions"
     Vantara is a corporation, and it behaves like one. Their services are affordable but not cheap. Their neutrality serves their bottom line. Their hospitality is optimized for consistency, not character — a Vantara waystation on the Keel feels identical to a Vantara waystation in a ring hab, which is either the point or the problem depending on your disposition.
@@ -49,4 +49,13 @@ relate :rel_vantara_operates_keel, :operates_in, :vantara, :keel, since: 2330 do
 end
 relate :rel_vantara_member_of_bloom_coalition, :member_of, :vantara, :bloom_coalition, since: 2380, till: 2396 do
   prose "It carried the #{ref :bloom_coalition, "Bloom Coalition"}'s logistics through the containment years, moving people and material the cordons couldn't."
+end
+
+# --- history (moments) ---
+moment :vantara_founded, year: 2320, of: :vantara do
+  prose "Founded during the Rekindling, when the first inter-settlement trade networks needed someone to handle the boring parts — scheduling, maintenance, crew rotation, waystation provisioning. The founders understood the money wasn't in the cargo; it was in making the journey tolerable for the people carrying it."
+  effects { set :vantara, standing: :active }
+end
+moment :vantara_arms_escorts, year: 2360, of: :vantara do
+  prose "During the Contested Reach, after its ships were targeted on disputed corridors, Vantara began arming its convoy escorts. The escorts never stood down — its security division is now the largest private armed force in civilian space, a fact it is very clear does not make it a military."
 end

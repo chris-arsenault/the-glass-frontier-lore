@@ -71,3 +71,8 @@ end
 relate :rel_clarisant_cooperates_displacement_council, :cooperates_with, :clarisant, :displacement_council, since: 2384 do
   prose "It lends certified Tuners to the #{ref :displacement_council, "Displacement Council"} for containment work, under strict exposure limits the Council is glad to honour."
 end
+
+# --- history (moments) ---
+moment :clarisant_bloom_hawk_split, year: 2378, of: :clarisant do
+  prose "When the #{ref :the_silent_bloom, "Silent Bloom"} ignited, a faction of Tuners — the Hawks — began pressing the guild to make Bloom-containment work its future; the Skeptics called it a meatgrinder. The argument never resolved: the Hawks win the votes, the Skeptics win the resignations."
+end

@@ -8,14 +8,7 @@ faction :tempered_accord do
   prose <<~PROSE
     The system's governance framework. Not a government — a mediation structure. A set of shared norms that most settlements have agreed to honor most of the time. It holds because the alternative is the Bitter Reach again, and nobody wants that.
 
-    The Accord is four years old.
-  PROSE
-  prose <<~PROSE, section: :origin, heading: "Origin"
-    Born from exhaustion. The #{ref :bloom_coalition, "Bloom Coalition"} proved that cooperation worked. The #{future "Bitter Reach"} proved that the system couldn't survive without it. The #{ref :shear_compact, "Shear Compact"} proved that emergency structures could become permanent. By the time the fighting stopped, the preconditions for a broader framework were already in place — they just needed someone to write them down.
-
-    Three institutions shaped the Accord's architecture: the #{ref :lattice_proxy_synod, "Lattice Proxy Synod"} provided a governance model derived from AI custodian outputs, #{ref :vantara, "Vantara"} shaped the trade provisions and logistics standards, and the #{ref :displacement_council, "Displacement Council"} contributed the humanitarian framework and served as trusted mediator.
-
-    Ratified approximately 2365 CE. Signatories include surface settlements, ring habs, and outer-system representatives.
+    The Accord is barely a decade old, and it has never been tested by a crisis as bad as the ones that made it.
   PROSE
   prose <<~PROSE, section: :structure, heading: "Structure"
     The Accord operates from a district in #{ref :sithari, "Sithari"} — a complex deliberately separated from the Continuity's government buildings. Tranquil. An artificial lake. Ducks. The architectural statement is intentional: this is not a seat of power, it's a place where disputes come to be resolved.
@@ -32,7 +25,7 @@ faction :tempered_accord do
     **Humanitarian.** The Accord's humanitarian provisions, drafted by the Displacement Council, cover refugee rights, containment support, and sovereignty protections — including the hard-won provision that habs can legally refuse contact.
   PROSE
   prose <<~PROSE, section: :tensions, heading: "Tensions"
-    The Accord is young, fragile, and untested. Four years of relative stability doesn't prove the framework works — it proves that nothing has broken it yet. Legitimate questions exist about what happens when it is genuinely tested: a faction that defies an Accord ruling and faces no real consequences, a crisis that requires action faster than the mediation process allows, a dispute where the stakes are too high for reputation damage to matter.
+    The Accord is young, fragile, and untested. A decade of relative stability doesn't prove the framework works — it proves that nothing has broken it yet. Legitimate questions exist about what happens when it is genuinely tested: a faction that defies an Accord ruling and faces no real consequences, a crisis that requires action faster than the mediation process allows, a dispute where the stakes are too high for reputation damage to matter.
 
     #{ref :sithari, "Sithari"}'s influence is structural and resented. The Accord sits in Sithari, uses Sitharian legal language, and was partly designed by Sitharian political thinkers. The #{ref :sithari, "Continuity"} was a combatant during the Contested Reach and Bitter Reach while the city claimed neutrality. This distinction — the city is neutral, the government is a participant — was technically valid and practically meaningless. The resentment is still live.
   PROSE
@@ -43,4 +36,10 @@ end
 
 relate :rel_tempered_accord_hq_sithari, :headquartered_in, :tempered_accord, :sithari, since: 2423 do
   prose "The Accord keeps its standing offices at #{ref :sithari, "Sithari"} — convenient, central, and a constant low irritation to a city that would rather not host anyone's authority but its own."
+end
+
+# --- history (moments) ---
+moment :tempered_accord_ratified, year: 2423, of: :tempered_accord do
+  prose "Born from exhaustion at the end of the #{ref :the_bitter_reach, "Bitter Reach"}. The #{ref :bloom_coalition, "Bloom Coalition"} had proved cooperation worked; the Bitter Reach proved the system couldn't survive without it; the #{ref :shear_compact, "Shear Compact"} proved emergency structures could become permanent. By the time the fighting stopped the preconditions only needed writing down. Three institutions shaped it: the #{ref :lattice_proxy_synod, "Lattice Proxy Synod"} supplied an AI-derived governance model, #{ref :vantara, "Vantara"} the trade provisions, and the #{ref :displacement_council, "Displacement Council"} the humanitarian framework and the trusted-mediator role."
+  effects { set :tempered_accord, standing: :active }
 end
