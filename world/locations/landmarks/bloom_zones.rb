@@ -8,7 +8,7 @@ geographic_location :bloom_zones do
   prose <<~PROSE
     Man-made reality tears. Places where the #{ref :resonance, "resonance"} environment has broken so thoroughly that physics stops behaving consistently. They exist in Kaleidos orbit — in the #{ref :the_shear, "Shear"}, adjacent to ring habs, in otherwise clean orbital space — and, for reasons nobody can explain, in the #{future "Fracture"}'s asteroid belt.
 
-    The Bloom Zones were created by the #{future "Silent Bloom"} cascade of 2378 CE. They are expanding slowly. They require constant containment by the #{ref :displacement_council, "Displacement Council"}. They are the system's most dangerous ongoing crisis and its most productive source of artifacts nobody understands.
+    They are expanding slowly. They require constant containment by the #{ref :displacement_council, "Displacement Council"}. They are the system's most dangerous ongoing crisis and its most productive source of artifacts nobody understands.
   PROSE
   prose <<~PROSE, section: :atmosphere, heading: "What They're Like"
     No two zones manifest the same way. The distortion depends on the local resonance environment, the crystal substrate, the specific frequencies involved.
@@ -34,4 +34,9 @@ relate :rel_bloom_zones_in_orbit_of_kaleidos, :in_orbit_of, :bloom_zones, :kalei
 end
 relate :rel_bloom_zones_in_orbit_of_the_fracture, :in_orbit_of, :bloom_zones, :the_fracture do
   prose "Their outer edge reaches toward #{ref :the_fracture, "the Fracture"}, where the distortion is worst and the cordons thinnest."
+end
+
+# --- history (moment) ---
+moment :bloom_zones_created, year: 2378, of: :bloom_zones do
+  prose "The Bloom Zones were born in the #{ref :the_silent_bloom, "Silent Bloom"} cascade — the resonance disaster that tore the first reality fractures open across the mid-drift and left a crisis that has only spread since."
 end

@@ -5,7 +5,7 @@ installation :keel do
   prominence :recognized
 
   prose <<~PROSE
-    The system's primary trade lane — an orbital route connecting #{ref :ringglass, "ringglass"} production zones in #{ref :the_shear, "The Shear"}, major refinement facilities, #{ref :sithari, "Sithari"}, and #{future "Ashvane"} at the far end. The Keel was the first major trade route re-established after the Signal Famine, and it remains the single most important corridor for bulk commerce in the Kaleidos system.
+    The system's primary trade lane — an orbital route connecting #{ref :ringglass, "ringglass"} production zones in #{ref :the_shear, "The Shear"}, major refinement facilities, #{ref :sithari, "Sithari"}, and #{future "Ashvane"} at the far end. It remains the single most important corridor for bulk commerce in the Kaleidos system.
 
     The name comes from its shape on a navigation chart — a long central spine with subsidiary routes branching off like ribs. A ship on the Keel is following the spine. A ship heading to a secondary destination peels off at one of the branch points.
   PROSE
@@ -63,4 +63,9 @@ relate :rel_keel_terminus_glasswake, :terminus_of, :keel, :glasswake do
 end
 relate :rel_keel_terminus_ashvane, :terminus_of, :keel, :ashvane do
   prose "Outbound traffic terminates at #{ref :ashvane, "Ashvane"}, the far-end settlement that depends on the lane for nearly everything."
+end
+
+# --- history (moment) ---
+moment :keel_reestablished, year: 2305, of: :keel do
+  prose "When the #{ref :signal_famine, "Signal Famine"} broke, the Keel was the first major trade route brought back into service — the spine along which bulk commerce reconnected, and the corridor every later route branched from."
 end
