@@ -19,9 +19,9 @@ installation :pelhari do
   prose <<~PROSE, section: :origin, heading: "The Observatory"
     The Clarisant did not build the upper rim. They settled it.
 
-    Embedded in the upper terraces is a pre-Glassfall observatory — a ring-era installation whose original purpose is not recorded but whose architecture is unmistakable. The observatory's central hall is a long crystalline chamber tuned to a resonance state so quiet that a Tuner standing inside it can feel the rest of the system as background hum. The Famine-era founders of the guild discovered this property by accident and recognized what it meant: the observatory was a clean room for resonance practice, a place where a trained sense could be calibrated against silence.
+    Embedded in the upper terraces is a pre-Glassfall observatory — a ring-era installation whose original purpose is not recorded but whose architecture is unmistakable. The observatory's central hall is a long crystalline chamber tuned to a resonance state so quiet that a Tuner standing inside it can feel the rest of the system as background hum: a clean room for resonance practice, a place where a trained sense can be calibrated against silence.
 
-    The Academy was built around the observatory. The crater's resonance-quiet pocket — a function of orbital geometry, the parent planet's mass, and properties of the crater itself that nobody fully understands — extends to most of the upper terraces. Pelhari is not the only resonance-quiet place in the system, but it is the most reliable and the easiest to live in.
+    The crater's resonance-quiet pocket — a function of orbital geometry, the parent planet's mass, and properties of the crater itself that nobody fully understands — extends to most of the upper terraces. Pelhari is not the only resonance-quiet place in the system, but it is the most reliable and the easiest to live in.
 
     The observatory itself still functions. The Academy uses it for examinations and for the deepest stages of mastery training. What it was originally observing remains an open question.
   PROSE
@@ -59,4 +59,9 @@ relate :rel_pelhari_orbits_vastine, :orbits, :pelhari, :vastine do
 end
 relate :rel_pelhari_terminus_span_nine, :terminus_of, :pelhari, :span_nine do
   prose "It holds the midpoint of #{ref :span_nine, "Span Nine"}, the relay that keeps the old conduit's signal coherent across the gap."
+end
+
+# --- history (moment) ---
+moment :pelhari_academy_founded, year: 2200, of: :pelhari do
+  prose "The Famine-era founders of the #{ref :clarisant, "Clarisant"} discovered by accident that the embedded pre-Glassfall observatory was a clean room for #{ref :resonance, "resonance"} practice — a place where a trained sense could be calibrated against silence — and built the Academy around it. What the observatory was originally observing remains an open question."
 end

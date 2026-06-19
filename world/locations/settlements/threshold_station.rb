@@ -39,9 +39,9 @@ installation :threshold_station do
 
     Specific identified-dangerous sectors of the station are hard-sealed: bulkheads welded, life support cut, monitoring installed, traffic prohibited. The rest of the station is accessible to anyone with reason to be there. The list is not short. It includes the original ring-era command spine, three deep equipment vaults whose function was once known and is no longer, the sun-facing terminus complex in its entirety, and several smaller sectors named after the lost expeditions that proved them sealed-worthy.
 
-    **The Telleran Sector**, named for the expedition that did not return in 2367 CE, is the largest single sealed area. The Synod's records of what was found before the expedition was lost are extensive, deliberately incomplete, and not published. The seal is maintained at the original boundary. The Wardens patrol it.
+    **The Telleran Sector**, named for the lost expedition, is the largest single sealed area. The seal is maintained at the original boundary. The Wardens patrol it.
 
-    **The Lower Vault Sector**, sealed after the 2381 incident, is smaller and more strictly controlled. Three Wardens entered to retrieve the expedition's recorded telemetry. Two returned. The third's body was recovered three days later, inside the sector, in a position that the Wardens have not publicly explained. The Lower Vault is now sealed at a deeper boundary than the original incursion required.
+    **The Lower Vault Sector** is smaller and more strictly controlled, sealed at a boundary deeper than the original incursion required.
 
     The other sectors are sealed by policy rather than by incident. The Synod and the Wardens together maintain the list, which is reviewed annually and grows more often than it shrinks.
   PROSE
@@ -60,4 +60,12 @@ relate :rel_threshold_in_orbit_of_kaleidos, :in_orbit_of, :threshold_station, :k
 end
 relate :rel_threshold_terminus_span_nine, :terminus_of, :threshold_station, :span_nine do
   prose "It anchors the far end of #{ref :span_nine, "Span Nine"}, the one length of pre-Glassfall hardline still carrying signal."
+end
+
+# --- history (moments) ---
+moment :threshold_telleran_lost, year: 2367, of: :threshold_station do
+  prose "The Telleran expedition did not return in 2367 — the deepest the Synod had pushed into the sealed station. Its records of what was found before the loss are extensive, deliberately incomplete, and unpublished. The Telleran Sector was sealed at the expedition's boundary and has been patrolled ever since."
+end
+moment :threshold_lower_vault_incident, year: 2381, of: :threshold_station do
+  prose "Three Wardens entered the deep station to retrieve the lost expedition's telemetry. Two returned. The third's body was recovered three days later, inside the sector, in a position the Wardens have never publicly explained. The Lower Vault was resealed at a deeper boundary than the incursion had required."
 end
