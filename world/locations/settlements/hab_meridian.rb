@@ -10,8 +10,6 @@ installation :hab_meridian do
     The hab has banked on the reconnection. There is no other Meridian. There is no contemporary Meridian. The hab does one thing and does it as completely as a community can do anything.
   PROSE
   prose <<~PROSE, section: :origin, heading: "The First Signal"
-    The reconnection happened in 2305 CE. A salvage crew in #{ref :glasswake, "Glasswake"} repaired a half-buried pre-Glassfall transmitter and pushed a signal into orbit; Hab Meridian's standing watch — a single technician on a long shift, working an old receiver that nobody had expected to ever do anything — heard the carrier wave come in, recognized it for what it was, and answered. The first cross-channel conversation in sixty years lasted forty-three minutes and was largely about whether the signal was real.
-
     The conversation was recorded. The Hab Meridian side of the recording survives in the hab's archives. The Glasswake side does not survive — the transmitter shorted out three days later and the recording medium degraded — but the Meridian recording captures both sides of the exchange. The technician who answered the call, **Aless Vorrith**, lived to be ninety-one years old and spent the last forty years of her life giving the same five-minute talk to visiting groups, three times a day, in the small chamber where she had taken the signal. She was buried in the hab. Her successor in the role is the great-granddaughter of her apprentice and gives a version of the same five-minute talk.
 
     The hab's continuing relationship with Glasswake is one of the closest cross-orbit partnerships in the system. Trade flows freely between them. Delegations cross at the major civic anniversaries. The two communities' children study each other's histories as a matter of course. But the relationship is a working one, not a sentimental one. The sentimental work happens elsewhere in the hab.
@@ -70,4 +68,10 @@ relate :rel_hab_meridian_part_of_kaleidos_orbit, :part_of, :hab_meridian, :kalei
 end
 relate :rel_hab_meridian_cooperates_glasswake, :cooperates_with, :hab_meridian, :glasswake, since: 2305 do
   prose "Its first formal tie was to #{ref :glasswake, "Glasswake"} — the embassy exchange that became a model for how a ring hab and a surface settlement could deal as equals."
+end
+
+# --- history (moment) ---
+moment :meridian_answered_first_signal, year: 2305, of: :hab_meridian do
+  prose "Hab Meridian's standing watch — a single technician, **Aless Vorrith**, on a long shift at an old receiver nobody expected to ever do anything — heard the carrier wave come in from #{ref :glasswake, "Glasswake"}, recognized it, and answered. The first cross-channel conversation in sixty years lasted forty-three minutes and was largely about whether the signal was real. Meridian has banked its entire civic identity on that moment ever since."
+  effects { set :hab_meridian, standing: :reconnected }
 end

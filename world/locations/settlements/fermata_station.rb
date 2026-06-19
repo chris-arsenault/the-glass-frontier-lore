@@ -13,13 +13,6 @@ installation :fermata_station do
 
     The inhabitants call it Fermata. The name predates the Glassfall — it was the ring-era module designation, and the station kept it out of a stubbornness that passes for tradition. Everyone else calls it the Jazzocracy, a term Fermata's residents consider reductive but have stopped correcting.
   PROSE
-  prose <<~PROSE, section: :origin, heading: "Origin"
-    When the ring shattered, the fragment that would become Fermata Station contained, among other things, a bar. The bar had power, social structure, and a culture of resolving tension through call-and-response. That was more than most fragments had. The bartender kept pouring. The band kept playing. Adjacent compartments were absorbed not through force but through need — the bar was the only place with a functioning social contract.
-
-    A hundred and thirty years of ordinary human behavior did the rest.
-
-    The #{ref :signal_famine, "Signal Famine"} sealed it. Cut off from the rest of the ring and the surface, Fermata had no model for governance except the one it was already practicing. By the time contact was re-established decades later, the system had calcified into something no outside observer would have designed on purpose and no inside resident could imagine replacing.
-  PROSE
   prose <<~PROSE, section: :how_it_works, heading: "How It Works"
     Three principles hold the system together:
 
@@ -117,4 +110,13 @@ relate :rel_fermata_depends_on_ringglass, :depends_on, :fermata_station, :ringgl
 end
 relate :rel_fermata_located_in_tgf, :located_in, :fermata_station, :the_glass_frontier, since: 2140 do
   prose "It is one of the surviving fragments of the #{ref :the_glass_frontier, "Glass Frontier"} — a hab that came through the Glassfall intact and went its own way during the long silence that followed."
+end
+
+# --- history (moments) ---
+moment :fermata_founded, year: 2140, of: :fermata_station do
+  prose "When the ring shattered, the fragment that would become Fermata contained a bar — power, social structure, and a culture of resolving tension through call-and-response. That was more than most fragments had. The bartender kept pouring, the band kept playing, and adjacent compartments were absorbed not through force but through need: the bar was the only place with a functioning social contract."
+  effects { set :fermata_station, standing: :surviving_fragment }
+end
+moment :fermata_sealed_by_famine, year: 2160, of: :fermata_station do
+  prose "The #{ref :signal_famine, "Signal Famine"} sealed it. Cut off from the ring and the surface, Fermata had no model for governance except the one it was already practicing. By the time contact was re-established decades later, the jazz system had calcified into something no outsider would have designed and no resident could imagine replacing."
 end

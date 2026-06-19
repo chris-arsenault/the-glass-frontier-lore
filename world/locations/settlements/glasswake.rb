@@ -5,13 +5,9 @@ installation :glasswake do
   prominence :recognized
 
   prose <<~PROSE
-    A mining town on Kaleidos's surface, built around the ruins of a ring hab fragment that fell during the #{ref :the_glassfall, "Glassfall"}. The fragment's inter-hab communication equipment — buried in the wreckage for sixty years — turned out to need only minor repair to function. Glasswake didn't set out to reconnect the world. A salvage crew poking through old wreckage found a transmitter that still had power, and one of them knew enough to make it talk.
-
-    That was roughly 2305 CE. The first long-range signal after the Signal Famine went from Glasswake to #{ref :hab_meridian, "Hab Meridian"}, a ring hab whose receiver happened to still be listening. The reconnection began with two communities that stumbled into it.
+    A mining town on Kaleidos's surface, built around the ruins of a ring hab fragment that fell during the #{ref :the_glassfall, "Glassfall"}. The fragment's inter-hab communication equipment — buried in the wreckage for sixty years — turned out to need only minor repair to function. Glasswake didn't set out to reconnect the world; a salvage crew poking through old wreckage found a transmitter that still had power, and one of them knew enough to make it talk.
   PROSE
   prose <<~PROSE, section: :origin, heading: "Origin"
-    Before the Glassfall, the site was nothing — open ground near the impact zone of a ring fragment large enough to survive descent mostly intact. The fragment hit hard enough to half-bury itself, creating a ridge of fused crystal and stone that the first settlers built against for shelter during the Famine. The settlement grew around the wreckage the way a town grows around a crossroads: not by plan, but because people kept showing up.
-
     What it was before the Famine — what the original ring hab was, who lived in it, what it was called — nobody knows, and nobody particularly cares. The fragment is a resource, not a heritage site. Miners work the ringglass deposits in the impact debris. The old hab structures serve as foundations, warehouses, and — in one case — a pub.
   PROSE
   prose <<~PROSE, section: :economy, heading: "Economy"
@@ -33,4 +29,16 @@ relate :rel_glasswake_on_surface_kaleidos, :on_surface_of, :glasswake, :kaleidos
 end
 relate :rel_glasswake_located_in_kaleidos, :located_in, :glasswake, :kaleidos, since: 2160 do
   prose "It has held its stretch of coast since the early Famine, a surface town that kept its lights on through the worst of the isolation."
+end
+
+# --- history (moments) ---
+moment :glasswake_founded, year: 2160, of: :glasswake do
+  prose "A ring fragment fell during the #{ref :the_glassfall, "Glassfall"} and half-buried itself, leaving a ridge of fused crystal and stone. The first settlers built against it for shelter during the Famine, and the town grew around the wreckage the way a town grows around a crossroads — not by plan, but because people kept showing up."
+end
+moment :glasswake_first_signal, year: 2305, of: :glasswake do
+  prose "A salvage crew found a pre-Glassfall transmitter that still had power, and one of them knew enough to make it talk. The first long-range signal after the #{ref :signal_famine, "Signal Famine"} went from Glasswake to #{ref :hab_meridian, "Hab Meridian"}, whose receiver happened to still be listening. The reconnection of the system began with two communities that stumbled into it."
+  effects { set :glasswake, standing: :reconnected }
+end
+relate :rel_glasswake_cooperates_hab_meridian, :cooperates_with, :glasswake, :hab_meridian, since: 2305 do
+  prose "Its oldest tie is to #{ref :hab_meridian, "Hab Meridian"} — the hab that answered the First Signal — and the partnership has run continuously ever since."
 end

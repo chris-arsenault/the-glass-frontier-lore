@@ -10,13 +10,6 @@ installation :sithari do
 
     Sithari is a Sitharian word that means, roughly, "the place that kept going." It did.
   PROSE
-  prose <<~PROSE, section: :origin, heading: "Origin"
-    Before the #{ref :the_glassfall, "Glassfall"}, this was a ring-era research complex — a fortified campus tied to #{ref :resonance, "resonance"} science, probably built with elven involvement given the sophistication of what survives in the deepest levels. The complex was designed to endure. Hardened walls, independent power systems, sealed laboratories that could run without the ring's infrastructure. The work inside was considered too important to lose.
-
-    When the ring fell, the campus held. Power stayed on. The walls stayed up. The institutional culture — committees, schedules, chains of authority — stayed intact while the world outside came apart. People consolidated around it within weeks. The campus became a refugee center, then a settlement, then a city.
-
-    The transition from research outpost to capital wasn't planned. It happened because Sithari had three things nobody else did in the early Signal Famine: functioning infrastructure, an organizational culture that could scale, and walls. By the time the Famine ended, the campus was a neighborhood in a city of hundreds of thousands, and nobody remembered when the settlement had stopped being temporary.
-  PROSE
   prose <<~PROSE, section: :geography, heading: "The Layers"
     Sithari is vertical in a way that isn't immediately obvious from the surface. The modern city sits on top of the ring-era campus, which sits on top of older construction that predates the research complex. Go down far enough and you find rooms that don't appear on any survey, corridors that follow geometries the original builders understood and nobody since has replicated, and — occasionally — sealed chambers that open onto spaces larger than they should be.
 
@@ -73,4 +66,17 @@ relate :rel_sithari_hosts_tempered_accord, :hosts, :sithari, :tempered_accord, s
 end
 relate :rel_sithari_terminus_keel, :terminus_of, :sithari, :keel do
   prose "It is the surface terminus of #{ref :keel, "the Keel"}, where the orbital trade lane finally touches ground."
+end
+
+# --- history (moments) ---
+moment :sithari_held_the_glassfall, year: 2140, of: :sithari do
+  prose "Before the #{ref :the_glassfall, "Glassfall"} this was a ring-era #{ref :resonance, "resonance"}-science complex — hardened walls, independent power, sealed labs that could run without the ring. When the ring fell, the campus held: power stayed on, the walls stayed up, and the institutional culture stayed intact while the world outside came apart. People consolidated around it within weeks."
+  effects { set :sithari, standing: :surviving_complex }
+end
+moment :sithari_becomes_capital, year: 2305, of: :sithari do
+  prose "By the time the #{ref :signal_famine, "Signal Famine"} ended, the campus was a neighborhood in a city of hundreds of thousands, and nobody remembered when the settlement had stopped being temporary. Functioning infrastructure, an organizational culture that could scale, and walls had turned a research outpost into the de facto capital of the system."
+  effects { set :sithari, standing: :capital }
+end
+relate :rel_sithari_governed_by_continuity, :governed_by, :sithari, :the_continuity, since: 2160 do
+  prose "Sithari is run by #{ref :the_continuity, "the Continuity"} — the party that has held power effectively unchallenged since the city stabilized during the Famine, and whose name is its argument: the alternative to their governance is discontinuity."
 end
