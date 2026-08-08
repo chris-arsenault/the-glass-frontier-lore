@@ -1,6 +1,62 @@
 # frozen_string_literal: true
 
 module Lorecraft
+  # One parsed inline binding. A marker knows its own kind and dispatches to a
+  # resolver rather than every consumer re-deciding with a `case` — a ref marker
+  # asks the resolver for a link, an elapsed marker for a rendered span. The
+  # resolver supplies the context (wiki page, markdown tree, plain text), which
+  # is why rendering is double dispatch rather than a single `#render` on the
+  # marker: the same ref renders as `[[Title]]` in the wiki, a relative link in
+  # the markdown tree, and bare text in a lint pass.
+  #
+  # Validation is a resolver too. "Check that this marker resolves" and "render
+  # this marker" are the same traversal with different `on_*` bodies, so the
+  # validator carries no `case` on kind either.
+  #
+  # Markers still answer `[]` so read-only consumers that only want `b[:kind]`
+  # or `b[:id]` need no change.
+  class Marker
+    attr_reader :match, :attrs
+
+    def initialize(match, **attrs)
+      @match = match
+      @attrs = attrs
+    end
+
+    def kind = self.class::KIND
+    def id = @attrs[:id]
+    def [](key) = key == :kind ? kind : @attrs[key]
+    def to_h = @attrs.merge(kind: kind)
+
+    # Ask `resolver` to render this marker. Subclasses name the callback.
+    def resolve(resolver) = raise(NotImplementedError, "#{self.class} cannot resolve")
+
+    # The bare display text this marker collapses to with no resolver at all —
+    # what Markers.strip uses to reduce prose to plain words for lint and
+    # search. Resolver-free, so it never needs a world.
+    def plain = raise(NotImplementedError, "#{self.class} has no plain form")
+  end
+
+  class RefMarker < Marker
+    KIND = :ref
+    def resolve(resolver) = resolver.on_ref(self)
+    def plain = @attrs[:text] || id&.to_s || @attrs[:path] || ""
+  end
+
+  class RelMarker < Marker
+    KIND = :rel
+    def verb = @attrs[:verb]
+    def resolve(resolver) = resolver.on_rel(self)
+    def plain = verb.to_s
+  end
+
+  class FutureMarker < Marker
+    KIND = :future
+    def name = @attrs[:name]
+    def resolve(resolver) = resolver.on_future(self)
+    def plain = name
+  end
+
   # Prose carries inline bindings — `ref` (a cross-reference to another entity),
   # `rel` (the live target(s) of one of the owner's relations at the render
   # era), and `future` (a placeholder for a not-yet-written entity). Because
@@ -15,11 +71,11 @@ module Lorecraft
   # to confirm every symbol target resolves.
   module Markers
     SEP = ""
-    REF = "#{SEP}REF#{SEP}"
-    REL = "#{SEP}REL#{SEP}"
-    FUT = "#{SEP}FUT#{SEP}"
-    FIELD = "#{SEP}|#{SEP}"
-    ENDM = "#{SEP}END#{SEP}"
+    REF = "#{SEP}REF#{SEP}".freeze
+    REL = "#{SEP}REL#{SEP}".freeze
+    FUT = "#{SEP}FUT#{SEP}".freeze
+    FIELD = "#{SEP}|#{SEP}".freeze
+    ENDM = "#{SEP}END#{SEP}".freeze
 
     # A cross-reference. `target` is normally an entity id (Symbol); pass `path:`
     # instead for a link to a non-entity page (an index, a meta doc). `text`
@@ -51,42 +107,40 @@ module Lorecraft
     ANY_RE = /#{REF_RE}|#{REL_RE}|#{FUT_RE}/m
 
     # Parse every binding in a blob of assembled prose, in document order.
-    # Yields the full matched substring and a Hash describing the binding.
+    # Yields the full matched substring and the Marker describing the binding.
     def self.scan(text)
       return enum_for(:scan, text) unless block_given?
 
       text.to_enum(:scan, ANY_RE).each do
         m = Regexp.last_match
-        if m[0].start_with?(REF)
-          yield m[0], { kind: :ref,
-                        id: blank(m[1]) ? nil : m[1].to_sym,
-                        text: blank(m[2]) ? nil : m[2],
-                        path: blank(m[3]) ? nil : m[3],
-                        anchor: blank(m[4]) ? nil : m[4] }
-        elsif m[0].start_with?(REL)
-          yield m[0], { kind: :rel,
-                        verb: m[5].to_sym,
-                        target: blank(m[6]) ? nil : m[6].to_sym }
-        else
-          yield m[0], { kind: :future, name: m[7] }
-        end
+        yield m[0], build(m)
       end
     end
 
-    def self.blank(s) = s.nil? || s.empty?
+    # Sentinel prefix → the Marker subclass it opens, with the capture groups
+    # ANY_RE assigns to that alternative. A future has no prefix entry; it is
+    # the fallback, since FUT is the only alternative left once the others miss.
+    BUILDERS = [
+      [REF, lambda { |m|
+        RefMarker.new(m[0], id: sym(m[1]), text: str(m[2]), path: str(m[3]), anchor: str(m[4]))
+      },],
+      [REL, ->(m) { RelMarker.new(m[0], verb: m[5].to_sym, target: sym(m[6])) }],
+    ].freeze
+
+    # Turn one regexp match into the Marker subclass that models it.
+    def self.build(match)
+      _, builder = BUILDERS.find { |prefix, _| match[0].start_with?(prefix) }
+      builder ? builder.call(match) : FutureMarker.new(match[0], name: match[7])
+    end
+
+    def self.blank(str) = str.nil? || str.empty?
+    def self.str(value) = blank(value) ? nil : value
+    def self.sym(value) = blank(value) ? nil : value.to_sym
 
     # Strip every binding sentinel back to bare display text.
     def self.strip(text)
       out = text.dup
-      scan(text) do |match, b|
-        replacement =
-          case b[:kind]
-          when :ref then b[:text] || b[:id]&.to_s || b[:path] || ""
-          when :rel then b[:verb].to_s
-          when :future then b[:name]
-          end
-        out = out.sub(match, replacement)
-      end
+      scan(text) { |match, marker| out = out.sub(match, marker.plain) }
       out
     end
   end

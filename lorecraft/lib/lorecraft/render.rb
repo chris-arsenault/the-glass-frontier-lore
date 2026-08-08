@@ -74,36 +74,40 @@ module Lorecraft
         @world.relation_instances.values.select { |r| r.source == id.to_sym }
       end
 
-      # Rewrite ref/rel/future markers in `text` into markdown, relative to
-      # `from_path`, at render year `year`.
+      # Rewrite markers in `text` into markdown, relative to `from_path`, at
+      # render year `year`. The resolution context is held for the duration of
+      # the scan so the `on_*` callbacks can reach it.
       def resolve_prose(text, from_path:, year:)
         out = text.dup
-        Markers.scan(text) do |match, b|
-          out = out.sub(match, render_binding(b, from_path, year))
-        end
+        @from_path = from_path
+        @year = year
+        Markers.scan(text) { |match, marker| out = out.sub(match, marker.resolve(self).to_s) }
         out
       end
 
-      private
+      # --- marker resolution: this renderer links to other pages in the tree --
 
-      def render_binding(b, from_path, year)
-        case b[:kind]
-        when :future
-          "[future:#{b[:name]}]"
-        when :ref
-          if b[:id] && path_index[b[:id]]
-            link(b[:text] || title_for(b[:id]), path_index[b[:id]], from_path, b[:anchor])
-          elsif b[:path]
-            link(b[:text] || b[:path], b[:path], from_path, b[:anchor])
-          else
-            b[:text] || b[:id].to_s
-          end
-        when :rel
-          targets = @world.at(year).out(@rel_subject_for, b[:verb]) rescue []
-          targets = [b[:target]].compact if b[:target]
-          targets.map { |t| link(title_for(t), path_index[t], from_path, nil) if path_index[t] }
-                 .compact.join(", ")
+      def on_future(marker) = "[future:#{marker.name}]"
+
+      def on_ref(marker)
+        if marker.id && path_index[marker.id]
+          link(marker[:text] || title_for(marker.id), path_index[marker.id], @from_path, marker[:anchor])
+        elsif marker[:path]
+          link(marker[:text] || marker[:path], marker[:path], @from_path, marker[:anchor])
+        else
+          marker[:text] || marker.id.to_s
         end
+      end
+
+      def on_rel(marker)
+        targets = begin
+          @world.at(@year).out(@rel_subject_for, marker.verb)
+        rescue StandardError
+          []
+        end
+        targets = [marker[:target]].compact if marker[:target]
+        targets.filter_map { |t| link(title_for(t), path_index[t], @from_path, nil) if path_index[t] }
+               .join(", ")
       end
 
       def link(text, target_path, from_path, anchor)

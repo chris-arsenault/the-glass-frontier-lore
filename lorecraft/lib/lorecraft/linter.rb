@@ -55,13 +55,12 @@ module Lorecraft
     def run
       check_titles
       check_dm_phrase_leakage
-      check_stale_futures
+      check_markers
       check_prominence_reach
       check_double_article
       check_resonance_vocab
       check_dm_public_entry
       check_shell_consistency
-      check_path_refs_exist
       check_causal_cycles
       check_antisymmetry
       check_partof_cycles
@@ -101,25 +100,45 @@ module Lorecraft
       end
     end
 
-    def check_stale_futures
+    # The linter is a marker resolver too: each `on_*` reports on the marker
+    # instead of rendering it. `@owner` and `@root` carry the context.
+    def check_markers
       (pages + @world.moments.values).each do |owner|
+        @owner = owner
         owner.prose_blocks.each do |b|
-          Markers.scan(b.text) do |_m, bind|
-            next unless bind[:kind] == :future
-
-            slug = bind[:name].downcase.gsub(/[^a-z0-9]+/, "_").gsub(/\A_|_\z/, "")
-            target = @world.entity(slug.to_sym)
-            # Stale only when a *written page* exists (shells legitimately remain
-            # [future:] placeholders).
-            if target && !shell?(target)
-              err("#{owner.id}: stale future '#{bind[:name]}' — page :#{slug} exists, use ref")
-            else
-              future("#{owner.id}: '#{bind[:name]}' — no entry yet")
-            end
-          end
+          Markers.scan(b.text) { |_m, marker| marker.resolve(self) }
         end
       end
     end
+
+    # The resolver callbacks are public: `marker.resolve(self)` dispatches to
+    # them from outside, so they cannot be private.
+    public
+
+    def on_future(marker)
+      slug = marker.name.downcase.gsub(/[^a-z0-9]+/, "_").gsub(/\A_|_\z/, "")
+      target = @world.entity(slug.to_sym)
+      # Stale only when a *written page* exists (shells legitimately remain
+      # future placeholders).
+      if target && !shell?(target)
+        err("#{@owner.id}: stale future '#{marker.name}' — page :#{slug} exists, use ref")
+      else
+        future("#{@owner.id}: '#{marker.name}' — no entry yet")
+      end
+    end
+
+    # ref(path:) targets a non-entity file — confirm it exists on disk.
+    def on_ref(marker)
+      path = marker[:path]
+      return if path.nil? || path.start_with?("http", "#")
+
+      err("#{@owner.id}: ref path → missing file #{path}") unless (@root + path).exist?
+    end
+
+    # Relation verbs are the validator's business, not the linter's.
+    def on_rel(_marker) = nil
+
+    private
 
     # Moment prose counts against the entity the moment belongs to — half a
     # world's prose lives in moments, and a name-drop there travels just as far.
@@ -198,20 +217,6 @@ module Lorecraft
       end
     end
 
-    # ref(path:) targets a non-entity file — confirm it exists on disk.
-    def check_path_refs_exist
-      (pages + @world.moments.values).each do |owner|
-        owner.prose_blocks.each do |b|
-          Markers.scan(b.text) do |_m, bind|
-            next unless bind[:kind] == :ref && bind[:path]
-            next if bind[:path].start_with?("http", "#")
-
-            err("#{owner.id}: ref path → missing file #{bind[:path]}") unless (@root + bind[:path]).exist?
-          end
-        end
-      end
-    end
-
     def check_causal_cycles
       cyc = find_cycle(edges_of(%i[causes caused]))
       err("causal cycle: #{cyc.join(' → ')}") if cyc
@@ -256,7 +261,7 @@ module Lorecraft
     def refs_in(owner)
       out = []
       owner.prose_blocks.each do |b|
-        Markers.scan(b.text) { |_m, bind| out << bind[:id] if bind[:kind] == :ref && bind[:id] }
+        Markers.scan(b.text) { |_m, marker| out << marker.id if marker.kind == :ref && marker.id }
       end
       out.uniq
     end

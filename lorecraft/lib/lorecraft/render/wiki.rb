@@ -69,33 +69,40 @@ module Lorecraft
         true
       end
 
-      # Resolve ref/rel/future bindings in prose directly to GitHub wiki links.
+      # Resolve prose bindings directly to GitHub wiki links. The subject and
+      # year are held for the scan so the `on_*` callbacks can reach them.
       def wikitext(text, subject, year)
         out = text.dup
-        Markers.scan(text) do |match, b|
-          out = out.sub(match, binding_to_wiki(b, subject, year))
-        end
+        @subject = subject
+        @year = year
+        Markers.scan(text) { |match, marker| out = out.sub(match, marker.resolve(self).to_s) }
         out
       end
 
-      def binding_to_wiki(b, subject, year)
-        case b[:kind]
-        when :future
-          "*#{b[:name]}* *(stub)*"
-        when :ref
-          node = b[:id] && @world[b[:id]]
-          if wiki_visible?(node)
-            b[:text] && b[:text] != node.title ? "[[#{b[:text]}|#{node.title}]]" : "[[#{node.title}]]"
-          else
-            b[:text] || b[:id]&.to_s || b[:path] || "" # DM / shell / non-entity → plain text
-          end
-        when :rel
-          @world.at(year).out(subject, b[:verb]).filter_map do |t|
-            n = @world[t]
-            "[[#{n.title}]]" if wiki_visible?(n)
-          end.join(", ")
+      # --- marker resolution: this renderer emits GitHub wiki syntax ----------
+      #
+      # Public because `marker.resolve(self)` dispatches to them from outside.
+      public
+
+      def on_future(marker) = "*#{marker.name}* *(stub)*"
+
+      def on_ref(marker)
+        node = marker.id && @world[marker.id]
+        unless wiki_visible?(node)
+          return marker[:text] || marker.id&.to_s || marker[:path] || "" # DM / shell / non-entity
         end
+
+        marker[:text] && marker[:text] != node.title ? "[[#{marker[:text]}|#{node.title}]]" : "[[#{node.title}]]"
       end
+
+      def on_rel(marker)
+        @world.at(@year).out(@subject, marker.verb).filter_map do |t|
+          n = @world[t]
+          "[[#{n.title}]]" if wiki_visible?(n)
+        end.join(", ")
+      end
+
+      private
 
       def content_page(node, year)
         body = +""

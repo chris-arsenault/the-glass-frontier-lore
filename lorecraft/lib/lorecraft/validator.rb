@@ -24,7 +24,6 @@ module Lorecraft
       check_tags
       check_prominence
       check_sections
-      check_dm_leakage
       @problems
     end
 
@@ -41,16 +40,15 @@ module Lorecraft
     def known?(id) = @world.known_id?(id)
 
     # §8.1 / §8.7 — every ref/rel/effect/relation target resolves to a real id.
+    # The prose pass is a marker resolution like any other: "validate this
+    # marker" and "render this marker" are the same traversal with different
+    # `on_*` bodies, so there is no `case` on marker kind here.
     def check_references
       each_prose_owner do |owner, block|
-        Markers.scan(block.text) do |_match, b|
-          if b[:kind] == :ref
-            next if b[:id].nil? # path-only ref to a non-entity page
-            err("#{label(owner)}: prose ref → unknown id #{b[:id]}") unless known?(b[:id])
-          elsif b[:kind] == :rel
-            err("#{label(owner)}: prose rel uses unknown relation #{b[:verb]}") unless @schema.relation?(b[:verb])
-          end
-        end
+        @owner = owner
+        # A DM owner or a DM block may name hidden entities; a public one may not.
+        @dm_context = dm_owner?(owner) || block.dm?
+        Markers.scan(block.text) { |_match, marker| marker.resolve(self) }
       end
 
       @world.moments.each_value do |ev|
@@ -72,6 +70,36 @@ module Lorecraft
         err("relation #{ri.id}: target → unknown id #{ri.target}") unless known?(ri.target)
       end
     end
+
+    # --- marker resolution: "rendering" a marker here means validating it ----
+    #
+    # Public because `marker.resolve(self)` dispatches to them from outside.
+    public
+
+    # Two rules per reference: the target exists, and a player-facing page does
+    # not name a DM-only entity (which would leak hidden truth into the wiki).
+    def on_ref(marker)
+      return if marker.id.nil? # path-only ref to a non-entity page
+
+      unless known?(marker.id)
+        err("#{label(@owner)}: prose ref → unknown id #{marker.id}")
+        return
+      end
+      return if @dm_context
+
+      target = @world[marker.id]
+      err("#{label(@owner)}: public prose references DM-only entity #{marker.id}") \
+        if target.respond_to?(:dm?) && target.dm?
+    end
+
+    def on_rel(marker)
+      err("#{label(@owner)}: prose rel uses unknown relation #{marker.verb}") unless @schema.relation?(marker.verb)
+    end
+
+    # A future names something with no entity; there is nothing to resolve.
+    def on_future(_marker) = nil
+
+    private
 
     # §8.2 — relation types exist; effect verbs exist; declared domain/range hold.
     def check_relation_types
@@ -192,22 +220,6 @@ module Lorecraft
 
         err("#{label(owner)}: prose section '#{block.section}' not in canonical vocabulary") \
           unless @schema.section_heading?(block.section)
-      end
-    end
-
-    # Repo rule — a player-facing page must not reference a DM-only entity in its
-    # prose (would leak hidden truth into the wiki).
-    def check_dm_leakage
-      each_prose_owner do |owner, block|
-        next if dm_owner?(owner) || block.dm?
-
-        Markers.scan(block.text) do |_match, b|
-          next unless b[:kind] == :ref && b[:id]
-
-          target = @world[b[:id]]
-          err("#{label(owner)}: public prose references DM-only entity #{b[:id]}") \
-            if target.respond_to?(:dm?) && target.dm?
-        end
       end
     end
 

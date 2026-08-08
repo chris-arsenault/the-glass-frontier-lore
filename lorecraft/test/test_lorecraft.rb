@@ -516,4 +516,44 @@ class MarkersTest < Minitest::Test
     s = "see #{ref(:a, 'A')} and #{future('B')}"
     assert_equal "see A and B", Lorecraft::Markers.strip(s)
   end
+
+  def test_scan_builds_typed_markers
+    s = "#{ref(:a)} #{rel(:governs)} #{future('C')}"
+    kinds = Lorecraft::Markers.scan(s).map { |_m, marker| marker.class }
+    assert_equal [Lorecraft::RefMarker, Lorecraft::RelMarker, Lorecraft::FutureMarker], kinds
+  end
+
+  # Every marker dispatches to a differently-named callback, so a resolver that
+  # forgets a kind fails loudly instead of falling through to a wrong branch.
+  class CountingResolver
+    attr_reader :seen
+
+    def initialize = @seen = []
+    def on_ref(m) = tally(:ref, m)
+    def on_rel(m) = tally(:rel, m)
+    def on_future(m) = tally(:future, m)
+
+    private
+
+    def tally(name, marker)
+      @seen << name
+      marker.plain
+    end
+  end
+
+  def test_markers_double_dispatch_to_a_resolver
+    resolver = CountingResolver.new
+    out = "see #{ref(:a, 'A')}, #{rel(:governs)}, #{future('C')}".dup
+    Lorecraft::Markers.scan(out.dup) { |match, marker| out = out.sub(match, marker.resolve(resolver)) }
+    assert_equal %i[ref rel future], resolver.seen
+    assert_equal "see A, governs, C", out
+  end
+
+  def test_a_resolver_missing_a_kind_raises
+    incomplete = Object.new
+    err = assert_raises(NoMethodError) do
+      Lorecraft::Markers.scan(ref(:a)) { |_m, marker| marker.resolve(incomplete) }
+    end
+    assert_match(/on_ref/, err.message)
+  end
 end
