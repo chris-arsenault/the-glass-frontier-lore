@@ -39,13 +39,14 @@ module Lorecraft
       world
     end
 
-    # Load a world from content files. Schema and timeline files are always
-    # evaluated first; the remainder are loaded in sorted path order so the fold
-    # tie-break (declaration order) is identical on every machine.
-    def self.load(glob)
+    # Load a world from content files. `prelude` files (the shared schema base
+    # every world in the repository builds on) are evaluated first, then the
+    # world's own schema and timeline, then the remainder in sorted path order
+    # so the fold tie-break (declaration order) is identical on every machine.
+    def self.load(glob, prelude: [])
       world = new
       files = Dir.glob(glob).select { |f| File.file?(f) }.sort
-      ordered = pin_first(files)
+      ordered = Array(prelude).select { |f| File.file?(f) } + pin_first(files)
       ctx = DefinitionContext.new(world)
       ordered.each do |file|
         world.instance_variable_set(:@current_file, file)

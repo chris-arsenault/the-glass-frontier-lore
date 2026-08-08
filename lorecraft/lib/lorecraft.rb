@@ -4,17 +4,20 @@
 # narrative world. The world is an in-memory object graph with a real temporal
 # model; markdown and the graph projection are render targets, not stores.
 #
-#   world = Lorecraft.load("world/**/*.rb")
+#   world = Lorecraft.load(Lorecraft::Worlds.find("glass-frontier").glob)
 #   world.validate!
-#   world.render(:markdown, out: "build/tree")
+#   world.render(:markdown, out: "build/glass-frontier/tree")
+#
+# The engine is world-agnostic. Which worlds this repository holds, and where
+# their files live, is `worlds.yml` — see Lorecraft::Worlds.
 #
 # See SYSTEM in the repo for the authoring guide.
 module Lorecraft
   VERSION = "0.1.0"
 
-  # Load a world from content files (schema/timeline first, then sorted).
-  def self.load(glob)
-    World.load(glob)
+  # Load a world from content files (prelude, then schema/timeline, then sorted).
+  def self.load(glob, prelude: [])
+    World.load(glob, prelude: prelude)
   end
 
   # Define a world inline.
@@ -24,4 +27,5 @@ module Lorecraft
 end
 
 require_relative "lorecraft/world"
+require_relative "lorecraft/worlds"
 require_relative "lorecraft/review"

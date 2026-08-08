@@ -4,25 +4,20 @@
 # Lorecraft CLI — the day-to-day entry point. Replaces the graph_cli / lint /
 # wiki_gen workflow for the DSL world.
 #
-#   lorecraft validate                 # load world/**, run the validator
+#   lorecraft validate                 # load the world, run the validator
 #   lorecraft render build/tree        # regenerate the markdown tree
 #   lorecraft render build/wiki --audience player   # player-facing only
 #   lorecraft graph [out.json]         # graph projection (Memgraph replacement)
 #   lorecraft timeline <entity-id>     # life-of-entity moment strip
 #   lorecraft stats
+#   lorecraft worlds                   # list the tenants in worlds.yml
+#
+# Every command runs against exactly one world. Pick it with `--world <id>` or
+# LORECRAFT_WORLD; otherwise the manifest default is used.
 Encoding.default_external = Encoding::UTF_8
 Encoding.default_internal = Encoding::UTF_8
 $LOAD_PATH.unshift File.expand_path("../lib", __dir__)
 require "lorecraft"
-
-GLOB = ENV.fetch("LORECRAFT_GLOB", "world/**/*.rb")
-
-def load_world
-  Lorecraft.load(GLOB)
-rescue => e
-  warn "load error: #{e.message}"
-  exit 2
-end
 
 def opt(args, flag, default = nil)
   i = args.index(flag)
@@ -32,6 +27,24 @@ def opt(args, flag, default = nil)
   args.delete_at(i + 1)
   args.delete_at(i)
   val
+end
+
+# --world is global, so it is stripped before the subcommand is read.
+WORLD = begin
+  Lorecraft::Worlds.find(opt(ARGV, "--world", ENV["LORECRAFT_WORLD"]))
+rescue Lorecraft::Error => e
+  warn e.message
+  exit 2
+end
+
+# LORECRAFT_GLOB still overrides the manifest, for one-off runs over a subset.
+GLOB = ENV.fetch("LORECRAFT_GLOB", WORLD.glob)
+
+def load_world
+  Lorecraft.load(GLOB, prelude: WORLD.prelude)
+rescue => e
+  warn "load error: #{e.message}"
+  exit 2
 end
 
 cmd = ARGV.shift || "validate"
@@ -86,9 +99,15 @@ when "topology"
     puts "  zero-degree entities:"
     zero.sort_by(&:kind).each { |e| puts "    #{e.kind.to_s.ljust(20)} #{e.id}" }
   end
+when "worlds"
+  Lorecraft::Worlds.all.each do |w|
+    marks = [w.status, ("publishes wiki" if w.publish?)].compact.join(", ")
+    default = " (default)" if w.id == Lorecraft::Worlds.default_id
+    puts "  #{w.id.ljust(16)} #{w.title.ljust(24)} #{marks}#{default}"
+  end
 when "review"
   sub = ARGV.shift || "status"
-  rt = Lorecraft::ReviewTracker.new
+  rt = Lorecraft::ReviewTracker.new(root: WORLD.root)
   case sub
   when "pending" then puts rt.pending
   when "mark"
@@ -112,7 +131,14 @@ when "render"
 when "graph"
   out = ARGV.shift
   json = load_world.render(:graph, audience: audience, at: at)
-  if out then File.write(out, json); puts "graph → #{out}" else puts json end
+  if out
+    require "fileutils"
+    FileUtils.mkdir_p(File.dirname(out))
+    File.write(out, json)
+    puts "graph → #{out}"
+  else
+    puts json
+  end
 when "timeline"
   id = ARGV.shift or abort("usage: lorecraft timeline <entity-id>")
   puts load_world.render(:timeline, entity: id, at: at)

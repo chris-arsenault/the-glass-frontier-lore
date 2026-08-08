@@ -7,7 +7,11 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-const LORE_ROOT = path.resolve(__dirname, '../../../')
+// The app serves one world at a time. WORLD picks which; LORE_ROOT overrides
+// the whole path for a world kept outside worlds/.
+const REPO_ROOT = path.resolve(__dirname, '../../../')
+const WORLD = process.env.WORLD || 'glass-frontier'
+const LORE_ROOT = process.env.LORE_ROOT || path.join(REPO_ROOT, 'worlds', WORLD)
 const REVIEW_FILE = path.join(LORE_ROOT, 'work-tracking', 'review-comments.json')
 const AUTO_STATUS_FILE = path.join(LORE_ROOT, 'work-tracking', 'review-status.json')
 const MANUAL_STATUS_FILE = path.join(LORE_ROOT, 'work-tracking', 'manual-review-status.json')

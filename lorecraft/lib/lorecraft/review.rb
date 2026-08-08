@@ -15,6 +15,8 @@ module Lorecraft
     META_FILES = %w[index.md tags.md timeline.md causality.md
                     design-principles.md world-seeds.md].freeze
 
+    # `root` is a world root (worlds/<id>/), not the repo root — review state is
+    # per-world.
     def initialize(root: Dir.pwd)
       @root = Pathname.new(root)
       @status_file = @root + "work-tracking/review-status.json"
@@ -81,9 +83,13 @@ module Lorecraft
 
     private
 
+    # Paths are recorded relative to the world root, but callers type them
+    # relative to wherever they are standing — usually the repo root, which is
+    # above the world root.
     def relativize(p)
       pn = Pathname.new(p)
-      pn.absolute? ? pn.relative_path_from(@root).to_s : pn.to_s
+      pn = Pathname.new(Dir.pwd) + pn unless pn.absolute?
+      pn.expand_path.relative_path_from(@root.expand_path).to_s
     end
 
     def git_mtime(rel)

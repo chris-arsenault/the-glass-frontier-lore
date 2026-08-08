@@ -9,7 +9,8 @@ Encoding.default_internal = Encoding::UTF_8
 $LOAD_PATH.unshift File.expand_path("../lib", __dir__)
 require "lorecraft"
 
-world = Lorecraft.load("world/**/*.rb")
+target = Lorecraft::Worlds.find(ENV["LORECRAFT_WORLD"])
+world = Lorecraft.load(target.glob, prelude: target.prelude)
 md = Lorecraft::Render::Markdown.new(world)
 
 # Normalisation: parity is semantic, not byte-exact. We compare frontmatter as a

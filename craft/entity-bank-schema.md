@@ -439,7 +439,7 @@ Abandoned infrastructure, destroyed installations, pre-Glassfall sites, collapse
 
 ## Artifacts
 
-Sub-kinds are organized by what the object IS. Origin (elven, bloom-generated, constructed) is an axis on each, not a sub-kind. See `review-guidance/writing-guidance.md` section 6 for artifact design philosophy.
+Sub-kinds are organized by what the object IS. Origin is an axis on each, not a sub-kind. See `writing-guidance.md` §6 for artifact design philosophy.
 
 ### Weapon
 

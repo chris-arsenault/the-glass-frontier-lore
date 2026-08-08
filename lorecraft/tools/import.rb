@@ -8,7 +8,8 @@
 #
 #   ruby lorecraft/tools/import.rb [SNAPSHOT.json] [OUT_DIR]
 #
-# Defaults: work-tracking/snapshots/pre-dsl-migration.json → world/
+# Defaults: the Glass Frontier's pre-DSL snapshot → its world directory. Kept
+# for the record; the markdown corpus it read no longer exists.
 require "json"
 require "pathname"
 require "fileutils"
@@ -17,8 +18,9 @@ Encoding.default_external = Encoding::UTF_8
 Encoding.default_internal = Encoding::UTF_8
 
 ROOT = Pathname.new(Dir.pwd)
-SNAPSHOT = ARGV[0] || "work-tracking/snapshots/pre-dsl-migration.json"
-OUT = Pathname.new(ARGV[1] || "world")
+WORLD_DIR = "worlds/glass-frontier"
+SNAPSHOT = ARGV[0] || "#{WORLD_DIR}/work-tracking/snapshots/pre-dsl-migration.json"
+OUT = Pathname.new(ARGV[1] || "#{WORLD_DIR}/world")
 
 # Structural / engine edge types that are NOT world relationships — they encode
 # prose mentions, section ownership, and taxonomy wiring, all of which Lorecraft

@@ -24,7 +24,8 @@ which required keeping prose and a separate graph in sync by hand.
 ## Quick start
 
 ```ruby
-world = Lorecraft.load("world/**/*.rb")
+target = Lorecraft::Worlds.find("glass-frontier")  # or nil for the manifest default
+world = Lorecraft.load(target.glob, prelude: target.prelude)
 world.validate!                                   # spec §8 + repo rules
 world.at(era: :the_accord, year: 5).out(:coremark, :operates_in)
 world.render(:markdown, out: "build/tree")        # regenerate the wiki tree
@@ -71,8 +72,8 @@ end
 - **Prose bindings:** `ref :id` (cross-link, resolved at render era), `rel :verb`
   (the live target(s) of one of the owner's relations), `future "Name"` (shell
   placeholder → `[future:Name]`).
-- **Time:** CE years are absolute ticks; eras have fixed boundaries (see
-  `world/timeline.rb`). `now` is the default query/render era.
+- **Time:** CE years are absolute ticks; eras have fixed boundaries (see the
+  world's `world/timeline.rb`). `now` is the default query/render era.
 - **Visibility:** `dm!(public_entry: :x)` marks a hidden-truth entity; the player
   audience excludes it and the validator forbids public prose from referencing it.
 
@@ -80,16 +81,22 @@ end
 
 ```
 lorecraft/
-  lib/lorecraft/        engine: schema, timeline, entity, event, relation,
+  lib/lorecraft/        engine: schema, timeline, entity, event, relation, worlds,
                         resolver (fold), validator, render/{markdown,graph,timeline}
-  bin/lorecraft         CLI
+  bin/lorecraft         CLI — `--world <id>` picks the tenant
+  tools/each_world.rb   run a make target across every world with canon
   tools/import.rb       one-shot migration: markdown + graph snapshot → world/
-  tools/parity.rb       round-trip check: render world/ and diff vs the originals
+  tools/parity.rb       round-trip check: render a world and diff vs the originals
   test/                 minitest suite (+ smoke.rb end-to-end demo)
-world/                  THE CONTENT — the only source of truth
+worlds.yml              the manifest — which worlds exist, which is default
+craft/schema/base.rb    kinds, effect verbs, relation taxonomy — every world loads it
+worlds/<id>/world/      THE CONTENT — the only source of truth, one dir per world
   schema.rb timeline.rb <type>/<id>.rb _shells.rb _edges.rb
-build/                  generated artifacts (gitignored)
+build/<id>/             generated artifacts (gitignored)
 ```
+
+The engine holds no world knowledge. `Lorecraft::Worlds` reads `worlds.yml` and
+hands back a glob and a prelude; everything else is setting-agnostic.
 
 ## Migration status
 

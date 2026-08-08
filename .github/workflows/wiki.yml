@@ -1,14 +1,21 @@
-name: Update Wiki
+name: Check worlds and publish wiki
 
 on:
   push:
     branches: [main]
+  pull_request:
 
 permissions:
   contents: write
 
+# The world published to this repository's GitHub wiki. Only one world can go
+# there, so the others are validated but not published; when a second world has
+# canon worth reading, this moves to a site build with a directory per world.
+env:
+  PUBLISHED_WORLD: glass-frontier
+
 jobs:
-  wiki:
+  check:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -19,11 +26,27 @@ jobs:
         with:
           ruby-version: "3.3"
 
-      - name: Validate the world
-        run: ruby lorecraft/bin/lorecraft validate
+      - name: Engine tests
+        run: make test
 
-      - name: Generate wiki pages from world/
-        run: ruby lorecraft/bin/lorecraft wiki wiki_out
+      - name: Validate and lint every world with canon
+        run: make check-all
+
+  wiki:
+    needs: check
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+
+      - name: Generate wiki pages
+        run: make wiki WORLD=$PUBLISHED_WORLD
 
       - name: Clone wiki repository
         env:
@@ -36,7 +59,7 @@ jobs:
           # Remove old wiki content (keep .git)
           find wiki_repo -maxdepth 1 -not -name '.git' -not -name 'wiki_repo' -not -path 'wiki_repo' -delete 2>/dev/null || true
           # Copy generated pages into the wiki repo
-          cp wiki_out/*.md wiki_repo/
+          cp build/$PUBLISHED_WORLD/wiki/*.md wiki_repo/
 
       - name: Commit and push wiki changes
         run: |

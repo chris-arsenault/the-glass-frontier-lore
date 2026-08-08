@@ -1,39 +1,40 @@
-# The Glass Frontier — Lore
+# Tsonu Canon
 
-Canonical lore wiki for *The Glass Frontier*, a game world set in the Kaleidos system — a shattered ring world, its parent planet, and the wider solar system around them.
+Canonical lore for several game worlds, authored in one place with one engine.
 
-## The World
+| World | Status | What it is |
+|---|---|---|
+| [The Glass Frontier](worlds/glass-frontier/) | active | The Kaleidos system: a shattered orbital ring, its parent planet, and the solar system around them. A hundred and thirty years after the ring broke, everyone has reconnected and discovered they became strangers. |
+| [The Ice Remembers](worlds/ice-remembers/) | scaffold | Aurora Berg: a continent-sized iceberg drifting through a frozen sea, shared by three peoples who cannot leave it. |
+| [The Dry War](worlds/dry-war/) | scaffold | Premise not yet established. |
 
-A hundred and thirty years ago, the orbital ring around Kaleidos shattered. The fragments — hundreds of them, many still habitable — drifted apart. The surface was cut off from orbit. The other worlds in the system carried on alone. When everyone finally reconnected, they discovered they'd become strangers.
+Each world defines itself as it exists *now* — the places, factions, people, technology and history that players step into on day one.
 
-This repository defines the world as it exists now: the places, factions, people, technology, and history that players step into on day one.
+## How It Is Built
 
-## Structure
-
-One file per entry, cross-linked like a wiki. Entries live in directories by type:
-
-```
-player/         — all player-facing lore content
-  cosmology/    — the rings, resonance, echo rivers
-  concepts/     — technology, magic, religion, governance
-  locations/    — regions, settlements, landmarks
-  npcs/         — factions, notable individuals, antagonists
-  history/      — eras and events
-  artifacts/    — relics and common items
-  creatures/    — fauna and anomalies
-  ships/        — military and civilian vessels
-dm/             — DM-only knowledge (not published to wiki)
-```
-
-Each type directory has an `index.md` listing all known entities — including shell entries that haven't been written yet. See [CLAUDE.md](CLAUDE.md) for conventions.
-
-## Linting
+A world is a graph of entities, moments and typed relationships, written in [Lorecraft](lorecraft/README.md), a Ruby DSL. The DSL is the only source of truth. Markdown, the GitHub wiki and the graph JSON are render targets, regenerated from it — none of them are committed here.
 
 ```
-make lint
+worlds/<id>/world/    the canon
+craft/                how to write well in any of them
+lorecraft/            the engine
 ```
 
-Python 3 linter (no dependencies) that checks tag taxonomy compliance, dead links, frontmatter validity, index coverage, and tracks `[future:...]` forward-references.
+`worlds.yml` lists the tenants. Everything else is described in [CLAUDE.md](CLAUDE.md) (conventions) and [SYSTEM.md](SYSTEM.md) (architecture).
+
+## Working On It
+
+```
+make worlds                        # what's here
+make check WORLD=glass-frontier    # validate + lint one world
+make check-all                     # every world that has canon
+make wiki WORLD=glass-frontier     # render to build/glass-frontier/wiki
+make test                          # engine unit tests
+```
+
+Requires Ruby 3.x.
+
+CI validates every world on push and publishes the Glass Frontier's wiki. Only one world can occupy a repository's GitHub wiki, so when a second world has canon worth reading this moves to a site build with a directory per world.
 
 ## License
 

@@ -1,11 +1,13 @@
 # Graph Topology Guide
 
-Target topology derived from analysis of a mature canonry graph (241 entities, 1257 active edges, score 199-204). Our graph will eventually be used in the same narrative engine context and must achieve similar structural properties.
+Target topology derived from analysis of a mature canonry graph (241 entities, 1257 active edges, score 199-204). Every world here feeds the same narrative engine and must reach similar structural properties.
+
+The "current" column below is a snapshot taken from the Glass Frontier partway through its first pass; it is kept as an illustration of the gap, not as a live number. Run `make topology WORLD=<id>` for where a world actually stands.
 
 ## Target Metrics
 
-| Metric | Canonry Reference | Our Current | Target |
-|--------|------------------|-------------|--------|
+| Metric | Canonry Reference | Snapshot | Target |
+|--------|------------------|----------|--------|
 | Edges/entity | 5.2 | 3.0 | 4+ (coherence over count) |
 | Mean degree (non-hub) | 8.4 | 3.8 | 5+ (coherence over count) |
 | Median degree | 7.0 | 3.0 | 4+ |
@@ -141,7 +143,7 @@ Point-in-time events (CAUSED, CREATED, DESTROYED), structural/astronomical (PART
 
 ### When adding temporal edges
 
-Edges are authored in `world/` (CE years are absolute ticks). A `relate` instance, or an event effect:
+Edges are authored in a world's `world/` directory (years are absolute ticks). A `relate` instance, or an event effect:
 
 ```ruby
 relate :coremark_in_shear, :operates_in, :coremark, :the_shear, since: { tick: 2320 }

@@ -1,6 +1,6 @@
 # Voice & Register Review Prompt
 
-Run this against any lore file to check for voice violations. Pass the file content and this prompt to an LLM.
+Run this against any lore file to check for voice violations. Pass the file content and this prompt to an LLM, together with the world's `guidance/voice-referents.md` — that file lists the referents this particular setting bans and what to reach for instead.
 
 ---
 
@@ -11,7 +11,7 @@ You are reviewing a lore encyclopedia entry for a secondary-world fiction settin
 Review the following entry and flag every instance of these problems:
 
 ### 1. Domain leakage
-References to real-world Earth concepts used as comparisons or descriptions. The world has no Earth — no Sol, no Venus, no trucks, no taxis, no sailboats, no Uber. When the prose says "like calling a cab" or "Venus-like" or "the equivalent of owning a sailboat," it has broken the fourth wall.
+References to real-world Earth concepts used as comparisons or descriptions. The world has no Earth — no place names, no brands, no institutions, no technologies that exist only here. When the prose says "like calling a cab" or "Venus-like" or "the equivalent of owning a sailboat," it has broken the fourth wall. The world's `guidance/voice-referents.md` lists the specific leaks that setting has had before, and the in-world substitutions for them.
 
 **Not** domain leakage: using universal physical concepts (gravity, pressure, crystalline), general English words that aren't Earth-specific (city, river, war, trade), or in-world analogies (comparing one in-world thing to another).
 

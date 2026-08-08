@@ -1,0 +1,27 @@
+# The worlds this repository holds. One entry per tenant under worlds/<id>/.
+#
+#   id        directory name under worlds/
+#   title     display name
+#   status    active | scaffold — scaffold worlds have no canon yet and are
+#             skipped by `make check-all` and by CI
+#   publish   true if CI generates and pushes this world's wiki
+#
+# The engine reads this file to resolve `lorecraft --world <id>`.
+
+default: glass-frontier
+
+worlds:
+  - id: glass-frontier
+    title: The Glass Frontier
+    status: active
+    publish: true
+
+  - id: ice-remembers
+    title: The Ice Remembers
+    status: scaffold
+    publish: false
+
+  - id: dry-war
+    title: The Dry War
+    status: scaffold
+    publish: false

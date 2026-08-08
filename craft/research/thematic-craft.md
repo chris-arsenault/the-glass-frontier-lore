@@ -6,8 +6,8 @@ purpose: Reference for how professional SFF authors handle themes, and how to av
 # Thematic Craft Research
 
 Research on how top-tier science fiction and fantasy authors handle themes,
-plot threads, and narrative structure. Intended to inform thematic anchoring
-for The Glass Frontier without falling into amateur/generic framing.
+plot threads, and narrative structure. Reference for thematic anchoring in any
+world here, without falling into amateur/generic framing.
 
 ---
 
