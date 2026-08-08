@@ -89,6 +89,15 @@ module Lorecraft
 
       def on_future(marker) = "[future:#{marker.name}]"
 
+      # A computed span is plain text in every target — there is nothing to link
+      # — so every renderer inherits these two unchanged.
+      def on_elapsed(marker)
+        span = @world.elapsed(marker.from, marker.to)
+        marker.ago? ? span.ago(marker.style) : span.public_send(marker.style)
+      end
+
+      def on_year(marker) = @world.year_of(marker.at).to_s
+
       def on_ref(marker)
         if marker.id && path_index[marker.id]
           link(marker[:text] || title_for(marker.id), path_index[marker.id], @from_path, marker[:anchor])

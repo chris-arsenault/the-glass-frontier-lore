@@ -16,7 +16,7 @@ phenomenon :shuttered_habs do
 
     At the other extreme, there are habs that reverted. Garden habs where the environmental controls drifted, the interior rewilded, and the inhabitants adapted by abandoning technology entirely. Tribal communities that are self-sufficient, no longer understand the machinery around them, and consider outsiders demons to be killed on sight. These habs are shuttered because the people inside no longer have the framework to understand what "contact" means.
 
-    Between these extremes: habs with functioning societies that simply prefer isolation. Habs with internal politics that would collapse if exposed to outside influence. Habs with secrets. Habs with nothing to trade and nothing to gain. Each one a different answer to the question of what sixty years of isolation produces.
+    Between these extremes: habs with functioning societies that simply prefer isolation. Habs with internal politics that would collapse if exposed to outside influence. Habs with secrets. Habs with nothing to trade and nothing to gain. Each one a different answer to the question of what #{elapsed :the_glassfall, :the_rekindling} of isolation produces.
   PROSE
   prose <<~PROSE, section: :governance, heading: "Sovereignty"
     Under the #{ref :tempered_accord, "Tempered Accord"}, habs can legally refuse contact. This was hard-won. The #{ref :coriolis_breach, "Coriolis Breach"} — a forced-entry incident during the Contested Reach — was the defining argument for hab sovereignty, and the Accord's framers wrote the lesson into the governance structure.

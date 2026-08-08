@@ -54,6 +54,21 @@ See `craft/voice-review-prompt.md` for the reusable review prompt.
 
 An entity is one `.rb` file under `worlds/<id>/world/<kind>/<id>.rb`. Static facts are attributes; prose lives in `prose` blocks; cross-links are `#{ref :other_id}`; things with no entity yet are `#{future "Name"}`.
 
+### Never type an elapsed span
+
+**Dates are facts; spans are arithmetic.** Write the year an event happened, never the time since it. A typed span is a copy of a calculation the timeline already does, and it goes stale the moment an era moves — extending one era once left seventeen wrong spans across ten files.
+
+```ruby
+"the ring broke #{elapsed :the_glassfall, ago: true}"        # 295 years ago
+"debris has had #{elapsed :the_glassfall, approx: true}"      # nearly three centuries
+"isolated for #{elapsed :the_glassfall, :the_rekindling}"     # 165 years
+"Hab Meridian in #{year :now} CE"                             # in 2435 CE
+```
+
+`approx: true` gives the rounded phrase in words, the default gives the figure in digits, and `ago: true` appends "ago". An anchor is `:now`, a year, a moment id, an era name, or an entity id (resolving to its earliest moment). `make check` inventories every span still typed by hand.
+
+A duration anchored to nothing — "held the post for eleven years" — is a length, not a span, and stays as written.
+
 ### Entity fields
 
 - `title` — required. The entry's name.

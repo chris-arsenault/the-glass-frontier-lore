@@ -18,7 +18,7 @@ concept :tuners do
     - **Wildfelt** — the folk term. More respectful than it sounds. These people felt something wild and didn't flinch.
     - **Reckless** — what some communities called them, and not affectionately. Early Tuning killed people. Not every settlement appreciated someone experimenting with forces they didn't understand.
 
-    The first generation spans the entire Famine — sixty years of independent discovery across hundreds of isolated communities. Some of their techniques survived and became foundational. Others were dead ends, literally. The diversity of early practice is why modern Tuning has so many regional variations and why the #{ref :clarisant, "Clarisant"} spends considerable effort standardizing what doesn't want to be standardized.
+    The first generation spans the entire Famine — #{elapsed :the_glassfall, :the_rekindling} of independent discovery across hundreds of isolated communities. Some of their techniques survived and became foundational. Others were dead ends, literally. The diversity of early practice is why modern Tuning has so many regional variations and why the #{ref :clarisant, "Clarisant"} spends considerable effort standardizing what doesn't want to be standardized.
   PROSE
   prose <<~PROSE, section: :structure, heading: "The Clarisant"
     The guild. Headquartered on #{ref :pelhari, "Pelhari"}, a moon of the seventh planet — far enough from the distorted space of #{ref :the_shear, "the Shear"} and the ring debris field that resonance practice is cleaner, more predictable, more suited to structured training. Satellite offices operate across the system, in Sithari, in major ring habs, on outer-system stations.

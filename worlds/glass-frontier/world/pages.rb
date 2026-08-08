@@ -7,7 +7,7 @@ page :home, title: "The Glass Frontier", wiki: "Home" do
     people who used to be one civilization and are still figuring out what they
     are now.
 
-    The orbital ring around Kaleidos broke 295 years ago. The fragments —
+    The orbital ring around Kaleidos broke #{elapsed :the_glassfall, ago: true}. The fragments —
     hundreds of them, many still habitable — drifted apart. The surface was cut
     off from orbit. The other worlds in the system carried on alone. When
     everyone finally reconnected, they discovered they'd become strangers. That

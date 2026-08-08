@@ -500,6 +500,87 @@ class MomentHistoryTest < Minitest::Test
   end
 end
 
+class ElapsedTest < Minitest::Test
+  def approx(years) = Lorecraft::Elapsed.new(0, years).approximate
+
+  def test_exact_states_the_figure
+    assert_equal "165 years", Lorecraft::Elapsed.new(2140, 2305).exact
+    assert_equal "1 year", Lorecraft::Elapsed.new(2140, 2141).exact
+  end
+
+  # The vocabulary lives in one place so the same span never gets two phrasings.
+  def test_rounding_vocabulary
+    assert_equal "twelve years", approx(12)
+    assert_equal "thirty-five years", approx(34)
+    assert_equal "half a century", approx(51)
+    assert_equal "seventy-five years", approx(76)
+    assert_equal "a century", approx(100)
+    assert_equal "over a century", approx(130)
+    assert_equal "a century and a half", approx(165)
+    assert_equal "just over two centuries", approx(210)
+    assert_equal "two and a half centuries", approx(250)
+    assert_equal "nearly three centuries", approx(295)
+  end
+
+  def test_ago_takes_either_style
+    span = Lorecraft::Elapsed.new(2140, 2435)
+    assert_equal "295 years ago", span.ago
+    assert_equal "nearly three centuries ago", span.ago(:approximate)
+  end
+
+  def test_direction_does_not_matter
+    assert_equal 295, Lorecraft::Elapsed.new(2435, 2140).years
+  end
+end
+
+class ClockTest < Minitest::Test
+  def world
+    @world ||= Lorecraft.define do
+      schema { entity_type :incident, :faction }
+      timeline do
+        era :before, starts: 2000, length: 140
+        era :after, length: 165
+        now year: 2295
+      end
+      incident :the_fall do name "The Fall" end
+      faction :guild do name "Guild" end
+      moment :the_fall_happens, year: 2140, of: :the_fall do
+        prose "It fell."
+      end
+      moment :guild_forms, year: 2200, of: :guild do
+        prose "They organised."
+      end
+    end
+  end
+
+  # One clock, four kinds of anchor — a moment, an era, an entity, a bare year.
+  def test_anchors_resolve
+    assert_equal 2295, world.year_of(:now)
+    assert_equal 2140, world.year_of(:the_fall_happens)
+    assert_equal 2000, world.year_of(:before)
+    assert_equal 2140, world.year_of(:after)      # era boundary
+    assert_equal 2200, world.year_of(:guild)      # entity → its earliest moment
+    assert_equal 1999, world.year_of(1999)
+  end
+
+  def test_unknown_anchor_raises
+    assert_raises(Lorecraft::DefinitionError) { world.year_of(:nobody) }
+  end
+
+  def test_elapsed_defaults_to_now
+    assert_equal "155 years", world.elapsed(:the_fall_happens).exact
+    assert_equal "60 years", world.elapsed(:the_fall_happens, :guild).exact
+  end
+
+  # The whole point: move the present and every span in the corpus moves with it.
+  def test_spans_follow_the_timeline
+    before = world.elapsed(:the_fall_happens).exact
+    world.timeline.now(year: 2400)
+    refute_equal before, world.elapsed(:the_fall_happens).exact
+    assert_equal "260 years", world.elapsed(:the_fall_happens).exact
+  end
+end
+
 class MarkersTest < Minitest::Test
   include Lorecraft::Markers
 
@@ -547,6 +628,29 @@ class MarkersTest < Minitest::Test
     Lorecraft::Markers.scan(out.dup) { |match, marker| out = out.sub(match, marker.resolve(resolver)) }
     assert_equal %i[ref rel future], resolver.seen
     assert_equal "see A, governs, C", out
+  end
+
+  def test_elapsed_marker_carries_its_anchors_and_style
+    s = "for #{elapsed(:the_fall, 2300, approx: true, ago: true)}"
+    marker = Lorecraft::Markers.scan(s).first.last
+    assert_equal :the_fall, marker.from
+    assert_equal 2300, marker.to           # a bare year comes back an Integer
+    assert_equal :approximate, marker.style
+    assert marker.ago?
+  end
+
+  def test_elapsed_defaults_to_now_and_exact
+    marker = Lorecraft::Markers.scan(elapsed(:the_fall)).first.last
+    assert_equal :now, marker.to
+    assert_equal :exact, marker.style
+    refute marker.ago?
+  end
+
+  # strip has no world, so a computed span collapses to a placeholder — which is
+  # what keeps the typed-span check from flagging spans the markers produced.
+  def test_computed_markers_strip_to_placeholders
+    assert_equal "for [elapsed:the_fall→now]", Lorecraft::Markers.strip("for #{elapsed(:the_fall)}")
+    assert_equal "in [year:now]", Lorecraft::Markers.strip("in #{year}")
   end
 
   def test_a_resolver_missing_a_kind_raises

@@ -66,7 +66,7 @@ loop :cooperation_fracture do
 
     | Stage | Entity | Notes |
     |-------|--------|-------|
-    | Crisis | Signal Famine (era) | 165 years of isolation, communities facing resource crisis or cultural drift |
+    | Crisis | Signal Famine (era) | #{elapsed :the_glassfall, :the_rekindling} of isolation, communities facing resource crisis or cultural drift |
     | Cooperation | *(The Reconnection itself)* | Glasswake reconnects, trade networks form, Span Nine links Sithari to off-world |
     | Residue | #{ref :vantara, "Vantara"}, #{ref :keel, "The Keel"} | Trade infrastructure, communication networks, economic interdependence |
     | Fracture | #{future "The Contested Reach"} | Resource disputes, corridor conflicts, ring hab standoffs |

@@ -75,6 +75,8 @@ module Lorecraft
 
     def known_era?(name) = @by_name.key?(name&.to_sym)
 
+    def era_start(name) = @by_name[name&.to_sym]&.start_year
+
     def total_span = @eras.empty? ? (0...0) : (@eras.first.start_year...@eras.last.end_year)
 
     private

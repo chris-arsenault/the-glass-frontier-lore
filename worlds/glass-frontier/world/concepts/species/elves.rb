@@ -6,7 +6,7 @@ species :elves do
   registry true
 
   prose <<~PROSE
-    One of the founding species of the Kaleidos system, primary architects of the #{ref :the_glass_frontier, "orbital ring"}, and for centuries the most technically sophisticated civilization in the system. Then, during the #{ref :signal_famine, "Signal Famine"}, they disappeared. Where they went, why they left, and whether "left" is even the right word are questions that 130 years of scholarship haven't answered.
+    One of the founding species of the Kaleidos system, primary architects of the #{ref :the_glass_frontier, "orbital ring"}, and for centuries the most technically sophisticated civilization in the system. Then, during the #{ref :signal_famine, "Signal Famine"}, they disappeared. Where they went, why they left, and whether "left" is even the right word are questions that #{elapsed :elves_vanish} of scholarship haven't answered.
   PROSE
   prose <<~PROSE, section: :biology, heading: "Who They Were"
     The elves were native to the Kaleidos system, present from before the colony era. Physically similar to humans — taller on average, with elongated ear structure, finer bone density, and significantly longer lifespans measured in centuries rather than decades. The differences were visible but not dramatic. In a crowd, you might notice. You might not.
@@ -56,7 +56,7 @@ species :elves do
     - Where did an entire species go during a sixty-year window?
     - Why does the historical record show signs of deliberate tampering?
     - If the elves cleaned their own records, what were they hiding — or hiding from?
-    - Are there still elves in the system, somewhere, and if so — what have they been doing for over a century?
+    - Are there still elves in the system, somewhere, and if so — what have they been doing for #{elapsed :elves_vanish, approx: true}?
 
     The last question is the one people don't ask in polite company. It implies things about the Famine, about the #{ref :the_glassfall, "Glassfall"}, and about the current state of the system that nobody is prepared to deal with.
   PROSE
@@ -85,10 +85,10 @@ species :elves do
 
     - **Echo Rivers** were the hardest. Elven resonance specialists developed techniques to overwrite specific frequency patterns in the crystal substrate, replacing voice signatures with harmonic noise. Slow, imprecise, couldn't reach deep deposits. This is why fragments survive — the deeper the river, the more likely something slipped through.
 
-    - **Living memory** was handled through time. The Famine lasted sixty years. Elves who had been public figures simply didn't reappear when communications resumed. One generation without them, and they were history. Two, and the personal details were fading. The long elven lifespan meant individuals who made the decision were still alive to manage the transition — they watched themselves become legend.
+    - **Living memory** was handled through time. The Famine lasted #{elapsed :the_glassfall, :the_rekindling}. Elves who had been public figures simply didn't reappear when communications resumed. One generation without them, and they were history. Two, and the personal details were fading. The long elven lifespan meant individuals who made the decision were still alive to manage the transition — they watched themselves become legend.
   PROSE
   prose <<~PROSE, section: :truth, heading: "Where They Are Now", dm: true
-    Most elves live in hidden habs — ring fragments running dark, resonance signatures masked, not on any chart. These habs are where the war preparation happens: weapons development, strategic planning, training, and the slow accumulation of resources that over a century of work by the system's most advanced species can produce.
+    Most elves live in hidden habs — ring fragments running dark, resonance signatures masked, not on any chart. These habs are where the war preparation happens: weapons development, strategic planning, training, and the slow accumulation of resources that #{elapsed :elves_vanish, approx: true} of work by the system's most advanced species can produce.
 
     A smaller number live among the general population, passing without much difficulty — the physical differences are subtle enough that inattention is sufficient disguise. These are intelligence operatives, supply chain facilitators, and people who couldn't bring themselves to leave entirely. They maintain the Redaction: monitoring archives, intercepting discoveries that get too close, occasionally nudging scholars away from productive lines of inquiry. The Echo Ledger Conclave's most sensitive elf-related material has been stolen from their archives twice. Both thefts are unsolved.
   PROSE
@@ -100,7 +100,7 @@ species :elves do
     - Capable of destroying ring-scale megastructures
     - The elves believe it will return
     - The elves believe the coming conflict will be existential
-    - The elves have been preparing for over a century
+    - The elves have been preparing for #{elapsed :elves_vanish, approx: true}
   PROSE
   prose <<~PROSE, section: :truth, heading: "The Bloom Zones", dm: true
     The Silent Bloom was an industrial accident. The elves didn't cause it and had nothing to do with Coremark's negligence. But the consequence — tears in local reality across mid-drift ring habs — is now the elves' most urgent problem.
@@ -133,7 +133,7 @@ species :elves do
     - The public entry stands alone. Players can engage with the elven disappearance as a historical mystery without knowing the truth.
     - The Echo River fragments are the primary discovery mechanism. Archivists who dig deep enough will find patterns suggesting intentional, sophisticated erasure.
     - Elven operatives in the general population are potential NPCs — not villains, but people bearing an enormous secret and an enormous sacrifice. Some doubt. Some are tired. None are evil.
-    - The hidden habs are potential locations. What's inside is over a century of preparation by the system's most technically advanced civilization.
+    - The hidden habs are potential locations. What's inside is #{elapsed :elves_vanish, approx: true} of preparation by the system's most technically advanced civilization.
     - The Bloom Zones are the active front line. Elven operatives in and around the zones are the closest thing to combat troops in the hidden war. Some Displacement Council members may notice patterns in their "unexplained successes" — containment that works better than it should, threats that resolve before the Council gets there.
     - The Adversary is a campaign-level threat. Don't define it until you need to.
     - The key dramatic question for any elf NPC: was the sacrifice worth it? The answer should be genuinely uncertain.
@@ -166,6 +166,6 @@ end
 
 # --- history (moment) ---
 moment :elves_vanish, year: 2305, of: :elves do
-  prose "When communications resumed after roughly sixty years of #{ref :signal_famine, "Signal Famine"}, the elves were not among the voices that came back online. No settlement reported elven populations; no ring hab contained an elven community; no individuals came forward. Their centuries-long lifespans rule out simple die-off — whatever happened, it was not attrition."
+  prose "When communications resumed after #{elapsed :the_glassfall, :the_rekindling} of #{ref :signal_famine, "Signal Famine"}, the elves were not among the voices that came back online. No settlement reported elven populations; no ring hab contained an elven community; no individuals came forward. Their centuries-long lifespans rule out simple die-off — whatever happened, it was not attrition."
   effects { set :elves, standing: :vanished }
 end

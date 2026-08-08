@@ -49,7 +49,7 @@ installation :threshold_station do
     The technical detail of the Synod's proxy work — the rituals, the AI custodians, the navigation outputs, the governance consultations, the resonance telemetry — is in the #{ref :lattice_proxy_synod, "Lattice Proxy Synod"} entry. Threshold is where it happens. The proxy halls are the Synod's deepest working space; the envoys come for outputs; the Wardens keep the unspoken parts of the station from waking up unprepared.
   PROSE
   prose <<~PROSE, section: :present_day, heading: "Present Day"
-    The station has been at L1 for as long as anyone remembers and shows no sign of moving. The Synod has been in residence for a hundred and thirty-odd years. The Wardens have held the seals for almost as long. The terminus has carried Span traffic continuously since rediscovery. The envoys cycle through.
+    The station has been at L1 for as long as anyone remembers and shows no sign of moving. The Synod has been in residence for #{elapsed :lattice_proxy_synod, approx: true}. The Wardens have held the seals for almost as long. The terminus has carried Span traffic continuously since rediscovery. The envoys cycle through.
 
     Threshold is not a peaceful place. It is a calm one. The work is steady; the seals hold; the proxies keep talking to whatever they talk to; the corridors stay quiet in their particular way. The arrangement is older than the people running it. Most weeks, nothing happens that the station's residents would describe as interesting. They prefer it that way, and so does everyone else.
   PROSE

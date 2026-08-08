@@ -57,6 +57,7 @@ module Lorecraft
       check_dm_phrase_leakage
       check_markers
       check_prominence_reach
+      check_typed_spans
       check_double_article
       check_resonance_vocab
       check_dm_public_entry
@@ -74,6 +75,11 @@ module Lorecraft
     def err(m) = @findings << Finding.new(:error, m)
     def warn(m) = @findings << Finding.new(:warn, m)
     def future(m) = @findings << Finding.new(:future, m)
+
+    # An inventory, not a defect claim: something worth converting when the file
+    # is next open. Kept out of the warning count so a long list cannot drown
+    # the findings that are actually wrong.
+    def info(m) = @findings << Finding.new(:info, m)
 
     def entities = @world.entities.values
     def pages = entities.reject { |e| shell?(e) }
@@ -138,6 +144,10 @@ module Lorecraft
     # Relation verbs are the validator's business, not the linter's.
     def on_rel(_marker) = nil
 
+    # Anchors are checked by the validator; a resolved span has nothing to report.
+    def on_elapsed(_marker) = nil
+    def on_year(_marker) = nil
+
     private
 
     # Moment prose counts against the entity the moment belongs to — half a
@@ -185,6 +195,40 @@ module Lorecraft
     def adjacent?(a, b) = neighbours[a].include?(b)
 
     def common_neighbour?(a, b) = neighbours[a].intersect?(neighbours[b])
+
+    # A hand-typed elapsed span is a copy of arithmetic the timeline already
+    # does, and copies go stale: extending one era once left seventeen wrong
+    # spans across ten files.
+    #
+    # Reported as an inventory rather than a warning, because syntax cannot tell
+    # an anchored span ("sixty years of Signal Famine" — wrong, the Famine ran
+    # 165) from a free duration ("held the post for eleven years" — a length,
+    # anchored to nothing, correct as written). A human decides which is which;
+    # the check's job is to put every candidate in front of them.
+    #
+    # Matched on stripped prose, so a span that came *from* an elapsed marker is
+    # invisible here — `plain` collapses it to a bracketed placeholder.
+    NUMBER = Regexp.union(/\d+/, *(Elapsed::ONES + Elapsed::TENS.values).map do |w|
+      /#{w}(?:-(?:#{Elapsed::ONES.join('|')}))?/
+    end).freeze
+
+    TYPED_SPAN = /
+      \b\d+\s+years\s+ago\b
+      | \b(?:a|one|two|three|four|five)\s+(?:centuries|century)\b
+      | \b#{NUMBER}\s+years\s+(?:ago|of|since)\b
+      | \bfor\s+#{NUMBER}(?:-odd)?\s+years\b
+      | \b(?:hundred|thousand)\s+(?:and\s+)?\w+\s+years\b
+    /xi
+
+    def check_typed_spans
+      (pages + @world.moments.values).each do |owner|
+        text = prose_text(owner)
+        text.scan(TYPED_SPAN) do
+          info("#{owner.id}: span typed by hand ('#{Regexp.last_match[0].strip}') — " \
+               "if it is anchored to an event, use #{'#{elapsed :anchor}'}")
+        end
+      end
+    end
 
     def check_double_article
       pages.each do |e|

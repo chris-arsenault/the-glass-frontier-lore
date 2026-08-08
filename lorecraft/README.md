@@ -71,7 +71,12 @@ end
 
 - **Prose bindings:** `ref :id` (cross-link, resolved at render era), `rel :verb`
   (the live target(s) of one of the owner's relations), `future "Name"` (shell
-  placeholder → `[future:Name]`).
+  placeholder → `[future:Name]`), `elapsed :anchor` (a span the timeline
+  computes) and `year :anchor` (an absolute year).
+- **Adding a binding kind:** a `Marker` subclass naming its callback, then that
+  callback on each resolver — `Render::Base`, `Render::Wiki`, `Validator`,
+  `Linter`. There is no `case` on marker kind anywhere; a resolver that misses a
+  kind raises.
 - **Time:** CE years are absolute ticks; eras have fixed boundaries (see the
   world's `world/timeline.rb`). `now` is the default query/render era.
 - **Visibility:** `dm!(public_entry: :x)` marks a hidden-truth entity; the player

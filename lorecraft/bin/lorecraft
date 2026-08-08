@@ -65,13 +65,14 @@ when "validate"
 when "lint"
   findings = load_world.lint
   by = findings.group_by(&:level)
-  %i[future warn error].each do |lvl|
+  %i[info future warn error].each do |lvl|
     (by[lvl] || []).each { |f| puts "#{lvl.to_s.upcase.ljust(7)} #{f.message}" }
   end
   e = (by[:error] || []).size
   w = (by[:warn] || []).size
   fu = (by[:future] || []).size
-  puts "\n#{'─' * 40}\n  #{e} error(s), #{w} warning(s), #{fu} future(s)"
+  i = (by[:info] || []).size
+  puts "\n#{'─' * 40}\n  #{e} error(s), #{w} warning(s), #{fu} future(s), #{i} to convert"
   exit(e.positive? ? 1 : 0)
 when "wiki"
   out = ARGV.shift or abort("usage: lorecraft wiki OUT_DIR")

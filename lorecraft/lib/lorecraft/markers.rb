@@ -57,6 +57,25 @@ module Lorecraft
     def plain = name
   end
 
+  # A span the timeline computes. `plain` cannot state it — no world, no
+  # arithmetic — so it collapses to a readable placeholder for lint and search.
+  class ElapsedMarker < Marker
+    KIND = :elapsed
+    def from = @attrs[:from]
+    def to = @attrs[:to] || :now
+    def style = @attrs[:approx] ? :approximate : :exact
+    def ago? = @attrs[:ago] == true
+    def resolve(resolver) = resolver.on_elapsed(self)
+    def plain = "[elapsed:#{from}→#{to}]"
+  end
+
+  class YearMarker < Marker
+    KIND = :year
+    def at = @attrs[:at]
+    def resolve(resolver) = resolver.on_year(self)
+    def plain = "[year:#{at}]"
+  end
+
   # Prose carries inline bindings — `ref` (a cross-reference to another entity),
   # `rel` (the live target(s) of one of the owner's relations at the render
   # era), and `future` (a placeholder for a not-yet-written entity). Because
@@ -74,6 +93,8 @@ module Lorecraft
     REF = "#{SEP}REF#{SEP}".freeze
     REL = "#{SEP}REL#{SEP}".freeze
     FUT = "#{SEP}FUT#{SEP}".freeze
+    ELA = "#{SEP}ELA#{SEP}".freeze
+    YER = "#{SEP}YER#{SEP}".freeze
     FIELD = "#{SEP}|#{SEP}".freeze
     ENDM = "#{SEP}END#{SEP}".freeze
 
@@ -99,12 +120,35 @@ module Lorecraft
       [FUT, name, ENDM].join
     end
 
+    # A COMPUTED SPAN between two points on the timeline. Never write the number
+    # — the timeline knows both dates, and a typed figure is a copy that goes
+    # stale the moment an era moves. Anchors are anything `World#year_of`
+    # accepts: `:now`, a year, a moment id, an era name, or an entity id.
+    #
+    #   "the ring broke #{elapsed :the_glassfall, ago: true}"    → 295 years ago
+    #   "debris has had #{elapsed :the_glassfall, approx: true}"  → nearly three centuries
+    #   "isolated for #{elapsed :the_glassfall, :the_rekindling}" → 165 years
+    #
+    # `approx: true` asks for the rounded phrase in words; the default is the
+    # figure in digits. `ago: true` appends "ago".
+    def elapsed(from, to = nil, approx: false, ago: false)
+      [ELA, from, FIELD, to, FIELD, approx, FIELD, ago, ENDM].join
+    end
+
+    # The absolute year of a point on the timeline, in digits. Same anchors.
+    #   "Hab Meridian in #{year :now} CE"   → Hab Meridian in 2435 CE
+    def year(at = :now)
+      [YER, at, ENDM].join
+    end
+
     F = Regexp.escape(FIELD)
     E = Regexp.escape(ENDM)
     REF_RE = /#{Regexp.escape(REF)}(.*?)#{F}(.*?)#{F}(.*?)#{F}(.*?)#{E}/m
     REL_RE = /#{Regexp.escape(REL)}(.*?)#{F}(.*?)#{E}/m
     FUT_RE = /#{Regexp.escape(FUT)}(.*?)#{E}/m
-    ANY_RE = /#{REF_RE}|#{REL_RE}|#{FUT_RE}/m
+    ELA_RE = /#{Regexp.escape(ELA)}(.*?)#{F}(.*?)#{F}(.*?)#{F}(.*?)#{E}/m
+    YER_RE = /#{Regexp.escape(YER)}(.*?)#{E}/m
+    ANY_RE = /#{REF_RE}|#{REL_RE}|#{FUT_RE}|#{ELA_RE}|#{YER_RE}/m
 
     # Parse every binding in a blob of assembled prose, in document order.
     # Yields the full matched substring and the Marker describing the binding.
@@ -125,6 +169,11 @@ module Lorecraft
         RefMarker.new(m[0], id: sym(m[1]), text: str(m[2]), path: str(m[3]), anchor: str(m[4]))
       },],
       [REL, ->(m) { RelMarker.new(m[0], verb: m[5].to_sym, target: sym(m[6])) }],
+      [ELA, lambda { |m|
+        ElapsedMarker.new(m[0], from: anchor(m[8]), to: anchor(m[9]),
+                                approx: m[10] == "true", ago: m[11] == "true")
+      },],
+      [YER, ->(m) { YearMarker.new(m[0], at: anchor(m[12]) || :now) }],
     ].freeze
 
     # Turn one regexp match into the Marker subclass that models it.
@@ -136,6 +185,15 @@ module Lorecraft
     def self.blank(str) = str.nil? || str.empty?
     def self.str(value) = blank(value) ? nil : value
     def self.sym(value) = blank(value) ? nil : value.to_sym
+
+    # A time anchor survives the round trip through a sentinel as text, so a
+    # bare integer year has to come back an Integer and everything else a
+    # Symbol — `World#year_of` distinguishes the two.
+    def self.anchor(value)
+      return nil if blank(value)
+
+      value.match?(/\A-?\d+\z/) ? value.to_i : value.to_sym
+    end
 
     # Strip every binding sentinel back to bare display text.
     def self.strip(text)

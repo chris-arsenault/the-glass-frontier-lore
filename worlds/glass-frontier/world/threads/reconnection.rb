@@ -9,7 +9,7 @@ thread :reconnection do
     ---
   PROSE
   prose <<~PROSE, section: :description, heading: "The Emotional Core"
-    The Signal Famine was 165 years of not knowing who else survived. For small communities, this was existential — they weren't built to sustain themselves. For large communities like Sithari, it forged an identity of self-sufficiency that persists to this day. Both experiences left a deep, shared legacy: **communication is sacred.** Not as a political stance, but as a cultural given — the way free speech is a given, not a debate topic.
+    The Signal Famine was #{elapsed :the_glassfall, :the_rekindling} of not knowing who else survived. For small communities, this was existential — they weren't built to sustain themselves. For large communities like Sithari, it forged an identity of self-sufficiency that persists to this day. Both experiences left a deep, shared legacy: **communication is sacred.** Not as a political stance, but as a cultural given — the way free speech is a given, not a debate topic.
 
     This fear of disconnection constrains everything that follows. The Contested Reach was tame because nobody wanted to risk the network. The Accord holds because the alternative is silence. The comm hub incident is the defining "line you don't cross" because crossing it threatens the one thing everyone agrees matters.
 
@@ -30,7 +30,7 @@ thread :reconnection do
     ### Beat 2: The Divergence
     **Era:** 2140–2305 CE | **Filled by:** Signal Famine (era)
 
-    165 years of isolation produces two kinds of communities:
+    #{elapsed :the_glassfall, :the_rekindling} of isolation produces two kinds of communities:
 
     **Small communities** face genuine resource crisis. They weren't built to be self-sufficient. Many fail. The ones that survive develop deep traditions of mutual aid, resourcefulness, and — eventually — rituals and festivals celebrating connection.
 
@@ -57,7 +57,7 @@ thread :reconnection do
     ### Beat 4: The Span
     **Era:** ~2305 CE (rediscovered) | **Filled by:** #{ref :span_nine, "Span Nine"}
 
-    Pre-Glassfall hardline infrastructure — a luminous filament connecting Sithari to Pelhari and Threshold Station. It had been glowing in the sky for a hundred and sixty-five years. Nobody understood what it was until the reconnection effort started looking up.
+    Pre-Glassfall hardline infrastructure — a luminous filament connecting Sithari to Pelhari and Threshold Station. It had been glowing in the sky for #{elapsed :the_glassfall, :the_rekindling}. Nobody understood what it was until the reconnection effort started looking up.
 
     **Effect:** Sithari gains real-time high-bandwidth communication with the #{ref :clarisant, "Clarisant"} and #{ref :lattice_proxy_synod, "Lattice Proxy Synod"}. A structural advantage nobody else can replicate.
     **Consequence:** Two-tier communication system emerges — Sithari has broadband, everyone else has improvised relays.
@@ -68,7 +68,7 @@ thread :reconnection do
     ### Beat 5: The Shock of Difference
     **Era:** ~2310s–2330s | **Partially filled by:** #{ref :shuttered_habs, "Shuttered habs"}
 
-    Surface communities reach ring habs. The cultural divergence is staggering. Communities that evolved in isolation for a hundred and sixty-five years are unrecognizable. Some welcome contact — the resource-starved celebrate. Some refuse — the shuttered habs.
+    Surface communities reach ring habs. The cultural divergence is staggering. Communities that evolved in isolation for #{elapsed :the_glassfall, :the_rekindling} are unrecognizable. Some welcome contact — the resource-starved celebrate. Some refuse — the shuttered habs.
 
     #{future "First Contact Story"} — a named community, a named moment, something that went wrong or right in a way that became a story people tell.
 

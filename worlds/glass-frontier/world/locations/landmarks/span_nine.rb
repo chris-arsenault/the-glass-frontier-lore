@@ -21,7 +21,7 @@ installation :span_nine do
   prose <<~PROSE, section: :significance, heading: "Significance"
     Before the Span, communication between Kaleidos's surface and off-world installations was slow, unreliable, and bandwidth-limited. With it, #{ref :sithari, "Sithari"} has real-time signal-bandwidth links to the #{ref :clarisant, "Clarisant"} guild on #{ref :pelhari, "Pelhari"} and the Synod's AI custodians at #{ref :threshold_station, "Threshold Station"}. This connectivity is a significant part of Sithari's continued centrality — the capital's access to the Span is a structural advantage that other settlements cannot replicate.
 
-    The Span is also a reminder. Whoever built it — and the engineering is consistent with #{ref :elves, "elven"} work, though no surviving record credits them specifically — operated at a level of capability that the current civilization cannot approach. The filament has survived the Glassfall, nearly three centuries of orbital debris, and every attempt to study it, and it continues to function perfectly. It is the most visible evidence that the Ring Age produced things nobody alive knows how to make.
+    The Span is also a reminder. Whoever built it — and the engineering is consistent with #{ref :elves, "elven"} work, though no surviving record credits them specifically — operated at a level of capability that the current civilization cannot approach. The filament has survived the Glassfall, #{elapsed :the_glassfall, approx: true} of orbital debris, and every attempt to study it, and it continues to function perfectly. It is the most visible evidence that the Ring Age produced things nobody alive knows how to make.
   PROSE
 end
 
@@ -37,6 +37,6 @@ end
 
 # --- history (moment) ---
 moment :span_nine_rediscovered, year: 2305, of: :span_nine do
-  prose "Span Nine was rediscovered in the Rekindling, when settlements emerging from the #{ref :signal_famine, "Signal Famine"} finally looked up and understood what had been glowing in the sky for a hundred and sixty-five years. Once its function as a signal-band conduit was established it became essential infrastructure almost overnight, restoring real-time links between #{ref :sithari, "Sithari"} and the off-world installations."
+  prose "Span Nine was rediscovered in the Rekindling, when settlements emerging from the #{ref :signal_famine, "Signal Famine"} finally looked up and understood what had been glowing in the sky for #{elapsed :the_glassfall, :the_rekindling}. Once its function as a signal-band conduit was established it became essential infrastructure almost overnight, restoring real-time links between #{ref :sithari, "Sithari"} and the off-world installations."
   effects { set :span_nine, standing: :operational }
 end

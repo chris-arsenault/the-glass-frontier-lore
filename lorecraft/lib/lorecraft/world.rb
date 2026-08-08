@@ -3,6 +3,7 @@
 require_relative "errors"
 require_relative "schema"
 require_relative "timeline"
+require_relative "elapsed"
 require_relative "prose"
 require_relative "entity"
 require_relative "moment"
@@ -171,6 +172,42 @@ module Lorecraft
       year = @timeline.year_for(point)
       @resolvers[year] ||= Resolver.new(self).fold_to(year)
     end
+
+    # --- the clock ---------------------------------------------------------
+    #
+    # The world owns one clock, so prose never restates a date or a span. An
+    # anchor is anything that names a point in time, resolved in this order:
+    #
+    #   :now              the timeline's present
+    #   an Integer        already an absolute year
+    #   a moment id       that moment's year
+    #   an era name       the era's first year
+    #   an entity id      the year of its earliest moment — when it entered the
+    #                     world, which is what "since the Coalition" means
+    #
+    # Names collide only when a moment, an era and an entity share one, and
+    # those should agree; the order above decides when they do not.
+    def year_of(anchor)
+      return @timeline.year_for(:now) if anchor == :now
+      return anchor if anchor.is_a?(Integer)
+
+      id = anchor.to_sym
+      moment = @moments[id]
+      return moment.year if moment
+      return @timeline.era_start(id) if @timeline.known_era?(id)
+
+      first = moments_of(id).min_by(&:year)
+      raise DefinitionError, "cannot anchor time to #{anchor.inspect}" unless first
+
+      first.year
+    end
+
+    # The span between two anchors, as an Elapsed that knows how to say itself.
+    def elapsed(from, to = :now) = Elapsed.new(year_of(from), year_of(to))
+
+    # Every moment belonging to an entity, genesis included — genesis is often
+    # exactly the "when did this begin" the clock is being asked about.
+    def moments_of(id) = @moments.values.select { |m| m.home == id.to_sym }
 
     def render(target, **opts)
       Render.for(target).new(self).render(**opts)

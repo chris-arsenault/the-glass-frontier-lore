@@ -99,6 +99,26 @@ module Lorecraft
     # A future names something with no entity; there is nothing to resolve.
     def on_future(_marker) = nil
 
+    # A computed span is only as good as its anchors. An anchor that names
+    # nothing the clock recognises is a build failure, not a rendering oddity —
+    # otherwise the prose silently loses its number.
+    def on_elapsed(marker)
+      check_anchor(marker.from)
+      check_anchor(marker.to)
+    end
+
+    def on_year(marker) = check_anchor(marker.at)
+
+    private
+
+    def check_anchor(anchor)
+      @world.year_of(anchor)
+    rescue DefinitionError
+      err("#{label(@owner)}: time anchor #{anchor.inspect} names no moment, era or entity")
+    end
+
+    public
+
     private
 
     # §8.2 — relation types exist; effect verbs exist; declared domain/range hold.
