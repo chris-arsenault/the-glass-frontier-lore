@@ -37,7 +37,7 @@ faction :lattice_proxy_synod do
   prose <<~PROSE, section: :present_day, heading: "Present Day"
     The Synod is remote, neutral, and more influential than its size suggests. Their navigation data is infrastructure. Their governance consultation shaped the Accord. Their resonance telemetry supports Bloom containment. They are a small faction with outsized impact, operating from a station they don't fully control, communicating with intelligences they don't fully understand, and providing services that nobody else can replicate.
 
-    They are aware that this arrangement is precarious. They are also aware that it has worked for sixty years, and that the system's alternatives are worse. The Synod's institutional posture is quiet confidence — not arrogance, but the steady assurance of people who have been right enough, often enough, to earn the benefit of the doubt.
+    They are aware that this arrangement is precarious. They are also aware that it has worked for a hundred and twenty-five years, and that the system's alternatives are worse. The Synod's institutional posture is quiet confidence — not arrogance, but the steady assurance of people who have been right enough, often enough, to earn the benefit of the doubt.
 
     The #{ref :tempered_accord, "Tempered Accord"} relies on them. The #{future "Continuity"} respects them at arm's length. The #{ref :echo_ledger_conclave, "Echo Ledger Conclave"} finds them professionally interesting and personally unnerving. Everyone else just uses the navigation data and tries not to think too hard about where it comes from.
   PROSE

@@ -25,6 +25,19 @@ Present day is 2435 CE. Any "roughly N years ago" in prose must land against tha
 - **The Silent Bloom begins in 2378**, not 2355. A round of entries carried the earlier date and had to be corrected across seven files.
 - The Signal Famine runs the length of the Glassfall era — 165 years. Entries that say "a century" are wrong.
 - The elves vanish *during* the Signal Famine, not at the Glassfall itself.
+- **The ring broke 295 years ago**, not 130. The elapsed spans below were all wrong in prose written before the timeline was extended, in seventeen places across ten files. Any new span gets checked against this table.
+
+## Elapsed Spans, as of 2435 CE
+
+| From | Span |
+|---|---|
+| the Glassfall (2140) | 295 years — "nearly three centuries", never "two" |
+| the Signal Famine, start to end (2140–2305) | 165 years of isolation, never "sixty" |
+| the elves vanishing (2305) | 130 years |
+| the Rekindling (2305) | 130 years |
+| the institutions founded in the 2310s | ~125 years |
+| the Displacement Council (2380) | 55 years |
+| the Accord (2423) | 12 years |
 
 ## Systems Vocabulary That Must Stay Consistent
 

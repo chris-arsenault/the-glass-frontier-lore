@@ -2,7 +2,7 @@
 
 A game world set in the Kaleidos system — a shattered orbital ring, its parent planet, and the wider solar system around them.
 
-A hundred and thirty years ago the ring shattered. The fragments — hundreds of them, many still habitable — drifted apart. The surface was cut off from orbit. The other worlds in the system carried on alone. When everyone finally reconnected, they discovered they had become strangers. Present day is 2435 CE, in the Accord era.
+Nearly three hundred years ago the ring shattered. The fragments — hundreds of them, many still habitable — drifted apart. The surface was cut off from orbit. The other worlds in the system carried on alone. When everyone finally reconnected, they discovered they had become strangers. Present day is 2435 CE, in the Accord era.
 
 ## Working On This World
 

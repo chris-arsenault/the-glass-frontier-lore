@@ -56,7 +56,7 @@ species :elves do
     - Where did an entire species go during a sixty-year window?
     - Why does the historical record show signs of deliberate tampering?
     - If the elves cleaned their own records, what were they hiding — or hiding from?
-    - Are there still elves in the system, somewhere, and if so — what have they been doing for over two centuries?
+    - Are there still elves in the system, somewhere, and if so — what have they been doing for over a century?
 
     The last question is the one people don't ask in polite company. It implies things about the Famine, about the #{ref :the_glassfall, "Glassfall"}, and about the current state of the system that nobody is prepared to deal with.
   PROSE
@@ -88,7 +88,7 @@ species :elves do
     - **Living memory** was handled through time. The Famine lasted sixty years. Elves who had been public figures simply didn't reappear when communications resumed. One generation without them, and they were history. Two, and the personal details were fading. The long elven lifespan meant individuals who made the decision were still alive to manage the transition — they watched themselves become legend.
   PROSE
   prose <<~PROSE, section: :truth, heading: "Where They Are Now", dm: true
-    Most elves live in hidden habs — ring fragments running dark, resonance signatures masked, not on any chart. These habs are where the war preparation happens: weapons development, strategic planning, training, and the slow accumulation of resources that over two centuries of work by the system's most advanced species can produce.
+    Most elves live in hidden habs — ring fragments running dark, resonance signatures masked, not on any chart. These habs are where the war preparation happens: weapons development, strategic planning, training, and the slow accumulation of resources that over a century of work by the system's most advanced species can produce.
 
     A smaller number live among the general population, passing without much difficulty — the physical differences are subtle enough that inattention is sufficient disguise. These are intelligence operatives, supply chain facilitators, and people who couldn't bring themselves to leave entirely. They maintain the Redaction: monitoring archives, intercepting discoveries that get too close, occasionally nudging scholars away from productive lines of inquiry. The Echo Ledger Conclave's most sensitive elf-related material has been stolen from their archives twice. Both thefts are unsolved.
   PROSE
@@ -100,7 +100,7 @@ species :elves do
     - Capable of destroying ring-scale megastructures
     - The elves believe it will return
     - The elves believe the coming conflict will be existential
-    - The elves have been preparing for over two centuries
+    - The elves have been preparing for over a century
   PROSE
   prose <<~PROSE, section: :truth, heading: "The Bloom Zones", dm: true
     The Silent Bloom was an industrial accident. The elves didn't cause it and had nothing to do with Coremark's negligence. But the consequence — tears in local reality across mid-drift ring habs — is now the elves' most urgent problem.
@@ -133,7 +133,7 @@ species :elves do
     - The public entry stands alone. Players can engage with the elven disappearance as a historical mystery without knowing the truth.
     - The Echo River fragments are the primary discovery mechanism. Archivists who dig deep enough will find patterns suggesting intentional, sophisticated erasure.
     - Elven operatives in the general population are potential NPCs — not villains, but people bearing an enormous secret and an enormous sacrifice. Some doubt. Some are tired. None are evil.
-    - The hidden habs are potential locations. What's inside is over two centuries of preparation by the system's most technically advanced civilization.
+    - The hidden habs are potential locations. What's inside is over a century of preparation by the system's most technically advanced civilization.
     - The Bloom Zones are the active front line. Elven operatives in and around the zones are the closest thing to combat troops in the hidden war. Some Displacement Council members may notice patterns in their "unexplained successes" — containment that works better than it should, threats that resolve before the Council gets there.
     - The Adversary is a campaign-level threat. Don't define it until you need to.
     - The key dramatic question for any elf NPC: was the sacrifice worth it? The answer should be genuinely uncertain.

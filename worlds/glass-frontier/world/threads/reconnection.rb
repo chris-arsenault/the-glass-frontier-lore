@@ -57,7 +57,7 @@ thread :reconnection do
     ### Beat 4: The Span
     **Era:** ~2305 CE (rediscovered) | **Filled by:** #{ref :span_nine, "Span Nine"}
 
-    Pre-Glassfall hardline infrastructure — a luminous filament connecting Sithari to Pelhari and Threshold Station. It had been glowing in the sky for sixty years. Nobody understood what it was until the reconnection effort started looking up.
+    Pre-Glassfall hardline infrastructure — a luminous filament connecting Sithari to Pelhari and Threshold Station. It had been glowing in the sky for a hundred and sixty-five years. Nobody understood what it was until the reconnection effort started looking up.
 
     **Effect:** Sithari gains real-time high-bandwidth communication with the #{ref :clarisant, "Clarisant"} and #{ref :lattice_proxy_synod, "Lattice Proxy Synod"}. A structural advantage nobody else can replicate.
     **Consequence:** Two-tier communication system emerges — Sithari has broadband, everyone else has improvised relays.
@@ -68,7 +68,7 @@ thread :reconnection do
     ### Beat 5: The Shock of Difference
     **Era:** ~2310s–2330s | **Partially filled by:** #{ref :shuttered_habs, "Shuttered habs"}
 
-    Surface communities reach ring habs. The cultural divergence is staggering. Communities that evolved in isolation for sixty years are unrecognizable. Some welcome contact — the resource-starved celebrate. Some refuse — the shuttered habs.
+    Surface communities reach ring habs. The cultural divergence is staggering. Communities that evolved in isolation for a hundred and sixty-five years are unrecognizable. Some welcome contact — the resource-starved celebrate. Some refuse — the shuttered habs.
 
     #{future "First Contact Story"} — a named community, a named moment, something that went wrong or right in a way that became a story people tell.
 

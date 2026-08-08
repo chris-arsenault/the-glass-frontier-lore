@@ -5,7 +5,7 @@ installation :glasswake do
   prominence :recognized
 
   prose <<~PROSE
-    A mining town on Kaleidos's surface, built around the ruins of a ring hab fragment that fell during the #{ref :the_glassfall, "Glassfall"}. The fragment's inter-hab communication equipment — buried in the wreckage for sixty years — turned out to need only minor repair to function. Glasswake didn't set out to reconnect the world; a salvage crew poking through old wreckage found a transmitter that still had power, and one of them knew enough to make it talk.
+    A mining town on Kaleidos's surface, built around the ruins of a ring hab fragment that fell during the #{ref :the_glassfall, "Glassfall"}. The fragment's inter-hab communication equipment — buried in the wreckage for a hundred and sixty-five years — turned out to need only minor repair to function. Glasswake didn't set out to reconnect the world; a salvage crew poking through old wreckage found a transmitter that still had power, and one of them knew enough to make it talk.
   PROSE
   prose <<~PROSE, section: :origin, heading: "Origin"
     What it was before the Famine — what the original ring hab was, who lived in it, what it was called — nobody knows, and nobody particularly cares. The fragment is a resource, not a heritage site. Miners work the ringglass deposits in the impact debris. The old hab structures serve as foundations, warehouses, and — in one case — a pub.

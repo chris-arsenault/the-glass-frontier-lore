@@ -117,7 +117,16 @@ one each; `artifact` has two. Resonance bands and tuning techniques are describe
 inside `cosmology/resonance.rb` and `concepts/tuners.rb` and would carry more as
 `ability` entities that other entries can link to.
 
-## 8. Fermata Station's prominence
+## 8. When were kites developed?
+
+`kite_sail.rb` says the null space "has never caused a problem in two centuries
+of use", and nothing in canon fixes when kites were built. They depend on
+ambient resonance, which only became usable once the shattered ring seeded
+Kaleidos with ringglass, so the earliest possible date is the Glassfall in 2140 —
+which makes "two centuries" true only if kites appeared before roughly 2235. Fix
+the date and the phrase together.
+
+## 9. Fermata Station's prominence
 
 The one prominence-reach warning left: `hab_meridian` (recognized) names
 `fermata_station`, which is `marginal`, with no edge between them and nothing in

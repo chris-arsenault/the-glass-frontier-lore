@@ -34,7 +34,7 @@ faction :clarisant do
 
     **Academy and Field.** The Pelhari academy houses the theorists, the senior examiners, and the long lineage of teaching practice that gives the guild its institutional weight. The chapters house the working Tuners who deal with what's actually in front of them. The Academy's preferred Tuner is patient, careful, and theoretically grounded. The chapters' preferred Tuner is fast, adaptive, and willing to act on incomplete information. Both are right. Both produce real mastery. The friction between them is the guild's most reliable form of internal correction — when the Academy drifts toward abstraction or the chapters drift toward improvisation, the other side notices and complains in writing.
 
-    The Academy controls accreditation standards. The chapters control who actually gets dispatched. Neither side can win outright. The arrangement has held for sixty years.
+    The Academy controls accreditation standards. The chapters control who actually gets dispatched. Neither side can win outright. The arrangement has held for a hundred and twenty-five years.
 
     **Bloom Hawks and Containment Skeptics.** Since the #{future "Silent Bloom"}, a significant minority of Tuners — the Hawks — have argued that the guild should embed deeply in containment work. Bloom Zones are the most demanding environment Tuning has ever been asked to address, and the Hawks believe the guild's future relevance depends on being the institution that owns that work. The Skeptics argue that Bloom containment is a meatgrinder that consumes the guild's best practitioners for someone else's emergency. The #{ref :displacement_council, "Displacement Council"} pays well and the burnout rate is, by any honest accounting, catastrophic.
 
@@ -51,7 +51,7 @@ faction :clarisant do
     The program has no formal name in any public document. Hidden Tuners who have been extracted refer to it as **the long door**. The Clarisant does not deny the program exists. It does not advertise it either.
   PROSE
   prose <<~PROSE, section: :present_day, heading: "Present Day"
-    The guild's authority is broad and shallow. Most of the system recognizes the credential. Almost none of the system is obligated to. The Clarisant works because it sells something people want — credibility, safety, and a Tuner you can hire without first having to verify they aren't going to kill someone — and because it has spent sixty years not embarrassing itself often enough to lose the market.
+    The guild's authority is broad and shallow. Most of the system recognizes the credential. Almost none of the system is obligated to. The Clarisant works because it sells something people want — credibility, safety, and a Tuner you can hire without first having to verify they aren't going to kill someone — and because it has spent a hundred and twenty-five years not embarrassing itself often enough to lose the market.
 
     The future is not certain. Ringglass demand is climbing. The Bloom work continues. The folk tradition is growing faster than the credentialed roster in some regions. The guild is, by its own quiet admission, smaller than the system's resonance needs. The chapters are stretched. The Academy is not training new examiners fast enough.
 

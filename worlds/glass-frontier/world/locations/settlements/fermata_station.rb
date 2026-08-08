@@ -87,7 +87,7 @@ installation :fermata_station do
   prose <<~PROSE, section: :mechanics, heading: "Physics"
     The #{ref :the_glass_frontier, "Glass Frontier's"} loosened physics manifests on this fragment as a material relationship between sound and structure. This is not metaphor.
 
-    **#{ref :resonance, "Resonance"}** — certain frequencies and chord voicings have load-bearing properties. The Drone exists because if they stop playing, bulkheads fail. The fragment's #{ref :ringglass, "ringglass"} structure responds to sustained harmonic input in the signal-frequency range, and two centuries of continuous music have tuned the station's crystal lattice to depend on it.
+    **#{ref :resonance, "Resonance"}** — certain frequencies and chord voicings have load-bearing properties. The Drone exists because if they stop playing, bulkheads fail. The fragment's #{ref :ringglass, "ringglass"} structure responds to sustained harmonic input in the signal-frequency range, and nearly three centuries of continuous music have tuned the station's crystal lattice to depend on it.
 
     **Dissonance** — unresolved harmonic tension causes material stress. Minor at small scale (a bad practice session might crack a window). Catastrophic at volume (a coordinated free jazz action could breach a hull).
 
