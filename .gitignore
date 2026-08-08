@@ -1,5 +1,6 @@
 __pycache__/
 node_modules/
+tools/review-app/dist/
 
 # Lorecraft render artifacts — every command writes under build/<world>/.
 build/

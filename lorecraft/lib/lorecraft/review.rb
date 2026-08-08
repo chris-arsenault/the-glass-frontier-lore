@@ -12,8 +12,9 @@ module Lorecraft
   # The embedding-backed review.py commands (overlaps/gaps) are not ported —
   # they required the Memgraph vector index.
   class ReviewTracker
-    META_FILES = %w[index.md tags.md timeline.md causality.md
-                    design-principles.md world-seeds.md].freeze
+    # Files that define the world's shape rather than its content. They change
+    # for structural reasons and are not reviewed as prose.
+    META_FILES = %w[schema.rb timeline.rb pages.rb].freeze
 
     # `root` is a world root (worlds/<id>/), not the repo root — review state is
     # per-world.
@@ -23,15 +24,16 @@ module Lorecraft
       @comments_file = @root + "work-tracking/review-comments.json"
     end
 
+    # The DSL files that carry content. Paths are relative to the world root, so
+    # they are stable across a repository reorganisation.
     def lore_files
-      %w[player dm].flat_map do |d|
-        base = @root + d
-        next [] unless base.directory?
+      base = @root + "world"
+      return [] unless base.directory?
 
-        Dir.glob("#{base}/**/*.md")
-           .reject { |p| META_FILES.include?(File.basename(p)) }
-           .map { |p| Pathname.new(p).relative_path_from(@root).to_s }
-      end.sort
+      Dir.glob("#{base}/**/*.rb")
+         .reject { |p| META_FILES.include?(File.basename(p)) }
+         .map { |p| Pathname.new(p).relative_path_from(@root).to_s }
+         .sort
     end
 
     # Files changed in git since their recorded review (or never reviewed).
