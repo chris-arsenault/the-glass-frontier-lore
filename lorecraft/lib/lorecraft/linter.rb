@@ -22,7 +22,24 @@ module Lorecraft
     ].freeze
 
     PROMINENCE_RANK = { forgotten: 0, marginal: 1, recognized: 2, renowned: 3, mythic: 4 }.freeze
-    HIGH_THRESHOLD = 3 # renowned+
+
+    # How far a name may travel (craft/authoring-principles.md — "prominence
+    # gates cross-references"). The gate is on the entity being *named*: a
+    # renowned name goes anywhere, a forgotten one only where something already
+    # links to it. What a reference must satisfy, by the target's prominence:
+    #
+    #   renowned, mythic  no condition — referenced from anywhere
+    #   recognized        :broad  — a recognized+ entry, or one connected to it
+    #   marginal          :near   — a direct connection or a shared neighbour
+    #                               (the "nearby entities and specialists" case)
+    #   forgotten         :linked — a direct connection, nothing else
+    REACH = { recognized: :broad, marginal: :near, forgotten: :linked }.freeze
+
+    UNMET = {
+      broad: "named from a low-prominence entry with no connection to it",
+      near: "named with no relationship to it and nothing in common",
+      linked: "named with no relationship to it"
+    }.freeze
 
     # Relations that should never point both ways between the same pair.
     ANTISYMMETRIC = %i[governs leads created destroyed built designed trains regulates chairs].freeze
@@ -39,7 +56,7 @@ module Lorecraft
       check_titles
       check_dm_phrase_leakage
       check_stale_futures
-      check_prominence_xrefs
+      check_prominence_reach
       check_double_article
       check_resonance_vocab
       check_dm_public_entry
@@ -104,26 +121,51 @@ module Lorecraft
       end
     end
 
-    def check_prominence_xrefs
-      pages.each do |e|
-        next if e[:registry].to_s == "true"
+    # Moment prose counts against the entity the moment belongs to — half a
+    # world's prose lives in moments, and a name-drop there travels just as far.
+    def check_prominence_reach
+      (pages + @world.moments.values).each do |owner|
+        src = owner.respond_to?(:of) ? owner.of && @world.entity(owner.of) : owner
+        next unless src && !shell?(src)
+        next if src[:registry].to_s == "true"
+        # Threads, loops and themes are engine scaffolding, not entries anyone
+        # reads. They carry no prominence and their reach is not gated.
+        next unless @world.schema.wiki_kind?(src.kind)
 
-        rank = PROMINENCE_RANK[e.prominence&.to_sym]
-        next unless rank && rank >= HIGH_THRESHOLD
+        xrefs = Array(src[:prominence_xrefs]).map { |x| x.to_s.tr("-", "_").to_sym }.to_set
+        refs_in(owner).each do |target_id|
+          next if target_id == src.id || xrefs.include?(target_id)
 
-        xrefs = Array(e[:prominence_xrefs]).map { |x| x.to_s.tr("-", "_").to_sym }.to_set
-        refs_in(e).each do |target_id|
           tgt = @world.entity(target_id)
-          next unless tgt
+          rule = tgt && REACH[tgt.prominence&.to_sym]
+          next if rule.nil? || reaches?(rule, src, tgt)
 
-          tr = PROMINENCE_RANK[tgt.prominence&.to_sym]
-          next unless tr && tr < HIGH_THRESHOLD
-          next if xrefs.include?(target_id)
-
-          warn("#{label(e)}: #{e.prominence}-prominence entry links to #{target_id} (#{tgt.prominence})")
+          warn("#{label(src)}: #{tgt.prominence} #{target_id} #{UNMET[rule]}")
         end
       end
     end
+
+    def reaches?(rule, src, tgt)
+      case rule
+      when :broad then rank(src) >= PROMINENCE_RANK[:recognized] || adjacent?(src.id, tgt.id)
+      when :near then adjacent?(src.id, tgt.id) || common_neighbour?(src.id, tgt.id)
+      when :linked then adjacent?(src.id, tgt.id)
+      end
+    end
+
+    def rank(e) = PROMINENCE_RANK[e.prominence&.to_sym] || 0
+
+    # Typed edges, either direction — the graph's own answer to "are these two
+    # things connected?", independent of what the prose asserts.
+    def neighbours
+      @neighbours ||= Hash.new { |h, k| h[k] = Set.new }.tap do |adj|
+        @world.relationships.each { |s, _v, t| adj[s] << t; adj[t] << s }
+      end
+    end
+
+    def adjacent?(a, b) = neighbours[a].include?(b)
+
+    def common_neighbour?(a, b) = neighbours[a].intersect?(neighbours[b])
 
     def check_double_article
       pages.each do |e|

@@ -7,7 +7,7 @@ title: Work Queue
 What the Glass Frontier needs next, ordered by how much it costs a reader. Live
 numbers come from `make check WORLD=glass-frontier` and `make topology
 WORLD=glass-frontier`; the counts below were taken 2026-08-08 against a world
-that validates with 0 errors, 12 warnings and 65 future markers.
+that validates with 0 errors, 4 warnings and 65 future markers.
 
 ---
 
@@ -83,14 +83,8 @@ Recurring substance rather than one-off nits:
 
 ## 4. Lint warnings
 
-Twelve, all real:
+Four, all real:
 
-- **Nine prominence-reach warnings**, eight of them from `bloom_coalition`
-  linking down to recognized entities. The Coalition is a defunct historical
-  faction; `renowned` is probably the wrong prominence for it, and demoting it to
-  `recognized` clears eight warnings at once. Check before demoting — if it
-  really is renowned, the links are the problem.
-- `kite_sail` (renowned) links to `microcavities` (recognized).
 - **Double article** on `the_glass_frontier` and `the_shear` — prose writes "the
   The Shear" because the title already carries the article.
 - `kaleidos_system` has no spatial-hierarchy edge. It is the top of the
@@ -123,9 +117,10 @@ one each; `artifact` has two. Resonance bands and tuning techniques are describe
 inside `cosmology/resonance.rb` and `concepts/tuners.rb` and would carry more as
 `ability` entities that other entries can link to.
 
-## 8. Stale numbers in the craft doc
+## 8. Fermata Station's prominence
 
-`craft/graph-topology.md` still reports this world's topology as 3.8 mean degree
-and 33% zero-degree entities. Live numbers are 5.7 and 0. World-specific
-measurements don't belong in a craft file at all — the table should either move
-here or be replaced with a pointer to `make topology`.
+The one prominence-reach warning left: `hab_meridian` (recognized) names
+`fermata_station`, which is `marginal`, with no edge between them and nothing in
+common. Fermata Station has a full entry, hosts the Accord's mediation work and
+carries six review comments — `marginal` looks understated. Either raise it, or
+give Hab Meridian the relationship the reference implies.

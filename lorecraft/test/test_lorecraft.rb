@@ -333,6 +333,56 @@ class LinterTest < Minitest::Test
     end
     assert(findings.any? { |f| f.message.include?("orphan") && f.message.include?("lonely") })
   end
+
+  # Reach is gated on the entity being named, and a typed edge is the exemption:
+  # a forgotten name travels to whatever links to it and nowhere else.
+  def reach_findings(&block)
+    lint(&block).select { |f| f.message.include?("named") }
+  end
+
+  def test_forgotten_target_needs_an_edge
+    findings = reach_findings do
+      schema do
+        entity_type :concept
+        relation :depends_on, temporal: false
+        effect :set
+      end
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
+      concept :hub do name "Hub"; prominence :mythic; prose "the #{ref :ghost, 'Ghost'}" end
+      concept :neighbour do name "Neighbour"; prominence :marginal; prose "the #{ref :ghost, 'Ghost'}" end
+      concept :ghost do name "Ghost"; prominence :forgotten end
+      genesis :g, at: { year: 0 } do
+        effects { set :neighbour, depends_on: :ghost }
+      end
+    end
+    assert(findings.any? { |f| f.message.include?("concept hub") },
+           "a mythic entry may not name a forgotten one it has no link to")
+    refute(findings.any? { |f| f.message.include?("concept neighbour") },
+           "a direct edge is what earns the reference")
+  end
+
+  def test_recognized_target_reaches_broad_entries
+    findings = reach_findings do
+      schema { entity_type :concept }
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
+      concept :broad do name "Broad"; prominence :renowned; prose "the #{ref :trade, 'Trade'}" end
+      concept :small do name "Small"; prominence :marginal; prose "the #{ref :trade, 'Trade'}" end
+      concept :trade do name "Trade"; prominence :recognized end
+    end
+    refute(findings.any? { |f| f.message.include?("concept broad") },
+           "a renowned entry is a broadly knowledgeable context")
+    assert(findings.any? { |f| f.message.include?("concept small") })
+  end
+
+  def test_structural_kinds_are_not_reach_gated
+    findings = reach_findings do
+      schema { entity_type :concept; entity_type :thread, wiki: false }
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
+      thread :arc do name "Arc"; prose "turns on the #{ref :ghost, 'Ghost'}" end
+      concept :ghost do name "Ghost"; prominence :forgotten end
+    end
+    assert_empty findings
+  end
 end
 
 class WikiRenderTest < Minitest::Test

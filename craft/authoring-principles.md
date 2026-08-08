@@ -36,6 +36,17 @@ Prominence measures how widely known something is. Not power, not prestige, not 
 
 **Prominence gates cross-references.** A world-spanning political overview shouldn't name-drop a marginal settlement. A marginal settlement's entry can reference mythic concepts freely. This prevents world-shrinking — the feeling that everything is connected to everything.
 
+The gate is on the entity being *named*, not on the entry doing the naming, and a typed relationship is what earns the reference:
+
+| Naming a… | is legitimate when |
+|---|---|
+| mythic, renowned entity | always — the name is common knowledge |
+| recognized entity | the entry is itself recognized or better, or there is an edge between them |
+| marginal entity | there is an edge between them, or they share a neighbour — the nearby-entity and specialist cases |
+| forgotten entity | there is an edge between them, and nothing else |
+
+So a mythic entry may not name a forgotten one it has no link to: that is the world-shrinking case, and it reads as the author reaching for a detail the entry has no business knowing. Give the reference an edge or make it a `#{future "Name"}` marker. The linter enforces this against the graph; `prominence_xrefs` on an entity is the deliberate exception, for a name that travels further than its prominence explains.
+
 ## The World Has a Past Tense
 
 Many entities are dead, dissolved, or dormant. The present-day player encounters them through legacy — ruins, institutions they founded, techniques they invented, stories people tell. Worldbuilding must give equal weight to entities that are no longer active.

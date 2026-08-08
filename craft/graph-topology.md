@@ -2,18 +2,18 @@
 
 Target topology derived from analysis of a mature canonry graph (241 entities, 1257 active edges, score 199-204). Every world here feeds the same narrative engine and must reach similar structural properties.
 
-The "current" column below is a snapshot taken from the Glass Frontier partway through its first pass; it is kept as an illustration of the gap, not as a live number. Run `make topology WORLD=<id>` for where a world actually stands.
+Targets only. Where a world actually stands is a measurement, not craft — run `make topology WORLD=<id>` for the live numbers, and keep any gap between them in that world's `work-tracking/`.
 
 ## Target Metrics
 
-| Metric | Canonry Reference | Snapshot | Target |
-|--------|------------------|----------|--------|
-| Edges/entity | 5.2 | 3.0 | 4+ (coherence over count) |
-| Mean degree (non-hub) | 8.4 | 3.8 | 5+ (coherence over count) |
-| Median degree | 7.0 | 3.0 | 4+ |
-| Zero-degree entities | ~10% | 33% (19/58) | <5% |
-| 2-hop kind reachability | 100% all kinds | Broken (artifacts 0%, themes 0%) | 100% |
-| Relationship type variety | 40 types in active use | 43 types but most have 1-2 edges | 20+ types with 5+ edges each |
+| Metric | Canonry Reference | Target |
+|--------|------------------|--------|
+| Edges/entity | 5.2 | 4+ (coherence over count) |
+| Mean degree (non-hub) | 8.4 | 5+ (coherence over count) |
+| Median degree | 7.0 | 4+ |
+| Zero-degree entities | ~10% | <5% |
+| 2-hop kind reachability | 100% all kinds | 100% |
+| Relationship type variety | 40 types in active use | 20+ types with 5+ edges each |
 
 ## Core Principles
 
@@ -21,7 +21,7 @@ The "current" column below is a snapshot taken from the Glass Frontier partway t
 
 No entity should exist in the graph with zero outgoing or incoming typed edges (excluding MENTIONS, HAS_SECTION, HAS_ARCHETYPE). This is the most basic requirement. The narrative engine traverses the graph — isolated nodes are invisible to it.
 
-**When creating or upserting an entity, add at least 3 typed relationships.** Check with `query-neighborhood` after upserting. If it shows only sections, the entity is disconnected.
+**When creating an entity, add at least 3 typed relationships.** Check with `world.at(:now).out(:id)` — or read the entity out of `make topology`, which lists anything left at zero degree.
 
 ### 2. Cross-kind bridges are more valuable than same-kind connections
 
@@ -42,7 +42,7 @@ The narrative engine needs to reach any entity kind from any other kind in 2 hop
 | `member_of` | npc → faction | `MEMBER_OF`, `LEADS` |
 | `central_to` | artifact → concept | `CENTRAL_TO`, `EMBODIES` |
 
-**Priority bridges we're missing:** artifact↔anything, concept↔faction, npc↔artifact, concept↔occurrence.
+The bridges that go thin first, in every world so far: artifact↔anything, concept↔faction, npc↔artifact, concept↔incident. Check those four before declaring a pass finished.
 
 ### 3. High-degree hub nodes provide structural connectivity
 
@@ -66,7 +66,7 @@ The canonry graph achieved high edge density through procedural generation that 
 
 Our graph is hand-crafted. We should prioritize temporal coherence over hitting raw edge count targets. Fewer relationships that make chronological sense are worth more than many that don't. Concretely:
 
-- **Check temporal bounds before adding relationships.** If an entity has `valid_from` / `valid_to`, verify the relationship is plausible within that window. A faction destroyed in the Contested Reach cannot participate in Accord-era events.
+- **Check temporal bounds before adding relationships.** An edge's `since:`/`till:` has to sit inside the window both endpoints exist in. A faction dissolved in one era cannot act in the next; the validator rejects the edge, but it is cheaper to notice while writing.
 - **Prefer era-appropriate connections.** When choosing which entities to link, pick ones that coexist temporally. An NPC active in the present day should relate to present-day factions and locations, not pre-Glassfall ones (unless the relationship is explicitly historical, like "studies ruins of").
 - **Accept lower edge counts as the cost of coherence.** The 5+ edges/entity target is aspirational. If an entity genuinely only has 3 coherent relationships, that's better than 6 with temporal nonsense. The kind-reachability and zero-degree targets still apply — every entity must connect to *something*, and all kinds must be reachable in 2 hops. But individual edge counts can flex.
 
@@ -75,8 +75,6 @@ The narrative engine benefits more from a graph it can traverse without producin
 ### 6. Relationship strength is a dimension
 
 The canonry graph uses strength values (0.0-1.0) on every relationship. Distribution peaks at 0.4-0.6 (most relationships are medium-strength). This lets the narrative engine weight traversals — strong connections are followed more readily than weak ones.
-
-We don't currently use relationship strength. Consider adding it as relationships mature.
 
 ## Kind Taxonomy
 
@@ -97,8 +95,8 @@ These are the core of the narrative engine. Named things with identity, history,
 | **transport** | Named ships, vehicles, stations with identity and history | owned_by(faction/npc), operates_in(geographic_location), depends_on(resource) |
 | **incident** | Discrete, time-bound events. Happened and ended. | caused(entity), participated_in←(npc/faction), occurred_at(installation/geographic_location) |
 | **conflict** | Ongoing large-scale tensions. Long-horizon. | involves←(faction), manifests_at(geographic_location/installation), caused_by(incident) |
-| **rumor** | Investigatable hooks with uncertain truth. May reference any entity type. Note: anomalous signals and broadcasts are rumors — a strange transmission from the deep Shear is a rumor to investigate, not a separate kind. | references(any), heard_at(installation), investigated_by←(npc/faction) |
-| **edict** | Laws, taboos, enforced systems. Empty for now — will matter when governance detail increases. | enforced_in(installation/geographic_location), issued_by(faction), violates←(npc/faction) |
+| **rumor** | Investigatable hooks with uncertain truth. May reference any entity type. Anomalous signals and broadcasts are rumors — a strange transmission out of a hazard zone is something to investigate, not a kind of its own. | references(any), heard_at(installation), investigated_by←(npc/faction) |
+| **edict** | Laws, taboos, enforced systems. Comes into use once a world has governance detail to enforce. | enforced_in(installation/geographic_location), issued_by(faction), violates←(npc/faction) |
 
 ### Player Reference (category: reference) — general knowledge, highly connected hubs
 
@@ -146,10 +144,10 @@ Point-in-time events (CAUSED, CREATED, DESTROYED), structural/astronomical (PART
 Edges are authored in a world's `world/` directory (years are absolute ticks). A `relate` instance, or an event effect:
 
 ```ruby
-relate :coremark_in_shear, :operates_in, :coremark, :the_shear, since: { tick: 2320 }
-relate :continuity_gov_sithari, :governs, :the_continuity, :sithari, since: { tick: 2245 }
+relate :coremark_in_shear, :operates_in, :coremark, :the_shear, since: 2320
+relate :continuity_gov_sithari, :governs, :the_continuity, :sithari, since: 2245
 relate :bloom_coop, :cooperates_with, :bloom_coalition, :displacement_council,
-       since: { tick: 2355 }, till: { tick: 2362 }
+       since: 2380, till: 2396
 ```
 
 Validation rejects edges whose interval falls outside either endpoint's existence.
@@ -172,25 +170,13 @@ After adding relationships to an entity, query its neighborhood (`world.at(:now)
 - At least one temporal relationship (era or occurrence link)
 - Temporal-typed edges have `valid_from` set
 
-## Current Deficiencies
+## Where Topology Goes Wrong
 
-*Updated after topology remediation. Run `make topology` for live numbers.*
+The same four failures turn up in every world, in roughly this order:
 
-### Resolved
-- ~~Zero-degree entities~~ — fixed (was 19, now 0)
-- ~~Artifacts/themes isolated~~ — connected
-- ~~Kind taxonomy too broad~~ — refined to 18 kinds in 3 categories
+1. **Thin edge density.** Entities get written and never wired. Density is the last metric to come up because it only moves when someone goes back over finished entries.
+2. **A kind that reaches nothing.** Usually `culture` or `ability` — the reference kinds whose content sits inside other entries as prose instead of existing as an entity other entries can link to.
+3. **Empty kinds mistaken for unneeded kinds.** `rumor`, `edict`, `transport` and `conflict` stay empty long past the point where the world has the material for them.
+4. **Reference material buried in prose.** Abilities and resources described inside a concept entry carry none of the connectivity they would as entities.
 
-### Remaining
-1. **Edge density 3.5 vs 4+ target** — improving but still below target.
-2. **Culture kind poorly connected** — only reaches 11/15 kinds in 2 hops. Needs more cross-kind bridges as culture entities are added.
-3. **Location split pending** — current `location` kind needs splitting into `geographic_location` and `installation` per taxonomy.
-4. **New kinds empty** — transport, rumor, edict, conflict have no entities yet. These will populate as the world grows.
-5. **Occurrence → incident/conflict split pending** — current occurrences need reclassifying.
-6. **Ability extraction pending** — resonance bands, tuning techniques currently buried in concept entries, need extracting to `ability` kind.
-7. **43 temporal edges missing bounds** — all existing state relationships (GOVERNS, LEADS, MEMBER_OF, etc.) lack `valid_from`/`valid_to`. (temporal-bound backlog from the old graph; revisit as edges gain `since:`/`till:`).
-
-### Future (for scale)
-8. **No relationship strength** — all edges equally weighted.
-9. **No distance metric** — canonry uses spatial distance for location relationships.
-10. **Ability subtypes** — resonance abilities are the current set. Faith-based abilities will come later.
+Two dimensions the engine supports and no world here uses yet: relationship strength (0.0–1.0, to weight traversals) and spatial distance on location edges.
