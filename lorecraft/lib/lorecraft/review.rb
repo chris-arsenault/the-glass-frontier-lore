@@ -94,9 +94,24 @@ module Lorecraft
       pn.expand_path.relative_path_from(@root.expand_path).to_s
     end
 
+    # When the file's prose last changed. Moving a file is not a change to it,
+    # so commits where it was only renamed (R100 — identical content at a new
+    # path) are skipped; otherwise a repository reorganisation invalidates every
+    # recorded review at once.
     def git_mtime(rel)
-      out = `git -C #{@root} log -1 --format=%aI -- #{rel} 2>/dev/null`.strip
-      out.empty? ? nil : out
+      out = `git -C #{@root} log --follow -M --format=%aI --name-status -- #{rel} 2>/dev/null`
+      date = nil
+      out.each_line do |line|
+        line = line.chomp
+        next if line.empty?
+
+        if line.match?(/\A\d{4}-\d{2}-\d{2}T/)
+          date = line
+        elsif !line.start_with?("R100")
+          return date
+        end
+      end
+      nil
     end
 
     def load_status = @status_file.exist? ? JSON.parse(@status_file.read) : {}

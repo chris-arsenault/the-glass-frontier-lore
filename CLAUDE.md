@@ -216,7 +216,7 @@ Review tracking is `lorecraft review <pending|mark|stale|status> --world <id>` �
 
 ### Review app:
 
-`cd tools/review-app && npm run dev` — inline review tool on `:3456`, serving `WORLD` (default `glass-frontier`). Note: it was built against the pre-DSL markdown tree; until it is updated, review against the generated wiki (`make wiki WORLD=<id>`) and port fixes back into the matching `world/` file.
+`cd tools/review-app && npm run dev` — inline review tool on `:3456`, serving `WORLD` (default `glass-frontier`). It lists the world's DSL files and shows each one as source, so a highlighted comment anchors to the text a fix gets applied to. Comment and status keys are world-root-relative (`world/concepts/ringglass.rb`) — the same key space as `lorecraft review`.
 
 ## Source Material
 

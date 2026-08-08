@@ -4,118 +4,128 @@ title: Work Queue
 
 # Work Queue
 
-Prioritized by impact on graph health, narrative infrastructure, and world depth. Updated 2369-03-25.
+What the Glass Frontier needs next, ordered by how much it costs a reader. Live
+numbers come from `make check WORLD=glass-frontier` and `make topology
+WORLD=glass-frontier`; the counts below were taken 2026-08-08 against a world
+that validates with 0 errors, 12 warnings and 65 future markers.
 
 ---
 
-## Priority 1: Graph Data Fixes
+## 1. Future markers pointing at things that exist
 
-These are data bugs that cause check failures. Fix before adding new content.
+Forty-six of the sixty-five `future` markers name an entity or a shell that is
+already in `world/`. Each one is a link the reader doesn't get and an edge the
+graph doesn't have. Replace the marker with `#{ref :id, "Display Name"}`.
 
-1. **Entity date discrepancy: 2140 vs 2240.** The timeline says the Glassfall is 2140 CE. Multiple graph entities have `valid_from: 2240` — off by 100 years. Affects: `the-glassfall`, `signal-famine`, `sithari`, `the-shear`, `fermata-station`, `echo-rivers`, `the-ring-age` (valid_to). Fix entity dates and re-check G8. All post-Rekindling dates are correct.
+| Marker | Occurrences | Should be |
+|---|---|---|
+| Silent Bloom / The Silent Bloom | 9 | `:the_silent_bloom` |
+| Bloom Zone | 5 | `:bloom_zones` |
+| Fracture / The Fracture | 5 | `:the_fracture` |
+| Ashvane | 3 | `:ashvane` |
+| Continuity / the Continuity | 3 | `:the_continuity` |
+| The Bitter Reach | 2 | `:the_bitter_reach` |
+| Ledgerfall | 2 | `:ledgerfall` |
+| Korvath | 2 | `:korvath` |
+| Ashenmaw, Crucible, Vastine, Vitrael | 1 each | same-named shells |
+| Glassfall showers, Disappearance | 1 each | `:glassfall_showers`, `:disappearance_of_the_elves` |
+| Lira's Wall | 1 | `:liras_wall` |
+| Lumenshard Conservatory, Ring Collective | 1 each | same-named shells |
+| Renn Duvasi, Venn Talis, Span Replication Lead | 1 each | same-named shells |
+| The Contested Reach, The Fermata Open | 1 each | same-named shells |
+| Underlayers | 1 | `:underlayers` |
 
-2. **Oram Sells timeline discrepancy.** DM entry says Oram "held the position for eleven years" before dying ~2363. That puts his start at ~2352 — but the Council wasn't founded until 2358. Either the 11 years includes a pre-Council role (Bloom Coalition leadership?), or the number needs adjusting. Resolve before adding graph edges.
+Do this before anything else — it changes prominence-reach warnings, topology and
+the wiki all at once, and it is mechanical.
 
-3. **G8 DM edge exemption.** Three G8 LATE_END warnings fire on DM edges involving elves (entity valid_to=2280 but secretly still active). Exempt dm_only edges from LATE_END check, or add a DM-specific severity level.
+## 2. Future markers with nothing behind them
 
----
+Nineteen markers, fourteen distinct names, no entity anywhere. Each needs either
+a shell in `_shells.rb` or a rewrite that stops naming it.
 
-## Priority 2: Viewpoint Entity Generation
+**Worth a real entry.** *Oram Sells* — the second First Threshold, eleven years
+in the post, the one who read Dern Talish in before dying of Bloom exposure.
+Three entries lean on him and none can link to him. His tenure has to land inside
+the Council's real dates (formed 2380, took the cordons 2384, Dern is the
+fourth).
 
-Viewpoint characters need clouds of minor entities to reach their degree targets. Current state:
-- **Dern Talish:** degree 7 (target 10+), 2 unique connections, 1 thread
-- **Lira Vashtenri:** degree 3 (target 10+), 0 unique connections, 1 thread
+**Worth a shell.** Tessellan Communion (×2), Drossmark Industries (×2), Span
+replication experiment (×2), Vesh Marrow, Davan Koralis, Lithren, Ashvane
+culture.
 
-For each viewpoint, generate 5-10 shell entities (forgotten/marginal) that only they connect to. These are the personal details that make the world feel lived-in around them.
+**Probably shouldn't be markers at all.** *Flitters* (×2) — a resolved comment on
+`kite_sail.rb` already says flitters are a subsection of kites, not their own
+entry; drop the marker and write the prose. *Chief Ledgrist* and *Voice
+Proximate* are offices, not entities — either name the office in plain prose or
+give the seat an entity and link the holder. *First Contact Story*, *First Trade
+Crisis* and *Comm Hub Incident* are placeholders in `threads/reconnection.rb`
+standing in for beats nobody has written; name the incidents or cut them.
 
-### Dern Talish shells needed
-- The specific cordon section she patrolled for 20 years
-- Her hab of origin (hab-worlder culture)
-- Colleagues from cordon operations (1-2 named NPCs)
-- Specific incidents from the Bitter Reach she was involved in
-- The armed convoys she turned away — who sent them?
+## 3. Open review comments
 
-### Lira Vashtenri shells needed
-- The specific Coremark refinery she worked at (not Pyre)
-- Her orphanage hab (strict, formative)
-- The specific Shear location where she first tested containment
-- A Coremark colleague or mentor from refinery days
-- The incident that got her noticed by the Bloom Coalition
+Fourteen open in `review-comments.json`, none stale, clustered in five files.
+Recurring substance rather than one-off nits:
 
-### After shell generation
-- Add EMPLOYED_BY, LOCATED_IN, OPERATES_IN edges with temporal bounds
-- Run `make topology` to verify degree and unique connection targets
-- Each new shell should be a single index row (no files yet)
+- **Coremark and Vantara are doing too much work.** Four comments across
+  `the_shear.rb` and `keel.rb` say the same thing: these two are the only named
+  commercial actors in articles that need several, which makes the system feel
+  small. See `guidance/archetype-slots.md`.
+- **"Crystal substrate" is used for locations that are in space.** Flagged on
+  `bloom_zones.rb`; the comment asks for a corpus-wide search of the term.
+- **Span Nine's geography doesn't hold.** Two comments: the Span was activated
+  after Sithari and Threshold already existed, so it terminating at both is too
+  convenient. The suggested fix is a terminus near Sithari but geographically
+  distinct from the capital.
+- **"Cthonic" is a real-world anchor.** `creatures/anomalies/cthonic_beasts.rb`
+  still carries the name the comment rejects; it needs an in-world term.
+- **Tics.** "nobody understands", the tongue-in-cheek closer on
+  `fermata_station.rb`, and hypothesis framing on `bloom_zones.rb`.
 
----
+## 4. Lint warnings
 
-## Priority 3: Historical Relationships (Ended Edges)
+Twelve, all real:
 
-The graph represents mostly present-day state. These historical edges need adding:
+- **Nine prominence-reach warnings**, eight of them from `bloom_coalition`
+  linking down to recognized entities. The Coalition is a defunct historical
+  faction; `renowned` is probably the wrong prominence for it, and demoting it to
+  `recognized` clears eight warnings at once. Check before demoting — if it
+  really is renowned, the links are the problem.
+- `kite_sail` (renowned) links to `microcavities` (recognized).
+- **Double article** on `the_glass_frontier` and `the_shear` — prose writes "the
+  The Shear" because the title already carries the article.
+- `kaleidos_system` has no spatial-hierarchy edge. It is the top of the
+  hierarchy, so either it needs one to `:the_sun`/`:kaleidos_orbit` or the linter
+  needs an exemption for a root location.
 
-| Edge | from | to | Notes |
-|------|------|----|-------|
-| lira-vashtenri EMPLOYED_BY coremark | ~2340 | 2355 | "Coremark-employed before the Bloom" |
-| oram-sells LEADS displacement-council | 2358? | 2363 | Resolve timeline discrepancy first |
-| bloom-coalition COOPERATES_WITH vantara | 2355 | 2362 | "draws from Vantara (logistics)" |
-| bloom-coalition COOPERATES_WITH lattice-proxy-synod | 2355 | 2362 | "draws from LPS (telemetry)" |
-| bloom-coalition COOPERATES_WITH echo-ledger-conclave | 2355 | 2362 | "draws from Conclave (resonance analysis)" |
-| bloom-coalition OPERATES_IN bloom-zones | 2355 | 2362 | Coalition worked containment |
-| lira-vashtenri OPERATES_IN bloom-zones | 2355 | 2358 | Before founding Council ops |
-| coremark OPERATES_IN pyre | 2340 | 2355 | Refinery where cascade originates |
-| [previous chair] CHAIRS fermata-station | ? | 2358 | Shei Lush's predecessor — no entity yet |
-| [pre-Continuity governance?] GOVERNS sithari | ? | 2245 | Gap between Glassfall and Continuity |
-| Keel control changes during Contested Reach | 2340–2355 | various | "control changes three times" — needs research |
+## 5. Viewpoint neighbourhoods
 
----
+`dern_talish` sits at degree 6, `lira_vashtenri` at degree 5. Both clear the
+floor in `craft/graph-topology.md` but neither has the personal cloud a viewpoint
+needs — the specific cordon section, the hab of origin, the colleague, the first
+test site. These are forgotten/marginal shells that only the viewpoint connects
+to, and they are what makes a viewpoint feel lived-in rather than described.
 
-## Priority 4: Titan Identification
+## 6. Unattached shells
 
-No public-facing individual titan NPCs exist yet. Candidates to evaluate:
-- **The Continuity** — titan-scale institution governing Sithari for 120+ years. Needs characterization.
-- **Duthrek** — criminal syndicate leader. Viewpoint (underworld lens) or minor titan?
-- **Historical titans** — whoever governed before the Continuity, whoever led pre-Glassfall civilization
-- **The Adversary** — already DM-only titan. Consider whether public-facing titan echoes are needed.
+Twenty-six of fifty shells have no edges at all. A shell with no edges is a name
+in a file: it can't be reached, can't be rendered, and won't be found. Either
+give it an edge to whatever mentions it or delete it. The well-connected end of
+the list is where promotion to full entries pays off — `the_silent_bloom` (degree
+6), `signal_famine` (6), `korvath` (5), `ashenmaw` (5), `the_fracture` (4).
 
-Identifying 1-2 titans will generate renowned/mythic shell entities that fill gaps in the graph.
+`kaleidos` (degree 14) and `the_sun` (7) are shells carrying more structural load
+than most written entities. The planet the world is named for has no entry.
 
----
+## 7. Thin and empty kinds
 
-## Priority 5: Remaining Shell Entities
+`rumor` and `edict` have no entities. `ability`, `creature` and `transport` have
+one each; `artifact` has two. Resonance bands and tuning techniques are described
+inside `cosmology/resonance.rb` and `concepts/tuners.rb` and would carry more as
+`ability` entities that other entries can link to.
 
-7 shells from the original entity queue still need fleshing out:
+## 8. Stale numbers in the craft doc
 
-| Entity | Type | Priority | Notes |
-|--------|------|----------|-------|
-| **Bloom Coalition** | faction | High | Referenced by many entries. Historical (2355-2362). |
-| **Prismwell Kite Guild** | faction | Medium | Trade logistics faction. Accordion trade provisions. |
-| **Ratters** | faction/subculture | Medium | Independent salvage culture. |
-| **Compact Charter** | document | Low | Founding document of Shear Compact. |
-| **Renn Duvasi** | npc | Low | Archivist who recognized Echo River voices. |
-| **Vashtenri Thesis** | concept | Low | First formal work proposing deliberate erasure. |
-| **Verathi** | installation | Low | First Accord arbitration test case. |
-
----
-
-## Priority 6: Graph Topology Improvements
-
-Run `make topology` for live numbers. Current deficiencies:
-
-1. **Edge density 3.5 vs 4+ target.** Viewpoint entity generation (P2) will help.
-2. **Culture kind poorly connected** — 11/15 2-hop reachability. Needs cross-kind bridges as culture entities grow.
-3. **Kind taxonomy splits pending:**
-   - Location → geographic_location + installation (partially done)
-   - Occurrence → incident + conflict
-4. **Empty kinds:** transport, rumor, edict, conflict — populate as world grows.
-5. **Ability extraction:** Resonance bands and tuning techniques buried in concept entries need extracting to `ability` kind.
-6. **Relationship strength:** Not yet implemented. All edges equally weighted.
-
----
-
-## Priority 7: Future Structural Work
-
-- **Entity kind splits** — location → geographic_location/installation, occurrence → incident/conflict
-- **Ability kind extraction** — resonance abilities from concept entries
-- **Relationship strength** (0.0-1.0) — lets narrative engine weight traversals
-- **Distance metric** — spatial distance on location relationships
-- **Era entities** — temporal hub nodes like the canonry graph's era system
+`craft/graph-topology.md` still reports this world's topology as 3.8 mean degree
+and 33% zero-degree entities. Live numbers are 5.7 and 0. World-specific
+measurements don't belong in a craft file at all — the table should either move
+here or be replaced with a pointer to `make topology`.

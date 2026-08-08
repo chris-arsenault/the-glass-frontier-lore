@@ -1,149 +1,149 @@
 {
-  "/home/sulion/repos/the-glass-frontier-lore/world/artifacts/common/kite_sail.rb": {
+  "world/artifacts/common/kite_sail.rb": {
     "complete": "2026-03-18T06:02:25.459Z",
     "reviewed": "2026-03-18T06:02:25.459Z"
   },
-  "/home/sulion/repos/the-glass-frontier-lore/world/artifacts/common/resonant_instruments.rb": {
+  "world/artifacts/common/resonant_instruments.rb": {
     "complete": "2026-03-19T05:15:14.217Z",
     "reviewed": "2026-03-19T05:15:14.217Z"
   },
-  "/home/sulion/repos/the-glass-frontier-lore/world/artifacts/relics/bloom_relics.rb": {
+  "world/artifacts/relics/bloom_relics.rb": {
     "status": "approved",
     "at": "2026-03-19T05:55:14.566Z",
     "reviewed": "2026-03-19T05:57:05.143Z"
   },
-  "/home/sulion/repos/the-glass-frontier-lore/world/artifacts/relics/liras_wall.rb": {
+  "world/artifacts/relics/liras_wall.rb": {
     "complete": "2026-03-18T06:02:27.609Z",
     "reviewed": "2026-03-18T06:02:27.609Z"
   },
-  "/home/sulion/repos/the-glass-frontier-lore/world/concepts/cultures/cultures.rb": {
+  "world/concepts/cultures/cultures.rb": {
     "complete": "2026-03-18T17:19:37.690Z",
     "reviewed": "2026-03-18T17:19:37.690Z"
   },
-  "/home/sulion/repos/the-glass-frontier-lore/world/concepts/cultures/hab_worlder.rb": {
+  "world/concepts/cultures/hab_worlder.rb": {
     "complete": "2026-03-18T17:23:35.718Z",
     "reviewed": "2026-03-18T17:23:35.718Z"
   },
-  "/home/sulion/repos/the-glass-frontier-lore/world/concepts/cultures/naming_conventions.rb": {
+  "world/concepts/cultures/naming_conventions.rb": {
     "complete": "2026-03-18T17:24:03.861Z",
     "reviewed": "2026-03-18T17:24:03.861Z"
   },
-  "/home/sulion/repos/the-glass-frontier-lore/world/concepts/cultures/sitharian_culture.rb": {
+  "world/concepts/cultures/sitharian_culture.rb": {
     "complete": "2026-03-19T04:43:59.705Z",
     "reviewed": "2026-03-19T04:43:59.705Z"
   },
-  "/home/sulion/repos/the-glass-frontier-lore/world/concepts/duskgrain.rb": {
+  "world/concepts/duskgrain.rb": {
     "reviewed": "2026-03-19T05:58:48.067Z"
   },
-  "/home/sulion/repos/the-glass-frontier-lore/world/concepts/life_in_the_system.rb": {
+  "world/concepts/life_in_the_system.rb": {
     "complete": "2026-03-19T06:54:07.488Z",
     "reviewed": "2026-03-19T07:06:38.867Z"
   },
-  "/home/sulion/repos/the-glass-frontier-lore/world/concepts/microcavities.rb": {
+  "world/concepts/microcavities.rb": {
     "reviewed": "2026-03-19T05:58:55.068Z"
   },
-  "/home/sulion/repos/the-glass-frontier-lore/world/concepts/prominence.rb": {
+  "world/concepts/prominence.rb": {
     "complete": "2026-03-19T04:50:40.592Z",
     "reviewed": "2026-03-19T04:50:40.592Z"
   },
-  "/home/sulion/repos/the-glass-frontier-lore/world/concepts/ringglass.rb": {
+  "world/concepts/ringglass.rb": {
     "complete": "2026-03-19T04:51:26.450Z",
     "reviewed": "2026-03-19T04:51:26.450Z"
   },
-  "/home/sulion/repos/the-glass-frontier-lore/world/concepts/shuttered_habs.rb": {
+  "world/concepts/shuttered_habs.rb": {
     "complete": "2026-03-19T04:52:44.651Z",
     "reviewed": "2026-03-19T04:52:44.651Z"
   },
-  "/home/sulion/repos/the-glass-frontier-lore/world/concepts/species/elves.rb": {
+  "world/concepts/species/elves.rb": {
     "complete": "2026-03-19T04:44:50.961Z",
     "reviewed": "2026-03-19T04:44:50.961Z"
   },
-  "/home/sulion/repos/the-glass-frontier-lore/world/concepts/species/fae.rb": {
+  "world/concepts/species/fae.rb": {
     "complete": "2026-03-18T06:14:24.525Z",
     "reviewed": "2026-03-18T06:14:24.525Z"
   },
-  "/home/sulion/repos/the-glass-frontier-lore/world/concepts/species/gnomes.rb": {
+  "world/concepts/species/gnomes.rb": {
     "complete": "2026-03-18T06:16:48.576Z",
     "reviewed": "2026-03-18T06:16:48.576Z"
   },
-  "/home/sulion/repos/the-glass-frontier-lore/world/concepts/species/humans.rb": {
+  "world/concepts/species/humans.rb": {
     "complete": "2026-03-18T06:20:16.837Z",
     "reviewed": "2026-03-18T06:20:16.837Z"
   },
-  "/home/sulion/repos/the-glass-frontier-lore/world/concepts/species/orcs.rb": {
+  "world/concepts/species/orcs.rb": {
     "complete": "2026-03-18T06:22:20.760Z",
     "reviewed": "2026-03-18T06:22:20.760Z"
   },
-  "/home/sulion/repos/the-glass-frontier-lore/world/concepts/species/species.rb": {
+  "world/concepts/species/species.rb": {
     "complete": "2026-03-18T17:27:01.601Z",
     "reviewed": "2026-03-18T17:27:01.601Z"
   },
-  "/home/sulion/repos/the-glass-frontier-lore/world/concepts/stillwater.rb": {
+  "world/concepts/stillwater.rb": {
     "reviewed": "2026-03-19T06:03:00.361Z"
   },
-  "/home/sulion/repos/the-glass-frontier-lore/world/concepts/tuners.rb": {
+  "world/concepts/tuners.rb": {
     "complete": "2026-03-19T04:56:12.872Z",
     "reviewed": "2026-03-19T04:56:12.872Z"
   },
-  "/home/sulion/repos/the-glass-frontier-lore/world/cosmology/echo_rivers.rb": {
+  "world/cosmology/echo_rivers.rb": {
     "reviewed": "2026-03-19T06:03:24.086Z",
     "complete": "2026-03-19T06:03:26.248Z"
   },
-  "/home/sulion/repos/the-glass-frontier-lore/world/cosmology/kaleidos_system.rb": {
+  "world/cosmology/kaleidos_system.rb": {
     "reviewed": "2026-03-19T06:03:48.477Z",
     "complete": "2026-03-19T06:03:48.941Z"
   },
-  "/home/sulion/repos/the-glass-frontier-lore/world/cosmology/resonance.rb": {
+  "world/cosmology/resonance.rb": {
     "reviewed": "2026-03-19T06:03:54.652Z",
     "complete": "2026-03-19T06:03:54.989Z"
   },
-  "/home/sulion/repos/the-glass-frontier-lore/world/cosmology/the_glass_frontier.rb": {
+  "world/cosmology/the_glass_frontier.rb": {
     "reviewed": "2026-03-19T06:24:25.524Z",
     "complete": "2026-03-19T06:24:27.683Z"
   },
-  "/home/sulion/repos/the-glass-frontier-lore/world/history/events/coriolis_breach.rb": {
+  "world/history/events/coriolis_breach.rb": {
     "complete": "2026-03-19T06:39:02.692Z",
     "reviewed": "2026-03-19T07:06:58.483Z"
   },
-  "/home/sulion/repos/the-glass-frontier-lore/world/history/events/displacement.rb": {
+  "world/history/events/displacement.rb": {
     "complete": "2026-03-19T06:49:03.859Z",
     "reviewed": "2026-03-19T06:49:04.534Z"
   },
-  "/home/sulion/repos/the-glass-frontier-lore/world/history/events/shardfall.rb": {
+  "world/history/events/shardfall.rb": {
     "complete": "2026-03-19T07:31:31.496Z",
     "reviewed": "2026-03-19T07:31:31.895Z"
   },
-  "/home/sulion/repos/the-glass-frontier-lore/world/history/events/the_glassfall.rb": {
+  "world/history/events/the_glassfall.rb": {
     "complete": "2026-03-19T06:52:49.637Z",
     "reviewed": "2026-03-19T06:52:50.119Z"
   },
-  "/home/sulion/repos/the-glass-frontier-lore/world/locations/landmarks/bloom_zones.rb": {
+  "world/locations/landmarks/bloom_zones.rb": {
     "complete": "2026-03-20T18:03:00.434Z"
   },
-  "/home/sulion/repos/the-glass-frontier-lore/world/locations/landmarks/keel.rb": {
+  "world/locations/landmarks/keel.rb": {
     "complete": "2026-03-20T18:03:04.280Z"
   },
-  "/home/sulion/repos/the-glass-frontier-lore/world/locations/landmarks/pyre.rb": {
+  "world/locations/landmarks/pyre.rb": {
     "complete": "2026-03-20T18:13:18.652Z",
     "reviewed": "2026-03-20T18:13:18.987Z"
   },
-  "/home/sulion/repos/the-glass-frontier-lore/world/locations/landmarks/span_nine.rb": {
+  "world/locations/landmarks/span_nine.rb": {
     "complete": "2026-03-20T18:03:13.063Z"
   },
-  "/home/sulion/repos/the-glass-frontier-lore/world/locations/regions/sable_crescent.rb": {
+  "world/locations/regions/sable_crescent.rb": {
     "complete": "2026-03-20T18:03:15.849Z",
     "reviewed": "2026-03-20T18:20:27.942Z"
   },
-  "/home/sulion/repos/the-glass-frontier-lore/world/locations/regions/the_shear.rb": {
+  "world/locations/regions/the_shear.rb": {
     "complete": "2026-03-20T18:03:18.313Z"
   },
-  "/home/sulion/repos/the-glass-frontier-lore/world/locations/settlements/fermata_station.rb": {
+  "world/locations/settlements/fermata_station.rb": {
     "complete": "2026-03-20T18:03:21.704Z"
   },
-  "/home/sulion/repos/the-glass-frontier-lore/world/locations/settlements/glasswake.rb": {
+  "world/locations/settlements/glasswake.rb": {
     "complete": "2026-03-20T18:03:25.037Z"
   },
-  "/home/sulion/repos/the-glass-frontier-lore/world/locations/settlements/sithari.rb": {
+  "world/locations/settlements/sithari.rb": {
     "complete": "2026-03-20T18:03:27.882Z"
   }
 }

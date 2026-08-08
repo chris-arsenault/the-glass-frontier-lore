@@ -1,7 +1,7 @@
 [
   {
     "id": "mmvfv97co1hs",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/artifacts/common/kite_sail.rb",
+    "file": "world/artifacts/common/kite_sail.rb",
     "highlight": "Kite-sail",
     "comment": "change name. kite-sail is redundant and not related to resoance or the drive mechanism. i'm thinking Kinetic Inverse Transport Engine (KITE) for short.  this leavs all the kite/sail imagery intact but has been grounding",
     "line": null,
@@ -10,7 +10,7 @@
   },
   {
     "id": "mmvfvuuq4njc",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/artifacts/common/kite_sail.rb",
+    "file": "world/artifacts/common/kite_sail.rb",
     "highlight": "truck needs a mechanic to drive",
     "comment": "domain leakage - what is a truck?",
     "line": null,
@@ -19,7 +19,7 @@
   },
   {
     "id": "mmvfxl5ofo9x",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/artifacts/common/kite_sail.rb",
+    "file": "world/artifacts/common/kite_sail.rb",
     "highlight": "Veilfire",
     "comment": "changename. veilfire is the name of a recent primary concept in dragon age. choose something more resnance themed. microcavities (cavities have standing resonant waves) or similar. you have some freedom here",
     "line": null,
@@ -28,7 +28,7 @@
   },
   {
     "id": "mmvfym5y3dhv",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/artifacts/common/kite_sail.rb",
+    "file": "world/artifacts/common/kite_sail.rb",
     "highlight": "robo-ubers",
     "comment": "ubers is domain leakage - this was an eexmaple for you, not for the world lore",
     "line": null,
@@ -37,7 +37,7 @@
   },
   {
     "id": "mmvfztxz3hno",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/artifacts/common/kite_sail.rb",
+    "file": "world/artifacts/common/kite_sail.rb",
     "highlight": "[future:Flitters]. Autonomous local kite-sails — the robo-ubers. Short-range, single-passenger or small-cargo, operating within and between settlements. Ubiquitous. Taking a flitter is like calling a cab.\n\nPersonal craft. Sub-orbital or space-capable vessels owned by individuals. Upper-middle-class luxury — the equivalent of owning a nice sailboat. Comfortable enough for extended trips, not built for deep Shear or interplanetary hauls.\n\nCommercial haulers and passenger vessels. The Vantara fleet and independent operators. Cargo haulers running the Keel and other trade lanes. Passenger liners between major settlements. Fast couriers. This is the backbone of system commerce.\n\nShear-rated vessels. Salvage crews, mining rigs, survey ships. Carry additional structural-band arrays for reality stabilization shielding. The Shear's resonance distortion can interfere with kinetic fields if local physics aren't anchored.\n\nMilitary. Warships and patrol vessels — remnants of the Contested Reach and Bitter Reach eras, maintained because piracy is ongoing. Vantara operates the largest private armed escort fleet. Various factions maintain their own. Kinetic fields can be used offensively, which is technically possible and socially frowned upon.",
     "comment": "there are a number of real world examples in here that need to be removed.",
     "line": null,
@@ -46,7 +46,7 @@
   },
   {
     "id": "mmvg1xvx9xfs",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/artifacts/relics/liras_wall.rb",
+    "file": "world/artifacts/relics/liras_wall.rb",
     "highlight": "Bloom Zone boundaries follow the crystal substrate's natural resonance fault lines",
     "comment": "bloom zones are primarily a space bound location, so crystal substrate and fault lines don't make sense",
     "line": null,
@@ -55,7 +55,7 @@
   },
   {
     "id": "mmvg3fe7aa7r",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/artifacts/relics/liras_wall.rb",
+    "file": "world/artifacts/relics/liras_wall.rb",
     "highlight": "Every buoy deployed is stillwater that isn't preserving history. The Displacement Council maintains the network. The Conclave supplies the stillwater. The tension between these two needs — containment and preservation — is one of the system's quietest and most consequential ongoing negotiations.",
     "comment": "future beat: some removes a bouy and tries to look inside as if the still water held memories. what they find is instructive as to the nature of the bloom",
     "line": null,
@@ -64,7 +64,7 @@
   },
   {
     "id": "mmvgexneqtxi",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/loops/cooperation_fracture.rb",
+    "file": "world/loops/cooperation_fracture.rb",
     "highlight": "This matters because a common enemy unifies differently than a common problem — enemies create permanent alliances, problems create temporary ones.",
     "comment": "i dont think this is accurate. the difference is the kind of result the cooperation achives, not the longevity of the alliances",
     "line": null,
@@ -73,7 +73,7 @@
   },
   {
     "id": "mmvgjsssrawh",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/cosmology/resonance.rb",
+    "file": "world/cosmology/resonance.rb",
     "highlight": "The orbital rings were built from a crystalline material — now called ringglass — that vibrates at stable, predictable frequencies when energized. The original builders used this property to move power, data, and physical force through the ring structure without cables or broadcast towers. The crystal itself was the medium. Tune a section of ringglass to the right frequency, and it would pass energy along to the next section, and the next, like a vibration traveling down a wire.\n\nWhen the rings shattered, the ringglass didn't stop vibrating. It scattered — across the surface of Kaleidos, into orbit, into the soil and water — and it kept resonating. Not in the organized, purposeful way the builders intended, but in a diffuse, ambient hum that permeates the environment anywhere ringglass is present. Which, after 130 years of settling debris, is almost everywhere on Kaleidos and throughout the ring habs.\n\nThat ambient energy is resonance. It's not magic. It's the residual output of an engineered system running without supervision.",
     "comment": "this section needs to be reworked slightly - ringglass is not the source of resonance, it is the most stable expression of it. but we state elsewhere that resonance is ambient - and we want to be able to use it on planets other the kaledios. ringglass is an amplifier, not a source",
     "line": null,
@@ -82,7 +82,7 @@
   },
   {
     "id": "mmvgk3ybgw8v",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/cosmology/resonance.rb",
+    "file": "world/cosmology/resonance.rb",
     "highlight": "The Three Bands",
     "comment": "three known bands. lets leave room for expansion",
     "line": null,
@@ -91,7 +91,7 @@
   },
   {
     "id": "mmvgm9u9djo3",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/cosmology/resonance.rb",
+    "file": "world/cosmology/resonance.rb",
     "highlight": "Narrow bandwidth",
     "comment": "add a note after this on a theoriticaly single wavelength resonance (similar to LASER). fronteir tech for the elves. therorictcal now",
     "line": null,
@@ -100,7 +100,7 @@
   },
   {
     "id": "mmvgngj7w2g9",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/cosmology/resonance.rb",
+    "file": "world/cosmology/resonance.rb",
     "highlight": "the crystalline material the ring",
     "comment": "the ubiquitous (not only) material is ring glass.",
     "line": null,
@@ -109,7 +109,7 @@
   },
   {
     "id": "mmvhq3jqa8hn",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/cosmology/kaleidos_system.rb",
+    "file": "world/cosmology/kaleidos_system.rb",
     "highlight": "Everything this wiki i",
     "comment": "supposed to be written in universe",
     "line": null,
@@ -118,7 +118,7 @@
   },
   {
     "id": "mmvhr0grdcmp",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/cosmology/kaleidos_system.rb",
+    "file": "world/cosmology/kaleidos_system.rb",
     "highlight": "Coremark's presence — first as a legitimate corporation, now as a criminal syndicate — dominates the local political landscape without being the only thing there.",
     "comment": "it doesn't dominate the landscape - its a player not the king",
     "line": null,
@@ -127,7 +127,7 @@
   },
   {
     "id": "mmvhrgum51qq",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/cosmology/kaleidos_system.rb",
+    "file": "world/cosmology/kaleidos_system.rb",
     "highlight": "Sol and Saturn — which makes interplanetary travel practical. One planet to the next is a day's transit a",
     "comment": "domain leak",
     "line": null,
@@ -136,7 +136,7 @@
   },
   {
     "id": "mmvhrmpl2kc1",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/cosmology/kaleidos_system.rb",
+    "file": "world/cosmology/kaleidos_system.rb",
     "highlight": "Venus-like",
     "comment": "domain leak",
     "line": null,
@@ -145,7 +145,7 @@
   },
   {
     "id": "mmvhsbux5qfi",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/cosmology/kaleidos_system.rb",
+    "file": "world/cosmology/kaleidos_system.rb",
     "highlight": "1. [future:Crucible]",
     "comment": "source of mineral hypothesised to be unrefined ringglass",
     "line": null,
@@ -154,7 +154,7 @@
   },
   {
     "id": "mmvht09nzuj8",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/cosmology/kaleidos_system.rb",
+    "file": "world/cosmology/kaleidos_system.rb",
     "highlight": "it's standard-issue, the way cold-weather clothing is standard on an ice world.",
     "comment": "good example of NOT leaking domain when using a reference example",
     "line": null,
@@ -163,7 +163,7 @@
   },
   {
     "id": "mmvhtsxjhpvs",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/cosmology/kaleidos_system.rb",
+    "file": "world/cosmology/kaleidos_system.rb",
     "highlight": "— a candidate for one of the undefined culture slots",
     "comment": "this is written in the wrong register. thosuld be marked like [future:AshavaneCulture] or something like that",
     "line": null,
@@ -172,7 +172,7 @@
   },
   {
     "id": "mmvhvzznr3yu",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/cosmology/kaleidos_system.rb",
+    "file": "world/cosmology/kaleidos_system.rb",
     "highlight": "Terminus]",
     "comment": "better name that isn't quite so on the nose. there are 1000 planets named terminus in sci fi at this exact solar system location",
     "line": null,
@@ -181,7 +181,7 @@
   },
   {
     "id": "mmvhwcs301y7",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/cosmology/kaleidos_system.rb",
+    "file": "world/cosmology/kaleidos_system.rb",
     "highlight": "The Solar Syste",
     "comment": "solar is sol. should keep the Kaeldious System",
     "line": null,
@@ -190,7 +190,7 @@
   },
   {
     "id": "mmvhwu78vncp",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/cosmology/kaleidos_system.rb",
+    "file": "world/cosmology/kaleidos_system.rb",
     "highlight": "There is no DM answer here",
     "comment": "Incorrect use of lanauge",
     "line": null,
@@ -199,7 +199,7 @@
   },
   {
     "id": "mmvm9iwk3m8h",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/cosmology/resonance.rb",
+    "file": "world/cosmology/resonance.rb",
     "highlight": "Most people never encounter anything beyond broad. Working professionals operate at mid",
     "comment": "KITES directly contradict this.",
     "line": null,
@@ -208,7 +208,7 @@
   },
   {
     "id": "mmvma64prk6o",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/cosmology/resonance.rb",
+    "file": "world/cosmology/resonance.rb",
     "highlight": "a thread of pure color, impossibly thin and impossibly intense.",
     "comment": "LASER is acceptable here",
     "line": null,
@@ -217,7 +217,7 @@
   },
   {
     "id": "mmvmykcaxcb3",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/concepts/species/elves.rb",
+    "file": "world/concepts/species/elves.rb",
     "highlight": "Older folk traditions call them \"the Absent\" — the people who were here and then weren't. The academic literature just calls them elves.",
     "comment": "incorrect. this was just a name you came up with we never changed.  older folk traditions wouldnt have a special name for them - they only disapaeared 60ish years ago",
     "line": null,
@@ -226,7 +226,7 @@
   },
   {
     "id": "mmvnmyio37x5",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/concepts/species/orcs.rb",
+    "file": "world/concepts/species/orcs.rb",
     "highlight": "Orc art, architecture, and craftsmanship are anything but simple. Orc metalwork is sought after across the system. Orc music is structurally complex in ways that take trained musicians from other species years to parse. The \"strong and dumb\" read says more about the reader than the subject.",
     "comment": "this part risks orcs being the best at everythign. they're strong, have high endurance, are buetiful, expert crafts people, and smart.  we need to give some some serious flaws",
     "line": null,
@@ -235,7 +235,7 @@
   },
   {
     "id": "mmvnryvmierf",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/concepts/prominence.rb",
+    "file": "world/concepts/prominence.rb",
     "highlight": "Prominence defines how far an entity's references should reach in the knowledge graph. When writing or generating lore:",
     "comment": "this is instruction for you, or maybe the DM. it's definintly written in world. we may need a seperate out of universe player facing guide for these kinds of things which describe how to utilize the world",
     "line": null,
@@ -244,7 +244,7 @@
   },
   {
     "id": "mmvnsj3472r8",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/concepts/ringglass.rb",
+    "file": "world/concepts/ringglass.rb",
     "highlight": "It is the physical basis for all resonance technology. Without it, nothing works.",
     "comment": "need to update with the refined resonance where ringglass is an amplifier not a source",
     "line": null,
@@ -253,7 +253,7 @@
   },
   {
     "id": "mmvnvmxnsh2e",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/concepts/ringglass.rb",
+    "file": "world/concepts/ringglass.rb",
     "highlight": "Trade",
     "comment": "combine this section with the grades since it has the same subsections",
     "line": null,
@@ -262,7 +262,7 @@
   },
   {
     "id": "mmvnyb9vzanp",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/concepts/shuttered_habs.rb",
+    "file": "world/concepts/shuttered_habs.rb",
     "highlight": "The one universal: nobody tries to force them open anymore. Not after Coriolis",
     "comment": "remove. to blunt a statement",
     "line": null,
@@ -271,7 +271,7 @@
   },
   {
     "id": "mmvnys4223hq",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/concepts/shuttered_habs.rb",
+    "file": "world/concepts/shuttered_habs.rb",
     "highlight": ", there are habs that have undergone accelerated evolution — resonance-influenced biological and cognitive change sustained over 130 years in sealed, saturated environments. The inhabitants have reached a near-godlike state. They do their own thing. People leave them alone because why would you provoke the functionally omnipotent beings next door. These habs aren't shuttered in any meaningful sense — they're just operating on a plane that the rest of the system can't meaningfully interact with.",
     "comment": "this makes them seem more common place. there are one maybe two of these",
     "line": null,
@@ -280,7 +280,7 @@
   },
   {
     "id": "mmvo1bhd7fyv",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/concepts/cultures/sitharian_culture.rb",
+    "file": "world/concepts/cultures/sitharian_culture.rb",
     "highlight": "Naming Conventions",
     "comment": "this section belong under naming - we need a mechanism for see Naming:Sithari instead of repeating content",
     "line": null,
@@ -289,7 +289,7 @@
   },
   {
     "id": "mmvo3kx3ykte",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/concepts/cultures/sitharian_culture.rb",
+    "file": "world/concepts/cultures/sitharian_culture.rb",
     "highlight": "which surprises nobody and irritates everyone.",
     "comment": "there are too many of these snide comments in this article.  if we want to express discomfort with sithari domeince it should be done in ways other then tact on clauses like this.  this is a general writing pattern you need to watchout for and potentially add detection for",
     "line": null,
@@ -298,7 +298,7 @@
   },
   {
     "id": "mmvo4zib7u7r",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/concepts/cultures/sitharian_culture.rb",
+    "file": "world/concepts/cultures/sitharian_culture.rb",
     "highlight": "Perception",
     "comment": "see above comment. this section does what all the snide after clauses were trying to do, without making it seem like a 10th grade edge lord wrote the prose.  this is the way to do it.",
     "line": null,
@@ -307,7 +307,7 @@
   },
   {
     "id": "mmvo73ggdjcb",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/concepts/tuners.rb",
+    "file": "world/concepts/tuners.rb",
     "highlight": "tradition they didn't know they were starting",
     "comment": "this clause about 'they didnt know' is an oft repeated one. we need to watch out for this wink to the reader. it's becoming too noticable",
     "line": null,
@@ -316,7 +316,7 @@
   },
   {
     "id": "mmx00vxkwb4b",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/artifacts/common/resonant_instruments.rb",
+    "file": "world/artifacts/common/resonant_instruments.rb",
     "highlight": "into resonance at arbitrary frequencies within the mid band.",
     "comment": "arbitrary fequencies and bandwiths. some virtuosos get get near to narrow band coherence",
     "line": null,
@@ -325,7 +325,7 @@
   },
   {
     "id": "mmx02867ozxo",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/artifacts/common/resonant_instruments.rb",
+    "file": "world/artifacts/common/resonant_instruments.rb",
     "highlight": "difference between reading a map and navigating by stars — both get you there, but one requires a lifetime of practice and produces results the other cannot.",
     "comment": "not a very good analogy, try something else",
     "line": null,
@@ -334,7 +334,7 @@
   },
   {
     "id": "mmx02s82n97m",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/artifacts/common/resonant_instruments.rb",
+    "file": "world/artifacts/common/resonant_instruments.rb",
     "highlight": "instrument channels.",
     "comment": "add a blurb about how diffrent instruments are tuned to diffrent bands (kinetic, signal, etc)",
     "line": null,
@@ -343,7 +343,7 @@
   },
   {
     "id": "mmx03qwcpn9u",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/artifacts/common/resonant_instruments.rb",
+    "file": "world/artifacts/common/resonant_instruments.rb",
     "highlight": "is the baseline requirement, and that alone limits the pool to a subset of trained Tuners. B",
     "comment": "deaf people play music. restarte this as as soft nudge, not a hard requirement",
     "line": null,
@@ -352,7 +352,7 @@
   },
   {
     "id": "mmx04nwyjqqm",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/artifacts/common/resonant_instruments.rb",
+    "file": "world/artifacts/common/resonant_instruments.rb",
     "highlight": "human-made,",
     "comment": "not only human, replace with something like 'contemprary made'",
     "line": null,
@@ -361,7 +361,7 @@
   },
   {
     "id": "mmx06jdbcxta",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/artifacts/common/resonant_instruments.rb",
+    "file": "world/artifacts/common/resonant_instruments.rb",
     "highlight": "At Fermata Station, the line between musical performance and resonance engineering is thin enough to be meaningless.",
     "comment": "remove this. add instead a blub about how most capital ships will employ one - adhoc structural stability, siganl jamming or broadcasting, etc. not needing a specialized device and being able to acomplish a range of tasks is a huge advantage",
     "line": null,
@@ -370,7 +370,7 @@
   },
   {
     "id": "mmx3o3ifkcmb",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/history/events/coriolis_breach.rb",
+    "file": "world/history/events/coriolis_breach.rb",
     "highlight": "A forced-entry incident during the Contested Reach in which a well-intentioned faction broke into a shuttered hab and discovered that good intentions don't survive contact with a community that considers you a demon. The contact team was slaughtered. One survivor returned. The incident ended the debate over whether shuttered habs should be opened by force.",
     "comment": "this belong in an aftermath or something",
     "line": null,
@@ -379,7 +379,7 @@
   },
   {
     "id": "mmx3pcdnj9xk",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/history/events/coriolis_breach.rb",
+    "file": "world/history/events/coriolis_breach.rb",
     "highlight": "an enclosed environment where the original life-support systems had drifted, the interior had rewilded into dense pre-technological biome, and the inhabitants had adapted by abandoning technology entirely over the course of the Signal Famine.",
     "comment": "this (and a few other things) make me think we should add 100 years or more to the signal famine. one generation isn't enough even for accelerated evolution",
     "line": null,
@@ -388,7 +388,7 @@
   },
   {
     "id": "mmx3pxzkx701",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/history/events/coriolis_breach.rb",
+    "file": "world/history/events/coriolis_breach.rb",
     "highlight": "A non-Sitharian faction",
     "comment": "don't declare non-sitharian. this is over reliance on established entities",
     "line": null,
@@ -397,7 +397,7 @@
   },
   {
     "id": "mmx3spytogwo",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/history/events/coriolis_breach.rb",
+    "file": "world/history/events/coriolis_breach.rb",
     "highlight": "became the foundational document for the Accord's sovereignty provisions.",
     "comment": "this doesn't make sense. the provisions are widly publiciezed. the survirors account should motivate the creation of the provions, but not be a central input to them",
     "line": null,
@@ -406,7 +406,7 @@
   },
   {
     "id": "mmx3th2gdhmk",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/history/events/coriolis_breach.rb",
+    "file": "world/history/events/coriolis_breach.rb",
     "highlight": "is a recognized-prominence",
     "comment": "just recognized",
     "line": null,
@@ -415,7 +415,7 @@
   },
   {
     "id": "mmx3vh0dvbub",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/concepts/life_in_the_system.rb",
+    "file": "world/concepts/life_in_the_system.rb",
     "highlight": "uns through daily life the way low-voltage current runs through a wired",
     "comment": "no anlogy. low-voltage is domain mixing",
     "line": null,
@@ -424,7 +424,7 @@
   },
   {
     "id": "mmx3vtdqsvkh",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/concepts/life_in_the_system.rb",
+    "file": "world/concepts/life_in_the_system.rb",
     "highlight": "than a light switch. I",
     "comment": "domain mixing",
     "line": null,
@@ -433,7 +433,7 @@
   },
   {
     "id": "mmx3ww8m3f7i",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/concepts/life_in_the_system.rb",
+    "file": "world/concepts/life_in_the_system.rb",
     "highlight": "[future:Flitters]",
     "comment": "no future - flitters is unlikly to be its own entry, just a subsection of kites",
     "line": null,
@@ -442,7 +442,7 @@
   },
   {
     "id": "mmz7eycwgydo",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/locations/landmarks/bloom_zones.rb",
+    "file": "world/locations/landmarks/bloom_zones.rb",
     "highlight": "artifacts nobody understands.",
     "comment": "remove nobody understands - tic",
     "line": null,
@@ -451,7 +451,7 @@
   },
   {
     "id": "mmz7fl2r3hkp",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/locations/landmarks/bloom_zones.rb",
+    "file": "world/locations/landmarks/bloom_zones.rb",
     "highlight": "the crystal substrate,",
     "comment": "no crystal substrate these are in space.  need to do a general search for this term",
     "line": null,
@@ -460,7 +460,7 @@
   },
   {
     "id": "mmz7l842wsfp",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/locations/landmarks/bloom_zones.rb",
+    "file": "world/locations/landmarks/bloom_zones.rb",
     "highlight": ", but the connections follow non-spatial or higher-dimensional logi",
     "comment": "frame this as 'fronteir research hypothesisis these connections'",
     "line": null,
@@ -469,7 +469,7 @@
   },
   {
     "id": "mmz7mf0bojez",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/locations/landmarks/bloom_zones.rb",
+    "file": "world/locations/landmarks/bloom_zones.rb",
     "highlight": "and it has happened.",
     "comment": "ccreate a future: Xyloathax  (the name of a hab that a bloom zone appeared next to)",
     "line": null,
@@ -478,7 +478,7 @@
   },
   {
     "id": "mmz7skftyqeu",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/locations/landmarks/keel.rb",
+    "file": "world/locations/landmarks/keel.rb",
     "highlight": "The route is well-charted and well-serviced — Vantara maintains navigation beacons, refueling stations, and waystations along its length.",
     "comment": "expand this to safe travels / acomadations / truck stops / etc that have appeared along many poritions of the keel.  don't make it all vantara - this is the same degenerate example descrepency. vantara is a large well known company, but they are not a monopoly. over use causes the world to feel small",
     "line": null,
@@ -487,7 +487,7 @@
   },
   {
     "id": "mmz7u387dh3t",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/locations/landmarks/keel.rb",
+    "file": "world/locations/landmarks/keel.rb",
     "highlight": "doesn't claim sovereignty.",
     "comment": "vantara is a travel and logistics company. this is another overuse",
     "line": null,
@@ -496,7 +496,7 @@
   },
   {
     "id": "mmz7z4lgo9io",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/locations/landmarks/span_nine.rb",
+    "file": "world/locations/landmarks/span_nine.rb",
     "highlight": "A shining white filament stretching from",
     "comment": "this probably requires more explanation. this span was discovered later - why is it connecting three major places? there might be a history that pelhari was built around it. but sithari and thershold both predate the activation of span nine, and it's too much of a coincidence that the only broadband comm device known happen to be thre",
     "line": null,
@@ -505,7 +505,7 @@
   },
   {
     "id": "mmz823x0knwu",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/locations/landmarks/span_nine.rb",
+    "file": "world/locations/landmarks/span_nine.rb",
     "highlight": "With it, Sithari has real-time signal-bandwidth links to the [future:Clarisant] guild on Pelhari and the Synod's AI custodians at Threshold Station. This connectivity is a significant part of Sithari's continued centrality — the capital's access to the Span is a structural advantage that other settlements cannot replicate.",
     "comment": "see baove - consider span nine terminus near sithari but geographically distinct. important side location, but not actually in the capital",
     "line": null,
@@ -514,7 +514,7 @@
   },
   {
     "id": "mmz8bsbqsj4t",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/locations/regions/the_shear.rb",
+    "file": "world/locations/regions/the_shear.rb",
     "highlight": "built its empire on the industrial end. The independents work the margins",
     "comment": "coremwark reference does make sense here, but it shouldn't be the only corperation or group referenced thoughout the article. severe overuse. add a few future stubs",
     "line": null,
@@ -523,7 +523,7 @@
   },
   {
     "id": "mmz8d1jxrsfb",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/locations/regions/the_shear.rb",
+    "file": "world/locations/regions/the_shear.rb",
     "highlight": "[future:Cthonic beasts].",
     "comment": "can't use the term chtonic. thats an internal descriptor. we should come up with our own phrase that isn't real word anchored",
     "line": null,
@@ -532,7 +532,7 @@
   },
   {
     "id": "mmz8dvvxux1i",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/locations/regions/the_shear.rb",
+    "file": "world/locations/regions/the_shear.rb",
     "highlight": "black-market operations — exist in pockets of the Shear that nobody official has charted.",
     "comment": "coremark overuse",
     "line": null,
@@ -541,7 +541,7 @@
   },
   {
     "id": "mmz8j1wk5umy",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/locations/regions/the_shear.rb",
+    "file": "world/locations/regions/the_shear.rb",
     "highlight": "The Shear is chronic — it has existed since the Glassfall, it is broadly understood, and it is mostly stabilized. Dangerous, but navigable. An environment that people have learned to work in.",
     "comment": "it didn't exist before the glassfall. it was caused by the glass fall",
     "line": null,
@@ -550,7 +550,7 @@
   },
   {
     "id": "mmz8kbp11xzl",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/locations/regions/the_shear.rb",
+    "file": "world/locations/regions/the_shear.rb",
     "highlight": "A Bloom Zone appearing next to a stable ring hab in clean space is the nightmare scenario — and it has happened. The Shear is where you expect problems. Bloom Zones are where problems show up uninvited.",
     "comment": "duplicate of bloom zone content and this has no business in the sheer",
     "line": null,
@@ -559,7 +559,7 @@
   },
   {
     "id": "mmz8ls6vrp5w",
-    "file": "/home/sulion/repos/the-glass-frontier-lore/world/locations/settlements/fermata_station.rb",
+    "file": "world/locations/settlements/fermata_station.rb",
     "highlight": "The system works better than it has any right to, and worse than its inhabitants believe.",
     "comment": "tongune in cheek. reword or remove",
     "line": null,

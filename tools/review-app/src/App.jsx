@@ -1,7 +1,10 @@
 import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react'
-import { marked } from 'marked'
 
 const API = 'http://localhost:3457/api'
+
+// Entries are Lorecraft DSL, so the reviewed text is the source itself — the
+// same text a fix has to be applied to. Shown verbatim rather than rendered.
+const escapeHtml = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
 
 function buildTree(files) {
   const root = { __files: [], __dirs: {} }
@@ -124,7 +127,7 @@ function TreeNode({ node, path, depth, currentFile, onSelect, collapsed, onToggl
                 return null
               })()}
               <span style={{ flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                {f.name.replace(/\.md$/, '')}
+                {f.name.replace(/\.rb$/, '')}
               </span>
               {reviewCounts[f.path] > 0 && (
                 <span style={{
@@ -155,8 +158,6 @@ function App() {
   const [activeComment, setActiveComment] = useState(null)
   const [autoStatus, setAutoStatus] = useState({})
   const [manualStatus, setManualStatus] = useState({})
-  const [overlaps, setOverlaps] = useState([])
-  const [showOverlaps, setShowOverlaps] = useState(false)
 
   const scrollRef = useRef(null)
   const contentRef = useRef(null)
@@ -166,7 +167,6 @@ function App() {
     fetch(`${API}/files`).then(r => r.json()).then(setFiles)
     fetch(`${API}/reviews`).then(r => r.json()).then(setReviews)
     fetch(`${API}/review-status`).then(r => r.json()).then(d => { setAutoStatus(d.auto || {}); setManualStatus(d.manual || {}) })
-    fetch(`${API}/overlaps`).then(r => r.json()).then(setOverlaps)
   }, [])
 
   useEffect(() => {
@@ -190,22 +190,11 @@ function App() {
       }
       .tree-file:hover { background: rgba(255,255,255,0.03) !important; }
       .tree-dir:hover { background: rgba(255,255,255,0.02); }
-      .md h1 { font-size: 1.5em; margin: 0.8em 0 0.4em; color: #e0e0ff; border-bottom: 1px solid #2a2a4a; padding-bottom: 6px; }
-      .md h2 { font-size: 1.25em; margin: 0.8em 0 0.3em; color: #d0d0f0; }
-      .md h3 { font-size: 1.05em; margin: 0.6em 0 0.2em; color: #c0c0e0; }
-      .md p { margin: 0.4em 0; }
-      .md ul, .md ol { margin: 0.4em 0; padding-left: 1.5em; }
-      .md li { margin: 0.15em 0; }
-      .md strong { color: #e0e0ff; }
-      .md em { color: #c8c8e8; }
-      .md a { color: #818cf8; text-decoration: none; }
-      .md a:hover { text-decoration: underline; }
-      .md code { background: #1a1a3e; padding: 1px 4px; border-radius: 3px; font-size: 0.9em; }
-      .md hr { border: none; border-top: 1px solid #2a2a4a; margin: 1em 0; }
-      .md blockquote { border-left: 3px solid #3a3a6a; margin: 0.4em 0; padding: 0.2em 0.8em; color: #a0a0c0; }
-      .md table { border-collapse: collapse; margin: 0.4em 0; }
-      .md th, .md td { border: 1px solid #2a2a4a; padding: 4px 8px; font-size: 0.9em; }
-      .md th { background: #1a1a3e; }
+      pre.src {
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 12.5px; line-height: 1.75; color: #c8c8e0;
+        white-space: pre-wrap; overflow-wrap: break-word; tab-size: 2;
+      }
       .gutter-card { transition: border-color 0.15s, box-shadow 0.15s; }
       .gutter-card:hover { border-color: #3a3a6a !important; }
       .gutter-card.active { border-color: #f59e0b !important; box-shadow: 0 0 0 1px rgba(249,115,22,0.3); }
@@ -317,17 +306,6 @@ function App() {
     setReviews(prev => prev.filter(r => r.id !== id))
   }
 
-  const acceptOverlap = async (sectionA, sectionB, reason) => {
-    await fetch(`${API}/overlaps/accept`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ section_a: sectionA, section_b: sectionB, reason }),
-    })
-    setOverlaps(prev => prev.filter(o =>
-      !(([o.section_a, o.section_b].sort().join('|')) === [sectionA, sectionB].sort().join('|'))
-    ))
-  }
-
   const toggleFlag = async (field) => {
     if (!currentFile) return
     const res = await fetch(`${API}/review-status`, {
@@ -387,11 +365,10 @@ function App() {
   }, [activeReviews, commentPositions])
 
   const orphanedReviews = activeReviews.filter(r => !(r.id in commentPositions))
-  const renderedHtml = useMemo(() => content ? marked.parse(content) : '', [content])
-
-  const findFileForEntity = (entityId) => {
-    return files.find(f => f.endsWith(`/${entityId}.md`) || f.endsWith(`${entityId}.md`)) || ''
-  }
+  const renderedHtml = useMemo(
+    () => content ? `<pre class="src">${escapeHtml(content)}</pre>` : '',
+    [content]
+  )
 
   const toggleCollapsed = (path) => {
     setCollapsed(prev => {
@@ -421,67 +398,14 @@ function App() {
             collapsed={collapsed} onToggle={toggleCollapsed} reviewCounts={reviewCounts} filter={filter} manualStatus={manualStatus} />
         </div>
         <div style={{ borderTop: '1px solid #2a2a4a', padding: '6px 10px', fontSize: '10px' }}>
-          <div style={{ color: '#555', marginBottom: overlaps.length > 0 ? 6 : 0 }}>
+          <div style={{ color: '#555' }}>
             {reviews.filter(r => r.status === 'open').length} open / {reviews.length} total
           </div>
-          {overlaps.length > 0 && (
-            <button onClick={() => { setShowOverlaps(!showOverlaps); if (!showOverlaps) setCurrentFile(null) }}
-              style={{ width: '100%', padding: '5px 8px', border: '1px solid #4a3a1a', borderRadius: '4px', background: showOverlaps ? '#2a2a1a' : '#1a1a10', color: '#f59e0b', cursor: 'pointer', fontSize: '11px', textAlign: 'left' }}>
-              {overlaps.length} section overlap{overlaps.length !== 1 ? 's' : ''} to review
-            </button>
-          )}
         </div>
       </div>
 
       {/* Main */}
-      {showOverlaps ? (
-        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
-          <div style={{ padding: '8px 20px', borderBottom: '1px solid #2a2a4a', background: '#14142a', flexShrink: 0 }}>
-            <span style={{ fontSize: '13px', color: '#f59e0b' }}>Section Overlaps</span>
-            <span style={{ fontSize: '11px', color: '#555', marginLeft: 8 }}>
-              {overlaps.length} pair{overlaps.length !== 1 ? 's' : ''} — accept or fix
-            </span>
-          </div>
-          <div style={{ flex: 1, overflowY: 'auto', padding: '12px 20px' }}>
-            {overlaps.map((o, i) => (
-              <div key={i} style={{ background: '#1a1a30', border: '1px solid #262648', borderRadius: '5px', padding: '12px', marginBottom: '10px' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '6px' }}>
-                  <div>
-                    <span style={{ color: '#e0e0ff', fontSize: '13px', fontWeight: 500 }}>
-                      {o.entity_a}:<span style={{ color: '#818cf8' }}>{o.heading_a}</span>
-                    </span>
-                    <span style={{ color: '#555', margin: '0 8px' }}>&harr;</span>
-                    <span style={{ color: '#e0e0ff', fontSize: '13px', fontWeight: 500 }}>
-                      {o.entity_b}:<span style={{ color: '#818cf8' }}>{o.heading_b}</span>
-                    </span>
-                  </div>
-                  <div style={{ display: 'flex', gap: 6, alignItems: 'center', flexShrink: 0 }}>
-                    <span style={{ fontSize: '12px', color: o.similarity > 0.93 ? '#f87171' : '#f59e0b', fontFamily: 'monospace' }}>
-                      {o.similarity.toFixed(3)}
-                    </span>
-                    <span style={{ fontSize: '9px', color: '#555', textTransform: 'uppercase' }}>{o.space}</span>
-                  </div>
-                </div>
-                <div style={{ display: 'flex', gap: 6, marginTop: '8px' }}>
-                  <button onClick={() => acceptOverlap(o.section_a, o.section_b, 'Legitimate overlap')}
-                    style={{ padding: '3px 10px', border: '1px solid #2a4a2a', borderRadius: '3px', background: 'none', color: '#4ade80', cursor: 'pointer', fontSize: '10px' }}>
-                    Accept
-                  </button>
-                  <button onClick={() => { setShowOverlaps(false); loadFile(o.entity_a.includes('/') ? o.entity_a : findFileForEntity(o.entity_a)) }}
-                    style={{ padding: '3px 10px', border: '1px solid #2a2a4a', borderRadius: '3px', background: 'none', color: '#818cf8', cursor: 'pointer', fontSize: '10px' }}>
-                    View {o.entity_a}
-                  </button>
-                  <button onClick={() => { setShowOverlaps(false); loadFile(o.entity_b.includes('/') ? o.entity_b : findFileForEntity(o.entity_b)) }}
-                    style={{ padding: '3px 10px', border: '1px solid #2a2a4a', borderRadius: '3px', background: 'none', color: '#818cf8', cursor: 'pointer', fontSize: '10px' }}>
-                    View {o.entity_b}
-                  </button>
-                </div>
-              </div>
-            ))}
-            {overlaps.length === 0 && <div style={{ color: '#555', fontSize: '13px' }}>No unresolved overlaps.</div>}
-          </div>
-        </div>
-      ) : currentFile ? (
+      {currentFile ? (
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
           <div style={{ padding: '8px 20px', borderBottom: '1px solid #2a2a4a', display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: '#14142a', flexShrink: 0, gap: 8 }}>
             <span style={{ fontSize: '13px', color: '#9090b0', flex: 1 }}>{currentFile}</span>
@@ -520,8 +444,8 @@ function App() {
 
               {/* Content wrapper - fills all space left of gutter */}
               <div style={{ flex: 1, minWidth: 0 }}>
-                <div ref={contentRef} className="md"
-                  style={{ padding: '20px 28px', lineHeight: 1.7, fontSize: '14px', maxWidth: '700px' }}
+                <div ref={contentRef}
+                  style={{ padding: '20px 28px', maxWidth: '820px' }}
                   onMouseUp={handleMouseUp}
                   dangerouslySetInnerHTML={{ __html: renderedHtml }}
                 />
