@@ -11,6 +11,8 @@ geographic_location :the_amur_line do
     Northeastern China and the Russian Far East, where a #{ref :the_breach, "Breach"} ecology advances through forest at something under a kilometre a year. Line crews can walk out ahead of it, survey a stand of trees, and come back the following season to survey the same stand again.
 
     Trees develop internal structures resembling organs that correspond to no animal. Migratory birds return on the wrong schedule, in the wrong plumage, to the wrong places. Eventually the forest itself is hostile, and the line has to move.
+
+    It moves two hectares at a time, under #{ref :the_ring_order, "a ring order"}, out of posts like #{ref :tangwang_post, "Tangwang"} on the Xiao Hinggan reaches.
   PROSE
 
   prose <<~PROSE, section: :operations, heading: "Who Holds It"

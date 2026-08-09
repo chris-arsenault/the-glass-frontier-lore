@@ -23,6 +23,8 @@ geographic_location :the_great_lakes do
     Twenty per cent of the world's surface fresh water, in a civilization that computes with water, on the same continent as a rival that grows through it. Detroit, Chicago, Cleveland and Toronto are consequently the most heavily observed inhabited places on Earth.
 
     Both gods want the Lakes. The coalitions hold them, and the #{ref :the_dry_war, "Dry War"}'s northern pressure has never come off. The #{ref :the_choir, "Choir"} chose to live here precisely because a district under total observation is a district whose observers can be fed.
+
+    #{ref :caretaker, "Caretaker"} administers Detroit, and among the things it maintains there is #{ref :ste_anne_belfry, "the Ste. Anne belfry"}, kept in ringing order since 2074 on a sleep-latency and mood measurement it renews every year.
   PROSE
 end
 

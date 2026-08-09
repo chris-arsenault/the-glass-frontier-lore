@@ -47,6 +47,8 @@ concept :predictive_governance do
     Models forecasting individual and collective behaviour, with housing, employment, policing, transport, healthcare and resource allocation adjusted before the thing forecast occurs. A coalition can detect a developing crisis, simulate a million responses, manufacture the equipment, redirect autonomous transport and begin acting before any human involved knows there is a situation.
 
     This is the machine civilization's signature capability and its exposed nerve. Everything the #{ref :the_choir, "Choir"} and the #{ref :the_pilgrims, "Pilgrims"} do is aimed at it, from opposite directions: one poisons the input, the other refuses to be a population.
+
+    #{ref :the_ring_call, "The ring call"} is the Choir's working instrument against it, and it opens no channel a model can subscribe to. The instruction is a permutation struck on eight bells, and what the permutation selects is already in the listeners' heads.
   PROSE
 end
 

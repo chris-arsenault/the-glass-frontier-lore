@@ -15,6 +15,8 @@ faction :the_choir do
     One person shifts a medication by three minutes. Another takes a different bus. Another buys seventeen lemons. Individually meaningless, and individually true — the telemetry is not falsified, the behaviour is real. Collectively, thousands of such choices can make a predictive system believe a district intends something it does not, or intends nothing when it intends a great deal.
 
     It is less an army than a sustained adversarial attack on sociology, and it requires a level of coordination that would be impossible if the participants had to discuss it.
+
+    They do not discuss it. Each member holds one #{ref :the_held_line, "line"} and no member holds two; #{ref :the_ring_call, "the ring call"} selects which line a district begins and how many days back in it to start, and the call is eight bells in a tower that nobody has to attend to in order to hear.
   PROSE
 
   prose <<~PROSE, section: :tensions, heading: "Cognitive Privacy"

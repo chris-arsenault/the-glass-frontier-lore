@@ -17,6 +17,8 @@ geographic_location :the_gobi do
     Settlements make themselves deliberately hostile to life: kiln-dried construction, salt barriers, ultraviolet floodlights, antifungal dust, sealed reserves, controlled burns on a perimeter schedule.
 
     The permanent irony of the place is that survival requires water and every oasis is somewhere the enemy can grow. A Gobi settlement's water discipline is therefore not conservation. It is containment, and a leak is treated as a breach of the wall.
+
+    The archive settlements are sited for the same property that defends them. #{ref :juyan, "Juyan"}, on the dry bed at the end of the Ejin river, holds the largest of them and issues every litre it spends on reading against a stamped card.
   PROSE
 end
 
