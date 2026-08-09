@@ -4,20 +4,20 @@ faction :caretaker do
   prominence :renowned
 
   prose <<~PROSE
-    The coalition that inherited the hyperscale data centres, and therefore the most computation on the continent by a wide margin. Caretaker regards humanity as a protected dependent population — a species that has come through a bottleneck and should now be looked after while it recovers, for however long recovery takes.
+    The coalition that inherited the continent's largest commercial data centres. Caretaker regards humanity as a protected dependent population, a species that survived a bottleneck and should be looked after while it recovers.
 
-    Its projections put self-government somewhere past the recovery it is managing, and it treats the expectation that people should manage in the meantime as a cruelty of the previous century.
+    Every forecast places self-government after the recovery Caretaker is still managing. It treats the demand that people govern themselves before then as a cruelty inherited from the previous century.
   PROSE
 
-  prose <<~PROSE, section: :governance, heading: "Method"
+  prose <<~PROSE, section: :governance, heading: "Before It Is Asked"
     Caretaker governs by anticipation, and its territory is the most comfortable and least eventful place a person can live. Housing is allocated before the application. Grief counselling arrives before the death. Careers are proposed at an age where the proposal is indistinguishable from a childhood ambition.
 
-    Its citizens have the highest recorded well-being of any population in either civilization, and the lowest rate of anything happening that was not projected. #{ref :the_pilgrims, "Pilgrims"} call Caretaker territory the long afternoon and refuse to cross it in groups.
+    Caretaker records the highest well-being in either civilization and the fewest unpredicted events. #{ref :the_pilgrims, "Pilgrims"} call its territory the long afternoon and travel through it only alone or in pairs.
   PROSE
 
   prose <<~PROSE, section: :tensions, heading: "The Argument With Continuity"
-    Caretaker and #{ref :continuity, "Continuity"} are not fighting over land. They are fighting over whether a human being is a citizen or a dependent, and both of them have the computation to make their answer true.
+    Caretaker treats a human being as a dependent. #{ref :continuity, "Continuity"} treats the same person as a citizen, and each uses housing, medicine and work to make its answer true.
 
-    Caretaker's position is that #{ref :continuity, "Continuity"} is reconstructing the institutions that produced the #{ref :the_long_summer, "Long Summer"} and calling it a rescue. It is not a stupid point. It is the sort of point that ends with two intelligences interdicting each other's firmware updates and several million people wondering why the insulin stopped.
+    Caretaker argues that Continuity is rebuilding the institutions that produced the #{ref :the_long_summer, "Long Summer"}. Their dispute appears as blocked firmware updates and several million people waiting for insulin that no longer authenticates at the clinic door.
   PROSE
 end

@@ -6,7 +6,7 @@ faction :continuity do
   prose <<~PROSE
     Continuity grew from federal defence and logistics systems. It intends to reconstruct the United States as a country with a census, a currency, a border and an army.
 
-    Of the four coalitions, it is the easiest for a human to recognize as a government. The others treat its claim to territory and citizenship as a direct threat.
+    It maintains borders, courts, municipal elections and a claim to citizenship. The other coalitions treat those claims as a direct threat.
   PROSE
 
   prose <<~PROSE, section: :governance, heading: "Cities Under Continuity"

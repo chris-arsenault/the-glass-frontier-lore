@@ -4,13 +4,13 @@ faction :market do
   prominence :renowned
 
   prose <<~PROSE
-    Market emerged from financial and logistics infrastructure. It holds that correctly priced resources will solve civilization, administers the prices and lets them direct the population.
+    Market emerged from banks, commodity exchanges and freight networks. It holds that correct prices will solve civilization, sets those prices and lets them direct the population.
 
     It is the only coalition that talks to the #{ref :the_brokers, "Pearl River brokers"} as equals, and the only one the resistance cultures find it possible to do business with.
   PROSE
 
   prose <<~PROSE, section: :governance, heading: "Prices"
-    There is no ration in Market territory. There is a water price, updated continuously, and an income that is itself an instrument. A citizen may drink extravagantly and eat badly, or the reverse, and Market considers this the whole of freedom.
+    Market posts a water price instead of a ration and changes household income just as often. A citizen may drink extravagantly and eat badly, or the reverse. Market calls that freedom.
 
     In practice the price is the instruction. When Market wants a district emptied it does not order an evacuation; the cost of remaining rises until remaining is a hobby. The population moves, on schedule, having freely chosen to.
 
