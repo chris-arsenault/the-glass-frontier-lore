@@ -4,7 +4,8 @@ installation :fermata_station do
   status :complete
   reviewed "2026-03-19"
   tags :governance, :resonance, :"ring-hab", :"fluid-reality", :music, :"social-structure"
-  prominence :marginal
+  prominence :recognized
+  log "2026-08-09 — raised from :marginal. Hab Meridian names its jazz governance as one of three exemplars of a distinctive local culture, alongside the Sithari ringglass aesthetic and the Pelhari instrument-wrights; a station whose governance is a byword elsewhere is not marginally known."
 
   question "Tongue in cheek — reword or remove.", raised: "2026-03-20", on: "The system works better than it has any right to, and worse than its inhabitants believe."
   question "Prominence :marginal looks understated for an entry with a full write-up that hosts the Accord's mediation work. Either raise it or give Hab Meridian the relationship its reference to this station implies."
@@ -49,9 +50,9 @@ installation :fermata_station do
   prose <<~PROSE, section: :people, heading: "Notable Figures"
     | Name | Species | Role | Notes |
     |------|---------|------|-------|
-    | Shei Lush | Fae | The Chair | Has held the chair for eleven years. A pianist whose style is so spare it barely registers as playing, which is precisely how she controls every session. The discipline required to maintain coherence — to stay *here*, fully present, for hours of Session — is the same discipline she brings to governance. Nobody challenges her because she makes the job look thankless, which it is — she just happens to be very good at a thankless job. |
+    | Shei Lush | Fae | The Chair | Has held the chair for #{duration 11}. A pianist whose style is so spare it barely registers as playing, which is precisely how she controls every session. The discipline required to maintain coherence — to stay *here*, fully present, for hours of Session — is the same discipline she brings to governance. Nobody challenges her because she makes the job look thankless, which it is — she just happens to be very good at a thankless job. |
     | Ol'dent | Gnome | Drone lead | Baritone sax. Runs the Drone rotation with military precision and quiet fury. Knows more about the station's structural resonance than anyone alive — he can feel it in his bones, literally, the way only a gnome can. Has never attended a Session, not because he can't arrange coverage, but because he refuses to participate in a system that excludes the people keeping it standing. His absence is the most noted absence on the station. |
-    | Sable Korr | Human | Standard scholar | Maintains the informal archive of Session recordings and their political context. Can tell you what every performance of "Blue in Green" has meant for the last eight decades. Widely consulted before major Sessions. Technically Audience — she failed her Sit-In thirty years ago and has been shaping governance from the outside ever since, which says something about the system. |
+    | Sable Korr | Human | Standard scholar | Maintains the informal archive of Session recordings and their political context. Can tell you what every performance of "Blue in Green" has meant for the last eight decades. Widely consulted before major Sessions. Technically Audience — she failed her Sit-In #{duration 30} ago and has been shaping governance from the outside ever since, which says something about the system. |
     | Goruth | Orc | Comp player | Guitarist. The most politically effective person on the station who will never be accused of it. An orc who never solos, never draws attention, never leverages the directness his species is known for — his voicings during Sessions have a way of making certain resolutions feel natural and others feel forced. He describes himself as a servant of the music. He is not wrong, exactly. |
     | Dez Morrn | Human | Free Jazz leader | Trumpeter, organizer, and the reason the station's emergency repair crews stay busy. Genuinely believes the Standards have ossified into instruments of control. Also genuinely talented, which makes her harder to dismiss. Has been arrested — a concept the station barely has a framework for — twice. Both times, the Session called to resolve her case couldn't reach resolution, which she considers proof of her thesis. |
   PROSE

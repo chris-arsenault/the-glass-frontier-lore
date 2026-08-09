@@ -47,7 +47,7 @@ geographic_location :deep_shear do
 
     Beyond Coremark and the Deep-runners, the Deep sees a steady trickle of small specialized crews — beast-hunters, researchers on Conclave contracts, the occasional Clarisant survey, the desperate, the curious, and the people who have run out of other options. The death rate is high. The economics work just often enough to keep the trickle flowing.
 
-    The #{ref :shear_compact, "Shear Compact"} has no special restrictions on Deep work. The Compact's position is that the Deep is part of the Shear and the Shear's standards apply. The crews working the Deep know that the standards do not, in practice, address what kills them. The Compact knows this too. The conversation about Deep-specific regulation has been ongoing for fifteen years and has produced no regulation.
+    The #{ref :shear_compact, "Shear Compact"} has no special restrictions on Deep work. The Compact's position is that the Deep is part of the Shear and the Shear's standards apply. The crews working the Deep know that the standards do not, in practice, address what kills them. The Compact knows this too. The conversation about Deep-specific regulation has been ongoing for #{duration 15} and has produced no regulation.
   PROSE
   prose <<~PROSE, section: :present_day, heading: "Present Day"
     The Deep Shear is one of the most reliably dangerous places in the system. It is also the source of the most valuable salvage anyone trades. The two facts are inseparable. The hush continues. The pockets shift. The Deep-runners pass charts to apprentices. Coremark loses ships and replaces them. The Conclave waits for the next interesting fragment. Somewhere in the inner Deep, things that nobody has charted continue to be there.

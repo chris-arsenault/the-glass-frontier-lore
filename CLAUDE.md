@@ -71,7 +71,7 @@ An entity is one `.rb` file under `worlds/<id>/world/<kind>/<id>.rb`. Static fac
 
 `approx: true` gives the rounded phrase in words, the default gives the figure in digits, and `ago: true` appends "ago". An anchor is `:now`, a year, a moment id, an era name, or an entity id (resolving to its earliest moment). `make check` inventories every span still typed by hand.
 
-A duration anchored to nothing — "held the post for eleven years" — is a length, not a span, and stays as written.
+A length with no anchor — a tenure, a lifespan, how long a stalemate has run — is not a span and cannot be computed. Write it as `#{duration 11}` ("eleven years"), which spells the number out and says the absence of an anchor is deliberate. `make check` lists every span still typed as a literal.
 
 ### Compose, don't restate
 
@@ -229,6 +229,7 @@ Every command runs against one world. `WORLD=<id>` on make, `--world <id>` (or `
 | `log [<id>]` | The entries' own history — why a fact changed, what a correction rests on. Not world content. |
 | `provenance` | Per block: who drafted it, who has read it, whose read has expired. |
 | `queue` | What the world needs next — `question` declarations plus computed findings. A render, not a file. |
+| `page <id>` | One entity's rendered page on stdout. What the review app shows as prose. |
 
 Historical state is a query, not a stored field: `world.at(era: :the_accord, year: 5).out(:coremark, :operates_in)`.
 
@@ -258,7 +259,7 @@ Historical state is a query, not a stored field: `world.at(era: :the_accord, yea
 
 ### Review app:
 
-`cd tools/review-app && npm run dev` — inline review tool on `:3456`, serving `WORLD` (default `glass-frontier`). It lists the world's DSL files and shows each one as source. Its comment endpoints are retired: a comment now goes in the DSL as `question` on the entity, so that it cannot come unstuck from the prose it is about.
+`cd tools/review-app && npm run dev` — inline review tool on `:3456`, serving `WORLD` (default `glass-frontier`). Shows each entry as prose (rendered by `lorecraft page`) or as source, and writes back into the DSL: highlighting a passage and commenting inserts a `question` on the entity, resolving deletes it, and the two buttons set `reviewed` and `status :complete`. Review in the prose view where you can — an anchor taken from it matches the prose `make check` verifies anchors against. Run `make check WORLD=<id>` after a session.
 
 ## Source Material
 

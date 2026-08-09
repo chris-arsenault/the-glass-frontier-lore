@@ -133,6 +133,9 @@ module Lorecraft
 
     def on_year(marker) = check_anchor(marker.at)
 
+    # A duration has no anchor by definition; there is nothing to resolve.
+    def on_duration(_marker) = nil
+
     private
 
     def check_anchor(anchor)

@@ -334,6 +334,28 @@ class LinterTest < Minitest::Test
     assert(findings.any? { |f| f.message.include?("orphan") && f.message.include?("lonely") })
   end
 
+  # The root of a spatial hierarchy has nothing to sit inside; being the thing
+  # others sit inside is the answer to "where is it?".
+  def test_root_location_needs_no_parent
+    findings = lint do
+      schema do
+        entity_type :geographic_location
+        relation :located_in, temporal: false
+        effect :set
+      end
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
+      geographic_location :system do name "System" end
+      geographic_location :planet do name "Planet" end
+      geographic_location :nowhere do name "Nowhere" end
+      genesis :g, at: { year: 0 } do
+        effects { set :planet, located_in: :system }
+      end
+    end
+    spatial = findings.select { |f| f.message.include?("spatial hierarchy") }
+    assert_equal 1, spatial.size
+    assert_includes spatial.first.message, "nowhere"
+  end
+
   # Reach is gated on the entity being named, and a typed edge is the exemption:
   # a forgotten name travels to whatever links to it and nowhere else.
   def reach_findings(&block)
@@ -522,6 +544,12 @@ class ElapsedTest < Minitest::Test
     assert_equal "just over two centuries", approx(210)
     assert_equal "two and a half centuries", approx(250)
     assert_equal "nearly three centuries", approx(295)
+  end
+
+  def test_words_reach_the_hundreds
+    assert_equal "a hundred and fifty", Lorecraft::Elapsed.words(150)
+    assert_equal "two hundred", Lorecraft::Elapsed.words(200)
+    assert_equal "ninety-one", Lorecraft::Elapsed.words(91)
   end
 
   def test_ago_takes_either_style
@@ -912,6 +940,15 @@ class MarkersTest < Minitest::Test
   def test_computed_markers_strip_to_placeholders
     assert_equal "for [elapsed:the_fall→now]", Lorecraft::Markers.strip("for #{elapsed(:the_fall)}")
     assert_equal "in [year:now]", Lorecraft::Markers.strip("in #{year}")
+    assert_equal "for [duration:11]", Lorecraft::Markers.strip("for #{duration(11)}")
+  end
+
+  # A duration is a length with no anchor, which is why the span check can leave
+  # it alone: a tenure is not a restated calculation.
+  def test_duration_needs_no_anchor
+    marker = Lorecraft::Markers.scan(duration(11)).first.last
+    assert_equal 11, marker.years
+    assert_equal :duration, marker.kind
   end
 
   def test_a_resolver_missing_a_kind_raises

@@ -73,8 +73,8 @@ end
   (the live target(s) of one of the owner's relations), `future "Name"` (shell
   placeholder; the name renders as prose and the stub note goes in an HTML
   comment), `embed :id[, :section]` (transclude another
-  entity's prose), `elapsed :anchor` (a span the timeline computes) and
-  `year :anchor` (an absolute year).
+  entity's prose), `elapsed :anchor` (a span the timeline computes),
+  `year :anchor` (an absolute year) and `duration n` (a length with no anchor).
 - **Adding a binding kind:** a `Marker` subclass naming its callback, then that
   callback on each resolver — `Render::Base`, `Render::Wiki`, `Validator`,
   `Linter`. There is no `case` on marker kind anywhere; a resolver that misses a

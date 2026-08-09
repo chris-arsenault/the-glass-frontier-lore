@@ -1,10 +1,16 @@
 import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react'
+import { marked } from 'marked'
 
 const API = 'http://localhost:3457/api'
 
-// Entries are Lorecraft DSL, so the reviewed text is the source itself — the
-// same text a fix has to be applied to. Shown verbatim rather than rendered.
+// Two views of an entry. Prose is what a reader gets, rendered by the engine, and
+// it is the view to review voice and register in — an anchor taken from it also
+// matches the prose `make check` verifies anchors against. Source is the DSL, for
+// seeing markers and where a fix has to be applied.
 const escapeHtml = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+
+// The engine emits front matter; a reviewer reading prose does not need it.
+const stripFrontMatter = (md) => md.replace(/^---\n[\s\S]*?\n---\n/, '')
 
 function buildTree(files) {
   const root = { __files: [], __dirs: {} }
@@ -160,6 +166,8 @@ function App() {
   const [flags, setFlags] = useState({})
   const [index, setIndex] = useState({})
   const [error, setError] = useState(null)
+  const [prose, setProse] = useState('')
+  const [view, setView] = useState('prose')
 
   const scrollRef = useRef(null)
   const contentRef = useRef(null)
@@ -196,6 +204,24 @@ function App() {
         font-size: 12.5px; line-height: 1.75; color: #c8c8e0;
         white-space: pre-wrap; overflow-wrap: break-word; tab-size: 2;
       }
+      .md { font-size: 14px; line-height: 1.7; color: #c8c8e0; }
+      .md h1 { font-size: 1.5em; margin: 0.2em 0 0.5em; color: #e0e0ff; border-bottom: 1px solid #2a2a4a; padding-bottom: 6px; }
+      .md h2 { font-size: 1.2em; margin: 1.2em 0 0.3em; color: #d0d0f0; }
+      .md h3 { font-size: 1.05em; margin: 1em 0 0.2em; color: #c0c0e0; }
+      .md p { margin: 0.7em 0; }
+      .md ul, .md ol { margin: 0.6em 0; padding-left: 1.5em; }
+      .md li { margin: 0.2em 0; }
+      .md strong { color: #e0e0ff; }
+      .md em { color: #c8c8e8; }
+      .md a { color: #818cf8; text-decoration: none; }
+      .md code { background: #1a1a3e; padding: 1px 4px; border-radius: 3px; font-size: 0.9em; }
+      .md hr { border: none; border-top: 1px solid #2a2a4a; margin: 1.4em 0; }
+      .md blockquote { border-left: 3px solid #3a3a6a; margin: 0.6em 0; padding: 0.2em 0.8em; color: #a0a0c0; }
+      .md table { border-collapse: collapse; margin: 0.6em 0; }
+      .md th, .md td { border: 1px solid #2a2a4a; padding: 4px 8px; font-size: 0.9em; }
+      .md th { background: #1a1a3e; }
+      .view-toggle { border: 1px solid #2a2a4a; border-radius: 3px; background: none; color: #777; cursor: pointer; font-size: 10px; padding: 3px 8px; }
+      .view-toggle.on { background: #1e1e40; color: #b0b0d0; border-color: #3a3a6a; }
       .gutter-card { transition: border-color 0.15s, box-shadow 0.15s; }
       .gutter-card:hover { border-color: #3a3a6a !important; }
       .gutter-card.active { border-color: #f59e0b !important; box-shadow: 0 0 0 1px rgba(249,115,22,0.3); }
@@ -249,13 +275,15 @@ function App() {
   // Everything about an entry comes from the entry: its source, the questions
   // declared in it, and its review flags.
   const loadFile = async (filePath) => {
-    const [file, questions, flagState] = await Promise.all([
+    const [file, questions, flagState, rendered] = await Promise.all([
       fetch(`${API}/file/${filePath}`).then(r => r.json()),
       fetch(`${API}/questions?file=${encodeURIComponent(filePath)}`).then(r => r.json()),
       fetch(`${API}/review-status?file=${encodeURIComponent(filePath)}`).then(r => r.json()),
+      fetch(`${API}/prose?file=${encodeURIComponent(filePath)}`).then(r => r.json()),
     ])
     setCurrentFile(file.path)
     setContent(file.content)
+    setProse(rendered.markdown ? stripFrontMatter(rendered.markdown) : '')
     setReviews(questions)
     setFlags(flagState)
     setPendingSelection(null)
@@ -269,8 +297,12 @@ function App() {
     const data = await res.json()
     if (!res.ok) return setError(data.detail || data.error || 'write failed')
     setReviews(data.questions || [])
-    const file = await fetch(`${API}/file/${currentFile}`).then(r => r.json())
+    const [file, rendered] = await Promise.all([
+      fetch(`${API}/file/${currentFile}`).then(r => r.json()),
+      fetch(`${API}/prose?file=${encodeURIComponent(currentFile)}`).then(r => r.json()),
+    ])
     setContent(file.content)
+    setProse(rendered.markdown ? stripFrontMatter(rendered.markdown) : '')
     refreshIndex()
     setError(null)
   }
@@ -360,10 +392,10 @@ function App() {
   // A question with no anchor, or one whose anchor no longer appears in the
   // source — the case `make check` warns about.
   const orphanedReviews = reviews.filter(q => !(q.line in commentPositions))
-  const renderedHtml = useMemo(
-    () => content ? `<pre class="src">${escapeHtml(content)}</pre>` : '',
-    [content]
-  )
+  const renderedHtml = useMemo(() => {
+    if (view === 'source') return content ? `<pre class="src">${escapeHtml(content)}</pre>` : ''
+    return prose ? marked.parse(prose) : ''
+  }, [view, content, prose])
 
   const toggleCollapsed = (path) => {
     setCollapsed(prev => {
@@ -413,6 +445,13 @@ function App() {
                 {reviews.length} question{reviews.length !== 1 ? 's' : ''}
               </span>
             )}
+            <span>
+              <button className={`view-toggle${view === 'prose' ? ' on' : ''}`}
+                onClick={() => setView('prose')} title="as a reader sees it">prose</button>
+              <button className={`view-toggle${view === 'source' ? ' on' : ''}`}
+                onClick={() => setView('source')} style={{ marginLeft: 3 }}
+                title="the DSL, markers and all">source</button>
+            </span>
             <button onClick={() => toggleFlag('reviewed')}
               style={{
                 padding: '3px 8px', borderRadius: '3px', cursor: 'pointer', fontSize: '10px',
@@ -438,7 +477,7 @@ function App() {
 
               {/* Content wrapper - fills all space left of gutter */}
               <div style={{ flex: 1, minWidth: 0 }}>
-                <div ref={contentRef}
+                <div ref={contentRef} className={view === 'prose' ? 'md' : undefined}
                   style={{ padding: '20px 28px', maxWidth: '820px' }}
                   onMouseUp={handleMouseUp}
                   dangerouslySetInnerHTML={{ __html: renderedHtml }}

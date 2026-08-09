@@ -86,6 +86,17 @@ module Lorecraft
     def plain = "[year:#{at}]"
   end
 
+  # A length of time anchored to nothing — a tenure, a lifespan, how long an
+  # argument has run. Not a span between two dates, so the timeline cannot
+  # compute it; the marker exists to say so, and to spell the number out the
+  # same way everywhere.
+  class DurationMarker < Marker
+    KIND = :duration
+    def years = @attrs[:years]
+    def resolve(resolver) = resolver.on_duration(self)
+    def plain = "[duration:#{years}]"
+  end
+
   # Prose carries inline bindings — `ref` (a cross-reference to another entity),
   # `rel` (the live target(s) of one of the owner's relations at the render
   # era), and `future` (a placeholder for a not-yet-written entity). Because
@@ -106,6 +117,7 @@ module Lorecraft
     EMB = "#{SEP}EMB#{SEP}".freeze
     ELA = "#{SEP}ELA#{SEP}".freeze
     YER = "#{SEP}YER#{SEP}".freeze
+    DUR = "#{SEP}DUR#{SEP}".freeze
     FIELD = "#{SEP}|#{SEP}".freeze
     ENDM = "#{SEP}END#{SEP}".freeze
 
@@ -164,6 +176,14 @@ module Lorecraft
       [YER, at, ENDM].join
     end
 
+    # A LENGTH with no anchor — a tenure, a lifespan, how long a stalemate has
+    # run. Use it where there is genuinely no date to count from, so the span
+    # check can tell a length apart from a restated calculation.
+    #   "has held the chair for #{duration 11}"   → for eleven years
+    def duration(years)
+      [DUR, years, ENDM].join
+    end
+
     F = Regexp.escape(FIELD)
     E = Regexp.escape(ENDM)
     REF_RE = /#{Regexp.escape(REF)}(.*?)#{F}(.*?)#{F}(.*?)#{F}(.*?)#{E}/m
@@ -172,7 +192,8 @@ module Lorecraft
     EMB_RE = /#{Regexp.escape(EMB)}(.*?)#{F}(.*?)#{E}/m
     ELA_RE = /#{Regexp.escape(ELA)}(.*?)#{F}(.*?)#{F}(.*?)#{F}(.*?)#{E}/m
     YER_RE = /#{Regexp.escape(YER)}(.*?)#{E}/m
-    ANY_RE = /#{REF_RE}|#{REL_RE}|#{FUT_RE}|#{EMB_RE}|#{ELA_RE}|#{YER_RE}/m
+    DUR_RE = /#{Regexp.escape(DUR)}(.*?)#{E}/m
+    ANY_RE = /#{REF_RE}|#{REL_RE}|#{FUT_RE}|#{EMB_RE}|#{ELA_RE}|#{YER_RE}|#{DUR_RE}/m
 
     # Parse every binding in a blob of assembled prose, in document order.
     # Yields the full matched substring and the Marker describing the binding.
@@ -199,6 +220,7 @@ module Lorecraft
                                 approx: m[12] == "true", ago: m[13] == "true")
       },],
       [YER, ->(m) { YearMarker.new(m[0], at: anchor(m[14]) || :now) }],
+      [DUR, ->(m) { DurationMarker.new(m[0], years: m[15].to_i) }],
     ].freeze
 
     # Turn one regexp match into the Marker subclass that models it.

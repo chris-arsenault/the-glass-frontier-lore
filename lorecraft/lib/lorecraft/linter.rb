@@ -151,6 +151,7 @@ module Lorecraft
     def on_elapsed(_marker) = nil
     def on_year(_marker) = nil
     def on_embed(_marker) = nil
+    def on_duration(_marker) = nil
 
     private
 
@@ -323,12 +324,17 @@ module Lorecraft
     end
 
     def check_location_spatial
-      have = @world.relationships.select { |_s, v, _t| SPATIAL_HIERARCHY.include?(v) }
-                   .map { |s, _v, _t| s }.to_set
+      spatial = @world.relationships.select { |_s, v, _t| SPATIAL_HIERARCHY.include?(v) }
+      inside = spatial.map { |s, _v, _t| s }.to_set
+      # The top of the hierarchy has nothing to sit inside. A location other
+      # places locate themselves within IS the answer to "where is it?", so
+      # asking it of the root is the check misfiring, not a gap in the world.
+      contains = spatial.map { |_s, _v, t| t }.to_set
       pages.each do |e|
         next unless LOCATION_KINDS.include?(e.kind)
+        next if inside.include?(e.id) || contains.include?(e.id)
 
-        warn("location #{e.id} has no spatial hierarchy relationship (where is it?)") unless have.include?(e.id)
+        warn("location #{e.id} has no spatial hierarchy relationship (where is it?)")
       end
     end
 

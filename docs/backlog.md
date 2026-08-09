@@ -22,10 +22,12 @@ has no premise yet.
 
 `tools/review-app/` reads and writes the DSL: raising a question inserts a
 `question` line into the entity, resolving one deletes it, and the two flags write
-`reviewed` and `status :complete`. Two things it still does not do: render `prose`
-as prose rather than as source, and follow `#{ref}` links between entries.
+`reviewed` and `status :complete`. It shows either view — prose as a reader gets
+it, rendered by `lorecraft page`, or the source with its markers.
 
-An anchor is trimmed to its longest marker-free run before it is stored, because a
-selection spanning `#{ref …}` matches nothing once the world loads. A selection
-that is mostly markers therefore lands as a question about the entry with no
-anchor at all.
+Review in the prose view where you can: an anchor taken from it matches the prose
+`make check` verifies anchors against. A selection made in the source view is
+trimmed to its longest marker-free run, because a span crossing `#{ref …}` matches
+nothing once the world loads.
+
+Still missing: `#{ref}` links do not navigate between entries.

@@ -69,11 +69,16 @@ const rubyString = (text) =>
 // becomes its own text when the world loads — so a selection spanning
 // `#{ref :x, "Label"}` matches nothing. Keep the longest marker-free run, and
 // drop the anchor entirely if what is left is too short to identify a passage.
+// The floor guards against a scrap left behind by trimming, so it only applies
+// when there was something to trim. A selection from the prose view arrives
+// whole, and a short distinctive word is a fine anchor.
 const ANCHOR_MIN = 12
 const anchorFrom = (selection) => {
-  const best = String(selection || '')
-    .split(/#\{[^}]*\}?/)
-    .map((s) => s.replace(/\s+/g, ' ').trim())
+  const text = String(selection || '').replace(/\s+/g, ' ').trim()
+  if (!text) return null
+  if (!text.includes('#{')) return text
+
+  const best = text.split(/#\{[^}]*\}?/).map((s) => s.replace(/\s+/g, ' ').trim())
     .sort((a, b) => b.length - a.length)[0] || ''
   return best.length >= ANCHOR_MIN ? best : null
 }
@@ -99,6 +104,31 @@ const insertionPoint = (lines) => {
   const firstProse = lines.findIndex((l) => /^\s*prose\b/.test(l))
   return firstProse >= 0 ? firstProse : Math.max(lines.length - 1, 0)
 }
+
+// The entry as a reader sees it. The engine renders it, because the engine is
+// what knows how a marker resolves — reimplementing that here would be a second
+// answer to the same question. An anchor taken from this view matches the prose
+// `make check` verifies the anchor against.
+const { execFileSync } = require('child_process')
+const ENTITY_ID_RE = /^\s*\w+\s+:(\w+)\s+do/m
+
+app.get('/api/prose', (req, res) => {
+  const file = resolve(req.query.file)
+  if (!file) return res.status(404).json({ error: 'File not found' })
+
+  const id = (fs.readFileSync(file, 'utf-8').match(ENTITY_ID_RE) || [])[1]
+  if (!id) return res.status(422).json({ error: 'No entity declaration in this file' })
+
+  try {
+    const markdown = execFileSync(
+      'ruby', [path.join(REPO_ROOT, 'lorecraft/bin/lorecraft'), 'page', id, '--world', WORLD],
+      { cwd: REPO_ROOT, encoding: 'utf-8', maxBuffer: 8 << 20 }
+    )
+    res.json({ id, markdown })
+  } catch (e) {
+    res.status(500).json({ error: 'render failed', detail: String(e.stderr || e.message).slice(0, 500) })
+  }
+})
 
 // One pass over the corpus for the sidebar: how many questions each entry
 // carries and whether it has been read and finished.

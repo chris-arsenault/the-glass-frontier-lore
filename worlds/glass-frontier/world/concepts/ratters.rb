@@ -5,7 +5,7 @@ concept :ratters do
   prominence :recognized
 
   prose <<~PROSE
-    The independent salvage subculture of #{ref :the_shear, "the Shear"}. Ratters are the working majority of Shear salvage by ship-count and the minority by tonnage — small crews, fast ships, marginal profits, and a working identity that has held together for nearly forty years across hundreds of vessels and several economic eras. They pioneered Shear salvage in the 2320s. They survive #{ref :coremark, "Coremark"} by being smaller, faster, and more numerous. They tolerate the #{ref :shear_compact, "Shear Compact"} because the Compact tolerates them.
+    The independent salvage subculture of #{ref :the_shear, "the Shear"}. Ratters are the working majority of Shear salvage by ship-count and the minority by tonnage — small crews, fast ships, marginal profits, and a working identity that has held together for #{elapsed 2320, approx: true} across hundreds of vessels and several economic eras. They pioneered Shear salvage in the 2320s. They survive #{ref :coremark, "Coremark"} by being smaller, faster, and more numerous. They tolerate the #{ref :shear_compact, "Shear Compact"} because the Compact tolerates them.
 
     The name is old, originally an insult, and now carried with the kind of stubborn pride that working people develop when an outsider's word for them turns out to be useful.
   PROSE
@@ -14,7 +14,7 @@ concept :ratters do
 
     A flotilla shares: forecasting data, debris-mass charts, navigation hazards, current Coremark and Compact movements, fence contacts, ship-doctor referrals, news of who is owed what by whom. A flotilla does not share: hauls, claims, ship maintenance, or crew. Each ship is its own crew, its own business, its own command. The flotilla coordinates; the ships work.
 
-    Long-rats are not appointed and not elected. They emerge. A captain who consistently produces useful intel, who handles disputes among flotilla members fairly, and who can be relied on to show up when another ship calls for help, becomes the long-rat by the simple fact that the other captains start treating them that way. The transition is rarely formal and never marked. Long-rats step down by the same process, in reverse. Some flotillas have had four long-rats in a decade. Some have had the same one for thirty years.
+    Long-rats are not appointed and not elected. They emerge. A captain who consistently produces useful intel, who handles disputes among flotilla members fairly, and who can be relied on to show up when another ship calls for help, becomes the long-rat by the simple fact that the other captains start treating them that way. The transition is rarely formal and never marked. Long-rats step down by the same process, in reverse. Some flotillas have had four long-rats in a decade. Some have had the same one for #{duration 30}.
 
     A typical Ratter ship runs three to six crew. The largest carry ten or twelve and are essentially small industrial operations on a hull. The smallest are two-person skiffs that do quick-grab runs on the Shear's accessible edges and never go deeper than their fuel allows. Ratters call their ships **skiffs** regardless of size, which non-Ratters find ridiculous and the Ratters find correct.
   PROSE
@@ -50,7 +50,7 @@ concept :ratters do
     The three layers — gear, cant, marks — are not separable. A Ratter wearing the gear but not speaking the cant is suspect. A speaker of the cant without the gear is a journalist or a tourist or a problem. The combination is the credential, and it is not easily faked.
   PROSE
   prose <<~PROSE, section: :present_day, heading: "Present Day"
-    There are tens of thousands of Ratters. The exact figure is not knowable; the Compact has tried to count them and given up. They are the system's working majority in the Shear and the cultural template for independent salvage everywhere it happens. Their ships range from immaculate to held-together-by-rumor. Their economic position is precarious by design. Their political relevance is greater than their numbers suggest because they have, for forty years, refused to consolidate.
+    There are tens of thousands of Ratters. The exact figure is not knowable; the Compact has tried to count them and given up. They are the system's working majority in the Shear and the cultural template for independent salvage everywhere it happens. Their ships range from immaculate to held-together-by-rumor. Their economic position is precarious by design. Their political relevance is greater than their numbers suggest because they have, for #{elapsed 2320, approx: true}, refused to consolidate.
 
     The subculture is not romantic about itself. Ratters die in the Shear at rates that surface people do not believe when told. The work is hard, the margins are thin, and the long-rat structure is fragile under stress. But the structure has held. The debts get paid. The distress calls get answered. The next generation of skiff captains is already learning the cant.
   PROSE

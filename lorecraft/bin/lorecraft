@@ -135,6 +135,15 @@ when "graph"
 when "timeline"
   id = ARGV.shift or abort("usage: lorecraft timeline <entity-id>")
   puts load_world.render(:timeline, entity: id, at: at)
+when "page"
+  # One entity's rendered page, on stdout. The review app reads this so a
+  # reviewer sees prose rather than source, and so an anchor taken from what they
+  # highlighted matches the prose the linter checks against.
+  id = ARGV.shift or abort("usage: lorecraft page <entity-id>")
+  w = load_world
+  node = w.entity(id.tr("-", "_").to_sym) or abort("unknown entity: #{id}")
+  puts Lorecraft::Render::Markdown.new(w)
+                                  .page_markdown(node, year: w.timeline.now_year, audience: audience)
 when "queue"
   # Assembled, never authored: declared questions on entries + computed findings.
   w = load_world

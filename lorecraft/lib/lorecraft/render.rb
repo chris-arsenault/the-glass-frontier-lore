@@ -127,6 +127,8 @@ module Lorecraft
 
       def on_year(marker) = @world.year_of(marker.at).to_s
 
+      def on_duration(marker) = "#{Elapsed.words(marker.years)} #{marker.years == 1 ? 'year' : 'years'}"
+
       def on_ref(marker)
         if marker.id && path_index[marker.id]
           link(marker[:text] || title_for(marker.id), path_index[marker.id], @from_path, marker[:anchor])

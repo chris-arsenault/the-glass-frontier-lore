@@ -67,14 +67,20 @@ module Lorecraft
       end
     end
 
-    # Spelled-out numbers below a hundred, because prose spells small spans out.
-    # Anything larger belongs in `exact` as digits, or in a centuries phrase.
+    # Spelled-out numbers, because prose spells a span out rather than printing
+    # digits mid-sentence. Past a thousand years the phrase is a century count.
     def self.words(number)
-      return number.to_s unless number.between?(0, 99)
+      return number.to_s unless number.between?(0, 999)
       return ONES[number] if number < 20
 
-      tens, ones = number.divmod(10)
-      [TENS[tens], ones.zero? ? nil : ONES[ones]].compact.join("-")
+      if number < 100
+        tens, ones = number.divmod(10)
+        return [TENS[tens], ones.zero? ? nil : ONES[ones]].compact.join("-")
+      end
+
+      hundreds, rest = number.divmod(100)
+      head = hundreds == 1 ? "a hundred" : "#{ONES[hundreds]} hundred"
+      rest.zero? ? head : "#{head} and #{words(rest)}"
     end
   end
 end

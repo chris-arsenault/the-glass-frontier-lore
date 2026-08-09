@@ -3,6 +3,7 @@ resource :kite_sail do
   path "player/artifacts/common/kite-sail.md"
   status :complete
   reviewed "2026-03-19"
+  log "2026-08-09 — the null space \"has never caused a problem in two centuries of use\" is now anchored to the Glassfall. A kite runs on ambient resonance, which this entry says came from ringglass scattered by the shattering, so the Glassfall is the earliest date kites can exist."
   tags :transport, :resonance, :"kinetic-freq", :trade
   prominence :renowned
   aka "Kinetic Inverse Transport Engine"
@@ -36,7 +37,7 @@ resource :kite_sail do
   prose <<~PROSE, section: :limits, heading: "Limits"
     The momentum nullification field requires continuous resonance input. In resonance-rich areas (most of Kaleidos, the ring), this comes from the environment. In resonance-poor areas (deep interplanetary space, Shear dead zones), the vessel burns stored energy. Run out, and you're drifting.
 
-    The null space receiving the redirected forces is not well understood. It's a frequency domain, not a physical location. The forces don't "go" anywhere physics can track. This has never caused a problem in two centuries of use. Engineers find this more concerning, not less.
+    The null space receiving the redirected forces is not well understood. It's a frequency domain, not a physical location. The forces don't "go" anywhere physics can track. This has never caused a problem in #{elapsed :the_glassfall, approx: true} of use. Engineers find this more concerning, not less.
 
     Large-scale momentum nullification — moving a ring hab — is theoretically possible and practically beyond any existing array's capacity.
   PROSE
