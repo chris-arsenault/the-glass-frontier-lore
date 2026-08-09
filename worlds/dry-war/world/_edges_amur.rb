@@ -31,15 +31,9 @@ relate :rel_amur_xie_employed_by_root, :employed_by, :xie_lanting, :the_great_ro
 relate :rel_amur_xie_at_post, :located_in, :xie_lanting, :tangwang_post, since: 2087
 relate :rel_amur_xie_operates_line, :operates_in, :xie_lanting, :the_amur_line, since: 2084
 relate :rel_amur_ring_conducted_by_xie, :conducted_by, :the_ring_order, :xie_lanting, since: 2087
-relate :rel_amur_xie_studies_others, :studies, :xie_lanting, :the_others, since: 2084 do
-  prose "Twenty cores a compartment, counting closed sleeves of foreign tissue. On this reach that is the only way anybody studies them."
-end
-relate :rel_amur_xie_studies_sanchakou, :studies, :xie_lanting, :sanchakou, since: 2087 do
-  prose "Her comparison drawer holds cores off its orchard rows from each of the three register years the post has issued orders in."
-end
-relate :rel_amur_xie_cooperates_continuity, :cooperates_with, :xie_lanting, :continuity, since: 2087 do
-  prose "Eleven files in the current register carry a core sheet and a deviation sheet that contradict each other, and all twenty-two sheets were signed and filed."
-end
+relate :rel_amur_xie_studies_others, :studies, :xie_lanting, :the_others, since: 2084
+relate :rel_amur_xie_studies_sanchakou, :studies, :xie_lanting, :sanchakou, since: 2087
+relate :rel_amur_xie_cooperates_continuity, :cooperates_with, :xie_lanting, :continuity, since: 2087
 
 # ---- the scout hut ----
 relate :rel_amur_tsoi_employed_by_post, :employed_by, :nadya_tsoi, :tangwang_post, since: 2085
@@ -52,14 +46,10 @@ relate :rel_amur_tsoi_studies_others, :studies, :nadya_tsoi, :the_others, since:
 relate :rel_amur_tsoi_operates_sanchakou, :operates_in, :nadya_tsoi, :sanchakou, since: 2085 do
   prose "Its grid-hands have walked the band's far margin with her in every week since the band was published."
 end
-relate :rel_amur_continuity_petitions_tsoi, :petitions, :continuity, :nadya_tsoi, since: 2087 do
-  prose "Filed on the day of every cut and again on every release, kept in copy, never answered and never withdrawn."
-end
+relate :rel_amur_continuity_petitions_tsoi, :petitions, :continuity, :nadya_tsoi, since: 2087
 
 # ---- the two human record keepers ----
-relate :rel_amur_xie_cooperates_tsoi, :cooperates_with, :xie_lanting, :nadya_tsoi, since: 2087 do
-  prose "They have never put the same recommendation on a file the cabinet opened, and each has been in the compartment on the other's day."
-end
+relate :rel_amur_xie_cooperates_tsoi, :cooperates_with, :xie_lanting, :nadya_tsoi, since: 2087
 
 # ---- the file ----
 relate :rel_amur_file_during_holding, :active_during, :the_sanchakou_ring, :the_holding

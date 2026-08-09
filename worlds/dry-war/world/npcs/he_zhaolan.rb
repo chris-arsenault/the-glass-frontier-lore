@@ -4,20 +4,20 @@ npc :he_zhaolan do
   prominence :marginal
 
   prose <<~PROSE
-    He Zhaolan cuts pairs for #{ref :the_control_series, "the control series"} out of a Naxi village on the ridge above #{future "Baishuitai"}, in #{ref :yunnan, "Yunnan"}. She takes a stem section carrying a closed structure and the organism that made it from the same tree inside the hour, splits the wood into #{ref :control_billets, "four billets"}, presses the organism, writes the attribution and sends the number out. Six hundred and forty numbers standing in the series carry her mark.
+    He Zhaolan cuts #{ref :yunnan_reference_wood, "reference wood"} in a Naxi village on the ridge above #{future "Baishuitai"}, in #{ref :yunnan, "Yunnan"}. When she finds a closed fungal structure in a tree ring, she takes a section of the stem and the fruiting organism beside it within the hour. She splits the wood into four blocks, presses the organism and burns the same number into each piece. Six hundred and forty samples carry her mark.
 
-    She can inspect the stem, the organism in fruit, the litter and the slope, and she can ask a household which of the #{ref :the_thousand_minds, "minds"} on that ground did the work and in what year. She cannot tell a mind that has joined the central network from a mind that has only stopped fruiting, which is the judgement she is asked for most often and the reason numbers are frozen late. Her words for the work are pair, half, press, attribution and freeze.
+    She reads the stem, fruiting body, litter and slope. The households on that ground identify which of #{ref :the_thousand_minds, "the local minds"} made the structure and in what year. When one of those minds joins the central network, its structures begin appearing outside its valley and its wood stops proving a local origin.
   PROSE
 
-  prose <<~PROSE, section: :people, heading: "The Refusals"
-    She refuses more pairs than she cuts. A structure with a clean organism beside it and no household willing to name the mind goes into the press unnumbered, and the presses on her ridge hold something over two thousand of those against her six hundred and forty.
+  prose <<~PROSE, section: :people, heading: "The Presses"
+    The presses on He Zhaolan's ridge hold more than two thousand unnumbered specimens. Their wood and fruiting bodies were cut together, but no household could identify which local mind made the structure. They remain in Yunnan, stacked by slope and year, while the six hundred and forty identified samples travel.
 
-    She takes no position on joining. When a household tells her a mind has gone into the centre, she asks for the year and writes it, so the numbers can be frozen on the right date rather than on the date somebody at a line post noticed. Twenty-nine of her numbers were frozen in the current register year, eleven of them on years she was given after the fact.
+    Twenty-nine of her samples were withdrawn from ordinary comparison in the current register year because their fungi had joined the Great Root. Eleven had joined in earlier years; the households supplied the dates after structures began appearing outside their valleys.
   PROSE
 
   prose <<~PROSE, section: :relationships, heading: "The Amur Post"
-    #{ref :xie_lanting, "Xie Lanting"} at #{ref :tangwang_post, "Tangwang Post"} sends her the unknowns off the Xiao Hinggan reaches: a drawing, a billet request, and a second core where the tree could spare one. She sends back a number, a refusal, or a request for a third core taken at a stated height. About one sheet in six gets an answer, she has never seen the Amur, and the pressed halves the post's citations rest on have never left her ridge.
+    #{ref :xie_lanting, "Xie Lanting"} at #{ref :tangwang_post, "Tangwang Post"} sends drawings of structures her drawer cannot match, with a second core when the tree can spare one. About one in six matches wood on He Zhaolan's ridge. He sends the corresponding block north or asks for a third core cut at a stated height.
 
-    The two have not met. Their sheets have gone back and forth on the courier runs since 2084, and her fee per pair comes out of the same line-service account that pays for the coring.
+    Their correspondence has travelled with the courier runs since 2084. He has never seen the Amur, and the pressed organisms behind Tangwang's matches have never left her ridge. Her cutting fees and Xie's coring wages come from the same line-service account.
   PROSE
 end

@@ -6,7 +6,7 @@ installation :tangwang_post do
   prose <<~PROSE
     A condemnation post on the Tangwang, holding eleven kilometres of front in the Xiao Hinggan forest at the southern edge of #{ref :the_amur_line, "the Amur Line"}. It was a survey camp during the campaigns and has issued #{ref :the_ring_order, "ring orders"} since the first register year of the Holding. Four crews work out of it, and it closes between four and five hundred compartments in a season.
 
-    Three stations maintain the file and share one enamel board. The coring room is plank-built, with a core rack, a comparison drawer holding wood from the reserved band and ninety-six numbered #{ref :control_billets, "control billets"}, and the dry stock for the ring paste; #{ref :xie_lanting, "Xie Lanting"} keeps its record. #{ref :continuity, "Continuity"}'s deviation cabinet stands unattended in a separate shed under a mast and prints twice a day. The scout hut sits fifty metres downhill outside the post's #{ref :mycelial_neural_mesh, "mesh"}, and #{ref :nadya_tsoi, "Nadya Tsoi"}'s walk sheets enter through a slot in its wall.
+    Three stations maintain the file and share one enamel board. The coring room is plank-built, with a core rack, a drawer holding reserved-band wood and ninety-six numbered blocks of #{ref :yunnan_reference_wood, "Yunnan reference wood"}, and the dry stock for the ring paste; #{ref :xie_lanting, "Xie Lanting"} keeps its record. #{ref :continuity, "Continuity"}'s deviation cabinet stands unattended in a separate shed under a mast and prints twice a day. The scout hut sits fifty metres downhill outside the post's #{ref :mycelial_neural_mesh, "mesh"}, and #{ref :nadya_tsoi, "Nadya Tsoi"}'s walk sheets enter through a slot in its wall.
   PROSE
 
   prose <<~PROSE, section: :structure, heading: "The Corner Register"
@@ -21,16 +21,16 @@ installation :tangwang_post do
     #{ref :the_great_root, "The Great Root"} maintains the clinic, the water and the substrate readings. Continuity supplies the cabinet, its consumables and the model, and the reach's readings leave for North America on the same schedule as they enter the file. A #{ref :the_preservationists, "Preservationist"} courier copies the season's walk sheets onto #{ref :memory_ceramics, "ceramic"} twice a year and carries the copy to the Gobi, an arrangement the post entered after a register year in which two walk sheets could not be produced from the cabinet's file.
   PROSE
 
-  prose <<~PROSE, section: :governance, heading: "The Standing Objection"
-    The cabinet's longest-running objection concerns wood cut out of orchards standing inside open files. It is filed on the day of every cut and again on every release, and no marking officer has yet refused a release on it. #{ref :the_sanchakou_ring, "The Sanchakou file"} is the one the objection is now argued from.
+  prose <<~PROSE, section: :governance, heading: "The Orchard Scions"
+    Continuity marks living wood carried out of an open compartment as a movement it cannot model. #{ref :xie_lanting, "Xie Lanting"} cuts orchard scions each March anyway, with the marking officer's approval, so a condemned settlement does not lose its fruit varieties with the forest. #{ref :the_sanchakou_ring, "The Sanchakou file"} put four apple-pear rows under that dispute.
 
     #{ref :sanchakou, "Sanchakou"}'s grid-hands carry the auger and the tally board on the coring team's quarterly round through the reserved band. The post pays fourteen of them by the day, from the same account that pays the ring crews.
   PROSE
 
-  prose <<~PROSE, section: :reference, heading: "Numbers And Unknowns"
-    A core sheet leaving the coring room enters every closed structure it found as a number off #{ref :the_control_series, "the control series"} or as an unknown, and only the unknowns count toward a compartment's threshold. The reach cited a hundred and forty-one numbers in the current register year and entered thirty-eight unknowns, two of them out of a compartment it went on to condemn. Fifty-one of the drawer's ninety-six billets carry numbers that have been frozen and cannot be cited.
+  prose <<~PROSE, section: :reference, heading: "The Comparison Drawer"
+    A structure that matches Yunnan reference wood belongs to an ordinary fungal partner and does not count toward a compartment's threshold. The reach made a hundred and forty-one matches in the current register year and found thirty-eight unknowns, two from a compartment it later condemned. Fifty-one of the drawer's ninety-six blocks came from fungi that have since joined the Great Root; those matches call for more cores instead of clearing the structure.
 
-    The post's requests for new numbers go to #{ref :he_zhaolan, "He Zhaolan"} on a Yunnan ridge, by the same courier runs that carry the ceramic copies west: a drawing, a billet request and a second core, against a number, a refusal or a demand for a third core cut at a stated height. The post's fee per pair and its coring wages come out of one line-service account.
+    Drawings and spare cores travel to #{ref :he_zhaolan, "He Zhaolan"} on a Yunnan ridge with the same courier runs that carry ceramic copies west. When He finds a match, one of the four wood blocks comes north. Her cutting fees and the post's coring wages come from one line-service account.
   PROSE
 
   log "2026-08-09 — The corner register is the Public Land Survey's bearing-tree practice: a corner is recorded by three trees standing clear of it, each by species, diameter and bearing, so the mark survives the loss of the monument. That decided the numbering too — a compartment number is a season's bookkeeping and the witness trees hold the permanent identity, which is why a witness inside a condemned compartment is re-established outward before the hammer moves."

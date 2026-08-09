@@ -90,9 +90,7 @@ relate :rel_tc_sitting_conducted_by_gatekeepers, :conducted_by, :the_refusal_sit
   prose "On the Hexi side the examiner is an audit-bench auditor at the standard fee, chosen because the fee is the whole of their interest in the mind."
 end
 relate :rel_tc_sitting_practiced_by_dead_counties, :practiced_by, :the_refusal_sitting, :the_dead_counties, since: 2078
-relate :rel_tc_minds_study_sitting, :studies, :the_thousand_minds, :the_refusal_sitting, since: 2080 do
-  prose "Yunnan households keep a copy of every card issued in the province and argue from the refusal columns that a mind belonging to a valley can be shown to end where the valley ends."
-end
+relate :rel_tc_minds_study_sitting, :studies, :the_thousand_minds, :the_refusal_sitting, since: 2080
 
 relate :rel_tc_heshun_in_yunnan, :located_in, :heshun_packet_house, :yunnan, since: 2069
 relate :rel_tc_heshun_supplies_packets, :supplies, :heshun_packet_house, :outside_packets, since: 2069

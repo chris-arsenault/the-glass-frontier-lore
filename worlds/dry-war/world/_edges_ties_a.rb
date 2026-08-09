@@ -19,38 +19,18 @@ relate :rel_ties_ecologies_practiced_courts, :practiced_by, :programmable_ecolog
 relate :rel_ties_burn_during_holding, :active_during, :the_marsyangdi_burn, :the_holding
 relate :rel_ties_root_in_burn, :participated_in, :the_great_root, :the_marsyangdi_burn
 
-# ---- C. the control series: Thousand Minds ↔ the Amur Line ----
-relate :rel_ties_series_at_line, :manifests_at, :the_control_series, :the_amur_line
-# The series itself is not at Tangwang. He Zhaolan's pressed halves have never
-# left her ridge; what the post holds is billets it was sent, which the
-# `possesses control_billets` edge below already carries. `mentions` keeps the
-# prose reference legible without restating the structural claim.
-relate :rel_ties_series_mentions_post, :mentions, :the_control_series, :tangwang_post
-relate :rel_ties_ringorder_depends_series, :depends_on, :the_ring_order, :the_control_series do
-  prose "A cited number does not count toward a compartment's threshold. An unknown does."
-end
-relate :rel_ties_series_derived_minds, :derived_from, :the_control_series, :the_thousand_minds do
-  prose "Most of the series was cut in Yunnan, because the attribution needs a household that can name which mind did the work and in what year."
-end
-relate :rel_ties_minds_supply_series, :supplies, :the_thousand_minds, :the_control_series
-relate :rel_ties_series_at_yunnan, :manifests_at, :the_control_series, :yunnan
-relate :rel_ties_root_regulates_series, :regulates, :the_great_root, :the_control_series, since: 2084 do
-  prose "A mind that joins the central network has its numbers frozen with the year of joining entered beside them. Four hundred and six numbers stand frozen."
-end
-
-relate :rel_ties_billets_part_of_series, :part_of, :control_billets, :the_control_series
-relate :rel_ties_post_possesses_billets, :possesses, :tangwang_post, :control_billets, since: 2085 do
-  prose "Ninety-six in the comparison drawer, on end in sand, faces inward, fifty-one of them frozen numbers."
-end
-relate :rel_ties_xie_carries_billets, :carries, :xie_lanting, :control_billets, since: 2085
-relate :rel_ties_line_depends_billets, :depends_on, :the_amur_line, :control_billets
+# ---- C. Yunnan reference wood: Thousand Minds ↔ the Amur Line ----
+relate :rel_ties_reference_wood_from_minds, :derived_from, :yunnan_reference_wood, :the_thousand_minds
+relate :rel_ties_reference_wood_from_yunnan, :sourced_from, :yunnan_reference_wood, :yunnan
+relate :rel_ties_minds_supply_reference_wood, :supplies, :the_thousand_minds, :yunnan_reference_wood
+relate :rel_ties_line_depends_reference_wood, :depends_on, :the_amur_line, :yunnan_reference_wood
+relate :rel_ties_ringorder_depends_reference_wood, :depends_on, :the_ring_order, :yunnan_reference_wood
+relate :rel_ties_post_possesses_reference_wood, :possesses, :tangwang_post, :yunnan_reference_wood, since: 2085
+relate :rel_ties_xie_carries_reference_wood, :carries, :xie_lanting, :yunnan_reference_wood, since: 2085
 
 relate :rel_ties_he_in_yunnan, :located_in, :he_zhaolan, :yunnan
 relate :rel_ties_he_studies_minds, :studies, :he_zhaolan, :the_thousand_minds
-relate :rel_ties_he_maintains_series, :maintains, :he_zhaolan, :the_control_series, since: 2079
-relate :rel_ties_he_created_billets, :created, :he_zhaolan, :control_billets
+relate :rel_ties_he_created_reference_wood, :created, :he_zhaolan, :yunnan_reference_wood
 relate :rel_ties_he_supplies_post, :supplies, :he_zhaolan, :tangwang_post, since: 2084
-relate :rel_ties_he_cooperates_xie, :cooperates_with, :he_zhaolan, :xie_lanting, since: 2084 do
-  prose "A drawing, a billet request and a second core go south; a number, a refusal or a demand for a third core comes back. About one sheet in six is answered, and the two have not met."
-end
-relate :rel_ties_xie_studies_series, :studies, :xie_lanting, :the_control_series, since: 2084
+relate :rel_ties_he_cooperates_xie, :cooperates_with, :he_zhaolan, :xie_lanting, since: 2084
+relate :rel_ties_xie_studies_reference_wood, :studies, :xie_lanting, :yunnan_reference_wood, since: 2084

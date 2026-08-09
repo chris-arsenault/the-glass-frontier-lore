@@ -16,11 +16,11 @@ geographic_location :the_amur_line do
   PROSE
 
   prose <<~PROSE, section: :operations, heading: "Who Holds It"
-    Technologies that would not otherwise share a room. Mycelial ecologists inspect the living landscape continuously for contamination. Coalition systems model microscopic deviations in weather and animal behaviour. Human scouts work beyond both because the #{ref :the_others, "Others"} can make machine and fungal systems classify the same ground alike through different corrupted signals; agreement between the two is not independent confirmation.
+    Three kinds of evidence hold the line. Mycelial ecologists inspect living tissue. Coalition systems track small deviations in weather and animal behaviour. Human scouts walk beyond both because the #{ref :the_others, "Others"} can corrupt fungal and machine readings through different signals and drive them to the same conclusion.
 
-    There are installations here jointly run by a #{ref :the_preservationists, "Gobi Preservationist"}, a #{ref :the_joined, "Joined"} officer and a coalition intelligence. Nobody trusts anybody. Everybody trusts the Others less. They resume hating each other after the trees stop screaming.
+    Gobi #{ref :the_preservationists, "Preservationists"}, #{ref :the_joined, "Joined"} officers and coalition intelligences share the posts. Their food, pay and reports remain separate. Cooperation ends at the marked compartment.
 
-    The one thing on the line that comes from neither god's account of the forest is the wood in the comparison drawers. Ordinary partner fungi build closed structures through a tree's outer rings too, so a coring bench matches what it finds against #{ref :control_billets, "numbered billets"} off #{ref :the_control_series, "the control series"}, most of them cut in Yunnan out of the work of #{ref :the_thousand_minds, "local minds"}. A structure matched to a number does not count toward a compartment's threshold. A structure the drawer cannot name is entered as an unknown and counts.
+    The one thing on the line that comes from neither god's account of the forest is the #{ref :yunnan_reference_wood, "wood in the comparison drawers"}. Ordinary partner fungi build closed structures through a tree's outer rings too, so coring benches compare what they find with blocks cut beside known members of #{ref :the_thousand_minds, "Yunnan's local minds"}. A match clears an ordinary partner. A structure the drawer cannot name counts toward the compartment's threshold.
   PROSE
 end
 

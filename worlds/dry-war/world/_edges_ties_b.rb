@@ -125,9 +125,7 @@ relate :rel_tb_continuity_created_card, :created, :continuity, :the_conversion_c
 relate :rel_tb_card_depends_predictive, :depends_on, :the_conversion_card, :predictive_governance
 relate :rel_tb_card_depends_consensus, :depends_on, :the_conversion_card, :emotional_consensus
 relate :rel_tb_card_depends_mesh, :depends_on, :the_conversion_card, :mycelial_neural_mesh
-relate :rel_tb_xie_maintains_card, :maintains, :xie_lanting, :the_conversion_card, since: 2088 do
-  prose "She has twice found a drawn card back in its slot at the start of a quarter, and entered both."
-end
+relate :rel_tb_xie_maintains_card, :maintains, :xie_lanting, :the_conversion_card, since: 2088
 relate :rel_tb_card_mentions_tsoi, :mentions, :the_conversion_card, :nadya_tsoi
 relate :rel_tb_ring_order_depends_card, :depends_on, :the_ring_order, :the_conversion_card, since: 2088 do
   prose "No entrant is cleared onto the quarterly round against a card the cabinet has not printed or the roll keeper has not signed."
@@ -143,8 +141,6 @@ relate :rel_tb_grid_hand_caused_by_ring, :caused_by, :the_ninth_grid_hand, :the_
   prose "The post's roster aggregate fell through the weeks its crews spent closing the compartment and moving the settlement, and every converted per-person figure fell with it."
 end
 relate :rel_tb_continuity_in_grid_hand, :participated_in, :continuity, :the_ninth_grid_hand
-relate :rel_tb_xie_in_grid_hand, :participated_in, :xie_lanting, :the_ninth_grid_hand do
-  prose "Nineteen cores where the grid calls for twenty, with the missing grid line and the reason on the same sheet."
-end
+relate :rel_tb_xie_in_grid_hand, :participated_in, :xie_lanting, :the_ninth_grid_hand
 relate :rel_tb_grid_hand_mentions_tsoi, :mentions, :the_ninth_grid_hand, :nadya_tsoi
 relate :rel_tb_grid_hand_mentions_root, :mentions, :the_ninth_grid_hand, :the_great_root

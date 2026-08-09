@@ -34,9 +34,7 @@ relate :rel_wr_hybrid_depends_deadroot, :depends_on, :hybridization, :dead_root_
   prose "The organism's own signalling hardware, harvested after the tissue is dead and no longer part of anything. What a coalition can buy without admitting it is buying it."
 end
 relate :rel_wr_hybrid_manifests_amur, :manifests_at, :hybridization, :the_amur_line
-relate :rel_wr_minds_studies_hybrid, :studies, :the_thousand_minds, :hybridization do
-  prose "A network that cannot be spoken to cannot be held responsible, so the attempt is the responsible course. Nobody else on either side argues it this way."
-end
+relate :rel_wr_minds_studies_hybrid, :studies, :the_thousand_minds, :hybridization
 relate :rel_wr_mycomachines_part_hybrid, :part_of, :mycomachines, :hybridization
 
 # ---- stupid infrastructure: the annual refusal, and what friction costs ----
