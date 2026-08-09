@@ -20,6 +20,6 @@ resource :water do
   prose <<~PROSE, section: :dangers, heading: "The Thing Upstream"
     Both gods are fighting over water while cooperating over the places it comes from. See the #{ref :the_himalayan_holds, "Himalayan Holds"}.
 
-    What concentrates attention there is not scarcity. It is that water in #{ref :the_gradients, "Altered"} ground stops reliably being water — it still flows, still freezes, still fills a container — and no test devised in #{elapsed :the_reclamation, approx: true} distinguishes the affected kind before something has drunk it.
+    Water in #{ref :the_habitable_archipelago, "Altered ground"} still flows, freezes and fills a container, but no test devised in #{elapsed :the_reclamation, approx: true} distinguishes the affected kind before something has drunk it.
   PROSE
 end

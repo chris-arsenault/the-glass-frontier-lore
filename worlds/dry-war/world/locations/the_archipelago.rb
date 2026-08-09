@@ -8,13 +8,19 @@ geographic_location :the_habitable_archipelago do
   prominence :mythic
 
   prose <<~PROSE
-    Not a place. The name people use for the sum of places a human can still be, which since the #{ref :the_breach, "Breach"} has been an archipelago rather than a set of continents.
+    The name for all places where a human can still live. Since the #{ref :the_breach, "Breach"}, they form an archipelago rather than a set of continents.
 
-    Two large territories, a scatter of habitable corridors, some isolated enclaves, and a handful of #{ref :the_gradients, "Contested"} lines held jointly by enemies. Everything else is mapped in gradients and visited by instruments.
+    Two large territories, a scatter of habitable corridors, some isolated enclaves and a handful of front lines held jointly by enemies. Beyond them, people travel briefly or send instruments.
+  PROSE
+
+  prose <<~PROSE, section: :geography, heading: "Four Words On Every Map"
+    **Stable** ground behaves like the world before the Breach. Nearly everyone lives there. **Contested** ground shows the first wrong seasons, tissues and weather; permanent crews cut out each change as it appears. **Altered** ground follows different rules consistently enough for a prepared expedition to enter and leave. **Deep** ground takes only remote probes, and some returning records contain details of the crews that launched them.
+
+    The Great Root and the coalitions use the same four words. Their borders disagree. The word on a place decides whether families may settle, which machines can enter and how long a crew is expected to survive.
   PROSE
 
   prose <<~PROSE, section: :geography, heading: "The Inventory"
-    The core fungal territories of #{ref :mycelial_china, "China"} remain largely intact, which is the single largest habitable landmass on Earth. Substantial portions of #{ref :ai_north_america, "North America"} remain under coalition management. The Central Asian drylands hold human populations that answer to neither.
+    The core fungal territories of #{ref :mycelial_china, "China"} form the largest habitable landmass on Earth. Substantial portions of #{ref :ai_north_america, "North America"} remain under coalition management. The Central Asian drylands hold human populations that answer to neither.
 
     Beyond that: the #{ref :the_mediterranean_chain, "Mediterranean Chain"}, the #{ref :the_himalayan_holds, "Himalayan Holds"}, the #{ref :the_amur_line, "Amur Line"}, and corridors nobody has bothered to name because their tenure is measured in years.
 

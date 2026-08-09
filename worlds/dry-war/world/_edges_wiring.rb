@@ -59,19 +59,7 @@ relate :rel_wr_preservationists_evades_implants, :evades, :the_preservationists,
 relate :rel_wr_courts_petitions_implants, :petitions, :the_garden_courts, :symbiotic_implants
 relate :rel_wr_joined_possesses_implants, :possesses, :the_joined, :symbiotic_implants
 
-# ---- the gradients: the one standard both civilizations share ----
-# The bands govern every place, so the edges go to what the entry's own prose
-# turns on: the two authors of the standard, what made it necessary, and the
-# regions whose band decides what life in them is.
-relate :rel_wr_gradients_caused_by_breach, :caused_by, :the_gradients, :the_breach
-relate :rel_wr_root_maintains_gradients, :maintains, :the_great_root, :the_gradients
-relate :rel_wr_continuity_maintains_gradients, :maintains, :continuity, :the_gradients
-relate :rel_wr_gradients_regulates_forever_war, :regulates, :the_gradients, :the_forever_war
-relate :rel_wr_gradients_manifests_archipelago, :manifests_at, :the_gradients, :the_habitable_archipelago
-relate :rel_wr_gradients_depends_others, :depends_on, :the_gradients, :the_others
-
 # ---- the Breach: what it left, and why there is no model ----
-relate :rel_wr_breach_caused_gradients, :caused, :the_breach, :the_gradients
 relate :rel_wr_breach_caused_archipelago, :caused, :the_breach, :the_habitable_archipelago
 relate :rel_wr_breach_caused_forever_war, :caused, :the_breach, :the_forever_war
 relate :rel_wr_root_studies_breach, :studies, :the_great_root, :the_breach

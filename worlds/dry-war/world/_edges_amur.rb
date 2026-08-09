@@ -4,7 +4,6 @@
 relate :rel_amur_rings_at_line, :manifests_at, :the_dead_rings, :the_amur_line
 relate :rel_amur_rings_at_post, :manifests_at, :the_dead_rings, :tangwang_post, since: 2088
 relate :rel_amur_rings_caused_by_others, :caused_by, :the_dead_rings, :the_others
-relate :rel_amur_rings_depend_gradients, :depends_on, :the_dead_rings, :the_gradients
 relate :rel_amur_root_maintains_rings, :maintains, :the_great_root, :the_dead_rings, since: 2088
 relate :rel_amur_continuity_models_rings, :models, :continuity, :the_dead_rings, since: 2088
 

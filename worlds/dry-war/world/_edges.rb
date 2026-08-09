@@ -106,7 +106,6 @@ relate :rel_hybridization_concerns_root, :mentions, :hybridization, :the_great_r
 relate :rel_breach_caused_others, :caused, :the_breach, :the_others
 relate :rel_breach_during_era, :active_during, :the_breach, :the_holding
 relate :rel_others_caused_forever_war, :caused, :the_others, :the_forever_war
-relate :rel_gradients_describe_breach, :mentions, :the_gradients, :the_breach
 relate :rel_campaigns_part_of_forever_war, :part_of, :the_reclamation_campaigns, :the_forever_war
 relate :rel_campaigns_during_reclamation, :active_during, :the_reclamation_campaigns, :the_reclamation
 relate :rel_root_fought_campaigns, :participated_in, :the_great_root, :the_reclamation_campaigns

@@ -18,7 +18,7 @@ conflict :the_forever_war do
   PROSE
 
   prose <<~PROSE, section: :present_day, heading: "Holding The Line"
-    Nobody now proposes reconquest. The strategic objective is to hold, and the map is kept in gradients rather than borders — #{ref :the_gradients, "Stable, Contested, Altered, Deep"}.
+    Nobody now proposes reconquest. The armies hold the Contested ground marked on maps of #{ref :the_habitable_archipelago, "the habitable archipelago"}; beyond it lie Altered and Deep country.
 
     What this does to politics is stranger than what it does to armies. Every philosophy in both civilizations has absorbed the same premise: this may no longer be a permanent human planet. The Unified conclude that humanity's chance lies in deeper coordination with its gods. The resistance cultures conclude the exact opposite — that if the species is likely to end anyway, spending what remains of human self-determination to postpone it is intolerable.
 

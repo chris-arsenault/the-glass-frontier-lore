@@ -19,7 +19,7 @@ phenomenon :the_others do
   PROSE
 
   prose <<~PROSE, section: :perception, heading: "How They Are Understood"
-    Nobody claims to understand them. What exists instead is a body of operational lore that both civilizations use and neither can justify: that the Others can make machines and fungi classify the same ground alike through different corrupted signals, so agreement between them is not independent confirmation; that reclaimed ground stays reclaimed for years and then does not; that Deep territory returns observation.
+    Expedition crews rely on three repeated findings. The Others can make machines and fungi classify the same ground alike through different corrupted signals, so agreement between them is not independent confirmation. Reclaimed ground may remain ordinary for years before changing again. Surveys of Deep ground sometimes return details of the people who made them.
 
     On the Amur, a fungal reading and a modelled one that agree do not send crews into the trees until a human scout has walked the same ground. The scout's mark decides where the next of #{ref :the_dead_rings, "the dead rings"} will be cut.
 
