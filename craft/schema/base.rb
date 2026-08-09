@@ -77,6 +77,10 @@ schema do
   relation :powers, category: :technical, temporal: false
   relation :sourced_from, category: :technical, temporal: false
 
+  # Composition — derived, never authored. An `#{embed :id}` marker in prose
+  # produces one of these, so the graph knows which entries are built from which.
+  relation :embeds, category: :narrative, temporal: false
+
   # Narrative and classification — the structural kinds' scaffolding.
   relation :at_stage, category: :narrative, temporal: false
   relation :embodies, category: :narrative, temporal: false

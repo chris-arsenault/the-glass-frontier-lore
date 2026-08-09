@@ -13,7 +13,7 @@ faction :tempered_accord do
   prose <<~PROSE, section: :structure, heading: "Structure"
     The Accord operates from a district in #{ref :sithari, "Sithari"} — a complex deliberately separated from the Continuity's government buildings. Tranquil. An artificial lake. Ducks. The architectural statement is intentional: this is not a seat of power, it's a place where disputes come to be resolved.
 
-    The Accord is an international body in a national capital — technically independent, practically shaped by proximity. Other settlements wanted the Accord seated somewhere neutral. Sithari argued they had the infrastructure. They were right, and everyone resented them for it.
+    The Accord is an international body in a national capital — technically independent, practically shaped by proximity. Other settlements wanted it seated somewhere neutral. Sithari argued they had the infrastructure, the security and the institutional capacity. They were right, and everyone resented them for it.
 
     The Accord's operations rely on member organizations for actual enforcement. It carries weight because people say it does. The sanctions for violating an Accord provision are reputational and economic — expulsion from the framework means losing access to the Compact's mediation, Vantara's trade infrastructure, and the legal recognition that makes inter-settlement commerce possible.
   PROSE

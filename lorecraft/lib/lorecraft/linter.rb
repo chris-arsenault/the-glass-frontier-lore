@@ -65,6 +65,7 @@ module Lorecraft
       check_causal_cycles
       check_antisymmetry
       check_partof_cycles
+      check_embed_cycles
       check_orphans
       check_location_spatial
       @findings
@@ -144,9 +145,11 @@ module Lorecraft
     # Relation verbs are the validator's business, not the linter's.
     def on_rel(_marker) = nil
 
-    # Anchors are checked by the validator; a resolved span has nothing to report.
+    # Anchors and embed targets are the validator's business; a resolved marker
+    # has nothing to report here.
     def on_elapsed(_marker) = nil
     def on_year(_marker) = nil
+    def on_embed(_marker) = nil
 
     private
 
@@ -269,6 +272,12 @@ module Lorecraft
     def check_partof_cycles
       cyc = find_cycle(edges_of(%i[part_of]))
       err("spatial PART_OF cycle: #{cyc.join(' → ')}") if cyc
+    end
+
+    # Two entries that embed each other would each need the other rendered first.
+    def check_embed_cycles
+      cyc = find_cycle(edges_of(%i[embeds]))
+      err("embed cycle: #{cyc.join(' → ')}") if cyc
     end
 
     def check_antisymmetry

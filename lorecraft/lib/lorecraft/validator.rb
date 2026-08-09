@@ -99,6 +99,28 @@ module Lorecraft
     # A future names something with no entity; there is nothing to resolve.
     def on_future(_marker) = nil
 
+    # An embed must transclude something real and something safe to inline: the
+    # target exists, it is a written entity rather than a shell, it has prose in
+    # the requested section, and a public entry does not pull in hidden truth.
+    # A silently empty transclusion is worse than a link — the sentence around it
+    # loses its subject with nothing to show that it did.
+    def on_embed(marker)
+      target = @world.entity(marker.id)
+      return err("#{label(@owner)}: embed → unknown id #{marker.id}") unless target
+
+      if target.respond_to?(:dm?) && target.dm? && !@dm_context
+        return err("#{label(@owner)}: public prose embeds DM-only entity #{marker.id}")
+      end
+      return err("#{label(@owner)}: embed → :#{marker.id} is a shell, nothing to transclude") \
+        if target[:status].to_s == "shell"
+
+      blocks = target.prose_blocks.select { |b| b.section == marker.section }
+      return err("#{label(@owner)}: embed → :#{marker.id} has no :#{marker.section} prose") if blocks.empty?
+
+      err("#{label(@owner)}: public prose embeds DM-only :#{marker.section} prose of #{marker.id}") \
+        if !@dm_context && blocks.all?(&:dm?)
+    end
+
     # A computed span is only as good as its anchors. An anchor that names
     # nothing the clock recognises is a build failure, not a rendering oddity —
     # otherwise the prose silently loses its number.

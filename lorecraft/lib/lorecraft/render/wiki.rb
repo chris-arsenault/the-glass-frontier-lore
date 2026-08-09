@@ -69,15 +69,24 @@ module Lorecraft
         true
       end
 
-      # Resolve prose bindings directly to GitHub wiki links. The subject and
-      # year are held for the scan so the `on_*` callbacks can reach them.
-      def wikitext(text, subject, year)
-        out = text.dup
+      # Resolve prose bindings directly to GitHub wiki links. Context is held for
+      # the scan and restored after, because transclusion re-enters this method.
+      # The wiki is always the player's view, so embedded DM blocks stay out.
+      def wikitext(text, subject, year, stack = [])
+        prev = [@subject, @year, @audience, @embed_stack]
         @subject = subject
         @year = year
+        @audience = :player
+        @embed_stack = stack
+        out = text.dup
         Markers.scan(text) { |match, marker| out = out.sub(match, marker.resolve(self).to_s) }
         out
+      ensure
+        @subject, @year, @audience, @embed_stack = prev
       end
+
+      # An embedded block's refs render as wiki links, not tree links.
+      def resolve_embedded(text, stack) = wikitext(text, @subject, @year, stack)
 
       # --- marker resolution: this renderer emits GitHub wiki syntax ----------
       #
@@ -91,6 +100,9 @@ module Lorecraft
         unless wiki_visible?(node)
           return marker[:text] || marker.id&.to_s || marker[:path] || "" # DM / shell / non-entity
         end
+        # A page does not link to itself. Transcluded prose is written from its
+        # owner's viewpoint and often names the entry it has been embedded into.
+        return marker[:text] || node.title if marker.id == @subject
 
         marker[:text] && marker[:text] != node.title ? "[[#{marker[:text]}|#{node.title}]]" : "[[#{node.title}]]"
       end

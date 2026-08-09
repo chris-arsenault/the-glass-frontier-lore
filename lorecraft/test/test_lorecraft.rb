@@ -581,6 +581,93 @@ class ClockTest < Minitest::Test
   end
 end
 
+class EmbedTest < Minitest::Test
+  def build(&block)
+    Lorecraft.define do
+      schema { entity_type :concept; entity_type :secret, wiki: false }
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
+      instance_eval(&block)
+    end
+  end
+
+  def test_embed_transcludes_the_owners_prose
+    w = build do
+      concept :owner do
+        name "Owner"
+        prose "The clause was load-bearing."
+      end
+      concept :borrower do
+        name "Borrower"
+        prose "As established: #{embed :owner}"
+      end
+    end
+    out = Lorecraft::Render::Base.new(w)
+                                 .resolve_prose(w.entity(:borrower).prose_blocks.first.text,
+                                                from_path: "a.md", year: 1)
+    assert_equal "As established: The clause was load-bearing.", out
+  end
+
+  def test_embed_can_name_a_section
+    w = build do
+      concept :owner do
+        name "Owner"
+        prose "Main."
+        prose "Only the tensions.", section: :tensions
+      end
+      concept :borrower do
+        name "Borrower"
+        prose "#{embed :owner, :tensions}"
+      end
+    end
+    out = Lorecraft::Render::Base.new(w)
+                                 .resolve_prose(w.entity(:borrower).prose_blocks.first.text,
+                                                from_path: "a.md", year: 1)
+    assert_equal "Only the tensions.", out
+  end
+
+  # A transclusion is a real connection, so it belongs in the graph.
+  def test_embed_derives_an_edge
+    w = build do
+      concept :owner do name "Owner"; prose "X." end
+      concept :borrower do name "Borrower"; prose "#{embed :owner}" end
+    end
+    assert_includes w.relationships, [:borrower, :embeds, :owner]
+  end
+
+  def test_embedding_a_missing_section_is_a_validation_error
+    w = build do
+      concept :owner do name "Owner"; prose "X." end
+      concept :borrower do name "Borrower"; prose "#{embed :owner, :nowhere}" end
+    end
+    assert(w.validate.any? { |p| p.include?("no :nowhere prose") })
+  end
+
+  def test_public_prose_may_not_embed_dm_prose
+    w = build do
+      secret :hidden do name "Hidden"; dm!; prose "The truth." end
+      concept :public_entry do name "Public"; prose "#{embed :hidden}" end
+    end
+    assert(w.validate.any? { |p| p.include?("embeds DM-only entity") })
+  end
+
+  def test_embedding_a_shell_is_a_validation_error
+    w = build do
+      concept :stub do name "Stub"; status :shell end
+      concept :borrower do name "Borrower"; prose "#{embed :stub}" end
+    end
+    assert(w.validate.any? { |p| p.include?("is a shell") })
+  end
+
+  def test_embed_cycles_fail_the_lint
+    w = build do
+      concept :a do name "A"; prose "a #{embed :b}" end
+      concept :b do name "B"; prose "b #{embed :a}" end
+    end
+    findings = w.lint(root: Dir.mktmpdir)
+    assert(findings.any? { |f| f.level == :error && f.message.include?("embed cycle") })
+  end
+end
+
 class MarkersTest < Minitest::Test
   include Lorecraft::Markers
 

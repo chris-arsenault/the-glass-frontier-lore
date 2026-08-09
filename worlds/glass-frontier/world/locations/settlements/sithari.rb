@@ -27,9 +27,9 @@ installation :sithari do
     The name carries a quiet threat that nobody in the Continuity would acknowledge: the implication is that the alternative to their governance is discontinuity. They kept civilization going. Would you like to try not having them?
   PROSE
   prose <<~PROSE, section: :governance, heading: "The Accord Seat"
-    The #{ref :tempered_accord, "Tempered Accord"} is headquartered in Sithari, in a complex deliberately separated from the Continuity's government buildings. The Accord is an international body seated in a national capital — technically independent, practically influenced by proximity.
+    #{embed :tempered_accord, :structure}
 
-    This arrangement was a compromise. Other settlements wanted the Accord seated somewhere neutral. Sithari argued that they had the infrastructure, the security, and the institutional capacity. They were right, and everyone resented them for it. The Accord operates independently, staffed by representatives from across the system, but the physical reality of being in Sithari — eating Sitharian food, hearing Sitharian language, navigating Sitharian bureaucracy — shapes the institution in ways that are hard to quantify and impossible to ignore.
+    What that arrangement does to the city is the part Sithari feels. The Accord operates independently, staffed by representatives from across the system, but the physical reality of being here — eating Sitharian food, hearing Sitharian language, navigating Sitharian bureaucracy — shapes the institution in ways that are hard to quantify and impossible to ignore.
 
     During the Contested Reach and the Bitter Reach, this caused real problems. Sithari the city remained neutral. The Continuity, as a political entity, was a combatant — providing logistical support, applying economic pressure, backing specific factions. The distinction between "the city is neutral" and "the government is a participant" was technically valid and practically meaningless. Other factions noticed. The resentment is still live.
   PROSE

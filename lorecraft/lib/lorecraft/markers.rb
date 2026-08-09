@@ -57,6 +57,16 @@ module Lorecraft
     def plain = name
   end
 
+  # A passage owned by another entity, rendered in place. The composition
+  # primitive: one entity owns a fact and every other entry that needs it
+  # transcludes rather than restating.
+  class EmbedMarker < Marker
+    KIND = :embed
+    def section = @attrs[:section] || :main
+    def resolve(resolver) = resolver.on_embed(self)
+    def plain = "[embed:#{id}]"
+  end
+
   # A span the timeline computes. `plain` cannot state it — no world, no
   # arithmetic — so it collapses to a readable placeholder for lint and search.
   class ElapsedMarker < Marker
@@ -93,6 +103,7 @@ module Lorecraft
     REF = "#{SEP}REF#{SEP}".freeze
     REL = "#{SEP}REL#{SEP}".freeze
     FUT = "#{SEP}FUT#{SEP}".freeze
+    EMB = "#{SEP}EMB#{SEP}".freeze
     ELA = "#{SEP}ELA#{SEP}".freeze
     YER = "#{SEP}YER#{SEP}".freeze
     FIELD = "#{SEP}|#{SEP}".freeze
@@ -118,6 +129,18 @@ module Lorecraft
     # convention.
     def future(name)
       [FUT, name, ENDM].join
+    end
+
+    # TRANSCLUSION: render another entity's prose in place, or one named section
+    # of it. This is how a fact gets stated once — the entity that owns it writes
+    # it, and every entry that needs it embeds. Every embed also becomes a
+    # derived `embeds` edge, so the composition web is in the graph without
+    # anyone declaring it.
+    #
+    #   #{embed :bloom_coalition}              — the target's :main prose
+    #   #{embed :bloom_coalition, :tensions}   — one section of it
+    def embed(target, section = nil)
+      [EMB, target.to_s, FIELD, section, ENDM].join
     end
 
     # A COMPUTED SPAN between two points on the timeline. Never write the number
@@ -146,9 +169,10 @@ module Lorecraft
     REF_RE = /#{Regexp.escape(REF)}(.*?)#{F}(.*?)#{F}(.*?)#{F}(.*?)#{E}/m
     REL_RE = /#{Regexp.escape(REL)}(.*?)#{F}(.*?)#{E}/m
     FUT_RE = /#{Regexp.escape(FUT)}(.*?)#{E}/m
+    EMB_RE = /#{Regexp.escape(EMB)}(.*?)#{F}(.*?)#{E}/m
     ELA_RE = /#{Regexp.escape(ELA)}(.*?)#{F}(.*?)#{F}(.*?)#{F}(.*?)#{E}/m
     YER_RE = /#{Regexp.escape(YER)}(.*?)#{E}/m
-    ANY_RE = /#{REF_RE}|#{REL_RE}|#{FUT_RE}|#{ELA_RE}|#{YER_RE}/m
+    ANY_RE = /#{REF_RE}|#{REL_RE}|#{FUT_RE}|#{EMB_RE}|#{ELA_RE}|#{YER_RE}/m
 
     # Parse every binding in a blob of assembled prose, in document order.
     # Yields the full matched substring and the Marker describing the binding.
@@ -169,11 +193,12 @@ module Lorecraft
         RefMarker.new(m[0], id: sym(m[1]), text: str(m[2]), path: str(m[3]), anchor: str(m[4]))
       },],
       [REL, ->(m) { RelMarker.new(m[0], verb: m[5].to_sym, target: sym(m[6])) }],
+      [EMB, ->(m) { EmbedMarker.new(m[0], id: m[8].to_sym, section: sym(m[9])) }],
       [ELA, lambda { |m|
-        ElapsedMarker.new(m[0], from: anchor(m[8]), to: anchor(m[9]),
-                                approx: m[10] == "true", ago: m[11] == "true")
+        ElapsedMarker.new(m[0], from: anchor(m[10]), to: anchor(m[11]),
+                                approx: m[12] == "true", ago: m[13] == "true")
       },],
-      [YER, ->(m) { YearMarker.new(m[0], at: anchor(m[12]) || :now) }],
+      [YER, ->(m) { YearMarker.new(m[0], at: anchor(m[14]) || :now) }],
     ].freeze
 
     # Turn one regexp match into the Marker subclass that models it.

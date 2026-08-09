@@ -60,11 +60,11 @@ thread :bloom_containment do
     ### Beat 4: The Cascade
     **Era:** 2378 | **Filled by:** #{future "The Silent Bloom"}, #{ref :bloom_zones, "Bloom Zones"}
 
-    The Bloom doesn't manifest uniformly — its expression depends on the local resonance environment, the crystal substrate, the specific frequencies involved. In some places, walls develop a translucency that isn't transparency — not see-through but not committed to being solid. In others, sound arrives from directions it shouldn't. In others, spatial relationships stop being reliable — a corridor that was ten meters long is now thirty, or three. In the worst zones, the concept of "direction" softens.
+    What the cascade produces is what a zone is like, so the beat borrows the description rather than restating it:
 
-    #{ref :tuners, "Tuners"} describe the resonance landscape going from structured to saturated — so dense with information that signal-to-noise collapses. #{ref :gnomes, "Gnomes"} are hit worst — their crystal-laced nervous systems pick up the cascade directly. Gnomish workers in the affected zones are the first to feel it and the most debilitated, but later become invaluable for calibrating containment equipment — they can sense what instruments can't measure.
+    #{embed :bloom_zones, :atmosphere}
 
-    #{ref :fae, "Fae"} have an unexpected advantage. The spatial dislocation they manage every day — forcing coherence, navigating the boundary between diffuse and present — is exactly the skill set the Bloom Zones demand. Fae operatives require more effort to maintain spatial identity in the zones, but they're used to that effort. Where other species find the reality distortion disorienting, fae find it familiar.
+    What belongs to the cascade rather than the steady state is the arc of the people caught in it. Gnomish workers in the affected zones are the first to feel it and the most debilitated — and later become invaluable for calibrating containment equipment, because they can sense what instruments can't measure. Fae operatives spend more effort holding spatial identity together inside a zone, but it is effort they are used to spending; what disorients other species is familiar work to them.
 
     ---
 

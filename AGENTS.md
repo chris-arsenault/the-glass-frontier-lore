@@ -69,6 +69,19 @@ An entity is one `.rb` file under `worlds/<id>/world/<kind>/<id>.rb`. Static fac
 
 A duration anchored to nothing — "held the post for eleven years" — is a length, not a span, and stays as written.
 
+### Compose, don't restate
+
+When two entries need the same passage, one owns it and the other transcludes:
+
+```ruby
+#{embed :tempered_accord}              # the target's :main prose, in place
+#{embed :tempered_accord, :structure}  # one named section of it
+```
+
+The owner is whichever entity the fact is *about* — the Accord's seat belongs to the Accord, and Sithari embeds it. Every embed derives an `embeds` edge, so the composition shows up in `make topology` and counts as a connection for prominence reach. The validator rejects an embed of a missing entity, a shell, a section with no prose, or DM prose from a public entry; the linter fails the build on a cycle.
+
+Restating instead of embedding is the most common way this corpus goes wrong: two copies of a sentence drift, and the reader meets both.
+
 ### Entity fields
 
 - `title` — required. The entry's name.

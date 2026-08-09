@@ -160,12 +160,28 @@ module Lorecraft
     # the atemporal graph view, used for structural lint checks (cycles,
     # antisymmetry, orphans).
     def relationships
-      @relationships ||= all_effects
-                         .map { |e| e[:effect] }
-                         .select { |eff| eff.verb == :set && eff.relation }
-                         .map { |eff| [eff.subject, eff.relation, eff.target] }
-                         .uniq
+      @relationships ||= (all_effects
+                          .map { |e| e[:effect] }
+                          .select { |eff| eff.verb == :set && eff.relation }
+                          .map { |eff| [eff.subject, eff.relation, eff.target] } +
+                          embed_edges).uniq
     end
+
+    # [owner, :embeds, target] for every embed marker in any prose block. A
+    # transclusion is a real connection — the entry cannot be read without the
+    # target — so the composition web belongs in the graph, and topology and the
+    # prominence-reach check see it without anyone declaring an edge.
+    def embed_edges
+      @embed_edges ||= prose_owners.flat_map do |owner|
+        owner.prose_blocks.flat_map do |block|
+          Markers.scan(block.text).filter_map do |_m, marker|
+            [owner.id, :embeds, marker.id] if marker.kind == :embed
+          end
+        end
+      end.uniq
+    end
+
+    def prose_owners = @entities.values + @moments.values + @relation_instances.values
 
     # State of the world at a year (existence, dynamic attrs, live edges).
     def at(point = :now)

@@ -117,7 +117,24 @@ one each; `artifact` has two. Resonance bands and tuning techniques are describe
 inside `cosmology/resonance.rb` and `concepts/tuners.rb` and would carry more as
 `ability` entities that other entries can link to.
 
-## 8. When were kites developed?
+## 8. Passages restated instead of embedded
+
+`#{embed :id, :section}` exists now, and two large restatements are converted —
+the thread that retold what a Bloom Zone is like, and the Accord seat written out
+in both `sithari` and `tempered_accord`. What is left, measured by shared
+eight-word windows:
+
+- `the_glass_frontier` + `the_shear` (19 windows) — the chronic-versus-acute
+  comparison. An open comment says the Bloom Zone material has no business in
+  the Shear entry at all, so decide the content question before composing.
+- `the_false_form` + `the_three_forms` (17) — the impossible-third-panel
+  description, in both cosmology entries.
+- Entities restating their own moments and relations: `coriolis_breach` (18),
+  `glasswake` (8), `pelhari` (5), `pyre` (5), `dern_talish` (5). One systematic
+  question rather than five: does the moment own the beat and the entry embed it,
+  or the reverse? Answer it once, then apply it.
+
+## 9. When were kites developed?
 
 `kite_sail.rb` says the null space "has never caused a problem in two centuries
 of use", and nothing in canon fixes when kites were built. They depend on
@@ -126,7 +143,7 @@ Kaleidos with ringglass, so the earliest possible date is the Glassfall in 2140 
 which makes "two centuries" true only if kites appeared before roughly 2235. Fix
 the date and the phrase together.
 
-## 9. Fermata Station's prominence
+## 10. Fermata Station's prominence
 
 The one prominence-reach warning left: `hab_meridian` (recognized) names
 `fermata_station`, which is `marginal`, with no edge between them and nothing in

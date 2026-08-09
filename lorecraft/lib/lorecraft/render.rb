@@ -76,13 +76,42 @@ module Lorecraft
 
       # Rewrite markers in `text` into markdown, relative to `from_path`, at
       # render year `year`. The resolution context is held for the duration of
-      # the scan so the `on_*` callbacks can reach it.
-      def resolve_prose(text, from_path:, year:)
-        out = text.dup
+      # the scan so the `on_*` callbacks can reach it, and saved/restored because
+      # transclusion re-enters this method.
+      def resolve_prose(text, from_path:, year:, audience: :all, stack: [])
+        prev = [@from_path, @year, @audience, @embed_stack]
         @from_path = from_path
         @year = year
+        @audience = audience
+        @embed_stack = stack
+        out = text.dup
         Markers.scan(text) { |match, marker| out = out.sub(match, marker.resolve(self).to_s) }
         out
+      ensure
+        @from_path, @year, @audience, @embed_stack = prev
+      end
+
+      # Transclude the target's prose for one section. The cycle guard is a
+      # backstop — the linter fails the build on an embed cycle — so it renders a
+      # visible marker rather than recursing forever.
+      def on_embed(marker)
+        id = marker.id
+        return "[embed cycle: #{id}]" if @embed_stack.include?(id)
+
+        target = @world.entity(id)
+        return "[missing embed: #{id}]" unless target
+
+        blocks = target.prose_blocks
+                       .select { |b| b.section == marker.section && b.visible_at?(@year, audience: @audience) }
+                       .sort_by(&:order)
+        blocks.map { |b| resolve_embedded(b.text.strip, @embed_stack + [id]) }.join("\n\n")
+      end
+
+      # How an embedded block's own markers get resolved. Overridden by renderers
+      # whose link syntax differs, so a transclusion is rendered by the target
+      # format rather than by whoever owns the text.
+      def resolve_embedded(text, stack)
+        resolve_prose(text, from_path: @from_path, year: @year, audience: @audience, stack: stack)
       end
 
       # --- marker resolution: this renderer links to other pages in the tree --
