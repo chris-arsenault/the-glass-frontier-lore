@@ -4,6 +4,7 @@ species :elves do
   tags :species, :legend, :mystery, :"ring-era", :archives
   prominence :recognized
   registry true
+  log "2026-08-09 — the Famine ran 'sixty years' in three places against the 165 the timeline gives, and the hidden preparation ran 'over two centuries' against 130 since the vanishing. All spans are #{'#{elapsed}'} markers now."
 
   prose <<~PROSE
     One of the founding species of the Kaleidos system, primary architects of the #{ref :the_glass_frontier, "orbital ring"}, and for centuries the most technically sophisticated civilization in the system. Then, during the #{ref :signal_famine, "Signal Famine"}, they disappeared. Where they went, why they left, and whether "left" is even the right word are questions that #{elapsed :elves_vanish} of scholarship haven't answered.

@@ -668,6 +668,55 @@ class EmbedTest < Minitest::Test
   end
 end
 
+class EntryLogTest < Minitest::Test
+  def world
+    Lorecraft.define do
+      schema { entity_type :concept }
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
+      concept :a do
+        name "A"
+        prose "The world fact."
+        log "2026-08-08 — was 2438; predates the timeline extension"
+      end
+    end
+  end
+
+  def test_log_entries_are_compiled_data
+    assert_equal ["2026-08-08 — was 2438; predates the timeline extension"],
+                 world.entity(:a).log_entries
+  end
+
+  # The entry's history is not the world's history: a reader must never meet it.
+  def test_log_never_reaches_a_player_render
+    w = world
+    Dir.mktmpdir do |dir|
+      w.render(:markdown, out: dir, audience: :player)
+      player = Dir.glob("#{dir}/**/*.md").map { |f| File.read(f) }.join
+      refute_includes player, "2438"
+      refute_includes player, "Entry Log"
+    end
+  end
+
+  def test_log_appears_on_the_internal_tree
+    w = world
+    Dir.mktmpdir do |dir|
+      w.render(:markdown, out: dir)
+      internal = Dir.glob("#{dir}/**/*.md").map { |f| File.read(f) }.join
+      assert_includes internal, "Entry Log"
+      assert_includes internal, "predates the timeline extension"
+    end
+  end
+
+  def test_wiki_never_shows_a_log
+    w = world
+    Dir.mktmpdir do |dir|
+      w.render(:wiki, out: File.join(dir, "wiki"))
+      wiki = Dir.glob("#{dir}/wiki/**/*.md").map { |f| File.read(f) }.join
+      refute_includes wiki, "2438"
+    end
+  end
+end
+
 class MarkersTest < Minitest::Test
   include Lorecraft::Markers
 

@@ -143,6 +143,16 @@ when "graph"
 when "timeline"
   id = ARGV.shift or abort("usage: lorecraft timeline <entity-id>")
   puts load_world.render(:timeline, entity: id, at: at)
+when "log"
+  # The entry's own history: why facts changed, what corrections rest on. Not
+  # world content, so it appears on no reader-facing page.
+  id = ARGV.shift
+  w = load_world
+  nodes = id ? [w.entity(id.tr("-", "_").to_sym) || abort("unknown entity: #{id}")] : w.entities.values
+  nodes.reject { |n| n.log_entries.empty? }.sort_by(&:id).each do |n|
+    puts "#{n.id}:"
+    n.log_entries.each { |e| puts "  #{e}" }
+  end
 when "stats"
   w = load_world
   puts "entities:  #{w.entities.size}"

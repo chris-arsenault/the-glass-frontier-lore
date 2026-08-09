@@ -26,6 +26,9 @@ installation :sithari do
 
     The name carries a quiet threat that nobody in the Continuity would acknowledge: the implication is that the alternative to their governance is discontinuity. They kept civilization going. Would you like to try not having them?
   PROSE
+  # The Accord seat was written out here and in tempered_accord, fourteen shared
+  # eight-word windows. The Accord owns its own seat; this entry embeds it and
+  # keeps the part that is about the city.
   prose <<~PROSE, section: :governance, heading: "The Accord Seat"
     #{embed :tempered_accord, :structure}
 

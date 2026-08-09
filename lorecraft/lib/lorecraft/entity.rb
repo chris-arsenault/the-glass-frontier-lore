@@ -8,7 +8,7 @@ module Lorecraft
   # here — it is the fold of moments, computed by the Resolver. The entity only
   # holds what is constant: who it is, not what has happened to it.
   class Entity
-    attr_reader :id, :kind, :static_attrs, :prose_blocks, :derives, :source_file
+    attr_reader :id, :kind, :static_attrs, :prose_blocks, :derives, :source_file, :log_entries
     attr_accessor :visibility, :public_entry, :index_note
 
     def initialize(id:, kind:, source_file: nil)
@@ -17,6 +17,7 @@ module Lorecraft
       @source_file = source_file
       @static_attrs = {}
       @prose_blocks = []
+      @log_entries = []
       @derives = {}
       @visibility = :public
       @public_entry = nil
@@ -87,6 +88,17 @@ module Lorecraft
           at_year: at && @world.timeline.year_for(at),
           dm: dm, order: (@prose_order += 1)
         )
+      end
+
+      # A note about the ENTRY, not about the world: why a fact changed, what a
+      # correction was based on, which decision settled a name. Compiled and
+      # queryable, rendered on no page a reader sees — the alternative is process
+      # metadata in prose ("this was corrected in August"), which is out-of-world
+      # and the most common register failure in this corpus.
+      #
+      #   log "2026-08-08 — was 2438; predates the timeline extension"
+      def log(entry)
+        @entity.log_entries << entry.to_s
       end
 
       # Any other bare call sets a static attribute of that name.

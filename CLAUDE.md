@@ -48,6 +48,8 @@ All prose must be written from inside the world. There is no Earth. Three violat
 2. **Wrong register** — design language in lore prose. Never write "this wiki", "DM answer", "culture slot", "will likely become its own entry", or "not yet defined" (as an authoring state). An entry can say "the cause remains unknown" (in-world gap) but never "this hasn't been written yet" (authoring gap). Use `future` markers instead.
 3. **Author's notes in prose** — notes meant for collaborators that ended up in published text. Describing what a concept is *for* in the setting rather than what it *is* in the world.
 
+**Work product versus history.** Prose is what is true of the world. Why a fact changed, what a correction rests on, which decision settled a name — that is history of the *entry*, and it goes in `log "YYYY-MM-DD — …"` on the entity, where `lorecraft log` can read it and no reader-facing render shows it. Never in prose.
+
 See `craft/voice-review-prompt.md` for the reusable review prompt.
 
 ## Entry Format
@@ -221,6 +223,7 @@ Every command runs against one world. `WORLD=<id>` on make, `--world <id>` (or `
 | `graph` | Node/edge JSON projection at a point in time. |
 | `stats` / `topology` | Counts by kind; degree/reachability health. |
 | `timeline <id>` | Life-of-entity event strip. |
+| `log [<id>]` | The entries' own history — why a fact changed, what a correction rests on. Not world content. |
 
 Historical state is a query, not a stored field: `world.at(era: :the_accord, year: 5).out(:coremark, :operates_in)`.
 

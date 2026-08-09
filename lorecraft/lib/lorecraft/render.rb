@@ -246,7 +246,15 @@ module Lorecraft
             parts << resolve_prose(b.text, from_path: from_path, year: year).strip
           end
         end
+        # The entry's own history — never for a reader, so only on the internal
+        # tree, and last, below everything about the world.
+        parts << entry_log(node) if !player && node.respond_to?(:log_entries) && !node.log_entries.empty?
         parts.join("\n\n") + "\n"
+      end
+
+      def entry_log(node)
+        "## Entry Log <!-- not world content -->\n\n" +
+          node.log_entries.map { |e| "- #{e}" }.join("\n")
       end
 
       def humanize(sym)
