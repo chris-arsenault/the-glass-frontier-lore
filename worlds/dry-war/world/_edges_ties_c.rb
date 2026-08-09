@@ -78,33 +78,15 @@ relate :rel_tc_zonqor_commemorates_round, :commemorates, :the_zonqor_grading, :t
 relate :rel_tc_zonqor_mentions_others, :mentions, :the_zonqor_grading, :the_others
 relate :rel_tc_zonqor_during_reclamation, :active_during, :the_zonqor_grading, :the_reclamation
 
-# ---- the refusal sitting: a pairing, a packet, a card ----
-relate :rel_tc_sitting_regulates_bonsai, :regulates, :the_refusal_sitting, :bonsai_intelligences, since: 2075 do
-  prose "A bed that has been fed for a generation is a bed nobody remembers the edges of, so the edges are demonstrated in front of somebody who keeps no mind."
-end
-relate :rel_tc_sitting_regulates_orphans, :regulates, :the_refusal_sitting, :orphan_machines, since: 2075 do
-  prose "A machine that hires out beyond the settlement that keeps it carries a card, and the card dies with the pairing rather than with the machine."
-end
-relate :rel_tc_sitting_depends_packets, :depends_on, :the_refusal_sitting, :outside_packets
-relate :rel_tc_sitting_conducted_by_gatekeepers, :conducted_by, :the_refusal_sitting, :the_gatekeepers do
-  prose "On the Hexi side the examiner is an audit-bench auditor at the standard fee, chosen because the fee is the whole of their interest in the mind."
-end
-relate :rel_tc_sitting_practiced_by_dead_counties, :practiced_by, :the_refusal_sitting, :the_dead_counties, since: 2078
-relate :rel_tc_minds_study_sitting, :studies, :the_thousand_minds, :the_refusal_sitting, since: 2080
+# ---- Heshun: travelling lessons and the false headwater ----
+relate :rel_tc_heshun_in_yunnan, :located_in, :heshun_reading_house, :yunnan, since: 2069
+relate :rel_tc_heshun_supplies_brokers, :supplies, :heshun_reading_house, :the_brokers, since: 2074
+relate :rel_tc_heshun_supplies_bonsai, :supplies, :heshun_reading_house, :bonsai_intelligences, since: 2069
+relate :rel_tc_heshun_supplies_orphans, :supplies, :heshun_reading_house, :orphan_machines, since: 2074
 
-relate :rel_tc_heshun_in_yunnan, :located_in, :heshun_packet_house, :yunnan, since: 2069
-relate :rel_tc_heshun_supplies_packets, :supplies, :heshun_packet_house, :outside_packets, since: 2069
-relate :rel_tc_heshun_supplies_brokers, :supplies, :heshun_packet_house, :the_brokers, since: 2074 do
-  prose "The delta houses buy in blocks and pay a premium for the opened wrappers on the return leg, because the house sells against returns and nothing else."
-end
-relate :rel_tc_brokers_carry_packets, :carries, :the_brokers, :outside_packets, since: 2074
-
-relate :rel_tc_duplicate_at_heshun, :manifests_at, :the_heshun_duplicate, :heshun_packet_house
-relate :rel_tc_duplicate_during_reclamation, :active_during, :the_heshun_duplicate, :the_reclamation
-relate :rel_tc_duplicate_depends_packets, :depends_on, :the_heshun_duplicate, :outside_packets do
-  prose "Two marker items answered rather than declined, with the same invented headwater and the same four households on it, in the same season's returns."
-end
-relate :rel_tc_duplicate_commemorates_sitting, :commemorates, :the_heshun_duplicate, :the_refusal_sitting
-relate :rel_tc_duplicate_mentions_bonsai, :mentions, :the_heshun_duplicate, :bonsai_intelligences
-relate :rel_tc_duplicate_mentions_orphans, :mentions, :the_heshun_duplicate, :orphan_machines
-relate :rel_tc_dead_counties_participated_duplicate, :participated_in, :the_dead_counties, :the_heshun_duplicate
+relate :rel_tc_false_headwater_at_heshun, :manifests_at, :the_false_headwater, :heshun_reading_house
+relate :rel_tc_false_headwater_during_reclamation, :active_during, :the_false_headwater, :the_reclamation
+relate :rel_tc_false_headwater_mentions_bonsai, :mentions, :the_false_headwater, :bonsai_intelligences
+relate :rel_tc_false_headwater_mentions_orphans, :mentions, :the_false_headwater, :orphan_machines
+relate :rel_tc_dead_counties_in_false_headwater, :participated_in, :the_dead_counties, :the_false_headwater
+relate :rel_tc_brokers_in_false_headwater, :participated_in, :the_brokers, :the_false_headwater

@@ -23,9 +23,7 @@ relate :rel_tb_warrant_conducted_by_bao, :conducted_by, :the_face_warrant, :bao_
   prose "The bench enters the grant, the thickness, the album number and — four times so far — the lapse of a warrant nobody executed inside its register year."
 end
 relate :rel_tb_warrant_at_claim_house, :manifests_at, :the_face_warrant, :race_street_claim_house, since: 2085
-relate :rel_tb_brokers_carry_warrant, :carries, :the_brokers, :the_face_warrant, since: 2084 do
-  prose "Requests out, counterfoils back, charged as ordinary freight on the western run."
-end
+relate :rel_tb_brokers_carry_warrant, :carries, :the_brokers, :the_face_warrant, since: 2084
 relate :rel_tb_yao_carries_warrant, :carries, :yao_lin, :the_face_warrant, since: 2085
 relate :rel_tb_liangzhou_regulates_warrant, :regulates, :the_liangzhou_double_return, :the_face_warrant do
   prose "Four requests stopped. A house certificate over a line the settlement cannot close would carry a disputed reading into a file where nobody can find the dispute."
@@ -59,9 +57,7 @@ end
 relate :rel_tb_receipt_holders_in_callowhill, :participated_in, :the_receipt_holders, :the_callowhill_duplicate
 relate :rel_tb_market_in_callowhill, :participated_in, :market, :the_callowhill_duplicate
 relate :rel_tb_callowhill_mentions_guardianship, :mentions, :the_callowhill_duplicate, :guardianship
-relate :rel_tb_brokers_in_callowhill, :participated_in, :the_brokers, :the_callowhill_duplicate do
-  prose "Two crossings of freight: the request out on the western run and the certified extract back, invoiced at the paper rate."
-end
+relate :rel_tb_brokers_in_callowhill, :participated_in, :the_brokers, :the_callowhill_duplicate
 relate :rel_tb_receipt_holders_cooperates_brokers, :cooperates_with, :the_receipt_holders, :the_brokers, since: 2089 do
   prose "The mutual opens a warrant request before a claim on plant older than the Breach reaches the identity desk, and pays the freight."
 end

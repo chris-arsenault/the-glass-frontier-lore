@@ -6,27 +6,27 @@ concept :bonsai_intelligences do
   prose <<~PROSE
     Fungal cognition cultivated deliberately small. Resistance biologists grow bounded minds in ceramic beds, sealed gardens, animal colonies and underground chambers, and prevent them physically from growing past the boundary.
 
-    Within one domain they can be extraordinary: a physician, an agricultural planner, a translator, an historian, a weather observer. Outside it they have nothing to say.
+    Within one region and body of work they can be extraordinary: a physician, an agricultural planner, a translator, an historian, a weather observer. Beyond it they reason from local examples that may not fit.
   PROSE
 
-  prose <<~PROSE, section: :tensions, heading: "The Uncomfortable Part"
-    The practice creates intelligent beings and imprisons them permanently in order to remain safe, and nobody involved has a good answer to this.
+  prose <<~PROSE, section: :tensions, heading: "Mind And Prison"
+    The beds are intelligent and cannot leave. Communities justify the confinement as the price of keeping a local mind without growing another Great Root.
 
-    Some communities treat their bonsai minds as respected elders and consult them formally. Others hold that anthropomorphizing a bounded mind is the exact error that produced the #{ref :the_great_root, "Great Root"}, and forbid naming them. The Unified regard the whole discipline as barbaric, which the #{ref :the_preservationists, "Preservationists"} consider rich.
+    Some communities treat their bonsai minds as respected elders and regard the bed as body and home. Others hold that naming a bounded mind repeats the mistake that produced the #{ref :the_great_root, "Great Root"}, and call each one by its room or bed number. Both keep the same walls. The Unified call the whole discipline imprisonment; the #{ref :the_preservationists, "Preservationists"} answer that an unbounded fungal mind has already taken a country.
   PROSE
 
-  prose <<~PROSE, section: :limits, heading: "Showing Where It Ends"
-    A boundary that holds physically still has to be demonstrated, because a bed that has been fed for a generation is a bed nobody remembers the edges of. So a mind is sat: an examiner from a valley with no mind of its own opens a numbered #{ref :outside_packets, "packet"} of work from outside the mind's ground and writes down what it declines.
+  prose <<~PROSE, section: :limits, heading: "What Small Means"
+    A Nu valley physician knows its patients, the local water, the medicines grown beside its bed and the illnesses carried over the passes. Those local records and observations are its education. Asked about a distant place, it may fall silent or force the question into the shape of something local.
 
-    #{ref :the_refusal_sitting, "The card"} that comes out of a sitting names the bed and the keeper together and lasts #{duration 1}. Settlements that consult their minds as elders will not put a question to a bed whose card has lapsed; the settlements that refuse to name their minds card them by bed number and hold to the same rule. A keeper who dies takes the card with them, and the bed waits.
+    A keeper learns where that change begins: which hesitation means ignorance, which familiar answer has been stretched too far, which seasonal change belongs to the valley rather than the patient. When a keeper dies, much of the mind's usefulness dies with them. A new keeper can learn the bed, but cannot recover the private habits by which the old pair divided sound advice from confident invention.
 
-    The sitting measures the mind's reach through its answers rather than by cutting into the bed. Keepers can train a mind to decline unfamiliar work, which is why each packet includes questions any local mind should answer, and why a copied packet circulating at a fifth of the price #{ref :the_heshun_duplicate, "voided forty-one cards in one season"}.
+    Teaching material crosses the walls more easily than living fungus. In 2086 a physician in a Nu valley and an orphan road grader in Appalachia learned the same invented river from a copied lesson. #{ref :the_false_headwater, "The false headwater"} remained in both minds after the pages were burned.
   PROSE
 
   prose <<~PROSE, section: :reference, heading: "How A Boundary Is Built"
-    Three walls, and a bed needs all of them. A physical edge the growth cannot cross — fired ceramic, salt, a #{ref :sterile_machines, "dead surface"} — is the one everybody starts with and the one that fails last. A metabolic edge is the more reliable: the bed is grown on a substrate whose one limiting compound is supplied by hand, so the boundary is a decision somebody makes weekly rather than a wall somebody built once.
+    Fired ceramic, salt and #{ref :sterile_machines, "dead surfaces"} stop the living growth. The bed is also denied one compound it needs, supplied by a keeper each week, so a cracked wall does not become an escape.
 
-    The third is that the mind is grown from a #{ref :severed_strains, "severed strain"} to begin with, which means the whole practice inherits that lineage's paperwork and its argument about provenance. A bed's card and its strain's lineage are held in different rooms by different people, and the #{future "Weixi bed register"} is the only place in the Nu valleys where the two are written on one page.
+    The mind begins as a #{ref :severed_strains, "severed strain"}, already unable to call the continental network. This keeps the Great Root out of the bed but does not keep the bed's learning in it.
 
     A wall can contain living growth but not a copied pattern. #{ref :memory_ceramics, "Memory ceramics"} can reproduce stored responses from a bounded mind without moving the living network beyond its bed.
   PROSE

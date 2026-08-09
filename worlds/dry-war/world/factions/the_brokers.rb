@@ -18,7 +18,7 @@ faction :the_brokers do
   PROSE
 
   prose <<~PROSE, section: :trade, heading: "What Moves"
-    Interfaces, strains, lineage records, #{ref :memory_ceramics, "memory ceramics"}, medical fungi, and — through intermediaries nobody names — the components of #{ref :mycomachines, "mycomachines"}.
+    Interfaces, strains, lineage records, #{ref :memory_ceramics, "memory ceramics"}, medical fungi, and components of #{ref :mycomachines, "mycomachines"} passed west through independent carriers at the inland transfer houses.
 
     #{ref :market, "Market"} is their largest counterparty and treats them as the only honest institution in Asia. The #{ref :the_preservationists, "Preservationists"} refuse to speak to them and depend on them completely.
   PROSE
@@ -28,6 +28,6 @@ faction :the_brokers do
 
     The houses did not adopt #{ref :the_lodged_half, "the counter-draw"} to reassure anybody. A buyer in a jurisdiction that has never heard of Hong Kong's law of fungal persons has no forum in which to argue a warranty, and a seller who cannot be sued cannot be trusted either. The term, the numbering book and the day printed on the receipt are what the houses put in place of standing.
 
-    They also carry #{ref :outside_packets, "outside packets"} out of Yunnan in the same loads, priced by weight, and pay a premium for the opened wrappers on the return leg.
+    They carry case bundles from #{ref :heshun_reading_house, "the Heshun Reading House"} in the same loads. Cheap copies pass through the same intermediaries and reach farther than anything the house numbers itself.
   PROSE
 end

@@ -72,9 +72,7 @@ relate :rel_courts_embody_locality, :embodies, :the_garden_courts, :the_mandate_
 relate :rel_minds_embody_mandate, :embodies, :the_thousand_minds, :the_mandate_question
 relate :rel_gatekeepers_maintain_severed, :maintains, :the_gatekeepers, :severed_strains, since: 2060
 relate :rel_preservationists_hold_ceramics, :possesses, :the_preservationists, :memory_ceramics, since: 2060
-relate :rel_brokers_trade_with_market, :cooperates_with, :the_brokers, :market, since: 2070 do
-  prose "The only relationship between the two civilizations that both sides describe as honest, which neither government admits exists."
-end
+relate :rel_brokers_trade_with_market, :cooperates_with, :the_brokers, :market, since: 2070
 relate :rel_courts_educate_root, :symbiotic_with, :the_garden_courts, :the_great_root, since: 2060 do
   prose "They did not cut the network out of the valley. They raised it, and it grew up Sichuanese."
 end

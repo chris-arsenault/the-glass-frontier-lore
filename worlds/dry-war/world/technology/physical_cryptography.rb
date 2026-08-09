@@ -18,7 +18,7 @@ concept :physical_cryptography do
 
     **Worn traceably.** Metal type, a bell's letterform, a die that has cast a thousand tiles. #{ref :the_sort_book, "The sort book"} at a Gatekeeper crossing carries a dated impression of every sort in the fount, and a disputed certificate is matched to a page character by character; #{ref :the_letter_match, "the letters"} settle what no ledger can.
 
-    **Held by a party with no interest.** A lodged half, a sealed set, a #{ref :the_refusal_sitting, "sitting"} examiner with no share in the machine. The security is the disinterest, not the object.
+    **Held by a party with no interest.** A lodged half kept at #{ref :wing_lok_godown, "Wing Lok"}, beyond the buyer's reach and useless to the house holding it. The security is the keeper's lack of interest in the sale, not the object.
 
     **Unrepeatable.** #{ref :comparison_tiles, "Comparison tiles"} from one bake, a season that happened once, a throw of dice. The #{ref :the_pilgrims, "Pilgrims"} take this furthest and call it the whole of the culture rather than one property among four.
   PROSE

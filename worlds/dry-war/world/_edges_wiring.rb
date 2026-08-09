@@ -38,20 +38,11 @@ relate :rel_wr_minds_studies_hybrid, :studies, :the_thousand_minds, :hybridizati
 relate :rel_wr_mycomachines_part_hybrid, :part_of, :mycomachines, :hybridization
 
 # ---- stupid infrastructure: the annual refusal, and what friction costs ----
-relate :rel_wr_stupid_evades_market, :evades, :stupid_infrastructure, :market do
-  prose "Market bills for the assessment whether or not anyone asked for it, so the refusal is cheaper than being unreachable."
-end
+relate :rel_wr_stupid_evades_market, :evades, :stupid_infrastructure, :market
 relate :rel_wr_stupid_evades_caretaker, :evades, :stupid_infrastructure, :caretaker
-relate :rel_wr_stupid_evades_predictive, :evades, :stupid_infrastructure, :predictive_governance do
-  prose "No single model with enough authority or observability to hold the whole place at once."
-end
-relate :rel_wr_stupid_depends_orphans, :depends_on, :stupid_infrastructure, :orphan_machines do
-  prose "Machines from different makers using incompatible standards nobody intends to reconcile. The filed refusals are kept in the same rooms as the orphan cards."
-end
-relate :rel_wr_stupid_maintains_bench, :maintains, :stupid_infrastructure, :cabin_creek_bench do
-  prose "A bench that cannot be observed running a compound twice is what the doctrine is for. Where a settlement has no such secret, it erodes."
-end
-relate :rel_wr_stupid_maintains_sitting, :maintains, :stupid_infrastructure, :the_refusal_sitting
+relate :rel_wr_stupid_evades_predictive, :evades, :stupid_infrastructure, :predictive_governance
+relate :rel_wr_stupid_depends_orphans, :depends_on, :stupid_infrastructure, :orphan_machines
+relate :rel_wr_stupid_maintains_bench, :maintains, :stupid_infrastructure, :cabin_creek_bench
 relate :rel_wr_pilgrims_evades_stupid, :evades, :the_pilgrims, :stupid_infrastructure do
   prose "A place that merely inconveniences itself has bought nothing. The only reliable illegibility is not staying anywhere."
 end
@@ -63,9 +54,6 @@ end
 relate :rel_wr_lettermatch_derived_physcrypt, :derived_from, :the_letter_match, :physical_cryptography
 relate :rel_wr_tiles_embodies_physcrypt, :embodies, :comparison_tiles, :physical_cryptography do
   prose "Ten graded surfaces from one bake. The set cannot be reproduced, which is the whole of its authority."
-end
-relate :rel_wr_sitting_derived_physcrypt, :derived_from, :the_refusal_sitting, :physical_cryptography do
-  prose "An examiner with no share in the machine. The security is the disinterest, not the object."
 end
 relate :rel_wr_physcrypt_practiced_pilgrims, :practiced_by, :physical_cryptography, :the_pilgrims
 relate :rel_wr_physcrypt_practiced_gatekeepers, :practiced_by, :physical_cryptography, :the_gatekeepers do
@@ -87,19 +75,13 @@ end
 relate :rel_wr_jailbreaks_mentions_halving, :mentions, :wetware_jailbreaks, :the_halving_count
 
 # ---- bonsai intelligences: how a boundary is built ----
-relate :rel_wr_bonsai_depends_severed, :depends_on, :bonsai_intelligences, :severed_strains do
-  prose "A bounded mind is grown from a severed lineage, so the practice inherits that lineage's paperwork and its argument about provenance."
-end
+relate :rel_wr_bonsai_depends_severed, :depends_on, :bonsai_intelligences, :severed_strains
 relate :rel_wr_bonsai_depends_sterile, :depends_on, :bonsai_intelligences, :sterile_machines
-relate :rel_wr_bonsai_depends_packets, :depends_on, :bonsai_intelligences, :outside_packets
-relate :rel_wr_bonsai_regulated_sitting, :regulates, :the_refusal_sitting, :bonsai_intelligences
 relate :rel_wr_ceramics_studies_bonsai, :studies, :memory_ceramics, :bonsai_intelligences
 
 # ---- dead-root interfaces: the kill, and what dead tissue is worth ----
 relate :rel_wr_deadroot_derived_physcrypt, :derived_from, :dead_root_interfaces, :physical_cryptography
-relate :rel_wr_brokers_supplies_deadroot, :supplies, :the_brokers, :dead_root_interfaces do
-  prose "Spent grafts move by weight into Amur laboratories, graded on how cleanly the kill ran and used to build fungal-machine interfaces."
-end
+relate :rel_wr_brokers_supplies_deadroot, :supplies, :the_brokers, :dead_root_interfaces
 relate :rel_wr_deadroot_manifests_amur, :manifests_at, :dead_root_interfaces, :the_amur_line
 
 # ---- proto-fusion: what purity costs and where plants cannot go ----

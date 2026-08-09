@@ -75,9 +75,7 @@ relate :rel_td_sort_book_records_schedule, :models, :the_sort_book, :the_gate_sc
   prose "Forty-one sorts, pulled monthly: the figures, the fraction rule, the measure characters and the recurring words."
 end
 relate :rel_td_ma_maintains_sort_book, :maintains, :ma_renqing, :the_sort_book, since: 2072
-relate :rel_td_brokers_supply_yumen, :supplies, :the_brokers, :yumen_gate, since: 2071 do
-  prose "Three founts cast to order — 2071, 2079, 2086 — carried up on the Delta run with the rest of the station's hardware."
-end
+relate :rel_td_brokers_supply_yumen, :supplies, :the_brokers, :yumen_gate, since: 2071
 relate :rel_td_sort_book_depends_brokers, :depends_on, :the_sort_book, :the_brokers do
   prose "What a page can prove is bounded by the fount it was pulled from. The casting houses fill each order from the sorts in their trays and do not number the shipment."
 end
