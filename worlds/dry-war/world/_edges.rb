@@ -44,8 +44,6 @@ relate :rel_caretaker_models_managed, :models, :caretaker, :the_managed, since: 
 end
 relate :rel_mercy_supplies_water, :supplies, :mercy, :water, since: 2052
 relate :rel_market_regulates_water, :regulates, :market, :water, since: 2052
-relate :rel_market_regulates_claim_escrow, :regulates, :market, :claim_escrow, since: 2052
-relate :rel_claim_escrow_depends_guardianship, :depends_on, :claim_escrow, :guardianship
 relate :rel_coalitions_depend_water, :depends_on, :proto_fusion, :water
 relate :rel_clusters_depend_fusion, :depends_on, :frontier_clusters, :proto_fusion
 relate :rel_predictive_depends_clusters, :depends_on, :predictive_governance, :frontier_clusters
@@ -87,7 +85,6 @@ relate :rel_pilgrims_operate_america, :operates_in, :the_pilgrims, :ai_north_ame
 relate :rel_choir_evades_predictive, :evades, :the_choir, :predictive_governance, since: 2065
 relate :rel_pilgrims_evade_predictive, :evades, :the_pilgrims, :predictive_governance, since: 2060
 relate :rel_unpersons_evade_guardianship, :evades, :the_unpersons, :guardianship, since: 2060
-relate :rel_unpersons_evade_claim_escrow, :evades, :the_unpersons, :claim_escrow, since: 2060
 relate :rel_saints_reject_heresy, :evades, :the_saints_of_plenty, :the_water_heresy, since: 2065
 relate :rel_dead_counties_use_jailbreaks, :practiced_by, :wetware_jailbreaks, :the_dead_counties, since: 2065
 relate :rel_dead_counties_use_ghost, :practiced_by, :ghost_pharmacology, :the_dead_counties, since: 2065
@@ -217,34 +214,20 @@ relate :rel_peng_participated_fifth_room, :participated_in, :peng_meizhen, :the_
 relate :rel_fifth_room_conducted_by_sun, :conducted_by, :the_fifth_room_week, :sun_yilan
 relate :rel_fifth_room_depends_film, :depends_on, :the_fifth_room_week, :separation_film
 
-# ---- Market work claims without a recognized payee ----
-relate :rel_market_created_named_payee_rule, :created, :market, :the_named_payee_rule
-relate :rel_named_payee_rule_regulates_escrow, :regulates, :the_named_payee_rule, :claim_escrow, since: 2056
-relate :rel_named_payee_rule_regulates_ruth, :regulates, :the_named_payee_rule, :ruth_osei, since: 2081
-relate :rel_named_payee_rule_regulates_receipt_holders, :regulates, :the_named_payee_rule, :the_receipt_holders, since: 2087
-relate :rel_race_street_in_boswash, :located_in, :race_street_claim_house, :boswash_ruins, since: 2074
-relate :rel_market_maintains_race_street, :maintains, :market, :race_street_claim_house, since: 2074
-relate :rel_claim_escrow_at_race_street, :manifests_at, :claim_escrow, :race_street_claim_house
+# ---- the Race Street warehouse and its unpaid workers ----
+relate :rel_race_street_in_boswash, :located_in, :race_street_warehouse, :boswash_ruins, since: 2074
+relate :rel_market_maintains_race_street, :maintains, :market, :race_street_warehouse, since: 2074
 relate :rel_ruth_employed_by_market, :employed_by, :ruth_osei, :market, since: 2081
-relate :rel_ruth_located_at_race_street, :located_in, :ruth_osei, :race_street_claim_house, since: 2081
-relate :rel_claim_escrow_conducted_by_ruth, :conducted_by, :claim_escrow, :ruth_osei
-relate :rel_receipt_holders_operate_race_street, :operates_in, :the_receipt_holders, :race_street_claim_house, since: 2087
+relate :rel_ruth_located_at_race_street, :located_in, :ruth_osei, :race_street_warehouse, since: 2081
+relate :rel_receipt_holders_operate_race_street, :operates_in, :the_receipt_holders, :race_street_warehouse, since: 2087
 relate :rel_receipt_holders_cooperate_unpersons, :cooperates_with, :the_receipt_holders, :the_unpersons, since: 2087
 relate :rel_receipt_holders_petition_market, :petitions, :the_receipt_holders, :market, since: 2087
-relate :rel_cooling_claim_at_race_street, :manifests_at, :the_race_street_cooling_claim, :race_street_claim_house
-relate :rel_cooling_claim_during_holding, :active_during, :the_race_street_cooling_claim, :the_holding
-relate :rel_market_participated_cooling_claim, :participated_in, :market, :the_race_street_cooling_claim
-relate :rel_unpersons_participated_cooling_claim, :participated_in, :the_unpersons, :the_race_street_cooling_claim
-relate :rel_ruth_participated_cooling_claim, :participated_in, :ruth_osei, :the_race_street_cooling_claim
-relate :rel_cooling_claim_caused_receipt_holders, :caused, :the_race_street_cooling_claim, :the_receipt_holders
-relate :rel_cooling_claim_depends_escrow, :depends_on, :the_race_street_cooling_claim, :claim_escrow do
-  prose "Six bodies, one receipt, a blank identity line, and the full emergency price moved into reserve where it has stayed."
-end
-relate :rel_cooling_claim_regulated_by_rule, :regulates, :the_named_payee_rule, :the_race_street_cooling_claim, since: 2087
-relate :rel_receipt_holders_depend_escrow, :depends_on, :the_receipt_holders, :claim_escrow, since: 2087
-relate :rel_race_street_applies_rule, :regulates, :the_named_payee_rule, :race_street_claim_house, since: 2074 do
-  prose "The identity desk beyond the waist-high rail exists to apply it, and no balance leaves reserve before it has."
-end
+relate :rel_six_at_race_street, :manifests_at, :the_six_under_race_street, :race_street_warehouse
+relate :rel_six_during_holding, :active_during, :the_six_under_race_street, :the_holding
+relate :rel_market_in_six, :participated_in, :market, :the_six_under_race_street
+relate :rel_unpersons_in_six, :participated_in, :the_unpersons, :the_six_under_race_street
+relate :rel_ruth_in_six, :participated_in, :ruth_osei, :the_six_under_race_street
+relate :rel_six_caused_receipt_holders, :caused, :the_six_under_race_street, :the_receipt_holders
 relate :rel_receipt_holders_draw_managed, :member_of, :the_managed, :the_receipt_holders, since: 2087 do
   prose "Most of the mutual are people whose records split during a move, a coalition transfer or a guardian failure."
 end

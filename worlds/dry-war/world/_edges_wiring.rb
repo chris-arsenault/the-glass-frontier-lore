@@ -43,9 +43,7 @@ relate :rel_wr_stupid_evades_caretaker, :evades, :stupid_infrastructure, :careta
 relate :rel_wr_stupid_evades_predictive, :evades, :stupid_infrastructure, :predictive_governance
 relate :rel_wr_stupid_depends_orphans, :depends_on, :stupid_infrastructure, :orphan_machines
 relate :rel_wr_stupid_maintains_bench, :maintains, :stupid_infrastructure, :cabin_creek_bench
-relate :rel_wr_pilgrims_evades_stupid, :evades, :the_pilgrims, :stupid_infrastructure do
-  prose "A place that merely inconveniences itself has bought nothing. The only reliable illegibility is not staying anywhere."
-end
+relate :rel_wr_pilgrims_evades_stupid, :evades, :the_pilgrims, :stupid_infrastructure
 
 # ---- physical cryptography: the practice its instruments belong to ----
 relate :rel_wr_sortbook_embodies_physcrypt, :embodies, :the_sort_book, :physical_cryptography do
@@ -88,9 +86,7 @@ relate :rel_wr_deadroot_manifests_amur, :manifests_at, :dead_root_interfaces, :t
 relate :rel_wr_fusion_depends_water, :depends_on, :proto_fusion, :water do
   prose "The demanding requirement is purity, not volume, and the two pull against each other: abundant water carries everything that makes it abundant."
 end
-relate :rel_wr_fusion_regulated_market, :regulates, :market, :proto_fusion do
-  prose "A plant is rated on the fraction of intake it returns, and the schedule prices that fraction."
-end
+relate :rel_wr_fusion_regulated_market, :regulates, :market, :proto_fusion
 relate :rel_wr_choir_evades_fusion, :evades, :the_choir, :proto_fusion
 relate :rel_wr_liangzhou_depends_fusion, :depends_on, :the_liangzhou_double_return, :proto_fusion
 relate :rel_wr_fusion_depends_drywar, :part_of, :proto_fusion, :the_dry_war

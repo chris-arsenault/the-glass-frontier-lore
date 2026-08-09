@@ -8,7 +8,7 @@ artifact :the_pressure_schedule do
   prose <<~PROSE
     A mineral-loaded slab standing on edge in bay nine of the #{ref :juyan_register_house, "Juyan Register House"}, admitted in 2071 out of a Lanzhou copying house's load. It holds the 2049 Chinese edition of a North American acceptance schedule for building chilled-water and brine piping: pipe classes by working pressure, joint preparation for each, the test at one and a half times the working figure, the ten minutes it must be held, and the requirement that every joint stand uncovered and be watched through the hold.
 
-    It was queued on admission and read for the first time fourteen years later, when a #{ref :race_street_claim_house, "Race Street"} examiner filed the first #{ref :the_face_warrant, "warrant"} against it. In coalition territory the schedule survives as a citation. Claim files name it by clause in inspection records whose text migrated between systems and did not arrive.
+    It was queued on admission and read for the first time fourteen years later, when an examiner at #{ref :race_street_warehouse, "the Race Street warehouse"} requested it. In coalition territory the schedule survives as a citation in inspection records whose text migrated between systems and did not arrive.
   PROSE
 
   prose <<~PROSE, section: :description, heading: "Six Faces And What Is On Them"

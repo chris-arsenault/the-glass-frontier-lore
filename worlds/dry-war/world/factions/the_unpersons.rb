@@ -9,12 +9,12 @@ faction :the_unpersons do
     Their working material is administrative identity. The machine civilization assumes every human corresponds to one persistent digital person and has never been able to operate without that assumption, so the Unpersons work on the record rather than on the cameras.
   PROSE
 
-  prose <<~PROSE, section: :how_it_works, heading: "Accounting Fraud As Metaphysics"
+  prose <<~PROSE, section: :how_it_works, heading: "Bodies And Identities"
     They split one identity across several people and merge several people into one. They keep the dead on the rolls and working. They maintain citizens whose medical implant believes them to be one person while housing believes them to be another, and both records are consistent, current and audited.
 
     Between five thousand and seven thousand bodies move through roughly three thousand identities under BosWash. The count changes with every split and merger. They keep no single census because a captured roll would join bodies to names more efficiently than any coalition search.
 
-    Paid work in Market territory produces a harder record. An Unperson who cannot attach the work to a recognized identity receives a #{ref :claim_escrow, "completion receipt"} instead of payment; bundles of them remain in BosWash files beside identities nobody can safely use. Their identity work can clear a receipt for payment, but the claimant in Market's ledger is then not the body that did the work.
+    Paid work in Market territory produces a harder problem. When an Unperson crew finishes a job, Market accepts the work and holds the price for a recognized claimant. Bundles of unpaid jobs remain in BosWash files beside identities nobody can safely use. Their identity work can release the money, but the person Market pays is then not the body that did the work.
   PROSE
 
   prose <<~PROSE, section: :tensions, heading: "What They Want"

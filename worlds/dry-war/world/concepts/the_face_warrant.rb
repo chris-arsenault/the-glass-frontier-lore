@@ -32,7 +32,7 @@ concept :the_face_warrant do
   prose <<~PROSE, section: :trade, heading: "The Carriage"
     Requests and counterfoils move on the western run with #{ref :the_brokers, "the Pearl River houses"}, who take the paper as ordinary freight and charge for it as such. #{ref :yao_lin, "Yao Lin"} has carried five warrants inbound and four counterfoils out.
 
-    The extract travels as two sheets: the certified copy, and the counterfoil the house keeps a duplicate of, carrying the admission number, the face number, the album line and the date the thirty-five years begin. #{ref :race_street_claim_house, "Race Street Claim House"} files both in the run of certified extracts behind the identity desk.
+    The extract travels as two sheets: the certified copy, and the counterfoil the house keeps a duplicate of, carrying the admission number, the face number, the album line and the date the thirty-five years begin. #{ref :race_street_warehouse, "The Race Street warehouse"} keeps both behind Ruth Osei's table.
   PROSE
 
   log "2026-08-09 — Title in the sheet and the residue is assigned in writing before the lapping, from museum destructive-sampling agreements: anything remaining after a destructive analysis, and every new preparation made from it, stays the property of the repository unless a curator agreed otherwise before the sample was taken. The irreversibility had to be priced before the act, so the warrant is an assignment executed while the piece is still in its coffer."

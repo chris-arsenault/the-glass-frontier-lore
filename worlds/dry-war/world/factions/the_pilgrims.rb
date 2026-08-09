@@ -24,10 +24,10 @@ faction :the_pilgrims do
   PROSE
 
   prose <<~PROSE, section: :trade, heading: "Taking Paid Work"
-    They work for wages, in gangs, on seasonal infrastructure: sediment barges, gate galleries, rack clearing, grade repair. A gang boss presents a crew name and a body count at a #{ref :conowingo_engagement_counter, "Market engagement counter"}, the counter engages the crew, and the completion record afterwards names the work and not the workers. Most of the price then sits in #{ref :claim_escrow, "escrow"} against identity records nobody in the crew intends to produce.
+    They work for wages, in gangs, on seasonal infrastructure: sediment barges, gate galleries, rack clearing, grade repair. A gang boss brings a crew name and a body count to a place like #{ref :conowingo_sluice_yard, "the Conowingo sluice yard"}. The yard records the work under that temporary name. Market holds most of the pay because nobody in the crew presents a recognized identity.
 
-    To draw any of it a group files an #{ref :the_engagement_allotment, "allotment note"} naming one settled relative who can be recognized. This is the culture's most argued-over instrument, because it produces exactly what the culture refuses: a fixed name, a fixed address and a payment calendar. #{ref :the_priced_return, "The Priced Return"} is the season the argument was decided in, and the rules that came out of it hold that a note names somebody the travelling group never visits, is surrendered at the end of a season, and is not filed on the same name two seasons running.
+    A worker may send up to two-fifths of the price to a recognized parent, child, sibling or grandparent. That creates a fixed name, address and payment calendar, exactly the trail the culture avoids. After #{ref :the_long_grass_return, "the Long Grass Return"}, groups began choosing relatives they do not visit and changing the address every season.
 
-    Groups that will not file at all leave the whole balance standing. Bundles of their receipts sit in corridor files beside the #{ref :the_unpersons, "Unperson"} bundles, which is the only thing the two cultures produce in common.
+    Groups that name nobody leave the whole balance with Market. Their unpaid jobs accumulate beside those of #{ref :the_unpersons, "Unperson"} crews, the one material result the two cultures produce in common.
   PROSE
 end

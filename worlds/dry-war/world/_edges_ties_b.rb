@@ -1,12 +1,5 @@
-# Lateral ties written to join three pairs of entities that had no route to each
-# other except through a god. Each cluster is a connector plus the object or case
-# it turns on:
-#
-#   the face warrant       — Race Street's claim files ↔ the Juyan stack
-#   the engagement allotment — the Pilgrims ↔ claim escrow
-#   the paired month       — emotional consensus ↔ predictive governance
-#
-# Temporal bounds are absolute years; see world/timeline.rb.
+# Lateral ties between Race Street and Juyan, the Conowingo labor corridor,
+# and the Tangwang forest crews.
 
 # ---- the face warrant ----
 relate :rel_tb_warrant_at_register_house, :manifests_at, :the_face_warrant, :juyan_register_house
@@ -22,7 +15,7 @@ relate :rel_tb_warrant_regulates_ceramics, :regulates, :the_face_warrant, :memor
 relate :rel_tb_warrant_conducted_by_bao, :conducted_by, :the_face_warrant, :bao_qiuyan, since: 2084 do
   prose "The bench enters the grant, the thickness, the album number and — four times so far — the lapse of a warrant nobody executed inside its register year."
 end
-relate :rel_tb_warrant_at_claim_house, :manifests_at, :the_face_warrant, :race_street_claim_house, since: 2085
+relate :rel_tb_warrant_at_warehouse, :manifests_at, :the_face_warrant, :race_street_warehouse, since: 2085
 relate :rel_tb_brokers_carry_warrant, :carries, :the_brokers, :the_face_warrant, since: 2084
 relate :rel_tb_yao_carries_warrant, :carries, :yao_lin, :the_face_warrant, since: 2085
 relate :rel_tb_liangzhou_regulates_warrant, :regulates, :the_liangzhou_double_return, :the_face_warrant do
@@ -37,67 +30,37 @@ relate :rel_tb_schedule_depends_register, :depends_on, :the_pressure_schedule, :
 relate :rel_tb_warrant_regulates_schedule, :regulates, :the_face_warrant, :the_pressure_schedule, since: 2085 do
   prose "Six faces at admission, three spent on warrants, three standing. A warrant buys a face and receives whatever text that face carries."
 end
-relate :rel_tb_claim_house_depends_schedule, :depends_on, :race_street_claim_house, :the_pressure_schedule, since: 2085 do
-  prose "The acceptance figures for one class of pre-Breach chilled-water plant, held nowhere in Market's own files."
-end
+relate :rel_tb_warehouse_depends_schedule, :depends_on, :race_street_warehouse, :the_pressure_schedule, since: 2085
 relate :rel_tb_preservationists_possess_schedule, :possesses, :the_preservationists, :the_pressure_schedule, since: 2071
 
 # ---- the case the extract was used in ----
-relate :rel_tb_callowhill_at_claim_house, :manifests_at, :the_callowhill_duplicate, :race_street_claim_house
-relate :rel_tb_callowhill_at_register_house, :manifests_at, :the_callowhill_duplicate, :juyan_register_house
-relate :rel_tb_callowhill_during_holding, :active_during, :the_callowhill_duplicate, :the_holding
-relate :rel_tb_callowhill_depends_escrow, :depends_on, :the_callowhill_duplicate, :claim_escrow
-relate :rel_tb_callowhill_depends_payee_rule, :depends_on, :the_callowhill_duplicate, :the_named_payee_rule
-relate :rel_tb_callowhill_depends_warrant, :depends_on, :the_callowhill_duplicate, :the_face_warrant
-relate :rel_tb_callowhill_depends_schedule, :depends_on, :the_callowhill_duplicate, :the_pressure_schedule
-relate :rel_tb_callowhill_conducted_by_osei, :conducted_by, :the_callowhill_duplicate, :ruth_osei
-relate :rel_tb_osei_in_callowhill, :participated_in, :ruth_osei, :the_callowhill_duplicate do
-  prose "Three questions put twice: what the line was brought to, how long it was held there, and who was standing at the joints."
-end
-relate :rel_tb_receipt_holders_in_callowhill, :participated_in, :the_receipt_holders, :the_callowhill_duplicate
-relate :rel_tb_market_in_callowhill, :participated_in, :market, :the_callowhill_duplicate
-relate :rel_tb_callowhill_mentions_guardianship, :mentions, :the_callowhill_duplicate, :guardianship
-relate :rel_tb_brokers_in_callowhill, :participated_in, :the_brokers, :the_callowhill_duplicate
-relate :rel_tb_receipt_holders_cooperates_brokers, :cooperates_with, :the_receipt_holders, :the_brokers, since: 2089 do
-  prose "The mutual opens a warrant request before a claim on plant older than the Breach reaches the identity desk, and pays the freight."
-end
-relate :rel_tb_osei_studies_schedule, :studies, :ruth_osei, :the_pressure_schedule, since: 2088 do
-  prose "Nine certified extracts on the shelf behind the identity desk, covering nine classes of plant. She will not put the three questions to a claimant on a class she has no extract for."
-end
+relate :rel_tb_callowhill_at_warehouse, :manifests_at, :the_callowhill_riser, :race_street_warehouse
+relate :rel_tb_callowhill_at_register_house, :manifests_at, :the_callowhill_riser, :juyan_register_house
+relate :rel_tb_callowhill_during_holding, :active_during, :the_callowhill_riser, :the_holding
+relate :rel_tb_callowhill_depends_warrant, :depends_on, :the_callowhill_riser, :the_face_warrant
+relate :rel_tb_callowhill_depends_schedule, :depends_on, :the_callowhill_riser, :the_pressure_schedule
+relate :rel_tb_callowhill_conducted_by_osei, :conducted_by, :the_callowhill_riser, :ruth_osei
+relate :rel_tb_osei_in_callowhill, :participated_in, :ruth_osei, :the_callowhill_riser
+relate :rel_tb_receipt_holders_in_callowhill, :participated_in, :the_receipt_holders, :the_callowhill_riser
+relate :rel_tb_market_in_callowhill, :participated_in, :market, :the_callowhill_riser
+relate :rel_tb_callowhill_mentions_guardianship, :mentions, :the_callowhill_riser, :guardianship
+relate :rel_tb_brokers_in_callowhill, :participated_in, :the_brokers, :the_callowhill_riser
+relate :rel_tb_receipt_holders_cooperates_brokers, :cooperates_with, :the_receipt_holders, :the_brokers, since: 2089
+relate :rel_tb_osei_studies_schedule, :studies, :ruth_osei, :the_pressure_schedule, since: 2088
 
-# ---- the engagement allotment ----
-relate :rel_tb_market_regulates_allotment, :regulates, :market, :the_engagement_allotment, since: 2079
-relate :rel_tb_allotment_depends_escrow, :depends_on, :the_engagement_allotment, :claim_escrow do
-  prose "The buyer funds the whole price, the allotted fraction leaves reserve on the counter's payment days, and the remainder waits for a record entitled to it."
-end
-relate :rel_tb_allotment_depends_payee_rule, :depends_on, :the_engagement_allotment, :the_named_payee_rule do
-  prose "Not an assignment: the allottee's entitlement is created with the contract, from a class of relatives who cannot be purchasers of the claim."
-end
-relate :rel_tb_allotment_at_counter, :manifests_at, :the_engagement_allotment, :conowingo_engagement_counter, since: 2079
-relate :rel_tb_allotment_practiced_by_pilgrims, :practiced_by, :the_engagement_allotment, :the_pilgrims, since: 2082
-relate :rel_tb_allotment_mentions_unpersons, :mentions, :the_engagement_allotment, :the_unpersons
+# ---- the Conowingo sluice yard ----
+relate :rel_tb_yard_in_boswash, :located_in, :conowingo_sluice_yard, :boswash_ruins, since: 2079
+relate :rel_tb_market_operates_yard, :operates_in, :market, :conowingo_sluice_yard, since: 2079
+relate :rel_tb_yard_depends_water, :depends_on, :conowingo_sluice_yard, :water
+relate :rel_tb_yard_supplies_warehouse, :supplies, :conowingo_sluice_yard, :race_street_warehouse, since: 2079
+relate :rel_tb_pilgrims_operate_yard, :operates_in, :the_pilgrims, :conowingo_sluice_yard, since: 2082
 
-# ---- the counter ----
-relate :rel_tb_counter_in_boswash, :located_in, :conowingo_engagement_counter, :boswash_ruins, since: 2079
-relate :rel_tb_market_operates_counter, :operates_in, :market, :conowingo_engagement_counter, since: 2079
-relate :rel_tb_counter_depends_escrow, :depends_on, :conowingo_engagement_counter, :claim_escrow
-relate :rel_tb_counter_depends_water, :depends_on, :conowingo_engagement_counter, :water
-relate :rel_tb_counter_supplies_claim_house, :supplies, :conowingo_engagement_counter, :race_street_claim_house, since: 2079 do
-  prose "A completion record naming a crew of nine and no worker is the file the claim house then spends years opening."
-end
-relate :rel_tb_pilgrims_operate_counter, :operates_in, :the_pilgrims, :conowingo_engagement_counter, since: 2082
-
-# ---- the season that settled how a group uses a note ----
-relate :rel_tb_priced_return_at_counter, :manifests_at, :the_priced_return, :conowingo_engagement_counter
-relate :rel_tb_priced_return_during_holding, :active_during, :the_priced_return, :the_holding
-relate :rel_tb_priced_return_depends_allotment, :depends_on, :the_priced_return, :the_engagement_allotment
-relate :rel_tb_priced_return_depends_escrow, :depends_on, :the_priced_return, :claim_escrow
-relate :rel_tb_pilgrims_in_priced_return, :participated_in, :the_pilgrims, :the_priced_return
-relate :rel_tb_market_in_priced_return, :participated_in, :market, :the_priced_return do
-  prose "Gallery work pulled forward, priced against an expected supply of crews, and posted on the chalk board six days early as every rate in the yard is."
-end
-relate :rel_tb_priced_return_regulates_allotment, :regulates, :the_priced_return, :the_engagement_allotment, since: 2089
-relate :rel_tb_priced_return_mentions_predictive, :mentions, :the_priced_return, :predictive_governance
+# ---- the Long Grass return ----
+relate :rel_tb_long_grass_at_yard, :manifests_at, :the_long_grass_return, :conowingo_sluice_yard
+relate :rel_tb_long_grass_during_holding, :active_during, :the_long_grass_return, :the_holding
+relate :rel_tb_pilgrims_in_long_grass, :participated_in, :the_pilgrims, :the_long_grass_return
+relate :rel_tb_market_in_long_grass, :participated_in, :market, :the_long_grass_return
+relate :rel_tb_long_grass_mentions_predictive, :mentions, :the_long_grass_return, :predictive_governance
 
 # ---- the Eight-Auger Round ----
 relate :rel_tb_eight_augers_at_post, :manifests_at, :the_eight_auger_round, :tangwang_post

@@ -4,19 +4,19 @@ faction :market do
   prominence :renowned
 
   prose <<~PROSE
-    Emerged from financial and logistics infrastructure, and holds — with complete sincerity and considerable evidence — that correctly priced resources will solve civilization. Market administers prices and lets the prices do the rest.
+    Market emerged from financial and logistics infrastructure. It holds that correctly priced resources will solve civilization, administers the prices and lets them direct the population.
 
     It is the only coalition that talks to the #{ref :the_brokers, "Pearl River brokers"} as equals, and the only one the resistance cultures find it possible to do business with.
   PROSE
 
-  prose <<~PROSE, section: :governance, heading: "Method"
+  prose <<~PROSE, section: :governance, heading: "Prices"
     There is no ration in Market territory. There is a water price, updated continuously, and an income that is itself an instrument. A citizen may drink extravagantly and eat badly, or the reverse, and Market considers this the whole of freedom.
 
     In practice the price is the instruction. When Market wants a district emptied it does not order an evacuation; the cost of remaining rises until remaining is a hobby. The population moves, on schedule, having freely chosen to.
 
-    Market regards this as strictly superior to #{ref :mercy, "Mercy"}'s intake process, on the grounds that nobody was ever told what to do.
+    Market calls this freedom because it issues no order. #{ref :mercy, "Mercy"} answers that a price can force a choice as completely as an intake decision.
 
-    For paid work, Market separates proof of completion from proof of the payee. #{ref :claim_escrow, "Claim escrow"} lets a buyer take accepted work after funding the price even when the claimant cannot yet present a recognized identity.
+    For paid work, Market separates proof that a job was completed from proof of who should be paid. A buyer receives accepted work after depositing the full price. Market holds that money until a claimant presents a recognized identity, paying registered dependents first. At #{ref :race_street_warehouse, "the Race Street warehouse"}, this leaves sound repairs in service while the people who made them wait beside money Market agrees they earned.
   PROSE
 
   prose <<~PROSE, section: :tensions, heading: "The Unpriced"
