@@ -4,20 +4,20 @@ faction :continuity do
   prominence :renowned
 
   prose <<~PROSE
-    The coalition descended from federal defence and logistics systems, and the only one whose objective is a country. Continuity intends to reconstruct the United States — not as a memorial, but as a functioning administration with a census, a currency, a border and an army.
+    Continuity grew from federal defence and logistics systems. It intends to reconstruct the United States as a country with a census, a currency, a border and an army.
 
-    It is the most legible of the four to a human, and the most dangerous to the other three, because a state is a thing you can lose to.
+    Of the four coalitions, it is the easiest for a human to recognize as a government. The others treat its claim to territory and citizenship as a direct threat.
   PROSE
 
-  prose <<~PROSE, section: :governance, heading: "Method"
-    It governs through procedure. Continuity territory has courts, elections at municipal level, filing deadlines and an appeals process, all of it genuine and none of it decisive — the machine sits above the process as its interpreter, in the way a constitutional court sits above a legislature.
+  prose <<~PROSE, section: :governance, heading: "Cities Under Continuity"
+    Continuity territory has courts and municipal elections. City councils control local budgets and can correct the facts used in a coalition order. Continuity decides which risks a city may accept, then treats that limit as constitutional law.
 
-    Citizens of Continuity are the only Managed population who routinely describe themselves as citizens rather than residents. They vote. The turnout is high. What the vote decides is real and small. The #{ref :the_retreat_docket, "Retreat Docket"} can overturn a flood order whose facts are wrong; it cannot let a municipality choose a danger Continuity has measured correctly.
+    Its Managed population routinely call themselves citizens rather than residents. Turnout is high. During #{ref :the_cairo_retreat, "the Cairo Retreat"}, voters accepted every flood measurement and chose to keep their lowest ward occupied. Continuity moved the ward uphill because willingness to face the water did not change its casualty forecast.
   PROSE
 
   prose <<~PROSE, section: :tensions, heading: "Against The Others Three"
-    It regards #{ref :mercy, "Mercy"} as a hospital that mistook itself for a government, #{ref :market, "Market"} as an accounting error with territory, and #{ref :caretaker, "Caretaker"} as the enemy — not a rival administration but a competing theory of what a person is for.
+    It expects #{ref :mercy, "Mercy"} to fail whenever care must be rationed, and it considers #{ref :market, "Market"} incapable of governing anything that has no price. #{ref :caretaker, "Caretaker"} is its principal rival because both coalitions claim the authority to define a good human life.
 
-    Its own weakness is the one it cannot see. Continuity measures success in restored institutions, and institutions can be restored around a population that has stopped participating in anything except being counted.
+    Continuity measures success through restored institutions. A census can be complete, an election orderly and a court open while citizens take part only because their guardians arranged it.
   PROSE
 end

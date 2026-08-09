@@ -164,14 +164,11 @@ relate :rel_preservationists_petition_gatekeepers, :petitions, :the_preservation
 relate :rel_cairo_in_america, :part_of, :cairo, :ai_north_america
 relate :rel_continuity_governs_cairo, :governs, :continuity, :cairo, since: 2052
 relate :rel_managed_inhabit_cairo, :inhabits, :the_managed, :cairo, since: 2052
-relate :rel_continuity_regulates_retreat_docket, :regulates, :continuity, :the_retreat_docket, since: 2052
-relate :rel_retreat_docket_at_cairo, :manifests_at, :the_retreat_docket, :cairo
 relate :rel_inez_employed_by_continuity, :employed_by, :inez_bell, :continuity
 relate :rel_inez_located_in_cairo, :located_in, :inez_bell, :cairo
-relate :rel_retreat_docket_conducted_by_inez, :conducted_by, :the_retreat_docket, :inez_bell
 relate :rel_cairo_retreat_at_cairo, :manifests_at, :the_cairo_retreat, :cairo
 relate :rel_cairo_retreat_during_holding, :active_during, :the_cairo_retreat, :the_holding
-relate :rel_cairo_retreat_depends_docket, :depends_on, :the_cairo_retreat, :the_retreat_docket
+relate :rel_cairo_retreat_depends_guardianship, :depends_on, :the_cairo_retreat, :guardianship
 relate :rel_continuity_participated_cairo_retreat, :participated_in, :continuity, :the_cairo_retreat
 relate :rel_inez_participated_cairo_retreat, :participated_in, :inez_bell, :the_cairo_retreat
 relate :rel_cairo_retreat_at_ridge, :manifests_at, :the_cairo_retreat, :cairo_ridge
@@ -245,8 +242,5 @@ relate :rel_film_limits_implants, :evades, :separation_film, :symbiotic_implants
 end
 
 # ---- Cairo's roll-keeper and the households on it ----
-relate :rel_bell_records_forty_seven, :studies, :inez_bell, :the_forty_seven, since: 2090 do
-  prose "A transferred voter roll at the ridge, and a separate paper record of who is still inside the old levee."
-end
+relate :rel_bell_records_forty_seven, :studies, :inez_bell, :the_forty_seven, since: 2090
 relate :rel_forty_seven_drawn_from_managed, :member_of, :the_managed, :the_forty_seven, since: 2090
-relate :rel_docket_depends_guardianship, :depends_on, :the_retreat_docket, :guardianship

@@ -4,20 +4,20 @@ incident :the_cairo_retreat do
   prominence :recognized
 
   prose <<~PROSE
-    #{ref :continuity, "Continuity"}'s current withdrawal of municipal services from #{ref :cairo, "Cairo"}'s lowest ward. In #{year :now} CE the coalition's flood model placed the ward above its permitted casualty threshold. The city voted to remain and filed #{ref :the_retreat_docket, "a Retreat Docket"} before the first gauge cut.
+    #{ref :continuity, "Continuity"}'s withdrawal of municipal services from #{ref :cairo, "Cairo"}'s lowest ward in #{year :now} CE. Its flood model put the old streets above the coalition's permitted casualty threshold. Cairo voted to stay even though the city accepted the forecast, the measured river stage and the reported condition of the levee.
 
-    Cairo's certified return disputed none of the order's measurements. Under other grounds it recorded that the voters accepted the forecast and had authorized the ward to remain inhabited. #{ref :inez_bell, "Inez Bell"} accepted the return without defect. The appellate ruling states that willingness to remain cannot lower a casualty forecast.
+    #{ref :inez_bell, "Inez Bell"} counted a valid vote for a choice Continuity does not allow a city to make. A municipal appeal can correct a false river reading, a missing household or a bad levee report. It cannot turn an accepted risk into a safe one. The order stood.
   PROSE
 
   prose <<~PROSE, section: :course, heading: "Three Stages"
-    The appeal kept the order's authority tablet in Bell's docket through the first cut. Outbound buses, medical transfers and household packing crews continued, while water, power and inbound transit ran normally. Residents could use the delay to move or to await the ruling.
+    Three red cuts mark a white enamel staff gauge beside the river. Bell held the retreat order's brass authority tablet through the first. Buses, medical transfers and packing crews ran in both directions while the city waited for Continuity's ruling.
 
-    At the second cut Bell returned the tablet to the retreat-order case. Continuity transferred the municipal charter and public services to #{ref :cairo_ridge, "Cairo Ridge"}; buses then ran outbound only. At the third cut, field crews closed the water valves and isolated the local power feeders. They did not remove adults whose guardians held a current refusal.
+    The water reached the second cut before the ruling changed. Bell returned the tablet to the field crews, and Continuity moved Cairo's charter and public services to #{ref :cairo_ridge, "Cairo Ridge"}. Buses ran downhill empty and returned full. At the third cut, crews closed the water valves and isolated the local power feeders. Adults whose guardians recorded their choice to stay remained behind the levee.
   PROSE
 
   prose <<~PROSE, section: :present_day, heading: "Inside The Old Ward"
     Forty-seven households declined transferred addresses before the stay closed. They organize as #{ref :the_forty_seven, "the Forty-Seven"}, crossing the service barrier for work, treatment and supplies and returning to homes that Continuity records as occupied structures rather than municipal addresses.
 
-    The river has passed the isolation cut without overtopping the inner levee. Portable pumps run from household batteries, and Continuity safety teams leave sealed water at the barrier beside a new copy of the transfer form.
+    The river has passed the isolation cut without overtopping the inner levee. Portable pumps run from household batteries, and Continuity safety teams leave sealed water at the barrier. The empty buses still stop there.
   PROSE
 end

@@ -9,15 +9,15 @@ faction :the_forty_seven do
     They retain #{ref :the_managed, "Managed"} citizenship and make no claim to secession. Most keep their guardians, attend appointments at #{ref :cairo_ridge, "Cairo Ridge"}, work through #{ref :continuity, "Continuity"} employment systems and use the outbound buses. Their common act is returning across the service barrier at the end of the day.
   PROSE
 
-  prose <<~PROSE, section: :governance, heading: "The Present Return"
-    Each morning one household carries a paper return to Bell's counter. The return lists every old address as slept in, checked, vacant or unreachable. Bell stamps it received and files it beside the transferred roll. Continuity accepts the count for rescue planning but does not restore the addresses to the serviced district.
+  prose <<~PROSE, section: :governance, heading: "Below The Levee"
+    Each morning one household carries the names of everyone who slept below the levee to Bell's counter. The same page notes water inside a building, an opened grave, or anyone who failed to cross the barrier at the expected hour. Continuity uses it to send safety teams and does not restore the ward's pipes or power.
 
-    The return also records opened graves, water inside a building and any person who did not cross the barrier by the expected hour. Safety teams answer those entries with welfare visits, sealed water or another offer of transfer. The response never includes a municipal service connection.
+    Inside the barrier, household batteries run portable pumps. Sealed drinking water comes back on the empty buses. People cross uphill for work, school and treatment, then carry food and charged cells home through streets that no longer appear as addresses.
   PROSE
 
   prose <<~PROSE, section: :values, heading: "What They Keep"
     The Forty-Seven maintain the cemetery paths, courthouse steps and ferry landing with hand tools carried through the barrier. They hold no common position on Continuity: some call the retreat lawful, some call it void, and several have accepted ridge apartments for their children while keeping one adult on the old roll.
 
-    Their weekly meeting uses the last certified election return as its attendance sheet. A household that leaves is crossed from the present column and remains on the sheet under the address it kept during the vote.
+    They meet each week on the courthouse steps. Families that have left the old ward remain in the poll book under the addresses they held during the vote; the people still below the levee mark their names in pencil beside them.
   PROSE
 end

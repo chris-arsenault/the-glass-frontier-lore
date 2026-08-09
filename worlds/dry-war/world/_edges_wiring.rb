@@ -107,9 +107,7 @@ relate :rel_wr_joined_possesses_implants, :possesses, :the_joined, :symbiotic_im
 # regions whose band decides what life in them is.
 relate :rel_wr_gradients_caused_by_breach, :caused_by, :the_gradients, :the_breach
 relate :rel_wr_root_maintains_gradients, :maintains, :the_great_root, :the_gradients
-relate :rel_wr_continuity_maintains_gradients, :maintains, :continuity, :the_gradients do
-  prose "The only technical standard the two civilizations have ever agreed, because the alternative was expedition crews dying over a translation."
-end
+relate :rel_wr_continuity_maintains_gradients, :maintains, :continuity, :the_gradients
 relate :rel_wr_gradients_regulates_forever_war, :regulates, :the_gradients, :the_forever_war do
   prose "Contested ground requires permanent attention and gets it. The defensive lines run where the second band does."
 end
@@ -130,9 +128,7 @@ relate :rel_wr_breach_caused_forever_war, :caused, :the_breach, :the_forever_war
 relate :rel_wr_root_studies_breach, :studies, :the_great_root, :the_breach do
   prose "Ecological, and eventually legible to a large enough biology. The position has not moved."
 end
-relate :rel_wr_continuity_studies_breach, :studies, :continuity, :the_breach do
-  prose "A physical process being described badly. The position has not moved either, which is the strongest evidence that neither is close."
-end
+relate :rel_wr_continuity_studies_breach, :studies, :continuity, :the_breach
 relate :rel_wr_campaigns_caused_by_breach, :caused_by, :the_reclamation_campaigns, :the_breach
 relate :rel_wr_breach_manifests_boswash, :manifests_at, :the_breach, :boswash_ruins
 relate :rel_wr_breach_manifests_cairo, :manifests_at, :the_breach, :cairo

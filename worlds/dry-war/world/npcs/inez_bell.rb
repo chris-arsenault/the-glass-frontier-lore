@@ -4,14 +4,14 @@ npc :inez_bell do
   prominence :marginal
 
   prose <<~PROSE
-    #{ref :cairo, "Cairo"}'s municipal appeals registrar. She keeps the election returns, the municipal seal and the paper copy of every #{ref :the_retreat_docket, "Retreat Docket"}. Her work is to establish which order was in force at each gauge threshold and whether the appellant named a fact #{ref :continuity, "Continuity"} permits an appeal to change.
+    Keeper of #{ref :cairo, "Cairo"}'s municipal seal and voter rolls. #{ref :continuity, "Continuity"} moved her counter uphill during #{ref :the_cairo_retreat, "the Cairo Retreat"}; Bell carried the seal, the poll books and the brass tablet that told field crews which order was in force.
 
-    Bell works from signed poll books, occupied-address counts, levee certificates, evacuation manifests and the input record Continuity publishes with an order. The coalition applies its weights inside the model rather than on the docket. Households that remain name the courthouse, graves and neighbours, grounds the model does not score. Her vocabulary is return, defect, stay, threshold and transfer.
+    She now works in the records hall at #{ref :cairo_ridge, "Cairo Ridge"}. Behind her hang two maps with the same parcel numbers: the old streets below the levee and the apartment courts on high ground. Most names appear on the new map. Forty-seven still appear on both.
   PROSE
 
-  prose <<~PROSE, section: :people, heading: "The Cairo File"
-    Bell handled the city's election return during #{ref :the_cairo_retreat, "the Cairo Retreat"}. The voters had answered the question printed on the ballot, the count reconciled with the poll book and the mayor filed before the first red cut. She took the brass authority tablet from the retreat-order case and locked it into the docket cover. She entered their statement about the ward's courthouse, graves and neighbours under other grounds because none of the listed inputs described them.
+  prose <<~PROSE, section: :people, heading: "The Two Maps"
+    Bell counted Cairo's vote to remain. The ballots matched the poll book, and the city accepted every flood measurement Continuity had published. Voters wrote about the courthouse, their graves and the neighbours who would be scattered uphill. None of those facts altered the flood model.
 
-    When Continuity upheld the order, Bell closed the stay at the second cut by returning the tablet to the order case, then opened the transferred roll at #{ref :cairo_ridge, "Cairo Ridge"}. She now receives #{ref :the_forty_seven, "the Forty-Seven"}'s paper presence returns from the old ward. Continuity's record lets her file a person under a transferred address or a refused transfer, but not as a resident of the ward the vote named.
+    Each morning someone from #{ref :the_forty_seven, "the Forty-Seven"} brings her the names of those who slept below the levee. Bell marks them present on the old map while Continuity keeps their official addresses at the ridge. The two maps disagree in public, on the wall behind the municipal seal.
   PROSE
 end
