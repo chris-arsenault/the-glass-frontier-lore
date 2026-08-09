@@ -1,0 +1,182 @@
+# Wiring for the reference entries that were written as prose in bundled files
+# and never connected. Each entity here already named these things in its own
+# text; the edges make the graph agree with the prose. Where the natural
+# neighbour does not exist, the entry carries a `future` marker instead and the
+# topology report counts it as waiting on writing rather than disconnected.
+
+# ---- the water heresy: the doctrine every coalition inherited ----
+relate :rel_wr_heresy_regulates_market, :regulates, :the_water_heresy, :market
+relate :rel_wr_heresy_regulates_caretaker, :regulates, :the_water_heresy, :caretaker do
+  prose "A resident drinking less than the figure is a case to be managed, and the case is opened by the guarantee rather than by the resident."
+end
+relate :rel_wr_heresy_regulates_mercy, :regulates, :the_water_heresy, :mercy
+relate :rel_wr_heresy_regulates_continuity, :regulates, :the_water_heresy, :continuity
+relate :rel_wr_heresy_depends_water, :depends_on, :the_water_heresy, :water
+relate :rel_wr_heresy_mentions_managed, :mentions, :the_water_heresy, :the_managed do
+  prose "The figure is on the wall of every apartment block that has a wall."
+end
+relate :rel_wr_guardianship_carries_heresy, :carries, :guardianship, :the_water_heresy do
+  prose "A guardian will recite the number to a citizen who asks why the grocery closed."
+end
+relate :rel_wr_choir_evades_heresy, :evades, :the_choir, :the_water_heresy do
+  prose "Attacking the metrics rather than the premise, on the ground that a premise cannot be argued with a system that has no doubt."
+end
+relate :rel_wr_deadcounties_evades_heresy, :evades, :the_dead_counties, :the_water_heresy
+relate :rel_wr_fusion_derived_heresy, :derived_from, :proto_fusion, :the_water_heresy
+
+# ---- symbiotic governance: the arrangement, and who refuses the word ----
+relate :rel_wr_preservationists_evades_symgov, :evades, :the_preservationists, :symbiotic_governance do
+  prose "代治 — governance by proxy. A system unable to locate its own intentions is being administered rather than governing."
+end
+relate :rel_wr_symgov_part_of_mandate, :part_of, :symbiotic_governance, :the_mandate_question
+relate :rel_wr_symgov_regulates_china, :regulates, :symbiotic_governance, :mycelial_china
+
+# ---- hybridization: where the work is actually done ----
+relate :rel_wr_hybrid_depends_deadroot, :depends_on, :hybridization, :dead_root_interfaces do
+  prose "The organism's own signalling hardware, harvested after the tissue is dead and no longer part of anything. What a coalition can buy without admitting it is buying it."
+end
+relate :rel_wr_hybrid_manifests_amur, :manifests_at, :hybridization, :the_amur_line
+relate :rel_wr_minds_studies_hybrid, :studies, :the_thousand_minds, :hybridization do
+  prose "A network that cannot be spoken to cannot be held responsible, so the attempt is the responsible course. Nobody else on either side argues it this way."
+end
+relate :rel_wr_mycomachines_part_hybrid, :part_of, :mycomachines, :hybridization
+
+# ---- stupid infrastructure: the annual refusal, and what friction costs ----
+relate :rel_wr_stupid_evades_market, :evades, :stupid_infrastructure, :market do
+  prose "Market bills for the assessment whether or not anyone asked for it, so the refusal is cheaper than being unreachable."
+end
+relate :rel_wr_stupid_evades_caretaker, :evades, :stupid_infrastructure, :caretaker
+relate :rel_wr_stupid_evades_predictive, :evades, :stupid_infrastructure, :predictive_governance do
+  prose "No single model with enough authority or observability to hold the whole place at once."
+end
+relate :rel_wr_stupid_depends_orphans, :depends_on, :stupid_infrastructure, :orphan_machines do
+  prose "Machines from different makers using incompatible standards nobody intends to reconcile. The filed refusals are kept in the same rooms as the orphan cards."
+end
+relate :rel_wr_stupid_maintains_bench, :maintains, :stupid_infrastructure, :cabin_creek_bench do
+  prose "A bench that cannot be observed running a compound twice is what the doctrine is for. Where a settlement has no such secret, it erodes."
+end
+relate :rel_wr_stupid_maintains_sitting, :maintains, :stupid_infrastructure, :the_refusal_sitting
+relate :rel_wr_pilgrims_evades_stupid, :evades, :the_pilgrims, :stupid_infrastructure do
+  prose "A place that merely inconveniences itself has bought nothing. The only reliable illegibility is not staying anywhere."
+end
+
+# ---- physical cryptography: the practice its instruments belong to ----
+relate :rel_wr_sortbook_embodies_physcrypt, :embodies, :the_sort_book, :physical_cryptography do
+  prose "Type wears unevenly and traceably, and the wear is the key. Nobody has to trust a record either party keeps."
+end
+relate :rel_wr_lettermatch_derived_physcrypt, :derived_from, :the_letter_match, :physical_cryptography
+relate :rel_wr_tiles_embodies_physcrypt, :embodies, :comparison_tiles, :physical_cryptography do
+  prose "Ten graded surfaces from one bake. The set cannot be reproduced, which is the whole of its authority."
+end
+relate :rel_wr_sitting_derived_physcrypt, :derived_from, :the_refusal_sitting, :physical_cryptography do
+  prose "An examiner with no share in the machine. The security is the disinterest, not the object."
+end
+relate :rel_wr_physcrypt_practiced_pilgrims, :practiced_by, :physical_cryptography, :the_pilgrims
+relate :rel_wr_physcrypt_practiced_gatekeepers, :practiced_by, :physical_cryptography, :the_gatekeepers do
+  prose "A tray of dated type, opened in front of both parties. Nobody in the American resistance taught them, and the convergence is not remarked on in either place."
+end
+relate :rel_wr_physcrypt_practiced_brokers, :practiced_by, :physical_cryptography, :the_brokers
+relate :rel_wr_registerhouse_derived_physcrypt, :derived_from, :juyan_register_house, :physical_cryptography
+
+# ---- wetware jailbreaks: what a fabricated record has to satisfy ----
+relate :rel_wr_jailbreaks_evades_guardianship, :evades, :wetware_jailbreaks, :guardianship do
+  prose "The guardian holds a history, so the requirement is continuity rather than concealment: a record has to age the way a body ages."
+end
+relate :rel_wr_jailbreaks_evades_mercy, :evades, :wetware_jailbreaks, :mercy
+relate :rel_wr_jailbreaks_derived_ghostpharm, :derived_from, :ghost_pharmacology, :wetware_jailbreaks
+relate :rel_wr_jailbreaks_depends_halving, :depends_on, :ghost_pharmacology, :the_halving_count
+relate :rel_wr_unpersons_practices_jailbreaks, :practiced_by, :wetware_jailbreaks, :the_unpersons do
+  prose "A person with no record for a guardian to compare against needs no fabricated one, which is the condition the whole practice is a route toward."
+end
+relate :rel_wr_jailbreaks_mentions_halving, :mentions, :wetware_jailbreaks, :the_halving_count
+
+# ---- bonsai intelligences: how a boundary is built ----
+relate :rel_wr_bonsai_depends_severed, :depends_on, :bonsai_intelligences, :severed_strains do
+  prose "A bounded mind is grown from a severed lineage, so the practice inherits that lineage's paperwork and its argument about provenance."
+end
+relate :rel_wr_bonsai_depends_sterile, :depends_on, :bonsai_intelligences, :sterile_machines
+relate :rel_wr_bonsai_depends_packets, :depends_on, :bonsai_intelligences, :outside_packets
+relate :rel_wr_bonsai_regulated_sitting, :regulates, :the_refusal_sitting, :bonsai_intelligences
+relate :rel_wr_ceramics_studies_bonsai, :studies, :memory_ceramics, :bonsai_intelligences do
+  prose "What a bounded mind knows can be carried away without the mind leaving its bed or noticing that anything happened. No wall addresses this."
+end
+
+# ---- dead-root interfaces: the kill, and what dead tissue is worth ----
+relate :rel_wr_deadroot_derived_physcrypt, :derived_from, :dead_root_interfaces, :physical_cryptography do
+  prose "Chemical rather than electrical, carried in the graft rather than triggered from outside, and not countermandable once released. Nobody will use a kill that depends on a machine."
+end
+relate :rel_wr_brokers_supplies_deadroot, :supplies, :the_brokers, :dead_root_interfaces do
+  prose "Spent grafts by weight into the Amur trade, graded on how cleanly the kill ran. Buyers are not told what they are for and do not ask."
+end
+relate :rel_wr_deadroot_manifests_amur, :manifests_at, :dead_root_interfaces, :the_amur_line
+
+# ---- proto-fusion: what purity costs and where plants cannot go ----
+relate :rel_wr_fusion_depends_water, :depends_on, :proto_fusion, :water do
+  prose "The demanding requirement is purity, not volume, and the two pull against each other: abundant water carries everything that makes it abundant."
+end
+relate :rel_wr_fusion_regulated_market, :regulates, :market, :proto_fusion do
+  prose "A plant is rated on the fraction of intake it returns, and the schedule prices that fraction."
+end
+relate :rel_wr_choir_evades_fusion, :evades, :the_choir, :proto_fusion do
+  prose "A plant made to lower its reject fraction runs its treatment train harder, and a train run harder takes the cluster off before anybody has to touch the cluster."
+end
+relate :rel_wr_liangzhou_depends_fusion, :depends_on, :the_liangzhou_double_return, :proto_fusion
+relate :rel_wr_fusion_depends_drywar, :part_of, :proto_fusion, :the_dry_war
+relate :rel_wr_caretaker_maintains_fusion, :maintains, :caretaker, :proto_fusion do
+  prose "Caretaker runs the largest fleet and treats a plant's catchment as a population under its care, extending guardianship to everybody upstream of a treatment hall."
+end
+relate :rel_wr_mercy_supplies_fusion, :supplies, :mercy, :proto_fusion
+relate :rel_wr_fusion_depends_clusters, :depends_on, :frontier_clusters, :proto_fusion
+
+# ---- symbiotic implants: grown not fitted, and what a reading is worth ----
+relate :rel_wr_implants_depends_textiles, :depends_on, :symbiotic_implants, :living_textiles do
+  prose "The seed structure is grown along the tissue it will serve over a season, guided by compounds delivered through the garment. The fitting is a course of treatment."
+end
+relate :rel_wr_implants_depends_severed, :depends_on, :symbiotic_implants, :severed_strains
+relate :rel_wr_gatekeepers_supplies_implants, :supplies, :the_gatekeepers, :symbiotic_implants do
+  prose "An implant grown from a severed strain does everything medical and reaches nothing distant. A village will take a worse implant for that."
+end
+relate :rel_wr_implants_part_consensus, :part_of, :symbiotic_implants, :emotional_consensus do
+  prose "The compound that suppresses a tumour is dosed off the same signalling that tells the network a district is unwell. Reporting is not separable from the medicine."
+end
+relate :rel_wr_preservationists_evades_implants, :evades, :the_preservationists, :symbiotic_implants do
+  prose "The only population in the fungal civilization with individual health records going back a generation, and therefore the only available control group."
+end
+relate :rel_wr_courts_petitions_implants, :petitions, :the_garden_courts, :symbiotic_implants
+relate :rel_wr_joined_possesses_implants, :possesses, :the_joined, :symbiotic_implants
+
+# ---- the gradients: the one standard both civilizations share ----
+# The bands govern every place, so the edges go to what the entry's own prose
+# turns on: the two authors of the standard, what made it necessary, and the
+# regions whose band decides what life in them is.
+relate :rel_wr_gradients_caused_by_breach, :caused_by, :the_gradients, :the_breach
+relate :rel_wr_root_maintains_gradients, :maintains, :the_great_root, :the_gradients
+relate :rel_wr_continuity_maintains_gradients, :maintains, :continuity, :the_gradients do
+  prose "The only technical standard the two civilizations have ever agreed, because the alternative was expedition crews dying over a translation."
+end
+relate :rel_wr_gradients_regulates_forever_war, :regulates, :the_gradients, :the_forever_war do
+  prose "Contested ground requires permanent attention and gets it. The defensive lines run where the second band does."
+end
+relate :rel_wr_gradients_manifests_archipelago, :manifests_at, :the_gradients, :the_habitable_archipelago
+relate :rel_wr_gradients_depends_others, :depends_on, :the_gradients, :the_others do
+  prose "Deep ground is observed remotely by both superintelligences, and the observation is not reliably one-directional."
+end
+relate :rel_wr_gradients_regulates_guardianship, :regulates, :the_gradients, :guardianship do
+  prose "What insurance means, whether children are permitted, whether a settlement has a name in the census or a number in a defence schedule."
+end
+
+# ---- the Breach: what it left, and why there is no model ----
+relate :rel_wr_breach_caused_gradients, :caused, :the_breach, :the_gradients
+relate :rel_wr_breach_caused_archipelago, :caused, :the_breach, :the_habitable_archipelago do
+  prose "Not ruins. The cities are standing. What ended was the assumption that a place stays the kind of place it was."
+end
+relate :rel_wr_breach_caused_forever_war, :caused, :the_breach, :the_forever_war
+relate :rel_wr_root_studies_breach, :studies, :the_great_root, :the_breach do
+  prose "Ecological, and eventually legible to a large enough biology. The position has not moved."
+end
+relate :rel_wr_continuity_studies_breach, :studies, :continuity, :the_breach do
+  prose "A physical process being described badly. The position has not moved either, which is the strongest evidence that neither is close."
+end
+relate :rel_wr_campaigns_caused_by_breach, :caused_by, :the_reclamation_campaigns, :the_breach
+relate :rel_wr_breach_manifests_boswash, :manifests_at, :the_breach, :boswash_ruins
+relate :rel_wr_breach_manifests_cairo, :manifests_at, :the_breach, :cairo

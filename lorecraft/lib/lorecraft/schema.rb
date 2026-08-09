@@ -17,9 +17,15 @@ module Lorecraft
     # effects. Dynamic state is the opposite: only ever changed by effects.
     # These are the known static attribute names; an effect targeting one is a
     # compile error (spec §8.3). Everything else an effect sets is dynamic.
+    # `structural` marks an entity everything points at for bookkeeping rather
+    # than because of a world fact — an era, a period every entry is stamped
+    # with. It is orthogonal to prominence: the Holding is a household name and
+    # a temporal bin at once, and mixing its fan-in into the prominence tiers
+    # makes the whole distribution unreadable. Topology reports these separately
+    # and `web` drops them at every cut.
     DEFAULT_STATIC_ATTRS = %i[
       title tags prominence alias region narrative_role status reviewed
-      species culture era date founded registry prominence_xrefs
+      species culture era date founded registry prominence_xrefs structural
     ].freeze
 
     PROMINENCE_LEVELS = %i[forgotten marginal recognized renowned mythic].freeze

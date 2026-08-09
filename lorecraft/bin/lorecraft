@@ -85,31 +85,58 @@ when "topology"
   deg = Hash.new(0)
   rels.each { |s, _v, t| deg[s] += 1; deg[t] += 1 }
   n = ents.size
+  # Edges every entity gets for bookkeeping rather than because of a world fact.
+  # Counting them as connectivity hides exactly the entries that have none.
+  bookkeeping = %i[active_during emerged_during created_during disappeared_during mentions]
+  world_deg = Hash.new(0)
+  rels.each do |s, v, t|
+    next if bookkeeping.include?(v)
+
+    world_deg[s] += 1
+    world_deg[t] += 1
+  end
+  pending = Hash.new(0)
+  w.pending_edges.each { |id, _name| pending[id] += 1 }
+
   # Prominence prescribes degree — a mythic name may be referenced from anywhere
   # and a forgotten one only from what already links to it — so degree is
   # stratified by design and a single average over the whole graph describes no
   # entity in it. Report each tier's own spread.
   tiers = %i[mythic renowned recognized marginal forgotten]
-  grouped = ents.group_by { |e| e.prominence&.to_sym }
+  structural, ranked = ents.partition(&:structural?)
+  grouped = ranked.group_by { |e| e.prominence&.to_sym }
   floor = 3 # craft/graph-topology.md §1: every entity carries at least three typed edges
-  thin = ents.select { |e| deg[e.id] < floor }
-  puts "=== Topology ==="
-  puts "  entities (non-shell): #{n}"
-  puts "  typed edges:          #{rels.size}"
-  puts
-  puts "  degree by prominence      n    min   median      max"
-  (tiers + [nil]).each do |tier|
-    group = grouped[tier] or next
-    d = group.map { |e| deg[e.id] }.sort
-    label = tier ? tier.to_s : "(undeclared)"
+  row = lambda do |label, group|
+    d = group.map { |e| world_deg[e.id] }.sort
     puts "    #{label.ljust(18)} #{group.size.to_s.rjust(4)}   #{d.first.to_s.rjust(4)}" \
          "   #{d[d.size / 2].to_s.rjust(6)}   #{d.last.to_s.rjust(6)}"
   end
+
+  puts "=== Topology ==="
+  puts "  entities (non-shell): #{n}"
+  puts "  typed edges:          #{rels.size}  (#{rels.size - world_deg.values.sum / 2} bookkeeping)"
+  puts "  pending on futures:   #{w.pending_edges.size}"
   puts
-  puts "  under #{floor} edges:         #{thin.size}/#{n}  (target 0)"
-  unless thin.empty?
-    thin.sort_by { |e| [deg[e.id], e.kind.to_s] }.each do |e|
-      puts "    #{deg[e.id]}  #{e.kind.to_s.ljust(20)} #{e.id}"
+  puts "  world degree by prominence      n    min   median      max"
+  (tiers + [nil]).each { |t| (g = grouped[t]) && row.(t ? t.to_s : "(undeclared)", g) }
+  row.("structural", structural) unless structural.empty?
+  puts
+  # An entry under the floor with futures in its prose is waiting on writing.
+  # One with none is wrongly disconnected, and that is the actionable list.
+  thin = ents.reject(&:structural?).select { |e| world_deg[e.id] < floor }
+  blocked, orphaned = thin.partition { |e| pending[e.id].positive? }
+  puts "  under #{floor} world edges:   #{thin.size}/#{n}"
+  unless orphaned.empty?
+    puts "    disconnected (no futures either) — #{orphaned.size}"
+    orphaned.sort_by { |e| [world_deg[e.id], e.kind.to_s] }.each do |e|
+      puts format("      %d  %-11s %-20s %s", world_deg[e.id], e.prominence || "-", e.kind, e.id)
+    end
+  end
+  unless blocked.empty?
+    puts "    waiting on unwritten entities — #{blocked.size}"
+    blocked.sort_by { |e| [world_deg[e.id], e.kind.to_s] }.each do |e|
+      puts format("      %d +%d  %-11s %-20s %s", world_deg[e.id], pending[e.id],
+                  e.prominence || "-", e.kind, e.id)
     end
   end
 when "worlds"

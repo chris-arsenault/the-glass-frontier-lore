@@ -58,7 +58,10 @@ end
 # ---- the yard ----
 relate :rel_td_yard_in_hexi, :located_in, :xincheng_yard, :the_hexi_corridor
 relate :rel_td_gatekeepers_maintain_yard, :maintains, :the_gatekeepers, :xincheng_yard, since: 2074
-relate :rel_td_yard_regulates_strains, :regulates, :xincheng_yard, :severed_strains, since: 2074 do
+# One yard of eight cells does not regulate a resource class. The Gatekeepers do,
+# and the yard is where they do part of it — which `maintains` above carries.
+relate :rel_td_yard_mentions_strains, :mentions, :xincheng_yard, :severed_strains
+relate :rel_td_gatekeepers_regulate_strains, :regulates, :the_gatekeepers, :severed_strains, since: 2074 do
   prose "Four days at a marked distance from a neighbourhood hedge, and the bed is broken afterwards."
 end
 relate :rel_td_yard_depends_moss, :depends_on, :xincheng_yard, :gate_moss

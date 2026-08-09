@@ -39,9 +39,12 @@ module Lorecraft
 
     def hubs(limit = 10) = degree.sort_by { |_id, d| -d }.first(limit)
 
-    # The graph with one or more prominence tiers removed.
+    # The graph with one or more prominence tiers removed. Structural entities
+    # go at every cut: an era holds the whole world together through
+    # `active_during` alone, so leaving it in answers nothing.
     def cut(dropped)
-      kept = entities.map(&:id).reject { |id| dropped.include?(prominence[id]) }.to_set
+      kept = entities.reject { |e| e.structural? || dropped.include?(prominence[e.id]) }
+                     .map(&:id).to_set
       Cut.new(dropped: dropped, kept: kept, components: components(kept))
     end
 

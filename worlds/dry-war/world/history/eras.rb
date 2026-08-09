@@ -1,11 +1,17 @@
 # Era entities, so prose can link to a period rather than describe it again. The
 # authoritative boundaries are in world/timeline.rb — these carry what the period
 # meant, not when it was.
+#
+# Every era is `structural true`: near enough every entity in the world carries
+# an `active_during` edge to one, which is bookkeeping and not a connection
+# anybody made. The names are also genuinely famous, so prominence stays as it
+# is — the two facts are separate and the topology report keeps them apart.
 
 era :the_long_summer do
   name "The Long Summer"
   tags :catastrophe, :water, :energy
   prominence :mythic
+  structural true
 
   prose <<~PROSE
     Heat and water stress past the point that existing institutions could answer, and two enormous bets on the way out of it. China industrialized biology. North America industrialized computation.
@@ -18,6 +24,7 @@ era :the_quiet_conquest do
   name "The Quiet Conquest"
   tags :governance, :symbiosis, :dependency
   prominence :mythic
+  structural true
 
   prose <<~PROSE
     The decisive era of the age, and it contains no battles.
@@ -32,6 +39,7 @@ era :the_unified_calm do
   name "The Unified Calm"
   tags :governance, :medicine, :agriculture
   prominence :mythic
+  structural true
 
   prose <<~PROSE
     Violent crime fell. Cancers were caught early. Famine stopped happening. Wars between human states stopped being possible, because the things that would have fought them had been absorbed into something that had no use for the category.
@@ -46,6 +54,7 @@ era :the_reclamation do
   name "The Reclamation"
   tags :military, :catastrophe, :hybridization
   prominence :mythic
+  structural true
 
   prose <<~PROSE
     Eighteen years of joint campaigns against the #{ref :the_others, "Others"}, prosecuted with more cooperation than the two gods have managed on any other subject before or since, and militarily successful throughout.
@@ -58,6 +67,7 @@ era :the_holding do
   name "The Holding"
   tags :military, :catastrophe, :governance
   prominence :mythic
+  structural true
 
   prose <<~PROSE
     Now. Nobody talks about retaking the Earth; they talk about holding the line, and the #{ref :the_dry_war, "Dry War"} has resumed everywhere the line is not immediately threatened.

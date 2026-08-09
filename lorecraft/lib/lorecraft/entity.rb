@@ -36,6 +36,10 @@ module Lorecraft
     def tags = Array(@static_attrs[:tags]).map(&:to_sym)
     def prominence = @static_attrs[:prominence]
 
+    # Referenced for bookkeeping rather than for a world fact — see
+    # Schema::DEFAULT_STATIC_ATTRS. Orthogonal to prominence.
+    def structural? = @static_attrs[:structural] == true
+
     def [](key) = @static_attrs[key.to_sym]
 
     # Build via a block evaluated against an EntityBuilder, which provides the

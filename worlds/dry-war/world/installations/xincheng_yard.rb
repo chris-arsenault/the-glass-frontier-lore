@@ -2,7 +2,7 @@ installation :xincheng_yard do
   name "The Xincheng Yard"
   aka "新城场"
   tags :biotech, :symbiosis, :legibility
-  prominence :forgotten
+  prominence :marginal
 
   prose <<~PROSE
     A walled yard among the tomb mounds outside Xincheng, east of Jiayuguan, where the #{ref :the_gatekeepers, "Gatekeepers"} challenge a #{ref :severed_strains, "severed strain"} before its card is renewed. The site was chosen for its edge. Irrigation reaches this far, so a neighbourhood network's hedge stands within thirty metres of the cells, while the yard's own ground is kiln-fired brick, salted gravel and nothing else.

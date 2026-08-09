@@ -1,7 +1,7 @@
 npc :xie_lanting do
   name "Xie Lanting"
   tags :ecology, :biotech, :legibility
-  prominence :marginal
+  prominence :recognized
 
   prose <<~PROSE
     Xie Lanting keeps the coring record at #{ref :tangwang_post, "Tangwang Post"}. #{ref :the_great_root, "The Great Root"}'s line service posted her to the #{ref :the_amur_line, "Amur"} reaches as an ecologist. She takes twenty increment cores from a compartment on a forty-metre grid, reads them under a bench lens the same afternoon, and files the count whatever it comes to. In a core, she calls a closed tube through the outer growth rings a sleeve and a separate mass inside one a body. She counts both and enters no opinion on #{ref :the_others, "the Others"}.

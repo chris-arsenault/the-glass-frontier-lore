@@ -58,7 +58,11 @@ end
 
 # ---- C. the control series: Thousand Minds ↔ the Amur Line ----
 relate :rel_ties_series_at_line, :manifests_at, :the_control_series, :the_amur_line
-relate :rel_ties_series_at_post, :manifests_at, :the_control_series, :tangwang_post, since: 2084
+# The series itself is not at Tangwang. He Zhaolan's pressed halves have never
+# left her ridge; what the post holds is billets it was sent, which the
+# `possesses control_billets` edge below already carries. `mentions` keeps the
+# prose reference legible without restating the structural claim.
+relate :rel_ties_series_mentions_post, :mentions, :the_control_series, :tangwang_post
 relate :rel_ties_ringorder_depends_series, :depends_on, :the_ring_order, :the_control_series do
   prose "A cited number does not count toward a compartment's threshold. An unknown does."
 end

@@ -183,6 +183,35 @@ module Lorecraft
 
     def prose_owners = @entities.values + @moments.values + @relation_instances.values
 
+    # [entity_id, "Name"] for every `#{future "Name"}` in prose. A future names
+    # something real in the world that has no entity yet, so an entry reaching
+    # mostly futures is not wrongly disconnected — it is waiting on writing, and
+    # the two cases need telling apart. Deliberately not in `relationships`: the
+    # engine cannot traverse to a node that does not exist. Topology reports
+    # these beside degree.
+    def pending_edges
+      @pending_edges ||= prose_owners.flat_map do |owner|
+        id = owning_entity_id(owner)
+        next [] unless id
+
+        owner.prose_blocks.flat_map do |block|
+          Markers.scan(block.text).filter_map do |_m, marker|
+            [id, marker.name] if marker.kind == :future
+          end
+        end
+      end.uniq
+    end
+
+    # Prose hangs off entities, off moments (which belong to an entity) and off
+    # relation instances (which belong to their source). Resolve to the entity
+    # whose connectivity the prose speaks for.
+    def owning_entity_id(owner)
+      return owner.of if owner.respond_to?(:of)
+      return owner.source if owner.respond_to?(:source)
+
+      owner.id
+    end
+
     # State of the world at a year (existence, dynamic attrs, live edges).
     def at(point = :now)
       year = @timeline.year_for(point)
