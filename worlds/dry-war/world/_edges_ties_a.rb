@@ -1,36 +1,13 @@
-# Lateral ties written by the connecting pass (craft/connecting-entities.md). Three
-# pairs that reached each other only through a god now reach each other through
-# something at their own scale: two food traditions through a proving bed, the
-# Holds and programmed ecology through a catchment list, and Yunnan's local minds
-# through the wood an Amur coring bench compares a core against.
+# Three pairs that once reached each other only through the gods. Each now has a
+# connection through a place, material or event at the scale of ordinary life.
 
-# ---- A. the proving bed: Saints of Plenty ↔ Garden Courts ----
-relate :rel_ties_growout_practiced_saints, :practiced_by, :the_grow_out, :the_saints_of_plenty
-relate :rel_ties_growout_practiced_courts, :practiced_by, :the_grow_out, :the_garden_courts do
-  prose "A valley bed is read by the valley's mycelium through the whole season as well as by hand at the seven readings, and only the hand's readings go on the card."
-end
-relate :rel_ties_growout_depends_card, :depends_on, :the_grow_out, :the_seven_line_card
-relate :rel_ties_saints_maintain_card, :maintains, :the_saints_of_plenty, :the_seven_line_card
-relate :rel_ties_courts_maintain_card, :maintains, :the_garden_courts, :the_seven_line_card do
-  prose "A card that stops fitting the valley is replaced with a second card under the same name and a new number."
-end
-relate :rel_ties_card_depends_growout, :derived_from, :the_seven_line_card, :the_grow_out
-
-relate :rel_ties_seventh_depends_growout, :depends_on, :the_seventh_line, :the_grow_out
-relate :rel_ties_seventh_depends_card, :depends_on, :the_seventh_line, :the_seven_line_card
-relate :rel_ties_saints_in_seventh, :participated_in, :the_saints_of_plenty, :the_seventh_line do
-  prose "The Ensenada bench entered the failure under the card's original number, sowed the tin again to the same result, and marked the valley's card loose."
-end
-relate :rel_ties_courts_in_seventh, :participated_in, :the_garden_courts, :the_seventh_line do
-  prose "The valley registry entered the Baja sheet as its second card's first season outside the valley and withdrew nothing."
-end
-relate :rel_ties_brokers_in_seventh, :participated_in, :the_brokers, :the_seventh_line do
-  prose "Eleven hundred seeds out and one sheet back, on the same trading run."
-end
-relate :rel_ties_seventh_during_holding, :active_during, :the_seventh_line, :the_holding
-relate :rel_ties_seventh_at_socal, :manifests_at, :the_seventh_line, :southern_california
-relate :rel_ties_growout_at_socal, :manifests_at, :the_grow_out, :southern_california
-relate :rel_ties_growout_at_sichuan, :manifests_at, :the_grow_out, :sichuan
+# ---- A. the Ensenada bed: Saints of Plenty ↔ Garden Courts ----
+relate :rel_ties_saints_in_ensenada, :participated_in, :the_saints_of_plenty, :the_ensenada_bed
+relate :rel_ties_courts_in_ensenada, :participated_in, :the_garden_courts, :the_ensenada_bed
+relate :rel_ties_brokers_in_ensenada, :participated_in, :the_brokers, :the_ensenada_bed
+relate :rel_ties_ensenada_during_holding, :active_during, :the_ensenada_bed, :the_holding
+relate :rel_ties_ensenada_at_socal, :manifests_at, :the_ensenada_bed, :southern_california
+relate :rel_ties_ensenada_seed_from_sichuan, :sourced_from, :the_ensenada_bed, :sichuan
 
 # ---- B. the catchment list: Himalayan Holds ↔ programmable ecologies ----
 relate :rel_ties_list_at_holds, :manifests_at, :the_catchment_list, :the_himalayan_holds

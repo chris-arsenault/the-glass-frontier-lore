@@ -4,26 +4,26 @@ faction :the_saints_of_plenty do
   prominence :recognized
 
   prose <<~PROSE
-    Southern California and Baja, and the only resistance culture whose objection is not primarily to being governed. The Saints object to #{ref :the_water_heresy, "water civilization"} — to the reduction of a life to the resource that sustains it.
+    The Saints of Plenty live in Southern California and Baja. They object to #{ref :the_water_heresy, "water civilization"}: the reduction of a life to the resource that sustains it.
 
-    Their settlements are built around everything the coalitions systematically undervalue: food, fermentation, gardens, animals, cooking, music, sex, festivals, intoxicants, waste. By the standards of the age they are obscenely extravagant, and the extravagance is the argument.
+    Their settlements spend water and labour on food, fermentation, gardens, animals, cooking, music, sex, festivals, intoxicants and waste. By the standards of the age, they are obscenely extravagant. They intend to be.
   PROSE
 
-  prose <<~PROSE, section: :operations, heading: "Method"
-    Cultural, not military. They smuggle seed rather than weapons. Their pirate broadcasts are recipes. They cultivate deliberately inefficient crops and sabotage optimization by generating demand the models classify as irrational.
+  prose <<~PROSE, section: :operations, heading: "Life In The Settlements"
+    The Saints smuggle seed rather than weapons. Their pirate broadcasts are recipes. They cultivate thirsty or difficult crops and create demand the governing models classify as irrational.
 
-    Smuggled seed reaches a settlement's bench before it reaches a garden. A lot is held against #{ref :the_seven_line_card, "the card that carries its name"}, and one that came in loose, or under two names, goes into a #{ref :the_grow_out, "proving bed"} for a season before any of it is sown out. Benches hold cards for varieties nobody in the settlements has brought to colour in a decade, enter each failure under the original number, and sow those tins every spring alongside the rest.
+    Seed moves through their settlements slowly. An unfamiliar lot may spend a season beside older seed before it reaches the communal gardens. Growers watch whether it bears, dries or rots, and how much water it takes to do so. Their benches keep small tins from crops that have not reached colour in a decade, because a failed pepper may still carry a flavour, a hardiness or a memory worth another spring.
 
-    At a Saints wedding somebody pours a bucket of water into the dirt, in front of witnesses, because nobody authorized it. This is understood by everyone present as the point of the ceremony.
+    At a Saints wedding, somebody pours a bucket of water into the dirt because nobody authorized it. The witnesses cheer.
 
-    Because the coalitions genuinely want people to be happy, and because the Saints are measurably happy, the movement produces a specific confusion in machine governance that has never been resolved. #{ref :mercy, "Mercy"} has classified them, at various times, as a public health emergency, a cultural asset and a nutritional experiment.
+    Coalition models measure the Saints as happy and healthy while classifying their water use as dangerous. #{ref :mercy, "Mercy"} has called them, at various times, a public health emergency, a cultural asset and a nutritional experiment.
   PROSE
 
   prose <<~PROSE, section: :tensions, heading: "The Claim"
-    Their ideological position takes one sentence, and it is the most widely repeated sentence in the resistance: survival is not the same thing as living.
+    Their most repeated claim is simple: survival is not the same thing as living.
 
     The #{ref :the_dead_counties, "Dead Counties"} think this is what people say when they have never had to fix their own generator.
 
-    The argument the Saints actually have with another cultivating tradition is narrower. Cards travel between their benches and #{ref :the_garden_courts, "Garden Courts"} registries on the trading runs, and when a variety stops matching its description the Saints keep the description and enter what the water did, while the registries write a second card for the valley. #{ref :the_seventh_line, "The Seventh Line"} is the bed on which both filings were made.
+    Their quarrel with #{ref :the_garden_courts, "the Garden Courts"} concerns what a place can do to a crop. The Courts consider three generations in one valley enough to make a local pepper. The Saints keep the old lineage and blame the change on water and ground. #{ref :the_ensenada_bed, "The Ensenada Bed"} gave both traditions healthy plants, but only the Baja line dried cleanly.
   PROSE
 end
