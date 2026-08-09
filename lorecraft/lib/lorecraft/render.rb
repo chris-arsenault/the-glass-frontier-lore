@@ -119,10 +119,21 @@ module Lorecraft
       def on_future(marker) = "[future:#{marker.name}]"
 
       # A computed span is plain text in every target — there is nothing to link
-      # — so every renderer inherits these two unchanged.
+      # — so every renderer inherits these unchanged.
       def on_elapsed(marker)
-        span = @world.elapsed(marker.from, marker.to)
+        span = span_for(marker)
         marker.ago? ? span.ago(marker.style) : span.public_send(marker.style)
+      end
+
+      # A future anchor becomes exact the moment its event is written with a year;
+      # until then the author's estimate stands in.
+      def span_for(marker)
+        return @world.elapsed(marker.from, marker.to) unless marker.future
+
+        dated = marker.future_id && @world.dated?(marker.future_id)
+        return @world.elapsed(marker.future_id, marker.to) if dated
+
+        Elapsed.new(0, marker.about)
       end
 
       def on_year(marker) = @world.year_of(marker.at).to_s

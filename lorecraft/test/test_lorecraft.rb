@@ -870,6 +870,64 @@ class EntryLogTest < Minitest::Test
   end
 end
 
+class FutureAnchorTest < Minitest::Test
+  # A span whose starting point nobody has dated yet: the estimate stands in, the
+  # missing date is inventoried, and writing the event makes the span exact
+  # without anyone editing the prose.
+  def world(dated:)
+    Lorecraft.define do
+      schema { entity_type :artifact, :incident }
+      timeline { era :t, starts: 2000, length: 500; now year: 2435 }
+      artifact :kite do
+        name "Kite"
+        prose "no trouble in #{elapsed future: 'Kite development', about: 200} of use"
+      end
+      next unless dated
+
+      incident :kite_development do name "Kite Development" end
+      moment :kite_development_happens, year: 2300, of: :kite_development do
+        prose "The first one flew."
+      end
+    end
+  end
+
+  def rendered(w)
+    Lorecraft::Render::Base.new(w)
+                           .resolve_prose(w.entity(:kite).prose_blocks.first.text, from_path: "a.md", year: 2435)
+  end
+
+  def test_estimate_stands_in_until_the_event_is_dated
+    assert_includes rendered(world(dated: false)), "200 years"
+  end
+
+  def test_the_span_becomes_exact_once_the_event_has_a_year
+    assert_includes rendered(world(dated: true)), "135 years"
+  end
+
+  def test_the_missing_date_is_inventoried
+    findings = world(dated: false).lint(root: Dir.mktmpdir)
+    pending = findings.select { |f| f.level == :future && f.message.include?("Kite development") }
+    assert_equal 1, pending.size
+    assert_includes pending.first.message, "no date"
+  end
+
+  def test_a_dated_event_leaves_nothing_to_report
+    findings = world(dated: true).lint(root: Dir.mktmpdir)
+    refute(findings.any? { |f| f.message.include?("has no date") })
+  end
+
+  def test_a_future_anchor_without_an_estimate_is_refused
+    err = assert_raises(Lorecraft::DefinitionError) do
+      Lorecraft.define do
+        schema { entity_type :artifact }
+        timeline { era :t, starts: 0, length: 10; now year: 1 }
+        artifact :k do name "K"; prose "in #{elapsed future: 'Someday'} of use" end
+      end
+    end
+    assert_match(/about:/, err.message)
+  end
+end
+
 class MarkersTest < Minitest::Test
   include Lorecraft::Markers
 

@@ -61,7 +61,8 @@ module Lorecraft
     def self.centuries(years)
       whole, remainder = years.divmod(100)
       case remainder
-      when 0...25 then "just over #{words(whole)} centuries"
+      when 0 then "#{words(whole)} centuries"
+      when 1...25 then "just over #{words(whole)} centuries"
       when 25...75 then "#{words(whole)} and a half centuries"
       else "nearly #{words(whole + 1)} centuries"
       end

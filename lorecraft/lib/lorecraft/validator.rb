@@ -127,7 +127,13 @@ module Lorecraft
     # nothing the clock recognises is a build failure, not a rendering oddity —
     # otherwise the prose silently loses its number.
     def on_elapsed(marker)
-      check_anchor(marker.from)
+      # A future anchor is allowed not to resolve — that is what makes it a
+      # future — but it must carry the estimate that stands in meanwhile.
+      if marker.future
+        err("#{label(@owner)}: elapsed future: '#{marker.future}' has no about: estimate") if marker.about.nil?
+      else
+        check_anchor(marker.from)
+      end
       check_anchor(marker.to)
     end
 

@@ -71,7 +71,13 @@ An entity is one `.rb` file under `worlds/<id>/world/<kind>/<id>.rb`. Static fac
 
 `approx: true` gives the rounded phrase in words, the default gives the figure in digits, and `ago: true` appends "ago". An anchor is `:now`, a year, a moment id, an era name, or an entity id (resolving to its earliest moment). `make check` inventories every span still typed by hand.
 
-A length with no anchor — a tenure, a lifespan, how long a stalemate has run — is not a span and cannot be computed. Write it as `#{duration 11}` ("eleven years"), which spells the number out and says the absence of an anchor is deliberate. `make check` lists every span still typed as a literal.
+**When the starting point has no date yet, name it as a future.** The estimate shows meanwhile, the missing date joins the future inventory, and writing that event with a year makes every span anchored to it exact without touching prose:
+
+```ruby
+"no trouble in #{elapsed future: "Kite-sail development", about: 200, approx: true} of use"
+```
+
+A length with no anchor at all — a lifespan, how long a recording archive reaches back — is not a span. Write it as `#{duration 80}` ("eighty years"), which spells the number out and says the absence of an anchor is deliberate. `make check` lists every span still typed as a literal.
 
 ### Compose, don't restate
 

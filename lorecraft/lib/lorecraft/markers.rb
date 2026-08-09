@@ -69,14 +69,26 @@ module Lorecraft
 
   # A span the timeline computes. `plain` cannot state it — no world, no
   # arithmetic — so it collapses to a readable placeholder for lint and search.
+  #
+  # The from-anchor may instead be a `future:` name: a point in time nobody has
+  # dated yet. The span then shows the author's `about:` estimate and the missing
+  # date is inventoried, and the moment someone writes that event with a year,
+  # every span anchored to it becomes real without anyone editing prose.
   class ElapsedMarker < Marker
     KIND = :elapsed
     def from = @attrs[:from]
     def to = @attrs[:to] || :now
+    def future = @attrs[:future]
+    def about = @attrs[:about]
     def style = @attrs[:approx] ? :approximate : :exact
     def ago? = @attrs[:ago] == true
+
+    # The id a future anchor would resolve to once it exists — the same slug rule
+    # the stale-future check uses, so writing the entity closes both at once.
+    def future_id = future && future.downcase.gsub(/[^a-z0-9]+/, "_").gsub(/\A_|_\z/, "").to_sym
+
     def resolve(resolver) = resolver.on_elapsed(self)
-    def plain = "[elapsed:#{from}→#{to}]"
+    def plain = "[elapsed:#{future || from}→#{to}]"
   end
 
   class YearMarker < Marker
@@ -166,8 +178,17 @@ module Lorecraft
     #
     # `approx: true` asks for the rounded phrase in words; the default is the
     # figure in digits. `ago: true` appends "ago".
-    def elapsed(from, to = nil, approx: false, ago: false)
-      [ELA, from, FIELD, to, FIELD, approx, FIELD, ago, ENDM].join
+    #
+    # When the starting point has no date yet, name it as a future and give the
+    # estimate to show meanwhile. The dependency is recorded, so writing that
+    # event with a year makes every span anchored to it exact:
+    #
+    #   #{elapsed future: "Kite-sail development", about: 200, approx: true}
+    def elapsed(from = nil, to = nil, future: nil, about: nil, approx: false, ago: false)
+      raise DefinitionError, "elapsed takes a from-anchor or future:, not both" if from && future
+      raise DefinitionError, "elapsed future: needs about: — prose cannot show a hole" if future && about.nil?
+
+      [ELA, from, FIELD, to, FIELD, approx, FIELD, ago, FIELD, future, FIELD, about, ENDM].join
     end
 
     # The absolute year of a point on the timeline, in digits. Same anchors.
@@ -190,7 +211,7 @@ module Lorecraft
     REL_RE = /#{Regexp.escape(REL)}(.*?)#{F}(.*?)#{E}/m
     FUT_RE = /#{Regexp.escape(FUT)}(.*?)#{E}/m
     EMB_RE = /#{Regexp.escape(EMB)}(.*?)#{F}(.*?)#{E}/m
-    ELA_RE = /#{Regexp.escape(ELA)}(.*?)#{F}(.*?)#{F}(.*?)#{F}(.*?)#{E}/m
+    ELA_RE = /#{Regexp.escape(ELA)}(.*?)#{F}(.*?)#{F}(.*?)#{F}(.*?)#{F}(.*?)#{F}(.*?)#{E}/m
     YER_RE = /#{Regexp.escape(YER)}(.*?)#{E}/m
     DUR_RE = /#{Regexp.escape(DUR)}(.*?)#{E}/m
     ANY_RE = /#{REF_RE}|#{REL_RE}|#{FUT_RE}|#{EMB_RE}|#{ELA_RE}|#{YER_RE}|#{DUR_RE}/m
@@ -217,10 +238,11 @@ module Lorecraft
       [EMB, ->(m) { EmbedMarker.new(m[0], id: m[8].to_sym, section: sym(m[9])) }],
       [ELA, lambda { |m|
         ElapsedMarker.new(m[0], from: anchor(m[10]), to: anchor(m[11]),
-                                approx: m[12] == "true", ago: m[13] == "true")
+                                approx: m[12] == "true", ago: m[13] == "true",
+                                future: str(m[14]), about: m[15]&.then { |v| blank(v) ? nil : v.to_i })
       },],
-      [YER, ->(m) { YearMarker.new(m[0], at: anchor(m[14]) || :now) }],
-      [DUR, ->(m) { DurationMarker.new(m[0], years: m[15].to_i) }],
+      [YER, ->(m) { YearMarker.new(m[0], at: anchor(m[16]) || :now) }],
+      [DUR, ->(m) { DurationMarker.new(m[0], years: m[17].to_i) }],
     ].freeze
 
     # Turn one regexp match into the Marker subclass that models it.

@@ -146,9 +146,16 @@ module Lorecraft
     # Relation verbs are the validator's business, not the linter's.
     def on_rel(_marker) = nil
 
-    # Anchors and embed targets are the validator's business; a resolved marker
-    # has nothing to report here.
-    def on_elapsed(_marker) = nil
+    # A span anchored to an undated event is a standing request for one date. It
+    # goes in the future inventory next to the unwritten entities, because that
+    # is what it is — and once the event is written with a year, the estimate
+    # stops being used and this line disappears.
+    def on_elapsed(marker)
+      return unless marker.future
+      return if @world.dated?(marker.future_id)
+
+      future("#{@owner.id}: '#{marker.future}' has no date — span shown as #{marker.about} years")
+    end
     def on_year(_marker) = nil
     def on_embed(_marker) = nil
     def on_duration(_marker) = nil
@@ -220,8 +227,9 @@ module Lorecraft
     TYPED_SPAN = /
       \b\d+\s+years\s+ago\b
       | \b(?:a|one|two|three|four|five)\s+(?:centuries|century)\b
-      | \b#{NUMBER}\s+years\s+(?:ago|of|since)\b
-      | \bfor\s+#{NUMBER}(?:-odd)?\s+years\b
+      | \b#{NUMBER}\s+(?:years|decades)\s+(?:ago|of|since)\b
+      | \b(?:last|past|previous)\s+#{NUMBER}\s+decades\b
+      | \bfor\s+#{NUMBER}(?:-odd)?\s+(?:years|decades)\b
       | \b(?:hundred|thousand)\s+(?:and\s+)?\w+\s+years\b
     /xi
 

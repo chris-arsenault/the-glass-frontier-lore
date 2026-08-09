@@ -221,6 +221,14 @@ module Lorecraft
     # The span between two anchors, as an Elapsed that knows how to say itself.
     def elapsed(from, to = :now) = Elapsed.new(year_of(from), year_of(to))
 
+    # Does this name resolve to a point in time? Asked of a future anchor, whose
+    # whole point is that it does not yet.
+    def dated?(anchor)
+      !year_of(anchor).nil?
+    rescue DefinitionError
+      false
+    end
+
     # Every moment belonging to an entity, genesis included — genesis is often
     # exactly the "when did this begin" the clock is being asked about.
     def moments_of(id) = @moments.values.select { |m| m.home == id.to_sym }
