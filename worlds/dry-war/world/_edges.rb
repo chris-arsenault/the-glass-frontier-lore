@@ -61,6 +61,7 @@ relate :rel_dry_war_over_holds, :manifests_at, :the_dry_war, :the_himalayan_hold
 # ---- the fungal civilization's own argument ----
 relate :rel_symbiotic_governance_practiced_by_root, :practiced_by, :symbiotic_governance, :the_great_root, since: 2052
 relate :rel_consensus_part_of_governance, :part_of, :emotional_consensus, :symbiotic_governance
+relate :rel_joined_embody_consensus, :embodies, :the_joined, :emotional_consensus
 relate :rel_mandate_concerns_root, :mentions, :the_mandate_question, :the_great_root
 relate :rel_preservationists_in_gobi, :headquartered_in, :the_preservationists, :the_gobi, since: 2052
 relate :rel_gatekeepers_in_hexi, :headquartered_in, :the_gatekeepers, :the_hexi_corridor, since: 2052

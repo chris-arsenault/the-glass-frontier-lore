@@ -24,7 +24,7 @@ relate :rel_ties_reference_wood_from_minds, :derived_from, :yunnan_reference_woo
 relate :rel_ties_reference_wood_from_yunnan, :sourced_from, :yunnan_reference_wood, :yunnan
 relate :rel_ties_minds_supply_reference_wood, :supplies, :the_thousand_minds, :yunnan_reference_wood
 relate :rel_ties_line_depends_reference_wood, :depends_on, :the_amur_line, :yunnan_reference_wood
-relate :rel_ties_ringorder_depends_reference_wood, :depends_on, :the_ring_order, :yunnan_reference_wood
+relate :rel_ties_rings_depend_reference_wood, :depends_on, :the_dead_rings, :yunnan_reference_wood
 relate :rel_ties_post_possesses_reference_wood, :possesses, :tangwang_post, :yunnan_reference_wood, since: 2085
 relate :rel_ties_xie_carries_reference_wood, :carries, :xie_lanting, :yunnan_reference_wood, since: 2085
 

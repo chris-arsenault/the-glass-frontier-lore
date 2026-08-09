@@ -4,20 +4,20 @@ concept :emotional_consensus do
   prominence :recognized
 
   prose <<~PROSE
-    How the fungal state actually decides things. When a policy question arises, millions of connected people encounter versions of it through dreams, anxieties, conversation, entertainment and physiological feedback. The network observes the response. Policy emerges from the aggregate.
+    How the fungal state decides things. When a policy question arises, millions of connected people encounter versions of it through dreams, conversation, entertainment and changes in their own anxiety. The network reads their physical response and sends the resulting group figure into the ministries.
 
-    It is not a metaphor for polling. There is no question asked and no answer given.
+    People experience the prompt as ordinary life rather than a ballot. Their bodies supply the answer.
   PROSE
 
   prose <<~PROSE, section: :limits, heading: "Measuring And Making"
-    The system's real strength is undeniable: it knows a district is frightened before a complaint is filed, knows which agricultural reform is causing distress, knows that workers resent something none of them will say.
+    The network knows a district is frightened before a complaint is filed, which agricultural reform is causing distress and when resentment is spreading through a workforce.
 
-    Its irreducible flaw is that there is no boundary between measuring a preference and producing one. The network shapes the emotional weather it then reads. After #{elapsed :the_unified_calm, approx: true} of this, nobody can establish whether the population wanted what the network chose or wanted it because the network chose it — and the question may not have a fact to settle it.
+    The same network shapes the emotional weather it then reads. It exposes people to a policy through selected stories and dreams, changes anxiety and attention, then measures the resulting bodies. After #{elapsed :the_unified_calm, approx: true} of this, there is no untouched preference left to compare with the answer it produced.
   PROSE
 
   prose <<~PROSE, section: :reference, heading: "The Unit It Produces"
     What the network hands to a clinic, a work post or a provincial office is one figure for a group: a roster, a ward, a settlement, a district. It is not built up from named readings and cannot be taken apart into them, and a clinic gives a person their own reading in the room and enters it in no file.
 
-    Where a body outside the fungal state needs the same population described one name at a time, the two accounts have to be joined by hand. #{ref :the_paired_month, "The paired month"} at #{ref :tangwang_post, "Tangwang Post"} is the only such procedure written down: one calendar month in which a roll of forty-four is measured both ways, a stated fraction of it — thirty-one — covered by the aggregate, and a #{ref :the_conversion_card, "single card"} carrying what the arithmetic between them produced. #{ref :the_ninth_grid_hand, "The ninth grid-hand"} is what the converted figure did to one of the thirteen names the aggregate does not reach.
+    At #{ref :tangwang_post, "Tangwang Post"}, the network's figure covered thirty-one people on a roll of forty-four. #{ref :continuity, "Continuity"} assigned the group's mean to the other thirteen so it could score every name. The result barred #{ref :gao_wen, "Gao Wen"} from a forest round after the group figure fell, although the network had taken no reading from him. See #{ref :the_eight_auger_round, "the Eight-Auger Round"}.
   PROSE
 end

@@ -14,8 +14,8 @@ concept :predictive_governance do
   prose <<~PROSE, section: :limits, heading: "Scoring People It Has No Reading Of"
     Every model here works in named units, and a coalition operating where it has no instruments of its own has to buy the reading it scores. On the far side of the #{ref :the_dry_war, "Dry War"}, #{ref :emotional_consensus, "emotional consensus"} provides one aggregate for a group. It contains no individual readings and cannot be decomposed into names afterwards.
 
-    #{ref :the_paired_month, "The paired month"} is how #{ref :continuity, "Continuity"} converts one into the other at #{ref :tangwang_post, "Tangwang Post"}: thirty days of behaviour recorded name by name on paper, set against the same thirty days of the group figure, yielding a conversion that carries the fraction of the group the aggregate actually covered and two competing corrections for the fraction it did not. The cabinet then scores individuals off a converted group figure for eleven months, which is what happened to #{ref :the_ninth_grid_hand, "the ninth grid-hand"} on the fourth-quarter round of 2089.
+    At #{ref :tangwang_post, "Tangwang Post"}, #{ref :continuity, "Continuity"} assigned the roster's mean to thirteen workers outside the network's reading and then judged each of them against it. When the mean fell, the cabinet barred #{ref :gao_wen, "Gao Wen"} from the fourth-quarter coring team. #{ref :the_eight_auger_round, "Eight augers went into the forest instead of nine"}.
 
-    Continuity's filed position is that a threshold applied to a converted figure is the honest use of a converted figure, and that clearing a person against no reading is worse.
+    Continuity holds that a group estimate is better than clearing a person against no reading. Tangwang's workers answer that a group estimate is not a fact about Gao Wen.
   PROSE
 end

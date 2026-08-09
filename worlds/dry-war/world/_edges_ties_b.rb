@@ -99,44 +99,14 @@ end
 relate :rel_tb_priced_return_regulates_allotment, :regulates, :the_priced_return, :the_engagement_allotment, since: 2089
 relate :rel_tb_priced_return_mentions_predictive, :mentions, :the_priced_return, :predictive_governance
 
-# ---- the paired month ----
-relate :rel_tb_paired_month_at_post, :manifests_at, :the_paired_month, :tangwang_post, since: 2088
-relate :rel_tb_paired_month_depends_consensus, :depends_on, :the_paired_month, :emotional_consensus do
-  prose "The clinic's roster aggregate is the same quantity a district's policy is read from, and it is one of the two series the month sets against each other."
-end
-relate :rel_tb_paired_month_depends_predictive, :depends_on, :the_paired_month, :predictive_governance do
-  prose "A model that forecasts one person at a time will not take a figure it cannot attribute, so the month produces thirty days of attributable behaviour by hand."
-end
-relate :rel_tb_paired_month_practiced_by_continuity, :practiced_by, :the_paired_month, :continuity, since: 2088
-relate :rel_tb_paired_month_depends_mesh, :depends_on, :the_paired_month, :mycelial_neural_mesh
-relate :rel_tb_paired_month_regulates_ring_order, :regulates, :the_paired_month, :the_ring_order, since: 2088 do
-  prose "It governs one thing in the order: who the cabinet will clear onto the quarterly round into the reserved band."
-end
-relate :rel_tb_paired_month_mentions_sanchakou, :mentions, :the_paired_month, :sanchakou
-
-# ---- the card ----
-relate :rel_tb_card_at_post, :located_in, :the_conversion_card, :tangwang_post, since: 2088
-relate :rel_tb_card_depends_paired_month, :depends_on, :the_conversion_card, :the_paired_month
-relate :rel_tb_continuity_created_card, :created, :continuity, :the_conversion_card
-relate :rel_tb_card_depends_predictive, :depends_on, :the_conversion_card, :predictive_governance
-relate :rel_tb_card_depends_consensus, :depends_on, :the_conversion_card, :emotional_consensus
-relate :rel_tb_card_depends_mesh, :depends_on, :the_conversion_card, :mycelial_neural_mesh
-relate :rel_tb_xie_maintains_card, :maintains, :xie_lanting, :the_conversion_card, since: 2088
-relate :rel_tb_card_mentions_tsoi, :mentions, :the_conversion_card, :nadya_tsoi
-relate :rel_tb_ring_order_depends_card, :depends_on, :the_ring_order, :the_conversion_card, since: 2088 do
-  prose "No entrant is cleared onto the quarterly round against a card the cabinet has not printed or the roll keeper has not signed."
-end
-
-# ---- the case the conversion was applied in ----
-relate :rel_tb_grid_hand_at_post, :manifests_at, :the_ninth_grid_hand, :tangwang_post
-relate :rel_tb_grid_hand_at_sanchakou, :manifests_at, :the_ninth_grid_hand, :sanchakou
-relate :rel_tb_grid_hand_during_holding, :active_during, :the_ninth_grid_hand, :the_holding
-relate :rel_tb_grid_hand_depends_card, :depends_on, :the_ninth_grid_hand, :the_conversion_card
-relate :rel_tb_grid_hand_depends_paired_month, :depends_on, :the_ninth_grid_hand, :the_paired_month
-relate :rel_tb_grid_hand_caused_by_ring, :caused_by, :the_ninth_grid_hand, :the_sanchakou_ring do
-  prose "The post's roster aggregate fell through the weeks its crews spent closing the compartment and moving the settlement, and every converted per-person figure fell with it."
-end
-relate :rel_tb_continuity_in_grid_hand, :participated_in, :continuity, :the_ninth_grid_hand
-relate :rel_tb_xie_in_grid_hand, :participated_in, :xie_lanting, :the_ninth_grid_hand
-relate :rel_tb_grid_hand_mentions_tsoi, :mentions, :the_ninth_grid_hand, :nadya_tsoi
-relate :rel_tb_grid_hand_mentions_root, :mentions, :the_ninth_grid_hand, :the_great_root
+# ---- the Eight-Auger Round ----
+relate :rel_tb_eight_augers_at_post, :manifests_at, :the_eight_auger_round, :tangwang_post
+relate :rel_tb_eight_augers_at_sanchakou, :manifests_at, :the_eight_auger_round, :sanchakou
+relate :rel_tb_eight_augers_during_holding, :active_during, :the_eight_auger_round, :the_holding
+relate :rel_tb_eight_augers_caused_by_ring, :caused_by, :the_eight_auger_round, :the_sanchakou_ring
+relate :rel_tb_eight_augers_mentions_consensus, :mentions, :the_eight_auger_round, :emotional_consensus
+relate :rel_tb_eight_augers_mentions_predictive, :mentions, :the_eight_auger_round, :predictive_governance
+relate :rel_tb_continuity_in_eight_augers, :participated_in, :continuity, :the_eight_auger_round
+relate :rel_tb_xie_in_eight_augers, :participated_in, :xie_lanting, :the_eight_auger_round
+relate :rel_tb_gao_in_eight_augers, :participated_in, :gao_wen, :the_eight_auger_round
+relate :rel_tb_eight_augers_mentions_root, :mentions, :the_eight_auger_round, :the_great_root

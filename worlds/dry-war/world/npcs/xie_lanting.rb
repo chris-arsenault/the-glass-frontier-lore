@@ -22,8 +22,8 @@ npc :xie_lanting do
   PROSE
 
   prose <<~PROSE, section: :present_day, heading: "The Sanchakou Cores"
-    On #{ref :the_sanchakou_ring, "the file that condemned Compartment Twelve"}, two of Xie's twenty cores contained sleeves, below the reach's threshold of four, in September and again at bud-break. Continuity's cabinet opened the file and Nadya marked the ring. Xie was in the compartment with the paste stock and the auger.
+    In #{ref :the_sanchakou_ring, "Compartment Twelve"}, two of Xie's twenty cores contained sleeves, below the reach's threshold of four, in September and again at bud-break. Continuity's cabinet marked the forest as changing and Nadya chose to make the ring. Xie entered the compartment with the paste stock and the auger.
 
-    She had cut the scions from #{ref :sanchakou, "Sanchakou"}'s four apple-pear rows in March, while the file was open and, by her own sheet, under threshold. She keeps the graft count in her own book alongside the cabinet's.
+    She had cut the scions from #{ref :sanchakou, "Sanchakou"}'s four apple-pear rows in March, while the forest was still alive and, by her own cores, under threshold. She keeps the graft count in her own book alongside the cabinet's.
   PROSE
 end
