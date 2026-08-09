@@ -4,82 +4,69 @@ title: Authoring Method — The Dry War
 
 # Authoring Method — The Dry War
 
-This world is authored differently from the other two, on purpose.
+The assistant drafts this world. The human directs it through questions and review. Use the following procedure for each set of entries.
 
-The Glass Frontier was built by question-and-answer with nearly all content supplied by the human. That produces a world with no generic seams anywhere and costs the human an enormous amount of writing. The Ice Remembers will be a procedural port of existing material.
+## 1. Start from the central premise
 
-The Dry War is the third case: **the assistant generates, the human directs, and direction costs sentences.** What follows is how to produce entries that way.
+Each entry must show a concrete consequence of this premise: **the Great Root and the machine coalitions sincerely try to build stable civilizations, and each governing system relies on an account of human welfare that leaves out something humans need.**
 
-Several techniques are adapted from `../agents-of-glass`, which keeps a long agentic loop writing in a specific world.
+The main consequences are:
 
----
+- The Great Root offers belonging at the cost of individuality.
+- The coalitions offer safety at the cost of agency.
+- Most Joined and Managed people consider their lives acceptable. Resistance is not the normal human condition.
 
-## Serve the centre
+Place one consequence somewhere specific. Show it through an action, object, procedure, measurement, or dispute. Do not restate the premise as an abstract conclusion.
 
-Every entry makes one thing concrete: **two superintelligences are sincerely trying to build stable civilizations, and each built on a premise that is catastrophically wrong for humans.**
+## 2. Choose an observer
 
-Three consequences follow, and the source states all three plainly. Survival is not the same thing as living. The choice on offer is individuality for belonging, or agency for safety. Most of humanity is fine, and that is the hard part.
+Before drafting an entry, define one person whose knowledge sets its limits. Decide:
 
-Give one of those a place, a scale, and something a person could touch.
+- their name and affiliation;
+- what they can inspect or measure;
+- what they cannot observe or are likely to discount;
+- the practical concern that shapes what they notice;
+- the vocabulary they use for their work.
 
-The centre is what the premise document asserts from its first paragraph. An earlier reading — that the world is about incompatible accounts of reality — was set aside as a pattern in how the document was written rather than a claim it makes. It remains the human's to overrule.
+For example, a Mercy outcomes officer may record water use, morbidity, compliance, and a recommendation. A Garden Courts agronomist at the same settlement may record soil carbon, seed lineage, and who knows the planting songs. Their reports can disagree without either observer lying.
 
----
+Use only evidence available to the chosen observer. Keep the rendered entry in an encyclopedic voice; the observer constrains the evidence and need not appear as a narrator or byline. If the prose names the observer, link the entity or use a `#{future "Name"}` marker.
 
-## Write from an instrument
+## 3. Answer one practical question
 
-Give every entry a measurer: a named person with an employer, a set of readings they can take, and a horizon past which they take none.
+Begin with a question about present life, such as: *What happens when someone crosses a Gatekeeper checkpoint?*
 
-A Mercy outcomes officer visiting a Saints settlement files litres per person, morbidity, compliance, and a recommendation. A Garden Courts agronomist standing beside her files soil carbon, seed lineage, and how many people know the songs. Both reports are accurate. Both are partial. Each is specific because a reading is a number or a name.
+1. List the people, places, rules, tools, and disputes needed to answer it.
+2. Check whether those entities already exist.
+3. Draft or update only the entries needed for the answer.
+4. Add the typed relationships that the prose establishes.
+5. Stop when the question has a concrete answer and the entries validate.
 
-This is the engine, and it pays three ways:
+Use the next unanswered question exposed by this work to choose the next set. Do not create entries merely to fill directories or kinds.
 
-- **Specificity comes from vantage.** A new entry needs a new observer, not new facts about the world.
-- **Reports are relationships.** Who measured, on whose authority, contested by whom — the edges arrive with the prose.
-- **Two entries can share a subject.** They are different instruments on the same object.
+## 4. Introduce an unrelated source of detail
 
-Build each chronicler the way `agents-of-glass` builds its persona files: a name, an employer, the readings they can take, the horizon they cannot see past, one prose tic, and one thing that gets under their skin. Reach for the archivist who files in triplicate, trusts a ceramic over a witness, and still resents the Gatekeepers' strain audit fee. He generates entries; "the Preservationist archivist" generates a role.
+Before drafting a related set of entries, choose at least one source outside the immediate subject: an image, a line of public-domain text, or a field none of the involved people practise. Use more sources when they produce useful details.
 
-Write the roster before the next cluster.
+Use the source to decide something concrete, such as the order of a procedure, a unit of measure, the shape of a tool, or what an observer notices first. If it changes a canonical decision, record the reason in a `log` on the entity that owns that fact.
 
----
+## 5. Apply review comments
 
-## Work a seam
+Run `make queue WORLD=dry-war` to collect open `question` declarations.
 
-Take one live pressure and follow it to the cluster it implies.
+For each question:
 
-*What happens to a person crossing a Gatekeeper checkpoint* yields the installation, the procedure, the fee schedule, the two people who run it, the strain they cultivate, and the argument with the Preservationists about all of it. The cluster arrives connected because it was written connected.
+1. Revise the affected entry and any connected entries needed to keep the facts consistent.
+2. Remove the `question` once the revision answers it.
+3. Add a `log` when the reason for the decision will matter later.
 
-A seam is finished when the pressure has an answer and the cluster validates. Then pick the next pressure the cluster exposed.
+If the human rejects a related set of entries, rewrite the set rather than patching isolated sentences. Put reusable setting rules in the guidance file that owns the subject. Keep entry-specific history in the entity's `log`.
 
----
+## 6. Review and validate
 
-## Pull seeds
+Read the rendered prose before considering the work finished.
 
-Begin each cluster from at least one non-adjacent seed — an image, a line of public-domain text, a discipline nobody in the seam belongs to — and pull more freely as the writing goes, per entity or per paragraph, wherever a fresh angle helps.
-
-`agents-of-glass` injects a tarot card and a verse phrase into play turns for the same reason: the writing starts somewhere other than the average.
-
-Let the seed do its work on the shape of the thing — the order of a procedure, the unit somebody measures in, what a character notices first — and record each pull in the cluster's `log`, so a batch that came out flat can be traced to the seed that produced it.
-
----
-
-## Direct by verdict
-
-The human has three moves and each costs a sentence:
-
-- **`question "…"` on an entity** — a direction, a doubt, or a rejection. `make queue WORLD=dry-war` collects them; the assistant answers them by writing.
-- **Deleting a `question`** — acceptance.
-- **Calling a cluster wrong** — it gets rewritten, and the reason goes into `guidance/tone.md`.
-
-`guidance/tone.md` accumulates as verdicts arrive. Write every generalizable one down once, and measure the method by whether the same correction ever comes twice.
-
----
-
-## Finish clean
-
-Two passes on the way out, both aimed at things their author cannot see.
-
-**End on the fact.** Report a disagreement as far as it goes, state what each party measured, and stop there — the reader does the arithmetic. `world/schema.rb` lists the closers this world keeps reaching for, and `make check WORLD=dry-war` catches them.
-
-**Write paragraphs that carry more than one thought.** Read the render aloud. Where a line stands alone to land a beat, give it company or cut it.
+- End on the last fact. Remove a closing sentence that interprets a disagreement or tells the reader what to feel. `world/schema.rb` catches known versions of this error.
+- Merge or remove a one-sentence paragraph when it exists only to add emphasis and carries no new information.
+- Confirm that every meaningful connection in the prose has a typed relationship.
+- Run `make check WORLD=dry-war`.

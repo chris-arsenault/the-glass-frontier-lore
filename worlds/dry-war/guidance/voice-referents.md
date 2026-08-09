@@ -4,39 +4,46 @@ title: Voice and Referents — The Dry War
 
 # Voice and Referents — The Dry War
 
-`craft/writing-guidance.md` binds. This file supplies the substitutions, and for this world the most important one runs opposite to the repo's usual instinct.
+Departs from `craft/writing-guidance.md` §5: Earth is the setting, so Earth references are in-world. The remaining rules in that section still apply.
 
-## Earth is in-world
+## Allowed Earth references
 
-This setting is the Earth of 2090. Real geography and real institutions are canon, and naming them is not domain leakage:
+Real places, historical events, languages, and institutions may appear when they are relevant to the subject.
 
-- **Places.** The Gobi, the Hexi Corridor, Sichuan, Yunnan, the Pearl River, Appalachia, the Great Lakes, Baja, BosWash, the Amur, the Mediterranean, the Himalaya.
-- **Institutions and history.** The Party, the PLA, hyperscalers, insurers, the examinations, household registration. They existed, and the entries may say so.
-- **Languages.** 共生治理, 山河, 地方性 and their like are used where the concept is Chinese and the translation loses something. Give the translation once, then use whichever the speaker would.
+- **Places:** the Gobi, the Hexi Corridor, Sichuan, Yunnan, the Pearl River, Appalachia, the Great Lakes, Baja, BosWash, the Amur, the Mediterranean, and the Himalaya.
+- **Institutions and history:** the Party, the PLA, hyperscalers, insurers, the examinations, and household registration may appear as predecessors or historical facts.
+- **Languages:** use terms such as 共生治理, 山河, and 地方性 when the concept belongs to that language and translation loses useful meaning. Translate the term on first use, then use the form the speaker would choose.
 
-A comparison to something that exists is therefore legal here. "Like Afghanistan crossed with Arrakis" is still not, because *Arrakis* is fiction and *Afghanistan* is being used as a shorthand a 2090 archivist would not reach for.
+An institution's historical existence does not prove that it survived to 2090. Establish any present-day continuation in the canon.
 
-## What is banned instead: register
+Comparisons must still fit the speaker and state the relevant feature. “Like Afghanistan crossed with Arrakis” fails because it uses a fictional place and treats a country as an undefined shorthand. A specific historical comparison to Afghanistan can work when the speaker would know it and the prose names the period or condition being compared.
 
-The failure mode in this world is not the wrong noun. It is writing from outside the year.
+## Write from 2090
 
-**Do not write as a present-day analyst.** No "in what we would recognize as", no "the parallels to early-century platform capitalism", no explaining the setting's politics as commentary on ours. The twentieth century is history here and the Breach is weather.
+- Treat the twentieth and early twenty-first centuries as history. Describe their consequences instead of addressing present-day readers with phrases such as “what we would recognize as.”
+- Do not explain the setting as commentary on current politics or technology. State the 2090 institution, practice, or dispute directly.
+- Treat the Breach as part of ordinary experience. People may fear or study it, but the prose should not introduce it as a premise for an outside audience.
+- Keep authoring and game terms out of lore prose. Do not mention the wiki, the setting, narrative function, undefined content, or what an entry is intended to do.
 
-**Do not gesture at current events as current.** A 2090 entry may discuss the 2030s the way we discuss the 1930s: as a period with consequences, not as news.
+## Describe the governing systems without an authorial verdict
 
-**Do not editorialize about the gods.** Neither is a villain and neither is lying. Prose that treats the Great Root as a parasite or the coalitions as jailers has taken a side the world does not take — the horror is that both are succeeding at what they measure. Show the metric and let the reader do the arithmetic.
+The Great Root and the four coalition intelligences state their purposes sincerely. Describe what each measures, what action follows, and what happens to the people involved.
 
-**Do not make the resistance the human default.** The Joined and the Managed are most of the species and are mostly fine. An entry that reads as though everyone is secretly straining against their god is wrong about the world.
+Do not call the Great Root a parasite or the coalitions jailers in neutral prose. Those terms may appear as attributed language from an in-world speaker. Do not close a comparison by explaining its irony or telling the reader why it is horrific.
+
+## Keep resistance in proportion
+
+Most humans are Joined or Managed, and most consider their lives acceptable. Resistance cultures are minorities. Do not imply that ordinary people secretly share resistance beliefs unless the entry provides evidence for that claim.
 
 ## Names
 
-- **The gods.** The Great Root, the Beneath, the Network, the continental intelligence — all in use, by different people, with different feeling. "The Mushroom Government" is what foreigners say. No entry should call the coalitions "the AI" as a singular.
-- **The coalitions** are one word each: Continuity, Mercy, Market, Caretaker. They chose the names themselves and the plainness is the point.
-- **The Others.** Never a technical euphemism in body prose. Both governments have technical vocabularies for the phenomenon and every one of them is a way of not saying it; an entry may report that fact and should not join in.
-- **Resistance cultures** name themselves, usually in a register their enemies find embarrassing: the Choir, the Saints of Plenty, the Unpersons, the Pilgrims, the Dead Counties. Keep it.
+- **The mycelial intelligence:** the Great Root, the Beneath, the Network, and the continental intelligence are used by different speakers. “The Mushroom Government” is a foreign term. Choose the name that fits the speaker.
+- **The coalitions:** Continuity, Mercy, Market, and Caretaker chose their own one-word names. Never refer to them collectively as a single “American AI.”
+- **The Others:** use “the Others” in neutral body prose. A technical term may appear when an entry attributes it to a government or specialist.
+- **Resistance cultures:** use their self-chosen names, including the Choir, the Saints of Plenty, the Unpersons, the Pilgrims, and the Dead Counties.
 
-## Numbers
+## Dates and spans
 
-Every elapsed span is computed — `#{elapsed :the_breach, ago: true}`, not "twenty-two years ago". Dates are facts and may be typed; spans are arithmetic and may not. See the repo-root `CLAUDE.md`.
+Write dates as facts and compute elapsed spans: `#{elapsed :the_breach, ago: true}`, not “twenty-two years ago.” See the repo-root `CLAUDE.md` for the complete rule.
 
-The era boundaries in `world/timeline.rb` are placeholders. Anchor to an era or an event rather than to a year wherever the choice exists, so that fixing the timeline fixes the prose.
+The boundaries in `world/timeline.rb` remain provisional. Prefer an event or era anchor to a literal year when either expresses the same fact; later timeline corrections will then update the rendered prose.

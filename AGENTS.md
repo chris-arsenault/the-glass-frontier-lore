@@ -57,6 +57,18 @@ A world that finds itself repeating a phrase it does not want can declare it wit
 
 See `craft/voice-review-prompt.md` for the reusable review prompt.
 
+## Writing Procedures And Documentation (critical)
+
+These two rules govern every document that instructs someone: `CLAUDE.md` files, `guidance/`, `docs/`, ADRs, plans, and review prompts. They are separate from the lore rules above and they are not negotiable.
+
+**Use the plain name for a thing.** Write "choose an observer", not "write from an instrument". Write "a related set of entries", not "a cluster". Write "an unrelated source of detail", not "a non-adjacent seed pull".
+
+A coined term has to be defined before it can be used, and every reuse afterwards drifts from what it first meant. The test: if a noun in the document needs its own definition sentence and then appears in later steps, replace it with the ordinary description of what happens. Vocabulary the reader already owns needs no maintenance.
+
+**Leave out provenance, comparison, and self-narration.** A procedure states what to do. It does not record where the technique came from, how this approach compares to the one used elsewhere, or what its author got wrong on the way to it.
+
+The test: a reader executing the document should finish without having learned anything about the author's history with it. Attribution belongs in a commit message. A decision's reasoning belongs in a `log` on the entity that owns the fact. A rejected earlier approach belongs in neither.
+
 ## Entry Format
 
 An entity is one `.rb` file under `worlds/<id>/world/<kind>/<id>.rb`. Static facts are attributes; prose lives in `prose` blocks; cross-links are `#{ref :other_id}`; things with no entity yet are `#{future "Name"}`.
