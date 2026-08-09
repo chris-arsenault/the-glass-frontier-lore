@@ -17,7 +17,7 @@ installation :xincheng_yard do
   prose <<~PROSE, section: :operations, heading: "Four Days"
     A bed reaching the end of its four-month cycle stands beside the hedge for four days. Twice a day a worker presses gate-moss to the stand foot, cell drain, barrow tray, gloves and cuffs. The moss stays grey where the bed has held. It turns wet black wherever living tissue has crossed a join.
 
-    A black plate anywhere condemns the bed. Every tested bed is broken afterwards, so the yard consumes eight beds a cycle and limits how many lineages can remain current. #{ref :the_gate_schedule, "The gate schedule"} charges more to cross with an expired lineage, and the clerks who keep the fee trays also keep the yard's waiting list.
+    A black plate anywhere condemns the bed. Every tested bed is broken afterwards, so the yard consumes eight beds a cycle and limits how many lineages can remain current. Travellers carrying an expired lineage spend longer in the Yumen clinic and pay for every day they wait.
   PROSE
 
   prose <<~PROSE, section: :limits, heading: "What The Yard Cannot See"

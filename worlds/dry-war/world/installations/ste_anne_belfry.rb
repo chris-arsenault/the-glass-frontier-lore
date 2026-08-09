@@ -23,10 +23,10 @@ installation :ste_anne_belfry do
     Seven of the eight ropes are interchangeable to a competent ringer. The sixth is not: it is the heaviest-going of the ring and sits slightly off the others in strike note, and neither of the two oldest ringers will take it. A morning that assembles seven ringers is short the sixth more often than any other rope.
   PROSE
 
-  prose <<~PROSE, section: :history, heading: "One Bell Of Unknown Date"
-    Caretaker's asset schedule described the ring as eight bells cast in 2074 for the programme until #{ref :the_sixth_bell_finding, "the sixth-bell finding"}. When the insurance was re-cut in 2087 the sixth turned out to carry no founder's mark, and #{ref :the_letter_match, "its inscription letters"} belonged to a set of stamps in use for decades before the programme existed.
+  prose <<~PROSE, section: :history, heading: "The Old Sixth"
+    Five bells were cast for the programme in 2074 and two were recast after cracks in 2081. #{ref :the_old_sixth, "The sixth"} is older. It has no founder's mark, and its inscription bears damaged letters also found on two Detroit bells hung before the programme existed.
 
-    Re-description was cheaper than a recasting, which would have stood the band down for a season. The schedule now carries five bells cast in 2074, two recast in 2081 and one of unknown date.
+    Its exact age remains unknown because the stamps that made those letters stayed in use for decades. A new bell would have stood the band down for a season, so Caretaker kept the sixth and corrected its own inventory.
   PROSE
 
   log "2026-08-09 — Campanological acoustics decide what Caretaker can measure here: a bell's strike note is a virtual pitch inferred from its partials rather than a component of the radiated spectrum, so a level-and-spectrum monitor has no natural handle on the row sequence. The same craft supplies the raise and lower, which is why the channel cannot be opened without ten audible minutes of warning."

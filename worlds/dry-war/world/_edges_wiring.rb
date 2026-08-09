@@ -46,10 +46,7 @@ relate :rel_wr_stupid_maintains_bench, :maintains, :stupid_infrastructure, :cabi
 relate :rel_wr_pilgrims_evades_stupid, :evades, :the_pilgrims, :stupid_infrastructure
 
 # ---- physical cryptography: the practice its instruments belong to ----
-relate :rel_wr_sortbook_embodies_physcrypt, :embodies, :the_sort_book, :physical_cryptography do
-  prose "Type wears unevenly and traceably, and the wear is the key. Nobody has to trust a record either party keeps."
-end
-relate :rel_wr_lettermatch_derived_physcrypt, :derived_from, :the_letter_match, :physical_cryptography
+relate :rel_wr_fount_embodies_physcrypt, :embodies, :the_yumen_fount, :physical_cryptography
 relate :rel_wr_tiles_embodies_physcrypt, :embodies, :comparison_tiles, :physical_cryptography do
   prose "Ten graded surfaces from one bake. The set cannot be reproduced, which is the whole of its authority."
 end

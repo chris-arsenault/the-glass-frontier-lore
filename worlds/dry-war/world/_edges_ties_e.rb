@@ -10,6 +10,5 @@ relate :rel_te_fire_caused_by_yard, :caused_by, :the_yumen_bed_fire, :xincheng_y
 relate :rel_te_fire_caused_by_strains, :caused_by, :the_yumen_bed_fire, :severed_strains
 relate :rel_te_ma_in_fire, :participated_in, :ma_renqing, :the_yumen_bed_fire
 relate :rel_te_gatekeepers_in_fire, :participated_in, :the_gatekeepers, :the_yumen_bed_fire
-relate :rel_te_fire_mentions_schedule, :mentions, :the_yumen_bed_fire, :the_gate_schedule
 relate :rel_te_fire_mentions_preservationists, :mentions, :the_yumen_bed_fire, :the_preservationists
 relate :rel_te_fire_during_holding, :active_during, :the_yumen_bed_fire, :the_holding

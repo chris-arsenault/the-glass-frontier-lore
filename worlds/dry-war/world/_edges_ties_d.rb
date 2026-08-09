@@ -1,7 +1,6 @@
 # Lateral ties written to join three pairs of separated components: the Mulberry
 # Court separation rooms to American ghost pharmacology through the halving
-# count; the Choir to the Gatekeepers through the seam pass; and the Ste. Anne
-# ring to the Yumen fee trays through the letter match. Ids are prefixed rel_td_
+# count, and the Choir to the Gatekeepers through the seam pass. Ids are prefixed rel_td_
 # so this file cannot collide with another edge file.
 
 # ---- A. the halving count ----
@@ -50,7 +49,6 @@ relate :rel_td_yard_mentions_strains, :mentions, :xincheng_yard, :severed_strain
 relate :rel_td_gatekeepers_regulate_strains, :regulates, :the_gatekeepers, :severed_strains, since: 2074
 relate :rel_td_yard_depends_moss, :depends_on, :xincheng_yard, :gate_moss
 relate :rel_td_yard_depends_sterile, :depends_on, :xincheng_yard, :sterile_machines
-relate :rel_td_yard_depends_schedule, :depends_on, :xincheng_yard, :the_gate_schedule
 relate :rel_td_pres_petition_yard, :petitions, :the_preservationists, :xincheng_yard, since: 2074
 
 # ---- the challenger ----
@@ -60,33 +58,15 @@ relate :rel_td_dequindre_part_orphans, :part_of, :dequindre, :orphan_machines
 relate :rel_td_choir_possesses_dequindre, :possesses, :the_choir, :dequindre, since: 2079
 relate :rel_td_dequindre_models_line, :models, :dequindre, :the_held_line, since: 2079
 
-# ---- C. the letter match ----
-relate :rel_td_letters_practiced_by_gatekeepers, :practiced_by, :the_letter_match, :the_gatekeepers, since: 2071
-relate :rel_td_schedule_depends_letters, :depends_on, :the_gate_schedule, :the_letter_match do
-  prose "The tray settles an amount. The letters settle whether the line was set at this station."
-end
-relate :rel_td_letters_depends_sort_book, :depends_on, :the_letter_match, :the_sort_book
-relate :rel_td_letters_at_yumen, :manifests_at, :the_letter_match, :yumen_gate
-relate :rel_td_letters_at_belfry, :manifests_at, :the_letter_match, :ste_anne_belfry
-
-# ---- the book ----
-relate :rel_td_sort_book_at_yumen, :located_in, :the_sort_book, :yumen_gate
-relate :rel_td_sort_book_records_schedule, :models, :the_sort_book, :the_gate_schedule, since: 2071 do
-  prose "Forty-one sorts, pulled monthly: the figures, the fraction rule, the measure characters and the recurring words."
-end
-relate :rel_td_ma_maintains_sort_book, :maintains, :ma_renqing, :the_sort_book, since: 2072
+# ---- the Yumen fount ----
+relate :rel_td_fount_at_yumen, :located_in, :the_yumen_fount, :yumen_gate
+relate :rel_td_gatekeepers_possess_fount, :possesses, :the_gatekeepers, :the_yumen_fount, since: 2071
+relate :rel_td_ma_maintains_fount, :maintains, :ma_renqing, :the_yumen_fount, since: 2072
 relate :rel_td_brokers_supply_yumen, :supplies, :the_brokers, :yumen_gate, since: 2071
-relate :rel_td_sort_book_depends_brokers, :depends_on, :the_sort_book, :the_brokers do
-  prose "What a page can prove is bounded by the fount it was pulled from. The casting houses fill each order from the sorts in their trays and do not number the shipment."
-end
+relate :rel_td_fount_depends_brokers, :depends_on, :the_yumen_fount, :the_brokers
 
-# ---- the finding ----
-relate :rel_td_finding_at_belfry, :manifests_at, :the_sixth_bell_finding, :ste_anne_belfry
-relate :rel_td_finding_depends_letters, :depends_on, :the_sixth_bell_finding, :the_letter_match
-relate :rel_td_finding_conducted_by_cecile, :conducted_by, :the_sixth_bell_finding, :cecile_ouellette do
-  prose "Her mother's band's book, kept from before the programme, against the sixth's inscription."
-end
-relate :rel_td_odile_in_finding, :participated_in, :odile_marchand, :the_sixth_bell_finding do
-  prose "She asked for a rubbing rather than a survey, and filed for re-description on cost."
-end
-relate :rel_td_finding_during_reclamation, :active_during, :the_sixth_bell_finding, :the_reclamation
+# ---- the old sixth ----
+relate :rel_td_belfry_possesses_sixth, :possesses, :ste_anne_belfry, :the_old_sixth
+relate :rel_td_cecile_maintains_sixth, :maintains, :cecile_ouellette, :the_old_sixth
+relate :rel_td_odile_studies_sixth, :studies, :odile_marchand, :the_old_sixth, since: 2087
+relate :rel_td_caretaker_possesses_sixth, :possesses, :caretaker, :the_old_sixth, since: 2074

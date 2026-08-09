@@ -16,7 +16,7 @@ concept :physical_cryptography do
 
     **Destroyed by reading.** A #{ref :witness_glass, "block of witness glass"} answers exactly one question and stops existing in the answering, so the party who would gain by the reading is the party who has to spend it.
 
-    **Worn traceably.** Metal type, a bell's letterform, a die that has cast a thousand tiles. #{ref :the_sort_book, "The sort book"} at a Gatekeeper crossing carries a dated impression of every sort in the fount, and a disputed certificate is matched to a page character by character; #{ref :the_letter_match, "the letters"} settle what no ledger can.
+    **Worn traceably.** Metal type, a bell's letterform, a die that has cast a thousand tiles. The #{ref :the_yumen_fount, "Yumen fount"} prints the same broken corners and clogged counters onto its fee board, its certificates and the monthly impressions in Ma Renqing's book.
 
     **Held by a party with no interest.** A lodged half kept at #{ref :wing_lok_godown, "Wing Lok"}, beyond the buyer's reach and useless to the house holding it. The security is the keeper's lack of interest in the sale, not the object.
 

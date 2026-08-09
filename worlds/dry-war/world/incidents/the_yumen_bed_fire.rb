@@ -10,7 +10,7 @@ incident :the_yumen_bed_fire do
   PROSE
 
   prose <<~PROSE, section: :course, heading: "The Cell"
-    #{ref :ma_renqing, "Ma Renqing"} took the bed off the floor that afternoon. The two travellers remained in disconnected rooms until the foreign growth was removed. Every clinic day in that cycle was voided and its fees returned under #{ref :the_gate_schedule, "the posted schedule"}.
+    #{ref :ma_renqing, "Ma Renqing"} took the bed off the floor that afternoon. The two travellers remained in disconnected rooms until the foreign growth was removed. The station returned every clinic fee charged during that cycle.
 
     Ma's cycle record showed eleven beds kept beyond their four-day yard trial that year. Seven had been compared with winter samples grown on a different substrate, and every mismatch put a faster-growing bed in the clinic. The Yumen bed was burned with its ceramic stand, trays and the cell that held it.
   PROSE
