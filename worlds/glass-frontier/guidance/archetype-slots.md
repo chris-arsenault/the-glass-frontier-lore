@@ -4,7 +4,7 @@ title: Archetype Slots — The Glass Frontier
 
 # Archetype Slots — The Glass Frontier
 
-Which archetypes in the Kaleidos system are full and which are thin. This is what `craft/writing-guidance.md` §1 asks for when it says not to default to a known entity: check the category before attributing anything. The schema behind the counts is `craft/entity-bank-schema.md`; the live roster is the `world/` DSL.
+Which archetypes in the Kaleidos system are full and which are thin. This is what `craft/writing-guidance.md` §2 asks for when it says not to default to a known entity: check the category before attributing anything. The schema behind the counts is `craft/entity-bank-schema.md`; the live roster is the `world/` DSL.
 
 The automated archetype-gap report was retired with the graph. Use judgement and the roster.
 

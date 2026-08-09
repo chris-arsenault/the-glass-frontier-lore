@@ -22,9 +22,9 @@ make wiki  WORLD=dry-war      # render build/dry-war/wiki
 
 ## Authoring method
 
-Read `guidance/authoring-method.md` before writing. The assistant drafts connected entries; the human directs them through questions and review. Start from a practical question about present life, define the knowledge available to one in-world observer, and add only the entities and relationships needed to answer it.
+Read `guidance/authoring-method.md` before writing. Start from a practical question about present life, choose the observer whose knowledge limits each entry, and draft five or six connected entities across several kinds. Use an unrelated source to supply concrete details, not administrative machinery.
 
-Use this test for every entry: it must show a concrete effect of two ruling systems that sincerely seek stable, healthy civilizations but rely on accounts of human welfare that omit something humans need. Do not make either intelligence malicious or deceptive to create conflict.
+Use this test for every entry: it must show a concrete effect of two ruling systems that sincerely seek stable, healthy civilizations but measure only part of what people need. Do not make either intelligence malicious or deceptive to create conflict.
 
 ## Setting-specific rules
 

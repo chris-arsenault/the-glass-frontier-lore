@@ -4,7 +4,7 @@ title: Voice and Referents — The Dry War
 
 # Voice and Referents — The Dry War
 
-Departs from `craft/writing-guidance.md` §5: Earth is the setting, so Earth references are in-world. The remaining rules in that section still apply.
+Departs from `craft/writing-guidance.md` §6: Earth is the setting, so Earth references are in-world. The remaining rules in that section still apply.
 
 ## Allowed Earth references
 
@@ -27,15 +27,19 @@ Comparisons must still fit the speaker and state the relevant feature. “Like A
 
 ## Describe the governing systems without an authorial verdict
 
-The Great Root and the four coalition intelligences state their purposes sincerely. Describe what each measures, what action follows, and what happens to the people involved.
+The Great Root and the four coalition intelligences state their purposes sincerely. Describe what each treats as a good outcome, what it does, and what happens to the people involved.
 
 Do not call the Great Root a parasite or the coalitions jailers in neutral prose. Those terms may appear as attributed language from an in-world speaker. Do not close a comparison by explaining its irony or telling the reader why it is horrific.
 
 ## Introduce a party by what it does
 
-State a group's or a person's practice first: what they make, run, carry, measure, or file. Give the misconception a named holder when one exists — the Great Root calls the Gatekeepers collaborators, the Preservationists call them lost — instead of correcting an unattributed assumption on the reader's behalf.
+State a group's or a person's practice first: what they make, run, carry, grow, repair, or protect. Give the misconception a named holder when one exists — the Great Root calls the Gatekeepers collaborators, the Preservationists call them lost — instead of correcting an unattributed assumption on the reader's behalf.
 
 Openings of the form "They are not X. They are Y" carry no information in the first sentence and set the second one up as a reveal. Write the Y.
+
+## State motives without withholding
+
+Do not characterize a person or group by saying they refuse to explain, will not say why, decline to answer, keep their reasons private, or leave no account. These phrases manufacture mystery without adding a fact. State the motive when it is known. Otherwise describe the action and stop.
 
 ## Keep resistance in proportion
 

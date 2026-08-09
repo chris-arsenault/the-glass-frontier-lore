@@ -2,13 +2,13 @@
 
 How to write well in a secondary world — any of them. Nothing here names a setting, a character, or a date. Everything here binds every world in `worlds/`.
 
-## The Contract
+## Where Instructions Belong
 
-`craft/` states the **rule and the method**. A world's `guidance/` supplies the **substitutions** that rule needs: its examples, its vocabulary, its banned referents, its fixed dates, its culture patterns.
+`craft/` contains rules that apply to every world. A world's `guidance/` contains only what is specific to that setting: examples, vocabulary, banned referents, dates, and cultural patterns.
 
-- Craft is binding. A world may narrow a craft rule; it may not loosen one.
-- A world's guidance never restates a craft rule. If it reads like a copy, the copy is the bug.
-- A world that genuinely departs writes the departure down: `Departs from craft/writing-guidance.md §3: …`. An implicit conflict is worse than an explicit one.
+- A world may make a craft rule stricter. It may not relax one.
+- Do not copy a craft rule into a world's guidance.
+- State a necessary exception where it occurs: `Departs from craft/writing-guidance.md §3: …`.
 
 When you are unsure where something belongs, ask whether it would still be true in a world with different physics, different peoples and a different history. If yes, it is craft. If no, it is guidance.
 
