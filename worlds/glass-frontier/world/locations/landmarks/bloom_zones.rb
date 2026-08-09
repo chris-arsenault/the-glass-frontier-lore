@@ -5,6 +5,14 @@ geographic_location :bloom_zones do
   prominence :renowned
   prominence_xrefs ["coremark", "displacement-council", "pyre", "tuners"]
 
+  log "Reality doesn't work right here — dimensional instability, warped physics. New relic-magnitude artifacts are generated in the zones: genuinely new powers, not pre-collapse tech. The Adversary seeps through the tears, and the elves have increased their hidden presence [DM]."
+
+  question "Bloom Zone relic mechanics: what makes these artifacts different from pre-collapse tech? How does the reality distortion create them, and is it random or patterned?"
+  question "Remove 'nobody understands' — tic.", raised: "2026-03-20", on: "artifacts nobody understands."
+  question "No crystal substrate; these are in space. Needs a corpus-wide search for the term.", raised: "2026-03-20", on: "the crystal substrate,"
+  question "Frame this as 'frontier research hypothesises these connections'.", raised: "2026-03-20", on: ", but the connections follow non-spatial or higher-dimensional logi"
+  question "Create a future: Xyloathax — the hab a Bloom Zone appeared next to.", raised: "2026-03-20", on: "and it has happened."
+
   prose <<~PROSE
     Man-made reality tears. Places where the #{ref :resonance, "resonance"} environment has broken so thoroughly that physics stops behaving consistently. They exist in Kaleidos orbit — in the #{ref :the_shear, "Shear"}, adjacent to ring habs, in otherwise clean orbital space — and, for reasons nobody can explain, in the #{future "Fracture"}'s asteroid belt.
 

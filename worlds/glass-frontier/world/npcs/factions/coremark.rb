@@ -4,6 +4,10 @@ faction :coremark do
   tags :salvage, :ringglass, :trade, :danger
   prominence :recognized
 
+  log "Settled: a criminal syndicate in the present day. Publicly discredited after the Bloom, went underground, now smuggles Bloom Zone artifacts through black-market channels."
+
+  question "Who buys Bloom Zone artifacts, and what are the downstream effects of relic-magnitude items reaching the black market?"
+
   # --- static identity (what Coremark IS; time-varying facts live in moments) ---
   prose <<~PROSE
     A salvage corporation that became a criminal syndicate. Coremark made its name running industrial-scale extraction in the deep #{ref :the_shear, "Shear"} — pulling #{ref :ringglass, "ringglass"} out of places nobody else would go — and lost its legitimacy when its own negligence helped trigger the #{ref :the_silent_bloom, "Silent Bloom"}. What was a corporation now does the same work underground.

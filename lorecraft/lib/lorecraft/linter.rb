@@ -58,6 +58,7 @@ module Lorecraft
       check_markers
       check_prominence_reach
       check_typed_spans
+      check_question_anchors
       check_double_article
       check_resonance_vocab
       check_dm_public_entry
@@ -229,6 +230,24 @@ module Lorecraft
         text.scan(TYPED_SPAN) do
           info("#{owner.id}: span typed by hand ('#{Regexp.last_match[0].strip}') — " \
                "if it is anchored to an event, use #{'#{elapsed :anchor}'}")
+        end
+      end
+    end
+
+    # A question's `on:` names the passage it concerns. If the prose no longer
+    # contains it, either the passage was rewritten — in which case the question
+    # may already be answered — or the anchor was mistyped. Either way the
+    # question has come unstuck from what it is about, which is the failure mode
+    # of every review comment stored away from its text.
+    def check_question_anchors
+      pages.each do |e|
+        next if e.questions.empty?
+
+        text = prose_text(e)
+        e.questions.each do |q|
+          next if q.on.nil? || text.include?(q.on)
+
+          warn("#{label(e)}: question anchor not found in prose — '#{q.on[0, 50]}'")
         end
       end
     end

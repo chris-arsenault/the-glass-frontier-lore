@@ -3,12 +3,17 @@
 require_relative "markers"
 
 module Lorecraft
+  # One unresolved judgment about an entry. `on:` optionally names the passage it
+  # concerns, for a question about one part of a long entry.
+  Question = Struct.new(:text, :raised, :on, :order, keyword_init: true)
+
   # A node in the world: a stable symbol id, a kind, static attributes, owned
   # prose, and (resolved on demand) dynamic state. Dynamic state is never stored
   # here — it is the fold of moments, computed by the Resolver. The entity only
   # holds what is constant: who it is, not what has happened to it.
   class Entity
-    attr_reader :id, :kind, :static_attrs, :prose_blocks, :derives, :source_file, :log_entries
+    attr_reader :id, :kind, :static_attrs, :prose_blocks, :derives, :source_file,
+                :log_entries, :questions
     attr_accessor :visibility, :public_entry, :index_note
 
     def initialize(id:, kind:, source_file: nil)
@@ -18,6 +23,7 @@ module Lorecraft
       @static_attrs = {}
       @prose_blocks = []
       @log_entries = []
+      @questions = []
       @derives = {}
       @visibility = :public
       @public_entry = nil
@@ -101,6 +107,21 @@ module Lorecraft
       #   log "2026-08-08 — was 2438; predates the timeline extension"
       def log(entry)
         @entity.log_entries << entry.to_s
+      end
+
+      # What is unresolved about this entry. The counterpart to `log`: history is
+      # settled, a question is not.
+      #
+      #   question "Coremark is the only named operator here; the Shear needs
+      #             several", raised: "2026-03-20"
+      #
+      # Placement is the anchor — write it next to the prose it concerns and it
+      # cannot come unstuck, which is what happens to a comment stored elsewhere
+      # and matched back by quoting the text. Resolve one by deleting it, and
+      # `log` the decision if the reasoning is worth keeping.
+      def question(text, raised: nil, on: nil)
+        @entity.questions << Question.new(text: text.to_s, raised: raised, on: on,
+                                          order: (@question_order = (@question_order || 0) + 1))
       end
 
       # Any other bare call sets a static attribute of that name.

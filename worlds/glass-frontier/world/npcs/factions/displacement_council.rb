@@ -4,6 +4,10 @@ faction :displacement_council do
   tags :governance, :resonance, :danger
   prominence :recognized
 
+  log "Settled: a neutral containment order, focused on maintaining Bloom Zone cordons. Trusted by all factions because it stayed out of the Bitter Reach, and stretched thin as a result."
+
+  question "Internal tensions: the containment mission against members who want to reclaim their original homes. How thin can the Council stretch before something breaks?"
+
   prose <<~PROSE
     A neutral containment order born from the #{ref :displacement, "Displacement"} refugee crisis. The Council maintains #{ref :bloom_zones, "Bloom Zone"} containment cordons, provides humanitarian support to displaced communities, and serves as a trusted mediator precisely because they refused to take sides during the Bitter Reach.
   PROSE

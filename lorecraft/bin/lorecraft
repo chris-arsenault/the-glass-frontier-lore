@@ -143,6 +143,10 @@ when "graph"
 when "timeline"
   id = ARGV.shift or abort("usage: lorecraft timeline <entity-id>")
   puts load_world.render(:timeline, entity: id, at: at)
+when "queue"
+  # Assembled, never authored: declared questions on entries + computed findings.
+  w = load_world
+  puts Lorecraft::Queue.new(w, findings: w.lint(root: WORLD.root)).report
 when "provenance"
   # Who drafted the prose and who has read it, per block. Review dates come from
   # the DSL; whether a date still covers the text comes from git.

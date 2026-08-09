@@ -40,6 +40,9 @@ topology:
 # Who drafted the prose and who has read it, per block.
 provenance:
 	@$(LC) provenance
+# What the world needs next: declared questions + computed findings.
+queue:
+	@$(LC) queue
 
 # Engine unit tests.
 test:

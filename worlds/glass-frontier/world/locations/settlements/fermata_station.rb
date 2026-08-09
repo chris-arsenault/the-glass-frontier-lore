@@ -3,6 +3,9 @@ installation :fermata_station do
   path "player/locations/settlements/fermata-station.md"
   tags :governance, :resonance, :"ring-hab", :"fluid-reality", :music, :"social-structure"
   prominence :marginal
+
+  question "Tongue in cheek — reword or remove.", raised: "2026-03-20", on: "The system works better than it has any right to, and worse than its inhabitants believe."
+  question "Prominence :marginal looks understated for an entry with a full write-up that hosts the Accord's mediation work. Either raise it or give Hab Meridian the relationship its reference to this station implies."
   region "glass-frontier"
   aka "The Jazzocracy"
 

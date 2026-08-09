@@ -3,6 +3,11 @@ npc :lira_vashtenri do
   path "player/npcs/heroes/lira-vashtenri.md"
   tags :resonance, :salvage
   prominence :recognized
+
+  log "Settled: never a Conclave member — always Coremark. The stillwater supply relationship with the Conclave is purely transactional."
+
+  question "Still active in containment ops, but what is she doing NOW beyond maintaining the containment methodology?"
+  question "Degree 5, and no personal cloud: the specific cordon section, the refinery she worked at, the mentor, the first test site. A viewpoint needs forgotten/marginal shells only she connects to."
   narrative_role "viewpoint"
   species "gnome"
   culture "sithari"

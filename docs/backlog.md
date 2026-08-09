@@ -36,9 +36,9 @@ review-flag buttons.
 
 ## Review app
 
-`tools/review-app/` now lists and serves the DSL corpus, and comments anchor to
-the source text a fix gets applied to. Two things it does not do yet: render
-`prose` blocks as prose rather than as source, and follow `#{ref}` links between
-entries. Comments filed before the DSL migration whose highlight quoted rendered
-markdown — old `[future:Name]` markers especially — land in the Unanchored column
-instead of against the text.
+`tools/review-app/` lists and serves the DSL corpus as source. Its comment
+endpoints are retired — a comment is a `question` declaration on the entity now —
+so the gutter, the highlight anchoring and the resolve/delete buttons are dead UI
+against a 410. Either teach it to write `question` lines into the Ruby, or cut the
+commenting half and keep it as a reader with review-flag toggles. It also still
+renders `prose` as source rather than prose, and does not follow `#{ref}` links.

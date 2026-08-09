@@ -3,6 +3,9 @@ npc :dern_talish do
   path "player/npcs/heroes/dern-talish.md"
   tags :governance, :resonance, :diplomacy
   prominence :recognized
+
+  question "Degree 6, and no personal cloud: the cordon section she patrolled for twenty years, her hab of origin, a colleague from cordon operations, the convoys she turned away and who sent them. A viewpoint needs forgotten/marginal shells only she connects to."
+  question "Oram Sells is a future marker in three entries — the second First Threshold who read her in before dying of Bloom exposure. He needs an entity, and his eleven-year tenure has to land inside the Council's real dates (formed 2380, took the cordons 2384, Dern is the fourth)."
   narrative_role "viewpoint"
   species "human"
   culture "hab-worlder"

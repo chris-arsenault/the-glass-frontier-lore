@@ -8,6 +8,7 @@ Nearly three hundred years ago the ring shattered. The fragments — hundreds of
 
 ```
 make check WORLD=glass-frontier      # validate + lint
+make queue WORLD=glass-frontier      # what needs doing: open questions + findings
 make wiki  WORLD=glass-frontier      # render to build/glass-frontier/wiki
 make topology WORLD=glass-frontier   # graph health
 ```
@@ -25,7 +26,7 @@ Read the repo-root `CLAUDE.md` first — it carries the DSL conventions, the ent
 | `guidance/canon-checklist.md` | fixed dates and systems vocabulary a review checks against |
 | `guidance/archetype-slots.md` | which archetypes are thin — read before attributing anything |
 | `guidance/world-seeds.md` | ideas not yet formalized into entries |
-| `work-tracking/` | review status, comments, queue, open questions |
+| `work-tracking/` | the older per-file review timestamps — questions, comments and the queue live on the entities (`make queue`) |
 | `research/` | audits and long-form analysis of this world |
 | `attic/` | reference and mood material, not canon |
 

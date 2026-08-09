@@ -3,6 +3,12 @@ geographic_location :the_shear do
   path "player/locations/regions/the-shear.md"
   tags :orbital, :salvage, :danger, :resonance
   prominence :renowned
+
+  question "The Coremark reference makes sense here, but it shouldn't be the only corporation or group named throughout the article — severe overuse. Add a few future stubs.", raised: "2026-03-20", on: "built its empire on the industrial end. The independents work the margins"
+  question "Coremark overuse.", raised: "2026-03-20", on: "black-market operations — exist in pockets of the Shear that nobody official has charted."
+  question "'Cthonic' is an internal descriptor and can't be used — the creature needs an in-world name that isn't real-world anchored.", raised: "2026-03-20", on: "Cthonic beasts"
+  question "The Shear didn't exist before the Glassfall; it was caused by it.", raised: "2026-03-20", on: "The Shear is chronic — it has existed since the Glassfall"
+  question "Duplicate of Bloom Zone content, and it has no business in the Shear entry.", raised: "2026-03-20", on: "A Bloom Zone appearing next to a stable ring hab in clean space is the nightmare scenario"
   registry true
 
   prose <<~PROSE

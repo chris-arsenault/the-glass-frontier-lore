@@ -24,6 +24,7 @@ module Lorecraft
       check_tags
       check_prominence
       check_sections
+      check_statuses
       check_provenance
       @problems
     end
@@ -263,6 +264,22 @@ module Lorecraft
 
         err("#{label(owner)}: prose section '#{block.section}' not in canonical vocabulary") \
           unless @schema.section_heading?(block.section)
+      end
+    end
+
+    # `status` is the authoring state of the entry, not the standing of the thing
+    # in the world — that is dynamic state, set by moments. A world-sounding value
+    # here (`status "dissolved"`) reads as canon and is invisible to every query
+    # that asks the graph what is still active.
+    STATUSES = %w[complete draft shell needs_refinement].freeze
+
+    def check_statuses
+      @world.entities.each_value do |e|
+        value = e[:status]
+        next if value.nil? || STATUSES.include?(value.to_s)
+
+        err("#{label(e)}: status #{value.inspect} is not an authoring state " \
+            "(#{STATUSES.join('/')}) — in-world standing belongs to a moment effect")
       end
     end
 

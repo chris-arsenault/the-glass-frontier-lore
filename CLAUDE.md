@@ -166,7 +166,8 @@ worlds/
       _shells.rb            # shell stubs: referenced-but-unwritten entities
       _edges.rb             # relationship edges (relate instances)
     guidance/               # this world's substitutions into craft/
-    work-tracking/          # review status, queue, open questions
+    work-tracking/          # the older per-file review timestamps; questions and
+                            #   queue live on the entities now
     research/               # audits and analysis of this world
 craft/                      # world-agnostic authoring craft
   schema/base.rb            # kinds, effect verbs, relation taxonomy — every world loads this
@@ -227,6 +228,7 @@ Every command runs against one world. `WORLD=<id>` on make, `--world <id>` (or `
 | `timeline <id>` | Life-of-entity event strip. |
 | `log [<id>]` | The entries' own history — why a fact changed, what a correction rests on. Not world content. |
 | `provenance` | Per block: who drafted it, who has read it, whose read has expired. |
+| `queue` | What the world needs next — `question` declarations plus computed findings. A render, not a file. |
 
 Historical state is a query, not a stored field: `world.at(era: :the_accord, year: 5).out(:coremark, :operates_in)`.
 
@@ -238,19 +240,20 @@ Review tracking is `lorecraft review <pending|mark|stale|status> --world <id>` �
 
 1. `make check WORLD=<id>`
 2. `ruby lorecraft/bin/lorecraft review mark --world <id> <file>`
-3. **Resolve addressed comments** in that world's `work-tracking/review-comments.json` (set `status: "resolved"`). Mandatory.
+3. **Resolve addressed questions** — delete the `question` line from the entity, and `log` the decision if the reasoning is worth keeping. Mandatory.
 
 ### Review data & guidance:
 
-- `worlds/<id>/work-tracking/review-status.json` — auto review timestamps
-- `worlds/<id>/work-tracking/manual-review-status.json` — manual sign-off (review app UI)
-- `worlds/<id>/work-tracking/review-comments.json` — inline review comments
+**Review state lives on the content, not beside it.** Questions are `question` declarations on the entity, review state is `reviewed:` on the prose block, entry history is `log`. There is no queue file and no comments file: `make queue WORLD=<id>` assembles the open questions with the engine's own findings, and deleting that output loses nothing.
+
+- `worlds/<id>/work-tracking/review-status.json` — the older per-file review timestamps, still the only record of when prose was last read. Being migrated onto blocks; see `docs/backlog.md`.
+- `worlds/<id>/work-tracking/manual-review-status.json` — manual sign-off (review app UI), same migration.
 - `craft/voice-review-prompt.md` — reusable LLM prompt for domain/register review
 - `craft/writing-guidance.md` — mandatory writing rules
 
 ### Review app:
 
-`cd tools/review-app && npm run dev` — inline review tool on `:3456`, serving `WORLD` (default `glass-frontier`). It lists the world's DSL files and shows each one as source, so a highlighted comment anchors to the text a fix gets applied to. Comment and status keys are world-root-relative (`world/concepts/ringglass.rb`) — the same key space as `lorecraft review`.
+`cd tools/review-app && npm run dev` — inline review tool on `:3456`, serving `WORLD` (default `glass-frontier`). It lists the world's DSL files and shows each one as source. Its comment endpoints are retired: a comment now goes in the DSL as `question` on the entity, so that it cannot come unstuck from the prose it is about.
 
 ## Source Material
 

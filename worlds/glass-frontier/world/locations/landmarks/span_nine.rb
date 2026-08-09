@@ -4,6 +4,9 @@ installation :span_nine do
   tags :"ring-era", :resonance, :"signal-freq", :orbital
   prominence :recognized
 
+  question "Why does the Span connect three major places? Sithari and Threshold both predate its activation, so the only known broadband comm device happening to terminate at both is too much of a coincidence. Pelhari may have been built around it.", raised: "2026-03-20", on: "A shining white filament stretching from"
+  question "Consider a terminus near Sithari but geographically distinct — an important side location rather than something in the capital.", raised: "2026-03-20", on: "With it, Sithari has real-time signal-bandwidth links to the"
+
   prose <<~PROSE
     A shining white filament stretching from #{ref :sithari, "Sithari"} to #{ref :pelhari, "Pelhari"} and #{ref :threshold_station, "Threshold Station"}, visible to the naked eye as an impossibly thin luminous thread against the sky. Span Nine is a pre-Glassfall hardline communication conduit — a physical connection between Kaleidos's surface and two of the system's most important off-world installations, maintained across orbital distances that should make a fixed link impossible.
 

@@ -668,6 +668,66 @@ class EmbedTest < Minitest::Test
   end
 end
 
+class QuestionTest < Minitest::Test
+  def world(&block)
+    Lorecraft.define do
+      schema { entity_type :concept }
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
+      instance_eval(&block)
+    end
+  end
+
+  def test_questions_are_compiled_and_ordered
+    w = world do
+      concept :a do
+        name "A"
+        prose "The prose."
+        question "First thing", raised: "2026-08-01"
+        question "Second thing"
+      end
+    end
+    qs = w.entity(:a).questions
+    assert_equal ["First thing", "Second thing"], qs.map(&:text)
+    assert_equal "2026-08-01", qs.first.raised
+  end
+
+  # An anchor that no longer matches its prose has come unstuck from what it is
+  # about — the failure mode of a comment stored away from its text.
+  def test_a_stale_anchor_is_reported
+    w = world do
+      concept :a do
+        name "A"
+        prose "The route is well-charted."
+        question "matches", on: "well-charted"
+        question "does not", on: "a sentence that was rewritten"
+      end
+    end
+    findings = w.lint(root: Dir.mktmpdir)
+    anchors = findings.select { |f| f.message.include?("question anchor") }
+    assert_equal 1, anchors.size
+    assert_includes anchors.first.message, "a sentence that was rewritten"
+  end
+
+  # The queue is assembled from declarations and findings, never authored.
+  def test_queue_reports_questions_by_entity
+    w = world do
+      concept :b do name "B"; prose "b"; question "About B" end
+      concept :a do name "A"; prose "a"; question "About A" end
+    end
+    report = Lorecraft::Queue.new(w, findings: []).report
+    assert_includes report, "2 open question(s) on 2 entr(ies)"
+    assert_operator report.index("  a"), :<, report.index("  b")
+  end
+
+  def test_queue_counts_findings_rather_than_restating_them
+    w = world { concept :a do name "A"; prose "a" end }
+    findings = [Lorecraft::Linter::Finding.new(:warn, "something is off"),
+                Lorecraft::Linter::Finding.new(:warn, "another thing")]
+    report = Lorecraft::Queue.new(w, findings: findings).report
+    assert_includes report, "2 warning(s)"
+  end
+end
+
 class ProvenanceTest < Minitest::Test
   def world
     Lorecraft.define do

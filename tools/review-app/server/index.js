@@ -12,7 +12,6 @@ app.use(express.json())
 const REPO_ROOT = path.resolve(__dirname, '../../../')
 const WORLD = process.env.WORLD || 'glass-frontier'
 const LORE_ROOT = process.env.LORE_ROOT || path.join(REPO_ROOT, 'worlds', WORLD)
-const REVIEW_FILE = path.join(LORE_ROOT, 'work-tracking', 'review-comments.json')
 const AUTO_STATUS_FILE = path.join(LORE_ROOT, 'work-tracking', 'review-status.json')
 const MANUAL_STATUS_FILE = path.join(LORE_ROOT, 'work-tracking', 'manual-review-status.json')
 
@@ -50,60 +49,20 @@ app.get('/api/file/*path', (req, res) => {
   res.json({ path: reqPath, content: fs.readFileSync(filePath, 'utf-8') })
 })
 
-// Get all review comments
-app.get('/api/reviews', (req, res) => {
-  if (fs.existsSync(REVIEW_FILE)) {
-    res.json(JSON.parse(fs.readFileSync(REVIEW_FILE, 'utf-8')))
-  } else {
-    res.json([])
-  }
-})
+// Comments moved into the DSL as `question` declarations on the entity, so that
+// a comment cannot come unstuck from the prose it is about. Reading returns
+// nothing and writing is refused rather than recreating a file the engine no
+// longer reads — a second source is exactly what the move eliminated.
+const COMMENTS_RETIRED = {
+  error: 'Review comments live in the DSL now',
+  detail: 'Add `question "...", raised: "YYYY-MM-DD", on: "<the passage>"` to the entity, ' +
+          'then `make queue WORLD=<id>`.',
+}
 
-// Add a review comment
-app.post('/api/reviews', (req, res) => {
-  const { file, highlight, comment, line } = req.body
-  if (!file || !comment) {
-    return res.status(400).json({ error: 'file and comment required' })
-  }
-
-  let reviews = []
-  if (fs.existsSync(REVIEW_FILE)) {
-    reviews = JSON.parse(fs.readFileSync(REVIEW_FILE, 'utf-8'))
-  }
-
-  const review = {
-    id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
-    file,
-    highlight: highlight || null,
-    comment,
-    line: line || null,
-    timestamp: new Date().toISOString(),
-    status: 'open'
-  }
-  reviews.push(review)
-  fs.writeFileSync(REVIEW_FILE, JSON.stringify(reviews, null, 2))
-  res.json(review)
-})
-
-// Update a review comment status
-app.patch('/api/reviews/:id', (req, res) => {
-  if (!fs.existsSync(REVIEW_FILE)) return res.status(404).json({ error: 'No reviews' })
-  let reviews = JSON.parse(fs.readFileSync(REVIEW_FILE, 'utf-8'))
-  const idx = reviews.findIndex(r => r.id === req.params.id)
-  if (idx === -1) return res.status(404).json({ error: 'Review not found' })
-  reviews[idx] = { ...reviews[idx], ...req.body }
-  fs.writeFileSync(REVIEW_FILE, JSON.stringify(reviews, null, 2))
-  res.json(reviews[idx])
-})
-
-// Delete a review comment
-app.delete('/api/reviews/:id', (req, res) => {
-  if (!fs.existsSync(REVIEW_FILE)) return res.status(404).json({ error: 'No reviews' })
-  let reviews = JSON.parse(fs.readFileSync(REVIEW_FILE, 'utf-8'))
-  reviews = reviews.filter(r => r.id !== req.params.id)
-  fs.writeFileSync(REVIEW_FILE, JSON.stringify(reviews, null, 2))
-  res.json({ ok: true })
-})
+app.get('/api/reviews', (req, res) => res.json([]))
+app.post('/api/reviews', (req, res) => res.status(410).json(COMMENTS_RETIRED))
+app.patch('/api/reviews/:id', (req, res) => res.status(410).json(COMMENTS_RETIRED))
+app.delete('/api/reviews/:id', (req, res) => res.status(410).json(COMMENTS_RETIRED))
 
 // Get review status (both auto and manual)
 app.get('/api/review-status', (req, res) => {
@@ -137,5 +96,5 @@ app.post('/api/review-status', (req, res) => {
 app.listen(3457, () => {
   console.log('Review API server running on http://localhost:3457')
   console.log(`Lore root: ${LORE_ROOT}`)
-  console.log(`Review file: ${REVIEW_FILE}`)
+  console.log('Comments live in the DSL as `question` on the entity; run `make queue`.')
 })

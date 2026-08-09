@@ -4,6 +4,9 @@ installation :keel do
   tags :trade, :orbital, :salvage, :danger, :navigation
   prominence :recognized
 
+  question "Expand to the safe travel, accommodation and waystops that have grown along many portions of the Keel — and don't make it all Vantara. They are large and well known, not a monopoly; overuse makes the world feel small.", raised: "2026-03-20", on: "The route is well-charted and well-serviced — Vantara maintains navigation beacons, refueling stations, and waystations along its length."
+  question "Vantara is a travel and logistics company; this is another overuse.", raised: "2026-03-20", on: "doesn't claim sovereignty."
+
   prose <<~PROSE
     The system's primary trade lane — an orbital route connecting #{ref :ringglass, "ringglass"} production zones in #{ref :the_shear, "The Shear"}, major refinement facilities, #{ref :sithari, "Sithari"}, and #{future "Ashvane"} at the far end. It remains the single most important corridor for bulk commerce in the Kaleidos system.
 
