@@ -58,7 +58,7 @@ relate :rel_wr_physcrypt_practiced_gatekeepers, :practiced_by, :physical_cryptog
   prose "A tray of dated type, opened in front of both parties. Nobody in the American resistance taught them, and the convergence is not remarked on in either place."
 end
 relate :rel_wr_physcrypt_practiced_brokers, :practiced_by, :physical_cryptography, :the_brokers
-relate :rel_wr_registerhouse_derived_physcrypt, :derived_from, :juyan_register_house, :physical_cryptography
+relate :rel_wr_vault_embodies_physcrypt, :embodies, :juyan_ceramic_vault, :physical_cryptography
 
 # ---- wetware jailbreaks: what a fabricated record has to satisfy ----
 relate :rel_wr_jailbreaks_evades_guardianship, :evades, :wetware_jailbreaks, :guardianship do
@@ -88,7 +88,6 @@ relate :rel_wr_fusion_depends_water, :depends_on, :proto_fusion, :water do
 end
 relate :rel_wr_fusion_regulated_market, :regulates, :market, :proto_fusion
 relate :rel_wr_choir_evades_fusion, :evades, :the_choir, :proto_fusion
-relate :rel_wr_liangzhou_depends_fusion, :depends_on, :the_liangzhou_double_return, :proto_fusion
 relate :rel_wr_fusion_depends_drywar, :part_of, :proto_fusion, :the_dry_war
 relate :rel_wr_caretaker_maintains_fusion, :maintains, :caretaker, :proto_fusion do
   prose "Caretaker runs the largest fleet and treats a plant's catchment as a population under its care, extending guardianship to everybody upstream of a treatment hall."

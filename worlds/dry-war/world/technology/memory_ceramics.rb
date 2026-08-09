@@ -8,7 +8,7 @@ resource :memory_ceramics do
 
     The result is fossilized biological memory. Enormous archives with no power requirement and — the part that matters — nothing in them alive enough to betray the reader. The #{ref :the_preservationists, "Preservationists"} hold most of what is left of the Chinese written record this way.
 
-    The pattern runs through the body of the substrate rather than across its surface, so a piece is read one flat face at a time: the face is lapped clean and a damp-paper impression is taken off the relief. See #{ref :the_squeeze, "the squeeze"}. Every face read is a face gone, and how many a piece has left is a figure its archive keeps.
+    The pattern runs through the body of the substrate rather than across its surface. A reader grinds one face flat on a wet iron plate, presses damp paper into the exposed relief and inks the raised ground. The sheet comes away black with the buried pattern left white. Every reading destroys the face that produced it; the #{ref :juyan_ceramic_vault, "vault at Juyan"} counts the usable faces left on every piece.
   PROSE
 
   prose <<~PROSE, section: :applications, heading: "What Can Be Fired Into Clay"

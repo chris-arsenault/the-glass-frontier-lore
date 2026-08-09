@@ -6,7 +6,7 @@ incident :the_callowhill_riser do
   prose <<~PROSE
     A chilled-water return riser replaced beneath a Callowhill Street block in 2088. The buyer accepted the work and paid #{ref :market, "Market"}. Eleven months later two people came to #{ref :race_street_warehouse, "the Race Street warehouse"}, eleven days apart, each claiming the reserved price. Neither had an identity record the warehouse could use without repair.
 
-    #{ref :ruth_osei, "Ruth Osei"} asked each what pressure the line reached, how long it held and who stood at the joints. She knew the required test from a certified reading of #{ref :the_pressure_schedule, "an old pressure schedule"} held at #{ref :juyan_register_house, "Juyan"}.
+    #{ref :ruth_osei, "Ruth Osei"} asked each what pressure the line reached, how long it held and who stood at the joints. She knew the test from a paper rubbing of #{ref :the_six_faced_pipe_shard, "a ceramic shard"} in the #{ref :juyan_ceramic_vault, "vault at Juyan"}.
   PROSE
 
   prose <<~PROSE, section: :course, heading: "The Two Answers"

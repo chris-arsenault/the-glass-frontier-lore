@@ -24,7 +24,7 @@ concept :physical_cryptography do
   PROSE
 
   prose <<~PROSE, section: :limits, heading: "Who Else Uses It"
-    None of it is American. The #{ref :the_gatekeepers, "Gatekeepers"} settle a fee dispute by opening a tray of dated type, the #{ref :the_brokers, "Pearl River houses"} lodge blocks against their own sales, and #{ref :juyan_register_house, "the Juyan register house"} holds a class of evidence that can only be read by spending it. Nobody in the American resistance taught any of them, and the convergence is not remarked on in either place.
+    None of it is American. The #{ref :the_gatekeepers, "Gatekeepers"} settle a fee dispute by opening a tray of dated type, the #{ref :the_brokers, "Pearl River houses"} lodge blocks against their own sales, and the #{ref :juyan_ceramic_vault, "Juyan Ceramic Vault"} grinds away part of each ceramic it reads. These practices arose separately in places where a digital record could no longer prove who made it.
 
     The practice has one failure it cannot engineer around: an object both parties trust is an object that can be taken. A #{future "Cumberland courier standard"} exists because a run of instructions was lost with the people carrying them, and it holds that no physical instrument may be the only copy of anything a settlement cannot afford to lose — which is a rule the practice's own best instruments break by design.
   PROSE

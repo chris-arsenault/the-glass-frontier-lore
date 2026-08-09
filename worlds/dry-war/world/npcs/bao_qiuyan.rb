@@ -4,20 +4,20 @@ npc :bao_qiuyan do
   prominence :marginal
 
   prose <<~PROSE
-    Intake archivist at the #{ref :juyan_register_house, "Juyan Register House"}, and the person a courier hands a piece to. She holds the bench post on the settlement's clerical examination, sat twice and passed on the second paper, and keeps the certificate in the bench drawer with the open loss notes.
+    Keeper of the north hall at the #{ref :juyan_ceramic_vault, "Juyan Ceramic Vault"}. She receives the loads that survive the western road and can tell flooded glaze from frost damage by the feel of an edge under her thumb. Before a ceramic enters the stack, she weighs it, turns each face under a low lamp and watches the salt bed beneath it for moisture.
 
-    What she can establish is narrow and she states it that way: a seal against a consignment note, a mass against a beam balance, a face under a raking lamp, a salt bed that gained weight overnight, and where in the stack a piece went. She does not read sheets. Asked what a squeeze looks like to her, she has said it looks like weather.
+    Bao sat Juyan's clerical examination twice and passed on the second paper. Her certificate lies in the bench drawer beside the notes for pieces that lost mass on the road. She does not interpret the ink rubbings made in the south hall. To her they look like weather: black ground, white scars, and the shape of something already gone.
   PROSE
 
-  prose <<~PROSE, section: :people, heading: "What The Bench Files"
-    Every objection #{ref :yao_lin, "Yao Lin"} files at #{ref :yumen_gate, "Yumen Gate"} arrives at Juyan as a carbon that must be entered, numbered and shelved, and Bao is the clerk who enters it. She is one of the two who have asked Yao Lin to stop generating paperwork that requires filing on both sides of a border. Yao Lin declined and named the statute she files under; Bao has entered every carbon since, and holds that the courier is right about the statute and wrong about the shelf.
+  prose <<~PROSE, section: :people, heading: "Names From The Road"
+    #{ref :yao_lin, "Yao Lin"} brings eight or nine loads a year from the western road. The old inventory books leave no space for a courier, so Bao writes each carrier's name in the margin. Copyists complain that the notes creep into every fair copy. Bao keeps writing them because a ceramic may outlast its road, its copying house and everyone who handled it.
 
-    Her own habit costs the house the same way. The admission line has no field for who carried a piece, so she writes the courier's name in the margin with the run and the date. The copying clerks have objected in writing, on the ground that a margin note travels into every fair copy and cannot be removed without striking the line it sits beside.
+    Yao's loads bring paper and fine grit as often as ceramics. Bao reserves both for pieces whose loss would matter beyond Juyan. She has turned away requests for curiosities while a household list or an engineering table waited in the dark.
   PROSE
 
-  prose <<~PROSE, section: :perception, heading: "What She Cannot Check"
-    Whether a sending copying house squeezed the piece its note says it squeezed. She weighs, she looks, and she takes provenance on paper, and she puts that in writing on any loss note she opens.
+  prose <<~PROSE, section: :perception, heading: "One Of The Forty-One"
+    Bao's family is one of #{ref :the_forty_one_households, "the forty-one households"} present on one surviving Liangzhou list and absent from another. Her examination result and her authority in the vault remain valid. Both carry the same small note beside her family line.
 
-    Her own line in the household register. Bao's family entered Juyan through a Liangzhou ward whose registration stands in dispute — see #{ref :the_liangzhou_double_return, "the Liangzhou Double Return"} — so her examination result carries a provisional note referring to an open item. She petitions the register each year to close it. Each petition is entered, numbered and shelved by the bench she keeps.
+    She has read the Gatekeepers' answer and believes their count is probably accurate. She also supports Juyan's decision not to accept a fact drawn from the Great Root's archive.
   PROSE
 end

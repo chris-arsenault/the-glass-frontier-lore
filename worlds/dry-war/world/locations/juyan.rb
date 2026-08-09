@@ -10,11 +10,11 @@ geographic_location :juyan do
     Water arrives underground or not at all. The surface channel has filled twice since #{ref :the_breach, "the Breach"} and drained both times within a season; the wells stand in a line along the old bed, each sunk deeper than the one before it, and the line's recovery rate sets what the settlement may spend in a day.
   PROSE
 
-  prose <<~PROSE, section: :access, heading: "The Card And The Grove"
-    Draw is issued against a stamped card, one per household and one per office, in 升 and 合 — litres and tenths of a litre. The #{ref :juyan_register_house, "register house"} holds an office card like any other, and the reading queue moves at the pace that card allows, because a page of archive cannot be brought out of a ceramic without wetting paper. The office allowance was cut by a fifth in the spring of 2089 and the queue behind it has not shortened since.
+  prose <<~PROSE, section: :access, heading: "The Well Line And The Grove"
+    Juyan measures water in litres and tenths of a litre. Each household and workplace draws a fixed share from the well line. The #{ref :juyan_ceramic_vault, "ceramic vault"} lost a fifth of its share in the spring of 2089, so unread pieces now fill its coffers faster than the night room can open them. A single ceramic face wets three tenths of a litre: two for the paper and one for the iron plate.
 
     Nothing wet leaves a sealed room. Standing water is ground on which the #{ref :the_great_root, "Great Root"} can finish a thought, so used water is boiled off inside the building it was issued to, and the perimeter burns run on the schedule every #{ref :the_gobi, "Gobi"} settlement keeps.
 
-    North of the well line stands the dead poplar grove — some thousands of trees killed when the river stopped, still upright, still sound. Kiln wood comes out of it under numbered permits issued in the name of the #{future "Alxa Right Banner Forestry Bureau"}, stamped in triplicate, one copy shelved. No word has come from that bureau in the lifetime of anybody now cutting.
+    North of the wells stand thousands of poplars killed when the river failed. The dry basin left them upright and sound. Kiln crews cut them from the outer edge of the grove and burn them slowly enough that a coffer lid comes out pale rather than black. Every building in Juyan depends on the dead trees; no living grove could survive what the settlement asks of them.
   PROSE
 end

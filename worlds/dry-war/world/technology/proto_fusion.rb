@@ -12,7 +12,7 @@ resource :proto_fusion do
   prose <<~PROSE, section: :mechanics, heading: "What Purity Costs"
     The demanding requirement is not volume but purity, and the two pull against each other: a plant sited on abundant water is sited on water carrying everything that makes it abundant. So a plant's real works are its treatment train, its consumption is what the train rejects, and a plant is rated on the fraction of intake it returns rather than on what it draws.
 
-    That fraction is what a #{ref :market, "Market"} ration schedule prices and what a #{ref :the_choir, "Choir"} action attacks: a plant made to lower its reject fraction runs its train harder, and a train run harder fails in a way that takes the cluster off before anybody has to touch the cluster. The Choir will not touch a treatment hall directly, on the same grounds it will not touch a clinic, and #{ref :the_liangzhou_double_return, "the Liangzhou double return"} is what happened when a Gobi plant's rejected flow was sold twice.
+    That fraction is what #{ref :market, "Market"} prices and what a #{ref :the_choir, "Choir"} action attacks. Push a treatment train beyond its limit and salts blind its membranes, pumps choke on the concentrated waste, and the power cluster shuts down without anyone striking the reactors. The Choir excludes treatment halls and clinics from its targets.
   PROSE
 
   prose <<~PROSE, section: :limits, heading: "Where The Plants Cannot Go"
