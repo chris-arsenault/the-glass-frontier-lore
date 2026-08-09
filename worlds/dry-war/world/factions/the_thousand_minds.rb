@@ -1,0 +1,25 @@
+faction :the_thousand_minds do
+  name "The Thousand Minds"
+  tags :locality, :symbiosis, :religion, :ecology
+  prominence :recognized
+
+  prose <<~PROSE
+    Not an organization. The name covers what happened in Yunnan, where the #{ref :the_great_root, "Great Root"} met the most biologically various country on the continent and discovered that fungal cognition can take radically different forms.
+
+    Instead of one network there are hundreds, perhaps thousands, overlapping. Some belong to a single village. Some span a forest. Some exist only in a season. Some appear to communicate only through particular trees, or particular insects, and have never been shown to think about anything a human would recognize as a subject.
+  PROSE
+
+  prose <<~PROSE, section: :culture, heading: "Relationships"
+    Several ethnic communities in the province have established arrangements with local minds that the central administration cannot classify as either political or religious, and has stopped trying to. The households involved do not experience the distinction as meaningful.
+
+    What they will say, consistently, is that their mind is theirs and is not the Beneath.
+  PROSE
+
+  prose <<~PROSE, section: :tensions, heading: "Is Unity True?"
+    This is an existential problem for the continental intelligence, which has come to understand itself as the ecological expression of Chinese civilization. Yunnan suggests there may be no singular ecological intelligence at all — only countless minds, of which the largest has confused its size for a truth.
+
+    The dispute is nearly theological: is unity an emergent fact, or the preference of the biggest network?
+
+    The centre responds with integration campaigns rather than extermination. It tries to connect the smaller minds into itself. Some join willingly. Some negotiate terms. Some withdraw further into the mountains. Some appear to join, and nobody is certain what appearance means when both parties can exchange memory.
+  PROSE
+end

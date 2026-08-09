@@ -10,13 +10,34 @@ second world has canon worth reading, replace the wiki job with a site build
 that gives each world its own directory. `worlds.yml` already carries a
 `publish` flag per world for this.
 
-## The scaffold worlds
+## The scaffold world
 
-`worlds/ice-remembers/` and `worlds/dry-war/` hold a schema and a placeholder
-timeline and nothing else. Each one's `CLAUDE.md` lists the four steps to
-activation. The Ice Remembers has source material to port from
-`../the-canonry-game/docs/lore/` (lore-bible, encyclopedia, eras); The Dry War
-has no premise yet.
+`worlds/ice-remembers/` holds a schema and a placeholder timeline and nothing
+else. Its `CLAUDE.md` lists the four steps to activation, and it has source
+material to port from `../the-canonry-game/docs/lore/` (lore-bible,
+encyclopedia, eras).
+
+## The Dry War's first pass
+
+Active, valid, and thin in three specific ways.
+
+**No people.** Seventy-three entities and not one `npc`. The world is
+institutions, cultures, technologies and ground; every viewpoint character is
+still unwritten, and the resistance cultures are where they will come from.
+
+**Placeholder dates.** The era sequence in `world/timeline.rb` is right and the
+boundaries are asserted rather than argued. Every span in prose is computed from
+them, so moving a boundary corrects the prose — but somebody has to decide how
+long the Unified Calm actually was, and whether the Breach reads better closer to
+living memory.
+
+**Thin graph.** 1.5 edges per entity against a target of 4. The prose carries far
+more connection than `_edges.rb` declares, and the gap is mostly relationships
+between factions that reference each other constantly and share no edge.
+
+Also missing: `guidance/tone.md` and `guidance/naming-conventions.md`.
+`guidance/voice-referents.md` exists because this world inverts the repo's
+instinct — Earth is in-world here — and that could not wait.
 
 ## Review app
 

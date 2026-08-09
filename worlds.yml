@@ -23,5 +23,5 @@ worlds:
 
   - id: dry-war
     title: The Dry War
-    status: scaffold
+    status: active
     publish: false

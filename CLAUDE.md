@@ -8,7 +8,7 @@ Canonical lore for several game worlds, authored in one place with one engine. E
 |---|---|---|
 | The Glass Frontier | `worlds/glass-frontier/` | active — the Kaleidos system, a shattered ring world |
 | The Ice Remembers | `worlds/ice-remembers/` | scaffold — Aurora Berg, from `../the-canonry-game` |
-| The Dry War | `worlds/dry-war/` | scaffold — premise not yet established |
+| The Dry War | `worlds/dry-war/` | active — Earth in 2090, governed by two superintelligences that both think they are helping |
 
 `worlds.yml` is the manifest. The Glass Frontier feeds into `../the-canonry`.
 

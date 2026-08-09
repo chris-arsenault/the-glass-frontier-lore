@@ -6,7 +6,7 @@ Canonical lore for several game worlds, authored in one place with one engine.
 |---|---|---|
 | [The Glass Frontier](worlds/glass-frontier/) | active | The Kaleidos system: a shattered orbital ring, its parent planet, and the solar system around them. Nearly three hundred years after the ring broke, everyone has reconnected and discovered they became strangers. |
 | [The Ice Remembers](worlds/ice-remembers/) | scaffold | Aurora Berg: a continent-sized iceberg drifting through a frozen sea, shared by three peoples who cannot leave it. |
-| [The Dry War](worlds/dry-war/) | scaffold | Premise not yet established. |
+| [The Dry War](worlds/dry-war/) | active | Earth in 2090. A mycelial intelligence governs China through the clothes people wear; four machine coalitions govern North America by keeping everyone comfortable. Both need the same water, neither thinks it is fighting, and most of the planet now belongs to something else. |
 
 Each world defines itself as it exists *now* — the places, factions, people, technology and history that players step into on day one.
 
