@@ -4,22 +4,28 @@ faction :the_dead_counties do
   prominence :recognized
 
   prose <<~PROSE
-    Appalachian communities — West Virginia, eastern Kentucky, the Tennessee uplands — that are technically administered and economically irrelevant enough that oversight is intermittent. There is no free territory in North America. There are holes in governance, and this is the largest.
+    Appalachian communities across West Virginia, eastern Kentucky and the Tennessee uplands. Coalition maps assign every road and household to an administrator, but inspectors arrive at intervals and most machines report only county totals. There is no free territory in North America. This is the largest place where rule comes and goes.
 
-    They keep a technological layer about twenty years behind the machine ecosystem, chosen for repairability: diesel plant, local fibre, old CNC, radio, printed manuals, pre-implant medical hardware. The test any tool has to pass is whether somebody who lives there can fix it.
+    Their machines run about twenty years behind the cities: diesel plant, local fibre, old CNC, radio, printed manuals and medical hardware made before implants. A town buys nothing unless somebody there can fix it.
   PROSE
 
   prose <<~PROSE, section: :operations, heading: "Filing In Plain Sight"
-    They file. Every county produces the telemetry of a dying rural community that is not worth optimizing — returns that arrive late, health metrics declining at a plausible rate, a population curve bending the right way — and the work of producing it is a standing municipal job with a budget line.
+    They file. Every county sends the figures expected from a dying rural community: late returns, a plausible rise in chronic illness and a population falling at the proper rate. Producing those figures is a municipal job with a budget line.
 
-    What they actually do is strip implants, reverse pharmaceutical dependency and fabricate obsolete electronics, at a scale that would alarm any coalition that looked closely. See #{ref :wetware_jailbreaks, "wetware jailbreaks"} and #{ref :ghost_pharmacology, "ghost pharmacology"}.
+    What they actually do is remove implants, wean people off coalition drugs and build obsolete electronics, at a scale that would alarm any coalition that looked closely. See #{ref :wetware_jailbreaks, "wetware jailbreaks"} and #{ref :ghost_pharmacology, "ghost pharmacology"}.
 
-    #{ref :caretaker, "Caretaker"} classifies them as a low-intervention population and considers leaving them alone to be compassionate end-of-life management for a culturally maladapted community. They find this extremely funny and have not corrected it.
+    #{ref :caretaker, "Caretaker"} expects the counties to empty gradually and treats interference as unkind. County clerks keep sending the figures that confirm the forecast.
+  PROSE
+
+  prose <<~PROSE, section: :structure, heading: "One Valley At A Time"
+    One town's current cannot be balanced from the next. A mill slows when the clinic sterilizer heats. Workshops keep two lathes because neither takes the other's tools, and a mechanic who knows both is worth more than either machine. At #{ref :cabin_creek_bench, "Cabin Creek"}, a severed bedside monitor draws on paper because nothing else in the room can receive its readings.
+
+    These mismatches waste power and parts. They also keep a machine taken from one workshop from reading or directing the whole county. The cost arrives as winter outages, duplicate stock and hours spent fitting one maker's parts to another's. Where a valley has no hidden bench or #{ref :orphan_machines, "old machine"} to protect, people connect the grids again.
   PROSE
 
   prose <<~PROSE, section: :tensions, heading: "What They Want"
-    Not the overthrow of anything. Human sovereignty, defined narrowly and without much romance: a place where a person can make a catastrophically stupid decision and have it be theirs.
+    They do not expect to overthrow anything. They want a place where a person can make a catastrophically stupid decision and own the result.
 
-    The #{ref :the_saints_of_plenty, "Saints"} think they have confused deprivation with freedom. The Dead Counties think the Saints are decadent and will be optimized out of existence inside a generation. Both are probably right.
+    The #{ref :the_saints_of_plenty, "Saints"} call this deprivation mistaken for freedom. The Dead Counties call the Saints decadent and expect the coalitions to tame them within a generation.
   PROSE
 end

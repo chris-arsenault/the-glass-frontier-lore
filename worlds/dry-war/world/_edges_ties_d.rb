@@ -14,7 +14,6 @@ relate :rel_td_bench_in_appalachia, :located_in, :cabin_creek_bench, :appalachia
 relate :rel_td_counties_maintain_bench, :maintains, :the_dead_counties, :cabin_creek_bench, since: 2071
 relate :rel_td_ghost_depends_bench, :depends_on, :ghost_pharmacology, :cabin_creek_bench
 relate :rel_td_bench_depends_orphans, :depends_on, :cabin_creek_bench, :orphan_machines
-relate :rel_td_bench_depends_pharma, :models, :cabin_creek_bench, :psychopharmacological_infrastructure, since: 2071
 
 # ---- B. the yard ----
 relate :rel_td_yard_in_hexi, :located_in, :xincheng_yard, :the_hexi_corridor

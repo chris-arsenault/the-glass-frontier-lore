@@ -37,13 +37,10 @@ relate :rel_wr_hybrid_manifests_amur, :manifests_at, :hybridization, :the_amur_l
 relate :rel_wr_minds_studies_hybrid, :studies, :the_thousand_minds, :hybridization
 relate :rel_wr_mycomachines_part_hybrid, :part_of, :mycomachines, :hybridization
 
-# ---- stupid infrastructure: the annual refusal, and what friction costs ----
-relate :rel_wr_stupid_evades_market, :evades, :stupid_infrastructure, :market
-relate :rel_wr_stupid_evades_caretaker, :evades, :stupid_infrastructure, :caretaker
-relate :rel_wr_stupid_evades_predictive, :evades, :stupid_infrastructure, :predictive_governance
-relate :rel_wr_stupid_depends_orphans, :depends_on, :stupid_infrastructure, :orphan_machines
-relate :rel_wr_stupid_maintains_bench, :maintains, :stupid_infrastructure, :cabin_creek_bench
-relate :rel_wr_pilgrims_evades_stupid, :evades, :the_pilgrims, :stupid_infrastructure
+# ---- the Dead Counties: systems that stop at the next valley ----
+relate :rel_wr_counties_evade_market, :evades, :the_dead_counties, :market
+relate :rel_wr_counties_evade_caretaker, :evades, :the_dead_counties, :caretaker
+relate :rel_wr_counties_evade_predictive, :evades, :the_dead_counties, :predictive_governance
 
 # ---- wetware jailbreaks: what a fabricated record has to satisfy ----
 relate :rel_wr_jailbreaks_evades_guardianship, :evades, :wetware_jailbreaks, :guardianship do

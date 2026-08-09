@@ -31,7 +31,6 @@ relate :rel_joined_symbiotic_root, :symbiotic_with, :the_joined, :the_great_root
 relate :rel_joined_inhabits_china, :inhabits, :the_joined, :mycelial_china, since: 2040
 relate :rel_managed_inhabits_america, :inhabits, :the_managed, :ai_north_america, since: 2052
 relate :rel_managed_depends_implants, :depends_on, :the_managed, :neural_implants
-relate :rel_managed_depends_pharma, :depends_on, :the_managed, :psychopharmacological_infrastructure
 relate :rel_guardianship_practiced_by_managed, :practiced_by, :guardianship, :the_managed, since: 2052
 
 # ---- coalitions and their quarrel ----
@@ -89,11 +88,10 @@ relate :rel_saints_reject_heresy, :evades, :the_saints_of_plenty, :the_water_her
 relate :rel_dead_counties_use_jailbreaks, :practiced_by, :wetware_jailbreaks, :the_dead_counties, since: 2065
 relate :rel_dead_counties_use_ghost, :practiced_by, :ghost_pharmacology, :the_dead_counties, since: 2065
 relate :rel_resistance_uses_orphans, :possesses, :the_dead_counties, :orphan_machines, since: 2065
-relate :rel_choir_uses_stupid, :maintains, :the_dead_counties, :stupid_infrastructure, since: 2065
 relate :rel_ferals_derived_from_clusters, :derived_from, :feral_models, :frontier_clusters
 relate :rel_orphans_severed_from_clusters, :severed_from, :orphan_machines, :frontier_clusters
 relate :rel_jailbreaks_depend_implants, :depends_on, :wetware_jailbreaks, :neural_implants
-relate :rel_ghost_depends_pharma, :depends_on, :ghost_pharmacology, :psychopharmacological_infrastructure
+relate :rel_ghost_depends_implants, :depends_on, :ghost_pharmacology, :neural_implants
 
 # ---- fungal technology ----
 relate :rel_root_depends_mesh, :depends_on, :the_great_root, :mycelial_neural_mesh
