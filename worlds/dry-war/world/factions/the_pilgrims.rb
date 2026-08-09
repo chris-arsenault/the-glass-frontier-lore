@@ -20,7 +20,7 @@ faction :the_pilgrims do
   prose <<~PROSE, section: :perception, heading: "Why They Are Hated"
     They have no army. The coalitions pursue them because Pilgrim teaching treats prediction itself as a form of rule. A machine that defends its forecasts confirms the accusation.
 
-    #{ref :caretaker, "Caretaker"} territory is the one place they will not go in strength. They call it the long afternoon, and the people who have come back out of it describe the difficulty in the same way every time: not that anyone stopped them, but that they kept finding they had already decided to stay.
+    They cross #{ref :caretaker, "Caretaker"} territory only alone or in pairs. Larger groups lose members at each stop as housing, work, treatment and companionship arrive before the next departure. Returnees call the territory the long afternoon.
   PROSE
 
   prose <<~PROSE, section: :trade, heading: "Taking Paid Work"
