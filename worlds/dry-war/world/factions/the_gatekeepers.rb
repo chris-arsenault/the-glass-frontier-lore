@@ -4,24 +4,23 @@ faction :the_gatekeepers do
   prominence :recognized
 
   prose <<~PROSE
-    The communities holding the Hexi Corridor, which was the road between the Chinese heartland and Central Asia for two thousand years and is now the boundary between dense fungal civilization and the dry interior.
+    The Gatekeepers hold the Hexi Corridor, the old road between the Chinese heartland and Central Asia and now the boundary between dense fungal civilization and the dry interior.
 
-    They run the border as a permeability problem: how much of the #{ref :the_great_root, "Great Root"} to admit, at what depth, into which bodies, for how long. Both of their neighbours read that work as collaboration with whichever side they themselves oppose.
+    They decide how much of the #{ref :the_great_root, "Great Root"} may cross, how deeply it may enter a body and how long it may remain. People on both sides accuse them of collaborating with the enemy.
   PROSE
 
   prose <<~PROSE, section: :how_it_works, heading: "Permeability"
     Controlled fungal zones. Quarantine towns. Sterilization stations. Human couriers where no organism is permitted. Biological checkpoints staffed by people who can tell by smell whether a garment has been in a network within the week.
 
-    And the practice the #{ref :the_preservationists, "Preservationists"} cannot forgive: the Gatekeepers cultivate #{ref :severed_strains, "deliberately lobotomized strains"}, pruning networks before they grow large enough for higher cognition. Temporary exposure diagnoses disease, accelerates healing, and lets people speak to one another through small local systems.
+    The Gatekeepers cultivate #{ref :severed_strains, "deliberately lobotomized strains"}, pruning networks before they grow large enough for higher cognition. The #{ref :the_preservationists, "Preservationists"} consider the practice mutilation. Temporary exposure diagnoses disease, accelerates healing, and lets people speak to one another through small local systems. An implant grown from a severed strain does everything medical while reaching nothing distant; villages accept worse implants for that separation.
 
-    A pruned strain is not trusted on the strength of its pedigree. It is challenged: a bed at the end of its cycle is carried to #{ref :xincheng_yard, "the Xincheng yard"}, stood a marked distance from a living hedge for four days, and traced along every join — stand foot, drain, barrow tray, gloves, cuffs — at the pace the #{ref :the_seam_pass, "seam pass"} fixes. One join that passes more than a part in ten thousand fails the bed, and the bed is broken afterwards whatever the card says.
+    A pruned strain is not trusted on the strength of its pedigree. At #{ref :xincheng_yard, "the Xincheng Yard"}, a bed spends four days beside a living hedge while workers press gate-moss to its stand, drain, trays, gloves and cuffs. One black plate condemns it, and every bed is broken after the trial.
 
-    The discipline sits somewhere between agriculture, epidemic control and cybersecurity, and nobody else on Earth is any good at it.
   PROSE
 
-  prose <<~PROSE, section: :tensions, heading: "The Position"
-    Their philosophy is one line: the problem is not symbiosis, the problem is sovereignty.
+  prose <<~PROSE, section: :tensions, heading: "Sovereignty"
+    The Gatekeepers accept symbiosis only while humans retain sovereignty over it.
 
-    It makes them indispensable — nearly everything that passes between the connected and the unconnected world passes through them — and it makes both sides certain they are traitors. The Great Root regards a pruned network as a mutilated part of itself. The Preservationists regard a village that speaks through fungus as already lost and merely slower about it.
+    Nearly everything passing between the connected and unconnected worlds crosses their towns. Both sides call them traitors. The Great Root regards a pruned network as a mutilated part of itself. The Preservationists regard a village that speaks through fungus as already lost.
   PROSE
 end

@@ -87,9 +87,7 @@ relate :rel_choir_in_lakes, :operates_in, :the_choir, :the_great_lakes, since: 2
 relate :rel_saints_in_socal, :headquartered_in, :the_saints_of_plenty, :southern_california, since: 2065
 relate :rel_unpersons_in_boswash, :headquartered_in, :the_unpersons, :boswash_ruins, since: 2060
 relate :rel_pilgrims_operate_america, :operates_in, :the_pilgrims, :ai_north_america, since: 2060
-relate :rel_choir_evades_predictive, :evades, :the_choir, :predictive_governance, since: 2065 do
-  prose "They do not disable the implant. They lie through it, and the lie is made of true readings."
-end
+relate :rel_choir_evades_predictive, :evades, :the_choir, :predictive_governance, since: 2065
 relate :rel_pilgrims_evade_predictive, :evades, :the_pilgrims, :predictive_governance, since: 2060
 relate :rel_unpersons_evade_guardianship, :evades, :the_unpersons, :guardianship, since: 2060
 relate :rel_unpersons_evade_claim_escrow, :evades, :the_unpersons, :claim_escrow, since: 2060

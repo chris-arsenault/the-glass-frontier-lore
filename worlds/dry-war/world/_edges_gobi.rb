@@ -70,9 +70,7 @@ relate :rel_liangzhou_depends_squeeze, :depends_on, :the_liangzhou_double_return
 end
 relate :rel_liangzhou_mentions_root, :mentions, :the_liangzhou_double_return, :the_great_root
 relate :rel_preservationists_participated_liangzhou, :participated_in, :the_preservationists, :the_liangzhou_double_return
-relate :rel_gatekeepers_participated_liangzhou, :participated_in, :the_gatekeepers, :the_liangzhou_double_return do
-  prose "Two priced offers to reconcile the ward against network-held copies, two written refusals, all four shelved with the item."
-end
+relate :rel_gatekeepers_participated_liangzhou, :participated_in, :the_gatekeepers, :the_liangzhou_double_return
 relate :rel_yao_participated_liangzhou, :participated_in, :yao_lin, :the_liangzhou_double_return do
   prose "The standing request for a third copy has gone out with her on four crossings."
 end

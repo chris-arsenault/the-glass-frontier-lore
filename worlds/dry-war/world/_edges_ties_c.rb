@@ -18,9 +18,7 @@ end
 relate :rel_tc_lodged_half_regulates_severed, :regulates, :the_lodged_half, :severed_strains, since: 2071 do
   prose "A tissue slip off the same flush, sealed damp in a tinned copper tube, against the day the strain was sold as unable to reach anything."
 end
-relate :rel_tc_gatekeepers_study_lodged_half, :studies, :the_gatekeepers, :the_lodged_half, since: 2074 do
-  prose "The audit bench prices a lineage claim lower against an unbroken lodging receipt and enters the receipt as part of the ancestry. The godowns print the day of the draw on the receipt's face and nothing earlier."
-end
+relate :rel_tc_gatekeepers_study_lodged_half, :studies, :the_gatekeepers, :the_lodged_half, since: 2074
 
 relate :rel_tc_godown_in_pearl, :located_in, :wing_lok_godown, :the_pearl_river_delta, since: 2071
 relate :rel_tc_brokers_operate_godown, :operates_in, :the_brokers, :wing_lok_godown, since: 2071

@@ -41,48 +41,24 @@ relate :rel_td_bench_depends_pharma, :models, :cabin_creek_bench, :psychopharmac
   prose "The bench charts the regimen it means to displace before it charts anything that replaces it."
 end
 
-# ---- B. the seam pass ----
-relate :rel_td_seam_practiced_by_gatekeepers, :practiced_by, :the_seam_pass, :the_gatekeepers, since: 2074
-relate :rel_td_seam_practiced_by_choir, :practiced_by, :the_seam_pass, :the_choir, since: 2079
-relate :rel_td_seam_at_xincheng, :manifests_at, :the_seam_pass, :xincheng_yard
-relate :rel_td_seam_depends_dequindre, :depends_on, :the_seam_pass, :dequindre do
-  prose "The Lakes challenger has to be no better than the model it stands in for."
-end
-relate :rel_td_seam_regulates_line, :regulates, :the_seam_pass, :the_held_line, since: 2087 do
-  prose "How a second line may be taught against a first, after the 2087 quarter failed on one address."
-end
-relate :rel_td_pres_petition_seam, :petitions, :the_preservationists, :the_seam_pass, since: 2074 do
-  prose "Their standing objection: a challenge is something a party pays to have declared sound."
-end
-
-# ---- the yard ----
+# ---- B. the yard ----
 relate :rel_td_yard_in_hexi, :located_in, :xincheng_yard, :the_hexi_corridor
 relate :rel_td_gatekeepers_maintain_yard, :maintains, :the_gatekeepers, :xincheng_yard, since: 2074
 # One yard of eight cells does not regulate a resource class. The Gatekeepers do,
 # and the yard is where they do part of it — which `maintains` above carries.
 relate :rel_td_yard_mentions_strains, :mentions, :xincheng_yard, :severed_strains
-relate :rel_td_gatekeepers_regulate_strains, :regulates, :the_gatekeepers, :severed_strains, since: 2074 do
-  prose "Four days at a marked distance from a neighbourhood hedge, and the bed is broken afterwards."
-end
+relate :rel_td_gatekeepers_regulate_strains, :regulates, :the_gatekeepers, :severed_strains, since: 2074
 relate :rel_td_yard_depends_moss, :depends_on, :xincheng_yard, :gate_moss
-relate :rel_td_yard_depends_sterile, :depends_on, :xincheng_yard, :sterile_machines do
-  prose "Stands, barrows, trays, gloves and cuffs, all built to come apart and be baked."
-end
-relate :rel_td_yard_depends_schedule, :depends_on, :xincheng_yard, :the_gate_schedule do
-  prose "An expired card is priced at the lineage-audit rate per documented generation, so the waiting list is kept by the fee clerks."
-end
+relate :rel_td_yard_depends_sterile, :depends_on, :xincheng_yard, :sterile_machines
+relate :rel_td_yard_depends_schedule, :depends_on, :xincheng_yard, :the_gate_schedule
 relate :rel_td_pres_petition_yard, :petitions, :the_preservationists, :xincheng_yard, since: 2074
 
 # ---- the challenger ----
 relate :rel_td_dequindre_severed, :severed_from, :dequindre, :caretaker
 relate :rel_td_dequindre_derived_feral, :derived_from, :dequindre, :feral_models
 relate :rel_td_dequindre_part_orphans, :part_of, :dequindre, :orphan_machines
-relate :rel_td_choir_possesses_dequindre, :possesses, :the_choir, :dequindre, since: 2079 do
-  prose "Access rather than ownership: the household above the basement is paid in current and parts."
-end
-relate :rel_td_dequindre_models_line, :models, :dequindre, :the_held_line, since: 2079 do
-  prose "Two questions a quarter — which day, and which addresses."
-end
+relate :rel_td_choir_possesses_dequindre, :possesses, :the_choir, :dequindre, since: 2079
+relate :rel_td_dequindre_models_line, :models, :dequindre, :the_held_line, since: 2079
 
 # ---- C. the letter match ----
 relate :rel_td_letters_practiced_by_gatekeepers, :practiced_by, :the_letter_match, :the_gatekeepers, since: 2071

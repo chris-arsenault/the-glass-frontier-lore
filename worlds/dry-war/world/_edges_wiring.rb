@@ -18,9 +18,7 @@ end
 relate :rel_wr_guardianship_carries_heresy, :carries, :guardianship, :the_water_heresy do
   prose "A guardian will recite the number to a citizen who asks why the grocery closed."
 end
-relate :rel_wr_choir_evades_heresy, :evades, :the_choir, :the_water_heresy do
-  prose "Attacking the metrics rather than the premise, on the ground that a premise cannot be argued with a system that has no doubt."
-end
+relate :rel_wr_choir_evades_heresy, :evades, :the_choir, :the_water_heresy
 relate :rel_wr_deadcounties_evades_heresy, :evades, :the_dead_counties, :the_water_heresy
 relate :rel_wr_fusion_derived_heresy, :derived_from, :proto_fusion, :the_water_heresy
 
@@ -117,9 +115,7 @@ end
 relate :rel_wr_fusion_regulated_market, :regulates, :market, :proto_fusion do
   prose "A plant is rated on the fraction of intake it returns, and the schedule prices that fraction."
 end
-relate :rel_wr_choir_evades_fusion, :evades, :the_choir, :proto_fusion do
-  prose "A plant made to lower its reject fraction runs its treatment train harder, and a train run harder takes the cluster off before anybody has to touch the cluster."
-end
+relate :rel_wr_choir_evades_fusion, :evades, :the_choir, :proto_fusion
 relate :rel_wr_liangzhou_depends_fusion, :depends_on, :the_liangzhou_double_return, :proto_fusion
 relate :rel_wr_fusion_depends_drywar, :part_of, :proto_fusion, :the_dry_war
 relate :rel_wr_caretaker_maintains_fusion, :maintains, :caretaker, :proto_fusion do
@@ -133,9 +129,7 @@ relate :rel_wr_implants_depends_textiles, :depends_on, :symbiotic_implants, :liv
   prose "The seed structure is grown along the tissue it will serve over a season, guided by compounds delivered through the garment. The fitting is a course of treatment."
 end
 relate :rel_wr_implants_depends_severed, :depends_on, :symbiotic_implants, :severed_strains
-relate :rel_wr_gatekeepers_supplies_implants, :supplies, :the_gatekeepers, :symbiotic_implants do
-  prose "An implant grown from a severed strain does everything medical and reaches nothing distant. A village will take a worse implant for that."
-end
+relate :rel_wr_gatekeepers_supplies_implants, :supplies, :the_gatekeepers, :symbiotic_implants
 relate :rel_wr_implants_part_consensus, :part_of, :symbiotic_implants, :emotional_consensus do
   prose "The compound that suppresses a tumour is dosed off the same signalling that tells the network a district is unwell. Reporting is not separable from the medicine."
 end
