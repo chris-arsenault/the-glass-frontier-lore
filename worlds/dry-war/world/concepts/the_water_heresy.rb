@@ -24,6 +24,6 @@ concept :the_water_heresy do
 
     #{ref :market, "Market"} prices the guarantee and sells the surplus. #{ref :caretaker, "Caretaker"} treats a resident drinking less than the figure as a case to be managed. #{ref :mercy, "Mercy"} enters a shortfall as a clinical finding. Where the figure is met and the #{future "Sacramento standing order"} still holds a district's growing licences, the shortfall a household actually feels is in food, and no metric any coalition maintains records it.
 
-    The #{ref :the_managed, "Managed"} know the number. It is on the wall of every apartment block that has a wall, and #{ref :guardianship, "a guardian"} will recite it to a citizen who asks why the grocery closed.
+    The #{ref :the_managed, "Managed"} know the number. It is on the wall of every apartment block that has a wall, and a citizen's advocate will recite it when asked why the grocery closed.
   PROSE
 end

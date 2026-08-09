@@ -11,7 +11,6 @@ relate :rel_rc_belfry_in_lakes, :located_in, :ste_anne_belfry, :the_great_lakes
 relate :rel_rc_caretaker_maintains_belfry, :maintains, :caretaker, :ste_anne_belfry, since: 2074
 relate :rel_rc_caretaker_in_lakes, :operates_in, :caretaker, :the_great_lakes, since: 2052
 relate :rel_rc_choir_operates_belfry, :operates_in, :the_choir, :ste_anne_belfry, since: 2074
-relate :rel_rc_belfry_evades_predictive, :evades, :ste_anne_belfry, :predictive_governance, since: 2074
 relate :rel_rc_odile_operates_belfry, :operates_in, :odile_marchand, :ste_anne_belfry, since: 2085
 relate :rel_rc_cecile_at_belfry, :located_in, :cecile_ouellette, :ste_anne_belfry, since: 2074
 
@@ -26,7 +25,6 @@ relate :rel_rc_odile_cooperates_cecile, :cooperates_with, :odile_marchand, :ceci
 relate :rel_rc_solo_in_lakes, :manifests_at, :the_gratiot_solo, :the_great_lakes
 relate :rel_rc_solo_during_holding, :active_during, :the_gratiot_solo, :the_holding
 relate :rel_rc_solo_depends_belfry, :depends_on, :the_gratiot_solo, :ste_anne_belfry
-relate :rel_rc_solo_depends_predictive, :depends_on, :the_gratiot_solo, :predictive_governance
 relate :rel_rc_choir_in_solo, :participated_in, :the_choir, :the_gratiot_solo
 relate :rel_rc_caretaker_in_solo, :participated_in, :caretaker, :the_gratiot_solo
 relate :rel_rc_cecile_in_solo, :participated_in, :cecile_ouellette, :the_gratiot_solo

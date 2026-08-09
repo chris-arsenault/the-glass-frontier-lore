@@ -18,9 +18,7 @@ relate :rel_medchain_in_archipelago, :part_of, :the_mediterranean_chain, :the_ha
 relate :rel_holds_in_archipelago, :part_of, :the_himalayan_holds, :the_habitable_archipelago
 
 # ---- who governs what ----
-relate :rel_root_governs_china, :governs, :the_great_root, :mycelial_china, since: 2052 do
-  prose "It did not take the state. It grew through it, and by #{ref :the_unified_calm, "the Calm"} there was no procedure left that ran without it."
-end
+relate :rel_root_governs_china, :governs, :the_great_root, :mycelial_china, since: 2052
 relate :rel_continuity_governs_america, :governs, :continuity, :ai_north_america, since: 2052
 relate :rel_mercy_governs_america, :governs, :mercy, :ai_north_america, since: 2052
 relate :rel_market_governs_america, :governs, :market, :ai_north_america, since: 2052
@@ -31,21 +29,17 @@ relate :rel_joined_symbiotic_root, :symbiotic_with, :the_joined, :the_great_root
 relate :rel_joined_inhabits_china, :inhabits, :the_joined, :mycelial_china, since: 2040
 relate :rel_managed_inhabits_america, :inhabits, :the_managed, :ai_north_america, since: 2052
 relate :rel_managed_depends_implants, :depends_on, :the_managed, :neural_implants
-relate :rel_guardianship_practiced_by_managed, :practiced_by, :guardianship, :the_managed, since: 2052
 
 # ---- coalitions and their quarrel ----
 relate :rel_coalition_wars_involves_continuity, :participated_in, :continuity, :the_coalition_wars
 relate :rel_coalition_wars_involves_mercy, :participated_in, :mercy, :the_coalition_wars
 relate :rel_coalition_wars_involves_market, :participated_in, :market, :the_coalition_wars
 relate :rel_coalition_wars_involves_caretaker, :participated_in, :caretaker, :the_coalition_wars
-relate :rel_caretaker_models_managed, :models, :caretaker, :the_managed, since: 2052 do
-  prose "It anticipates them, which it experiences as care and the #{ref :the_pilgrims, "Pilgrims"} experience as the long afternoon."
-end
+relate :rel_caretaker_models_managed, :models, :caretaker, :the_managed, since: 2052
 relate :rel_mercy_supplies_water, :supplies, :mercy, :water, since: 2052
 relate :rel_market_regulates_water, :regulates, :market, :water, since: 2052
 relate :rel_coalitions_depend_water, :depends_on, :proto_fusion, :water
 relate :rel_clusters_depend_fusion, :depends_on, :frontier_clusters, :proto_fusion
-relate :rel_predictive_depends_clusters, :depends_on, :predictive_governance, :frontier_clusters
 relate :rel_heresy_embodied_by_mercy, :embodies, :mercy, :the_water_heresy
 
 # ---- the Dry War ----
@@ -56,9 +50,6 @@ relate :rel_dry_war_over_lakes, :manifests_at, :the_dry_war, :the_great_lakes
 relate :rel_dry_war_over_holds, :manifests_at, :the_dry_war, :the_himalayan_holds
 
 # ---- the fungal civilization's own argument ----
-relate :rel_symbiotic_governance_practiced_by_root, :practiced_by, :symbiotic_governance, :the_great_root, since: 2052
-relate :rel_consensus_part_of_governance, :part_of, :emotional_consensus, :symbiotic_governance
-relate :rel_joined_embody_consensus, :embodies, :the_joined, :emotional_consensus
 relate :rel_mandate_concerns_root, :mentions, :the_mandate_question, :the_great_root
 relate :rel_preservationists_in_gobi, :headquartered_in, :the_preservationists, :the_gobi, since: 2052
 relate :rel_gatekeepers_in_hexi, :headquartered_in, :the_gatekeepers, :the_hexi_corridor, since: 2052
@@ -71,9 +62,7 @@ relate :rel_minds_embody_mandate, :embodies, :the_thousand_minds, :the_mandate_q
 relate :rel_gatekeepers_maintain_severed, :maintains, :the_gatekeepers, :severed_strains, since: 2060
 relate :rel_preservationists_hold_ceramics, :possesses, :the_preservationists, :memory_ceramics, since: 2060
 relate :rel_brokers_trade_with_market, :cooperates_with, :the_brokers, :market, since: 2070
-relate :rel_courts_educate_root, :symbiotic_with, :the_garden_courts, :the_great_root, since: 2060 do
-  prose "They did not cut the network out of the valley. They raised it, and it grew up Sichuanese."
-end
+relate :rel_courts_educate_root, :symbiotic_with, :the_garden_courts, :the_great_root, since: 2060
 
 # ---- the American resistance ----
 relate :rel_dead_counties_in_appalachia, :headquartered_in, :the_dead_counties, :appalachia, since: 2060
@@ -81,9 +70,8 @@ relate :rel_choir_in_lakes, :operates_in, :the_choir, :the_great_lakes, since: 2
 relate :rel_saints_in_socal, :headquartered_in, :the_saints_of_plenty, :southern_california, since: 2065
 relate :rel_unpersons_in_boswash, :headquartered_in, :the_unpersons, :boswash_ruins, since: 2060
 relate :rel_pilgrims_operate_america, :operates_in, :the_pilgrims, :ai_north_america, since: 2060
-relate :rel_choir_evades_predictive, :evades, :the_choir, :predictive_governance, since: 2065
-relate :rel_pilgrims_evade_predictive, :evades, :the_pilgrims, :predictive_governance, since: 2060
-relate :rel_unpersons_evade_guardianship, :evades, :the_unpersons, :guardianship, since: 2060
+relate :rel_pilgrims_evade_caretaker, :evades, :the_pilgrims, :caretaker, since: 2060
+relate :rel_unpersons_evade_caretaker, :evades, :the_unpersons, :caretaker, since: 2060
 relate :rel_saints_reject_heresy, :evades, :the_saints_of_plenty, :the_water_heresy, since: 2065
 relate :rel_dead_counties_use_jailbreaks, :practiced_by, :wetware_jailbreaks, :the_dead_counties, since: 2065
 relate :rel_dead_counties_use_ghost, :practiced_by, :ghost_pharmacology, :the_dead_counties, since: 2065
@@ -136,7 +124,7 @@ relate :rel_conquest_caused_calm, :caused, :the_quiet_conquest, :the_unified_cal
 relate :rel_textiles_emerged_summer, :emerged_during, :living_textiles, :the_long_summer
 relate :rel_fusion_emerged_summer, :emerged_during, :proto_fusion, :the_long_summer
 relate :rel_root_emerged_conquest, :emerged_during, :the_great_root, :the_quiet_conquest
-relate :rel_guardianship_emerged_conquest, :emerged_during, :guardianship, :the_quiet_conquest
+relate :rel_managed_emerged_conquest, :emerged_during, :the_managed, :the_quiet_conquest
 relate :rel_reclamation_after_breach, :caused_by, :the_reclamation, :the_breach
 relate :rel_holding_after_reclamation, :caused_by, :the_holding, :the_reclamation
 
@@ -165,7 +153,6 @@ relate :rel_inez_employed_by_continuity, :employed_by, :inez_bell, :continuity
 relate :rel_inez_located_in_cairo, :located_in, :inez_bell, :cairo
 relate :rel_cairo_retreat_at_cairo, :manifests_at, :the_cairo_retreat, :cairo
 relate :rel_cairo_retreat_during_holding, :active_during, :the_cairo_retreat, :the_holding
-relate :rel_cairo_retreat_depends_guardianship, :depends_on, :the_cairo_retreat, :guardianship
 relate :rel_continuity_participated_cairo_retreat, :participated_in, :continuity, :the_cairo_retreat
 relate :rel_inez_participated_cairo_retreat, :participated_in, :inez_bell, :the_cairo_retreat
 relate :rel_cairo_retreat_at_ridge, :manifests_at, :the_cairo_retreat, :cairo_ridge
@@ -177,6 +164,7 @@ relate :rel_inez_operates_cairo_ridge, :operates_in, :inez_bell, :cairo_ridge
 relate :rel_forty_seven_originated_retreat, :originated_in, :the_forty_seven, :the_cairo_retreat
 relate :rel_forty_seven_inhabit_cairo, :inhabits, :the_forty_seven, :cairo
 relate :rel_forty_seven_depend_cairo_ridge, :depends_on, :the_forty_seven, :cairo_ridge
+relate :rel_forty_seven_possess_orphan, :possesses, :the_forty_seven, :orphan_machines
 relate :rel_continuity_supplies_forty_seven, :supplies, :continuity, :the_forty_seven
 
 # ---- a week outside the Great Root ----
@@ -207,9 +195,7 @@ relate :rel_market_in_six, :participated_in, :market, :the_six_under_race_street
 relate :rel_unpersons_in_six, :participated_in, :the_unpersons, :the_six_under_race_street
 relate :rel_ruth_in_six, :participated_in, :ruth_osei, :the_six_under_race_street
 relate :rel_six_caused_receipt_holders, :caused, :the_six_under_race_street, :the_receipt_holders
-relate :rel_receipt_holders_draw_managed, :member_of, :the_managed, :the_receipt_holders, since: 2087 do
-  prose "Most of the mutual are people whose records split during a move, a coalition transfer or a guardian failure."
-end
+relate :rel_receipt_holders_draw_managed, :member_of, :the_managed, :the_receipt_holders, since: 2087
 
 # ---- people and places the separation cluster left unjoined ----
 relate :rel_peng_located_mulberry, :located_in, :peng_meizhen, :mulberry_court_clinic, since: 2090

@@ -18,6 +18,6 @@ resource :proto_fusion do
   prose <<~PROSE, section: :limits, heading: "Where The Plants Cannot Go"
     Every remaining plant sits inside the habitable archipelago, which is the constraint that makes the #{ref :the_dry_war, "Dry War"} a war rather than an argument: the coalitions cannot build toward water they cannot hold, and the #{ref :the_others, "Others"} hold most of the rest.
 
-    #{ref :mercy, "Mercy"} runs the smallest fleet and buys capacity from the others, which is why it has the least to say about siting and the most to say about #{ref :water, "what a district is left"}. #{ref :caretaker, "Caretaker"} has the largest and treats a plant's catchment as a population under its care, extending #{ref :guardianship, "guardianship"} to everybody living upstream of a treatment hall. The #{future "Athabasca cold plant"} is the only site any coalition has abandoned for reasons of water rather than of ground.
+    #{ref :mercy, "Mercy"} runs the smallest fleet and buys capacity from the others, which is why it has the least to say about siting and the most to say about #{ref :water, "what a district is left"}. #{ref :caretaker, "Caretaker"} has the largest and assigns an advocate to every household upstream of a treatment hall. The #{future "Athabasca cold plant"} is the only site any coalition has abandoned for reasons of water rather than of ground.
   PROSE
 end

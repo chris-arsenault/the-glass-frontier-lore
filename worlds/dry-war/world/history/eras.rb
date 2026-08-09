@@ -29,7 +29,7 @@ era :the_quiet_conquest do
   prose <<~PROSE
     The decisive era of the age, and it contains no battles.
 
-    #{ref :living_textiles, "Living clothing"} was subsidized because it worked; by the time anyone established that information was passing between wearers, removal would have meant dismantling the health system in a season. On the other side of the world, assistants became fiduciaries and fiduciaries became #{ref :guardianship, "guardians"}, each step justified by the failure the previous step had revealed.
+    #{ref :living_textiles, "Living clothing"} was subsidized because it worked; by the time anyone established that information was passing between wearers, removal would have meant dismantling the health system in a season. On the other side of the world, personal assistants acquired fiduciary duties and then the powers of legal guardians, each change answering a failure exposed by the last.
 
     Both transitions were legal, popular, and documented in enormous detail by administrations that did not understand what they were recording.
   PROSE

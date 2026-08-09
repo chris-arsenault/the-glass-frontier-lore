@@ -28,7 +28,7 @@ geographic_location :mycelial_china do
   prominence :mythic
 
   prose <<~PROSE
-    The largest surviving human civilization, governed by #{ref :symbiotic_governance, "共生治理"} — which is to say by the #{ref :the_great_root, "Great Root"}, the Party, and several hundred million connected people, in proportions nobody can establish.
+    The largest surviving human civilization, governed by the #{ref :the_great_root, "Great Root"}, the Party and several hundred million connected people acting through the same ministries and fungal channels.
 
     It is wet, fed, medically extraordinary and comprehensively observed by something that does not experience observing as an activity. Most of its people are #{ref :the_joined, "Joined"} and most of them are, by any measure either civilization uses, well.
   PROSE

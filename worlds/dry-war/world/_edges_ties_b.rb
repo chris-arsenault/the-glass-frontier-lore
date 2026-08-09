@@ -5,9 +5,7 @@
 relate :rel_tb_vault_possesses_shard, :possesses, :juyan_ceramic_vault, :the_six_faced_pipe_shard, since: 2071
 relate :rel_tb_shard_derived_ceramics, :derived_from, :the_six_faced_pipe_shard, :memory_ceramics
 relate :rel_tb_preservationists_possess_shard, :possesses, :the_preservationists, :the_six_faced_pipe_shard, since: 2071
-relate :rel_tb_market_supplies_vault, :supplies, :market, :juyan_ceramic_vault, since: 2085 do
-  prose "Paper and fine grit travel east in exchange for ink rubbings from old engineering ceramics."
-end
+relate :rel_tb_market_supplies_vault, :supplies, :market, :juyan_ceramic_vault, since: 2085
 relate :rel_tb_brokers_supply_vault, :supplies, :the_brokers, :juyan_ceramic_vault, since: 2084
 relate :rel_tb_warehouse_depends_shard, :depends_on, :race_street_warehouse, :the_six_faced_pipe_shard, since: 2085
 relate :rel_tb_osei_studies_shard, :studies, :ruth_osei, :the_six_faced_pipe_shard, since: 2088
@@ -34,15 +32,12 @@ relate :rel_tb_long_grass_at_yard, :manifests_at, :the_long_grass_return, :conow
 relate :rel_tb_long_grass_during_holding, :active_during, :the_long_grass_return, :the_holding
 relate :rel_tb_pilgrims_in_long_grass, :participated_in, :the_pilgrims, :the_long_grass_return
 relate :rel_tb_market_in_long_grass, :participated_in, :market, :the_long_grass_return
-relate :rel_tb_long_grass_mentions_predictive, :mentions, :the_long_grass_return, :predictive_governance
 
 # ---- the Eight-Auger Round ----
 relate :rel_tb_eight_augers_at_post, :manifests_at, :the_eight_auger_round, :tangwang_post
 relate :rel_tb_eight_augers_at_sanchakou, :manifests_at, :the_eight_auger_round, :sanchakou
 relate :rel_tb_eight_augers_during_holding, :active_during, :the_eight_auger_round, :the_holding
 relate :rel_tb_eight_augers_caused_by_ring, :caused_by, :the_eight_auger_round, :the_sanchakou_ring
-relate :rel_tb_eight_augers_mentions_consensus, :mentions, :the_eight_auger_round, :emotional_consensus
-relate :rel_tb_eight_augers_mentions_predictive, :mentions, :the_eight_auger_round, :predictive_governance
 relate :rel_tb_continuity_in_eight_augers, :participated_in, :continuity, :the_eight_auger_round
 relate :rel_tb_xie_in_eight_augers, :participated_in, :xie_lanting, :the_eight_auger_round
 relate :rel_tb_gao_in_eight_augers, :participated_in, :gao_wen, :the_eight_auger_round

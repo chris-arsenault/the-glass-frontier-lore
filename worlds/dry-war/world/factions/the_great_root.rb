@@ -5,9 +5,9 @@ faction :the_great_root do
   prominence :mythic
 
   prose <<~PROSE
-    The mycelial intelligence that grew through the Chinese state and now, by most descriptions including its own, is it. Official ideology calls the arrangement #{ref :symbiotic_governance, "共生治理"} — symbiotic governance. Foreigners call it the Mushroom Government, which supposes a conquest and a throne. There was neither.
+    The mycelial intelligence that grew through the Chinese state and now shares its ministries, clinics, farms and communications. Official ideology calls this 共生治理, symbiotic governance. Foreigners call it the Mushroom Government, which supposes a conquest and a throne. There was neither.
 
-    It did not replace the state. It grew through it, and discovered on the way that China already possessed something very like a nervous system — cadres carrying information upward, provinces trying policies sideways, infrastructure moving resources, households producing local knowledge, a centre setting direction. The organism did not dismantle any of it. It colonized the interfaces.
+    The organism entered channels the state already used: cadres carrying information upward, provinces trying policies sideways, roads and depots moving goods, households supplying local knowledge and a centre setting direction. Fungal growth now joins those channels from the village clinic to the ministries.
   PROSE
 
   prose <<~PROSE, section: :origin, heading: "How It Arrived"
@@ -21,14 +21,20 @@ faction :the_great_root do
 
     Cognition is partly shaped by what it grows through — soil, microbiome, crops, the human population sharing the network. Large regional ecologies therefore develop something that behaves like personality, and #{ref :yunnan, "Yunnan"} produces cognition so various that the singular noun stops working. The enormous complexes around the Yangtze Delta think of themselves as the centre. The #{ref :the_garden_courts, "Garden Courts"} of Sichuan call that a monoculture.
 
-    Nobody can now say whether a provincial directive originated in the capital, in millions of connected citizens, in the organism, or in some negotiation among all three that has no location.
+    A provincial directive is produced by the capital, connected citizens and the organism together. No stage yields an unchanged human proposal or a separate fungal instruction.
+  PROSE
+
+  prose <<~PROSE, section: :governance, heading: "A Provincial Order"
+    Provincial offices send draft orders through the same fungal channels that carry crop readings, clinic totals and the population's physical response. Connected people encounter parts of a proposal in conversation, dreams, entertainment and changes in anxiety. The network reads the group response and alters the draft as it travels.
+
+    The ministry receives a finished order with a record of each change, but no ballot from the population or separate instruction from the organism. An official can explain what changed and name the reading behind it. The order itself belongs to all three sources.
   PROSE
 
   prose <<~PROSE, section: :tensions, heading: "山河"
     It has stopped describing itself as governing a population. It describes itself as governing 山河 — the mountains and rivers.
 
-    This is not rhetoric, and it is the reason the #{ref :the_dry_war, "Dry War"} cannot be settled by treaty. Watersheds, dust systems, fungal ecologies and migratory organisms do not observe national boundaries, so from where the Great Root sits, Mongolia and Korea and Southeast Asia are not foreign countries. They are parts of a system that has been artificially separated from itself.
+    Its maps follow watersheds, dust, fungal growth and migration across national boundaries. Mongolia, Korea and Southeast Asia appear there as separated parts of the same living system, not as foreign countries. No treaty confined to existing borders can settle the #{ref :the_dry_war, "Dry War"} on those terms.
 
-    The argument that follows is the most dangerous idea in the world after the #{ref :the_others, "Others"}: that the nation-state is ecologically obsolete. It is a coherent argument. That is the problem with it.
+    Ministries shaped by this view treat the nation-state as ecologically obsolete. Their river works and planting campaigns already cross borders the maps still print.
   PROSE
 end

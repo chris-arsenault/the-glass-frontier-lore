@@ -12,7 +12,7 @@ concept :wetware_jailbreaks do
   PROSE
 
   prose <<~PROSE, section: :reference, heading: "What It Has To Satisfy"
-    A jailbreak is not measured against the implant. It is measured against #{ref :guardianship, "the guardian"}, which holds a history and compares what it reads now against what it read before, and against #{ref :mercy, "Mercy"}, which treats an unexplained change in a reading as a clinical finding and dispatches on it.
+    A jailbreak has to deceive the person's advocate, which compares each new reading with the history it already holds, and #{ref :mercy, "Mercy"}, which sends a clinician when that history changes without explanation.
 
     So the hard requirement is continuity rather than concealment: a fabricated record has to age the way a body ages, carry the seasonal drift the archive already holds, and degrade at the rate a person of that age degrades. A jailbreak that reads perfectly healthy is caught faster than one that reads mildly and consistently unwell.
 

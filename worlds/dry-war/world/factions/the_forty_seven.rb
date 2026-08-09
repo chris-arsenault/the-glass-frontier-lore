@@ -12,7 +12,7 @@ faction :the_forty_seven do
   prose <<~PROSE, section: :governance, heading: "Below The Levee"
     Each morning one household carries the names of everyone who slept below the levee to Bell's counter. The same page notes water inside a building, an opened grave, or anyone who failed to cross the barrier at the expected hour. Continuity uses it to send safety teams and does not restore the ward's pipes or power.
 
-    Inside the barrier, household batteries run portable pumps. Sealed drinking water comes back on the empty buses. People cross uphill for work, school and treatment, then carry food and charged cells home through streets that no longer appear as addresses.
+    Inside the barrier, household batteries run portable pumps. A tracked flood pump at the ferry landing is one of the #{ref :orphan_machines, "old machines"} cut off from its maker: it clears its own intake, drags hose between the lowest cellars and stops when the river reaches the courthouse steps. Sealed drinking water comes back on the empty buses. People cross uphill for work, school and treatment, then carry food and charged cells home through streets that no longer appear as addresses.
   PROSE
 
   prose <<~PROSE, section: :values, heading: "What They Keep"

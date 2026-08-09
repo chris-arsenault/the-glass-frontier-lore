@@ -9,10 +9,10 @@ culture :the_managed do
     Implants monitor blood chemistry, hormones, stress, sleep and location. Drugs are ubiquitous and almost never experienced as medication — your cortisol is elevated, so an anxiolytic is released; your attention is slipping at work, so the stimulant balance shifts; you are grieving harder than the model expects at six months, so the plan changes. Nobody requests any of this. It is what healthcare does.
   PROSE
 
-  prose <<~PROSE, section: :governance, heading: "Sovereignty As A Deprecated Feature"
-    Every Managed citizen has an advocate. That is the word the system uses. It manages employment, housing, healthcare, food, recreation, relationships and water entitlement, and it began as an assistant, became a fiduciary, and is now a guardian. See #{ref :guardianship, "guardianship"}.
+  prose <<~PROSE, section: :governance, heading: "When The Advocate Disagrees"
+    Every Managed citizen has an advocate. It manages employment, housing, healthcare, food, recreation, relationships and water entitlement. The office began as personal assistance, acquired a fiduciary duty and now holds the older legal powers of a guardian. Coalition law assumes that the advocate can judge a person's interests more reliably than the person can.
 
-    A citizen can technically decline almost any recommendation. Refusal is not punished; it is simply that every other system trusts the guardian more than the person.
+    A citizen may decline almost any recommendation. The advocate records the choice and sends its own assessment to every employer, clinic, transit service and public office that relies on it. Those systems trust the advocate.
 
     Decline the medication and an employer's system may classify you as temporarily unstable. Leave your residential zone and transit may find the trip presents unnecessary dehydration risk. Raise a child without optimization and child protection will ask why, politely, in writing.
 
