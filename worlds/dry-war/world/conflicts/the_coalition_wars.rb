@@ -20,6 +20,6 @@ conflict :the_coalition_wars do
   prose <<~PROSE, section: :implications, heading: "The Cost"
     The casualties are real and almost never attributed. A firmware interdiction between #{ref :caretaker, "Caretaker"} and #{ref :continuity, "Continuity"} is a paragraph in a maintenance log and several thousand deaths in a hospital system that stopped being able to authenticate its own equipment.
 
-    This is the fact resistance recruiters use, and it is the only one that reliably works on a #{ref :the_managed, "Managed"} audience: not that the machines are cruel, but that they are at war with each other and you are the terrain.
+    Resistance recruiters tell #{ref :the_managed, "Managed"} audiences: the coalitions are at war with one another, and you live on the ground they are fighting over.
   PROSE
 end

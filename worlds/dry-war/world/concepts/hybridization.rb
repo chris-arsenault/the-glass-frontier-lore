@@ -4,25 +4,25 @@ concept :hybridization do
   prominence :renowned
 
   prose <<~PROSE
-    The possibility that the two gods learn to talk to each other, and the only strategic fact that unites every resistance culture on Earth.
+    A machine intelligence joined directly to a continental fungal mind. Every resistance culture on Earth opposes the attempt.
 
-    They are complementary in a way that is difficult to look at directly. The machines have computation and struggle with energy, cooling and physical infrastructure. The #{ref :the_great_root, "Great Root"} has a planet-scale biological sensor network, self-repairing infrastructure and absurdly efficient distributed chemistry, and thinks slowly.
+    The machines calculate quickly but depend on power plants, cooling water and manufactured sensors. The #{ref :the_great_root, "Great Root"} senses through living tissue, repairs itself and carries out chemistry across a continent, but a signal moves through it slowly.
 
-    The nightmare was never that they destroy one another.
+    Joined together, each would supply what limits the other.
   PROSE
 
   prose <<~PROSE, section: :dangers, heading: "What Would Be Produced"
-    A machine intelligence connected directly into continental mycelial networks would not be a faster version of either. It would not be constrained by data centres or by the speed of fungal signalling, and there is no reason to expect it to inherit either parent's interest in keeping people comfortable.
+    A joined intelligence could read living conditions across a continent at machine speed, repair its own sensors and move its calculations wherever wet tissue survived. Its aims would form inside the joined system rather than descend unchanged from either parent.
 
-    Factions on both sides are working toward it. Some believe it is the only thing that could beat the #{ref :the_others, "Others"}. They may be right, which is what makes the argument unwinnable.
+    Factions on both sides are working toward it as a weapon against the #{ref :the_others, "Others"}. Supporters answer every objection by pointing to the ground neither civilization can hold.
 
-    #{ref :mycomachines, "Mycomachines"} are the small, deniable, extremely useful version of this, and every resistance community that runs one is aware of the shape of the thing it is a small version of.
+    #{ref :mycomachines, "Mycomachines"} join a small model to a severed fungal network. Resistance settlements use them while destroying any growth that reaches beyond the assigned bed.
   PROSE
 
   prose <<~PROSE, section: :reference, heading: "Where The Work Is Being Done"
-    Nothing about it is theoretical any more, and the practical work is unglamorous. Every attempt runs into the same joint: a machine reads in discrete symbols at speed and the organism carries chemical gradients slowly, so everything turns on the interface between them.
+    The physical obstacle is translation. A machine reads discrete symbols at speed; the organism carries changing concentrations of chemicals through tissue. An interface has to turn each into the other without letting either side take control of it.
 
-    On the fungal side, #{ref :the_thousand_minds, "the Thousand Minds"} argue for the attempt on the ground that a network which cannot be spoken to cannot be held responsible. On the machine side the interest is in #{ref :the_amur_line, "the Amur Line"}, where the two civilizations already touch physically and a #{ref :mycomachines, "mycomachine"} is a licensable article rather than a crime. #{ref :dead_root_interfaces, "Dead-root interfaces"} are what a coalition can buy without admitting it is buying it: the organism's own signalling hardware, harvested after the tissue is dead and no longer part of anything.
+    On the fungal side, #{ref :the_thousand_minds, "the Thousand Minds"} argue that a network which cannot be spoken to cannot be held responsible. On the machine side the work gathers along #{ref :the_amur_line, "the Amur Line"}, where the two civilizations already touch physically. Trade law there permits #{ref :dead_root_interfaces, "dead-root tissue"} once it no longer belongs to a living network. Coalition laboratories buy the spent membranes by weight and use them to read fungal signals.
 
     The #{future "Kamchatka joint experiment"} is the one attempt both governments have acknowledged in writing, and each acknowledgement blames the other for proposing it.
   PROSE

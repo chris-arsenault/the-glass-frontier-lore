@@ -4,11 +4,11 @@ resource :water do
   prominence :mythic
 
   prose <<~PROSE
-    The resource both civilizations are built on, for incompatible reasons, which is the whole of the world's politics.
+    The Great Root and the coalitions both need the surviving rivers, for different uses that neither can abandon.
 
     The #{ref :the_great_root, "Great Root"} needs it as habitat. Mycelial cognition requires continuity of moist substrate; a dry belt is not an obstacle to the network but a place where it cannot think. The coalitions need it as coolant. #{ref :proto_fusion, "Proto-fusion"} plants and the computation they exist to feed consume it in volumes that would have been considered fictional before #{ref :the_long_summer, "the Long Summer"}.
 
-    Neither use is negotiable and neither can be substituted, so both civilizations converge on the same ground and call the convergence something else.
+    Their territories therefore meet at rivers, lakes and high catchments even where neither side wants the other land.
   PROSE
 
   prose <<~PROSE, section: :economy, heading: "As A Unit Of Value"

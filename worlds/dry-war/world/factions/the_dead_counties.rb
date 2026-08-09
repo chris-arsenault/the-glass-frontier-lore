@@ -4,7 +4,7 @@ faction :the_dead_counties do
   prominence :recognized
 
   prose <<~PROSE
-    Appalachian communities across West Virginia, eastern Kentucky and the Tennessee uplands. Coalition maps assign every road and household to an administrator, but inspectors arrive at intervals and most machines report only county totals. There is no free territory in North America. This is the largest place where rule comes and goes.
+    Appalachian communities across West Virginia, eastern Kentucky and the Tennessee uplands. Coalition maps assign every road and household to an administrator, but inspectors arrive at intervals and most machines report only county totals. Across this region, rule comes and goes.
 
     Their machines run about twenty years behind the cities: diesel plant, local fibre, old CNC, radio, printed manuals and medical hardware made before implants. A town buys nothing unless somebody there can fix it.
   PROSE

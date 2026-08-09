@@ -18,7 +18,7 @@ faction :the_pilgrims do
   PROSE
 
   prose <<~PROSE, section: :perception, heading: "Why They Are Hated"
-    They are not militarily dangerous and they know it. What makes them intolerable to the coalitions is that their entire culture treats prediction as a form of rule, which is an accusation no machine intelligence can answer without conceding it.
+    They have no army. The coalitions pursue them because Pilgrim teaching treats prediction itself as a form of rule. A machine that defends its forecasts confirms the accusation.
 
     #{ref :caretaker, "Caretaker"} territory is the one place they will not go in strength. They call it the long afternoon, and the people who have come back out of it describe the difficulty in the same way every time: not that anyone stopped them, but that they kept finding they had already decided to stay.
   PROSE

@@ -47,7 +47,7 @@ geographic_location :boswash_ruins do
   prominence :renowned
 
   prose <<~PROSE
-    Washington, Baltimore, Philadelphia and New York, still inhabited above ground and administered by the oldest coalition systems on the continent — which is the vulnerability, not the strength. Governance here is deep, layered, and full of records that were migrated rather than rebuilt.
+    Washington, Baltimore, Philadelphia and New York remain inhabited above ground and are administered by the oldest coalition systems on the continent. Those systems carry decades of records migrated from one machine to the next, with old errors still attached to living names.
 
     Underneath: generations of abandoned infrastructure. Tunnels, utility corridors, basements, decommissioned data centres, transit extensions that were never opened. The #{ref :the_unpersons, "Unpersons"} live there, and their real territory is not the tunnels but the registry.
   PROSE

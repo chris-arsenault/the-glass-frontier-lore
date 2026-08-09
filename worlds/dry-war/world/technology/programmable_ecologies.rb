@@ -12,7 +12,7 @@ concept :programmable_ecologies do
   prose <<~PROSE, section: :significance, heading: "Growing Back"
     Programmed settlements regrow after attack. If enough biological material survives, the network reconstructs buildings and food systems from soil, seed stock, fungal memory and whatever organisms remain. A destroyed coalition server farm stays destroyed until machinery and people replace it.
 
-    What comes back is not identical. The #{ref :the_garden_courts, "Garden Courts"} maintain that this is the whole argument about #{ref :the_thousand_minds, "locality"} in miniature: a rebuilt village is a translation, and something is always chosen for it by whoever holds the substrate.
+    What comes back is not identical. Fungal memory, surviving seed and the network holding the soil determine which buildings and crops return. The #{ref :the_garden_courts, "Garden Courts"} point to those differences when they argue for #{ref :the_thousand_minds, "local minds"}: whoever holds the soil chooses part of the rebuilt village.
   PROSE
 
   prose <<~PROSE, section: :limits, heading: "Above The Intakes"

@@ -10,7 +10,7 @@ faction :the_preservationists do
   PROSE
 
   prose <<~PROSE, section: :culture, heading: "Continuity"
-    They maintain archives at a scale that makes no military sense: statutes, examination papers, census records, engineering manuals, Party documents, court rulings and classical texts. Much of it is held in #{ref :memory_ceramics, "memory ceramics"}, because a living library can be reached. The largest holdings stand in the #{ref :juyan_ceramic_vault, "ceramic vault at Juyan"}, where more than ninety thousand pieces wait in salt-sealed coffers.
+    Their archives hold statutes, examination papers, census records, engineering manuals, Party documents, court rulings and classical texts. Most have no military use. Much of it is held in #{ref :memory_ceramics, "memory ceramics"}, because a living library can be reached. The largest holdings stand in the #{ref :juyan_ceramic_vault, "ceramic vault at Juyan"}, where more than ninety thousand pieces wait in salt-sealed coffers.
 
     Every settlement still holds local assemblies and examinations for public office. Births, marriages and deaths remain part of a continuous public record even when the paper must cross a desert to reach the next town. The institutions named at the top of those pages may no longer exist anywhere else.
 

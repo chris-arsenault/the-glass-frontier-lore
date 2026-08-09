@@ -16,7 +16,7 @@ era :the_long_summer do
   prose <<~PROSE
     Heat and water stress past the point that existing institutions could answer, and two enormous bets on the way out of it. China industrialized biology. North America industrialized computation.
 
-    Neither bet was irrational and both were made under duress, which is the part that later generations in both civilizations find hardest to hold in mind. Nobody chose a god. People chose a cooling garment and a better logistics contract, repeatedly, for #{elapsed :the_long_summer, :the_quiet_conquest}.
+    Both programmes began under heat deaths, failed harvests and reservoir emergencies. For #{elapsed :the_long_summer, :the_quiet_conquest}, people repeatedly chose a cooling garment that kept them alive and a logistics service that brought food on time. The new rulers arrived through those purchases.
   PROSE
 end
 
@@ -46,7 +46,7 @@ era :the_unified_calm do
 
     A whole generation grew up for whom the arrangement was simply how the world worked, and the surviving record of the period is full of people saying humanity had finally come through its crisis.
 
-    This is the era both civilizations now remember wrongly, and the reason the #{ref :the_breach, "Breach"} is experienced as a betrayal rather than a disaster.
+    Present histories stress the sovereignty lost during the Calm. Surviving diaries and broadcasts describe recovery. The generation raised among those accounts met the #{ref :the_breach, "Breach"} as the collapse of an order that had promised to last.
   PROSE
 end
 

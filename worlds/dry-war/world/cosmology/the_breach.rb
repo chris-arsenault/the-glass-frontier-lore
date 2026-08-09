@@ -20,6 +20,6 @@ phenomenon :the_breach do
 
     The systems operating there are simply no longer constrained the way biology is constrained. A forest grows toward memory rather than light. Predators appear only once something has become afraid of them. An abandoned city holds organisms whose anatomy depends on the direction of approach. There are coastlines with tides that take no reference from the moon.
 
-    Nothing in the affected regions is decaying, which is the part that ended the #{ref :the_reclamation_campaigns, "reclamation"}. The environments are learning.
+    Sterilized ground kept producing new organisms without a visible parent or reservoir, and the #{ref :the_reclamation_campaigns, "reclamation"} ended. Line crews say the environments are learning.
   PROSE
 end

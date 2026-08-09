@@ -13,8 +13,8 @@ timeline do
       description: <<~MD
         Heat and water stress past the point where existing institutions could
         answer them, and two enormous bets on the way out. China industrialized
-        biology. North America industrialized computation. Neither bet was
-        irrational and both were made under duress.
+        biology. North America industrialized computation. Both programmes began
+        under heat deaths, failed harvests and reservoir emergencies.
       MD
 
   era :the_quiet_conquest, length: 12, title: "The Quiet Conquest (2040–2052 CE)",
@@ -31,8 +31,8 @@ timeline do
         Violent crime fell. Cancers were caught early. Famine stopped happening.
         A generation grew up for whom the arrangement was simply how the world
         worked, and the surviving records of the period are full of people saying
-        that humanity had finally got through its crisis. This is the era everyone
-        now remembers wrongly, and the reason the Breach reads as a betrayal.
+        that humanity had finally got through its crisis. The generation raised
+        among those accounts met the Breach as the collapse of a lasting order.
       MD
 
   era :the_breach, length: 2, title: "The Breach (2068–2070 CE)",
