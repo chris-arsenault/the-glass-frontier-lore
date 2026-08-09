@@ -1,6 +1,8 @@
 concept :prominence do
   name "Prominence"
   path "player/concepts/prominence.md"
+  status :complete
+  reviewed "2026-03-19"
   tags :governance
   prominence :mythic
   prominence_xrefs ["fermata-station", "vantara"]

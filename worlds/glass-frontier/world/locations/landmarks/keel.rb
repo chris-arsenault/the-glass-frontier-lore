@@ -1,6 +1,8 @@
 installation :keel do
   name "The Keel"
   path "player/locations/landmarks/keel.md"
+  status :complete
+  reviewed "2026-03-18"
   tags :trade, :orbital, :salvage, :danger, :navigation
   prominence :recognized
 

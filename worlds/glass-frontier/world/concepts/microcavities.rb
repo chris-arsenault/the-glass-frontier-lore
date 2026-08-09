@@ -1,6 +1,7 @@
 resource :microcavities do
   name "Microcavities"
   path "player/concepts/microcavities.md"
+  reviewed "2026-03-19"
   tags :resonance, :trade, :materials
   prominence :recognized
 

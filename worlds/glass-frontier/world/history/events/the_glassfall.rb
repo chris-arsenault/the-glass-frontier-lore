@@ -1,6 +1,8 @@
 incident :the_glassfall do
   name "The Glassfall"
   path "player/history/events/the-glassfall.md"
+  status :complete
+  reviewed "2026-03-19"
   tags :catastrophe, :origin
   prominence :mythic
   date "2140 CE"

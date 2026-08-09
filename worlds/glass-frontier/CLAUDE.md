@@ -26,7 +26,7 @@ Read the repo-root `CLAUDE.md` first — it carries the DSL conventions, the ent
 | `guidance/canon-checklist.md` | fixed dates and systems vocabulary a review checks against |
 | `guidance/archetype-slots.md` | which archetypes are thin — read before attributing anything |
 | `guidance/world-seeds.md` | ideas not yet formalized into entries |
-| `work-tracking/` | the older per-file review timestamps — questions, comments and the queue live on the entities (`make queue`) |
+| `work-tracking/` | local pre-DSL graph snapshots, untracked. Questions, review state and the queue live on the entities (`make queue`, `make provenance`) |
 | `research/` | audits and long-form analysis of this world |
 | `attic/` | reference and mood material, not canon |
 

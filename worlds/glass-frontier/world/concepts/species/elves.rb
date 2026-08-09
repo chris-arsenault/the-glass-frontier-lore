@@ -1,6 +1,8 @@
 species :elves do
   name "Elves"
   path "player/concepts/species/elves.md"
+  status :complete
+  reviewed "2026-03-19"
   tags :species, :legend, :mystery, :"ring-era", :archives
   prominence :recognized
   registry true

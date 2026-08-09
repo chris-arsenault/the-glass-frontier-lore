@@ -1,6 +1,8 @@
 resource :resonant_instruments do
   name "Resonant Instruments"
   path "player/artifacts/common/resonant-instruments.md"
+  status :complete
+  reviewed "2026-03-19"
   tags :resonance, :music
   prominence :recognized
 

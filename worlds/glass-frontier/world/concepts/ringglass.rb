@@ -1,6 +1,8 @@
 resource :ringglass do
   name "Ringglass"
   path "player/concepts/ringglass.md"
+  status :complete
+  reviewed "2026-03-19"
   tags :resonance, :materials, :trade
   prominence :mythic
 

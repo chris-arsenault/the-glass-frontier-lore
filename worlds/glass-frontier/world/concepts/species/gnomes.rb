@@ -1,6 +1,8 @@
 species :gnomes do
   name "Gnomes"
   path "player/concepts/species/gnomes.md"
+  status :complete
+  reviewed "2026-03-18"
   tags :species, :resonance, :"ring-era"
   prominence :mythic
   registry true

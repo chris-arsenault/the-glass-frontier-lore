@@ -145,16 +145,20 @@ its default drafter so a corpus-wide truth costs one line instead of 592 edits.
 source registry here to attribute to, and `:structural` is the one that earns its
 place, marking transclusion shells that carry no claim and need no read.
 
-**The review tracker is not retired yet, and should not be.** It holds 56 real
-timestamps saying when prose was last read; the blocks declare zero. Deleting it
-today trades information for none. The migration is per-file and incremental: as
-a human reads an entry, declare `reviewed:` on its blocks and drop that file's
-entry from `review-status.json`. When the JSON is empty, delete it and the
-`lorecraft review` subcommands with it.
+**The review tracker is retired.** Its 56 timestamps and 35 complete flags moved
+onto the entities as `reviewed "YYYY-MM-DD"` and `status :complete`, so
+`review-status.json`, `manual-review-status.json`, `ReviewTracker` and the
+`lorecraft review` subcommands are gone. `Provenance` kept the one piece worth
+keeping — the content-aware git query that ignores pure renames — and expires a
+read once the prose changed under it.
 
-What already carries over: the staleness rule. `make provenance` expires a review
-once the file's prose changed after that date, using the same content-aware git
-query the tracker uses — the one that ignores pure renames.
+Entity-level `reviewed` is what made the migration cheap: an entry is the unit a
+person reads, so one line covers its blocks and a block that was read separately
+overrides. Per-block would have meant ~450 declarations of the same date.
+
+The result is strictly more informative than the JSON was. It distinguishes prose
+that was read and then changed (264 blocks) from prose nobody has ever read (328),
+where the tracker could only say "68 files pending".
 
 ## 6. Metadata as a side channel — the principle, not the docx
 

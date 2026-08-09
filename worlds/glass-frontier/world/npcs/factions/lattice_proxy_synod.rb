@@ -1,6 +1,7 @@
 faction :lattice_proxy_synod do
   name "Lattice Proxy Synod"
   path "player/npcs/factions/lattice-proxy-synod.md"
+  reviewed "2026-03-18"
   tags :"ring-era", :AI, :governance, :resonance
   prominence :recognized
 

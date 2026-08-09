@@ -1,6 +1,8 @@
 incident :shardfall do
   name "Shardfall"
   path "player/history/events/shardfall.md"
+  status :complete
+  reviewed "2026-03-19"
   tags :salvage, :military, :danger
   prominence :recognized
 

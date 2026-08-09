@@ -1,6 +1,8 @@
 geographic_location :kaleidos_system do
   name "The Kaleidos System"
   path "player/cosmology/kaleidos-system.md"
+  status :complete
+  reviewed "2026-03-19"
   tags :orbital
   prominence :mythic
   registry true

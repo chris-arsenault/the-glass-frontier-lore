@@ -1,6 +1,8 @@
 artifact :liras_wall do
   name "Lira's Wall"
   path "player/artifacts/relics/liras-wall.md"
+  status :complete
+  reviewed "2026-03-19"
   tags :resonance, :danger
   prominence :recognized
 

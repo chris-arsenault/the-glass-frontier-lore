@@ -1,6 +1,8 @@
 concept :life_in_the_system do
   name "Life in the System"
   path "player/concepts/life-in-the-system.md"
+  status :complete
+  reviewed "2026-03-19"
   tags :"social-structure", :resonance
   prominence :mythic
 

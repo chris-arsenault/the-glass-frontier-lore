@@ -1,6 +1,8 @@
 concept :resonance do
   name "Resonance"
   path "player/cosmology/resonance.md"
+  status :complete
+  reviewed "2026-06-18"
   tags :resonance
   prominence :mythic
   registry true

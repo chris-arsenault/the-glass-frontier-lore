@@ -1,6 +1,8 @@
 species :orcs do
   name "Orcs"
   path "player/concepts/species/orcs.md"
+  status :complete
+  reviewed "2026-03-18"
   tags :species
   prominence :mythic
   registry true

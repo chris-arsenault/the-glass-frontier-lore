@@ -1,6 +1,7 @@
 faction :tempered_accord do
   name "Tempered Accord"
   path "player/npcs/factions/tempered-accord.md"
+  reviewed "2026-03-18"
   tags :governance, :diplomacy
   prominence :renowned
   prominence_xrefs ["lattice-proxy-synod", "vantara", "displacement-council", "shear-compact"]

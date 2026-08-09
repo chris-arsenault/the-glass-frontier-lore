@@ -1,6 +1,8 @@
 geographic_location :bloom_zones do
   name "Bloom Zones"
   path "player/locations/landmarks/bloom-zones.md"
+  status :complete
+  reviewed "2026-03-18"
   tags :orbital, :danger, :resonance
   prominence :renowned
   prominence_xrefs ["coremark", "displacement-council", "pyre", "tuners"]

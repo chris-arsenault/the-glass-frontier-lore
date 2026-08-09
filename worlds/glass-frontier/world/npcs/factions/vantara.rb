@@ -1,6 +1,7 @@
 faction :vantara do
   name "Vantara"
   path "player/npcs/factions/vantara.md"
+  reviewed "2026-03-18"
   tags :trade, :transport, :governance
   prominence :recognized
 

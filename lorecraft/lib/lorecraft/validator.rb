@@ -287,6 +287,12 @@ module Lorecraft
     # is a typo that would quietly drop the block out of the audit, and a review
     # date nobody can compare against is not a record of anything.
     def check_provenance
+      @world.entities.each_value do |e|
+        next if e[:reviewed].nil? || e[:reviewed].to_s.match?(/\A\d{4}-\d{2}-\d{2}\z/)
+
+        err("#{label(e)}: reviewed #{e[:reviewed].inspect} is not a YYYY-MM-DD date")
+      end
+
       each_prose_owner do |owner, block|
         if block.origin && !ORIGINS.include?(block.origin)
           err("#{label(owner)}: unknown prose origin #{block.origin.inspect} (#{ORIGINS.join('/')})")

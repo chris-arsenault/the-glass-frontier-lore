@@ -1,6 +1,8 @@
 culture :cultures do
   name "Cultures"
   path "player/concepts/cultures/cultures.md"
+  status :complete
+  reviewed "2026-03-18"
   tags :"social-structure"
   prominence :mythic
   registry true

@@ -1,6 +1,7 @@
 resource :duskgrain do
   name "Duskgrain"
   path "player/concepts/duskgrain.md"
+  reviewed "2026-03-19"
   tags :resonance, :danger, :materials
   prominence :recognized
 

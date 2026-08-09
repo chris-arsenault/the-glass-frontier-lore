@@ -1,6 +1,8 @@
 installation :glasswake do
   name "Glasswake"
   path "player/locations/settlements/glasswake.md"
+  status :complete
+  reviewed "2026-03-18"
   tags :surface, :trade, :"ring-era"
   prominence :recognized
 

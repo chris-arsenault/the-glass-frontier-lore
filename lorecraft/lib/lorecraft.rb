@@ -28,6 +28,5 @@ end
 
 require_relative "lorecraft/world"
 require_relative "lorecraft/worlds"
-require_relative "lorecraft/review"
 require_relative "lorecraft/provenance"
 require_relative "lorecraft/queue"

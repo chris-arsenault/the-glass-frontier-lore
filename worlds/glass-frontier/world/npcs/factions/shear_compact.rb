@@ -1,6 +1,7 @@
 faction :shear_compact do
   name "Shear Compact"
   path "player/npcs/factions/shear-compact.md"
+  reviewed "2026-03-18"
   tags :salvage, :ringglass, :trade, :governance
   prominence :recognized
 

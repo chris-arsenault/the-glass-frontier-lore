@@ -1,6 +1,7 @@
 resource :stillwater do
   name "Stillwater"
   path "player/concepts/stillwater.md"
+  reviewed "2026-03-19"
   tags :resonance, :"signal-freq", :materials
   prominence :recognized
 

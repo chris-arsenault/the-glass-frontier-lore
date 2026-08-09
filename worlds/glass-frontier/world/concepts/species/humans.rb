@@ -1,6 +1,8 @@
 species :humans do
   name "Humans"
   path "player/concepts/species/humans.md"
+  status :complete
+  reviewed "2026-03-18"
   tags :species
   prominence :mythic
   registry true

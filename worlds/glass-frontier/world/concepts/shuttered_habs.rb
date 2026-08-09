@@ -1,6 +1,8 @@
 phenomenon :shuttered_habs do
   name "Shuttered Habs"
   path "player/concepts/shuttered-habs.md"
+  status :complete
+  reviewed "2026-03-19"
   tags :"ring-hab", :governance, :"social-structure"
   prominence :recognized
 

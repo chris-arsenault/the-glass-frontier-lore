@@ -1,6 +1,8 @@
 culture :hab_worlder do
   name "Hab-Worlder"
   path "player/concepts/cultures/hab-worlder.md"
+  status :complete
+  reviewed "2026-03-18"
   tags :"social-structure", :"ring-hab"
   prominence :renowned
 

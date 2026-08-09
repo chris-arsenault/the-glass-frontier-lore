@@ -1,6 +1,8 @@
 geographic_location :sable_crescent do
   name "Sable Crescent"
   path "player/locations/regions/sable-crescent.md"
+  status :complete
+  reviewed "2026-03-20"
   tags :surface, :resonance, :archives, :"signal-freq"
   prominence :recognized
 

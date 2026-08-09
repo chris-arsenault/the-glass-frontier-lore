@@ -1,6 +1,8 @@
 phenomenon :echo_rivers do
   name "Echo Rivers"
   path "player/cosmology/echo-rivers.md"
+  status :complete
+  reviewed "2026-03-19"
   tags :resonance, :"signal-freq", :archives
   prominence :renowned
   prominence_xrefs ["echo-ledger-conclave"]

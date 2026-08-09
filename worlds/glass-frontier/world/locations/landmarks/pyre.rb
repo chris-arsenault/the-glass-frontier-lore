@@ -1,6 +1,8 @@
 installation :pyre do
   name "Pyre"
   path "player/locations/landmarks/pyre.md"
+  status :complete
+  reviewed "2026-03-20"
   tags :orbital, :salvage, :danger, :resonance
   prominence :recognized
 

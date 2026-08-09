@@ -1,6 +1,8 @@
 geographic_location :the_glass_frontier do
   name "The Glass Frontier"
   path "player/cosmology/the-glass-frontier.md"
+  status :complete
+  reviewed "2026-03-19"
   tags :orbital, :"ring-hab", :salvage
   prominence :mythic
 

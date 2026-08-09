@@ -1,6 +1,7 @@
 faction :displacement_council do
   name "Displacement Council"
   path "player/npcs/factions/displacement-council.md"
+  reviewed "2026-03-19"
   tags :governance, :resonance, :danger
   prominence :recognized
 

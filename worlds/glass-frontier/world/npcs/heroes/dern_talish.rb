@@ -1,6 +1,7 @@
 npc :dern_talish do
   name "Dern Talish"
   path "player/npcs/heroes/dern-talish.md"
+  reviewed "2026-03-18"
   tags :governance, :resonance, :diplomacy
   prominence :recognized
 

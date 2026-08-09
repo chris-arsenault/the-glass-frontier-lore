@@ -12,12 +12,9 @@ app.use(express.json())
 const REPO_ROOT = path.resolve(__dirname, '../../../')
 const WORLD = process.env.WORLD || 'glass-frontier'
 const LORE_ROOT = process.env.LORE_ROOT || path.join(REPO_ROOT, 'worlds', WORLD)
-const AUTO_STATUS_FILE = path.join(LORE_ROOT, 'work-tracking', 'review-status.json')
-const MANUAL_STATUS_FILE = path.join(LORE_ROOT, 'work-tracking', 'manual-review-status.json')
 
 // Files that define the world's shape rather than its content — they are not
-// reviewed as prose. Mirrors Lorecraft::ReviewTracker::META_FILES so that a
-// path stored here is a path the CLI also recognizes.
+// reviewed as prose.
 const META_FILES = ['schema.rb', 'timeline.rb', 'pages.rb']
 
 // The DSL files that carry content, world-root-relative — the same key space as
@@ -64,37 +61,21 @@ app.post('/api/reviews', (req, res) => res.status(410).json(COMMENTS_RETIRED))
 app.patch('/api/reviews/:id', (req, res) => res.status(410).json(COMMENTS_RETIRED))
 app.delete('/api/reviews/:id', (req, res) => res.status(410).json(COMMENTS_RETIRED))
 
-// Get review status (both auto and manual)
-app.get('/api/review-status', (req, res) => {
-  const auto = fs.existsSync(AUTO_STATUS_FILE) ? JSON.parse(fs.readFileSync(AUTO_STATUS_FILE, 'utf-8')) : {}
-  const manual = fs.existsSync(MANUAL_STATUS_FILE) ? JSON.parse(fs.readFileSync(MANUAL_STATUS_FILE, 'utf-8')) : {}
-  res.json({ auto, manual })
-})
+// Review state moved onto the content too: `reviewed "YYYY-MM-DD"` and
+// `status :complete` on the entity, audited by `lorecraft provenance`. The
+// toggles wrote a JSON the engine no longer reads, so they are refused rather
+// than recreating it.
+const STATUS_RETIRED = {
+  error: 'Review state lives in the DSL now',
+  detail: 'Set `reviewed "YYYY-MM-DD"` and `status :complete` on the entity, ' +
+          'then `make provenance WORLD=<id>`.',
+}
 
-// Toggle a review flag on a file
-// Body: { file, field: "reviewed" | "complete" }
-// Each field is an independent toggle. Stores timestamp when set, removes when toggled off.
-app.post('/api/review-status', (req, res) => {
-  const { file, field } = req.body
-  if (!file || !field) return res.status(400).json({ error: 'file and field required' })
-  if (!['reviewed', 'complete'].includes(field)) return res.status(400).json({ error: 'field must be "reviewed" or "complete"' })
-  let status = {}
-  if (fs.existsSync(MANUAL_STATUS_FILE)) {
-    status = JSON.parse(fs.readFileSync(MANUAL_STATUS_FILE, 'utf-8'))
-  }
-  if (!status[file]) status[file] = {}
-  if (status[file][field]) {
-    delete status[file][field]
-  } else {
-    status[file][field] = new Date().toISOString()
-  }
-  if (Object.keys(status[file]).length === 0) delete status[file]
-  fs.writeFileSync(MANUAL_STATUS_FILE, JSON.stringify(status, null, 2) + '\n')
-  res.json({ file, status: status[file] || {} })
-})
+app.get('/api/review-status', (req, res) => res.json({ auto: {}, manual: {} }))
+app.post('/api/review-status', (req, res) => res.status(410).json(STATUS_RETIRED))
 
 app.listen(3457, () => {
   console.log('Review API server running on http://localhost:3457')
   console.log(`Lore root: ${LORE_ROOT}`)
-  console.log('Comments live in the DSL as `question` on the entity; run `make queue`.')
+  console.log('Comments and review state live in the DSL; run `make queue` / `make provenance`.')
 })

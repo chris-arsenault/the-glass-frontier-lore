@@ -1,6 +1,7 @@
 concept :the_three_forms do
   name "The Three Forms"
   path "player/cosmology/the-three-forms.md"
+  reviewed "2026-06-18"
   tags :resonance, :cosmology, :religion
   prominence :mythic
   registry true

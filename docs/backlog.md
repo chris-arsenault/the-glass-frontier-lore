@@ -18,22 +18,6 @@ activation. The Ice Remembers has source material to port from
 `../the-canonry-game/docs/lore/` (lore-bible, encyclopedia, eras); The Dry War
 has no premise yet.
 
-## Retiring the review tracker
-
-Review state now belongs on the prose block (`reviewed: "YYYY-MM-DD"`, audited by
-`make provenance`), which survives a file move and is granular enough to mean
-something. `worlds/<id>/work-tracking/review-status.json` and the
-`lorecraft review` subcommands still hold the older per-file record — 56 real
-timestamps against zero block declarations, so they stay until there is something
-to replace them with.
-
-Migrate per file as entries are read: declare `reviewed:` on the blocks, drop that
-file's entry from the JSON. When a world's JSON is empty, delete it, the
-`review` subcommands, and `ReviewTracker` — keeping `content_changed_at`, which
-`Provenance` uses to expire a stale read. `tools/review-app/` writes
-`manual-review-status.json` and would need to move to the DSL with it, or lose the
-review-flag buttons.
-
 ## Review app
 
 `tools/review-app/` lists and serves the DSL corpus as source. Its comment

@@ -1,6 +1,8 @@
 culture :sitharian_culture do
   name "Sitharian Culture"
   path "player/concepts/cultures/sitharian-culture.md"
+  status :complete
+  reviewed "2026-03-19"
   tags :"social-structure", :governance, :trade
   prominence :renowned
 

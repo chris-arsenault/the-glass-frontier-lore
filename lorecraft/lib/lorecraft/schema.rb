@@ -18,7 +18,7 @@ module Lorecraft
     # These are the known static attribute names; an effect targeting one is a
     # compile error (spec §8.3). Everything else an effect sets is dynamic.
     DEFAULT_STATIC_ATTRS = %i[
-      title tags prominence alias region narrative_role status
+      title tags prominence alias region narrative_role status reviewed
       species culture era date founded registry prominence_xrefs
     ].freeze
 

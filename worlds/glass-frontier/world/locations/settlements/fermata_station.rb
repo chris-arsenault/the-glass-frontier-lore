@@ -1,6 +1,8 @@
 installation :fermata_station do
   name "Fermata Station"
   path "player/locations/settlements/fermata-station.md"
+  status :complete
+  reviewed "2026-03-19"
   tags :governance, :resonance, :"ring-hab", :"fluid-reality", :music, :"social-structure"
   prominence :marginal
 

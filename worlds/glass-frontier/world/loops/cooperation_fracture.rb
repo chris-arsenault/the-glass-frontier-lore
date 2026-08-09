@@ -1,6 +1,7 @@
 loop :cooperation_fracture do
   name "Loop: Cooperation-Fracture Cycle"
   path "dm/loops/cooperation-fracture.md"
+  reviewed "2026-03-19"
 
   prose <<~PROSE
     *Groups cooperate under pressure. Pressure eases. Cooperation fractures. Each cycle leaves infrastructure the next cycle builds on.*

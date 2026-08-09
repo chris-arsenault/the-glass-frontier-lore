@@ -1,6 +1,8 @@
 species :species do
   name "Species"
   path "player/concepts/species/species.md"
+  status :complete
+  reviewed "2026-03-18"
   tags :species
   prominence :mythic
   registry true

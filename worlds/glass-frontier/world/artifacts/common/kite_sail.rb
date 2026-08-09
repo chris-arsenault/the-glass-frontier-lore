@@ -1,6 +1,8 @@
 resource :kite_sail do
   name "KITE"
   path "player/artifacts/common/kite-sail.md"
+  status :complete
+  reviewed "2026-03-19"
   tags :transport, :resonance, :"kinetic-freq", :trade
   prominence :renowned
   aka "Kinetic Inverse Transport Engine"

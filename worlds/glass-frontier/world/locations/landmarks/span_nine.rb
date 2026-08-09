@@ -1,6 +1,8 @@
 installation :span_nine do
   name "Span Nine"
   path "player/locations/landmarks/span-nine.md"
+  status :complete
+  reviewed "2026-03-19"
   tags :"ring-era", :resonance, :"signal-freq", :orbital
   prominence :recognized
 

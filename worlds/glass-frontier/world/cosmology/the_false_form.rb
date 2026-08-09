@@ -1,6 +1,7 @@
 concept :the_false_form do
   name "The False Form"
   path "player/cosmology/the-false-form.md"
+  reviewed "2026-06-18"
   tags :resonance, :cosmology, :religion, :legend
   prominence :renowned
   registry true

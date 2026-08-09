@@ -59,6 +59,12 @@ module Lorecraft
 
       # --- common static attributes (explicit for clarity / validation) -----
 
+      # When a human last read this entry, for all of its blocks — a block that
+      # was read separately overrides with its own `reviewed:`. Entry-level
+      # because that is the unit a person actually reads, and one line beats
+      # repeating the same date on a dozen blocks.
+      def reviewed(date) = set(:reviewed, date)
+
       def name(value)      = set(:title, value)
       def title(value)     = set(:title, value)
       def tags(*values)    = set(:tags, values.flatten.map(&:to_sym))

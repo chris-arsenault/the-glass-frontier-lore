@@ -1,6 +1,7 @@
 theme :who_remembers do
   name "Theme: Who decides what gets remembered?"
   path "dm/themes/who-remembers.md"
+  reviewed "2026-03-18"
 
   prose <<~PROSE
     *The razor-thin difference between sharing knowledge that saves and sharing knowledge that destroys.*

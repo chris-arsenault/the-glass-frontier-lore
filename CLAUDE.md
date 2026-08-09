@@ -50,7 +50,7 @@ All prose must be written from inside the world. There is no Earth. Three violat
 
 **Work product versus history.** Prose is what is true of the world. Why a fact changed, what a correction rests on, which decision settled a name — that is history of the *entry*, and it goes in `log "YYYY-MM-DD — …"` on the entity, where `lorecraft log` can read it and no reader-facing render shows it. Never in prose.
 
-**Who wrote it, and who has read it.** A prose block may declare `drafted_by:` (`:ai` / `:human` / `:ai_human`) and `reviewed: "YYYY-MM-DD"` once a person has read it against these rules. Each world declares its default drafter (`drafted_by_default :ai` in `world/schema.rb`), so a block only states the exception. `make provenance WORLD=<id>` reports the gap, and treats a review as expired once the file's prose changed after that date. Never set `reviewed:` on a block's behalf — the point of the field is that a human read the words.
+**Who wrote it, and who has read it.** An entry declares `reviewed "YYYY-MM-DD"` once a person has read it against these rules, and a block may override with its own `reviewed:` or declare `drafted_by:` (`:ai` / `:human` / `:ai_human`). Each world declares its default drafter (`drafted_by_default :ai` in `world/schema.rb`), so a block only states the exception. `make provenance WORLD=<id>` reports the gap, and expires a read once the prose changed under it. Never set `reviewed` on a human's behalf — the point of the field is that a person read the words.
 
 See `craft/voice-review-prompt.md` for the reusable review prompt.
 
@@ -166,8 +166,8 @@ worlds/
       _shells.rb            # shell stubs: referenced-but-unwritten entities
       _edges.rb             # relationship edges (relate instances)
     guidance/               # this world's substitutions into craft/
-    work-tracking/          # the older per-file review timestamps; questions and
-                            #   queue live on the entities now
+                            # (no work-tracking/ — review state, questions and the
+                            #  queue are declarations on the entities)
     research/               # audits and analysis of this world
 craft/                      # world-agnostic authoring craft
   schema/base.rb            # kinds, effect verbs, relation taxonomy — every world loads this
@@ -234,20 +234,25 @@ Historical state is a query, not a stored field: `world.at(era: :the_accord, yea
 
 ## Review Workflow
 
-Review tracking is `lorecraft review <pending|mark|stale|status> --world <id>` — git-mtime vs recorded review time, stored per-world in `worlds/<id>/work-tracking/review-status.json`.
+**Review state lives on the content, and nowhere else.** There is no tracker, no queue file, no comments file — those were sidecars keyed by file path, and a path key does not survive a reorganisation.
+
+| What | Where |
+|---|---|
+| a human read this entry | `reviewed "YYYY-MM-DD"` on the entity (or `reviewed:` on one block) |
+| the entry is finished | `status :complete` |
+| something is unresolved | `question "…", raised:, on:` on the entity |
+| why a fact changed | `log "YYYY-MM-DD — …"` on the entity |
+
+`make provenance WORLD=<id>` reports what has been read and whose read expired — git supplies the expiry, so a read stops counting once the prose changes under it. `make queue WORLD=<id>` assembles the open questions with the engine's findings. Both are renders; deleting the output loses nothing.
 
 ### After modifying an entry:
 
 1. `make check WORLD=<id>`
-2. `ruby lorecraft/bin/lorecraft review mark --world <id> <file>`
-3. **Resolve addressed questions** — delete the `question` line from the entity, and `log` the decision if the reasoning is worth keeping. Mandatory.
+2. **Resolve addressed questions** — delete the `question` line, and `log` the decision if the reasoning is worth keeping. Mandatory.
+3. Do not set `reviewed` for a human. The field means a person read the words.
 
-### Review data & guidance:
+### Review guidance:
 
-**Review state lives on the content, not beside it.** Questions are `question` declarations on the entity, review state is `reviewed:` on the prose block, entry history is `log`. There is no queue file and no comments file: `make queue WORLD=<id>` assembles the open questions with the engine's own findings, and deleting that output loses nothing.
-
-- `worlds/<id>/work-tracking/review-status.json` — the older per-file review timestamps, still the only record of when prose was last read. Being migrated onto blocks; see `docs/backlog.md`.
-- `worlds/<id>/work-tracking/manual-review-status.json` — manual sign-off (review app UI), same migration.
 - `craft/voice-review-prompt.md` — reusable LLM prompt for domain/register review
 - `craft/writing-guidance.md` — mandatory writing rules
 

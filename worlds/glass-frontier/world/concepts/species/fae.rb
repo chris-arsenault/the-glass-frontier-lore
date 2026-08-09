@@ -1,6 +1,8 @@
 species :fae do
   name "Fae"
   path "player/concepts/species/fae.md"
+  status :complete
+  reviewed "2026-03-18"
   tags :species, :resonance
   prominence :mythic
   registry true

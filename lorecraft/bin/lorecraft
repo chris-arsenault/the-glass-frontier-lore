@@ -107,22 +107,14 @@ when "worlds"
     puts "  #{w.id.ljust(16)} #{w.title.ljust(24)} #{marks}#{default}"
   end
 when "review"
-  sub = ARGV.shift || "status"
-  rt = Lorecraft::ReviewTracker.new(root: WORLD.root)
-  case sub
-  when "pending" then puts rt.pending
-  when "mark"
-    abort("usage: lorecraft review mark <file>...") if ARGV.empty?
-    rt.mark(ARGV).each { |m| puts "  marked: #{m}" }
-  when "status"
-    s = rt.status_summary
-    puts "#{s[:reviewed]}/#{s[:total]} reviewed, #{s[:pending]} pending"
-  when "stale"
-    r = rt.stale
-    puts "#{r[:stale].size} stale, #{r[:active].size} active"
-    r[:stale].each { |c| puts "  STALE #{c['file']}: #{c['comment'].to_s[0, 60]}" }
-  else abort "unknown review subcommand: #{sub}"
-  end
+  abort <<~MSG
+    `review` is gone. Review state lives on the content:
+
+      reviewed "YYYY-MM-DD"   on the entity, once a human has read it
+      status :complete        when the entry is finished
+
+    `lorecraft provenance` reports what has been read and whose read expired.
+  MSG
 when "render"
   out = ARGV.shift or abort("usage: lorecraft render OUT_DIR [--audience player] [--at TICK]")
   w = load_world
@@ -150,17 +142,7 @@ when "queue"
 when "provenance"
   # Who drafted the prose and who has read it, per block. Review dates come from
   # the DSL; whether a date still covers the text comes from git.
-  w = load_world
-  rt = Lorecraft::ReviewTracker.new(root: WORLD.root)
-  changed_at = lambda do |owner|
-    node = w[owner]
-    file = node.respond_to?(:source_file) && node.source_file
-    next nil unless file
-
-    rel = Pathname.new(file).expand_path.relative_path_from(Pathname.new(WORLD.root).expand_path).to_s
-    rt.content_changed_at(rel)
-  end
-  puts Lorecraft::Provenance.new(w, changed_at: changed_at).report
+  puts Lorecraft::Provenance.new(load_world, root: WORLD.root).report
 when "log"
   # The entry's own history: why facts changed, what corrections rest on. Not
   # world content, so it appears on no reader-facing page.

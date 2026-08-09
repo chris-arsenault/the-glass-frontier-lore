@@ -1,6 +1,7 @@
 loop :knowledge_decay do
   name "Loop: Knowledge Decay"
   path "dm/loops/knowledge-decay.md"
+  reviewed "2026-03-18"
 
   prose <<~PROSE
     *Knowledge is built, pushed too far, lost, and reinvented as something different.*

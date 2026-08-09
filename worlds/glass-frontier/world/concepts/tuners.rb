@@ -1,6 +1,8 @@
 concept :tuners do
   name "Tuners"
   path "player/concepts/tuners.md"
+  status :complete
+  reviewed "2026-03-19"
   tags :resonance, :training, :"social-structure"
   prominence :recognized
 
