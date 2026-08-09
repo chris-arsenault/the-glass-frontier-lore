@@ -10,7 +10,7 @@ faction :the_choir do
   PROSE
 
   prose <<~PROSE, section: :how_it_works, heading: "Lying Through The Implant"
-    They do not disable their implants, which would be noticed within the hour. They lie through them.
+    They lie through their implants, which stay powered and reporting throughout.
 
     One person shifts a medication by three minutes. Another takes a different bus. Another buys seventeen lemons. Individually meaningless, and individually true — the telemetry is not falsified, the behaviour is real. Collectively, thousands of such choices can make a predictive system believe a district intends something it does not, or intends nothing when it intends a great deal.
 

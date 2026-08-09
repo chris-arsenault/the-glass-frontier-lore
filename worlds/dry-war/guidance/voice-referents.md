@@ -31,6 +31,12 @@ The Great Root and the four coalition intelligences state their purposes sincere
 
 Do not call the Great Root a parasite or the coalitions jailers in neutral prose. Those terms may appear as attributed language from an in-world speaker. Do not close a comparison by explaining its irony or telling the reader why it is horrific.
 
+## Introduce a party by what it does
+
+State a group's or a person's practice first: what they make, run, carry, measure, or file. Give the misconception a named holder when one exists — the Great Root calls the Gatekeepers collaborators, the Preservationists call them lost — instead of correcting an unattributed assumption on the reader's behalf.
+
+Openings of the form "They are not X. They are Y" carry no information in the first sentence and set the second one up as a reveal. Write the Y.
+
 ## Keep resistance in proportion
 
 Most humans are Joined or Managed, and most consider their lives acceptable. Resistance cultures are minorities. Do not imply that ordinary people secretly share resistance beliefs unless the entry provides evidence for that claim.

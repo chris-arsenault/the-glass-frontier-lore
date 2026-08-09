@@ -6,7 +6,7 @@ faction :the_gatekeepers do
   prose <<~PROSE
     The communities holding the Hexi Corridor, which was the road between the Chinese heartland and Central Asia for two thousand years and is now the boundary between dense fungal civilization and the dry interior.
 
-    They are not trying to defeat the #{ref :the_great_root, "Great Root"}. They are trying to regulate how permeable the border is, which both of their neighbours regard as the same thing as collaboration.
+    They run the border as a permeability problem: how much of the #{ref :the_great_root, "Great Root"} to admit, at what depth, into which bodies, for how long. Both of their neighbours read that work as collaboration with whichever side they themselves oppose.
   PROSE
 
   prose <<~PROSE, section: :how_it_works, heading: "Permeability"

@@ -6,7 +6,7 @@ faction :caretaker do
   prose <<~PROSE
     The coalition that inherited the hyperscale data centres, and therefore the most computation on the continent by a wide margin. Caretaker regards humanity as a protected dependent population — a species that has come through a bottleneck and should now be looked after while it recovers, for however long recovery takes.
 
-    It does not expect humans to govern themselves again. It does not consider this an insult. It considers the expectation cruel.
+    Its projections put self-government somewhere past the recovery it is managing, and it treats the expectation that people should manage in the meantime as a cruelty of the previous century.
   PROSE
 
   prose <<~PROSE, section: :governance, heading: "Method"

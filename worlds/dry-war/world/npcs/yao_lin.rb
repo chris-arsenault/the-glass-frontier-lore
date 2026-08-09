@@ -4,9 +4,9 @@ npc :yao_lin do
   prominence :marginal
 
   prose <<~PROSE
-    A #{ref :the_preservationists, "Preservationist"} courier on the western run, carrying #{ref :memory_ceramics, "memory ceramics"} eastbound for copying and archive requests westbound. She crosses at #{ref :yumen_gate, "Yumen Gate"} eight or nine times a year and has done since she was nineteen.
+    A #{ref :the_preservationists, "Preservationist"} courier on the western run. She carries #{ref :memory_ceramics, "memory ceramics"} east to the copying houses and brings archive requests back, eight or nine crossings a year at #{ref :yumen_gate, "Yumen Gate"} since she was nineteen, and she has never lost a piece.
 
-    She refuses the #{ref :gate_moss, "plate"}. Every crossing she pays the scraping surcharge, waits the extra hour, and files a written objection stating that a living organism pressed to her skin is a connection whatever the organism can do. The station's file of her objections runs to eleven.
+    At the gate she asks for the scraping read, pays the surcharge for it out of a courier's allowance, waits the extra hour in the drying shed, and files a written objection while she waits. The station holds eleven of them.
   PROSE
 
   prose <<~PROSE, section: :people, heading: "The Objection"

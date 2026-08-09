@@ -4,7 +4,7 @@ faction :the_garden_courts do
   prominence :recognized
 
   prose <<~PROSE
-    Sichuan is far too wet to resist the #{ref :the_great_root, "Great Root"} biologically, so resistance there developed inside it. The Garden Courts do not disconnect their local network. They educate it.
+    Sichuan is far too wet to hold the #{ref :the_great_root, "Great Root"} off biologically, so the province raises its own network instead. The Garden Courts educate the mycelium under their valleys the way a family trains an orchard, across generations, on a curriculum they choose.
 
     Families feed it particular plants. Communities expose it to oral history, opera, local archives and ritual practice. Agricultural decisions become a conversation conducted over a season. Over generations the regional network becomes intensely, unmistakably local — and a Sichuan network may consider itself thoroughly Chinese while declining a directive from the Yangtze Delta complexes.
   PROSE

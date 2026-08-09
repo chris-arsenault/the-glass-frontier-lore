@@ -4,13 +4,13 @@ faction :the_pilgrims do
   prominence :recognized
 
   prose <<~PROSE
-    People who never stay anywhere. They move through freight corridors, abandoned highway, temporary labour zones and automated logistics networks, in groups of twenty to fifty that periodically split, merge, exchange members and change their names.
+    Travelling communities of twenty to fifty, moving through freight corridors, abandoned highway, temporary labour zones and automated logistics networks, splitting and merging and exchanging members and taking new names as they go.
 
-    The coalitions are excellent at governing populations. They are surprisingly bad at governing people who refuse to become one.
+    The coalitions govern populations well. A group that has a different composition and a different name every season is not a population, and the administrative machinery that would have to describe one does not exist.
   PROSE
 
   prose <<~PROSE, section: :culture, heading: "Predictability As Domination"
-    They accumulate no infrastructure and establish no permanent leadership, and the taboo at the centre of the culture is not technology. It is being predictable.
+    They hold no ground and appoint no lasting leaders. The taboo at the centre of the culture is being predictable, and it is enforced socially: a person whose habits can be recited by someone else is spoken to about it.
 
     Children are taught to break their own routines. Routes are chosen partly by dice. Decisions of consequence sometimes turn on a genuinely physical random process, because algorithmic randomness is itself observable and a machine that knows your generator knows your future.
 

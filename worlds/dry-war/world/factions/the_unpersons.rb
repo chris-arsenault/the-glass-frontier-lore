@@ -6,7 +6,7 @@ faction :the_unpersons do
   prose <<~PROSE
     They live directly underneath the oldest administrative systems on the continent — the tunnels, utility corridors, basements, decommissioned data centres and abandoned transit extensions under Washington, Baltimore, Philadelphia and New York.
 
-    They do not evade surveillance. They exploit something stranger: administrative identity. The machine civilization assumes every human corresponds to one persistent digital person, and has never been able to operate without that assumption.
+    Their working material is administrative identity. The machine civilization assumes every human corresponds to one persistent digital person and has never been able to operate without that assumption, so the Unpersons work on the record rather than on the cameras.
   PROSE
 
   prose <<~PROSE, section: :how_it_works, heading: "Accounting Fraud As Metaphysics"

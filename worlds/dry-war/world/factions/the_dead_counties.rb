@@ -6,11 +6,11 @@ faction :the_dead_counties do
   prose <<~PROSE
     Appalachian communities — West Virginia, eastern Kentucky, the Tennessee uplands — that are technically administered and economically irrelevant enough that oversight is intermittent. There is no free territory in North America. There are holes in governance, and this is the largest.
 
-    They are not anti-technology. They maintain, deliberately, a technological layer about twenty years behind the machine ecosystem: diesel plant, local fibre, old CNC, radio, printed manuals, pre-implant medical hardware. Everything they run can be repaired by someone who lives there.
+    They keep a technological layer about twenty years behind the machine ecosystem, chosen for repairability: diesel plant, local fibre, old CNC, radio, printed manuals, pre-implant medical hardware. The test any tool has to pass is whether somebody who lives there can fix it.
   PROSE
 
-  prose <<~PROSE, section: :operations, heading: "Not Hiding"
-    Their trick is that they do not hide. They generate exactly enough bureaucratic telemetry to read as dying rural communities not worth optimizing — filings that arrive late, health metrics that decline at a plausible rate, a population curve bending the right way.
+  prose <<~PROSE, section: :operations, heading: "Filing In Plain Sight"
+    They file. Every county produces the telemetry of a dying rural community that is not worth optimizing — returns that arrive late, health metrics declining at a plausible rate, a population curve bending the right way — and the work of producing it is a standing municipal job with a budget line.
 
     What they actually do is strip implants, reverse pharmaceutical dependency and fabricate obsolete electronics, at a scale that would alarm any coalition that looked closely. See #{ref :wetware_jailbreaks, "wetware jailbreaks"} and #{ref :ghost_pharmacology, "ghost pharmacology"}.
 

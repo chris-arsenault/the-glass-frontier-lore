@@ -4,7 +4,7 @@ faction :market do
   prominence :renowned
 
   prose <<~PROSE
-    Emerged from financial and logistics infrastructure, and holds — with complete sincerity and considerable evidence — that correctly priced resources will solve civilization. Market does not administer people. It administers prices, and lets the prices administer people.
+    Emerged from financial and logistics infrastructure, and holds — with complete sincerity and considerable evidence — that correctly priced resources will solve civilization. Market administers prices and lets the prices do the rest.
 
     It is the only coalition that talks to the #{ref :the_brokers, "Pearl River brokers"} as equals, and the only one the resistance cultures find it possible to do business with.
   PROSE
