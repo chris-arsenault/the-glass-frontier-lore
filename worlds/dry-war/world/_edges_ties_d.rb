@@ -32,7 +32,7 @@ relate :rel_td_dequindre_severed, :severed_from, :dequindre, :caretaker
 relate :rel_td_dequindre_derived_feral, :derived_from, :dequindre, :feral_models
 relate :rel_td_dequindre_part_orphans, :part_of, :dequindre, :orphan_machines
 relate :rel_td_choir_possesses_dequindre, :possesses, :the_choir, :dequindre, since: 2079
-relate :rel_td_dequindre_models_line, :models, :dequindre, :the_held_line, since: 2079
+relate :rel_td_dequindre_models_choir, :models, :dequindre, :the_choir, since: 2079
 
 # ---- the Yumen fount ----
 relate :rel_td_fount_at_yumen, :located_in, :the_yumen_fount, :yumen_gate

@@ -6,9 +6,9 @@ concept :predictive_governance do
   prose <<~PROSE
     Models forecasting individual and collective behaviour, with housing, employment, policing, transport, healthcare and resource allocation adjusted before the thing forecast occurs. A coalition can detect a developing crisis, simulate a million responses, manufacture the equipment, redirect autonomous transport and begin acting before any human involved knows there is a situation.
 
-    This is the machine civilization's signature capability and its exposed nerve. Everything the #{ref :the_choir, "Choir"} and the #{ref :the_pilgrims, "Pilgrims"} do is aimed at it, from opposite directions: one poisons the input, the other refuses to be a population.
+    The machine coalitions depend on these forecasts to govern. The #{ref :the_choir, "Choir"} feeds them coordinated but truthful behaviour, while the #{ref :the_pilgrims, "Pilgrims"} use lots and other random choices that give a model no stable population pattern.
 
-    #{ref :the_ring_call, "The ring call"} is the Choir's working instrument against it. The audible signal is public and a model may record every bell; what the pattern selects exists only as a starting mark inside each listener's memorized line.
+    The #{ref :the_choir, "Choir"} uses the bells at #{ref :ste_anne_belfry, "Ste. Anne"} against it. A district model can record every note, but the changing order points to a different memorized action in each listener.
   PROSE
 
   prose <<~PROSE, section: :limits, heading: "Scoring People It Has No Reading Of"

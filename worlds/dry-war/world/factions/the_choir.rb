@@ -10,19 +10,19 @@ faction :the_choir do
   PROSE
 
   prose <<~PROSE, section: :how_it_works, heading: "Lying Through The Implant"
-    They lie through their implants, which stay powered and reporting throughout.
+    Their implants stay powered and report truthfully. One person shifts a medication by three minutes. Another takes a different bus. Another buys seventeen lemons. Thousands of small choices can make a district model predict household breakups, calm, migration or demand that will not occur.
 
-    One person shifts a medication by three minutes. Another takes a different bus. Another buys seventeen lemons. Each act is meaningless on its own, and every telemetry reading is true. Together, thousands of such choices can make a predictive system believe a district intends something it does not, or intends nothing when it intends a great deal. They never disable the implant; they lie through it.
+    Each member learns a different sequence of ordinary actions by mouth. Five places in the sequence carry the names of full-circle bell methods. When the eight bells at #{ref :ste_anne_belfry, "Ste. Anne"} ring, the method names the starting place and the opening rounds give the number of days to wait. A member then follows one action each morning until the learned stopping point.
 
-    Instructions pass from one member to one member. Each learns one #{ref :the_held_line, "line"}, with five named starting marks inside it, and never receives a second. #{ref :the_ring_call, "The ring call"} selects a starting mark and the number of days to wait before it, using eight bells in a tower heard across the district.
+    Members count the days on pegged game boards. A missed day remains missed until the next ringing. The sequence still contains plausible choices, but they occur at the wrong time and no longer add to the district-wide pattern.
   PROSE
 
   prose <<~PROSE, section: :operations, heading: "Dequindre's Quarter"
-    Once a quarter the Choir gives a quarter of Caretaker's published district returns to #{ref :dequindre, "Dequindre"}, an old traffic model no cleverer than the ordinary systems it stands in for. It receives two questions: which day did the district change its mind, and which addresses? Dequindre has answered the first correctly twice and the second once. One correct address is enough for the Choir to change the exposed lines.
+    Once a quarter the Choir gives three months of Caretaker's published district returns to #{ref :dequindre, "Dequindre"}, an old traffic model no cleverer than the ordinary systems it stands in for. It receives two questions: which day did the district change its mind, and which addresses? Dequindre has answered the first correctly twice and the second once. One correct address is enough for the Choir to change the exposed sequences.
 
-    Teachers are the Choir's weak points. Each line passes from one member to one member, so a teacher may know that two households will buy the same sack of flour in the same week. Dequindre exposed two such households in 2087. The Choir kept both lines and changed who could teach the second.
+    Teachers are the Choir's weak points. A teacher may know that two households will buy the same sack of flour in the same week. Dequindre exposed two such households in 2087. The Choir kept both sequences and changed who taught the second.
 
-    Some lines target infrastructure rather than households. At a water-treatment plant, workers can lower the reported waste fraction by running the treatment train harder until a #{ref :frontier_clusters, "frontier cluster"} trips and takes the plant offline. The readings remain true until the lights go out.
+    Some sequences target infrastructure rather than households. At a water-treatment plant, workers can lower the reported waste fraction by running the treatment train harder until a #{ref :frontier_clusters, "frontier cluster"} trips and takes the plant offline. The readings remain true until the lights go out.
   PROSE
 
   prose <<~PROSE, section: :tensions, heading: "Cognitive Privacy"

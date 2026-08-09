@@ -9,14 +9,14 @@ installation :ste_anne_belfry do
     Caretaker funds it on measurement. Households within about three kilometres of the tower show shorter sleep latency on session evenings and file fewer noise complaints in the following week. Their change on the district mood index still clears the programme's threshold after the cost of rope stock, bearings and insurance is applied. #{ref :odile_marchand, "Odile Marchand"} books the sessions and signs the acoustic return on each one.
   PROSE
 
-  prose <<~PROSE, section: :structure, heading: "What The Return Records"
+  prose <<~PROSE, section: :structure, heading: "What Caretaker Hears"
     Caretaker's monitor reduces a session to loudness by frequency over time. It records sound-pressure level, time above threshold, session length and the irregular blows while the bells are raised and lowered. The acoustic return does not retain the order in which individual bells struck.
 
-    That order carries #{ref :the_ring_call, "the ring call"}. Marchand's return for forty-five minutes of changing strike orders and her return for forty-five minutes with the bells sounding repeatedly in scale order are the same document carrying the same numbers.
+    The changing order carries the #{ref :the_choir, "Choir"}'s district signal. Each named method points members to one of five places in their memorized sequences, while the number of complete rounds before it gives the days to wait. Marchand's return for forty-five minutes of changing orders and her return for the same time spent ringing in scale order carry the same figures.
   PROSE
 
   prose <<~PROSE, section: :limits, heading: "The Raise And The Band"
-    Bells rung full circle rest mouth upward and must be raised from rest before any method can be struck: nine or ten minutes of climbing, irregular blows that carry as far as the ringing does. The #{ref :the_choir, "Choir"} cannot open the channel quietly and has never tried to.
+    Bells rung full circle rest mouth upward and must be raised from rest before any method can be struck. Nine or ten minutes of climbing and irregular blows carry as far as the later ringing, giving the district warning before the method begins.
 
     The band is eight people who can handle a rope. #{ref :cecile_ouellette, "Ouellette"} is the fourth captain since the programme began and the only ringer on the roster who learned from a band predating it. Two of the eight are past seventy. Marchand's return for #{year :now} records nine sessions cancelled for want of a band and none for weather.
 

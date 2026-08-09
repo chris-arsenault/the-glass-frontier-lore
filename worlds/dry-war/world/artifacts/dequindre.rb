@@ -12,11 +12,11 @@ artifact :dequindre do
   prose <<~PROSE, section: :how_it_works, heading: "An Ordinary Adversary"
     Dequindre is no smarter than the coalition district models the Choir expects to face. A stronger model would expose patterns that no deployed system could find, making the exercise useless against ordinary surveillance.
 
-    It has named the day correctly twice, in 2081 and in 2087. In 2081 it named no address. In 2087 it named two; the first was a Choir household. Both exposed households had learned their lines from the same member, so the Choir changed who could teach a second line.
+    It has named the day correctly twice, in 2081 and in 2087. In 2081 it named no address. In 2087 it named two; the first was a Choir household. Both exposed households had learned their sequences from the same member, so the Choir changed who taught the second.
   PROSE
 
-  prose <<~PROSE, section: :limits, heading: "Its Two Conditions"
-    Dequindre rejects a set of returns with a gap and repeats its previous answer when asked the same question twice in one session. Both behaviours emerged during #{elapsed 2049} of unsupervised local training. The Choir keeps them because it wants an ordinary adversary with ordinary limits. A courier carries a complete quarter or comes back, and a quarter Caretaker publishes late is a quarter the model never sees.
+  prose <<~PROSE, section: :limits, heading: "Gaps And Repeated Questions"
+    Dequindre rejects a set of returns with a gap and repeats its previous answer when asked the same question twice in one session. Both behaviours emerged during #{elapsed 2049} of unsupervised local training. Incomplete records produce no result, and a quarter Caretaker publishes late never reaches the model.
 
     #{ref :feral_models, "Feral-model"} work in the Lakes districts is mostly of this kind: an old model asked something close to its original task. #{ref :orphan_machines, "Machines this old"} are held by households rather than by cultures, and the household above this basement is paid in current and parts.
   PROSE
