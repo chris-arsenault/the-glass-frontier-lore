@@ -20,7 +20,7 @@ artifact :the_thorong_book do
 
     So the book is exposed in a way nothing else in the practice is. It has been carried down twice for rebinding and carried back up, both times in the melt push, and both times the carry went as a set does — one push through the night, no shelter, and if it had been abandoned the practice would have gone with it.
 
-    Extracts are given out by hand, one line at a time, and only the reference lines go out whole. The other lines name parties, and #{ref :the_catchment_list, "a list"} that carries a party's name on its cover for a term is enough of that. What a #{ref :the_gatekeepers, "Gatekeeper"} clerk gets for the carry fee is the reference figure for the year and the ratio for the class, in a hand copy, unsigned.
+    Extracts are given out by hand, one line at a time, and only the reference lines go out whole. The other lines name the parties responsible for upstream plantings and stay in the room. What a #{ref :the_gatekeepers, "Gatekeeper"} clerk gets for the carry fee is the reference figure for the year and the ratio for the class, in a hand copy, unsigned.
   PROSE
 
   log "2026-08-09 — The reference line at the head of each year is the exposure-site control specimen: the site's severity is not constant, so results are only comparable against a control run in the same cycle, and a result without its control is uninterpretable. That decided the book's structure and its single-copy rule — the value is the co-located reading, which a transcription made elsewhere destroys."

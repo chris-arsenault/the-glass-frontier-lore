@@ -9,29 +9,15 @@ relate :rel_ties_ensenada_during_holding, :active_during, :the_ensenada_bed, :th
 relate :rel_ties_ensenada_at_socal, :manifests_at, :the_ensenada_bed, :southern_california
 relate :rel_ties_ensenada_seed_from_sichuan, :sourced_from, :the_ensenada_bed, :sichuan
 
-# ---- B. the catchment list: Himalayan Holds ↔ programmable ecologies ----
-relate :rel_ties_list_at_holds, :manifests_at, :the_catchment_list, :the_himalayan_holds
-relate :rel_ties_holds_depend_list, :depends_on, :the_himalayan_holds, :the_catchment_list do
-  prose "Living filtration holds only while what arrives in the source water is known, and the alternative is written on the first page of every copy in tonnes lifted, kilowatts and winter crew."
-end
-relate :rel_ties_list_regulates_ecologies, :regulates, :the_catchment_list, :programmable_ecologies do
-  prose "A programmed ecology is entered as a set with the dependencies drawn between its lines, struck as a set and pulled as a set."
-end
-relate :rel_ties_ecologies_depend_list, :depends_on, :programmable_ecologies, :the_catchment_list, since: 2079
-
+# ---- B. Thorong and the Marsyangdi burn: Himalayan Holds ↔ programmable ecologies ----
 relate :rel_ties_coldhouse_in_holds, :located_in, :thorong_cold_house, :the_himalayan_holds
-relate :rel_ties_list_depends_coldhouse, :depends_on, :the_catchment_list, :thorong_cold_house do
-  prose "An ender line naming a winter stands only once a set has been shown one, and the entry then names the pass and the year of the reading."
-end
-
-relate :rel_ties_set_at_coldhouse, :manifests_at, :the_overwintered_set, :thorong_cold_house
-relate :rel_ties_set_depends_list, :depends_on, :the_overwintered_set, :the_catchment_list
-relate :rel_ties_set_at_holds, :manifests_at, :the_overwintered_set, :the_himalayan_holds
-relate :rel_ties_set_mentions_ecologies, :mentions, :the_overwintered_set, :programmable_ecologies
-relate :rel_ties_set_during_holding, :active_during, :the_overwintered_set, :the_holding
-relate :rel_ties_root_in_set, :participated_in, :the_great_root, :the_overwintered_set do
-  prose "Its line service planted the nineteen entries, sent the set up, filed the reading, burned eleven hectares of terrace and pasture, and holds the pulling account."
-end
+relate :rel_ties_holds_depend_coldhouse, :depends_on, :the_himalayan_holds, :thorong_cold_house
+relate :rel_ties_burn_at_coldhouse, :manifests_at, :the_marsyangdi_burn, :thorong_cold_house
+relate :rel_ties_burn_at_holds, :manifests_at, :the_marsyangdi_burn, :the_himalayan_holds
+relate :rel_ties_burn_caused_by_ecology, :caused_by, :the_marsyangdi_burn, :programmable_ecologies
+relate :rel_ties_ecologies_practiced_courts, :practiced_by, :programmable_ecologies, :the_garden_courts
+relate :rel_ties_burn_during_holding, :active_during, :the_marsyangdi_burn, :the_holding
+relate :rel_ties_root_in_burn, :participated_in, :the_great_root, :the_marsyangdi_burn
 
 # ---- C. the control series: Thousand Minds ↔ the Amur Line ----
 relate :rel_ties_series_at_line, :manifests_at, :the_control_series, :the_amur_line

@@ -56,20 +56,20 @@ geographic_location :the_himalayan_holds do
   prominence :renowned
 
   prose <<~PROSE
-    Isolated high-altitude enclaves across Nepal, Bhutan, Tibet and northern India. Altitude excludes many #{ref :the_breach, "Breach"} organisms and not all of them, which means the Holds are defensible rather than safe.
+    The Himalayan Holds are isolated high-altitude enclaves across Nepal, Bhutan, Tibet and northern India. Altitude excludes many organisms released by #{ref :the_breach, "the Breach"}, but enough survive to keep the Holds defensible rather than safe.
 
-    They matter because the watersheds start here. Both gods are fighting the #{ref :the_dry_war, "Dry War"} over this water downstream while cooperating, desperately and continuously, to keep the source from becoming something that is no longer water.
+    The watersheds start here. Both gods fight #{ref :the_dry_war, "the Dry War"} over this water downstream and cooperate at its source to keep it drinkable.
   PROSE
 
-  prose <<~PROSE, section: :operations, heading: "The Strangest Infrastructure On Earth"
-    Fungal monasteries maintaining living filtration. Coalition-managed glaciers, instrumented to the metre. Human mountaineers carrying equipment into altitudes where autonomous machines lose navigation and fungal networks thin out. Resistance militias standing guard over facilities alongside Unified troops on a rota nobody has ever written down.
+  prose <<~PROSE, section: :operations, heading: "At The Sources"
+    Fungal monasteries tend living filtration beds below coalition-instrumented glaciers. Mountaineers carry equipment above the altitude where autonomous machines lose navigation and fungal networks thin out. Resistance militias and Unified troops share guard shifts at the intakes.
 
-    Everyone involved understands the arithmetic: if the Himalayan watersheds fall, most of surviving Asia follows within a generation.
+    If the watersheds fail, most of surviving Asia loses its water within a generation.
   PROSE
 
-  prose <<~PROSE, section: :governance, heading: "What Is Written Down"
-    One thing here is written down, and it is not the rota. Each intake keeps #{ref :the_catchment_list, "a catchment list"}: every organism deliberately planted in the ground draining into it, with what the organism needs to finish a cycle and what would stop it. The monastery maintaining the beds holds one copy; the nearest glacier station holds the other. Both takers keep the list without having agreed to anything, because living filtration works only while what arrives in the water is known, and the first page of every copy costs out the alternative — a filter plant lifted above five thousand metres, powered, cooled and manned through a winter.
+  prose <<~PROSE, section: :governance, heading: "Above An Intake"
+    Living filtration works only while the monastery knows what is entering the source water. The monastery and the nearest glacier station each record every organism deliberately planted upstream, who planted it, what sustains it and what kills it. A gap means hauling mechanical filters above five thousand metres and keeping them powered, cooled and staffed through winter.
 
-    A #{ref :programmable_ecologies, "programmed ecology"} planted in a catchment goes on as a set, and an entry claiming a winter will end it is not entered until a sealed set has spent that winter at #{ref :thorong_cold_house, "the Thorong cold house"} and come down cold. Two lists in the eastern Holds carry a party's name on the cover for a planting whose entries did not hold. #{ref :the_overwintered_set, "One of them is the Marsyangdi list"}, rewritten for a term of six years.
+    Organisms intended for an upper catchment now spend a winter at #{ref :thorong_cold_house, "the Thorong Cold House"} before planting. The rule followed #{ref :the_marsyangdi_burn, "the Marsyangdi Burn"}, when one member of a programmed ecology survived its supposed limits and eleven hectares had to be cut and burned above an intake.
   PROSE
 end

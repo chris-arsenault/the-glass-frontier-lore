@@ -22,15 +22,10 @@ relate :rel_te_credit_during_holding, :active_during, :the_season_credit, :the_h
 relate :rel_te_gatekeepers_coldhouse, :cooperates_with, :the_gatekeepers, :thorong_cold_house do
   prose "A carry fee paid out of the villages below the pass at the season's rate, and a hand copy of two figures back. No agreement, and no clerk on either side who has met one on the other."
 end
-relate :rel_te_credit_mentions_list, :mentions, :the_season_credit, :the_catchment_list do
-  prose "A sealed tube is not a planting. A foreign set is counted on the house's book, travels alone in its case, and reads as nothing if it arrives warm."
-end
-
 relate :rel_te_book_at_coldhouse, :located_in, :the_thorong_book, :thorong_cold_house
 relate :rel_te_coldhouse_has_book, :possesses, :thorong_cold_house, :the_thorong_book
 relate :rel_te_book_mentions_moss, :mentions, :the_thorong_book, :gate_moss
-relate :rel_te_book_mentions_list, :mentions, :the_thorong_book, :the_catchment_list
-relate :rel_te_book_depends_carry, :depends_on, :the_thorong_book, :the_overwintered_set do
+relate :rel_te_book_mentions_burn, :mentions, :the_thorong_book, :the_marsyangdi_burn do
   prose "Line forty-one. The reading that closed a term is one line among the others, in the same hand, written the same morning it was read."
 end
 relate :rel_te_book_mentions_gatekeepers, :mentions, :the_thorong_book, :the_gatekeepers do
@@ -38,9 +33,7 @@ relate :rel_te_book_mentions_gatekeepers, :mentions, :the_thorong_book, :the_gat
 end
 relate :rel_te_book_during_holding, :active_during, :the_thorong_book, :the_holding
 
-relate :rel_te_coldhouse_depends_moss, :depends_on, :thorong_cold_house, :gate_moss do
-  prose "One rack position every autumn, held for a set nobody above the pass has an interest in."
-end
+relate :rel_te_coldhouse_depends_moss, :depends_on, :thorong_cold_house, :gate_moss
 
 relate :rel_te_borrowed_at_yumen, :manifests_at, :the_borrowed_season, :yumen_gate
 relate :rel_te_borrowed_at_yard, :manifests_at, :the_borrowed_season, :xincheng_yard
