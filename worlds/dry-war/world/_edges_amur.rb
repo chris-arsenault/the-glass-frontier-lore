@@ -31,12 +31,14 @@ relate :rel_amur_xie_employed_by_root, :employed_by, :xie_lanting, :the_great_ro
 relate :rel_amur_xie_at_post, :located_in, :xie_lanting, :tangwang_post, since: 2087
 relate :rel_amur_xie_operates_line, :operates_in, :xie_lanting, :the_amur_line, since: 2084
 relate :rel_amur_ring_conducted_by_xie, :conducted_by, :the_ring_order, :xie_lanting, since: 2087
-# Xie Lanting does not study the Others and does not cooperate with Continuity —
-# her own record enters no opinion on the first, and her relation to the second
-# is two sets of sheets filed against each other. Both edges said more about her
-# than her entry does. What she studies is wood.
+relate :rel_amur_xie_studies_others, :studies, :xie_lanting, :the_others, since: 2084 do
+  prose "Twenty cores a compartment, counting closed sleeves of foreign tissue. On this reach that is the only way anybody studies them."
+end
 relate :rel_amur_xie_studies_sanchakou, :studies, :xie_lanting, :sanchakou, since: 2087 do
   prose "Her comparison drawer holds cores off its orchard rows from each of the three register years the post has issued orders in."
+end
+relate :rel_amur_xie_cooperates_continuity, :cooperates_with, :xie_lanting, :continuity, since: 2087 do
+  prose "Eleven files in the current register carry a core sheet and a deviation sheet that contradict each other, and all twenty-two sheets were signed and filed."
 end
 
 # ---- the scout hut ----
