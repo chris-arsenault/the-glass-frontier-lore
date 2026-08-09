@@ -20,6 +20,12 @@ make wiki  WORLD=dry-war      # render to build/dry-war/wiki
 
 Read the repo-root `CLAUDE.md` first — it carries the DSL conventions, the entry format, and the workflow that bind every world. Then `craft/` for the writing rules. This file carries only what is true of this setting.
 
+## How This World Is Written
+
+Read `guidance/authoring-method.md` before writing anything here. The assistant generates and the human directs, and entries are written from the vantage of named observers who can measure some things and not others — a Mercy outcomes officer and a Garden Courts agronomist file incompatible reports on the same settlement, both accurate, because each has different readings. Work one live pressure at a time and take the cluster it implies.
+
+Everything serves one centre: both superintelligences are sincerely trying to build stable civilizations, and each built on a premise that is catastrophically wrong for humans.
+
 ## What Is Different Here
 
 **Earth is in-world.** This is the one place the repo's usual instinct inverts. The Gobi, Appalachia, the Hexi Corridor, the Great Lakes and the Pearl River are canon, and so are the institutions that preceded the gods. What is still banned is out-of-world *register*: writing as a present-day analyst, gesturing at current events as current events, or explaining the setting's politics as commentary. An entry is written from inside 2090 by someone for whom the twentieth century is history and the Breach is weather.
@@ -50,4 +56,5 @@ Read the repo-root `CLAUDE.md` first — it carries the DSL conventions, the ent
 | `world/concepts/` | symbiotic governance, the water heresy, the Mandate question |
 | `world/technology/` | what each civilization runs on, and what the resistances make of it |
 | `world/locations/` | the archipelago and what is holding inside it |
-| `guidance/` | this world's substitutions into `craft/` |
+| `guidance/authoring-method.md` | how this world gets written, and the defect it is written against |
+| `guidance/voice-referents.md` | Earth is in-world here; what is banned instead is register |

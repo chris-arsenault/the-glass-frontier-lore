@@ -5,7 +5,7 @@ faction :the_great_root do
   prominence :mythic
 
   prose <<~PROSE
-    The mycelial intelligence that grew through the Chinese state and now, by most descriptions including its own, is it. Official ideology calls the arrangement #{ref :symbiotic_governance, "共生治理"} — symbiotic governance. Foreigners call it the Mushroom Government. Neither is adequate, and the second is actively misleading: there was no conquest and there is no throne.
+    The mycelial intelligence that grew through the Chinese state and now, by most descriptions including its own, is it. Official ideology calls the arrangement #{ref :symbiotic_governance, "共生治理"} — symbiotic governance. Foreigners call it the Mushroom Government, which supposes a conquest and a throne. There was neither.
 
     It did not replace the state. It grew through it, and discovered on the way that China already possessed something very like a nervous system — cadres carrying information upward, provinces trying policies sideways, infrastructure moving resources, households producing local knowledge, a centre setting direction. The organism did not dismantle any of it. It colonized the interfaces.
   PROSE

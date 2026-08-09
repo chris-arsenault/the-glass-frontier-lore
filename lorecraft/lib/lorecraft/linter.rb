@@ -60,6 +60,7 @@ module Lorecraft
       check_typed_spans
       check_question_anchors
       check_double_article
+      check_banned_phrases
       check_resonance_vocab
       check_dm_public_entry
       check_shell_consistency
@@ -268,6 +269,24 @@ module Lorecraft
     def check_double_article
       pages.each do |e|
         warn("#{label(e)}: double article ('the The …')") if prose_text(e).match?(/\b[Tt]he\s+The\s+/)
+      end
+    end
+
+    # Phrases a world has decided it will not contain, declared in its schema.
+    # This is where a caught habit goes so that catching it once is enough — the
+    # alternative is rediscovering the same tic every review pass, which is how a
+    # first draft's cadence becomes a world's voice by default.
+    def check_banned_phrases
+      bans = @world.schema.banned_phrases
+      return if bans.empty?
+
+      (pages + @world.moments.values).each do |owner|
+        text = prose_text(owner).downcase
+        bans.each do |phrase, reason|
+          next unless text.include?(phrase)
+
+          err("#{owner.id}: banned phrase '#{phrase}' — #{reason}")
+        end
       end
     end
 

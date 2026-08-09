@@ -298,6 +298,33 @@ class LinterTest < Minitest::Test
     assert(findings.any? { |f| f.level == :error && f.message.include?("DM leakage") })
   end
 
+  # A world declares the habits it has caught itself in, so that catching one
+  # once is enough. Other worlds are unaffected.
+  def test_banned_phrases_are_per_world
+    findings = lint do
+      schema do
+        entity_type :concept
+        ban_phrase "which is the point", "narrator verdict"
+      end
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
+      concept :a do name "A"; prose "It is horrifying, which is the point." end
+      concept :b do name "B"; prose "It is horrifying, and the crews stopped going." end
+    end
+    banned = findings.select { |f| f.level == :error && f.message.include?("banned phrase") }
+    assert_equal 1, banned.size
+    assert_includes banned.first.message, "narrator verdict"
+    assert_includes banned.first.message, "concept a".split.last
+  end
+
+  def test_no_bans_declared_means_no_check
+    findings = lint do
+      schema { entity_type :concept }
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
+      concept :a do name "A"; prose "It is horrifying, which is the point." end
+    end
+    refute(findings.any? { |f| f.message.include?("banned phrase") })
+  end
+
   def test_double_article
     findings = lint do
       schema { entity_type :concept }

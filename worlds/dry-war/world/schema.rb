@@ -22,6 +22,29 @@ schema do
   section_heading :religion
   section_heading :identity
 
+  # The house tic, banned on sight. This world's premise document was generated in
+  # a conversation with a model whose paragraph shape is the contrast pair — X
+  # believes A, Y believes B, and then a short closer telling the reader what to
+  # feel about the pair. The contrast is often real content. The closer never is:
+  # it is the narrator stepping outside the encyclopedia to wink.
+  #
+  # An entry may report that two parties disagree, at length, with both positions
+  # stated fairly. It may not then explain the disagreement's significance. See
+  # guidance/authoring-method.md for why this defect is structural here rather
+  # than accidental.
+  ban_phrase "which is the point", "narrator verdict — state the fact and stop"
+  ban_phrase "that is the point", "narrator verdict — state the fact and stop"
+  ban_phrase "that's the point", "narrator verdict — state the fact and stop"
+  ban_phrase "which is precisely", "narrator verdict"
+  ban_phrase "neither sees", "the contrast-pair closer; report both positions and stop"
+  ban_phrase "sees the irony", "the contrast-pair closer; report both positions and stop"
+  ban_phrase "neither is adequate", "verdict on two names — give the names and let them stand"
+  ban_phrase "both are inadequate", "verdict on two names — give the names and let them stand"
+  ban_phrase "that is what makes", "narrator explaining its own material"
+  ban_phrase "that's what makes", "narrator explaining its own material"
+  ban_phrase "that is most of the horror", "narrator assigning the reader an emotion"
+  ban_phrase "that is the horror", "narrator assigning the reader an emotion"
+
   tag :agriculture, "Farming, soil, crops, food systems"
   tag :autonomy, "Human self-determination and what happens to it"
   tag :biotech, "Engineered biology as infrastructure"

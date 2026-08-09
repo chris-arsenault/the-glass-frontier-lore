@@ -33,6 +33,7 @@ module Lorecraft
       @effects = {}          # verb(sym) => description
       @tags = {}             # tag(sym) => description
       @section_headings = {} # heading(sym) => description (canonical prose sections)
+      @banned_phrases = {}   # phrase(downcased) => why this world refuses it
       @static_attrs = DEFAULT_STATIC_ATTRS.dup
       @prominence_levels = PROMINENCE_LEVELS.dup
     end
@@ -76,6 +77,16 @@ module Lorecraft
     def tag?(name) = @tags.key?(name&.to_sym)
 
     def section_heading(name, description = nil) = @section_headings[name.to_sym] = description
+
+    # Prose this world will not contain, with the reason it will not. A world
+    # acquires these by catching itself: a phrase that turned up four times in a
+    # first draft is a habit, and a habit that survives review becomes the house
+    # style whether anyone chose it or not.
+    #
+    #   ban_phrase "which is the point", "narrator verdict — state the fact and stop"
+    def ban_phrase(text, reason) = @banned_phrases[text.to_s.downcase] = reason
+
+    attr_reader :banned_phrases
 
     # Who drafted a block that does not say. A statement about the corpus as a
     # whole — declaring `:ai` says "unless a block claims otherwise, a machine

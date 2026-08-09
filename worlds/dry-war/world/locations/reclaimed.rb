@@ -8,7 +8,7 @@ geographic_location :the_amur_line do
   prominence :renowned
 
   prose <<~PROSE
-    Northeastern China and the Russian Far East, where a #{ref :the_breach, "Breach"} ecology advances through forest. It is not fast. That is most of the horror of it.
+    Northeastern China and the Russian Far East, where a #{ref :the_breach, "Breach"} ecology advances through forest at something under a kilometre a year. Line crews can walk out ahead of it, survey a stand of trees, and come back the following season to survey the same stand again.
 
     Trees develop internal structures resembling organs that correspond to no animal. Migratory birds return on the wrong schedule, in the wrong plumage, to the wrong places. Eventually the forest itself is hostile, and the line has to move.
   PROSE

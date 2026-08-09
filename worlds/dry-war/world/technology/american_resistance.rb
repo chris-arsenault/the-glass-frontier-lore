@@ -69,7 +69,7 @@ concept :stupid_infrastructure do
   prose <<~PROSE
     Resistance settlements refuse global optimization on purpose. Power grids that do not quite balance. Traffic that occasionally jams. Workshops holding unnecessary inventory. Machines from different makers using incompatible standards nobody intends to reconcile.
 
-    To a modern engineer it is horrifying, which is the point. The systems contain human-scale friction, and no single model has enough authority or observability to understand the settlement as a whole.
+    A coalition maintenance system given read access to such a settlement files it as failing and offers a remediation schedule. The settlement declines, annually. What it has instead of efficiency is friction at human scale, and no single model with enough authority or observability to hold the whole place at once.
 
     American resistance engineering has rediscovered inefficiency as a security property, and teaches it as one.
   PROSE

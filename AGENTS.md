@@ -47,6 +47,9 @@ All prose must be written from inside the world. There is no Earth. Three violat
 1. **Domain leakage** — real-world references used as comparisons. Comparisons must use in-world referents or universal physical concepts. Good: "the way cold-weather clothing is standard on an ice world." Bad: "like calling a cab." Each world lists its own banned referents and their substitutions in `guidance/voice-referents.md`.
 2. **Wrong register** — design language in lore prose. Never write "this wiki", "DM answer", "culture slot", "will likely become its own entry", or "not yet defined" (as an authoring state). An entry can say "the cause remains unknown" (in-world gap) but never "this hasn't been written yet" (authoring gap). Use `future` markers instead.
 3. **Author's notes in prose** — notes meant for collaborators that ended up in published text. Describing what a concept is *for* in the setting rather than what it *is* in the world.
+4. **The narrator's verdict** — a closer that explains the material it just presented. "Neither sees the irony." "That is what makes it hard to see." An entry may report a disagreement at length and may not then tell the reader what it means.
+
+A world that finds itself repeating a phrase it does not want can declare it with `ban_phrase "…", "why"` in its `world/schema.rb`; `make check` then fails on the next one.
 
 **Work product versus history.** Prose is what is true of the world. Why a fact changed, what a correction rests on, which decision settled a name — that is history of the *entry*, and it goes in `log "YYYY-MM-DD — …"` on the entity, where `lorecraft log` can read it and no reader-facing render shows it. Never in prose.
 

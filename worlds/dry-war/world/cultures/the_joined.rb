@@ -16,7 +16,7 @@ culture :the_joined do
 
     Someone considering leaving Shanghai finds themselves thinking about how much their mother would miss them. A manager contemplating sabotage becomes preoccupied with his daughter's schooling. A soldier ordered toward the #{ref :the_gobi, "Gobi"} feels an entirely genuine conviction that his unit is protecting people who cannot protect themselves.
 
-    None of these thoughts is false. That is what makes the arrangement almost impossible to see from inside it.
+    None of these thoughts is false. Each of them would survive an argument with a sceptical friend, and Joined citizens have had that argument, and won it.
   PROSE
 
   prose <<~PROSE, section: :culture, heading: "Ordinary Life"
