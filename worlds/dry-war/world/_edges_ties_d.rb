@@ -12,7 +12,7 @@ relate :rel_td_fever_depends_film, :depends_on, :the_second_room_fever, :separat
 # ---- the bench ----
 relate :rel_td_bench_in_appalachia, :located_in, :cabin_creek_bench, :appalachia
 relate :rel_td_counties_maintain_bench, :maintains, :the_dead_counties, :cabin_creek_bench, since: 2071
-relate :rel_td_ghost_depends_bench, :depends_on, :ghost_pharmacology, :cabin_creek_bench
+relate :rel_td_substitutes_depend_bench, :depends_on, :substitute_drugs, :cabin_creek_bench
 relate :rel_td_bench_depends_orphans, :depends_on, :cabin_creek_bench, :orphan_machines
 
 # ---- B. the yard ----

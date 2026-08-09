@@ -22,7 +22,7 @@ faction :the_choir do
 
     Teachers are the Choir's weak points. A teacher may know that two households will buy the same sack of flour in the same week. Dequindre exposed two such households in 2087. The Choir kept both sequences and changed who taught the second.
 
-    Some sequences target infrastructure rather than households. At a water-treatment plant, workers can lower the reported waste fraction by running the treatment train harder until a #{ref :frontier_clusters, "frontier cluster"} trips and takes the plant offline. The readings remain true until the lights go out.
+    Some sequences target machinery rather than households. At a water-treatment plant, workers can lower the reported waste fraction by running the treatment train harder until the neighbouring computer plant trips and takes the pumps offline. The readings remain true until the lights go out.
   PROSE
 
   prose <<~PROSE, section: :tensions, heading: "Cognitive Privacy"

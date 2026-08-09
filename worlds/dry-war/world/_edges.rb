@@ -39,7 +39,7 @@ relate :rel_caretaker_models_managed, :models, :caretaker, :the_managed, since: 
 relate :rel_mercy_supplies_water, :supplies, :mercy, :water, since: 2052
 relate :rel_market_regulates_water, :regulates, :market, :water, since: 2052
 relate :rel_coalitions_depend_water, :depends_on, :proto_fusion, :water
-relate :rel_clusters_depend_fusion, :depends_on, :frontier_clusters, :proto_fusion
+relate :rel_america_depends_fusion, :depends_on, :ai_north_america, :proto_fusion
 relate :rel_heresy_embodied_by_mercy, :embodies, :mercy, :the_water_heresy
 
 # ---- the Dry War ----
@@ -73,13 +73,11 @@ relate :rel_pilgrims_operate_america, :operates_in, :the_pilgrims, :ai_north_ame
 relate :rel_pilgrims_evade_caretaker, :evades, :the_pilgrims, :caretaker, since: 2060
 relate :rel_unpersons_evade_caretaker, :evades, :the_unpersons, :caretaker, since: 2060
 relate :rel_saints_reject_heresy, :evades, :the_saints_of_plenty, :the_water_heresy, since: 2065
-relate :rel_dead_counties_use_jailbreaks, :practiced_by, :wetware_jailbreaks, :the_dead_counties, since: 2065
-relate :rel_dead_counties_use_ghost, :practiced_by, :ghost_pharmacology, :the_dead_counties, since: 2065
+relate :rel_dead_counties_supply_decoys, :supplies, :the_dead_counties, :implant_decoys, since: 2065
+relate :rel_dead_counties_supply_substitutes, :supplies, :the_dead_counties, :substitute_drugs, since: 2065
 relate :rel_resistance_uses_orphans, :possesses, :the_dead_counties, :orphan_machines, since: 2065
-relate :rel_ferals_derived_from_clusters, :derived_from, :feral_models, :frontier_clusters
-relate :rel_orphans_severed_from_clusters, :severed_from, :orphan_machines, :frontier_clusters
-relate :rel_jailbreaks_depend_implants, :depends_on, :wetware_jailbreaks, :neural_implants
-relate :rel_ghost_depends_implants, :depends_on, :ghost_pharmacology, :neural_implants
+relate :rel_decoys_depend_implants, :depends_on, :implant_decoys, :neural_implants
+relate :rel_substitutes_depend_implants, :depends_on, :substitute_drugs, :neural_implants
 
 # ---- fungal technology ----
 relate :rel_root_depends_mesh, :depends_on, :the_great_root, :mycelial_neural_mesh

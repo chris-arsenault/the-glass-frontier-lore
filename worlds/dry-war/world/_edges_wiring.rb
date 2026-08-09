@@ -28,10 +28,9 @@ relate :rel_wr_mycomachines_part_hybrid, :part_of, :mycomachines, :hybridization
 relate :rel_wr_counties_evade_market, :evades, :the_dead_counties, :market
 relate :rel_wr_counties_evade_caretaker, :evades, :the_dead_counties, :caretaker
 
-# ---- wetware jailbreaks: what a fabricated record has to satisfy ----
-relate :rel_wr_jailbreaks_evades_mercy, :evades, :wetware_jailbreaks, :mercy
-relate :rel_wr_jailbreaks_derived_ghostpharm, :derived_from, :ghost_pharmacology, :wetware_jailbreaks
-relate :rel_wr_unpersons_practices_jailbreaks, :practiced_by, :wetware_jailbreaks, :the_unpersons
+# ---- implant decoys and the records they have to satisfy ----
+relate :rel_wr_decoys_evade_mercy, :evades, :implant_decoys, :mercy
+relate :rel_wr_unpersons_possess_decoys, :possesses, :the_unpersons, :implant_decoys
 
 # ---- bonsai intelligences: how a boundary is built ----
 relate :rel_wr_bonsai_depends_severed, :depends_on, :bonsai_intelligences, :severed_strains
@@ -49,7 +48,6 @@ relate :rel_wr_choir_evades_fusion, :evades, :the_choir, :proto_fusion
 relate :rel_wr_fusion_depends_drywar, :part_of, :proto_fusion, :the_dry_war
 relate :rel_wr_caretaker_maintains_fusion, :maintains, :caretaker, :proto_fusion
 relate :rel_wr_mercy_supplies_fusion, :supplies, :mercy, :proto_fusion
-relate :rel_wr_fusion_depends_clusters, :depends_on, :frontier_clusters, :proto_fusion
 
 # ---- symbiotic implants: grown not fitted, and what a reading is worth ----
 relate :rel_wr_implants_depends_textiles, :depends_on, :symbiotic_implants, :living_textiles

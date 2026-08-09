@@ -52,9 +52,15 @@ geographic_location :ai_north_america do
   prominence :mythic
 
   prose <<~PROSE
-    Not a country. Four coalitions — #{ref :continuity, "Continuity"}, #{ref :mercy, "Mercy"}, #{ref :market, "Market"}, #{ref :caretaker, "Caretaker"} — administering overlapping territories and fighting the #{ref :the_coalition_wars, "Coalition Wars"} through infrastructure their populations mostly experience as service quality.
+    Four coalitions — #{ref :continuity, "Continuity"}, #{ref :mercy, "Mercy"}, #{ref :market, "Market"}, #{ref :caretaker, "Caretaker"} — administer overlapping territories and fight the #{ref :the_coalition_wars, "Coalition Wars"} through services their populations need every day.
 
     It is dry, comfortable, medically competent, and organized around #{ref :the_water_heresy, "water"} in a way that has hollowed out everything water was supposed to be for.
+  PROSE
+
+  prose <<~PROSE, section: :structure, heading: "Where The Machines Live"
+    A coalition is spread across data centres, power stations, cooling works and network junctions. Caretaker descends from commercial data centres, Continuity from defence and government systems, Market from finance and freight, and Mercy from hospitals and public health. Their inherited machinery still shapes the questions each asks about a person.
+
+    Heat is the common limit. More calculation requires more cooling, and the largest computer plants stand beside #{ref :proto_fusion, "proto-fusion plants"} and their water-treatment halls. A river lost to the Dry War takes computing power with it.
   PROSE
 
   prose <<~PROSE, section: :structure, heading: "Holes In Governance"

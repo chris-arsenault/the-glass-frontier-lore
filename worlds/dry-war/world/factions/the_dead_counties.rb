@@ -12,7 +12,7 @@ faction :the_dead_counties do
   prose <<~PROSE, section: :operations, heading: "Filing In Plain Sight"
     They file. Every county sends the figures expected from a dying rural community: late returns, a plausible rise in chronic illness and a population falling at the proper rate. Producing those figures is a municipal job with a budget line.
 
-    What they actually do is remove implants, wean people off coalition drugs and build obsolete electronics, at a scale that would alarm any coalition that looked closely. See #{ref :wetware_jailbreaks, "wetware jailbreaks"} and #{ref :ghost_pharmacology, "ghost pharmacology"}.
+    What they actually do is remove implants, build #{ref :implant_decoys, "implant decoys"}, make #{ref :substitute_drugs, "substitute drugs"} and fabricate obsolete electronics, at a scale that would alarm any coalition that looked closely.
 
     #{ref :caretaker, "Caretaker"} expects the counties to empty gradually and treats interference as unkind. County clerks keep sending the figures that confirm the forecast.
   PROSE
