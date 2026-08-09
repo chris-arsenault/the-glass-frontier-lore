@@ -18,7 +18,7 @@ concept :physical_cryptography do
 
     **Worn traceably.** Metal type, a bell's letterform, a die that has cast a thousand tiles. The #{ref :the_yumen_fount, "Yumen fount"} prints the same broken corners and clogged counters onto its fee board, its certificates and the monthly impressions in Ma Renqing's book.
 
-    **Held by a party with no interest.** A lodged half kept at #{ref :wing_lok_godown, "Wing Lok"}, beyond the buyer's reach and useless to the house holding it. The security is the keeper's lack of interest in the sale, not the object.
+    **Held by a party with no interest.** Tissue tubes and glass blocks kept at #{ref :wing_lok_godown, "Wing Lok"}, beyond the reach of both buyer and seller. The security comes from the keeper having no share in the sale.
 
     **Unrepeatable.** #{ref :comparison_tiles, "Comparison tiles"} from one bake, a season that happened once, a throw of dice. The #{ref :the_pilgrims, "Pilgrims"} take this furthest and call it the whole of the culture rather than one property among four.
   PROSE

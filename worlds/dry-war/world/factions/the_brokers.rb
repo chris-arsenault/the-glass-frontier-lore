@@ -4,29 +4,27 @@ faction :the_brokers do
   prominence :recognized
 
   prose <<~PROSE
-    The Pearl River trading houses, and the most politically dangerous people in China — not because they oppose the #{ref :the_great_root, "Great Root"}, but because they insist it must stay porous.
+    The Pearl River trading houses keep routes open between connected China and settlements beyond the #{ref :the_great_root, "Great Root"}. The network treats imported machines, models and habits as uncontrolled mutation. The Brokers consider that exchange necessary to keep China capable of learning from anyone outside itself.
 
-    Merchants discovered early that the unconnected world would trade almost anything for fungal biotechnology. Shenzhen engineers build semi-sentient interfaces to order. Guangzhou families have operated between connected and unconnected societies for three generations. Hong Kong maintains the only body of law anywhere that distinguishes biological property from fungal persons from human-fungal composites from organisms that are arguably foreign extensions of a continental intelligence.
+    Shenzhen engineers build semi-sentient interfaces to order. Guangzhou families have traded between connected and unconnected societies for three generations. Hong Kong courts distinguish biological property, fungal persons, human-fungal composites and organisms that may be foreign extensions of a continental intelligence.
   PROSE
 
   prose <<~PROSE, section: :tensions, heading: "Openness"
-    The continental network increasingly treats information arriving through Guangdong as uncontrolled mutation, and is not wrong to.
-
-    The Brokers make the older argument: that China has always grown stronger by absorbing foreign technique, and that a network which cannot be changed by contact is not a civilization but a specimen. They do not want separation from the fungal state. They want it permeable enough to still be capable of learning something.
-
-    So the most consequential dissidents in the largest human civilization are not desert guerrillas. They are importers, they pay their taxes, and several of them sit on municipal committees.
+    The Brokers make an older argument: China has always grown stronger by absorbing foreign techniques. They want neither separation from the fungal state nor a sealed network. They pay their taxes, sit on municipal committees and keep importing things the Great Root would rather examine before they enter the country.
   PROSE
 
   prose <<~PROSE, section: :trade, heading: "What Moves"
     Interfaces, strains, lineage records, #{ref :memory_ceramics, "memory ceramics"}, medical fungi, and components of #{ref :mycomachines, "mycomachines"} passed west through independent carriers at the inland transfer houses.
 
-    #{ref :market, "Market"} is their largest counterparty and treats them as the only honest institution in Asia. The #{ref :the_preservationists, "Preservationists"} refuse to speak to them and depend on them completely.
+    #{ref :market, "Market"} is their largest counterparty. The #{ref :the_preservationists, "Preservationists"} prohibit direct dealings with them and still depend on goods carried through their houses.
   PROSE
 
-  prose <<~PROSE, section: :trade, heading: "Drawing In Two"
-    Nothing that lives or learns leaves a Pearl River house undrawn. An interface built to order is drawn in two at the bench — a tissue slip off the same flush into the tinned copper tube, the article into its case — and a payment that arrives as a model is drawn the same way onto #{ref :witness_glass, "witness glass"} in the same hour. The matched halves go up the stairs at a lodging house like #{ref :wing_lok_godown, "Wing Lok"}, which trades in nothing and holds them out the term, and the buyer carries away a counterfoil.
+  prose <<~PROSE, section: :trade, heading: "Tubes And Glass"
+    When a living interface leaves a Pearl River house, a tissue slip from the same growth goes into a tinned copper tube. When payment arrives as a model, a copy from the same source is written into #{ref :witness_glass, "witness glass"}. The samples remain for a year at a storage house such as #{ref :wing_lok_godown, "Wing Lok"}, apart from both buyer and seller.
 
-    The houses did not adopt #{ref :the_lodged_half, "the counter-draw"} to reassure anybody. A buyer in a jurisdiction that has never heard of Hong Kong's law of fungal persons has no forum in which to argue a warranty, and a seller who cannot be sued cannot be trusted either. The term, the numbering book and the day printed on the receipt are what the houses put in place of standing.
+    The samples give both sides something that did not cross the border. A stored flush can show whether an interface was already capable of reaching a terminal. A glass block can show whether a model changed before or after a sale, though reading it destroys the block and creates another working copy.
+
+    #{ref :the_eleven_day_flush, "One stored tissue slip"} took eleven days to grow into Wing Lok's test plate and proved that a supposedly severed interface had been connected from the start.
 
     They carry case bundles from #{ref :heshun_reading_house, "the Heshun Reading House"} in the same loads. Cheap copies pass through the same intermediaries and reach farther than anything the house numbers itself.
   PROSE

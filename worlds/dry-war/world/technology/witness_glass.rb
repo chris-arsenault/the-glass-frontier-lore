@@ -10,15 +10,15 @@ resource :witness_glass do
   PROSE
 
   prose <<~PROSE, section: :how_it_works, heading: "The Top Leaf"
-    The uppermost leaf of a block is unwritten and polished to a mirror. It takes a fingerprint, the fog of a warm hand, the drag of a blade, and the scuff of the block being lifted out of its slip case at any angle other than straight. A lodging house can therefore certify a block without touching what is under the leaf, which is the whole of what the lower tier of #{ref :the_lodged_half, "a counter-draw"} pays for.
+    The uppermost leaf of a block is unwritten and polished to a mirror. It takes a fingerprint, the fog of a warm hand, the drag of a blade, and the scuff of the block being lifted out of its slip case at any angle other than straight. Staff at #{ref :wing_lok_godown, "Wing Lok"} can see whether a stored block has been handled without touching the written leaves beneath it.
 
     A written block is read once. The leaves come off the glue in order, each is lit at the one angle its voids stand up at, and what the reading produces is a working copy of the model somewhere else. What it leaves is broken glass and a line in the book.
   PROSE
 
   prose <<~PROSE, section: :limits, heading: "How Much Fits"
-    A block holds one small model. Architectures spliced out of three others do not fit and are lodged in parts, on blocks numbered as a set, which is a set of seals to keep sound rather than one.
+    A block holds one small model. Larger models fill several numbered blocks. Each block has its own mirrored top leaf, so the set remains intact only while every mirror stays unmarked.
 
-    Glass shops write a block from the same source and in the same hour as the copy that ships, and the shop's mark is written into a corner of every leaf rather than onto the case. A block whose leaves carry two marks was written twice, and no lodging house on the #{ref :the_pearl_river_delta, "Pearl River"} will receipt one.
+    Glass shops write a block from the same source and in the same hour as the copy that ships, and the shop's mark is written into a corner of every leaf rather than onto the case. A block whose leaves carry two marks was written twice. Storage houses on the #{ref :the_pearl_river_delta, "Pearl River"} keep such blocks outside their dry rooms.
   PROSE
 
   log "2026-08-09 — The polished blank on top is a tamper-evident seal, from the rule that a retained sample may pass through unauthorised hands only if it is sealed so that interference shows. Making the seal a mirror rather than a band means the lower tier of certification can be performed by looking, without the house ever holding what it is certifying."

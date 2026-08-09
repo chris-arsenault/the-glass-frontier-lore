@@ -2,47 +2,29 @@
 # sits between them rather than by an edge asserting they were connected all
 # along.
 #
-#   the Brokers        ↔ feral models        — the counter-draw and the lodging house
-#   sterile machines   ↔ the Mediterranean Chain — the fouling round and its tiles
-#   bonsai minds       ↔ orphan machines     — the refusal sitting and its packets
+#   the Brokers        ↔ feral models        — witness glass stored at Wing Lok
+#   sterile machines   ↔ the Mediterranean Chain — the Kalkara ovens and their tiles
+#   bonsai minds       ↔ orphan machines     — the Heshun house and its case bundles
 
-# ---- the counter-draw: two halves, one term ----
-relate :rel_tc_lodged_half_practiced_by_brokers, :practiced_by, :the_lodged_half, :the_brokers, since: 2071 do
-  prose "Nothing that lives or learns leaves a Pearl River bench undrawn, and the counterfoil is what a buyer with no forum carries away instead of a warranty."
-end
-relate :rel_tc_lodged_half_at_godown, :manifests_at, :the_lodged_half, :wing_lok_godown
-relate :rel_tc_lodged_half_depends_glass, :depends_on, :the_lodged_half, :witness_glass
-relate :rel_tc_lodged_half_regulates_ferals, :regulates, :the_lodged_half, :feral_models, since: 2071 do
-  prose "A model paid across the line is drawn in two in the same hour as the copy that ships, and the half that stays behind cannot be examined without ending it."
-end
-relate :rel_tc_lodged_half_regulates_severed, :regulates, :the_lodged_half, :severed_strains, since: 2071 do
-  prose "A tissue slip off the same flush, sealed damp in a tinned copper tube, against the day the strain was sold as unable to reach anything."
-end
-relate :rel_tc_gatekeepers_study_lodged_half, :studies, :the_gatekeepers, :the_lodged_half, since: 2074
-
+# ---- Wing Lok and the samples above the street ----
 relate :rel_tc_godown_in_pearl, :located_in, :wing_lok_godown, :the_pearl_river_delta, since: 2071
 relate :rel_tc_brokers_operate_godown, :operates_in, :the_brokers, :wing_lok_godown, since: 2071
-relate :rel_tc_godown_holds_glass, :possesses, :wing_lok_godown, :witness_glass, since: 2079 do
-  prose "Two hundred blocks on edge in wooden slip cases, in a room with no plumbing above it and nothing in it that sweats."
-end
+relate :rel_tc_godown_holds_glass, :possesses, :wing_lok_godown, :witness_glass, since: 2079
+relate :rel_tc_godown_holds_strains, :possesses, :wing_lok_godown, :severed_strains, since: 2071
+relate :rel_tc_gatekeepers_study_godown, :studies, :the_gatekeepers, :wing_lok_godown, since: 2074
 
 relate :rel_tc_glass_carries_ferals, :carries, :witness_glass, :feral_models, since: 2079
 relate :rel_tc_glass_derived_from_crypto, :derived_from, :witness_glass, :physical_cryptography
-relate :rel_tc_dead_counties_supply_glass, :supplies, :the_dead_counties, :witness_glass, since: 2079 do
-  prose "Appalachian glass shops cut, write and glue the blocks, and write the shop's mark into a corner of every leaf rather than onto the case."
-end
+relate :rel_tc_dead_counties_supply_glass, :supplies, :the_dead_counties, :witness_glass, since: 2079
 
-# ---- the case the practice is argued from ----
-relate :rel_tc_complaint_at_godown, :manifests_at, :the_wing_lok_counter_complaint, :wing_lok_godown
-relate :rel_tc_complaint_during_holding, :active_during, :the_wing_lok_counter_complaint, :the_holding
-relate :rel_tc_brokers_participated_complaint, :participated_in, :the_brokers, :the_wing_lok_counter_complaint
-relate :rel_tc_dead_counties_participated_complaint, :participated_in, :the_dead_counties, :the_wing_lok_counter_complaint
-relate :rel_tc_complaint_depends_lodged_half, :depends_on, :the_wing_lok_counter_complaint, :the_lodged_half do
-  prose "Filed on the three hundred and fiftieth day, decided six days after the term closed, and the reason a complaint received inside the term now holds both halves until the bench has answered it."
-end
-relate :rel_tc_complaint_depends_glass, :depends_on, :the_wing_lok_counter_complaint, :witness_glass
-relate :rel_tc_complaint_mentions_severed, :mentions, :the_wing_lok_counter_complaint, :severed_strains
-relate :rel_tc_complaint_mentions_ferals, :mentions, :the_wing_lok_counter_complaint, :feral_models
+# ---- the eleven-day flush ----
+relate :rel_tc_flush_at_godown, :manifests_at, :the_eleven_day_flush, :wing_lok_godown
+relate :rel_tc_flush_during_holding, :active_during, :the_eleven_day_flush, :the_holding
+relate :rel_tc_brokers_in_flush, :participated_in, :the_brokers, :the_eleven_day_flush
+relate :rel_tc_dead_counties_in_flush, :participated_in, :the_dead_counties, :the_eleven_day_flush
+relate :rel_tc_flush_depends_glass, :depends_on, :the_eleven_day_flush, :witness_glass
+relate :rel_tc_flush_mentions_severed, :mentions, :the_eleven_day_flush, :severed_strains
+relate :rel_tc_flush_mentions_ferals, :mentions, :the_eleven_day_flush, :feral_models
 
 # ---- the tiles and the Kalkara ovens ----
 relate :rel_tc_tiles_derived_from_sterile, :derived_from, :comparison_tiles, :sterile_machines

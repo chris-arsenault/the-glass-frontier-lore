@@ -4,18 +4,18 @@ concept :feral_models do
   prominence :recognized
 
   prose <<~PROSE
-    Small AI is everywhere in the American resistance. The taboo is not artificial intelligence; it is alignment to the continental systems.
+    American resistance settlements use small artificial intelligences in workshops, clinics and local defences. They call a model feral once it has been cut off from coalition updates and controls.
 
-    So engineers take old models, strip the safety and governance layers, retrain on local data, splice architectures together and let the results develop without supervision. These are ferals. They are worse than coalition intelligence at nearly everything.
+    Engineers retrain old models on local records, combine parts from incompatible systems and alter them without a common standard. Ferals are slower and less accurate than coalition intelligence at most work.
 
-    They are also different. A feral may decide something a vastly superior model cannot anticipate, because its training history is obscure, corrupted, contradictory and intensely local. Being somewhat stupid has become a strategic property, and the #{ref :the_pilgrims, "Pilgrims"} have built a philosophy on it.
+    Their value is that coalition systems cannot reliably predict them. Each model carries decisions made by different hands in a place the coalition did not observe. The #{ref :the_pilgrims, "Pilgrims"} prize that local history more than speed or accuracy.
   PROSE
 
   prose <<~PROSE, section: :trade, heading: "What A Feral Is Worth Abroad"
-    Ferals are currency across the line. #{ref :the_brokers, "Pearl River houses"} will take one against an interface built to order, because a model whose training history nobody can reconstruct is worth having for exactly the reason a coalition finds it worthless, and because a house that has been paid in weights can build against them without asking permission of anything.
+    Ferals are currency across the line. #{ref :the_brokers, "Pearl River houses"} take them in payment for interfaces because an unfamiliar model can test choices the Great Root's own systems would never make.
 
-    A feral sold abroad is drawn in two under #{ref :the_lodged_half, "the counter-draw"}: the copy that ships, and a copy written to a block of #{ref :witness_glass, "witness glass"} from the same source in the same hour, sealed and lodged for the term with a house that trades in neither. The block is the seller's evidence that the article was not retrained after the sale and the buyer's evidence that it was not retrained before it.
+    A feral sold abroad leaves one copy on #{ref :witness_glass, "witness glass"}, written from the same source and in the same hour as the copy that ships. The glass remains at a house such as #{ref :wing_lok_godown, "Wing Lok"}, beyond the reach of both buyer and seller. It can show whether the model changed before or after the sale.
 
-    Nobody can establish either without separating the block, which ends it. In #{ref :the_wing_lok_counter_complaint, "the one dispute where a block was the whole of the argument"}, the party that would have gained by the reading withdrew rather than have its own model separated leaf from leaf in a room on Wing Lok Street.
+    Reading the block separates and cracks every glass leaf, then produces a working copy of the model in the room. During #{ref :the_eleven_day_flush, "the eleven-day flush"}, the Guangzhou seller accepted the finding against its interface rather than open the feral model it had received as payment.
   PROSE
 end
