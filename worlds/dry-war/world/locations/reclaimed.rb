@@ -41,12 +41,12 @@ geographic_location :the_mediterranean_chain do
     There is formal custom for this now. Inside the wall, the #{ref :the_forever_war, "Forever War"} outranks every other allegiance — a rule with no signatory, no enforcement mechanism and a near-perfect compliance record.
   PROSE
 
-  prose <<~PROSE, section: :operations, heading: "Grading The Wall"
-    A landing that establishes inside a wall establishes on anchored growth, so every quarter each enclave grades everything it owns that meets water: drone skins, gate rams and their seats, culvert throats, reef anchors, pump interiors, and the fungal barrier's own beds. #{ref :the_fouling_round, "The round"} is walked by a surveyor with ten #{ref :comparison_tiles, "graded tiles"} in a copper case, and a surface is pulled on a grade paired with an area rather than on a grade alone.
+  prose <<~PROSE, section: :operations, heading: "Warm Water Inside The Wall"
+    A landing can take hold on the ordinary growth inside a wall, so each enclave inspects every wet surface four times a year: drone skins, gate rams, culverts, reef anchors, pump interiors and the fungal barrier's own beds. Surveyors compare them with ten #{ref :comparison_tiles, "graded tiles"} in a copper case. A patch of hard crust on a gate seat is more dangerous than soft film across a whole hull.
 
-    What is pulled goes to a shed like #{ref :kalkara_bake_shed, "Kalkara"} on the creek, comes apart into pieces that fit an oven, and comes back assembled or is refused. The barrier is graded on the same sheet as the hulls: a #{ref :severed_strains, "severed strain"} that has crept out of its bed onto the wall behind it is entered at a grade and cut back to the bed.
+    Fouled machinery goes to a shed like #{ref :kalkara_bake_shed, "Kalkara"} on the creek, comes apart into pieces that fit an oven, and returns scorched and dry. A #{ref :severed_strains, "severed strain"} that creeps out of its barrier bed is cut back before it reaches bare wall.
 
-    Nothing about the procedure is fast and nothing in it reports anywhere. #{ref :the_zonqor_grading, "One drone returned to the water"} in 2087 against a tile set nobody had retired cost an enclave three gates and a season on two.
+    #{ref :the_zonqor_drone, "One drone returned to the water"} in 2087 against a worn tile set carried hard growth through a culvert and cost an enclave three gates and a season on two.
   PROSE
 end
 

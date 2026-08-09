@@ -47,9 +47,7 @@ relate :rel_wr_pilgrims_evades_stupid, :evades, :the_pilgrims, :stupid_infrastru
 
 # ---- physical cryptography: the practice its instruments belong to ----
 relate :rel_wr_fount_embodies_physcrypt, :embodies, :the_yumen_fount, :physical_cryptography
-relate :rel_wr_tiles_embodies_physcrypt, :embodies, :comparison_tiles, :physical_cryptography do
-  prose "Ten graded surfaces from one bake. The set cannot be reproduced, which is the whole of its authority."
-end
+relate :rel_wr_tiles_embodies_physcrypt, :embodies, :comparison_tiles, :physical_cryptography
 relate :rel_wr_physcrypt_practiced_pilgrims, :practiced_by, :physical_cryptography, :the_pilgrims
 relate :rel_wr_physcrypt_practiced_gatekeepers, :practiced_by, :physical_cryptography, :the_gatekeepers do
   prose "A tray of dated type, opened in front of both parties. Nobody in the American resistance taught them, and the convergence is not remarked on in either place."

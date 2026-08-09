@@ -10,9 +10,9 @@ concept :sterile_machines do
   PROSE
 
   prose <<~PROSE, section: :trade, heading: "The Export Trade"
-    The largest customers for this work are not resistance settlements. They are the #{ref :the_mediterranean_chain, "Mediterranean"} enclaves, whose seawalls, gates, pumps and reef anchors stand in warm water that will grow anything, and whose #{ref :the_fouling_round, "quarterly round"} pulls a surface from service on a grade and an area and sends it to an oven.
+    The largest customers for this work are the #{ref :the_mediterranean_chain, "Mediterranean"} enclaves, whose seawalls, gates, pumps and reef anchors stand in warm water that will grow anything. Their wet machinery is checked four times a year and sent to an oven whenever anchored growth takes hold.
 
-    An article that cannot be taken apart into bakeable pieces is refused at the quay and never goes back inside a wall. So the enclaves buy from shops that were already building for the oven — dry bearings, open voids, fired glaze, no seated gasket anywhere in the assembly — and pay a premium for a maker who will state what is inside every housing. The same shops cast the enclaves' #{ref :comparison_tiles, "tile sets"}, ten graded surfaces in a copper case that doubles as its own bake box.
+    Anything that cannot be taken apart into bakeable pieces stays outside the wall. The enclaves buy from shops already building for the oven: dry bearings, open voids, fired glaze and no seated gasket anywhere in the assembly. They pay a premium for a maker who names what is inside every housing. The same shops cast the enclaves' #{ref :comparison_tiles, "tile sets"}, ten graded surfaces in a copper case that doubles as its own bake box.
 
     Gate crews in three of the four enclaves that use the #{ref :kalkara_bake_shed, "Kalkara shed"} would rather buy nothing out of Chinese hands at all, and buy anyway, on the shed's refusal list rather than on anyone's word.
   PROSE

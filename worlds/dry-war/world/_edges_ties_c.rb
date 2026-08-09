@@ -44,39 +44,19 @@ relate :rel_tc_complaint_depends_glass, :depends_on, :the_wing_lok_counter_compl
 relate :rel_tc_complaint_mentions_severed, :mentions, :the_wing_lok_counter_complaint, :severed_strains
 relate :rel_tc_complaint_mentions_ferals, :mentions, :the_wing_lok_counter_complaint, :feral_models
 
-# ---- the fouling round: a grade, an area, an oven ----
-relate :rel_tc_round_at_medchain, :manifests_at, :the_fouling_round, :the_mediterranean_chain
-relate :rel_tc_round_at_kalkara, :manifests_at, :the_fouling_round, :kalkara_bake_shed
-relate :rel_tc_round_depends_tiles, :depends_on, :the_fouling_round, :comparison_tiles do
-  prose "Ten tiles in a copper case, laid against the surface under a raking lamp and dragged over with a leather pad. The grade is the tile the surface answers like."
-end
-relate :rel_tc_round_regulates_sterile, :regulates, :the_fouling_round, :sterile_machines, since: 2072 do
-  prose "What may come inside a wall is what comes apart into pieces that fit an oven door, which is what the Chinese resistance shops were already building."
-end
-relate :rel_tc_round_regulates_severed, :regulates, :the_fouling_round, :severed_strains, since: 2072 do
-  prose "The barrier is graded on the same sheet as the hulls. A bed that has crept onto the wall behind it is entered at a grade and cut back to the bed."
-end
+# ---- the tiles and the Kalkara ovens ----
 relate :rel_tc_tiles_derived_from_sterile, :derived_from, :comparison_tiles, :sterile_machines
-relate :rel_tc_medchain_depends_severed, :depends_on, :the_mediterranean_chain, :severed_strains do
-  prose "The fungal barrier inside every wall is disconnected stock with a documented lineage, bought from the unconnected world and graded every quarter."
-end
+relate :rel_tc_medchain_depends_severed, :depends_on, :the_mediterranean_chain, :severed_strains
 
 relate :rel_tc_kalkara_in_medchain, :located_in, :kalkara_bake_shed, :the_mediterranean_chain, since: 2072
-relate :rel_tc_kalkara_supplies_tiles, :supplies, :kalkara_bake_shed, :comparison_tiles, since: 2087 do
-  prose "The shed stamps the season onto a new case, issues sets to named surveyors at the top of each quarter, and breaks the expired ones on a stone by the water door."
-end
-relate :rel_tc_kalkara_regulates_sterile, :regulates, :kalkara_bake_shed, :sterile_machines, since: 2072 do
-  prose "The list on the water door names oiled bearings, seated gaskets, closed voids and sealed housings without complete material schedules."
-end
+relate :rel_tc_kalkara_supplies_tiles, :supplies, :kalkara_bake_shed, :comparison_tiles, since: 2087
+relate :rel_tc_kalkara_regulates_sterile, :regulates, :kalkara_bake_shed, :sterile_machines, since: 2072
 
-relate :rel_tc_zonqor_at_medchain, :manifests_at, :the_zonqor_grading, :the_mediterranean_chain
-relate :rel_tc_zonqor_at_kalkara, :manifests_at, :the_zonqor_grading, :kalkara_bake_shed
-relate :rel_tc_zonqor_depends_tiles, :depends_on, :the_zonqor_grading, :comparison_tiles do
-  prose "A set four seasons past its casting, worn toward the reading that requires no action. The grade was correct against the tiles in the surveyor's hand."
-end
-relate :rel_tc_zonqor_commemorates_round, :commemorates, :the_zonqor_grading, :the_fouling_round
-relate :rel_tc_zonqor_mentions_others, :mentions, :the_zonqor_grading, :the_others
-relate :rel_tc_zonqor_during_reclamation, :active_during, :the_zonqor_grading, :the_reclamation
+relate :rel_tc_zonqor_at_medchain, :manifests_at, :the_zonqor_drone, :the_mediterranean_chain
+relate :rel_tc_zonqor_at_kalkara, :manifests_at, :the_zonqor_drone, :kalkara_bake_shed
+relate :rel_tc_zonqor_depends_tiles, :depends_on, :the_zonqor_drone, :comparison_tiles
+relate :rel_tc_zonqor_mentions_others, :mentions, :the_zonqor_drone, :the_others
+relate :rel_tc_zonqor_during_reclamation, :active_during, :the_zonqor_drone, :the_reclamation
 
 # ---- Heshun: travelling lessons and the false headwater ----
 relate :rel_tc_heshun_in_yunnan, :located_in, :heshun_reading_house, :yunnan, since: 2069
