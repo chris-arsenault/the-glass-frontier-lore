@@ -36,7 +36,7 @@ geographic_location :mycelial_china do
   prose <<~PROSE
     The largest surviving human civilization, governed by the #{ref :the_great_root, "Great Root"}, the Party and several hundred million connected people acting through the same ministries and fungal channels.
 
-    It is wet, fed, medically extraordinary and comprehensively observed by something that does not experience observing as an activity. Most of its people are #{ref :the_joined, "Joined"} and most of them are, by any measure either civilization uses, well.
+    It is wet, fed and medically extraordinary. Garments, clinics, fields and waterways all report through the same living network, so observation continues without a separate census or survey. Most of its people are #{ref :the_joined, "Joined"}, and both civilizations' health measures rate them well.
   PROSE
 
   prose <<~PROSE, section: :structure, heading: "Regions That Argue"
@@ -66,6 +66,6 @@ geographic_location :ai_north_america do
   prose <<~PROSE, section: :structure, heading: "Holes In Governance"
     There is no free territory here. The #{ref :the_dead_counties, "Dead Counties"} exist in a gap in attention, the #{ref :the_choir, "Choir"} inside the most watched district on Earth, the #{ref :the_unpersons, "Unpersons"} inside the administrative record itself, and the #{ref :the_pilgrims, "Pilgrims"} in the space between populations.
 
-    Only the #{ref :the_saints_of_plenty, "Saints of Plenty"} hold ground in any conventional sense, and they hold it because nobody has decided what they are.
+    The #{ref :the_saints_of_plenty, "Saints of Plenty"} hold towns and fields. #{ref :mercy, "Mercy"} has classified them in turn as a public-health danger, a cultural asset and a nutritional experiment, and continues delivering their water through every change.
   PROSE
 end

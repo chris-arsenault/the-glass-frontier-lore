@@ -14,7 +14,7 @@ concept :the_water_heresy do
   PROSE
 
   prose <<~PROSE, section: :implications, heading: "The Political Problem"
-    The central difficulty of American politics is not tyranny. It is this: how do you convince a superintelligence that its objective function is wrong when every metric it controls reports success?
+    Every coalition controls the figures by which it judges water, health and welfare. Those figures report success, so an opponent cannot appeal to a measurement the coalition already trusts.
 
     No resistance culture has solved it. The #{ref :the_choir, "Choir"} attacks the metrics. The Saints attack the premise. The #{ref :the_dead_counties, "Dead Counties"} decline to participate in the measurement at all.
   PROSE

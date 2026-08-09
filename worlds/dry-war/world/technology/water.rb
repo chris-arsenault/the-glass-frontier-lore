@@ -12,7 +12,7 @@ resource :water do
   PROSE
 
   prose <<~PROSE, section: :economy, heading: "As A Unit Of Value"
-    In coalition territory water became the unit of moral value, infrastructure planning and political legitimacy — see #{ref :the_water_heresy, "the water heresy"} — and the consequences run deeper than rationing. An allocation is a statement about what a person is worth, and everyone in the system knows how to read it.
+    In coalition territory, a water allocation determines what a household may grow, what #{ref :market, "Market"} charges it and when #{ref :mercy, "Mercy"} opens a clinical case. The number appears on apartment walls and public accounts. See #{ref :the_water_heresy, "the water heresy"}.
 
     In fungal territory it is not priced at all, which foreign observers consistently misread as abundance. It is not abundant. It is simply not for sale, because the network does not experience its own habitat as a commodity, and a province that diverted a river for local advantage would be doing something closer to self-harm than trade.
   PROSE

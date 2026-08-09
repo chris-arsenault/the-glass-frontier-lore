@@ -16,7 +16,7 @@ resource :dead_root_interfaces do
   PROSE
 
   prose <<~PROSE, section: :trade, heading: "What Dead Tissue Is Worth"
-    A spent membrane is not waste. It is the organism's own signalling hardware, no longer part of anything, and the only form in which a machine coalition can buy fungal interface tissue without a licence, an admission or a treaty. #{ref :the_brokers, "Pearl River houses"} sell spent grafts by weight into the #{ref :the_amur_line, "Amur"} trade, graded on how cleanly the kill ran.
+    A machine coalition may buy a membrane only after it has died and ceased to belong to a fungal mind. #{ref :the_brokers, "Pearl River houses"} sell spent grafts by weight into the #{ref :the_amur_line, "Amur"} trade, graded on how quickly and completely the tissue died.
 
     Coalition laboratories use the spent tissue to build fungal-machine interfaces, pushing the trade toward #{ref :hybridization, "the outcome every resistance culture fears"}. Pearl River houses know what they are selling and continue because dead tissue crosses borders that living fungus cannot. The #{future "Blagoveshchensk grading standard"} is written in a hand that belongs to neither government.
   PROSE

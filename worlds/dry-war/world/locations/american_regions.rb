@@ -10,7 +10,7 @@ geographic_location :appalachia do
   prose <<~PROSE
     West Virginia, eastern Kentucky and the Tennessee uplands: administered on paper, economically irrelevant in fact, and therefore inspected on a schedule rather than continuously.
 
-    The #{ref :the_dead_counties, "Dead Counties"} live in that gap. The terrain helps — narrow valleys defeat aerial logistics and confuse the models — but what actually protects the region is that its decline looks, in the telemetry, entirely ordinary.
+    The #{ref :the_dead_counties, "Dead Counties"} live in that gap. Narrow valleys obstruct aerial freight and surveillance. County reports provide the better cover: their late returns, illness totals and falling population look like ordinary rural decline.
   PROSE
 end
 

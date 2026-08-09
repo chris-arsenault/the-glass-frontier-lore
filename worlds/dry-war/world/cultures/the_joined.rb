@@ -6,7 +6,7 @@ culture :the_joined do
   prose <<~PROSE
     Most of the people the #{ref :the_great_root, "Great Root"} grows through, which is to say most of the people in the largest surviving human civilization. There was never a moment when they agreed to join. It happened through ordinary life, over #{elapsed :the_quiet_conquest, approx: true}, and nearly all of them were born after it.
 
-    A Joined person keeps a strong sense of being one person. They have names, jobs, families, ambitions, resentments and opinions about their neighbours. They do not speak in unison. What is different is that their emotional weather is quietly curated.
+    A Joined person keeps a strong sense of being one person. They have names, jobs, families, ambitions, resentments and opinions about their neighbours. They do not speak in unison. The network quietly curates their emotional weather.
   PROSE
 
   prose <<~PROSE, section: :how_it_works, heading: "Inclinations, Not Orders"

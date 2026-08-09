@@ -4,7 +4,7 @@ faction :the_preservationists do
   prominence :recognized
 
   prose <<~PROSE
-    The Gobi enclaves, and not guerrillas in any sense they would accept. Most Preservationists consider themselves the legitimate continuation of the Chinese state, holding it in trust until it can return.
+    Gobi enclaves that consider themselves the legitimate continuation of the Chinese state. They hold its institutions in trust until the state can return.
 
     Their foundational claim is constitutional rather than biological: the network has broken the relationship between ruler and ruled, because a human official can no longer demonstrate that a decision originated in human judgement. A government whose decisions may come from the Great Root has no authority.
   PROSE

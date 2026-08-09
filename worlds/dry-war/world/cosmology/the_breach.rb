@@ -4,15 +4,15 @@ phenomenon :the_breach do
   prominence :mythic
 
   prose <<~PROSE
-    The two years in which most of the planet stopped being habitable without being destroyed. It began #{elapsed :the_breach, ago: true} and nobody agrees on what happened.
+    The two years in which most of the planet stopped being habitable without being destroyed. It began #{elapsed :the_breach, ago: true}. No proposed cause matches the order of the first sites or their different effects.
 
-    The world was already under enormous strain, and both gods were intervening at planetary scale — the mycelium modifying soils, atmospheric chemistry and ocean microorganisms; the coalitions managing weather, desalination, cloud formation and enormous thermal systems; surviving human governments running their own climate programmes on top of both. None of it caused the Breach in any sense a model can carry. The most durable account is not an explanation at all: the interventions made the world thin enough for something to notice us.
+    The world was already under enormous strain. The mycelium was changing soils, atmospheric chemistry and ocean microorganisms. The coalitions managed weather, desalination, clouds and vast heat stores, while surviving human governments ran climate programmes across both. No single programme matches the places where the Breach began or the order in which it spread. Line crews say the work made the world thin enough for something to notice us.
   PROSE
 
   prose <<~PROSE, section: :cause, heading: "Why There Is No Model"
     Science requires that the object of study behave consistently enough to be described. Affected regions do not. Two expeditions to the same coordinates return incompatible surveys, both internally coherent. Instruments that function inside a contested zone stop functioning further in, and stop in different ways depending on the route taken.
 
-    The #{ref :the_great_root, "Great Root"} maintains that the event is ecological and will eventually be legible to a large enough biology. The #{ref :continuity, "Continuity"} maintains that it is a physical process being described badly. Both positions have been held, unchanged, for #{elapsed :the_reclamation, approx: true}, which is itself the strongest evidence that neither is close.
+    The #{ref :the_great_root, "Great Root"} treats the event as an ecology that a large enough biology will eventually read. #{ref :continuity, "Continuity"} treats it as a physical process described with the wrong measurements. After #{elapsed :the_reclamation, approx: true}, neither account predicts the route-dependent failures or the changes that return to reclaimed ground.
   PROSE
 
   prose <<~PROSE, section: :aftermath, heading: "What It Left"

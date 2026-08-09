@@ -12,7 +12,7 @@ resource :witness_glass do
   prose <<~PROSE, section: :how_it_works, heading: "The Top Leaf"
     The uppermost leaf of a block is unwritten and polished to a mirror. It takes a fingerprint, the fog of a warm hand, the drag of a blade, and the scuff of the block being lifted out of its slip case at any angle other than straight. Staff at #{ref :wing_lok_godown, "Wing Lok"} can see whether a stored block has been handled without touching the written leaves beneath it.
 
-    A written block is read once. The leaves come off the glue in order, each is lit at the one angle its voids stand up at, and what the reading produces is a working copy of the model somewhere else. What it leaves is broken glass and a line in the book.
+    A written block is read once. The leaves come off the glue in order, each lit at the angle that reveals its voids. The reader receives a working copy of the model and leaves broken glass and a line in the book.
   PROSE
 
   prose <<~PROSE, section: :limits, heading: "How Much Fits"
