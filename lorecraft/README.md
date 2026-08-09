@@ -71,7 +71,8 @@ end
 
 - **Prose bindings:** `ref :id` (cross-link, resolved at render era), `rel :verb`
   (the live target(s) of one of the owner's relations), `future "Name"` (shell
-  placeholder → `[future:Name]`), `embed :id[, :section]` (transclude another
+  placeholder; the name renders as prose and the stub note goes in an HTML
+  comment), `embed :id[, :section]` (transclude another
   entity's prose), `elapsed :anchor` (a span the timeline computes) and
   `year :anchor` (an absolute year).
 - **Adding a binding kind:** a `Marker` subclass naming its callback, then that

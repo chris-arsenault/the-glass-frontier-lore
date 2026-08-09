@@ -17,9 +17,8 @@ const LORE_ROOT = process.env.LORE_ROOT || path.join(REPO_ROOT, 'worlds', WORLD)
 // reviewed as prose.
 const META_FILES = ['schema.rb', 'timeline.rb', 'pages.rb']
 
-// The DSL files that carry content, world-root-relative — the same key space as
-// review-status.json and `lorecraft review`.
-app.get('/api/files', (req, res) => {
+// The DSL files that carry content, world-root-relative.
+function listFiles() {
   const files = []
   const walkDir = (dir, prefix) => {
     if (!fs.existsSync(dir)) return
@@ -33,8 +32,10 @@ app.get('/api/files', (req, res) => {
     }
   }
   walkDir(path.join(LORE_ROOT, 'world'), 'world')
-  res.json(files.sort())
-})
+  return files.sort()
+}
+
+app.get('/api/files', (req, res) => res.json(listFiles()))
 
 // Read a specific file
 app.get('/api/file/*path', (req, res) => {
@@ -46,36 +47,150 @@ app.get('/api/file/*path', (req, res) => {
   res.json({ path: reqPath, content: fs.readFileSync(filePath, 'utf-8') })
 })
 
-// Comments moved into the DSL as `question` declarations on the entity, so that
-// a comment cannot come unstuck from the prose it is about. Reading returns
-// nothing and writing is refused rather than recreating a file the engine no
-// longer reads — a second source is exactly what the move eliminated.
-const COMMENTS_RETIRED = {
-  error: 'Review comments live in the DSL now',
-  detail: 'Add `question "...", raised: "YYYY-MM-DD", on: "<the passage>"` to the entity, ' +
-          'then `make queue WORLD=<id>`.',
+// --- writing the DSL --------------------------------------------------------
+//
+// There is no sidecar. A comment is a `question` declaration on the entity and a
+// sign-off is `reviewed` / `status`, so this server edits the .rb file itself.
+// It only ever inserts or removes whole declaration lines; prose is never
+// touched.
+
+const resolve = (rel) => {
+  const file = path.join(LORE_ROOT, rel || '')
+  if (!file.startsWith(LORE_ROOT) || !fs.existsSync(file)) return null
+  return file
 }
 
-app.get('/api/reviews', (req, res) => res.json([]))
-app.post('/api/reviews', (req, res) => res.status(410).json(COMMENTS_RETIRED))
-app.patch('/api/reviews/:id', (req, res) => res.status(410).json(COMMENTS_RETIRED))
-app.delete('/api/reviews/:id', (req, res) => res.status(410).json(COMMENTS_RETIRED))
+// Ruby double-quoted string body. `#{` has to go too, or a quoted passage
+// containing a marker would interpolate when the world loads.
+const rubyString = (text) =>
+  String(text).replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/#\{/g, '\\#{').replace(/\n+/g, ' ').trim()
 
-// Review state moved onto the content too: `reviewed "YYYY-MM-DD"` and
-// `status :complete` on the entity, audited by `lorecraft provenance`. The
-// toggles wrote a JSON the engine no longer reads, so they are refused rather
-// than recreating it.
-const STATUS_RETIRED = {
-  error: 'Review state lives in the DSL now',
-  detail: 'Set `reviewed "YYYY-MM-DD"` and `status :complete` on the entity, ' +
-          'then `make provenance WORLD=<id>`.',
+// An `on:` anchor is matched against the prose a reader sees, and a marker
+// becomes its own text when the world loads — so a selection spanning
+// `#{ref :x, "Label"}` matches nothing. Keep the longest marker-free run, and
+// drop the anchor entirely if what is left is too short to identify a passage.
+const ANCHOR_MIN = 12
+const anchorFrom = (selection) => {
+  const best = String(selection || '')
+    .split(/#\{[^}]*\}?/)
+    .map((s) => s.replace(/\s+/g, ' ').trim())
+    .sort((a, b) => b.length - a.length)[0] || ''
+  return best.length >= ANCHOR_MIN ? best : null
 }
 
-app.get('/api/review-status', (req, res) => res.json({ auto: {}, manual: {} }))
-app.post('/api/review-status', (req, res) => res.status(410).json(STATUS_RETIRED))
+const QUESTION_RE = /^(\s*)question\s+"((?:[^"\\]|\\.)*)"(.*)$/
+const kwarg = (tail, name) => {
+  const m = tail.match(new RegExp(`${name}:\\s*"((?:[^"\\\\]|\\\\.)*)"`))
+  return m ? m[1].replace(/\\(.)/g, '$1') : null
+}
+
+const readQuestions = (file) =>
+  fs.readFileSync(file, 'utf-8').split('\n').flatMap((line, i) => {
+    const m = line.match(QUESTION_RE)
+    if (!m) return []
+    return [{ line: i, text: m[2].replace(/\\(.)/g, '$1'), raised: kwarg(m[3], 'raised'), on: kwarg(m[3], 'on') }]
+  })
+
+// Declarations sit above the prose they concern, so a new one goes in after the
+// last existing declaration and before the first `prose` call.
+const insertionPoint = (lines) => {
+  const lastQuestion = lines.reduce((acc, l, i) => (QUESTION_RE.test(l) ? i : acc), -1)
+  if (lastQuestion >= 0) return lastQuestion + 1
+  const firstProse = lines.findIndex((l) => /^\s*prose\b/.test(l))
+  return firstProse >= 0 ? firstProse : Math.max(lines.length - 1, 0)
+}
+
+// One pass over the corpus for the sidebar: how many questions each entry
+// carries and whether it has been read and finished.
+app.get('/api/index', (req, res) => {
+  const out = {}
+  for (const rel of listFiles()) {
+    const file = path.join(LORE_ROOT, rel)
+    out[rel] = { ...readFlags(file), questions: readQuestions(file).length }
+  }
+  res.json(out)
+})
+
+app.get('/api/questions', (req, res) => {
+  const file = resolve(req.query.file)
+  if (!file) return res.status(404).json({ error: 'File not found' })
+  res.json(readQuestions(file))
+})
+
+app.post('/api/questions', (req, res) => {
+  const { file: rel, text, on } = req.body
+  const file = resolve(rel)
+  if (!file) return res.status(404).json({ error: 'File not found' })
+  if (!text || !String(text).trim()) return res.status(400).json({ error: 'text required' })
+
+  const lines = fs.readFileSync(file, 'utf-8').split('\n')
+  const at = insertionPoint(lines)
+  const indent = (lines[at] || '  ').match(/^\s*/)[0] || '  '
+  const parts = [`${indent}question "${rubyString(text)}"`, `raised: "${today()}"`]
+  const anchor = anchorFrom(on)
+  if (anchor) parts.push(`on: "${rubyString(anchor)}"`)
+  lines.splice(at, 0, parts.join(', '))
+  fs.writeFileSync(file, lines.join('\n'))
+  res.json({ ok: true, questions: readQuestions(file) })
+})
+
+app.delete('/api/questions', (req, res) => {
+  const file = resolve(req.query.file)
+  const at = Number(req.query.line)
+  if (!file) return res.status(404).json({ error: 'File not found' })
+
+  const lines = fs.readFileSync(file, 'utf-8').split('\n')
+  if (!QUESTION_RE.test(lines[at] || '')) return res.status(409).json({ error: 'Line is not a question' })
+  lines.splice(at, 1)
+  fs.writeFileSync(file, lines.join('\n'))
+  res.json({ ok: true, questions: readQuestions(file) })
+})
+
+// `reviewed "YYYY-MM-DD"` and `status :complete` on the entity. Both are single
+// declaration lines, so a toggle is an insert or a removal.
+const FLAGS = {
+  reviewed: { match: /^\s*reviewed\s+"/, line: (indent) => `${indent}reviewed "${today()}"` },
+  complete: { match: /^\s*status\s+:complete\b/, line: (indent) => `${indent}status :complete` },
+}
+
+const readFlags = (file) => {
+  const lines = fs.readFileSync(file, 'utf-8').split('\n')
+  return Object.fromEntries(
+    Object.entries(FLAGS).map(([name, f]) => [name, lines.some((l) => f.match.test(l))])
+  )
+}
+
+app.get('/api/review-status', (req, res) => {
+  const file = resolve(req.query.file)
+  if (!file) return res.status(404).json({ error: 'File not found' })
+  res.json(readFlags(file))
+})
+
+app.post('/api/review-status', (req, res) => {
+  const { file: rel, field } = req.body
+  const file = resolve(rel)
+  const flag = FLAGS[field]
+  if (!file) return res.status(404).json({ error: 'File not found' })
+  if (!flag) return res.status(400).json({ error: 'field must be "reviewed" or "complete"' })
+
+  let lines = fs.readFileSync(file, 'utf-8').split('\n')
+  const existing = lines.findIndex((l) => flag.match.test(l))
+  if (existing >= 0) {
+    lines.splice(existing, 1)
+  } else {
+    const at = insertionPoint(lines)
+    lines.splice(at, 0, flag.line((lines[at] || '  ').match(/^\s*/)[0] || '  '))
+  }
+  fs.writeFileSync(file, lines.join('\n'))
+  res.json(readFlags(file))
+})
+
+function today() {
+  return new Date().toISOString().slice(0, 10)
+}
 
 app.listen(3457, () => {
   console.log('Review API server running on http://localhost:3457')
   console.log(`Lore root: ${LORE_ROOT}`)
-  console.log('Comments and review state live in the DSL; run `make queue` / `make provenance`.')
+  console.log('Writes `question` / `reviewed` / `status` into the DSL. Run `make check` after.')
 })

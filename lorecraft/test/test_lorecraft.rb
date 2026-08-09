@@ -399,7 +399,9 @@ class WikiRenderTest < Minitest::Test
       files = Lorecraft::Render::Wiki.new(w, root: dir).render(out: File.join(dir, "wiki"))
       page = File.read(File.join(dir, "wiki", "A.md"))
       assert_includes page, "[[The Reach]]"
-      assert_includes page, "*(stub)*"
+      # The name reads as prose; the authoring state is in the comment channel.
+      assert_includes page, "Soon<!-- stub: no entry yet -->"
+      refute_match(/\*\(stub\)\*/, page)
       refute(files.any? { |f| f.include?("Hidden") }, "DM page leaked into wiki")
     end
   end

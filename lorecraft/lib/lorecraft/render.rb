@@ -246,15 +246,48 @@ module Lorecraft
             parts << resolve_prose(b.text, from_path: from_path, year: year).strip
           end
         end
-        # The entry's own history — never for a reader, so only on the internal
-        # tree, and last, below everything about the world.
-        parts << entry_log(node) if !player && node.respond_to?(:log_entries) && !node.log_entries.empty?
-        parts.join("\n\n") + "\n"
+        # Everything about the ENTRY rather than the world goes last, and only on
+        # the internal tree. A reader gets prose; a reviewer gets prose plus the
+        # lineage that says who wrote it, what is unresolved, and what changed.
+        parts << entry_lineage(node) unless player
+        parts.compact.join("\n\n") + "\n"
+      end
+
+      def entry_lineage(node)
+        sections = [open_questions(node), drafting(node), entry_log(node)].compact
+        return nil if sections.empty?
+
+        "---\n\n<!-- Not world content. `lorecraft queue` / `provenance` read the same declarations. -->\n\n" +
+          sections.join("\n\n")
+      end
+
+      def open_questions(node)
+        return nil unless node.respond_to?(:questions) && !node.questions.empty?
+
+        lines = node.questions.sort_by(&:order).map do |q|
+          ["- #{q.text}", q.raised && " *(raised #{q.raised})*",
+           q.on && "\n  - on: “#{q.on}”",].compact.join
+        end
+        "### Open Questions\n\n#{lines.join("\n")}"
+      end
+
+      # Who wrote it and whether anyone has read it — the risk a reviewer needs
+      # stated, not buried in a separate audit.
+      def drafting(node)
+        read = node.respond_to?(:[]) && node[:reviewed]
+        drafters = node.prose_blocks.map { |b| b.drafted_by || @world.schema.default_drafter }.compact.uniq
+        return nil if read.nil? && drafters.empty?
+
+        bits = []
+        bits << "drafted by #{drafters.map { |d| ":#{d}" }.join(', ')}" unless drafters.empty?
+        bits << (read ? "read by a human on #{read}" : "never read by a human")
+        "### Drafting\n\n#{bits.join('; ')}."
       end
 
       def entry_log(node)
-        "## Entry Log <!-- not world content -->\n\n" +
-          node.log_entries.map { |e| "- #{e}" }.join("\n")
+        return nil unless node.respond_to?(:log_entries) && !node.log_entries.empty?
+
+        "### Entry Log\n\n#{node.log_entries.map { |e| "- #{e}" }.join("\n")}"
       end
 
       def humanize(sym)

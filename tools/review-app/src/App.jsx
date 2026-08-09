@@ -74,7 +74,7 @@ function clearHighlights(container) {
   })
 }
 
-function TreeNode({ node, path, depth, currentFile, onSelect, collapsed, onToggle, reviewCounts, filter, manualStatus }) {
+function TreeNode({ node, path, depth, currentFile, onSelect, collapsed, onToggle, index, filter }) {
   const dirNames = Object.keys(node.__dirs).sort()
   const files = [...node.__files].sort((a, b) => a.name.localeCompare(b.name))
   const isRoot = depth === 0
@@ -103,7 +103,7 @@ function TreeNode({ node, path, depth, currentFile, onSelect, collapsed, onToggl
           {dirNames.map(d => (
             <TreeNode key={d} node={node.__dirs[d]} path={path ? `${path}/${d}` : d}
               depth={depth + 1} currentFile={currentFile} onSelect={onSelect}
-              collapsed={collapsed} onToggle={onToggle} reviewCounts={reviewCounts} filter={filter} manualStatus={manualStatus} />
+              collapsed={collapsed} onToggle={onToggle} index={index} filter={filter} />
           ))}
           {files.map(f => (
             <div
@@ -118,22 +118,22 @@ function TreeNode({ node, path, depth, currentFile, onSelect, collapsed, onToggl
                 display: 'flex', alignItems: 'center', gap: '6px',
               }}
             >
-              {manualStatus && manualStatus[f.path] && (() => {
-                const fl = manualStatus[f.path]
-                const r = !!fl.reviewed, c = !!fl.complete
-                if (r && c) return <span style={{ color: '#4ade80', fontSize: '10px', flexShrink: 0, lineHeight: 1 }} title="Reviewed + Complete">&#x2713;</span>
-                if (r && !c) return <span style={{ color: '#f59e0b', fontSize: '10px', flexShrink: 0, lineHeight: 1 }} title="Reviewed, needs work">&#x25cb;</span>
-                if (!r && c) return <span style={{ color: '#555', fontSize: '10px', flexShrink: 0, lineHeight: 1 }} title="Complete, not reviewed">&#x2500;</span>
+              {(() => {
+                const e = index[f.path]
+                if (!e) return null
+                if (e.reviewed && e.complete) return <span style={{ color: '#4ade80', fontSize: '10px', flexShrink: 0, lineHeight: 1 }} title="read and complete">&#x2713;</span>
+                if (e.reviewed) return <span style={{ color: '#f59e0b', fontSize: '10px', flexShrink: 0, lineHeight: 1 }} title="read, not complete">&#x25cb;</span>
+                if (e.complete) return <span style={{ color: '#555', fontSize: '10px', flexShrink: 0, lineHeight: 1 }} title="complete, unread">&#x2500;</span>
                 return null
               })()}
               <span style={{ flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                 {f.name.replace(/\.rb$/, '')}
               </span>
-              {reviewCounts[f.path] > 0 && (
+              {index[f.path]?.questions > 0 && (
                 <span style={{
                   background: '#f59e0b', color: '#000', borderRadius: '8px',
                   padding: '0 5px', fontSize: '9px', fontWeight: 700, flexShrink: 0,
-                }}>{reviewCounts[f.path]}</span>
+                }}>{index[f.path].questions}</span>
               )}
             </div>
           ))}
@@ -147,6 +147,8 @@ function App() {
   const [files, setFiles] = useState([])
   const [currentFile, setCurrentFile] = useState(null)
   const [content, setContent] = useState('')
+  // Questions come from the file being viewed — they are declarations in it, not
+  // rows in a store, so there is no cross-file index to hold.
   const [reviews, setReviews] = useState([])
   const [filter, setFilter] = useState('')
   const [collapsed, setCollapsed] = useState(new Set())
@@ -154,10 +156,10 @@ function App() {
   const [newComment, setNewComment] = useState(null)
   const [commentText, setCommentText] = useState('')
   const [commentPositions, setCommentPositions] = useState({})
-  const [showResolved, setShowResolved] = useState(false)
   const [activeComment, setActiveComment] = useState(null)
-  const [autoStatus, setAutoStatus] = useState({})
-  const [manualStatus, setManualStatus] = useState({})
+  const [flags, setFlags] = useState({})
+  const [index, setIndex] = useState({})
+  const [error, setError] = useState(null)
 
   const scrollRef = useRef(null)
   const contentRef = useRef(null)
@@ -165,8 +167,7 @@ function App() {
 
   useEffect(() => {
     fetch(`${API}/files`).then(r => r.json()).then(setFiles)
-    fetch(`${API}/reviews`).then(r => r.json()).then(setReviews)
-    fetch(`${API}/review-status`).then(r => r.json()).then(d => { setAutoStatus(d.auto || {}); setManualStatus(d.manual || {}) })
+    fetch(`${API}/index`).then(r => r.json()).then(setIndex)
   }, [])
 
   useEffect(() => {
@@ -210,11 +211,10 @@ function App() {
     if (!contentRef.current || !scrollRef.current || !currentFile) return
 
     clearHighlights(contentRef.current)
-    // Only highlight active reviews (not stale ones whose file has been auto-reviewed)
-    const rd = autoStatus[currentFile]
-    const fileRevs = reviews.filter(r => r.file === currentFile && r.highlight && r.status === 'open' && (!rd || r.timestamp > rd))
-    for (const rev of fileRevs) {
-      applyHighlight(contentRef.current, rev.highlight, rev.id)
+    // A question anchors to a passage via its `on:`; one without an anchor is
+    // about the entry as a whole.
+    for (const q of reviews.filter(q => q.on)) {
+      applyHighlight(contentRef.current, q.on, q.line)
     }
 
     requestAnimationFrame(() => {
@@ -227,7 +227,7 @@ function App() {
       })
       setCommentPositions(pos)
     })
-  }, [content, reviews, currentFile, autoStatus])
+  }, [content, reviews, currentFile])
 
   // Click on a highlight mark → activate the comment
   useEffect(() => {
@@ -246,15 +246,36 @@ function App() {
     return () => el.removeEventListener('click', handler)
   }, [content, currentFile])
 
+  // Everything about an entry comes from the entry: its source, the questions
+  // declared in it, and its review flags.
   const loadFile = async (filePath) => {
-    const res = await fetch(`${API}/file/${filePath}`)
-    const data = await res.json()
-    setCurrentFile(data.path)
-    setContent(data.content)
+    const [file, questions, flagState] = await Promise.all([
+      fetch(`${API}/file/${filePath}`).then(r => r.json()),
+      fetch(`${API}/questions?file=${encodeURIComponent(filePath)}`).then(r => r.json()),
+      fetch(`${API}/review-status?file=${encodeURIComponent(filePath)}`).then(r => r.json()),
+    ])
+    setCurrentFile(file.path)
+    setContent(file.content)
+    setReviews(questions)
+    setFlags(flagState)
     setPendingSelection(null)
     setNewComment(null)
     setActiveComment(null)
+    setError(null)
   }
+
+  // The file changed under us, so line numbers moved — take the server's list.
+  const applyWrite = async (res) => {
+    const data = await res.json()
+    if (!res.ok) return setError(data.detail || data.error || 'write failed')
+    setReviews(data.questions || [])
+    const file = await fetch(`${API}/file/${currentFile}`).then(r => r.json())
+    setContent(file.content)
+    refreshIndex()
+    setError(null)
+  }
+
+  const refreshIndex = () => fetch(`${API}/index`).then(r => r.json()).then(setIndex)
 
   const handleMouseUp = useCallback(() => {
     const sel = window.getSelection()
@@ -279,31 +300,23 @@ function App() {
 
   const submitComment = async () => {
     if (!commentText.trim() || !currentFile || !newComment) return
-    const res = await fetch(`${API}/reviews`, {
+    const res = await fetch(`${API}/questions`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ file: currentFile, highlight: newComment.text, comment: commentText.trim() }),
+      body: JSON.stringify({ file: currentFile, text: commentText.trim(), on: newComment.text }),
     })
-    const review = await res.json()
-    setReviews(prev => [...prev, review])
     setNewComment(null)
     setCommentText('')
     window.getSelection()?.removeAllRanges()
+    await applyWrite(res)
   }
 
-  const resolveReview = async (id) => {
-    const res = await fetch(`${API}/reviews/${id}`, {
-      method: 'PATCH',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ status: 'resolved' }),
-    })
-    const updated = await res.json()
-    setReviews(prev => prev.map(r => r.id === id ? updated : r))
-  }
-
-  const deleteReview = async (id) => {
-    await fetch(`${API}/reviews/${id}`, { method: 'DELETE' })
-    setReviews(prev => prev.filter(r => r.id !== id))
+  // Resolving is deleting: the declaration exists while the question is open.
+  const resolveQuestion = async (line) => {
+    const res = await fetch(`${API}/questions?file=${encodeURIComponent(currentFile)}&line=${line}`,
+                            { method: 'DELETE' })
+    setActiveComment(null)
+    await applyWrite(res)
   }
 
   const toggleFlag = async (field) => {
@@ -314,16 +327,11 @@ function App() {
       body: JSON.stringify({ file: currentFile, field }),
     })
     const data = await res.json()
-    const st = data.status || {}
-    setManualStatus(prev => {
-      const next = { ...prev }
-      if (Object.keys(st).length === 0) {
-        delete next[data.file]
-      } else {
-        next[data.file] = st
-      }
-      return next
-    })
+    if (!res.ok) return setError(data.detail || data.error || 'write failed')
+    setFlags(data)
+    const file = await fetch(`${API}/file/${currentFile}`).then(r => r.json())
+    setContent(file.content)
+    refreshIndex()
   }
 
   const filteredFiles = filter
@@ -331,28 +339,13 @@ function App() {
     : files
   const tree = useMemo(() => buildTree(filteredFiles), [filteredFiles])
 
-  const reviewCounts = useMemo(() => {
-    const c = {}
-    for (const r of reviews) if (r.status === 'open') c[r.file] = (c[r.file] || 0) + 1
-    return c
-  }, [reviews])
+  const isReviewed = !!flags.reviewed
+  const isComplete = !!flags.complete
 
-  const fileReviews = reviews.filter(r => r.file === currentFile)
-  const openReviews = fileReviews.filter(r => r.status === 'open')
-  const resolvedReviews = fileReviews.filter(r => r.status === 'resolved')
-
-  // Stale = auto-reviewed after comment was created (fixes were applied)
-  const fileAutoDate = currentFile ? autoStatus[currentFile] : null
-  const fileFlags = (currentFile && manualStatus[currentFile]) || {}
-  const isReviewed = !!fileFlags.reviewed
-  const isComplete = !!fileFlags.complete
-  const activeReviews = openReviews.filter(r => !fileAutoDate || r.timestamp > fileAutoDate)
-  const staleReviews = openReviews.filter(r => fileAutoDate && r.timestamp <= fileAutoDate)
-
-  // Resolve vertical overlaps in comment positions (active only)
+  // Vertical overlaps between gutter cards, resolved by pushing later ones down.
   const resolvedPositions = useMemo(() => {
-    const items = activeReviews
-      .map(r => ({ id: r.id, y: commentPositions[r.id] ?? -1 }))
+    const items = reviews
+      .map(q => ({ id: q.line, y: commentPositions[q.line] ?? -1 }))
       .filter(it => it.y >= 0)
       .sort((a, b) => a.y - b.y)
     const GAP = 90
@@ -362,9 +355,11 @@ function App() {
     const out = {}
     for (const it of items) out[it.id] = it.y
     return out
-  }, [activeReviews, commentPositions])
+  }, [reviews, commentPositions])
 
-  const orphanedReviews = activeReviews.filter(r => !(r.id in commentPositions))
+  // A question with no anchor, or one whose anchor no longer appears in the
+  // source — the case `make check` warns about.
+  const orphanedReviews = reviews.filter(q => !(q.line in commentPositions))
   const renderedHtml = useMemo(
     () => content ? `<pre class="src">${escapeHtml(content)}</pre>` : '',
     [content]
@@ -395,11 +390,12 @@ function App() {
         </div>
         <div style={{ flex: 1, overflowY: 'auto', padding: '2px 0' }}>
           <TreeNode node={tree} path="" depth={0} currentFile={currentFile} onSelect={loadFile}
-            collapsed={collapsed} onToggle={toggleCollapsed} reviewCounts={reviewCounts} filter={filter} manualStatus={manualStatus} />
+            collapsed={collapsed} onToggle={toggleCollapsed} index={index} filter={filter} />
         </div>
         <div style={{ borderTop: '1px solid #2a2a4a', padding: '6px 10px', fontSize: '10px' }}>
           <div style={{ color: '#555' }}>
-            {reviews.filter(r => r.status === 'open').length} open / {reviews.length} total
+            {Object.values(index).reduce((n, e) => n + e.questions, 0)} open question(s) ·{' '}
+            {Object.values(index).filter(e => e.reviewed).length}/{Object.keys(index).length} read
           </div>
         </div>
       </div>
@@ -409,14 +405,12 @@ function App() {
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
           <div style={{ padding: '8px 20px', borderBottom: '1px solid #2a2a4a', display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: '#14142a', flexShrink: 0, gap: 8 }}>
             <span style={{ fontSize: '13px', color: '#9090b0', flex: 1 }}>{currentFile}</span>
-            {staleReviews.length > 0 && (
-              <span style={{ fontSize: '10px', color: '#666', fontStyle: 'italic' }}>
-                {staleReviews.length} stale
-              </span>
+            {error && (
+              <span style={{ fontSize: '10px', color: '#f87171' }}>{error}</span>
             )}
-            {activeReviews.length > 0 && (
+            {reviews.length > 0 && (
               <span style={{ fontSize: '11px', color: '#555' }}>
-                {activeReviews.length} active
+                {reviews.length} question{reviews.length !== 1 ? 's' : ''}
               </span>
             )}
             <button onClick={() => toggleFlag('reviewed')}
@@ -455,13 +449,13 @@ function App() {
               <div className="gutter"
                 style={{ width: '280px', flexShrink: 0, position: 'relative', borderLeft: '1px solid #222240', background: '#131328', minHeight: maxY + 200 + 'px' }}>
 
-                {/* Positioned active comments */}
-                {activeReviews.filter(r => r.id in resolvedPositions).map(r => (
-                  <div key={r.id} id={`gc-${r.id}`}
-                    className={`gutter-card${activeComment === r.id ? ' active' : ''}`}
+                {/* Questions anchored to a passage in the source */}
+                {reviews.filter(q => q.line in resolvedPositions).map(q => (
+                  <div key={q.line} id={`gc-${q.line}`}
+                    className={`gutter-card${activeComment === q.line ? ' active' : ''}`}
                     onClick={() => {
-                      setActiveComment(r.id)
-                      const mark = contentRef.current?.querySelector(`mark[data-review-id="${r.id}"]`)
+                      setActiveComment(q.line)
+                      const mark = contentRef.current?.querySelector(`mark[data-review-id="${q.line}"]`)
                       if (mark) {
                         mark.scrollIntoView({ behavior: 'smooth', block: 'center' })
                         mark.classList.add('active')
@@ -469,59 +463,39 @@ function App() {
                       }
                     }}
                     style={{
-                      position: 'absolute', top: resolvedPositions[r.id], left: 10, right: 10,
+                      position: 'absolute', top: resolvedPositions[q.line], left: 10, right: 10,
                       background: '#1a1a30', border: '1px solid #262648', borderRadius: '4px',
                       padding: '8px 10px', fontSize: '12px', cursor: 'pointer',
                     }}>
-                    {r.highlight && (
+                    {q.on && (
                       <div style={{ color: '#d97706', fontStyle: 'italic', fontSize: '11px', lineHeight: 1.3, marginBottom: '4px', overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}>
-                        &ldquo;{r.highlight.length > 70 ? r.highlight.slice(0, 70) + '\u2026' : r.highlight}&rdquo;
+                        &ldquo;{q.on.length > 70 ? q.on.slice(0, 70) + '\u2026' : q.on}&rdquo;
                       </div>
                     )}
-                    <div style={{ color: '#c8c8e0', lineHeight: 1.4 }}>{r.comment}</div>
+                    <div style={{ color: '#c8c8e0', lineHeight: 1.4 }}>{q.text}</div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '6px' }}>
-                      <span style={{ fontSize: '10px', color: '#444' }}>{new Date(r.timestamp).toLocaleDateString()}</span>
-                      <span>
-                        <button className="btn-sm" onClick={e => { e.stopPropagation(); resolveReview(r.id) }}
-                          style={{ color: '#4ade80', border: '1px solid #1a3a1a' }}>resolve</button>
-                        <button className="btn-sm" onClick={e => { e.stopPropagation(); deleteReview(r.id) }}
-                          style={{ color: '#f87171', border: '1px solid #3a1a1a', marginLeft: 3 }}>delete</button>
-                      </span>
+                      <span style={{ fontSize: '10px', color: '#444' }}>{q.raised || ''}</span>
+                      <button className="btn-sm" onClick={e => { e.stopPropagation(); resolveQuestion(q.line) }}
+                        style={{ color: '#4ade80', border: '1px solid #1a3a1a' }}
+                        title="deletes the question line from the entity">resolve</button>
                     </div>
                   </div>
                 ))}
 
-                {/* Orphaned (highlight text not found in current doc) */}
+                {/* No anchor, or an anchor the prose no longer contains */}
                 {orphanedReviews.length > 0 && (
                   <div style={{ position: 'absolute', top: (allPositionValues.length > 0 ? maxY + 110 : 16), left: 10, right: 10 }}>
-                    <div style={{ fontSize: '9px', color: '#444', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '4px' }}>Unanchored</div>
-                    {orphanedReviews.map(r => (
-                      <div key={r.id} style={{ background: '#1a1a2e', border: '1px solid #222240', borderRadius: '4px', padding: '8px 10px', fontSize: '12px', marginBottom: '6px', opacity: 0.65 }}>
-                        {r.highlight && (
-                          <div style={{ color: '#d97706', fontStyle: 'italic', fontSize: '11px', marginBottom: '3px' }}>&ldquo;{r.highlight.slice(0, 60)}&rdquo;</div>
+                    <div style={{ fontSize: '9px', color: '#444', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '4px' }}>About the entry</div>
+                    {orphanedReviews.map(q => (
+                      <div key={q.line} style={{ background: '#1a1a2e', border: '1px solid #222240', borderRadius: '4px', padding: '8px 10px', fontSize: '12px', marginBottom: '6px', opacity: 0.8 }}>
+                        {q.on && (
+                          <div style={{ color: '#886600', fontStyle: 'italic', fontSize: '11px', marginBottom: '3px', textDecoration: 'line-through' }}
+                            title="anchor no longer in the prose">&ldquo;{q.on.slice(0, 60)}&rdquo;</div>
                         )}
-                        <div style={{ color: '#b0b0c8', lineHeight: 1.4 }}>{r.comment}</div>
-                        <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 4, marginTop: 4 }}>
-                          <button className="btn-sm" onClick={() => resolveReview(r.id)} style={{ color: '#4ade80', border: '1px solid #1a3a1a' }}>resolve</button>
-                          <button className="btn-sm" onClick={() => deleteReview(r.id)} style={{ color: '#f87171', border: '1px solid #3a1a1a' }}>delete</button>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
-
-                {/* Stale comments (file reviewed after comment was created) */}
-                {staleReviews.length > 0 && (
-                  <div style={{ position: 'absolute', top: (allPositionValues.length > 0 || orphanedReviews.length > 0 ? maxY + 110 + orphanedReviews.length * 80 : 16), left: 10, right: 10 }}>
-                    <div style={{ fontSize: '9px', color: '#444', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '4px' }}>Stale (file reviewed)</div>
-                    {staleReviews.map(r => (
-                      <div key={r.id} style={{ background: '#16162a', border: '1px dashed #222240', borderRadius: '4px', padding: '8px 10px', fontSize: '12px', marginBottom: '6px', opacity: 0.4 }}>
-                        {r.highlight && (
-                          <div style={{ color: '#886600', fontStyle: 'italic', fontSize: '11px', marginBottom: '3px', textDecoration: 'line-through' }}>&ldquo;{r.highlight.slice(0, 60)}&rdquo;</div>
-                        )}
-                        <div style={{ color: '#888', lineHeight: 1.4 }}>{r.comment}</div>
-                        <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 4, marginTop: 4 }}>
-                          <button className="btn-sm" onClick={() => deleteReview(r.id)} style={{ color: '#f87171', border: '1px solid #3a1a1a' }}>delete</button>
+                        <div style={{ color: '#b0b0c8', lineHeight: 1.4 }}>{q.text}</div>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 4 }}>
+                          <span style={{ fontSize: '10px', color: '#444' }}>{q.raised || ''}</span>
+                          <button className="btn-sm" onClick={() => resolveQuestion(q.line)} style={{ color: '#4ade80', border: '1px solid #1a3a1a' }}>resolve</button>
                         </div>
                       </div>
                     ))}
@@ -588,34 +562,13 @@ function App() {
             </div>{/* end flex row */}
           </div>{/* end scroll container */}
 
-          {/* Resolved comments drawer */}
-          {resolvedReviews.length > 0 && (
-            <div style={{ borderTop: '1px solid #2a2a4a', background: '#14142a', flexShrink: 0 }}>
-              <button onClick={() => setShowResolved(!showResolved)}
-                style={{ padding: '6px 20px', border: 'none', background: 'none', color: '#6366f1', cursor: 'pointer', fontSize: '11px', width: '100%', textAlign: 'left' }}>
-                {showResolved ? '\u25bc' : '\u25b6'} {resolvedReviews.length} resolved comment{resolvedReviews.length !== 1 ? 's' : ''}
-              </button>
-              {showResolved && (
-                <div style={{ maxHeight: '200px', overflowY: 'auto', padding: '0 20px 10px' }}>
-                  {resolvedReviews.map(r => (
-                    <div key={r.id} style={{ display: 'flex', gap: 10, alignItems: 'flex-start', padding: '6px 0', borderBottom: '1px solid #1a1a30', opacity: 0.5, fontSize: '12px' }}>
-                      <div style={{ flex: 1 }}>
-                        {r.highlight && <span style={{ color: '#d97706', fontStyle: 'italic' }}>&ldquo;{r.highlight.slice(0, 50)}&rdquo; </span>}
-                        <span style={{ color: '#999' }}>{r.comment}</span>
-                      </div>
-                      <button className="btn-sm" onClick={() => deleteReview(r.id)}
-                        style={{ color: '#f87171', border: '1px solid #3a1a1a', flexShrink: 0 }}>delete</button>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          )}
+          {/* A resolved question is a deleted line; there is no drawer of them.
+              Git holds what was asked and answered. */}
         </div>
       ) : (
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-          <div style={{ fontSize: '15px', color: '#3a3a5a' }}>Select a file to review</div>
-          <div style={{ fontSize: '12px', color: '#2a2a4a', marginTop: '6px' }}>Highlight text, then click + to comment</div>
+          <div style={{ fontSize: '15px', color: '#3a3a5a' }}>Select an entry to review</div>
+          <div style={{ fontSize: '12px', color: '#2a2a4a', marginTop: '6px' }}>Highlight a passage, then click + to raise a question on it</div>
         </div>
       )}
     </div>

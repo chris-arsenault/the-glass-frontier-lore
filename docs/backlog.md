@@ -20,9 +20,12 @@ has no premise yet.
 
 ## Review app
 
-`tools/review-app/` lists and serves the DSL corpus as source. Its comment
-endpoints are retired — a comment is a `question` declaration on the entity now —
-so the gutter, the highlight anchoring and the resolve/delete buttons are dead UI
-against a 410. Either teach it to write `question` lines into the Ruby, or cut the
-commenting half and keep it as a reader with review-flag toggles. It also still
-renders `prose` as source rather than prose, and does not follow `#{ref}` links.
+`tools/review-app/` reads and writes the DSL: raising a question inserts a
+`question` line into the entity, resolving one deletes it, and the two flags write
+`reviewed` and `status :complete`. Two things it still does not do: render `prose`
+as prose rather than as source, and follow `#{ref}` links between entries.
+
+An anchor is trimmed to its longest marker-free run before it is stored, because a
+selection spanning `#{ref …}` matches nothing once the world loads. A selection
+that is mostly markers therefore lands as a question about the entry with no
+anchor at all.

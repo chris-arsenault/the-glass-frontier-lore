@@ -160,7 +160,7 @@ The result is strictly more informative than the JSON was. It distinguishes pros
 that was read and then changed (264 blocks) from prose nobody has ever read (328),
 where the tracker could only say "68 files pending".
 
-## 6. Metadata as a side channel — the principle, not the docx
+## 6. Metadata as a side channel — taken, without the docx
 
 Bidcraft renders every computed annotation into Word comments: seven named
 comment authors so a reviewer can filter by lineage, provenance, guidance,
@@ -169,19 +169,19 @@ narrower and we should take it: **`⟦UNVERIFIED⟧` used to sit inline and
 interrupt the sentence, so they moved it into the comment and left the prose
 clean.**
 
-Our equivalent inline interruption is the `[future:Name]` stub. The wiki render
-has two channels available for it — HTML comments in the generated markdown, and
-a Lineage block on internal entity pages — and the body text should keep neither.
+Our equivalent inline interruption was the stub marker, which rendered
+`*Fracture* *(stub)*` into 31 wiki pages — an authoring state sitting in a
+sentence, which the writing rules ban everywhere else. The name now reads as a
+name and the note goes into an HTML comment, invisible to a markdown reader and
+present for anyone reading the generated source.
 
-## Sequence
+The second channel is the internal markdown tree, which a reader never sees. Each
+entry there ends with its lineage: open questions with their anchors, who drafted
+the prose and whether a human has read it, and the entry log. `make queue` and
+`make provenance` read the same declarations, so the page and the audit cannot
+disagree.
 
-1. Markers → objects and the resolver protocol. No behaviour change; tests pin it.
-2. `elapsed` / `span` / `year`, the coarse vocabulary, and the linter check that
-   bans hand-typed spans. Then delete the seventeen literals.
-3. `embed` transclusion with derived `embeds` edges and audience safety.
-4. `log` entries.
-5. Provenance and `reviewed:`, retiring the git-mtime review tracker.
-6. Metadata out of body prose in the wiki render.
+## Done
 
-Steps 1 and 2 are one piece of work and pay for themselves immediately. Step 3 is
-the one that changes how the corpus is authored.
+All six, plus the review app rewritten to write `question` / `reviewed` /
+`status` into the DSL rather than a sidecar.

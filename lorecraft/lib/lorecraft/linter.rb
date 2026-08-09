@@ -243,9 +243,13 @@ module Lorecraft
       pages.each do |e|
         next if e.questions.empty?
 
-        text = prose_text(e)
+        # Matched against the prose as a reader sees it. A marker interpolates
+        # when the world loads, so an anchor quoting `#{ref …}` cannot match
+        # anything — the review app trims a selection to its marker-free run
+        # before storing it.
+        rendered = prose_text(e)
         e.questions.each do |q|
-          next if q.on.nil? || text.include?(q.on)
+          next if q.on.nil? || rendered.include?(q.on)
 
           warn("#{label(e)}: question anchor not found in prose — '#{q.on[0, 50]}'")
         end

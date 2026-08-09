@@ -93,7 +93,12 @@ module Lorecraft
       # Public because `marker.resolve(self)` dispatches to them from outside.
       public
 
-      def on_future(marker) = "*#{marker.name}* *(stub)*"
+      # A stub is an authoring state, and a reader has no use for it: "*(stub)*"
+      # in the middle of a sentence is the register failure the writing rules ban
+      # everywhere else. The name reads as a name, and the note goes into the
+      # comment channel, where a markdown reader never sees it and anyone reading
+      # the generated source does.
+      def on_future(marker) = "#{marker.name}<!-- stub: no entry yet -->"
 
       def on_ref(marker)
         node = marker.id && @world[marker.id]
