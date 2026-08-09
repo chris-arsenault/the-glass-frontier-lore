@@ -251,6 +251,7 @@ Every command runs against one world. `WORLD=<id>` on make, `--world <id>` (or `
 | `provenance` | Per block: who drafted it, who has read it, whose read has expired. |
 | `queue` | What the world needs next — `question` declarations plus computed findings. A render, not a file. |
 | `page <id>` | One entity's rendered page on stdout. What the review app shows as prose. |
+| `web` | What holds together without the most prominent entities. The work list for `craft/connecting-entities.md`. |
 
 Historical state is a query, not a stored field: `world.at(era: :the_accord, year: 5).out(:coremark, :operates_in)`.
 

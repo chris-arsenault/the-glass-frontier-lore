@@ -144,6 +144,10 @@ when "page"
   node = w.entity(id.tr("-", "_").to_sym) or abort("unknown entity: #{id}")
   puts Lorecraft::Render::Markdown.new(w)
                                   .page_markdown(node, year: w.timeline.now_year, audience: audience)
+when "web"
+  # Whether the graph holds together without its most prominent entities. The
+  # work list for a tie-together pass — see craft/connecting-entities.md.
+  puts Lorecraft::Web.new(load_world).report
 when "queue"
   # Assembled, never authored: declared questions on entries + computed findings.
   w = load_world

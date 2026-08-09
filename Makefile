@@ -43,6 +43,9 @@ provenance:
 # What the world needs next: declared questions + computed findings.
 queue:
 	@$(LC) queue
+# Whether the graph holds together without its most prominent entities.
+web:
+	@$(LC) web
 
 # Engine unit tests.
 test:

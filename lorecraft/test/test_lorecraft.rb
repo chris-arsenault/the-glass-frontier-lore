@@ -785,6 +785,54 @@ class QuestionTest < Minitest::Test
   end
 end
 
+class WebTest < Minitest::Test
+  # A god in the middle and two peers that touch only it: connected by every
+  # ordinary measure, and nothing holds once the god is removed.
+  def world(bridged: false)
+    Lorecraft.define do
+      schema do
+        entity_type :faction, :concept
+        relation :governs, temporal: false
+        relation :cooperates_with, temporal: false
+        effect :set
+      end
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
+      faction :god do name "God"; prominence :mythic end
+      faction :left do name "Left"; prominence :recognized end
+      faction :right do name "Right"; prominence :recognized end
+      concept :bridge do name "Bridge"; prominence :marginal end
+      genesis :g, at: { year: 0 } do
+        effects do
+          set :god, governs: :left
+          set :god, governs: :right
+        end
+      end
+      next unless bridged
+
+      relate :rel_bridge_left, :cooperates_with, :bridge, :left
+      relate :rel_bridge_right, :cooperates_with, :bridge, :right
+    end
+  end
+
+  def test_the_cut_finds_what_only_the_god_joined
+    cut = Lorecraft::Web.new(world).cut(%i[mythic])
+    assert_equal 3, cut.kept.size
+    assert_equal %i[bridge left right].sort, cut.isolated.sort
+  end
+
+  def test_a_lateral_connector_closes_the_gap
+    cut = Lorecraft::Web.new(world(bridged: true)).cut(%i[mythic])
+    assert_empty cut.isolated
+    assert_equal 1, cut.components.size
+  end
+
+  def test_hubs_are_reported_with_prominence
+    web = Lorecraft::Web.new(world)
+    assert_equal :god, web.hubs.first.first
+    assert_includes web.report, "without mythic"
+  end
+end
+
 class ProvenanceTest < Minitest::Test
   def world
     Lorecraft.define do

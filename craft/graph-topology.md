@@ -172,6 +172,8 @@ After adding relationships to an entity, query its neighborhood (`world.at(:now)
 
 ## Where Topology Goes Wrong
 
+Every metric in the table above can be satisfied by a graph that is a tree with famous roots: entities reach one another through a handful of mythic hubs and nothing at the same scale is joined. `make web WORLD=<id>` removes the top prominence tiers and reports what separates. `craft/connecting-entities.md` is the procedure for closing those gaps with new entities rather than with edges.
+
 The same four failures turn up in every world, in roughly this order:
 
 1. **Thin edge density.** Entities get written and never wired. Density is the last metric to come up because it only moves when someone goes back over finished entries.
