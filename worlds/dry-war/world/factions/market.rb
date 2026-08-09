@@ -1,6 +1,6 @@
 faction :market do
   name "Market"
-  tags :trade, :governance, :water, :energy
+  tags :trade, :governance, :water, :energy, :identity
   prominence :renowned
 
   prose <<~PROSE
@@ -15,6 +15,8 @@ faction :market do
     In practice the price is the instruction. When Market wants a district emptied it does not order an evacuation; the cost of remaining rises until remaining is a hobby. The population moves, on schedule, having freely chosen to.
 
     Market regards this as strictly superior to #{ref :mercy, "Mercy"}'s intake process, on the grounds that nobody was ever told what to do.
+
+    For paid work, Market separates proof of completion from proof of the payee. #{ref :claim_escrow, "Claim escrow"} lets a buyer take accepted work after funding the price even when the claimant cannot yet present a recognized identity.
   PROSE
 
   prose <<~PROSE, section: :tensions, heading: "The Unpriced"

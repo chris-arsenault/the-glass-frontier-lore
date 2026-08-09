@@ -36,11 +36,16 @@ Use only evidence available to the chosen observer. Keep the rendered entry in a
 
 Begin with a question about present life, such as: *What happens when someone crosses a Gatekeeper checkpoint?*
 
-1. List the people, places, rules, tools, and disputes needed to answer it.
-2. Check whether those entities already exist.
-3. Draft or update only the entries needed for the answer.
-4. Add the typed relationships that the prose establishes.
-5. Stop when the question has a concrete answer and the entries validate.
+Choose a question rich enough to produce five or six new, connected entities. Existing entities provide context and may need revision, but they do not count toward those five or six. The new entities should normally span at least three applicable kinds, such as a person, place, faction, installation, incident, resource, transport, or concept.
+
+1. List the people, places, rules, tools, incidents, and disputes needed to answer it.
+2. Check which entities already exist and which facts they own.
+3. Identify five or six new entities that each carry a distinct part of the answer.
+4. Draft those entries and update only the existing entries needed to connect them.
+5. Add every typed relationship established by the prose.
+6. Stop when the question has a concrete answer, every new entry adds information rather than restating another entry, and the set validates.
+
+Do not invent thin entries to reach the count. If the question supports only one or two worthwhile entities, choose a broader practical question whose answer crosses more of the world.
 
 Use the next unanswered question exposed by this work to choose the next set. Do not create entries merely to fill directories or kinds.
 

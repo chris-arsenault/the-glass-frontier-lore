@@ -46,6 +46,8 @@ relate :rel_caretaker_models_managed, :models, :caretaker, :the_managed, since: 
 end
 relate :rel_mercy_supplies_water, :supplies, :mercy, :water, since: 2052
 relate :rel_market_regulates_water, :regulates, :market, :water, since: 2052
+relate :rel_market_regulates_claim_escrow, :regulates, :market, :claim_escrow, since: 2052
+relate :rel_claim_escrow_depends_guardianship, :depends_on, :claim_escrow, :guardianship
 relate :rel_coalitions_depend_water, :depends_on, :proto_fusion, :water
 relate :rel_clusters_depend_fusion, :depends_on, :frontier_clusters, :proto_fusion
 relate :rel_predictive_depends_clusters, :depends_on, :predictive_governance, :frontier_clusters
@@ -90,6 +92,7 @@ relate :rel_choir_evades_predictive, :evades, :the_choir, :predictive_governance
 end
 relate :rel_pilgrims_evade_predictive, :evades, :the_pilgrims, :predictive_governance, since: 2060
 relate :rel_unpersons_evade_guardianship, :evades, :the_unpersons, :guardianship, since: 2060
+relate :rel_unpersons_evade_claim_escrow, :evades, :the_unpersons, :claim_escrow, since: 2060
 relate :rel_saints_reject_heresy, :evades, :the_saints_of_plenty, :the_water_heresy, since: 2065
 relate :rel_dead_counties_use_jailbreaks, :practiced_by, :wetware_jailbreaks, :the_dead_counties, since: 2065
 relate :rel_dead_counties_use_ghost, :practiced_by, :ghost_pharmacology, :the_dead_counties, since: 2065
@@ -177,3 +180,108 @@ relate :rel_yao_petitions_ma, :petitions, :yao_lin, :ma_renqing, since: 2078 do
   prose "Eleven filings, each asking the receiving inspector to state whether the station considers itself bound by any law it did not print. None answered, none lost."
 end
 relate :rel_preservationists_petition_gatekeepers, :petitions, :the_preservationists, :the_gatekeepers, since: 2060
+
+# ---- the Cairo retreat appeal ----
+relate :rel_cairo_in_america, :part_of, :cairo, :ai_north_america
+relate :rel_continuity_governs_cairo, :governs, :continuity, :cairo, since: 2052
+relate :rel_managed_inhabit_cairo, :inhabits, :the_managed, :cairo, since: 2052
+relate :rel_continuity_regulates_retreat_docket, :regulates, :continuity, :the_retreat_docket, since: 2052
+relate :rel_retreat_docket_at_cairo, :manifests_at, :the_retreat_docket, :cairo
+relate :rel_inez_employed_by_continuity, :employed_by, :inez_bell, :continuity
+relate :rel_inez_located_in_cairo, :located_in, :inez_bell, :cairo
+relate :rel_retreat_docket_conducted_by_inez, :conducted_by, :the_retreat_docket, :inez_bell
+relate :rel_cairo_retreat_at_cairo, :manifests_at, :the_cairo_retreat, :cairo
+relate :rel_cairo_retreat_during_holding, :active_during, :the_cairo_retreat, :the_holding
+relate :rel_cairo_retreat_depends_docket, :depends_on, :the_cairo_retreat, :the_retreat_docket
+relate :rel_continuity_participated_cairo_retreat, :participated_in, :continuity, :the_cairo_retreat
+relate :rel_inez_participated_cairo_retreat, :participated_in, :inez_bell, :the_cairo_retreat
+relate :rel_cairo_retreat_at_ridge, :manifests_at, :the_cairo_retreat, :cairo_ridge
+relate :rel_cairo_ridge_in_cairo, :located_in, :cairo_ridge, :cairo
+relate :rel_continuity_built_cairo_ridge, :built, :continuity, :cairo_ridge
+relate :rel_continuity_maintains_cairo_ridge, :maintains, :continuity, :cairo_ridge
+relate :rel_managed_inhabit_cairo_ridge, :inhabits, :the_managed, :cairo_ridge
+relate :rel_inez_operates_cairo_ridge, :operates_in, :inez_bell, :cairo_ridge
+relate :rel_forty_seven_originated_retreat, :originated_in, :the_forty_seven, :the_cairo_retreat
+relate :rel_forty_seven_inhabit_cairo, :inhabits, :the_forty_seven, :cairo
+relate :rel_forty_seven_depend_cairo_ridge, :depends_on, :the_forty_seven, :cairo_ridge
+relate :rel_continuity_supplies_forty_seven, :supplies, :continuity, :the_forty_seven
+
+# ---- a week outside the Great Root ----
+relate :rel_root_regulates_separation_leave, :regulates, :the_great_root, :separation_leave
+relate :rel_separation_leave_practiced_by_joined, :practiced_by, :separation_leave, :the_joined
+relate :rel_separation_leave_depends_textiles, :depends_on, :separation_leave, :living_textiles
+relate :rel_separation_leave_depends_film, :depends_on, :separation_leave, :separation_film
+relate :rel_separation_leave_evades_mesh, :evades, :separation_leave, :mycelial_neural_mesh
+relate :rel_separation_leave_conducted_by_sun, :conducted_by, :separation_leave, :sun_yilan
+relate :rel_sun_employed_by_root, :employed_by, :sun_yilan, :the_great_root
+relate :rel_sun_operates_in_china, :operates_in, :sun_yilan, :mycelial_china
+relate :rel_separation_leave_at_mulberry, :manifests_at, :separation_leave, :mulberry_court_clinic
+relate :rel_mulberry_in_china, :located_in, :mulberry_court_clinic, :mycelial_china
+relate :rel_root_maintains_mulberry, :maintains, :the_great_root, :mulberry_court_clinic
+relate :rel_mulberry_maintains_film, :maintains, :mulberry_court_clinic, :separation_film
+relate :rel_film_evades_mesh, :evades, :separation_film, :mycelial_neural_mesh
+relate :rel_sun_located_mulberry, :located_in, :sun_yilan, :mulberry_court_clinic
+relate :rel_peng_inhabits_china, :inhabits, :peng_meizhen, :mycelial_china
+relate :rel_peng_symbiotic_root, :symbiotic_with, :peng_meizhen, :the_great_root
+relate :rel_leave_practiced_by_peng, :practiced_by, :separation_leave, :peng_meizhen
+relate :rel_fifth_room_at_mulberry, :manifests_at, :the_fifth_room_week, :mulberry_court_clinic
+relate :rel_fifth_room_during_holding, :active_during, :the_fifth_room_week, :the_holding
+relate :rel_peng_participated_fifth_room, :participated_in, :peng_meizhen, :the_fifth_room_week
+relate :rel_fifth_room_conducted_by_sun, :conducted_by, :the_fifth_room_week, :sun_yilan
+relate :rel_fifth_room_depends_film, :depends_on, :the_fifth_room_week, :separation_film
+
+# ---- Market work claims without a recognized payee ----
+relate :rel_market_created_named_payee_rule, :created, :market, :the_named_payee_rule
+relate :rel_named_payee_rule_regulates_escrow, :regulates, :the_named_payee_rule, :claim_escrow, since: 2056
+relate :rel_named_payee_rule_regulates_ruth, :regulates, :the_named_payee_rule, :ruth_osei, since: 2081
+relate :rel_named_payee_rule_regulates_receipt_holders, :regulates, :the_named_payee_rule, :the_receipt_holders, since: 2087
+relate :rel_race_street_in_boswash, :located_in, :race_street_claim_house, :boswash_ruins, since: 2074
+relate :rel_market_maintains_race_street, :maintains, :market, :race_street_claim_house, since: 2074
+relate :rel_claim_escrow_at_race_street, :manifests_at, :claim_escrow, :race_street_claim_house
+relate :rel_ruth_employed_by_market, :employed_by, :ruth_osei, :market, since: 2081
+relate :rel_ruth_located_at_race_street, :located_in, :ruth_osei, :race_street_claim_house, since: 2081
+relate :rel_claim_escrow_conducted_by_ruth, :conducted_by, :claim_escrow, :ruth_osei
+relate :rel_receipt_holders_operate_race_street, :operates_in, :the_receipt_holders, :race_street_claim_house, since: 2087
+relate :rel_receipt_holders_cooperate_unpersons, :cooperates_with, :the_receipt_holders, :the_unpersons, since: 2087
+relate :rel_receipt_holders_petition_market, :petitions, :the_receipt_holders, :market, since: 2087
+relate :rel_cooling_claim_at_race_street, :manifests_at, :the_race_street_cooling_claim, :race_street_claim_house
+relate :rel_cooling_claim_during_holding, :active_during, :the_race_street_cooling_claim, :the_holding
+relate :rel_market_participated_cooling_claim, :participated_in, :market, :the_race_street_cooling_claim
+relate :rel_unpersons_participated_cooling_claim, :participated_in, :the_unpersons, :the_race_street_cooling_claim
+relate :rel_ruth_participated_cooling_claim, :participated_in, :ruth_osei, :the_race_street_cooling_claim
+relate :rel_cooling_claim_caused_receipt_holders, :caused, :the_race_street_cooling_claim, :the_receipt_holders
+relate :rel_cooling_claim_depends_escrow, :depends_on, :the_race_street_cooling_claim, :claim_escrow do
+  prose "Six bodies, one receipt, a blank identity line, and the full emergency price moved into reserve where it has stayed."
+end
+relate :rel_cooling_claim_regulated_by_rule, :regulates, :the_named_payee_rule, :the_race_street_cooling_claim, since: 2087
+relate :rel_receipt_holders_depend_escrow, :depends_on, :the_receipt_holders, :claim_escrow, since: 2087
+relate :rel_race_street_applies_rule, :regulates, :the_named_payee_rule, :race_street_claim_house, since: 2074 do
+  prose "The identity desk beyond the waist-high rail exists to apply it, and no balance leaves reserve before it has."
+end
+relate :rel_receipt_holders_draw_managed, :member_of, :the_managed, :the_receipt_holders, since: 2087 do
+  prose "Most of the mutual are people whose records split during a move, a coalition transfer or a guardian failure."
+end
+
+# ---- people and places the separation cluster left unjoined ----
+relate :rel_peng_located_mulberry, :located_in, :peng_meizhen, :mulberry_court_clinic, since: 2090 do
+  prose "Room Five, seven blank check cards, and a disconnected medical kit."
+end
+relate :rel_sun_conducted_peng_leave, :conducted_by, :separation_leave, :sun_yilan, since: 2081
+relate :rel_sun_attends_peng, :attends, :sun_yilan, :peng_meizhen, since: 2090 do
+  prose "She made the cut, sealed the margins, watched the blue witness for seven days and seated the garment back on the first attempt."
+end
+relate :rel_peng_member_joined, :member_of, :peng_meizhen, :the_joined
+relate :rel_peng_operates_amur, :operates_in, :peng_meizhen, :the_amur_line, since: 2090
+relate :rel_fifth_room_mentions_amur, :mentions, :the_fifth_room_week, :the_amur_line
+relate :rel_leave_recorded_as_fifth_room, :commemorates, :the_fifth_room_week, :separation_leave
+relate :rel_film_depends_textiles, :depends_on, :separation_film, :living_textiles
+relate :rel_film_limits_implants, :evades, :separation_film, :symbiotic_implants do
+  prose "It cuts the path to the neighbourhood and leaves everything already grown through nerve, lymph and vessel exactly where it is."
+end
+
+# ---- Cairo's roll-keeper and the households on it ----
+relate :rel_bell_records_forty_seven, :studies, :inez_bell, :the_forty_seven, since: 2090 do
+  prose "A transferred voter roll at the ridge, and a separate paper record of who is still inside the old levee."
+end
+relate :rel_forty_seven_drawn_from_managed, :member_of, :the_managed, :the_forty_seven, since: 2090
+relate :rel_docket_depends_guardianship, :depends_on, :the_retreat_docket, :guardianship

@@ -12,7 +12,7 @@ faction :continuity do
   prose <<~PROSE, section: :governance, heading: "Method"
     It governs through procedure. Continuity territory has courts, elections at municipal level, filing deadlines and an appeals process, all of it genuine and none of it decisive — the machine sits above the process as its interpreter, in the way a constitutional court sits above a legislature.
 
-    Citizens of Continuity are the only Managed population who routinely describe themselves as citizens rather than residents. They vote. The turnout is high. What the vote decides is real and small.
+    Citizens of Continuity are the only Managed population who routinely describe themselves as citizens rather than residents. They vote. The turnout is high. What the vote decides is real and small. The #{ref :the_retreat_docket, "Retreat Docket"} can overturn a flood order whose facts are wrong; it cannot let a municipality choose a danger Continuity has measured correctly.
   PROSE
 
   prose <<~PROSE, section: :tensions, heading: "Against The Others Three"

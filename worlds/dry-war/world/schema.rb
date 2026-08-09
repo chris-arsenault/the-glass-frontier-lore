@@ -22,6 +22,11 @@ schema do
   # matter of practice, and the filings are the record they trust.
   relation :petitions, category: :organizational, temporal: true
 
+  # A clinician, steward or examiner carrying one named person through a
+  # procedure. Both civilizations run on procedures performed on bodies, and the
+  # person who performed one is a fact the record keeps.
+  relation :attends, category: :social, temporal: true
+
   # Sections the base vocabulary has no reason to carry. Both gods produced
   # religions nobody established, and both remade what a person is.
   section_heading :religion

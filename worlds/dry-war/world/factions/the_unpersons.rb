@@ -13,6 +13,8 @@ faction :the_unpersons do
     They split one identity across several people and merge several people into one. They keep the dead on the rolls and working. They maintain citizens whose medical implant believes them to be one person while housing believes them to be another, and both records are consistent, current and audited.
 
     There might be five thousand bodies represented by three thousand identities under BosWash. Or seven thousand. Nobody knows, and that includes them — the census is a weapon they have chosen not to hold.
+
+    Paid work in Market territory produces a harder record. An Unperson who cannot attach the work to a recognized identity receives a #{ref :claim_escrow, "completion receipt"} instead of payment; bundles of them remain in BosWash files beside identities nobody can safely use. Their identity work can clear a receipt for payment, but the claimant in Market's ledger is then not the body that did the work.
   PROSE
 
   prose <<~PROSE, section: :tensions, heading: "What They Want"
