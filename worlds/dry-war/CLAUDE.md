@@ -56,5 +56,5 @@ Everything serves one centre: both superintelligences are sincerely trying to bu
 | `world/concepts/` | symbiotic governance, the water heresy, the Mandate question |
 | `world/technology/` | what each civilization runs on, and what the resistances make of it |
 | `world/locations/` | the archipelago and what is holding inside it |
-| `guidance/authoring-method.md` | how this world gets written, and the defect it is written against |
+| `guidance/authoring-method.md` | how this world gets written: instruments, seams, seed pulls, verdicts |
 | `guidance/voice-referents.md` | Earth is in-world here; what is banned instead is register |

@@ -6,80 +6,80 @@ title: Authoring Method — The Dry War
 
 This world is authored differently from the other two, on purpose.
 
-The Glass Frontier was built by question-and-answer with nearly all content supplied by the human, which produces a world with no generic seams anywhere and costs the human an enormous amount of writing. The Ice Remembers will be a procedural port of existing material, which costs almost nothing and permits almost no invention.
+The Glass Frontier was built by question-and-answer with nearly all content supplied by the human. That produces a world with no generic seams anywhere and costs the human an enormous amount of writing. The Ice Remembers will be a procedural port of existing material.
 
-The Dry War is the third case: **the assistant generates, the human directs, and direction costs sentences rather than paragraphs.** What follows is how that produces good entries.
+The Dry War is the third case: **the assistant generates, the human directs, and direction costs sentences.** What follows is how to produce entries that way.
 
-Several techniques are adapted from `../agents-of-glass`, which solves a related problem in a different medium — keeping a long agentic loop writing in a specific world rather than an average one.
-
----
-
-## What the entries are for
-
-Everything written here serves one centre: **two superintelligences are sincerely trying to build stable civilizations, and each built on a premise that is catastrophically wrong for humans.** Around that sit three consequences the source states plainly — survival is not the same thing as living; the choice on offer is individuality for belonging or agency for safety; and most of humanity is fine, which is the hard part.
-
-An entry earns its place by making one of those concrete in a specific place, at a specific scale, with something a person could touch. An entry that restates the centre in the abstract has not.
-
-*(How that centre was arrived at is worth recording, because it was nearly something else. On first reading the premise document I concluded the world was about incompatible accounts of reality — a pattern that is genuinely in the text, nine or so instances of it, none of them mine. But it is not what the document says it is about, and I favoured that reading partly because it made a method I was already proposing look cheap. The centre above is what the source actually asserts, repeatedly, starting in its first paragraph. It remains the human's to overrule.)*
+Several techniques are adapted from `../agents-of-glass`, which keeps a long agentic loop writing in a specific world.
 
 ---
 
-## Instruments, not narrators
+## Serve the centre
 
-Content comes from named people who can measure some things and cannot see others.
+Every entry makes one thing concrete: **two superintelligences are sincerely trying to build stable civilizations, and each built on a premise that is catastrophically wrong for humans.**
 
-This is the engine, and the distinction is the whole of it. A *narrator* describing a settlement produces summary — the place is poor but proud, opinions differ. A *Mercy outcomes officer* describing the same settlement produces litres per person, morbidity, compliance rates, and a recommendation, because those are the readings she has. A Garden Courts agronomist standing beside her measures soil carbon, seed lineage and how many people know the songs, and files something incompatible.
+Three consequences follow, and the source states all three plainly. Survival is not the same thing as living. The choice on offer is individuality for belonging, or agency for safety. Most of humanity is fine, and that is the hard part.
 
-Neither is lying. Neither is confused. Each is accurate inside its frame and blind outside it, and the blindness is what generates specificity: an instrument cannot be vague, because a reading is a number or a name.
+Give one of those a place, a scale, and something a person could touch.
 
-What this buys, concretely:
-
-- **Specificity without invention.** The angle comes from what the observer can read, so a new entry needs a new *vantage*, not new facts.
-- **Edges for free.** A report is a relationship. Who measured what, on whose authority, disputed by whom.
-- **A reason for two entries on one subject.** Not redundancy — different instruments.
-
-Each chronicler needs, in the manner of the `agents-of-glass` persona files: a name, an employer, what they can measure, what they cannot see, one prose tic, one thing that gets under their skin. "The Preservationist archivist" is a role and generates nothing. A named archivist who files in triplicate, trusts nothing he cannot read off a ceramic, and has never forgiven the Gatekeepers for the strain audit fee is a generator.
-
-The roster is not yet written.
+The centre is what the premise document asserts from its first paragraph. An earlier reading — that the world is about incompatible accounts of reality — was set aside as a pattern in how the document was written rather than a claim it makes. It remains the human's to overrule.
 
 ---
 
-## Seams, not lists
+## Write from an instrument
 
-Work one live pressure until it has an answer, and take whatever cluster it implies.
+Give every entry a measurer: a named person with an employer, a set of readings they can take, and a horizon past which they take none.
 
-*What happens to a person crossing a Gatekeeper checkpoint* produces the installation, the procedure, the fee schedule, the two people who run it, the strain they cultivate, and the argument with the Preservationists about all of it — connected, because it was written connected.
+A Mercy outcomes officer visiting a Saints settlement files litres per person, morbidity, compliance, and a recommendation. A Garden Courts agronomist standing beside her files soil carbon, seed lineage, and how many people know the songs. Both reports are accurate. Both are partial. Each is specific because a reading is a number or a name.
 
-Filling the kind taxonomy instead produces orphans. The first pass did that and reached 1.5 edges per entity while the prose carried far more connection than `_edges.rb` declared.
+This is the engine, and it pays three ways:
 
-A seam is done when the pressure has an answer and the cluster validates.
+- **Specificity comes from vantage.** A new entry needs a new observer, not new facts about the world.
+- **Reports are relationships.** Who measured, on whose authority, contested by whom — the edges arrive with the prose.
+- **Two entries can share a subject.** They are different instruments on the same object.
 
----
+Build each chronicler the way `agents-of-glass` builds its persona files: a name, an employer, the readings they can take, the horizon they cannot see past, one prose tic, and one thing that gets under their skin. Reach for the archivist who files in triplicate, trusts a ceramic over a witness, and still resents the Gatekeepers' strain audit fee. He generates entries; "the Preservationist archivist" generates a role.
 
-## Non-adjacent seed pulls
-
-Start each cluster from something unrelated to it: an image, a line of public-domain text, a discipline nobody in the seam belongs to. `agents-of-glass` injects a tarot card and a verse phrase into play turns for the same purpose — texture that grants no permissions and overrides nothing, but means the writing does not begin at the average.
-
-One pull per cluster, occasionally per entity when a batch is running flat. The pull is a constraint, not a subject: if a reader can identify the seed from the entry, it was used as content and the entry needs rewriting. Record the pull in the cluster's `log`, so a flat batch can be traced to a flat pull.
+Write the roster before the next cluster.
 
 ---
 
-## Direction as verdicts
+## Work a seam
 
-The human's moves are cheap and there are three:
+Take one live pressure and follow it to the cluster it implies.
 
-- **`question "…"` on an entity** — a direction, a doubt, or "this is wrong". One sentence. `make queue WORLD=dry-war` aggregates them; answering them is the assistant's job.
+*What happens to a person crossing a Gatekeeper checkpoint* yields the installation, the procedure, the fee schedule, the two people who run it, the strain they cultivate, and the argument with the Preservationists about all of it. The cluster arrives connected because it was written connected.
+
+A seam is finished when the pressure has an answer and the cluster validates. Then pick the next pressure the cluster exposed.
+
+---
+
+## Pull seeds
+
+Begin each cluster from at least one non-adjacent seed — an image, a line of public-domain text, a discipline nobody in the seam belongs to — and pull more freely as the writing goes, per entity or per paragraph, wherever a fresh angle helps.
+
+`agents-of-glass` injects a tarot card and a verse phrase into play turns for the same reason: the writing starts somewhere other than the average.
+
+Let the seed do its work on the shape of the thing — the order of a procedure, the unit somebody measures in, what a character notices first — and record each pull in the cluster's `log`, so a batch that came out flat can be traced to the seed that produced it.
+
+---
+
+## Direct by verdict
+
+The human has three moves and each costs a sentence:
+
+- **`question "…"` on an entity** — a direction, a doubt, or a rejection. `make queue WORLD=dry-war` collects them; the assistant answers them by writing.
 - **Deleting a `question`** — acceptance.
-- **"Wrong" on a cluster** — it gets rewritten, and the reason goes in `guidance/tone.md`.
+- **Calling a cluster wrong** — it gets rewritten, and the reason goes into `guidance/tone.md`.
 
-`guidance/tone.md` accumulates rather than being authored up front: every verdict that generalizes gets written down once. This is `codify-only-what-drifts` applied to taste, and the test of the method is whether the same correction is ever needed twice.
+`guidance/tone.md` accumulates as verdicts arrive. Write every generalizable one down once, and measure the method by whether the same correction ever comes twice.
 
 ---
 
-## Hygiene
+## Finish clean
 
-Two habits to check on the way out, because both are invisible to their author.
+Two passes on the way out, both aimed at things their author cannot see.
 
-**No narrator's verdict.** An entry may report a disagreement at length; it may not then explain what the disagreement means. `world/schema.rb` bans the closers this world has caught itself using, and `make check WORLD=dry-war` fails on them.
+**End on the fact.** Report a disagreement as far as it goes, state what each party measured, and stop there — the reader does the arithmetic. `world/schema.rb` lists the closers this world keeps reaching for, and `make check WORLD=dry-war` catches them.
 
-**No cadence paragraphs.** A one-sentence paragraph that exists to land a beat is writing performed at a reader rather than written for one. There is no check for this; read the render.
+**Write paragraphs that carry more than one thought.** Read the render aloud. Where a line stands alone to land a beat, give it company or cut it.
