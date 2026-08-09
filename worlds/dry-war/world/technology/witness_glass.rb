@@ -6,7 +6,7 @@ resource :witness_glass do
   prose <<~PROSE
     Leaves of glass a little thicker than paper, written by a heated stylus and stacked into a glued block about the size of a hand. A model is written through the thickness of the block as fields of voids: no single leaf carries a readable part of it, and the block cannot be read without being separated leaf from leaf. Separating a block cracks the leaves off the glue.
 
-    Appalachian glass shops in the #{ref :the_dead_counties, "Dead Counties"} cut and write them, out of the same #{ref :physical_cryptography, "practice"} that produced one-time materials and objects that must be destroyed to be read. A block is what a #{ref :feral_models, "feral"} looks like when it has to sit still in somebody else's building for a year.
+    Appalachian glass shops in the #{ref :the_dead_counties, "Dead Counties"} cut and write them. A block is what a #{ref :feral_models, "feral"} looks like when it has to sit still in somebody else's building for a year.
   PROSE
 
   prose <<~PROSE, section: :how_it_works, heading: "The Top Leaf"

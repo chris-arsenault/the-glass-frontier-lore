@@ -14,7 +14,6 @@ relate :rel_tc_godown_holds_strains, :possesses, :wing_lok_godown, :severed_stra
 relate :rel_tc_gatekeepers_study_godown, :studies, :the_gatekeepers, :wing_lok_godown, since: 2074
 
 relate :rel_tc_glass_carries_ferals, :carries, :witness_glass, :feral_models, since: 2079
-relate :rel_tc_glass_derived_from_crypto, :derived_from, :witness_glass, :physical_cryptography
 relate :rel_tc_dead_counties_supply_glass, :supplies, :the_dead_counties, :witness_glass, since: 2079
 
 # ---- the eleven-day flush ----

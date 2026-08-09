@@ -12,7 +12,7 @@ resource :dead_root_interfaces do
   prose <<~PROSE, section: :mechanics, heading: "Ninety Seconds And The Kill"
     The interval is not a safety margin. It is how long a membrane grown from a #{ref :severed_strains, "severed strain"} holds its signalling before the necrosis agent, which is loaded at the same time as the graft, reaches the tissue that carries it. A courier who needs longer grows two.
 
-    The kill is the part that is engineered and re-engineered. A membrane that dies slowly leaves signalling tissue attached to a living network for as long as it takes, so the agent is chemical rather than electrical, carried in the graft rather than triggered from outside, and cannot be countermanded once released. Nobody in the trade will use an interface whose kill depends on a machine, and #{ref :physical_cryptography, "the practice that governs the rest of resistance security"} is the reason given.
+    The kill is the part that is engineered and re-engineered. A membrane that dies slowly leaves signalling tissue attached to a living network, so the agent is chemical rather than electrical, carried in the graft rather than triggered from outside, and cannot be countermanded once released. Interfaces with a machine-controlled kill stay out of the trade because the same system at the far end could keep them alive.
   PROSE
 
   prose <<~PROSE, section: :trade, heading: "What Dead Tissue Is Worth"

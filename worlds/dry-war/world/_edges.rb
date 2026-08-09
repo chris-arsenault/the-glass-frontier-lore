@@ -90,7 +90,6 @@ relate :rel_dead_counties_use_jailbreaks, :practiced_by, :wetware_jailbreaks, :t
 relate :rel_dead_counties_use_ghost, :practiced_by, :ghost_pharmacology, :the_dead_counties, since: 2065
 relate :rel_resistance_uses_orphans, :possesses, :the_dead_counties, :orphan_machines, since: 2065
 relate :rel_choir_uses_stupid, :maintains, :the_dead_counties, :stupid_infrastructure, since: 2065
-relate :rel_unpersons_use_physical_crypto, :practiced_by, :physical_cryptography, :the_unpersons, since: 2060
 relate :rel_ferals_derived_from_clusters, :derived_from, :feral_models, :frontier_clusters
 relate :rel_orphans_severed_from_clusters, :severed_from, :orphan_machines, :frontier_clusters
 relate :rel_jailbreaks_depend_implants, :depends_on, :wetware_jailbreaks, :neural_implants

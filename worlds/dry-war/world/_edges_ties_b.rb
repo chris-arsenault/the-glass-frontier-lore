@@ -4,7 +4,6 @@
 # ---- the ceramic that crossed into a Philadelphia repair ----
 relate :rel_tb_vault_possesses_shard, :possesses, :juyan_ceramic_vault, :the_six_faced_pipe_shard, since: 2071
 relate :rel_tb_shard_derived_ceramics, :derived_from, :the_six_faced_pipe_shard, :memory_ceramics
-relate :rel_tb_shard_embodies_physcrypt, :embodies, :the_six_faced_pipe_shard, :physical_cryptography
 relate :rel_tb_preservationists_possess_shard, :possesses, :the_preservationists, :the_six_faced_pipe_shard, since: 2071
 relate :rel_tb_market_supplies_vault, :supplies, :market, :juyan_ceramic_vault, since: 2085 do
   prose "Paper and fine grit travel east in exchange for ink rubbings from old engineering ceramics."

@@ -45,16 +45,6 @@ relate :rel_wr_stupid_depends_orphans, :depends_on, :stupid_infrastructure, :orp
 relate :rel_wr_stupid_maintains_bench, :maintains, :stupid_infrastructure, :cabin_creek_bench
 relate :rel_wr_pilgrims_evades_stupid, :evades, :the_pilgrims, :stupid_infrastructure
 
-# ---- physical cryptography: the practice its instruments belong to ----
-relate :rel_wr_fount_embodies_physcrypt, :embodies, :the_yumen_fount, :physical_cryptography
-relate :rel_wr_tiles_embodies_physcrypt, :embodies, :comparison_tiles, :physical_cryptography
-relate :rel_wr_physcrypt_practiced_pilgrims, :practiced_by, :physical_cryptography, :the_pilgrims
-relate :rel_wr_physcrypt_practiced_gatekeepers, :practiced_by, :physical_cryptography, :the_gatekeepers do
-  prose "A tray of dated type, opened in front of both parties. Nobody in the American resistance taught them, and the convergence is not remarked on in either place."
-end
-relate :rel_wr_physcrypt_practiced_brokers, :practiced_by, :physical_cryptography, :the_brokers
-relate :rel_wr_vault_embodies_physcrypt, :embodies, :juyan_ceramic_vault, :physical_cryptography
-
 # ---- wetware jailbreaks: what a fabricated record has to satisfy ----
 relate :rel_wr_jailbreaks_evades_guardianship, :evades, :wetware_jailbreaks, :guardianship do
   prose "The guardian holds a history, so the requirement is continuity rather than concealment: a record has to age the way a body ages."
@@ -71,7 +61,6 @@ relate :rel_wr_bonsai_depends_sterile, :depends_on, :bonsai_intelligences, :ster
 relate :rel_wr_ceramics_studies_bonsai, :studies, :memory_ceramics, :bonsai_intelligences
 
 # ---- dead-root interfaces: the kill, and what dead tissue is worth ----
-relate :rel_wr_deadroot_derived_physcrypt, :derived_from, :dead_root_interfaces, :physical_cryptography
 relate :rel_wr_brokers_supplies_deadroot, :supplies, :the_brokers, :dead_root_interfaces
 relate :rel_wr_deadroot_manifests_amur, :manifests_at, :dead_root_interfaces, :the_amur_line
 
