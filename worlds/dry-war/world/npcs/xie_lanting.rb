@@ -6,7 +6,7 @@ npc :xie_lanting do
   prose <<~PROSE
     Xie Lanting works in the plank coring room at #{ref :tangwang_post, "Tangwang Post"}. #{ref :the_great_root, "The Great Root"}'s line service sent her to the #{ref :the_amur_line, "Amur"} reaches as an ecologist. Each survey brings her twenty pencil-thin cores from a forty-metre grid, which she reads under a bench lens before the wood dries. She calls a closed tube through the outer rings a sleeve and a separate mass inside one a body.
 
-    Her evidence is wood: cores, bark, litter, root plates in windthrow pits and the numbered #{ref :yunnan_reference_wood, "Yunnan blocks"} she sections herself. #{ref :continuity, "Continuity"}'s cabinet reads weather and animal movement in another shed, while human scouts walk beyond her grid. Xie's sheet records what grew inside the tree without naming its cause.
+    Her evidence is wood: cores, bark, litter, root plates in windthrow pits and the numbered #{ref :yunnan_reference_wood, "Yunnan blocks"} she sections herself. #{ref :continuity, "Continuity"}'s cabinet reads weather and animal movement in another shed, while human scouts walk beyond her grid. Xie's sheet identifies the structures inside each tree. The cabinet and the scouts supply the weather, movement and ground observations used to decide what made them.
   PROSE
 
   prose <<~PROSE, section: :reference, heading: "Naming A Sleeve"

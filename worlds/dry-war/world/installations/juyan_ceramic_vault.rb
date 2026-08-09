@@ -13,7 +13,7 @@ installation :juyan_ceramic_vault do
   prose <<~PROSE, section: :structure, heading: "Salt And Fired Brick"
     A double-doored vestibule opens onto a salt bed that is turned every day. Dry pieces wait there for six days; wet pieces wait twelve. Staff weigh the salt morning and evening, and any gain means that something inside is still shedding moisture.
 
-    Beyond it, the ceramics stand on edge, sixteen to a coffer. Salt paste seals each lid with a smooth grey skin. Damp air crazes that skin into broad plates, so a leaking coffer shows itself from the bay door. The vault has no empty coffers. Pieces too damaged to read still keep their places because no one knows whether another reader, another decade, or a missing companion will make sense of them.
+    Beyond it, the ceramics stand on edge, sixteen to a coffer. Salt paste seals each lid with a smooth grey skin. Damp air crazes that skin into broad plates, so a leaking coffer shows itself from the bay door. The vault has no empty coffers. Pieces too damaged to read still keep their places. A later fragment may complete an inscription, and a surface that defeats one reader may yield to finer grit and a steadier hand.
   PROSE
 
   prose <<~PROSE, section: :operations, heading: "The Long Night Room"
