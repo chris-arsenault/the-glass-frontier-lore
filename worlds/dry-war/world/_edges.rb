@@ -27,9 +27,7 @@ relate :rel_market_governs_america, :governs, :market, :ai_north_america, since:
 relate :rel_caretaker_governs_america, :governs, :caretaker, :ai_north_america, since: 2052
 
 # ---- the two subject populations ----
-relate :rel_joined_symbiotic_root, :symbiotic_with, :the_joined, :the_great_root, since: 2040 do
-  prose "Nobody agreed to it. It arrived as #{ref :living_textiles, "clothing"} that worked, and stayed."
-end
+relate :rel_joined_symbiotic_root, :symbiotic_with, :the_joined, :the_great_root, since: 2040
 relate :rel_joined_inhabits_china, :inhabits, :the_joined, :mycelial_china, since: 2040
 relate :rel_managed_inhabits_america, :inhabits, :the_managed, :ai_north_america, since: 2052
 relate :rel_managed_depends_implants, :depends_on, :the_managed, :neural_implants
@@ -161,22 +159,14 @@ relate :rel_schedule_regulates_weighing, :regulates, :the_gate_schedule, :the_we
 relate :rel_schedule_at_yumen, :manifests_at, :the_gate_schedule, :yumen_gate
 relate :rel_ma_employed_by_gatekeepers, :employed_by, :ma_renqing, :the_gatekeepers, since: 2072
 relate :rel_ma_located_yumen, :located_in, :ma_renqing, :yumen_gate, since: 2072
-relate :rel_ma_regulates_weighing, :regulates, :ma_renqing, :the_weighing, since: 2081 do
-  prose "Every contested reading at #{ref :yumen_gate, "Yumen"} comes to her, and she keeps a card on each one that the station never sees."
-end
+relate :rel_ma_regulates_weighing, :regulates, :ma_renqing, :the_weighing, since: 2081
 relate :rel_yao_member_preservationists, :member_of, :yao_lin, :the_preservationists, since: 2078
 relate :rel_yao_carries_ceramics, :carries, :yao_lin, :memory_ceramics, since: 2078
 relate :rel_yao_operates_yumen, :operates_in, :yao_lin, :yumen_gate, since: 2078
-relate :rel_yao_evades_moss, :evades, :yao_lin, :gate_moss, since: 2078 do
-  prose "She pays the scraping surcharge every crossing and files the objection with it. The station's file of them runs to eleven."
-end
+relate :rel_yao_evades_moss, :evades, :yao_lin, :gate_moss, since: 2078
 relate :rel_preservationists_object_weighing, :evades, :the_preservationists, :the_weighing, since: 2060
-relate :rel_ma_regulates_moss, :regulates, :ma_renqing, :gate_moss, since: 2081 do
-  prose "Beds pulled early read slowly, and a slow read is a contested card. She rules on those and on the beds that produced them."
-end
-relate :rel_yao_petitions_ma, :petitions, :yao_lin, :ma_renqing, since: 2078 do
-  prose "Eleven filings, each asking the receiving inspector to state whether the station considers itself bound by any law it did not print. None answered, none lost."
-end
+relate :rel_ma_regulates_moss, :regulates, :ma_renqing, :gate_moss, since: 2081
+relate :rel_yao_petitions_ma, :petitions, :yao_lin, :ma_renqing, since: 2078
 relate :rel_preservationists_petition_gatekeepers, :petitions, :the_preservationists, :the_gatekeepers, since: 2060
 
 # ---- the Cairo retreat appeal ----

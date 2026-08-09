@@ -22,7 +22,7 @@ installation :conowingo_engagement_counter do
   prose <<~PROSE, section: :operations, heading: "What The Counter Cannot Do"
     It holds no reserve. The works account funds the price with Market, the counter prints the completion record, and everything after that is a matter for #{ref :claim_escrow, "escrow"} and, when a payee cannot be joined to a record, for the #{ref :race_street_claim_house, "claim house at Race Street"} eighty kilometres up the corridor.
 
-    It also cannot refuse a crew. A gang boss who presents nine bodies and a crew name is engaged if the work is on the board, whatever the counter can or cannot establish about the nine. The clerk's standing complaint, filed twice a season and never answered, is that a counter engaging bodies it cannot name is manufacturing the exact file the claim house then spends years opening.
+    It also cannot refuse a crew. A gang boss who presents nine bodies and a crew name is engaged if the work is on the board, whatever the counter can establish about the nine. This sends the claim house the exact identity dispute the counter was built to avoid. Market keeps the split because naming every worker at engagement would exclude the unregistered crews that clear the dam.
   PROSE
 
   log "2026-08-09 — Sediment is the yard's standing work because the reservoir behind the dam filled with it: a lower Susquehanna hydro pool that had lost most of its trapping capacity by the middle of the last century. That decided the season — the counter opens at low water in July, when the barges can work the pool — and it decided why unskilled day crews are engaged in numbers rather than by name."

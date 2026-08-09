@@ -8,7 +8,7 @@ concept :physical_cryptography do
 
     Mechanical keys. One-time materials. Chemical transformations. Objects that must be destroyed to be read. Optical media whose contents depend on orientation. Randomness taken from weather, animals, fire, turbulence or a crowd.
 
-    A resistance intelligence service may run extraordinarily advanced computation and still transmit its most important instruction on a piece of paper, carried by a person who does not know what it says.
+    A resistance intelligence service may run extraordinarily advanced computation and still transmit its most important instruction on paper whose code can be opened only at its destination.
   PROSE
 
   prose <<~PROSE, section: :reference, heading: "The Four Properties"

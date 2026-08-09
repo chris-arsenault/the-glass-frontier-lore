@@ -12,7 +12,7 @@ npc :nadya_tsoi do
   prose <<~PROSE, section: :operations, heading: "The Walk Sheet"
     The sheet is kept in the order things were met, top to bottom, with paces in the left margin and nothing reordered afterwards, even where the ninth line explains the third. Tsoi stops at the edge of a compartment before entering and listens for a hundred breaths, so the first line on a Tangwang sheet is nearly always a sound or the absence of one.
 
-    On the Compartment Twelve walk her first line was quiet at the north edge — no thrush, no siskin. Below it: roe deer beds on north aspects at three hundred and forty paces, litter at 100 millimetres reading 3.4 degrees above the shaded air at the same hour, and #{ref :sanchakou, "Sanchakou"}'s hazel row leafed a week ahead of the coppice behind it. She cannot read a core, cannot see the cabinet's weightings and does not say what the warmth in the litter is.
+    On the Compartment Twelve walk her first line was quiet at the north edge: no thrush, no siskin. Below it she recorded roe deer beds on north aspects at three hundred and forty paces, litter at 100 millimetres reading 3.4 degrees above the shaded air at the same hour, and #{ref :sanchakou, "Sanchakou"}'s hazel row leafed a week ahead of the coppice behind it. Her sheet treats the warm litter as one observation among the silent birds, displaced deer and early leaves; the combined change is what she marked.
   PROSE
 
   prose <<~PROSE, section: :people, heading: "The Marking Office"

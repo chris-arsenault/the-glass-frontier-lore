@@ -16,7 +16,7 @@ installation :kalkara_bake_shed do
   PROSE
 
   prose <<~PROSE, section: :limits, heading: "The Refusal List"
-    An article whose pieces cannot all take their oven is refused, and a refused article does not go back inside a wall. The list of what has been refused hangs on the water door: oiled bearings, seated gaskets, closed voids that cannot be opened, laminated skins that delaminate at the middle heat, and anything whose maker will not say what is inside a sealed housing.
+    An article whose pieces cannot all take their oven is refused, and a refused article does not go back inside a wall. The list on the water door names oiled bearings, seated gaskets, closed voids that cannot be opened, laminated skins that delaminate at the middle heat, and sealed housings without a complete material schedule.
 
     Buyers for the enclaves read that door before they order, which is the whole of the shed's authority — it holds no office and answers to no enclave. #{ref :sterile_machines, "Machinery designed to come apart and be baked"} passes it as a matter of course, and the shed's masters will say so to a Chinese resistance supplier's face and to their own gate crews, who would rather buy nothing from that quarter at all.
   PROSE

@@ -10,7 +10,7 @@ incident :the_second_room_fever do
   PROSE
 
   prose <<~PROSE, section: :course, heading: "The Proposal"
-    The district's clinical committee opened a proposal the following quarter: postpone a leave for any citizen on a course of medication until the course ends. Under symbiotic governance most adults are on a continuous course of something, so the proposal would have made the request refusable in practice without anyone refusing a request. It was written by people whose figures showed three fevers in six leaves and no other explanation on the page.
+    The district's clinical committee opened a proposal the following quarter: postpone a leave for any citizen on a course of medication until the course ends. Under symbiotic governance most adults are on a continuous course of something, so the proposal would have made the request refusable in practice without anyone refusing a request. Their figures showed three fevers in six leaves but omitted medication timing, the factor shared by the three patients.
 
     Sun produced the three completion cards and the intake cards beneath them. Two of the citizens had finished a five-day antimicrobial the day before admission; the third had taken the last dose of an antipyretic with a nine-day halving four days before the cut. In all three cases the inflammation figures sat inside the range the same body had shown in the fortnight before its leave, which the connected garment had recorded while it could still report.
   PROSE

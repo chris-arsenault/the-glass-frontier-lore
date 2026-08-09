@@ -79,7 +79,7 @@ relate :rel_td_brokers_supply_yumen, :supplies, :the_brokers, :yumen_gate, since
   prose "Three founts cast to order — 2071, 2079, 2086 — carried up on the Delta run with the rest of the station's hardware."
 end
 relate :rel_td_sort_book_depends_brokers, :depends_on, :the_sort_book, :the_brokers do
-  prose "What a page can prove is bounded by the fount it was pulled from, and the houses that cast the founts keep no record of what they sent."
+  prose "What a page can prove is bounded by the fount it was pulled from. The casting houses fill each order from the sorts in their trays and do not number the shipment."
 end
 
 # ---- the finding ----

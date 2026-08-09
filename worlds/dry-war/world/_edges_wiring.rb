@@ -93,16 +93,12 @@ end
 relate :rel_wr_bonsai_depends_sterile, :depends_on, :bonsai_intelligences, :sterile_machines
 relate :rel_wr_bonsai_depends_packets, :depends_on, :bonsai_intelligences, :outside_packets
 relate :rel_wr_bonsai_regulated_sitting, :regulates, :the_refusal_sitting, :bonsai_intelligences
-relate :rel_wr_ceramics_studies_bonsai, :studies, :memory_ceramics, :bonsai_intelligences do
-  prose "What a bounded mind knows can be carried away without the mind leaving its bed or noticing that anything happened. No wall addresses this."
-end
+relate :rel_wr_ceramics_studies_bonsai, :studies, :memory_ceramics, :bonsai_intelligences
 
 # ---- dead-root interfaces: the kill, and what dead tissue is worth ----
-relate :rel_wr_deadroot_derived_physcrypt, :derived_from, :dead_root_interfaces, :physical_cryptography do
-  prose "Chemical rather than electrical, carried in the graft rather than triggered from outside, and not countermandable once released. Nobody will use a kill that depends on a machine."
-end
+relate :rel_wr_deadroot_derived_physcrypt, :derived_from, :dead_root_interfaces, :physical_cryptography
 relate :rel_wr_brokers_supplies_deadroot, :supplies, :the_brokers, :dead_root_interfaces do
-  prose "Spent grafts by weight into the Amur trade, graded on how cleanly the kill ran. Buyers are not told what they are for and do not ask."
+  prose "Spent grafts move by weight into Amur laboratories, graded on how cleanly the kill ran and used to build fungal-machine interfaces."
 end
 relate :rel_wr_deadroot_manifests_amur, :manifests_at, :dead_root_interfaces, :the_amur_line
 
@@ -123,17 +119,11 @@ relate :rel_wr_mercy_supplies_fusion, :supplies, :mercy, :proto_fusion
 relate :rel_wr_fusion_depends_clusters, :depends_on, :frontier_clusters, :proto_fusion
 
 # ---- symbiotic implants: grown not fitted, and what a reading is worth ----
-relate :rel_wr_implants_depends_textiles, :depends_on, :symbiotic_implants, :living_textiles do
-  prose "The seed structure is grown along the tissue it will serve over a season, guided by compounds delivered through the garment. The fitting is a course of treatment."
-end
+relate :rel_wr_implants_depends_textiles, :depends_on, :symbiotic_implants, :living_textiles
 relate :rel_wr_implants_depends_severed, :depends_on, :symbiotic_implants, :severed_strains
 relate :rel_wr_gatekeepers_supplies_implants, :supplies, :the_gatekeepers, :symbiotic_implants
-relate :rel_wr_implants_part_consensus, :part_of, :symbiotic_implants, :emotional_consensus do
-  prose "The compound that suppresses a tumour is dosed off the same signalling that tells the network a district is unwell. Reporting is not separable from the medicine."
-end
-relate :rel_wr_preservationists_evades_implants, :evades, :the_preservationists, :symbiotic_implants do
-  prose "The only population in the fungal civilization with individual health records going back a generation, and therefore the only available control group."
-end
+relate :rel_wr_implants_part_consensus, :part_of, :symbiotic_implants, :emotional_consensus
+relate :rel_wr_preservationists_evades_implants, :evades, :the_preservationists, :symbiotic_implants
 relate :rel_wr_courts_petitions_implants, :petitions, :the_garden_courts, :symbiotic_implants
 relate :rel_wr_joined_possesses_implants, :possesses, :the_joined, :symbiotic_implants
 

@@ -10,16 +10,16 @@ npc :ma_renqing do
   PROSE
 
   prose <<~PROSE, section: :people, heading: "How She Works"
-    She keeps her own card on every contested crossing, separate from the station's, in a hand nobody else reads easily, and she has never produced one in a dispute. The cards are for the pattern: which lineages come through thin, which convoy masters arrive with travellers who have all been dressed that morning, which beds were pulled early and what their cards looked like afterwards.
+    She keeps a working card on every contested crossing, separate from the station's weight record. The cards track patterns across cases: which lineages come through thin, which convoy masters arrive with travellers who have all been dressed that morning, which beds were pulled early and what their cards looked like afterwards.
 
     Her standing instruction to her inspectors is that a card records weights and never manner. She enforces it, and the reason she gives is that an inspector who starts reading faces starts finding what they expect.
   PROSE
 
-  prose <<~PROSE, section: :perception, heading: "What She Does Not See"
-    Anything upstream of a seal. She audits the strains the station grows and takes the rest on paper, and she says so to travellers who ask, which is not most of them.
+  prose <<~PROSE, section: :perception, heading: "Upstream Of The Seal"
+    The station audits the strains it grows. Everything upstream of a sealed shipment arrives on paper, and Ma tells travellers that before she weighs it.
 
-    Whether the #{ref :the_great_root, "Great Root"} has already had what a garment carried. The #{ref :the_weighing, "Weighing"} reads tissue and she does not pretend otherwise; a westbound traveller can pass clean on both weights having handed over a month of their life the week before.
+    The #{ref :the_weighing, "Weighing"} cannot show whether the #{ref :the_great_root, "Great Root"} has already had what a garment carried. It reads tissue and Ma does not pretend otherwise; a westbound traveller can pass clean on both weights having handed over a month of their life the week before.
 
-    She is asked, perhaps twice a year, whether the work makes her a collaborator. The couriers ask it in writing on their objection forms, and #{ref :yao_lin, "Yao Lin"} has asked it eleven times. Ma Renqing files the forms.
+    Couriers ask whether the work makes her a collaborator. #{ref :yao_lin, "Yao Lin"} has asked eleven times. Ma gives the same answer each time: the station judges what crosses its floor, not the government that sent it.
   PROSE
 end

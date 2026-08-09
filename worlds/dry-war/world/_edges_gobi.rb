@@ -71,9 +71,7 @@ end
 relate :rel_liangzhou_mentions_root, :mentions, :the_liangzhou_double_return, :the_great_root
 relate :rel_preservationists_participated_liangzhou, :participated_in, :the_preservationists, :the_liangzhou_double_return
 relate :rel_gatekeepers_participated_liangzhou, :participated_in, :the_gatekeepers, :the_liangzhou_double_return
-relate :rel_yao_participated_liangzhou, :participated_in, :yao_lin, :the_liangzhou_double_return do
-  prose "The standing request for a third copy has gone out with her on four crossings."
-end
+relate :rel_yao_participated_liangzhou, :participated_in, :yao_lin, :the_liangzhou_double_return
 relate :rel_liangzhou_regulates_bao, :regulates, :the_liangzhou_double_return, :bao_qiuyan, since: 2087 do
   prose "Her result carries a provisional note referring to the open item: she sits, is marked, holds the bench, and holds it subject to the item."
 end

@@ -37,12 +37,8 @@ relate :rel_rc_cecile_at_belfry, :located_in, :cecile_ouellette, :ste_anne_belfr
 # ---- the two people ----
 relate :rel_rc_odile_employed_by_caretaker, :employed_by, :odile_marchand, :caretaker, since: 2085
 relate :rel_rc_cecile_member_choir, :member_of, :cecile_ouellette, :the_choir, since: 2071
-relate :rel_rc_cecile_employed_by_caretaker, :employed_by, :cecile_ouellette, :caretaker, since: 2074 do
-  prose "A heritage stipend against a roster, which is the whole of her relationship with the coalition that pays it."
-end
-relate :rel_rc_cecile_studies_mercy, :studies, :cecile_ouellette, :mercy, since: 2071 do
-  prose "The intake board on her walk to the tower, read every session morning and never for the water."
-end
+relate :rel_rc_cecile_employed_by_caretaker, :employed_by, :cecile_ouellette, :caretaker, since: 2074
+relate :rel_rc_cecile_studies_mercy, :studies, :cecile_ouellette, :mercy, since: 2071
 relate :rel_rc_odile_cooperates_cecile, :cooperates_with, :odile_marchand, :cecile_ouellette, since: 2085 do
   prose "Two sessions moved for a hip, and no conversation either of them would have to report."
 end
@@ -62,9 +58,7 @@ relate :rel_rc_choir_in_solo, :participated_in, :the_choir, :the_gratiot_solo
 relate :rel_rc_caretaker_in_solo, :participated_in, :caretaker, :the_gratiot_solo do
   prose "A dose review, a home visit, a companion assignment and a standing check, each of them indicated."
 end
-relate :rel_rc_cecile_in_solo, :participated_in, :cecile_ouellette, :the_gratiot_solo do
-  prose "She rang the session it came out of and withdrew the method afterwards."
-end
+relate :rel_rc_cecile_in_solo, :participated_in, :cecile_ouellette, :the_gratiot_solo
 relate :rel_rc_odile_in_solo, :participated_in, :odile_marchand, :the_gratiot_solo do
   prose "One query answered about platform levels on eleven consecutive evenings."
 end

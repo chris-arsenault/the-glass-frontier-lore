@@ -36,6 +36,6 @@ culture :the_joined do
   prose <<~PROSE, section: :religion, heading: "The Beneath"
     No religion was established and religion arrived anyway. People leave offerings in community gardens, and the official position that this is superstition has never been enforced with any conviction.
 
-    Funeral practice has changed, because the fungal matter a person carried can be returned to the local network. Families sometimes say they can still feel a dead relative. Whether that is memory, imitation or continuity is not known, and the Great Root has never given a straight answer about it, which the devout consider significant.
+    Funeral practice has changed because the fungal matter a person carried can be returned to the local network. It brings fragments of sensory memory with it, and families sometimes feel a dead relative in the network's later responses. The Great Root calls those fragments memory rather than survival. Some families call them imitation; the devout call them continuity.
   PROSE
 end

@@ -12,7 +12,7 @@ concept :the_face_warrant do
   PROSE
 
   prose <<~PROSE, section: :mechanics, heading: "Before The Plate"
-    A request names a subject and not an admission number, since nobody outside the settlement may search the register. The house answers with a number and a face count, or with a refusal that does not say whether the piece exists.
+    A request names a subject rather than an admission number because outsiders cannot search the register. The house states whether a piece exists and, when it does, returns its number and remaining face count.
 
     The requesting party then states the use, and the warrant is written to it. An extract granted on an acceptance question may be filed against that question and nothing else; an office that files one in support of a household line is refused its next request. Title in the sheet and the residue is assigned on the same line, in advance, and the requesting party signs it before the piece leaves its coffer.
 

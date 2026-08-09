@@ -5,7 +5,7 @@ incident :the_priced_return do
   prominence :marginal
 
   prose <<~PROSE
-    In the 2088 season a travelling group of thirty-one, calling itself Long Grass that year, took gallery and barge work at the #{ref :conowingo_engagement_counter, "Conowingo counter"} and filed four #{ref :the_engagement_allotment, "allotment notes"}. All four named allottees at standing addresses in Market towns, and all four paid on the first and the sixteenth. The remainder of the price stood in #{ref :claim_escrow, "escrow"} against identity records the group did not intend to produce.
+    In the 2088 season a travelling group of thirty-one, calling itself Long Grass that year, took gallery and barge work at the #{ref :conowingo_engagement_counter, "Conowingo counter"} and filed four #{ref :the_engagement_allotment, "allotment notes"}. All four named allottees at standing addresses in Market towns, and all four paid on the first and the sixteenth. The remainder of the price stood in #{ref :claim_escrow, "escrow"} with no recognized identity records for the workers.
 
     The group returned on the ninth of July 2089, having chosen the crossing by dice. The day board carried gallery work brought forward from September at a rate a fifth above the corridor's, posted six days earlier.
   PROSE

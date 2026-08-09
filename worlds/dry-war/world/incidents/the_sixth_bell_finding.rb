@@ -9,8 +9,8 @@ incident :the_sixth_bell_finding do
     #{ref :odile_marchand, "Odile Marchand"} asked the band for a rubbing rather than commissioning a survey, on cost. #{ref :cecile_ouellette, "Cécile Ouellette"} took the rubbing and produced her mother's band's book against it — rubbings off the bells of four towers in the district, kept from before the programme existed. The sixth's letters matched a set standing on two bells hung well before 2074: a filled O and a broken-footed R.
   PROSE
 
-  prose <<~PROSE, section: :course, heading: "What The Letters Would Not Say"
-    The sixth is not a 2074 casting. What the #{ref :the_letter_match, "match"} could not supply was a year, because the stamps outlived the founder who cut them and are recorded on work fifty years apart.
+  prose <<~PROSE, section: :course, heading: "The Missing Year"
+    The sixth is not a 2074 casting. The #{ref :the_letter_match, "matching letters"} cannot date it more closely because the stamps outlived the founder who cut them and appear on work fifty years apart.
 
     Caretaker's remedy for a mis-described asset is to describe it correctly or to replace it. Replacement was priced: a new sixth, and a band standing down for a season to relearn the ring on it. Marchand filed for re-description, arguing the cost against a mood delta the programme was already clearing by a thin margin. The schedule now carries five bells cast in 2074, two recast in 2081 and one of unknown date, and the insured value fell by less than a survey would have cost.
   PROSE

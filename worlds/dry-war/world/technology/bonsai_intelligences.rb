@@ -20,7 +20,7 @@ concept :bonsai_intelligences do
 
     #{ref :the_refusal_sitting, "The card"} that comes out of a sitting names the bed and the keeper together and lasts #{duration 1}. Settlements that consult their minds as elders will not put a question to a bed whose card has lapsed; the settlements that refuse to name their minds card them by bed number and hold to the same rule. A keeper who dies takes the card with them, and the bed waits.
 
-    The examiner cannot inspect the boundary and does not try. What the columns hold is what the mind reached for, which is why keepers who want a clean card drill their beds on refusals — and why a copied packet circulating at a fifth of the price #{ref :the_heshun_duplicate, "voided forty-one cards in one season"}.
+    The sitting measures the mind's reach through its answers rather than by cutting into the bed. Keepers can train a mind to decline unfamiliar work, which is why each packet includes questions any local mind should answer, and why a copied packet circulating at a fifth of the price #{ref :the_heshun_duplicate, "voided forty-one cards in one season"}.
   PROSE
 
   prose <<~PROSE, section: :reference, heading: "How A Boundary Is Built"
@@ -28,6 +28,6 @@ concept :bonsai_intelligences do
 
     The third is that the mind is grown from a #{ref :severed_strains, "severed strain"} to begin with, which means the whole practice inherits that lineage's paperwork and its argument about provenance. A bed's card and its strain's lineage are held in different rooms by different people, and the #{future "Weixi bed register"} is the only place in the Nu valleys where the two are written on one page.
 
-    What no wall addresses is a bed being read from outside. #{ref :memory_ceramics, "Memory ceramics"} can carry away what a bounded mind knows without the mind leaving its bed or noticing that anything happened.
+    A wall can contain living growth but not a copied pattern. #{ref :memory_ceramics, "Memory ceramics"} can reproduce stored responses from a bounded mind without moving the living network beyond its bed.
   PROSE
 end

@@ -18,7 +18,7 @@ installation :tangwang_post do
   prose <<~PROSE, section: :people, heading: "Who Is Posted Here"
     Line postings come from inland municipal services on two-year terms. The post's transport book is kept by #{future "Peng Lihua"}, the elder sister of #{ref :peng_meizhen, "Peng Meizhen"} of Mulberry Court, whose household was rearranged around the posting before she took it. Scouts are contracted rather than posted, and the roll accepts a scout who carries nothing that reports.
 
-    #{ref :the_great_root, "The Great Root"} maintains the clinic, the water and the substrate readings. Continuity supplies the cabinet, its consumables and the model, and the reach's readings leave for North America on the same schedule as they enter the file. A #{ref :the_preservationists, "Preservationist"} courier copies the season's walk sheets onto #{ref :memory_ceramics, "ceramic"} twice a year and carries the copy to the Gobi, an arrangement the post entered after a register year in which two walk sheets could not be produced from the cabinet's file.
+    #{ref :the_great_root, "The Great Root"} maintains the clinic, the water and the substrate readings. Continuity supplies the cabinet, its consumables and the model, and the reach's readings leave for North America on the same schedule as they enter the file. A #{ref :the_preservationists, "Preservationist"} courier copies the season's walk sheets onto #{ref :memory_ceramics, "ceramic"} twice a year and carries the copy to the Gobi. The post added that copy after two walk sheets were absent from the cabinet's file at year-end.
   PROSE
 
   prose <<~PROSE, section: :governance, heading: "The Orchard Scions"

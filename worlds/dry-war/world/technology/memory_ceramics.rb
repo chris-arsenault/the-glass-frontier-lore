@@ -12,8 +12,8 @@ resource :memory_ceramics do
   PROSE
 
   prose <<~PROSE, section: :applications, heading: "What Can Be Fired Into Clay"
-    Advanced work preserves fragments of trained biological models, which is where the practice stops being archival and becomes disturbing.
+    Advanced pieces preserve fragments of trained biological models.
 
-    A single piece of porcelain may hold the remains of a language model, an agricultural expert system, or portions of somebody's recorded sensory memory. Whether the last of these constitutes a person is the argument that produced #{ref :human_forks, "human forks"}, and it has never been settled in either civilization.
+    A single piece of porcelain may hold the remains of a language model, an agricultural expert system, or portions of somebody's recorded sensory memory. The sensory record can reproduce a person's perceptions and responses without continuing their living mind. #{ref :human_forks, "Human forks"} arose from groups that grant those reproductions the dead person's identity anyway.
   PROSE
 end

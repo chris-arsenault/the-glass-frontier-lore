@@ -66,7 +66,7 @@ relate :rel_tc_kalkara_supplies_tiles, :supplies, :kalkara_bake_shed, :compariso
   prose "The shed stamps the season onto a new case, issues sets to named surveyors at the top of each quarter, and breaks the expired ones on a stone by the water door."
 end
 relate :rel_tc_kalkara_regulates_sterile, :regulates, :kalkara_bake_shed, :sterile_machines, since: 2072 do
-  prose "The refusal list hangs on the water door: oiled bearings, seated gaskets, closed voids that cannot be opened, and any maker who will not say what is inside a housing."
+  prose "The list on the water door names oiled bearings, seated gaskets, closed voids and sealed housings without complete material schedules."
 end
 
 relate :rel_tc_zonqor_at_medchain, :manifests_at, :the_zonqor_grading, :the_mediterranean_chain

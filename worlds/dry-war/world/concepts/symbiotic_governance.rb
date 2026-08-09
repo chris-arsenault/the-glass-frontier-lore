@@ -11,9 +11,9 @@ concept :symbiotic_governance do
   PROSE
 
   prose <<~PROSE, section: :how_it_works, heading: "Where Directives Come From"
-    Nowhere identifiable, and this is the doctrine rather than a failure of it.
+    Provincial offices send draft orders through the same fungal channels that carry crop readings, clinic totals and the population's physical response. The Great Root alters the draft as those readings arrive. The ministry receives the finished order with a record of what changed, but no separate vote from the population or instruction from the organism.
 
-    A provincial order may originate in the capital, in the aggregate physiological response of millions of connected citizens, in the organism's own cognition, or in a negotiation among all three that leaves no record because it never took place in a language. Officials sign documents whose reasoning they can describe and cannot source.
+    The official who signs can explain each change and name the reading behind it. They cannot assign every clause to a ministry, a group of citizens or a fungal mind because those three had already changed one another before the order returned.
 
     Integrationists regard this as the richest form of consultation ever achieved. See #{ref :emotional_consensus, "emotional consensus"}.
   PROSE

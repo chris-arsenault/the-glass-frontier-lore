@@ -6,7 +6,7 @@ npc :inez_bell do
   prose <<~PROSE
     #{ref :cairo, "Cairo"}'s municipal appeals registrar. She keeps the election returns, the municipal seal and the paper copy of every #{ref :the_retreat_docket, "Retreat Docket"}. Her work is to establish which order was in force at each gauge threshold and whether the appellant named a fact #{ref :continuity, "Continuity"} permits an appeal to change.
 
-    Bell can inspect signed poll books, occupied-address counts, levee certificates, evacuation manifests and the input record Continuity publishes with an order. She cannot inspect how the coalition weights those inputs or why a household remains after accepting that the water may come. Her vocabulary is return, defect, stay, threshold and transfer.
+    Bell works from signed poll books, occupied-address counts, levee certificates, evacuation manifests and the input record Continuity publishes with an order. The coalition applies its weights inside the model rather than on the docket. Households that remain name the courthouse, graves and neighbours, grounds the model does not score. Her vocabulary is return, defect, stay, threshold and transfer.
   PROSE
 
   prose <<~PROSE, section: :people, heading: "The Cairo File"

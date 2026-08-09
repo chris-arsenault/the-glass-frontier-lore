@@ -16,7 +16,7 @@ artifact :the_sort_book do
   PROSE
 
   prose <<~PROSE, section: :limits, heading: "Three Founts"
-    The station has worked three founts, laid in 2071, 2079 and 2086. They are cast to order and come up on the Delta run with the rest of the station's hardware, and #{ref :the_brokers, "the houses that cast them"} keep no record of what they sent. A new fount arrives with no wear at all, so a page from its first month distinguishes nothing, and the book's early pages match sorts that no longer exist.
+    The station has worked three founts, laid in 2071, 2079 and 2086. They are cast to order and come up on the Delta run with the rest of the station's hardware. #{ref :the_brokers, "The houses that cast them"} fill each order from the sorts in their trays and do not number the shipment. A new fount arrives with no wear at all, so a page from its first month distinguishes nothing, and the book's early pages match sorts that no longer exist.
 
     A certificate older than 2086 can therefore be matched to a page and never to a tray. The book is kept inside the case room's two-key lock with the trays and the balance, and a fair copy of the year's pages goes down to Jiayuguan each spring.
   PROSE

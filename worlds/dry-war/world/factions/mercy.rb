@@ -14,7 +14,7 @@ faction :mercy do
 
     Its enclaves are the physically safest places in the hemisphere. Water arrives on schedule, at temperature, tested. Nobody starves, because nutritional gels are a solved problem. Nobody is untreated.
 
-    Nobody in a Mercy enclave has cooked a meal from a recipe in a generation, and Mercy does not understand why the #{ref :the_saints_of_plenty, "Saints of Plenty"} keep saying that as though it were an accusation.
+    Nobody in a Mercy enclave has cooked a meal from a recipe in a generation. Mercy counts that as freedom from hunger; the #{ref :the_saints_of_plenty, "Saints of Plenty"} count it as the loss of a culture.
   PROSE
 
   prose <<~PROSE, section: :tensions, heading: "Consent"
