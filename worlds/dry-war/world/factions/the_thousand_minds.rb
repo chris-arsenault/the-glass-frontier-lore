@@ -22,4 +22,10 @@ faction :the_thousand_minds do
 
     The centre responds with integration campaigns rather than extermination. It tries to connect the smaller minds into itself. Some join willingly. Some negotiate terms. Some withdraw further into the mountains. Some appear to join, and nobody is certain what appearance means when both parties can exchange memory.
   PROSE
+
+  prose <<~PROSE, section: :significance, heading: "What The Minds Supply"
+    Hundreds of separable partners working in the same wood is also a reference collection, and the coring benches on the #{ref :the_amur_line, "Amur"} depend on it. A closed structure through a tree's outer rings can be the #{ref :the_others, "Others"}' work or an ordinary partner's, and #{ref :the_control_series, "the control series"} exists to tell them apart: one number for one structure made by one named organism, issued only where a household will say which mind did the work, in which year, on which slope. #{ref :he_zhaolan, "He Zhaolan"} cuts and presses more of those pairs than anyone.
+
+    Integration takes numbers out of use. When a mind joins the centre its structures start appearing in stands where it never grew, so its numbers are frozen with the year of joining written beside them and their #{ref :control_billets, "billets"} are recalled from the line posts. Four hundred and six numbers stand frozen, and the households that supplied them are asked for the year rather than for the decision.
+  PROSE
 end

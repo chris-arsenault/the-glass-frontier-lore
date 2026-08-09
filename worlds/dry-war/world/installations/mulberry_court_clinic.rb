@@ -13,6 +13,12 @@ installation :mulberry_court_clinic do
     On the connected side of the wall, six shallow basins keep removed garments warm and fed. A roll of #{ref :separation_film, "separation film"} hangs above each basin, with its blue witness strip facing out so a steward can check the stock without touching it. #{ref :sun_yilan, "Sun Yilan"} holds the western-room roster and the basin keys.
   PROSE
 
+  prose <<~PROSE, section: :mechanics, heading: "What The Cards Cannot Compare"
+    Instruments that cannot report also cannot build a series. The only comparison the western rooms have is one day against another, and the first days of a leave belong to whatever the citizen was carrying when they arrived. So the intake card asks for the date of the last dose of anything before the garment is cut, and the completion card's first section is ruled off with a diagonal: entered, not compared, until the #{ref :the_halving_count, "count"} has run.
+
+    The rule is written on the forms rather than in the wards, where it has always been ordinary practice. It went onto the forms after #{ref :the_second_room_fever, "the Second-Room Fever"}, when a district committee read three municipal figures with no count under them and drafted a postponement that would have made the request refusable without anyone refusing it.
+  PROSE
+
   prose <<~PROSE, section: :people, heading: "The Outer Bench"
     Families and neighbours may bring meals, letters and familiar clothes to a tiled bench outside the double hatch. Staff inspect the packages for living material and pass them through without recording their contents. The status board beside the bench shows whether each room has eaten, accepted a check or requested reconnection; it shows no speech or movement from inside.
 

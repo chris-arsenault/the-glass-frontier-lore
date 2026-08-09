@@ -40,6 +40,14 @@ concept :bonsai_intelligences do
 
     Some communities treat their bonsai minds as respected elders and consult them formally. Others hold that anthropomorphizing a bounded mind is the exact error that produced the #{ref :the_great_root, "Great Root"}, and forbid naming them. The Unified regard the whole discipline as barbaric, which the #{ref :the_preservationists, "Preservationists"} consider rich.
   PROSE
+
+  prose <<~PROSE, section: :limits, heading: "Showing Where It Ends"
+    A boundary that holds physically still has to be demonstrated, because a bed that has been fed for a generation is a bed nobody remembers the edges of. So a mind is sat: an examiner from a valley with no mind of its own opens a numbered #{ref :outside_packets, "packet"} of work from outside the mind's ground and writes down what it declines.
+
+    #{ref :the_refusal_sitting, "The card"} that comes out of a sitting names the bed and the keeper together and lasts #{duration 1}. Settlements that consult their minds as elders will not put a question to a bed whose card has lapsed; the settlements that refuse to name their minds card them by bed number and hold to the same rule. A keeper who dies takes the card with them, and the bed waits.
+
+    The examiner cannot inspect the boundary and does not try. What the columns hold is what the mind reached for, which is why keepers who want a clean card drill their beds on refusals — and why a copied packet circulating at a fifth of the price #{ref :the_heshun_duplicate, "voided forty-one cards in one season"}.
+  PROSE
 end
 
 resource :dead_root_interfaces do
@@ -83,5 +91,13 @@ concept :sterile_machines do
     Chinese resistance engineering has an almost devotional interest in machinery that cannot host biology. Hot-running electronics. Copper and ceramic surfaces. UV-lit cavities. Salt circulation. Dry bearings. Everything designed to come apart and be baked.
 
     It produces a distinctive industrial aesthetic — advanced equipment deliberately built to be ecologically dead. #{ref :the_joined, "Joined"} visitors find such rooms genuinely unpleasant, in the way a healthy person finds a hospital unpleasant. Resistance engineers find clean steel reassuring, and say so in the tone other people use about the smell of rain.
+  PROSE
+
+  prose <<~PROSE, section: :trade, heading: "The Export Trade"
+    The largest customers for this work are not resistance settlements. They are the #{ref :the_mediterranean_chain, "Mediterranean"} enclaves, whose seawalls, gates, pumps and reef anchors stand in warm water that will grow anything, and whose #{ref :the_fouling_round, "quarterly round"} pulls a surface from service on a grade and an area and sends it to an oven.
+
+    An article that cannot be taken apart into bakeable pieces is refused at the quay and never goes back inside a wall. So the enclaves buy from shops that were already building for the oven — dry bearings, open voids, fired glaze, no seated gasket anywhere in the assembly — and pay a premium for a maker who will state what is inside every housing. The same shops cast the enclaves' #{ref :comparison_tiles, "tile sets"}, ten graded surfaces in a copper case that doubles as its own bake box.
+
+    Gate crews in three of the four enclaves that use the #{ref :kalkara_bake_shed, "Kalkara shed"} would rather buy nothing out of Chinese hands at all, and buy anyway, on the shed's refusal list rather than on anyone's word.
   PROSE
 end

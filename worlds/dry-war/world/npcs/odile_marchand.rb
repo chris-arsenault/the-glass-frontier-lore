@@ -10,9 +10,9 @@ npc :odile_marchand do
   PROSE
 
   prose <<~PROSE, section: :perception, heading: "What She Signs"
-    Sound-pressure level, dwell above threshold, session length, the raise and the lower, complaint volume by block, sleep-latency telemetry and the mood index for households inside the measured radius. She can read the roster, so she knows the eight names and their ages, and she has twice moved a session to accommodate #{ref :cecile_ouellette, "Ouellette"}'s hip.
+    Marchand signs the sound-pressure level, time above threshold, session length, raise and lower, complaint volume by block, sleep-latency telemetry and mood index for households inside the measured radius. She can read the roster, so she knows the eight names and their ages, and she has twice moved a session to accommodate #{ref :cecile_ouellette, "Ouellette"}'s hip.
 
-    She cannot record what the band rang. Her instrument has no notation for a row and no reason to acquire one; a quarter peal and three quarters of an hour of rounds return identical figures. She reads the nine cancellations in #{year :now} as an ageing band and files them under programme risk.
+    Her return does not record the order in which the bells struck. Three quarters of an hour of changing orders and the same time spent sounding in scale order produce identical figures when their loudness and duration match. She reads the nine cancellations in #{year :now} as an ageing band and files them under programme risk.
 
     #{ref :the_gratiot_solo, "The Gratiot Solo"} reached her as one query from a care team: had the platform speakers at Gratiot and Mack run at scheduled level on eleven consecutive evenings. They had.
   PROSE

@@ -23,7 +23,7 @@ concept :entry_into_the_register do
   PROSE
 
   prose <<~PROSE, section: :limits, heading: "Illegible And Contested"
-    A piece whose faces will not give a sheet — spalled, glaze-flooded, or fired past relief — stays admitted. It is entered 不成读, does not come to a reading, and shelved in the ordinary stack rather than the outer store. Every fourth year the illegible lines are requeued, because lapping practice changes: pieces that refused a reading in the 2070s have since given one, and the entry for a refusal names the reader and the ware so the next attempt starts from what failed.
+    A piece whose faces will not give a sheet — spalled, glaze-flooded, or fired past relief — stays admitted. It is entered 不成读, does not come to a reading, and is shelved in the ordinary stack rather than the outer store. Every fourth year the illegible lines are requeued, because lapping practice changes: pieces that refused a reading in the 2070s have since given one, and the entry for a refusal names the reader and the ware so the next attempt starts from what failed.
 
     Two admitted pieces whose sheets disagree both stand. The conflict is entered as its own numbered item carrying the two admission numbers, and it cannot be closed by taking the reading again, because each sheet consumed the face that produced it. It closes when a third piece arrives. The request for one travels with the couriers on the western run; #{ref :yao_lin, "Yao Lin"} has carried the standing request from #{ref :the_liangzhou_double_return, "the Liangzhou item"} on four crossings.
 

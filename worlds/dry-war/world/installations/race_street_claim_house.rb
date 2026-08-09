@@ -16,4 +16,10 @@ installation :race_street_claim_house do
 
     #{ref :the_receipt_holders, "The Receipt Holders"} use the east gallery to copy files and help claimants repair broken records. Market provides the room because every repaired identity releases reserved capital. #{ref :ruth_osei, "Ruth Osei"} keeps her examination table between the two desks.
   PROSE
+
+  prose <<~PROSE, section: :reference, heading: "The Run Of Extracts"
+    Nine certified sheets stand in a run behind the identity desk, each one a #{ref :the_face_warrant, "warrant"} spent at a #{ref :the_preservationists, "Preservationist"} register house in the Gobi. They carry the acceptance figures for nine classes of plant older than the Breach — test pressures, hold times, joint preparation, and who the schedule required to witness a sign-off — for work whose inspection records cite a clause and hold no text.
+
+    An examiner uses them to ask a claimant what the work involved. #{ref :the_callowhill_duplicate, "The Callowhill Duplicate"} is the case the run was assembled around: two people, one receipt, and three questions that only one of them could answer. Each sheet cost a face off a fired piece that cannot be read twice, so the run grows by about two sheets a year and the classes of plant the desk can examine are the classes on the shelf.
+  PROSE
 end

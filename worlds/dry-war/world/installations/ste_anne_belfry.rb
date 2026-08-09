@@ -4,22 +4,31 @@ installation :ste_anne_belfry do
   prominence :recognized
 
   prose <<~PROSE
-    The north tower of Ste. Anne de Détroit, whose eight bells have hung for full-circle ringing since the church was rebuilt in 1886 and which #{ref :caretaker, "Caretaker"} has paid to keep in ringing order since 2074. The parish still says mass. The ringing is a municipal sound programme with a cost line.
+    The north tower of Ste. Anne de Détroit. The present church was built in 1886 and still keeps the Beaubien Bell brought from its previous building. #{ref :caretaker, "Caretaker"} installed a separate ring of eight bells in the north tower in 2074 and has paid to keep them in full-circle ringing order since. The parish still says mass. The ringing is a municipal sound programme with a cost line.
 
-    Caretaker funds it on measurement. Households within about three kilometres of the tower show shorter sleep latency on session evenings, file fewer noise complaints in the following week, and score higher on the district mood index than the ring's rope stock, bearings and insurance cost to maintain. #{ref :odile_marchand, "Odile Marchand"} books the sessions and signs the acoustic return on each one.
+    Caretaker funds it on measurement. Households within about three kilometres of the tower show shorter sleep latency on session evenings and file fewer noise complaints in the following week. Their change on the district mood index still clears the programme's threshold after the cost of rope stock, bearings and insurance is applied. #{ref :odile_marchand, "Odile Marchand"} books the sessions and signs the acoustic return on each one.
   PROSE
 
   prose <<~PROSE, section: :structure, heading: "What The Return Records"
-    A bell's strike note is not present in its spectrum. The pitch a listener hears is inferred from the hum, tierce and nominal partials rather than sounded, so Caretaker's monitor scores a session on sound-pressure level, dwell above threshold, session length and the raise and lower at either end. It has no field for the order in which the bells struck.
+    Caretaker's monitor reduces a session to loudness by frequency over time. It records sound-pressure level, time above threshold, session length and the irregular blows while the bells are raised and lowered. The acoustic return does not retain the order in which individual bells struck.
 
-    That order is the whole of #{ref :the_ring_call, "the ring call"}. Marchand's return for a forty-five minute quarter peal and her return for forty-five minutes of rounds are the same document carrying the same numbers.
+    That order carries #{ref :the_ring_call, "the ring call"}. Marchand's return for forty-five minutes of changing strike orders and her return for forty-five minutes with the bells sounding repeatedly in scale order are the same document carrying the same numbers.
   PROSE
 
   prose <<~PROSE, section: :limits, heading: "The Raise And The Band"
     Bells rung full circle rest mouth upward and must be raised from rest before any method can be struck: nine or ten minutes of climbing, irregular blows that carry as far as the ringing does. The #{ref :the_choir, "Choir"} cannot open the channel quietly and has never tried to.
 
-    The band is eight bodies that can handle a rope. #{ref :cecile_ouellette, "Ouellette"} is the fourth captain since the programme began and the only ringer on the roster who learned from a band predating it. Two of the eight are past seventy. Marchand's return for #{year :now} records nine sessions cancelled for want of a band and none for weather.
+    The band is eight people who can handle a rope. #{ref :cecile_ouellette, "Ouellette"} is the fourth captain since the programme began and the only ringer on the roster who learned from a band predating it. Two of the eight are past seventy. Marchand's return for #{year :now} records nine sessions cancelled for want of a band and none for weather.
+
+    Seven of the eight ropes are interchangeable to a competent ringer. The sixth is not: it is the heaviest-going of the ring and sits slightly off the others in strike note, and neither of the two oldest ringers will take it. A morning that assembles seven ringers is short the sixth more often than any other rope.
+  PROSE
+
+  prose <<~PROSE, section: :history, heading: "One Bell Of Unknown Date"
+    Caretaker's asset schedule described the ring as eight bells cast in 2074 for the programme until #{ref :the_sixth_bell_finding, "the sixth-bell finding"}. When the insurance was re-cut in 2087 the sixth turned out to carry no founder's mark, and #{ref :the_letter_match, "its inscription letters"} belonged to a set of stamps in use for decades before the programme existed.
+
+    Re-description was cheaper than a recasting, which would have stood the band down for a season. The schedule now carries five bells cast in 2074, two recast in 2081 and one of unknown date.
   PROSE
 
   log "2026-08-09 — Campanological acoustics decide what Caretaker can measure here: a bell's strike note is a virtual pitch inferred from its partials rather than a component of the radiated spectrum, so a level-and-spectrum monitor has no natural handle on the row sequence. The same craft supplies the raise and lower, which is why the channel cannot be opened without ten audible minutes of warning."
+  log "2026-08-09 — The present church dates to 1886 and retains the older Beaubien Bell. The separate ring of eight is a Caretaker installation from 2074; it does not belong to the church's nineteenth-century history."
 end

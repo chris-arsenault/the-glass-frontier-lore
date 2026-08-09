@@ -6,7 +6,7 @@ npc :nadya_tsoi do
   prose <<~PROSE
     A contract scout on #{ref :tangwang_post, "Tangwang Post"}'s roll, from a Bureya-bank family that has put scouts on the #{ref :the_amur_line, "line"} since the campaigns. She walks a compartment and the two kilometres beyond it and files the walk sheet that no #{ref :the_ring_order, "ring order"} can issue without.
 
-    She carries a brass compass, a watch, a glass soil thermometer, a knife, a pencil and paper. Nothing she carries reports and nothing she wears is alive, which is the condition of the roll; the scout hut stands outside the post's #{ref :mycelial_neural_mesh, "mesh"} for the same reason. The roll exists because the #{ref :the_others, "Others"} give a machine one falsehood and a fungus another, and a walk is the reach's third reading.
+    She carries a brass compass, a watch, a glass soil thermometer, a knife, a pencil and paper. Nothing she carries reports and nothing she wears is alive, which is the condition of the roll; the scout hut stands outside the post's #{ref :mycelial_neural_mesh, "mesh"} for the same reason. The roll exists because the #{ref :the_others, "Others"} can make machine and fungal systems agree for different reasons, and a walk is the reach's independent reading.
   PROSE
 
   prose <<~PROSE, section: :operations, heading: "The Walk Sheet"

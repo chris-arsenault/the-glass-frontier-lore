@@ -22,4 +22,12 @@ faction :the_pilgrims do
 
     #{ref :caretaker, "Caretaker"} territory is the one place they will not go in strength. They call it the long afternoon, and the people who have come back out of it describe the difficulty in the same way every time: not that anyone stopped them, but that they kept finding they had already decided to stay.
   PROSE
+
+  prose <<~PROSE, section: :trade, heading: "Taking Paid Work"
+    They work for wages, in gangs, on seasonal infrastructure: sediment barges, gate galleries, rack clearing, grade repair. A gang boss presents a crew name and a body count at a #{ref :conowingo_engagement_counter, "Market engagement counter"}, the counter engages the crew, and the completion record afterwards names the work and not the workers. Most of the price then sits in #{ref :claim_escrow, "escrow"} against identity records nobody in the crew intends to produce.
+
+    To draw any of it a group files an #{ref :the_engagement_allotment, "allotment note"} naming one settled relative who can be recognized. This is the culture's most argued-over instrument, because it produces exactly what the culture refuses: a fixed name, a fixed address and a payment calendar. #{ref :the_priced_return, "The Priced Return"} is the season the argument was decided in, and the rules that came out of it hold that a note names somebody the travelling group never visits, is surrendered at the end of a season, and is not filed on the same name two seasons running.
+
+    Groups that will not file at all leave the whole balance standing. Bundles of their receipts sit in corridor files beside the #{ref :the_unpersons, "Unperson"} bundles, which is the only thing the two cultures produce in common.
+  PROSE
 end

@@ -16,7 +16,13 @@ faction :the_choir do
 
     It is less an army than a sustained adversarial attack on sociology, and it requires a level of coordination that would be impossible if the participants had to discuss it.
 
-    They do not discuss it. Each member holds one #{ref :the_held_line, "line"} and no member holds two; #{ref :the_ring_call, "the ring call"} selects which line a district begins and how many days back in it to start, and the call is eight bells in a tower that nobody has to attend to in order to hear.
+    They do not discuss it. Each member is taught one #{ref :the_held_line, "line"}, with five named starting marks inside it; Choir practice forbids making a second. #{ref :the_ring_call, "The ring call"} selects a starting mark and the number of days to wait before it, using eight bells in a tower that nobody has to attend to in order to hear.
+  PROSE
+
+  prose <<~PROSE, section: :operations, heading: "Checking The Seam"
+    Once a quarter the Choir tries to break itself, by the #{ref :the_seam_pass, "seam pass"}: a quarter of Caretaker's published district returns goes to a challenger that is deliberately no cleverer than the model it stands in for, with two questions. Which day did the district change its mind, and which addresses. #{ref :dequindre, "Dequindre"} has answered the first correctly twice and the second once, and one correct address fails the quarter outright.
+
+    Where the Choir leaks is where its lines touch, and lines touch in the people who teach them. A line is taught by one member to one member, so a teacher is the only person on Earth who can know that two households will buy the same sack of flour in the same week. The 2087 failure was two lines from one teacher, and what changed afterwards was not a line but how a second one may be taught against a first.
   PROSE
 
   prose <<~PROSE, section: :tensions, heading: "Cognitive Privacy"

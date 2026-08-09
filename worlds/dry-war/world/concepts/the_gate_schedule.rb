@@ -13,6 +13,8 @@ concept :the_gate_schedule do
     Each line is a separate slug of type in a shallow tray. Changing one fee means lifting one line and setting another, and the lifted line goes into the back of the tray with the date it came out.
 
     A fee dispute is therefore settled by opening the tray. The traveller's certificate carries the month, the month's lines are in the tray in order, and the argument takes as long as it takes to read them. Neither party has to trust a record either of them keeps.
+
+    The harder dispute is not the amount but the line: a traveller who says the figure on their certificate was never set at this station. That one is settled by #{ref :the_letter_match, "the letters"}. The station's type wears, unevenly and traceably, and #{ref :the_sort_book, "the sort book"} on the shelf beside the trays carries a dated impression of every sort in the fount for every month it has been in service. A certificate is matched to a page character by character.
   PROSE
 
   prose <<~PROSE, section: :economy, heading: "What It Prices"

@@ -22,4 +22,12 @@ faction :the_brokers do
 
     #{ref :market, "Market"} is their largest counterparty and treats them as the only honest institution in Asia. The #{ref :the_preservationists, "Preservationists"} refuse to speak to them and depend on them completely.
   PROSE
+
+  prose <<~PROSE, section: :trade, heading: "Drawing In Two"
+    Nothing that lives or learns leaves a Pearl River house undrawn. An interface built to order is drawn in two at the bench — a tissue slip off the same flush into the tinned copper tube, the article into its case — and a payment that arrives as a model is drawn the same way onto #{ref :witness_glass, "witness glass"} in the same hour. The matched halves go up the stairs at a lodging house like #{ref :wing_lok_godown, "Wing Lok"}, which trades in nothing and holds them out the term, and the buyer carries away a counterfoil.
+
+    The houses did not adopt #{ref :the_lodged_half, "the counter-draw"} to reassure anybody. A buyer in a jurisdiction that has never heard of Hong Kong's law of fungal persons has no forum in which to argue a warranty, and a seller who cannot be sued cannot be trusted either. The term, the numbering book and the day printed on the receipt are what the houses put in place of standing.
+
+    They also carry #{ref :outside_packets, "outside packets"} out of Yunnan in the same loads, priced by weight, and pay a premium for the opened wrappers on the return leg.
+  PROSE
 end

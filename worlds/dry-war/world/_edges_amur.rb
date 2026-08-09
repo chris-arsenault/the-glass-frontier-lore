@@ -1,5 +1,5 @@
 # Typed relationships for the Amur condemnation cluster: the ring order, the post
-# that issues it, the two humans who hold the benches, the file they disagreed on
+# that issues it, the two human record keepers, the file they disagreed on
 # and the settlement the band moved. Temporal bounds use absolute years — see
 # world/timeline.rb.
 
@@ -26,7 +26,7 @@ relate :rel_amur_preservationists_operate_post, :operates_in, :the_preservationi
 relate :rel_amur_post_mentions_peng, :mentions, :tangwang_post, :peng_meizhen, since: 2090
 relate :rel_amur_post_regulates_sanchakou, :regulates, :tangwang_post, :sanchakou, since: 2088
 
-# ---- the coring bench ----
+# ---- the coring record ----
 relate :rel_amur_xie_employed_by_root, :employed_by, :xie_lanting, :the_great_root, since: 2084
 relate :rel_amur_xie_at_post, :located_in, :xie_lanting, :tangwang_post, since: 2087
 relate :rel_amur_xie_operates_line, :operates_in, :xie_lanting, :the_amur_line, since: 2084
@@ -36,7 +36,7 @@ relate :rel_amur_xie_studies_sanchakou, :studies, :xie_lanting, :sanchakou, sinc
   prose "Her comparison drawer holds cores off its orchard rows from each of the three register years the post has issued orders in."
 end
 relate :rel_amur_xie_cooperates_continuity, :cooperates_with, :xie_lanting, :continuity, since: 2087 do
-  prose "Eleven files in the current register carry a core sheet and a deviation sheet that contradict each other, and both benches signed all twenty-two."
+  prose "Eleven files in the current register carry a core sheet and a deviation sheet that contradict each other, and all twenty-two sheets were signed and filed."
 end
 
 # ---- the scout hut ----
@@ -54,7 +54,7 @@ relate :rel_amur_continuity_petitions_tsoi, :petitions, :continuity, :nadya_tsoi
   prose "Filed on the day of every cut and again on every release, kept in copy, never answered and never withdrawn."
 end
 
-# ---- the two benches to each other ----
+# ---- the two human record keepers ----
 relate :rel_amur_xie_cooperates_tsoi, :cooperates_with, :xie_lanting, :nadya_tsoi, since: 2087 do
   prose "They have never put the same recommendation on a file the cabinet opened, and each has been in the compartment on the other's day."
 end
@@ -74,7 +74,7 @@ relate :rel_amur_root_in_file, :participated_in, :the_great_root, :the_sanchakou
 end
 relate :rel_amur_xie_in_file, :participated_in, :xie_lanting, :the_sanchakou_ring
 relate :rel_amur_tsoi_in_file, :participated_in, :nadya_tsoi, :the_sanchakou_ring do
-  prose "Marking officer: two dies drawn, one hammer face set, one compartment condemned against the coring bench's count."
+  prose "Marking officer: two dies drawn, one hammer face set, one compartment condemned against the coring record's count."
 end
 relate :rel_amur_file_conducted_by_tsoi, :conducted_by, :the_sanchakou_ring, :nadya_tsoi
 
@@ -83,7 +83,7 @@ relate :rel_amur_sanchakou_in_line, :part_of, :sanchakou, :the_amur_line
 relate :rel_amur_root_governs_sanchakou, :governs, :the_great_root, :sanchakou, since: 2052
 relate :rel_amur_joined_inhabit_sanchakou, :inhabits, :the_joined, :sanchakou, since: 2052
 relate :rel_amur_ring_regulates_sanchakou, :regulates, :the_ring_order, :sanchakou, since: 2090 do
-  prose "Cutting, planting and residence end inside the band at the ring. Entry is on the bench's quarterly round."
+  prose "Cutting, planting and residence end inside the band at the ring. Entry is limited to the coring team's quarterly round."
 end
 relate :rel_amur_sanchakou_depends_textiles, :depends_on, :sanchakou, :living_textiles
 relate :rel_amur_sanchakou_depends_mesh, :depends_on, :sanchakou, :mycelial_neural_mesh

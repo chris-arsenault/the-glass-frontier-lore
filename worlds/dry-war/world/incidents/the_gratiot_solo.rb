@@ -4,7 +4,7 @@ incident :the_gratiot_solo do
   prominence :marginal
 
   prose <<~PROSE
-    In 2089 a #{ref :the_choir, "Choir"} member living near Gratiot and Mack, three kilometres beyond earshot of #{ref :ste_anne_belfry, "the tower"}, heard Belle Isle Bob Triples through the platform speakers at her transit stop. The feed carried the method. It had trimmed the rounds that came before it, so she took her offset from the last call she had counted in person and began her #{ref :the_held_line, "line"} four days late.
+    In 2089 #{future "Nadine Brooks"}, a #{ref :the_choir, "Choir"} member living near Gratiot and Mack, heard #{ref :the_ring_call, "Belle Isle Bob Triples"} through the platform speakers at her transit stop, three kilometres beyond earshot of #{ref :ste_anne_belfry, "the tower"}. The feed carried the method but trimmed the rounds before it. Brooks therefore used the wait from the last call she had counted in person and began her #{ref :the_held_line, "line"} four days late.
 
     She ran eleven days of it alone. Her entries were the same entries eleven other households were making, and none of them were making them on the same days.
   PROSE

@@ -4,13 +4,13 @@ npc :cecile_ouellette do
   prominence :marginal
 
   prose <<~PROSE
-    Tower captain of the band at #{ref :ste_anne_belfry, "the Ste. Anne belfry"} and a #{ref :the_choir, "Choir"} member, seventy-eight, carried on #{ref :caretaker, "Caretaker"}'s heritage roster at a stipend that covers her rope stock. She learned the eight bells in her mother's band in the years before the programme paid for anything, and she has kept the roster since 2071.
+    Cécile Ouellette is the seventy-eight-year-old tower captain at #{ref :ste_anne_belfry, "the Ste. Anne belfry"} and a member of #{ref :the_choir, "the Choir"}. She learned full-circle ringing from her mother's band before #{ref :caretaker, "Caretaker"} installed the Ste. Anne ring. She joined its heritage roster in 2074, took the captain's rope in 2085 and receives a stipend that covers her rope stock.
 
-    She calls the touch. She reads the method off #{ref :mercy, "Mercy"}'s public intake board on her walk to the tower, counts the rounds, calls the change and calls stand at the end of it. She has never been told what a touch produced and does not expect to be; what she agreed to in 2071 was that she would call and not ask.
+    She calls the session. She reads the method off #{ref :mercy, "Mercy"}'s public intake board on her walk to the tower, counts the rounds, calls the change and calls stand at the end. She has never been told what a session produced and does not expect to be; what she agreed to in 2074 was that she would call and not ask.
   PROSE
 
   prose <<~PROSE, section: :perception, heading: "What She Can Hear"
-    Rope, bell, band. She knows which of the eight is late on the backstroke, which method the intake board will give her before she reaches the door, and that #{ref :odile_marchand, "Marchand"} will sign whatever gets rung. She has called sixty-one touches in #{elapsed 2071, approx: true} and has never seen a return.
+    Rope, bell, band. She knows which of the eight is late on the return swing, which method the intake board will give her before she reaches the door, and that #{ref :odile_marchand, "Marchand"} will sign whatever gets rung. She has called sixty-one completed sessions since taking the captain's rope and has never seen a return.
 
     Nothing that happens after a session comes back to the belfry. The one effect she is certain of is a cancellation: on nine mornings in #{year :now} she counted seven ringers, rang nothing, and the district's #{ref :the_held_line, "lines"} stayed where they were.
   PROSE

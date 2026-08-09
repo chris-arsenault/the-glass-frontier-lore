@@ -14,6 +14,8 @@ faction :the_gatekeepers do
 
     And the practice the #{ref :the_preservationists, "Preservationists"} cannot forgive: the Gatekeepers cultivate #{ref :severed_strains, "deliberately lobotomized strains"}, pruning networks before they grow large enough for higher cognition. Temporary exposure diagnoses disease, accelerates healing, and lets people speak to one another through small local systems.
 
+    A pruned strain is not trusted on the strength of its pedigree. It is challenged: a bed at the end of its cycle is carried to #{ref :xincheng_yard, "the Xincheng yard"}, stood a marked distance from a living hedge for four days, and traced along every join — stand foot, drain, barrow tray, gloves, cuffs — at the pace the #{ref :the_seam_pass, "seam pass"} fixes. One join that passes more than a part in ten thousand fails the bed, and the bed is broken afterwards whatever the card says.
+
     The discipline sits somewhere between agriculture, epidemic control and cybersecurity, and nobody else on Earth is any good at it.
   PROSE
 

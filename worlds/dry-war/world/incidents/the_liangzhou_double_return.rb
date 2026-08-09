@@ -6,7 +6,7 @@ incident :the_liangzhou_double_return do
   prose <<~PROSE
     Two admitted pieces at the #{ref :juyan_register_house, "Juyan Register House"}, read four years apart, both giving the 2061 household register of a Liangzhou ward and disagreeing about forty-one households. The first arrived in 2082 and the second in 2086, from two different copying houses over the same road.
 
-    The sheets agree on eleven hundred and eighty-two households, on the ward boundary and on the collection year. On the forty-one they do not: one return enters them in the ward, the other does not enter them anywhere. Neither reading can be taken again, because #{ref :the_squeeze, "each sheet consumed the face that gave it"}, and no third copy has come in. Under #{ref :entry_into_the_register, "the register's procedure"} both returns stand admitted and the conflict is entered as its own numbered item, open in #{year :now} CE.
+    The sheets agree on eleven hundred and eighty-two households, on the ward boundary and on the collection year. On the forty-one they do not: one return enters them in the ward, the other omits them. Neither reading can be taken again, because #{ref :the_squeeze, "each sheet consumed the face that gave it"}, and no third copy has come in. Under #{ref :entry_into_the_register, "the register's procedure"} both returns stand admitted and the conflict is entered as its own numbered item, open in #{year :now} CE.
   PROSE
 
   prose <<~PROSE, section: :aftermath, heading: "The Eleven Households"

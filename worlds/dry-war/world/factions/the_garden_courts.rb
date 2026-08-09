@@ -15,6 +15,12 @@ faction :the_garden_courts do
     The central network calls excessive localization ecological particularism, in documents, with the tone of a ministry. The Garden Courts call the central network a monoculture, which is a technical criticism as well as an insult.
   PROSE
 
+  prose <<~PROSE, section: :operations, heading: "The Registry And The Second Card"
+    Every valley court keeps a registry of #{ref :the_seven_line_card, "seven-line cards"} for what it grows, and a card is proved in a #{ref :the_grow_out, "bed"} the way it is proved anywhere: the reference tin in the middle four rows, the lot around it, seven characters judged by hand on one afternoon and a seventh on a string for six weeks. What is different in a valley is who else is reading. The network reports on the planting all season — root behaviour, what the soil animals do, which rows it lets go thirsty — and none of that appears on the card, whose lines were chosen so that a hand alone could judge them.
+
+    A population taught for three generations by one ground has moved off the description written for it. The registry writes a second card under the same name, with a new number and a fresh chain of refills, and keeps both. Eight cards standing under one name is an unremarkable registry. A lot leaving the province carries the number of the card its tin was last refilled against, and #{ref :the_seventh_line, "the sheet that came back from a Baja bench"} is entered as that card's first season outside the valley.
+  PROSE
+
   prose <<~PROSE, section: :tensions, heading: "地方性"
     Their fear is not fungal domination. It is the loss of 地方性 — locality, the particular character of a place and the people and organisms that made it.
 

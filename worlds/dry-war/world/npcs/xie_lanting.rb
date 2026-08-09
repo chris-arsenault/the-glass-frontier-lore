@@ -4,9 +4,15 @@ npc :xie_lanting do
   prominence :marginal
 
   prose <<~PROSE
-    The coring bench at #{ref :tangwang_post, "Tangwang Post"}, posted to the #{ref :the_amur_line, "Amur"} reaches by #{ref :the_great_root, "the Great Root"}'s line service. She takes twenty increment cores to a compartment on a forty-metre grid, reads them under a bench lens the same afternoon, and files the count whatever it comes to. A sleeve is a closed tube in the outer rings, lined with ray tissue running crosswise; a body is a discrete mass inside a sleeve. The bench counts sleeves and bodies and enters no opinion on #{ref :the_others, "the Others"}.
+    Xie Lanting keeps the coring record at #{ref :tangwang_post, "Tangwang Post"}. #{ref :the_great_root, "The Great Root"}'s line service posted her to the #{ref :the_amur_line, "Amur"} reaches as an ecologist. She takes twenty increment cores from a compartment on a forty-metre grid, reads them under a bench lens the same afternoon, and files the count whatever it comes to. In a core, she calls a closed tube through the outer growth rings a sleeve and a separate mass inside one a body. She counts both and enters no opinion on #{ref :the_others, "the Others"}.
 
-    Xie can inspect cores, bark, litter, the root plates in windthrow pits and her comparison drawer of wood from the reserved band. She cannot inspect how #{ref :continuity, "Continuity"}'s cabinet weights an arrival date against a bedding aspect, and she does not walk beyond her grid. Her words for the work are core, sleeve, body, margin, control and take.
+    Xie can inspect cores, bark, litter, the root plates in windthrow pits and her comparison drawer: wood off the reserved band, and the numbered #{ref :control_billets, "billets"} she sections herself. She cannot inspect how #{ref :continuity, "Continuity"}'s cabinet weighs an arrival date against the direction of a slope where deer have bedded, and she does not walk beyond her grid. Her words for the work are core, sleeve, body, margin, control and take.
+  PROSE
+
+  prose <<~PROSE, section: :reference, heading: "Naming A Sleeve"
+    A sleeve she can match to a billet's faced end goes on the sheet as a number off #{ref :the_control_series, "the control series"} and does not count toward the reach's threshold of four. A sleeve she cannot match goes down as an unknown and does. She has entered thirty-eight unknowns in the current register year against a hundred and forty-one citations, and she will not enter a number she has not put beside the wood.
+
+    For each unknown she sends a drawing south, a request for the billet if a number comes back, and a second core where the tree could spare one. #{ref :he_zhaolan, "He Zhaolan"} answers about one sheet in six. The two have written since 2084 and have not met.
   PROSE
 
   prose <<~PROSE, section: :people, heading: "What She Cuts In March"
@@ -16,7 +22,7 @@ npc :xie_lanting do
   PROSE
 
   prose <<~PROSE, section: :present_day, heading: "The Sanchakou Cores"
-    On #{ref :the_sanchakou_ring, "the file that condemned Compartment Twelve"}, Xie's cores stood at two sleeved in twenty against the reach's figure of four, in September and again at bud-break. She filed both sheets as they read. Under #{ref :the_ring_order, "the ring order"} a bench that does not open a file does not hold the hammer, and she was in the compartment on the day of the ring with the paste stock and the auger.
+    On #{ref :the_sanchakou_ring, "the file that condemned Compartment Twelve"}, two of Xie's twenty cores contained sleeves, below the reach's threshold of four, in September and again at bud-break. She filed both sheets as they read. Her record did not open the file and she did not hold the hammer. She was in the compartment on the day of the ring with the paste stock and the auger.
 
     She had cut the scions from #{ref :sanchakou, "Sanchakou"}'s four apple-pear rows in March, while the file was open and, by her own sheet, under threshold. She keeps the graft count in her own book alongside the cabinet's.
   PROSE

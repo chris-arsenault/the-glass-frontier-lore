@@ -4,7 +4,7 @@ npc :peng_meizhen do
   prominence :marginal
 
   prose <<~PROSE
-    A municipal pump dispatcher and an ordinary #{ref :the_joined, "Joined"} citizen. When her elder sister accepted a posting at #{ref :the_amur_line, "the Amur Line"}, the household asked Peng to move in and share care of her niece. Peng filed for #{ref :separation_leave, "separation leave"} at #{ref :mulberry_court_clinic, "Mulberry Court Clinic"} before she answered.
+    A municipal pump dispatcher and an ordinary #{ref :the_joined, "Joined"} citizen. When her elder sister, #{future "Peng Lihua"}, accepted a posting at #{ref :the_amur_line, "the Amur Line"}, the household asked Peng to move in and share care of her niece. Peng filed for #{ref :separation_leave, "separation leave"} at #{ref :mulberry_court_clinic, "Mulberry Court Clinic"} before she answered.
 
     She had no objection to the posting, the household or the #{ref :the_great_root, "Great Root"}. Sun Yilan's intake card gives her stated concern as: *I know what all of us want. I am asking what I want before I add it back.*
   PROSE
