@@ -4,7 +4,31 @@ Mandatory rules for all lore prose, in every world in this repository. Follow th
 
 Worked examples for a particular setting live in that world's `guidance/` — this file carries the rules.
 
-## 1. Entity Attribution
+## 1. Write The World, Not Its Paperwork
+
+**An entry describes a world. It does not describe how an institution keeps records of itself.**
+
+Write what a place is like to stand in, what the people there want, what they are frightened of, what they argue about with each other, and what happens to somebody who gets it wrong. Those are facts about a world, and a reader who has never heard of the setting can take them in on first reading.
+
+A form, a fee, a card that expires, a threshold, a sheet filed in triplicate, an inspection run on a stated interval — none of these is a fact about a world. They are the paperwork an institution generates, and an entry assembled out of them has nothing in it to understand. Dense invented procedure reads as depth while carrying no meaning; it is the most common way an entry in this repository fails.
+
+**The rule:** a procedure is never the subject of an entry. An object may be described and a rule may be stated in a clause, but the entry is about the place, the people, or the thing — not about the steps.
+
+**Two tests, both applied to the entry alone, with no other entry open:**
+
+1. Can a first-time reader say what this is and why anyone cares? If answering needs the procedures of five other entries, the entry has failed.
+2. Does the entry name something somebody wants, fears, has lost, or is fighting another person over? If it only names steps, quantities and forms, it has failed.
+
+**The fix is replacement, not deletion.** Where a draft states a step, state the consequence instead: who is ruined by it, who works around it, what it is like to be on the wrong side of it, what the place smells like on the day it happens. A single concrete stake carries more than a page of correctly specified process.
+
+**Bad patterns:**
+- an entry whose every paragraph is a stage of one process
+- counted quantities standing in for significance — figures, fractions, intervals and tallies with nothing at risk
+- an entity named after a document, a form, a card, a sheet, a list, a count or a sitting
+- a named instrument doing the work a person should do
+- terms used as though the reader already has the glossary
+
+## 2. Entity Attribution
 
 **Never default to a known entity when the archetype has unfilled slots.**
 
@@ -14,7 +38,7 @@ Before attributing an action, resource, or relationship to an existing entity, c
 
 Which archetypes are thin in a given world is that world's `guidance/archetype-slots.md`. The schema for those counts is `entity-bank-schema.md`.
 
-## 2. No Snide Tack-On Clauses
+## 3. No Snide Tack-On Clauses
 
 **Never end a sentence with an editorial quip commenting on the thing just described.**
 
@@ -34,7 +58,7 @@ These read as the author winking at the reader. They undermine the encyclopedic 
 
 **Exception: deadpan.** Terse, factual characterization is allowed — "She does not enjoy the job. She is very good at it." is deadpan, not snide. The difference: deadpan states a fact the character would agree with. Snide states the author's opinion about the situation. **Limit: one deadpan moment per entry, maximum.** More than that and the voice becomes a tic rather than a tool.
 
-## 3. No "They Didn't Know" Winks
+## 4. No "They Didn't Know" Winks
 
 **Never tell the reader that historical actors didn't foresee their own significance.**
 
@@ -50,7 +74,7 @@ This is dramatic irony narrated rather than shown. Once or twice in the entire c
 
 **The fix:** State what happened. The reader can supply the irony. "A tradition that would outlast the crisis that created it" is fact. "A tradition they didn't know they were starting" is narration commenting on itself.
 
-## 4. Cross-Reference, Don't Duplicate
+## 5. Cross-Reference, Don't Duplicate
 
 **If content exists in its own entry, other entries must cross-reference it, not reproduce it.**
 
@@ -63,7 +87,7 @@ Not a summary, not a condensed version, not a "brief overview." One sentence and
 **Shape:**
 > Kites are the general-purpose motive engine of the system. See #{ref :kite_sail} for mechanics and classes.
 
-## 5. In-Universe Voice (recap)
+## 6. In-Universe Voice (recap)
 
 All prose is written from inside the world. See the "In-universe voice" section of the root `CLAUDE.md`. The three violations:
 - **Domain leakage** — no real-world referents used as comparisons
@@ -72,7 +96,7 @@ All prose is written from inside the world. See the "In-universe voice" section 
 
 Use `voice-review-prompt.md` for systematic checks, with the world's `guidance/voice-referents.md` for the list of referents that setting bans.
 
-## 6. Artifacts Are Story Drivers
+## 7. Artifacts Are Story Drivers
 
 Named artifacts are not inventory items. They are characters with history, consequence, and — in some cases — agency. A named artifact should have the weight of Callandor, the Horn of Valere, or the Silmarils.
 

@@ -8,7 +8,7 @@ How to write well in a secondary world — any of them. Nothing here names a set
 
 - Craft is binding. A world may narrow a craft rule; it may not loosen one.
 - A world's guidance never restates a craft rule. If it reads like a copy, the copy is the bug.
-- A world that genuinely departs writes the departure down: `Departs from craft/writing-guidance.md §2: …`. An implicit conflict is worse than an explicit one.
+- A world that genuinely departs writes the departure down: `Departs from craft/writing-guidance.md §3: …`. An implicit conflict is worse than an explicit one.
 
 When you are unsure where something belongs, ask whether it would still be true in a world with different physics, different peoples and a different history. If yes, it is craft. If no, it is guidance.
 

@@ -26,25 +26,30 @@ Skip any pair whose prose already claims a relationship. That is a missing edge,
 
 Ask what a person would actually encounter moving between the two. Useful shapes:
 
-- an intermediary who serves neither party
+- a place where the two systems physically meet, and what it is like to be there
 - an object both sides must use, and neither owns
-- a place where the two systems physically meet
 - a trade that exists because the gap exists
-- a route, and what it costs to travel
-- a case, claim or dispute both were parties to
-- a recurring occasion both attend
+- work nobody would do if the gap closed, and who does it now
+- something both want and cannot both have
+- a danger both face and neither can fix
+- a quarrel one has not forgiven the other for
+- an intermediary who serves neither party
 
 Write down three before committing to one. The first candidate is usually the most available one rather than the best.
+
+Every shape on that list is something a reader can picture without being told a rule. If a candidate can only be explained by describing how it is administered, it is not a candidate.
 
 ## 4. Pull a semi-adjacent connection
 
 Name the real-world counterpart of each endpoint — the institution, trade, organism, doctrine or practice it most resembles — and then look up how those two counterparts actually connect. Search for it; recall produces the same handful of answers every time.
 
-Take an idea, a biology, a standard, a discipline, a liability, a shared failure. Leave geography out of it. Two things that connect because they sit near each other teach nothing about either, and proximity is the bridge that makes a world feel small.
+Take an idea, a biology, a discipline, a shared dependency, a way one of them fails. Leave geography out of it. Two things that connect because they sit near each other teach nothing about either, and proximity is the bridge that makes a world feel small.
 
-Use what you find for structure. It decides the shape of the new entity — the order of a procedure, the unit something is argued in, where the liability sits, what the characteristic failure looks like, how long a party has to act. The new entity is not that thing.
+What you find supplies the *pressure* on the new entity, and pressure means what somebody stands to lose. A dependency tells you who is at the mercy of whom. A shared failure tells you what both sides fear and how they behave the season after it happens. A biological fact tells you what nobody can negotiate with.
 
-An example, from a real gap in `worlds/dry-war/`. The endpoints were a coalition office holding accepted work whose payee cannot be recognized, and a desert archive holding ceramics whose contents are contested. Their counterparts are unclaimed-property administration and a repository practising destructive reading. Those two connect through provenance research and through dormancy periods: the interval after which an unclaimed thing is reclassified, and the appraisal schedule that decides when a holding is re-examined. The structural influence is an interval and a reclassification, counted in something both sides can observe — not a research discipline, and not an office that does provenance work.
+**The pull never supplies a mechanism, and the entity it produces is never a mechanism.** Regulation is where research on any two institutions leads, because regulation is what gets written down — so the search will hand you an interval, a threshold, a certificate, a liability rule. Those are the paperwork the connection generates, not the connection. Take the pressure and leave the instrument behind. `craft/writing-guidance.md` §1 governs what you then write.
+
+A worked pull. Two settlements, one holding a spring and one holding the only smithy for sixty kilometres. Counterparts: an upstream irrigation community and a market town with a monopoly trade. Those connect through the timing of labour — the smith cannot work the weeks the water community needs every body in the channels, and the channels silt in the weeks the smith's furnace must be fed. The pressure is a calendar neither side controls and both resent. What that produces is a season, a grudge, a family that has married across it twice, and a man who is blamed for the last time the timing went wrong. What it must not produce is a schedule.
 
 This is a different pull from the unrelated source in a world's own authoring procedure. Both may apply to the same entry.
 
@@ -54,11 +59,13 @@ The connector is a new entity. If an existing one is the obvious answer, that pa
 
 Prefer the candidate that would exist in dozens of copies across the world, and write the single instance that matters here. A thing that exists once and happens to join two distant places is the same small world arriving in another shape.
 
-## 6. Prefer objects, places, procedures and cases; let people be rare
+## 6. Write a place, a thing, a trade or a grievance; let people be rare
 
-A named intermediary is the most natural bridge and the fastest route back to a small world, where every connection eventually runs through the same few fixers.
+These four carry a connection without needing anyone famous to hold it, and each one gives a reader something to picture: ground somebody stands on, an object somebody handles, work somebody does for money, a wrong somebody has not forgiven.
 
-Write a person when the connection is genuinely personal — an obligation, a debt, a shared history, a professional judgement somebody is known for. Do not write the same person into a second bridge.
+A named intermediary is the most natural bridge and the fastest route back to a small world, where every connection eventually runs through the same few fixers. Write a person when the connection is genuinely personal — an obligation, a debt, a shared history, a professional judgement somebody is known for. Do not write the same person into a second bridge.
+
+**Do not write a document, a form, a card, a register, a count, a sitting or an inspection.** A connection that seems to want one of those is a connection between two institutions rather than between two parts of a world; go back to step 3 and ask again what a person moving between the endpoints would meet.
 
 ## 7. Accept a chain
 
