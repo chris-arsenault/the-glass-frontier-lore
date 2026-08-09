@@ -4,6 +4,11 @@
 # system: resonance relations, the Adversary's DM edges, the tag vocabulary,
 # and the section headings the base does not carry.
 schema do
+  # This world was drafted in assisted sessions, so a block that does not say
+  # who wrote it was written by a machine. `make provenance` reports against
+  # this; a block a person writes declares `drafted_by: :human`.
+  drafted_by_default :ai
+
   # Resonance is a physical force here, so attunement and sympathy are real
   # edges rather than metaphors.
   relation :attuned_to, category: :technical, temporal: false

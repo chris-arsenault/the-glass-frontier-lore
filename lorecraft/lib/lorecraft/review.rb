@@ -83,8 +83,6 @@ module Lorecraft
           .then { |s, a| { stale: s, active: a } }
     end
 
-    private
-
     # Paths are recorded relative to the world root, but callers type them
     # relative to wherever they are standing — usually the repo root, which is
     # above the world root.
@@ -98,6 +96,11 @@ module Lorecraft
     # so commits where it was only renamed (R100 — identical content at a new
     # path) are skipped; otherwise a repository reorganisation invalidates every
     # recorded review at once.
+    #
+    # Public because Provenance asks the same question of an entity's source
+    # file — git is the authority on when text changed, whoever is asking.
+    def content_changed_at(rel) = git_mtime(rel)
+
     def git_mtime(rel)
       out = `git -C #{@root} log --follow -M --format=%aI --name-status -- #{rel} 2>/dev/null`
       date = nil
@@ -113,6 +116,8 @@ module Lorecraft
       end
       nil
     end
+
+    private
 
     def load_status = @status_file.exist? ? JSON.parse(@status_file.read) : {}
 

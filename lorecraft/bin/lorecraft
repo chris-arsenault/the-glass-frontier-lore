@@ -143,6 +143,20 @@ when "graph"
 when "timeline"
   id = ARGV.shift or abort("usage: lorecraft timeline <entity-id>")
   puts load_world.render(:timeline, entity: id, at: at)
+when "provenance"
+  # Who drafted the prose and who has read it, per block. Review dates come from
+  # the DSL; whether a date still covers the text comes from git.
+  w = load_world
+  rt = Lorecraft::ReviewTracker.new(root: WORLD.root)
+  changed_at = lambda do |owner|
+    node = w[owner]
+    file = node.respond_to?(:source_file) && node.source_file
+    next nil unless file
+
+    rel = Pathname.new(file).expand_path.relative_path_from(Pathname.new(WORLD.root).expand_path).to_s
+    rt.content_changed_at(rel)
+  end
+  puts Lorecraft::Provenance.new(w, changed_at: changed_at).report
 when "log"
   # The entry's own history: why facts changed, what corrections rest on. Not
   # world content, so it appears on no reader-facing page.

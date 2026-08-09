@@ -82,11 +82,13 @@ module Lorecraft
       # optional section/era/dm scoping:
       #   prose <<~MD ... MD
       #   prose(<<~MD, section: :history, at: { era: :reconnection, year: 2 })
-      def prose(text, section: :main, heading: nil, at: nil, dm: false)
+      def prose(text, section: :main, heading: nil, at: nil, dm: false,
+                origin: nil, drafted_by: nil, reviewed: nil)
         @entity.prose_blocks << ProseBlock.new(
           text: text, section: section.to_sym, heading: heading,
           at_year: at && @world.timeline.year_for(at),
-          dm: dm, order: (@prose_order += 1)
+          dm: dm, order: (@prose_order += 1),
+          origin: origin&.to_sym, drafted_by: drafted_by&.to_sym, reviewed: reviewed
         )
       end
 

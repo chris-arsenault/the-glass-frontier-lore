@@ -126,7 +126,7 @@ entity. Compiled, queryable, rendered nowhere a reader looks. We currently have
 nowhere to put that sentence except a work-tracking file that loses its
 connection to the entity, or the prose itself, where it does not belong.
 
-## 5. Prose provenance — later, and worth it
+## 5. Prose provenance — taken, tracker retirement deferred
 
 Bidcraft declares per block: `origin:` (`:verbatim` / `:adapted` /
 `:synthesized` / `:authored` / `:structural`), `from:` naming source entities,
@@ -139,8 +139,22 @@ world and therefore broke when the repository was reorganised. Block-level state
 that moves with the block survives that for free, and per-block granularity beats
 per-file.
 
-Deferred because it touches every `prose` call in the corpus and would migrate
-the review JSON a second time. Take it after the composition work, not before.
+Taken as `drafted_by:` and `reviewed:` on the block, with each world declaring
+its default drafter so a corpus-wide truth costs one line instead of 592 edits.
+`origin:` narrowed to `:authored` / `:adapted` / `:structural` — there is no
+source registry here to attribute to, and `:structural` is the one that earns its
+place, marking transclusion shells that carry no claim and need no read.
+
+**The review tracker is not retired yet, and should not be.** It holds 56 real
+timestamps saying when prose was last read; the blocks declare zero. Deleting it
+today trades information for none. The migration is per-file and incremental: as
+a human reads an entry, declare `reviewed:` on its blocks and drop that file's
+entry from `review-status.json`. When the JSON is empty, delete it and the
+`lorecraft review` subcommands with it.
+
+What already carries over: the staleness rule. `make provenance` expires a review
+once the file's prose changed after that date, using the same content-aware git
+query the tracker uses — the one that ignores pure renames.
 
 ## 6. Metadata as a side channel — the principle, not the docx
 

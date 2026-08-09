@@ -77,10 +77,12 @@ module Lorecraft
 
     def static_attr(key, value) = @static_attrs[key.to_sym] = value
 
-    def add_prose(text, section: :main, heading: nil, at: nil, dm: false)
+    def add_prose(text, section: :main, heading: nil, at: nil, dm: false,
+                  origin: nil, drafted_by: nil, reviewed: nil)
       @prose_blocks << ProseBlock.new(
         text: text, section: section.to_sym, heading: heading,
-        at_year: at && @timeline.year_for(at), dm: dm, order: (@prose_order += 1)
+        at_year: at && @timeline.year_for(at), dm: dm, order: (@prose_order += 1),
+        origin: origin&.to_sym, drafted_by: drafted_by&.to_sym, reviewed: reviewed
       )
     end
 

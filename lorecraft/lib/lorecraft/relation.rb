@@ -37,10 +37,12 @@ module Lorecraft
         @world = world
       end
 
-      def prose(text, section: :main, heading: nil, at: nil, dm: false)
+      def prose(text, section: :main, heading: nil, at: nil, dm: false,
+                origin: nil, drafted_by: nil, reviewed: nil)
         @instance.prose_blocks << ProseBlock.new(
           text: text, section: section.to_sym, heading: heading,
           at_year: at && @world.timeline.year_for(at), dm: dm,
+          origin: origin&.to_sym, drafted_by: drafted_by&.to_sym, reviewed: reviewed,
           order: (@instance.instance_variable_get(:@prose_order) + 1).tap do |n|
             @instance.instance_variable_set(:@prose_order, n)
           end

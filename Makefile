@@ -37,6 +37,9 @@ stats:
 	@$(LC) stats
 topology:
 	@$(LC) topology
+# Who drafted the prose and who has read it, per block.
+provenance:
+	@$(LC) provenance
 
 # Engine unit tests.
 test:

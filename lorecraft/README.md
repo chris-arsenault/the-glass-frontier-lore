@@ -78,6 +78,9 @@ end
   callback on each resolver — `Render::Base`, `Render::Wiki`, `Validator`,
   `Linter`. There is no `case` on marker kind anywhere; a resolver that misses a
   kind raises.
+- **Block provenance:** `prose text, drafted_by: :human, reviewed: "2026-08-09"`.
+  Unstated drafters fall back to the world's `drafted_by_default`. `Provenance`
+  reports the gap and expires a review once the file's prose changed after it.
 - **Time:** CE years are absolute ticks; eras have fixed boundaries (see the
   world's `world/timeline.rb`). `now` is the default query/render era.
 - **Visibility:** `dm!(public_entry: :x)` marks a hidden-truth entity; the player

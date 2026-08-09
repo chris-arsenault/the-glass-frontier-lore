@@ -50,6 +50,8 @@ All prose must be written from inside the world. There is no Earth. Three violat
 
 **Work product versus history.** Prose is what is true of the world. Why a fact changed, what a correction rests on, which decision settled a name — that is history of the *entry*, and it goes in `log "YYYY-MM-DD — …"` on the entity, where `lorecraft log` can read it and no reader-facing render shows it. Never in prose.
 
+**Who wrote it, and who has read it.** A prose block may declare `drafted_by:` (`:ai` / `:human` / `:ai_human`) and `reviewed: "YYYY-MM-DD"` once a person has read it against these rules. Each world declares its default drafter (`drafted_by_default :ai` in `world/schema.rb`), so a block only states the exception. `make provenance WORLD=<id>` reports the gap, and treats a review as expired once the file's prose changed after that date. Never set `reviewed:` on a block's behalf — the point of the field is that a human read the words.
+
 See `craft/voice-review-prompt.md` for the reusable review prompt.
 
 ## Entry Format
@@ -224,6 +226,7 @@ Every command runs against one world. `WORLD=<id>` on make, `--world <id>` (or `
 | `stats` / `topology` | Counts by kind; degree/reachability health. |
 | `timeline <id>` | Life-of-entity event strip. |
 | `log [<id>]` | The entries' own history — why a fact changed, what a correction rests on. Not world content. |
+| `provenance` | Per block: who drafted it, who has read it, whose read has expired. |
 
 Historical state is a query, not a stored field: `world.at(era: :the_accord, year: 5).out(:coremark, :operates_in)`.
 

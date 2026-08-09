@@ -668,6 +668,69 @@ class EmbedTest < Minitest::Test
   end
 end
 
+class ProvenanceTest < Minitest::Test
+  def world
+    Lorecraft.define do
+      schema { entity_type :concept }
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
+      concept :a do
+        name "A"
+        prose "Machine drafted, nobody read it.", drafted_by: :ai
+        prose "A human wrote this one.", section: :history, drafted_by: :human
+        prose "Read and signed off.", section: :legacy, drafted_by: :ai, reviewed: "2026-08-01"
+        prose "#{embed :b}", section: :culture, origin: :structural, drafted_by: :ai
+      end
+      concept :b do name "B"; prose "Owned elsewhere." end
+    end
+  end
+
+  def test_counts_by_drafter_and_review_state
+    s = Lorecraft::Provenance.new(world).summary
+    assert_equal 5, s[:blocks]
+    assert_equal 4, s[:declared]                # concept :b declares nothing
+    assert_equal 1, s[:reviewed]
+    assert_equal({ ai: 3, human: 1, nil => 1 }, s[:by_drafter])
+  end
+
+  # The list that matters: a machine wrote it and no human has confirmed it
+  # against the writing rules. Scaffolding makes no claim, so it is not on it.
+  def test_unread_machine_prose_excludes_human_and_structural
+    sections = Lorecraft::Provenance.new(world).unread_machine_prose.map(&:section)
+    assert_includes sections, :main
+    refute_includes sections, :history          # a human wrote it
+    refute_includes sections, :legacy           # reviewed
+    refute_includes sections, :culture          # structural, carries no claim
+  end
+
+  # A review covers the text as it stood. Change the text and the read expires.
+  def test_a_review_goes_stale_when_the_file_changes_after_it
+    later = ->(_owner) { "2026-08-05T12:00:00Z" }
+    rows = Lorecraft::Provenance.new(world, changed_at: later).rows
+    assert(rows.find { |r| r.section == :legacy }.stale?)
+
+    earlier = ->(_owner) { "2026-07-01T12:00:00Z" }
+    rows = Lorecraft::Provenance.new(world, changed_at: earlier).rows
+    refute(rows.find { |r| r.section == :legacy }.stale?)
+  end
+
+  def test_bad_declarations_fail_validation
+    w = Lorecraft.define do
+      schema { entity_type :concept }
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
+      concept :a do
+        name "A"
+        prose "x", drafted_by: :robot
+        prose "y", section: :history, origin: :borrowed
+        prose "z", section: :legacy, reviewed: "last Tuesday"
+      end
+    end
+    problems = w.validate
+    assert(problems.any? { |p| p.include?("unknown prose drafter") })
+    assert(problems.any? { |p| p.include?("unknown prose origin") })
+    assert(problems.any? { |p| p.include?("not a YYYY-MM-DD date") })
+  end
+end
+
 class EntryLogTest < Minitest::Test
   def world
     Lorecraft.define do

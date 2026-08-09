@@ -76,6 +76,15 @@ module Lorecraft
     def tag?(name) = @tags.key?(name&.to_sym)
 
     def section_heading(name, description = nil) = @section_headings[name.to_sym] = description
+
+    # Who drafted a block that does not say. A statement about the corpus as a
+    # whole — declaring `:ai` says "unless a block claims otherwise, a machine
+    # wrote it", which is true of a world drafted in assisted sessions and saves
+    # asserting it on every block. Provenance applies it; the block's own field
+    # stays literal, so `declared?` still means the author said so.
+    def drafted_by_default(who) = @default_drafter = who&.to_sym
+
+    attr_reader :default_drafter
     def section_heading?(name) = @section_headings.empty? || @section_headings.key?(name&.to_sym)
 
     def static_attr?(name) = @static_attrs.include?(name&.to_sym)

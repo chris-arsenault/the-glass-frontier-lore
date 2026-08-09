@@ -24,6 +24,7 @@ module Lorecraft
       check_tags
       check_prominence
       check_sections
+      check_provenance
       @problems
     end
 
@@ -262,6 +263,23 @@ module Lorecraft
 
         err("#{label(owner)}: prose section '#{block.section}' not in canonical vocabulary") \
           unless @schema.section_heading?(block.section)
+      end
+    end
+
+    # A declared provenance has to mean something: an unknown drafter or origin
+    # is a typo that would quietly drop the block out of the audit, and a review
+    # date nobody can compare against is not a record of anything.
+    def check_provenance
+      each_prose_owner do |owner, block|
+        if block.origin && !ORIGINS.include?(block.origin)
+          err("#{label(owner)}: unknown prose origin #{block.origin.inspect} (#{ORIGINS.join('/')})")
+        end
+        if block.drafted_by && !DRAFTERS.include?(block.drafted_by)
+          err("#{label(owner)}: unknown prose drafter #{block.drafted_by.inspect} (#{DRAFTERS.join('/')})")
+        end
+        next unless block.reviewed? && !block.reviewed.to_s.match?(/\A\d{4}-\d{2}-\d{2}\z/)
+
+        err("#{label(owner)}: reviewed #{block.reviewed.inspect} is not a YYYY-MM-DD date")
       end
     end
 

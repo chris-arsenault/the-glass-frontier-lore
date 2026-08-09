@@ -29,7 +29,7 @@ installation :sithari do
   # The Accord seat was written out here and in tempered_accord, fourteen shared
   # eight-word windows. The Accord owns its own seat; this entry embeds it and
   # keeps the part that is about the city.
-  prose <<~PROSE, section: :governance, heading: "The Accord Seat"
+  prose <<~PROSE, section: :governance, heading: "The Accord Seat", drafted_by: :ai
     #{embed :tempered_accord, :structure}
 
     What that arrangement does to the city is the part Sithari feels. The Accord operates independently, staffed by representatives from across the system, but the physical reality of being here — eating Sitharian food, hearing Sitharian language, navigating Sitharian bureaucracy — shapes the institution in ways that are hard to quantify and impossible to ignore.
