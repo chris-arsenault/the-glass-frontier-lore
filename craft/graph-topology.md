@@ -1,6 +1,6 @@
 # Graph Topology Guide
 
-Target topology derived from analysis of a mature canonry graph (241 entities, 1257 active edges, score 199-204). Every world here feeds the same narrative engine and must reach similar structural properties.
+Every world here feeds the same narrative engine, so every world has to reach the same structural properties: the engine traverses the graph, and what it cannot reach it cannot use.
 
 Targets only. Where a world actually stands is a measurement, not craft — run `make topology WORLD=<id>` for the live numbers, and record a gap you are not closing yet as a `question` on the entity it concerns.
 
@@ -54,9 +54,9 @@ The bridges that go thin first, in every world so far: artifact↔anything, conc
 
 ### 3. High-degree hub nodes provide structural connectivity
 
-In the canonry graph, era entities have mean degree 48 — they connect to nearly everything via `created_during` and `active_during`. This is the primary mechanism for temporal and thematic connectivity.
+Eras, themes, threads and loops are the graph's hubs. Nearly everything connects to an era through `active_during` or `emerged_during`, and to a theme or thread through `fills_beat` or `at_stage`, which is how temporal and thematic traversal works at all.
 
-In our graph, **themes, threads, and loops serve the same structural role as eras do in the canonry graph.** They are high-degree hub nodes that entities connect to via FILLS_BEAT, AT_STAGE, etc. This is good — but the graph must also be well-connected **with those hub nodes removed.** If you delete all theme/thread/loop nodes and the graph fragments, the entity-to-entity topology is too thin.
+This is good, and it is also the easiest kind of connectivity to mistake for the real thing. The graph must hold together **with those hubs removed.** If deleting every era, theme, thread and loop fragments it, the entity-to-entity topology is too thin.
 
 **Test:** Mentally remove all meta-structure nodes (themes, threads, loops, and eras if we add them). Do the remaining entities still form a connected graph with reasonable degree? If not, the entity-to-entity relationships are insufficient. The narrative engine traverses both meta-structure paths and direct entity paths — both must work independently.
 
@@ -87,19 +87,15 @@ while its minimum is 1.
 
 ### 5. Temporal coherence over edge count
 
-The canonry graph achieved high edge density through procedural generation that didn't enforce temporal consistency — NPCs born in era 1 would participate in era 5 events, factions would thrive at a location after being destroyed, etc. The history didn't read coherently even though the graph topology scored well.
+Edge count is easy to raise by ignoring dates: an NPC born in one era participating in events five eras later, a faction thriving at a location after it was destroyed. Every metric above improves and the history stops reading coherently.
 
-Our graph is hand-crafted. We should prioritize temporal coherence over hitting raw edge count targets. Fewer relationships that make chronological sense are worth more than many that don't. Concretely:
+Fewer relationships that make chronological sense are worth more than many that do not. Concretely:
 
 - **Check temporal bounds before adding relationships.** An edge's `since:`/`till:` has to sit inside the window both endpoints exist in. A faction dissolved in one era cannot act in the next; the validator rejects the edge, but it is cheaper to notice while writing.
 - **Prefer era-appropriate connections.** When choosing which entities to link, pick ones that coexist temporally. An NPC active in the present day should relate to present-day factions and locations, not pre-Glassfall ones (unless the relationship is explicitly historical, like "studies ruins of").
 - **Accept lower edge counts as the cost of coherence.** If an entity genuinely only has 3 coherent relationships, that is better than 6 with temporal nonsense. The floor of 3, the kind-reachability target and the component counts still apply — every entity must connect to *something*, all kinds must be reachable in 2 hops, and the graph must hold together with its famous entities removed. Above the floor, individual counts flex.
 
 The narrative engine benefits more from a graph it can traverse without producing contradictions than from one with high connectivity but broken timelines.
-
-### 6. Relationship strength is a dimension
-
-The canonry graph uses strength values (0.0-1.0) on every relationship. Distribution peaks at 0.4-0.6 (most relationships are medium-strength). This lets the narrative engine weight traversals — strong connections are followed more readily than weak ones.
 
 ## Kind Taxonomy
 
@@ -206,4 +202,4 @@ The same four failures turn up in every world, in roughly this order:
 3. **Empty kinds mistaken for unneeded kinds.** `rumor`, `edict`, `transport` and `conflict` stay empty long past the point where the world has the material for them.
 4. **Reference material buried in prose.** Abilities and resources described inside a concept entry carry none of the connectivity they would as entities.
 
-Two dimensions the engine supports and no world here uses yet: relationship strength (0.0–1.0, to weight traversals) and spatial distance on location edges.
+Two dimensions the engine does not carry: a strength on a relationship, to weight one traversal over another, and a distance on a location edge. Every edge is currently equal and every neighbour equally near. Nothing in the DSL accepts either value, so an entry cannot express them and no linter looks for them.

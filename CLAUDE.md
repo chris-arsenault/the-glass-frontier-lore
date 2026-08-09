@@ -187,9 +187,11 @@ worlds/
       _shells.rb            # shell stubs: referenced-but-unwritten entities
       _edges.rb             # relationship edges (relate instances)
     guidance/               # this world's substitutions into craft/
-                            # (no work-tracking/ — review state, questions and the
-                            #  queue are declarations on the entities)
+                            # (review state, questions and the queue are
+                            #  declarations on the entities, not files)
     research/               # audits and analysis of this world
+    work-tracking/          # only pre-DSL migration snapshots, where one exists
+                            # (glass-frontier); lorecraft/tools/import.rb reads it
 craft/                      # world-agnostic authoring craft
   schema/base.rb            # kinds, effect verbs, relation taxonomy — every world loads this
   README.md                 # the craft/guidance contract
