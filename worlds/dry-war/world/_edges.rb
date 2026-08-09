@@ -147,3 +147,33 @@ relate :rel_root_emerged_conquest, :emerged_during, :the_great_root, :the_quiet_
 relate :rel_guardianship_emerged_conquest, :emerged_during, :guardianship, :the_quiet_conquest
 relate :rel_reclamation_after_breach, :caused_by, :the_reclamation, :the_breach
 relate :rel_holding_after_reclamation, :caused_by, :the_holding, :the_reclamation
+
+# ---- the Yumen crossing ----
+relate :rel_yumen_in_hexi, :located_in, :yumen_gate, :the_hexi_corridor, since: 2060
+relate :rel_gatekeepers_maintain_yumen, :maintains, :the_gatekeepers, :yumen_gate, since: 2060
+relate :rel_weighing_practiced_at_yumen, :manifests_at, :the_weighing, :yumen_gate
+relate :rel_weighing_practiced_by_gatekeepers, :practiced_by, :the_weighing, :the_gatekeepers, since: 2060
+relate :rel_weighing_depends_moss, :depends_on, :the_weighing, :gate_moss
+relate :rel_moss_derived_from_severed, :derived_from, :gate_moss, :severed_strains
+relate :rel_gatekeepers_maintain_moss, :maintains, :the_gatekeepers, :gate_moss, since: 2060
+relate :rel_schedule_regulates_weighing, :regulates, :the_gate_schedule, :the_weighing
+relate :rel_schedule_at_yumen, :manifests_at, :the_gate_schedule, :yumen_gate
+relate :rel_ma_employed_by_gatekeepers, :employed_by, :ma_renqing, :the_gatekeepers, since: 2072
+relate :rel_ma_located_yumen, :located_in, :ma_renqing, :yumen_gate, since: 2072
+relate :rel_ma_regulates_weighing, :regulates, :ma_renqing, :the_weighing, since: 2081 do
+  prose "Every contested reading at #{ref :yumen_gate, "Yumen"} comes to her, and she keeps a card on each one that the station never sees."
+end
+relate :rel_yao_member_preservationists, :member_of, :yao_lin, :the_preservationists, since: 2078
+relate :rel_yao_carries_ceramics, :carries, :yao_lin, :memory_ceramics, since: 2078
+relate :rel_yao_operates_yumen, :operates_in, :yao_lin, :yumen_gate, since: 2078
+relate :rel_yao_evades_moss, :evades, :yao_lin, :gate_moss, since: 2078 do
+  prose "She pays the scraping surcharge every crossing and files the objection with it. The station's file of them runs to eleven."
+end
+relate :rel_preservationists_object_weighing, :evades, :the_preservationists, :the_weighing, since: 2060
+relate :rel_ma_regulates_moss, :regulates, :ma_renqing, :gate_moss, since: 2081 do
+  prose "Beds pulled early read slowly, and a slow read is a contested card. She rules on those and on the beds that produced them."
+end
+relate :rel_yao_petitions_ma, :petitions, :yao_lin, :ma_renqing, since: 2078 do
+  prose "Eleven filings, each asking the receiving inspector to state whether the station considers itself bound by any law it did not print. None answered, none lost."
+end
+relate :rel_preservationists_petition_gatekeepers, :petitions, :the_preservationists, :the_gatekeepers, since: 2060

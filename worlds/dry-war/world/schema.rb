@@ -17,6 +17,11 @@ schema do
   relation :models, category: :technical, temporal: true
   relation :evades, category: :social, temporal: true
 
+  # A formal objection filed with an authority that does not recognize the filer,
+  # expecting no reply and keeping a copy. The Preservationists do this as a
+  # matter of practice, and the filings are the record they trust.
+  relation :petitions, category: :organizational, temporal: true
+
   # Sections the base vocabulary has no reason to carry. Both gods produced
   # religions nobody established, and both remade what a person is.
   section_heading :religion
