@@ -84,21 +84,33 @@ when "topology"
   ents = w.entities.values.reject { |e| e[:status].to_s == "shell" }
   deg = Hash.new(0)
   rels.each { |s, _v, t| deg[s] += 1; deg[t] += 1 }
-  degs = ents.map { |e| deg[e.id] }.sort
   n = ents.size
-  mean = degs.empty? ? 0 : degs.sum.to_f / degs.size
-  median = degs.empty? ? 0 : degs[degs.size / 2]
-  zero = ents.select { |e| deg[e.id].zero? }
+  # Prominence prescribes degree — a mythic name may be referenced from anywhere
+  # and a forgotten one only from what already links to it — so degree is
+  # stratified by design and a single average over the whole graph describes no
+  # entity in it. Report each tier's own spread.
+  tiers = %i[mythic renowned recognized marginal forgotten]
+  grouped = ents.group_by { |e| e.prominence&.to_sym }
+  floor = 3 # craft/graph-topology.md §1: every entity carries at least three typed edges
+  thin = ents.select { |e| deg[e.id] < floor }
   puts "=== Topology ==="
   puts "  entities (non-shell): #{n}"
   puts "  typed edges:          #{rels.size}"
-  puts "  edges/entity:         #{(rels.size.to_f / n).round(1)}  (target 4+)"
-  puts "  mean degree:          #{mean.round(1)}  (target 5+)"
-  puts "  median degree:        #{median}  (target 4+)"
-  puts "  zero-degree:          #{zero.size}/#{n}  (target 0)"
-  unless zero.empty?
-    puts "  zero-degree entities:"
-    zero.sort_by(&:kind).each { |e| puts "    #{e.kind.to_s.ljust(20)} #{e.id}" }
+  puts
+  puts "  degree by prominence      n    min   median      max"
+  (tiers + [nil]).each do |tier|
+    group = grouped[tier] or next
+    d = group.map { |e| deg[e.id] }.sort
+    label = tier ? tier.to_s : "(undeclared)"
+    puts "    #{label.ljust(18)} #{group.size.to_s.rjust(4)}   #{d.first.to_s.rjust(4)}" \
+         "   #{d[d.size / 2].to_s.rjust(6)}   #{d.last.to_s.rjust(6)}"
+  end
+  puts
+  puts "  under #{floor} edges:         #{thin.size}/#{n}  (target 0)"
+  unless thin.empty?
+    thin.sort_by { |e| [deg[e.id], e.kind.to_s] }.each do |e|
+      puts "    #{deg[e.id]}  #{e.kind.to_s.ljust(20)} #{e.id}"
+    end
   end
 when "worlds"
   Lorecraft::Worlds.all.each do |w|

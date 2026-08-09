@@ -2,18 +2,26 @@
 
 Target topology derived from analysis of a mature canonry graph (241 entities, 1257 active edges, score 199-204). Every world here feeds the same narrative engine and must reach similar structural properties.
 
-Targets only. Where a world actually stands is a measurement, not craft — run `make topology WORLD=<id>` for the live numbers, and keep any gap between them in that world's `work-tracking/`.
+Targets only. Where a world actually stands is a measurement, not craft — run `make topology WORLD=<id>` for the live numbers, and record a gap you are not closing yet as a `question` on the entity it concerns.
 
 ## Target Metrics
 
-| Metric | Canonry Reference | Target |
-|--------|------------------|--------|
-| Edges/entity | 5.2 | 4+ (coherence over count) |
-| Mean degree (non-hub) | 8.4 | 5+ (coherence over count) |
-| Median degree | 7.0 | 4+ |
-| Zero-degree entities | ~10% | <5% |
-| 2-hop kind reachability | 100% all kinds | 100% |
-| Relationship type variety | 40 types in active use | 20+ types with 5+ edges each |
+| Metric | Target |
+|--------|--------|
+| Entities with fewer than 3 typed edges | 0 |
+| Median degree per prominence tier | rises with prominence |
+| 2-hop kind reachability | 100% all kinds |
+| Relationship type variety | 20+ types with 5+ edges each |
+| Components with mythic dropped | 1 |
+| Components with mythic and renowned dropped | 1 |
+
+There is no target for edges per entity or for mean degree. Both average over a
+population that prominence stratifies on purpose: a mythic name may be
+referenced from anywhere and a forgotten one only from what already links to it,
+so the tiers have different degrees by design and one figure across all of them
+describes no entity in the graph. Worse, the average moves the right way for the
+wrong reason — adding well-connected marginal entities under a thin roof raises
+it while the graph gets more top-heavy. Read `make topology` tier by tier.
 
 ## Core Principles
 
@@ -54,11 +62,28 @@ In our graph, **themes, threads, and loops serve the same structural role as era
 
 Hub nodes provide thematic/temporal shortcuts. Direct entity relationships provide the ground-truth connectivity the engine needs for local traversal.
 
-### 4. Degree distribution should be smooth, not clustered
+### 4. Degree is stratified by prominence, and that is where to read it
 
-Target: most entities between 5-15 edges. A few high-degree hubs (eras, major factions, major locations) at 20-40. No entity besides eras should exceed 40. No entity should be below 3.
+Prominence gates how far a name travels, so it also fixes how many edges an
+entity can plausibly carry. Median degree should rise from `forgotten` to
+`mythic`. No entity should sit below 3 edges, and none besides an era should
+exceed 40.
 
-The canonry graph's non-era distribution: mean 8.4, median 7.0, max 38, stdev 6.3. This is a healthy bell curve with a slight right skew — a few well-connected hubs, most entities in a comfortable middle range.
+`make topology` prints the minimum, median and maximum for each tier. Two
+failures show up there and nowhere else:
+
+**An inverted graph.** The top tiers have the lowest medians. The world's biggest
+names are being written about in prose and never wired, while the small entities
+written to connect things carry all the edges. The names still read as central
+and the graph no longer agrees.
+
+**A thin tier floor.** A `mythic` or `renowned` entity with one or two edges is a
+name every entry may reach for and nothing can reach through. Fix these before
+anything else — one edge added at the top of the graph does more for reachability
+than ten added at the bottom.
+
+The tier minimums matter more than the medians. A tier's median can look healthy
+while its minimum is 1.
 
 ### 5. Temporal coherence over edge count
 
@@ -68,7 +93,7 @@ Our graph is hand-crafted. We should prioritize temporal coherence over hitting 
 
 - **Check temporal bounds before adding relationships.** An edge's `since:`/`till:` has to sit inside the window both endpoints exist in. A faction dissolved in one era cannot act in the next; the validator rejects the edge, but it is cheaper to notice while writing.
 - **Prefer era-appropriate connections.** When choosing which entities to link, pick ones that coexist temporally. An NPC active in the present day should relate to present-day factions and locations, not pre-Glassfall ones (unless the relationship is explicitly historical, like "studies ruins of").
-- **Accept lower edge counts as the cost of coherence.** The 5+ edges/entity target is aspirational. If an entity genuinely only has 3 coherent relationships, that's better than 6 with temporal nonsense. The kind-reachability and zero-degree targets still apply — every entity must connect to *something*, and all kinds must be reachable in 2 hops. But individual edge counts can flex.
+- **Accept lower edge counts as the cost of coherence.** If an entity genuinely only has 3 coherent relationships, that is better than 6 with temporal nonsense. The floor of 3, the kind-reachability target and the component counts still apply — every entity must connect to *something*, all kinds must be reachable in 2 hops, and the graph must hold together with its famous entities removed. Above the floor, individual counts flex.
 
 The narrative engine benefits more from a graph it can traverse without producing contradictions than from one with high connectivity but broken timelines.
 
