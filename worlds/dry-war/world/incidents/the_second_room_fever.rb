@@ -4,20 +4,20 @@ incident :the_second_room_fever do
   prominence :forgotten
 
   prose <<~PROSE
-    Three #{ref :separation_leave, "separation leaves"} at #{ref :mulberry_court_clinic, "Mulberry Court Clinic"} in the autumn of 2086, all begun in Room Two, in which the citizen ran a fever on the third or fourth day and showed inflammation at the cut margins. #{ref :sun_yilan, "Sun Yilan"} ended two of the three early and grafted all three garments without loss.
+    Three occupants of Room Two at #{ref :mulberry_court_clinic, "Mulberry Court Clinic"} ran fevers on the third or fourth day of their disconnected weeks in the autumn of 2086. All three showed inflammation where their living garments had been cut away. #{ref :sun_yilan, "Sun Yilan"} ended two stays early and rejoined all three garments without loss.
 
-    The municipal health record entered all three as adverse outcomes of the cut. The record dates a leave from the cut, so a fever inside a leave belongs to the leave.
+    The municipal health record counted all three fevers as injuries caused by the cut. It had no date for medicine taken before the room closed.
   PROSE
 
-  prose <<~PROSE, section: :course, heading: "The Proposal"
-    The district's clinical committee opened a proposal the following quarter: postpone a leave for any citizen on a course of medication until the course ends. Under symbiotic governance most adults are on a continuous course of something, so the proposal would have made the request refusable in practice without anyone refusing a request. Their figures showed three fevers in six leaves but omitted medication timing, the factor shared by the three patients.
+  prose <<~PROSE, section: :course, heading: "The Drug Histories"
+    The district's clinical committee proposed closing the western rooms to anyone on a course of medication. Most Joined adults receive some continuous treatment, so the change would have closed the rooms to most of the district. Its figures showed three fevers in six stays and omitted when the three patients had taken their last doses.
 
-    Sun produced the three completion cards and the intake cards beneath them. Two of the citizens had finished a five-day antimicrobial the day before admission; the third had taken the last dose of an antipyretic with a nine-day halving four days before the cut. In all three cases the inflammation figures sat inside the range the same body had shown in the fortnight before its leave, which the connected garment had recorded while it could still report.
+    Two had finished a five-day antimicrobial on the day before entering Room Two. The third had stopped an antipyretic four days before the cut; half of each dose remained in the body for nine days. Their connected garments also held the previous fortnight's readings, which showed the same range of inflammation before any of them entered the room.
   PROSE
 
-  prose <<~PROSE, section: :aftermath, heading: "The Ruled Section"
-    The proposal was withdrawn in favour of a form change. The completion card gained a first section ruled off with a diagonal, entered and not compared, and the intake card gained a line for the date of the last dose of anything. The #{ref :the_halving_count, "halving count"} had been ordinary clinical practice in the wards for as long as anyone could remember; it had never been written into the western rooms' paperwork, because the western rooms produce no series long enough to compare against.
+  prose <<~PROSE, section: :aftermath, heading: "Five Half-Lives"
+    The committee withdrew its proposal. Western-room cards now record the last dose of every medicine and rule off the early readings with a blue diagonal. Staff compare them only after five half-lives have passed, the same interval the connected wards already used.
 
-    The committee's autumn figures were not corrected. The municipal record still carries three adverse outcomes of the cut for 2086, and Sun's ledger carries the same three leaves as completed, with the fevers entered as carries.
+    The municipal total for 2086 still includes the three fevers as injuries caused by the cut. Sun's paper ledger records three completed stays and the earlier drug histories beside them.
   PROSE
 end

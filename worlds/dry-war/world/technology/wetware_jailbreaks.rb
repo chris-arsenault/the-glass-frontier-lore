@@ -16,6 +16,6 @@ concept :wetware_jailbreaks do
 
     So the hard requirement is continuity rather than concealment: a fabricated record has to age the way a body ages, carry the seasonal drift the archive already holds, and degrade at the rate a person of that age degrades. A jailbreak that reads perfectly healthy is caught faster than one that reads mildly and consistently unwell.
 
-    Where the intervention is chemical rather than firmware the same requirement produces #{ref :ghost_pharmacology, "ghost pharmacology"} and its #{ref :the_halving_count, "count"}. Where it is neither — where a person simply has no record for a guardian to compare against — it produces #{ref :the_unpersons, "an Unperson"}, and the #{future "Wheeling exit protocol"} is the one written procedure for getting from the first condition to the last.
+    Chemical interventions produce #{ref :ghost_pharmacology, "ghost pharmacology"}: replacement drugs that preserve the expected blood trace for five half-lives while changing the effect on the brain. A person with no record for a guardian to compare against has a different freedom and a different danger; the #{ref :the_unpersons, "Unpersons"} live with both.
   PROSE
 end

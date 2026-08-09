@@ -61,11 +61,9 @@ relate :rel_wr_jailbreaks_evades_guardianship, :evades, :wetware_jailbreaks, :gu
 end
 relate :rel_wr_jailbreaks_evades_mercy, :evades, :wetware_jailbreaks, :mercy
 relate :rel_wr_jailbreaks_derived_ghostpharm, :derived_from, :ghost_pharmacology, :wetware_jailbreaks
-relate :rel_wr_jailbreaks_depends_halving, :depends_on, :ghost_pharmacology, :the_halving_count
 relate :rel_wr_unpersons_practices_jailbreaks, :practiced_by, :wetware_jailbreaks, :the_unpersons do
   prose "A person with no record for a guardian to compare against needs no fabricated one, which is the condition the whole practice is a route toward."
 end
-relate :rel_wr_jailbreaks_mentions_halving, :mentions, :wetware_jailbreaks, :the_halving_count
 
 # ---- bonsai intelligences: how a boundary is built ----
 relate :rel_wr_bonsai_depends_severed, :depends_on, :bonsai_intelligences, :severed_strains

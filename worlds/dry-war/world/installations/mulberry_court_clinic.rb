@@ -4,7 +4,7 @@ installation :mulberry_court_clinic do
   prominence :marginal
 
   prose <<~PROSE
-    A municipal symbiosis clinic in #{ref :mycelial_china, "mycelial China"}, named for the old mulberry tree in its entrance court. The ordinary wards are as alive as the homes around them: floors read gait, bedding adjusts circulation and the tree carries neighbourhood traffic through its roots. The six rooms behind the western wall are kept outside that traffic for #{ref :separation_leave, "separation leave"}.
+    A municipal symbiosis clinic in #{ref :mycelial_china, "mycelial China"}, named for the old mulberry tree in its entrance court. The ordinary wards are as alive as the homes around them: floors read gait, bedding adjusts circulation and the tree carries neighbourhood traffic through its roots. The six rooms behind the western wall are kept outside that traffic for adults who want a week beyond the neighbourhood network.
   PROSE
 
   prose <<~PROSE, section: :structure, heading: "The Western Rooms"
@@ -13,15 +13,17 @@ installation :mulberry_court_clinic do
     On the connected side of the wall, six shallow basins keep removed garments warm and fed. A roll of #{ref :separation_film, "separation film"} hangs above each basin, with its blue witness strip facing out so a steward can check the stock without touching it. #{ref :sun_yilan, "Sun Yilan"} holds the western-room roster and the basin keys.
   PROSE
 
-  prose <<~PROSE, section: :mechanics, heading: "What The Cards Cannot Compare"
-    Instruments that cannot report also cannot build a series. The only comparison the western rooms have is one day against another, and the first days of a leave belong to whatever the citizen was carrying when they arrived. So the intake card asks for the date of the last dose of anything before the garment is cut, and the completion card's first section is ruled off with a diagonal: entered, not compared, until the #{ref :the_halving_count, "count"} has run.
+  prose <<~PROSE, section: :mechanics, heading: "The First Days"
+    An occupant exchanges their living garment for woven cellulose clothes. #{ref :sun_yilan, "Sun Yilan"} seals the cut margins with #{ref :separation_film, "separation film"} and keeps the garment alive in a basin outside the wall. Glass thermometers, paper strips and spoken checks follow morning and evening. Nothing in the room can report to the neighbourhood.
 
-    The rule is written on the forms rather than in the wards, where it has always been ordinary practice. It went onto the forms after #{ref :the_second_room_fever, "the Second-Room Fever"}, when a district committee read three municipal figures with no count under them and drafted a postponement that would have made the request refusable without anyone refusing it.
+    The first days still belong to whatever drugs and fungal regulation were present before the cut. The clinic records the last dose of every medicine and waits five of that drug's half-lives before comparing a later reading with the first. A drug that halves in nine days remains in the body after the week ends.
+
+    That distinction was added after #{ref :the_second_room_fever, "the Second-Room Fever"}, when three familiar inflammatory episodes were counted as injuries caused by the western rooms.
   PROSE
 
   prose <<~PROSE, section: :people, heading: "The Outer Bench"
     Families and neighbours may bring meals, letters and familiar clothes to a tiled bench outside the double hatch. Staff inspect the packages for living material and pass them through without recording their contents. The status board beside the bench shows whether each room has eaten, accepted a check or requested reconnection; it shows no speech or movement from inside.
 
-    Room Five's repaired blue numeral is the clinic's visible record of #{ref :the_fifth_room_week, "the Fifth-Room Week"}, when #{ref :peng_meizhen, "Peng Meizhen"} occupied it.
+    Room Five's numeral is split by a vein of blue glass. A basin trolley cracked the tile while #{ref :peng_meizhen, "Peng Meizhen"} was being rejoined to her garment, and the repairer made the sealed crack conspicuous for later wall checks.
   PROSE
 end

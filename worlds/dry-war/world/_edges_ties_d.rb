@@ -1,44 +1,20 @@
 # Lateral ties written to join three pairs of separated components: the Mulberry
-# Court separation rooms to American ghost pharmacology through the halving
-# count, and the Choir to the Gatekeepers through the seam pass. Ids are prefixed rel_td_
+# The Mulberry Court fever, the Cabin Creek bench, and the seam pass between
+# the Choir and the Gatekeepers. Ids are prefixed rel_td_
 # so this file cannot collide with another edge file.
 
-# ---- A. the halving count ----
-relate :rel_td_halving_practiced_by_root_clinics, :manifests_at, :the_halving_count, :mulberry_court_clinic do
-  prose "The card's ruled first section and the intake line for the date of the last dose."
-end
-relate :rel_td_halving_regulates_leave, :regulates, :the_halving_count, :separation_leave do
-  prose "A seven-day leave is shorter than the count of anything that halves in nine days, and no procedure shortens the count."
-end
-relate :rel_td_halving_regulates_ghost, :regulates, :the_halving_count, :ghost_pharmacology do
-  prose "A substitute must hold the replaced drug's signature across the whole of that drug's count."
-end
-relate :rel_td_halving_practiced_by_counties, :practiced_by, :the_halving_count, :the_dead_counties, since: 2065
-relate :rel_td_halving_at_bench, :manifests_at, :the_halving_count, :cabin_creek_bench
-relate :rel_td_halving_caused_fever_finding, :caused_by, :the_halving_count, :the_second_room_fever do
-  prose "Ordinary ward practice for as long as anyone remembers; written into the western rooms' paperwork only after 2086."
-end
-
-# ---- the case ----
+# ---- the Room Two fevers ----
 relate :rel_td_fever_at_mulberry, :manifests_at, :the_second_room_fever, :mulberry_court_clinic
 relate :rel_td_fever_conducted_by_sun, :conducted_by, :the_second_room_fever, :sun_yilan
 relate :rel_td_fever_during_reclamation, :active_during, :the_second_room_fever, :the_reclamation
-relate :rel_td_fever_regulates_leave, :caused, :the_second_room_fever, :separation_leave do
-  prose "The completion card's ruled section and the intake card's last-dose line date from the withdrawn proposal."
-end
+relate :rel_td_fever_depends_film, :depends_on, :the_second_room_fever, :separation_film
 
 # ---- the bench ----
 relate :rel_td_bench_in_appalachia, :located_in, :cabin_creek_bench, :appalachia
 relate :rel_td_counties_maintain_bench, :maintains, :the_dead_counties, :cabin_creek_bench, since: 2071
-relate :rel_td_bench_depends_ghost, :depends_on, :ghost_pharmacology, :cabin_creek_bench do
-  prose "A compound sold on a partial count is a compound the bench did not pass."
-end
-relate :rel_td_bench_depends_orphans, :depends_on, :cabin_creek_bench, :orphan_machines do
-  prose "A severed bedside monitor of a pattern older than the coalitions, wired to a paper chart recorder."
-end
-relate :rel_td_bench_depends_pharma, :models, :cabin_creek_bench, :psychopharmacological_infrastructure, since: 2071 do
-  prose "The bench charts the regimen it means to displace before it charts anything that replaces it."
-end
+relate :rel_td_ghost_depends_bench, :depends_on, :ghost_pharmacology, :cabin_creek_bench
+relate :rel_td_bench_depends_orphans, :depends_on, :cabin_creek_bench, :orphan_machines
+relate :rel_td_bench_depends_pharma, :models, :cabin_creek_bench, :psychopharmacological_infrastructure, since: 2071
 
 # ---- B. the yard ----
 relate :rel_td_yard_in_hexi, :located_in, :xincheng_yard, :the_hexi_corridor

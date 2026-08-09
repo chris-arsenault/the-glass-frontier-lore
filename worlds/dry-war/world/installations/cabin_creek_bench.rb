@@ -9,23 +9,23 @@ installation :cabin_creek_bench do
     What it holds is a pendulum regulator, a rack of ninety stoppered tubes, a spirit burner, glass syringes, and a bedside monitor of a pattern that predates the coalitions — #{ref :orphan_machines, "severed"}, running on shed current, wired to a chart recorder that draws on paper. Two people work it on a fortnight rotation and neither of them is a chemist.
   PROSE
 
-  prose <<~PROSE, section: :mechanics, heading: "What It Compares"
-    A carrier is charted first on the regimen the substitute is meant to replace: the monitor's analytes, at fixed hours, for the whole of that drug's #{ref :the_halving_count, "count"}. Then the same carrier on the substitute, same monitor, same hours, same count. The two charts are laid over one another and read halving by halving.
+  prose <<~PROSE, section: :mechanics, heading: "Two Paper Traces"
+    A carrier is charted first on the regimen the substitute is meant to replace, at fixed hours until the drug has halved five times. Then the same body is charted on the substitute with the same monitor and the same hours. The two paper traces are laid over one another.
 
-    A substitute passes when the charts cannot be separated anywhere across the count. It is rejected on a step, wherever the step falls, and a step in the last halving is the common one — a compound built to match a peak and never asked to match a tail. #{ref :ghost_pharmacology, "Ghost pharmacology"}'s working assumption is that a guardian looks hardest at the shape of a decline, because a decline is where a missed dose shows.
+    A usable substitute stays inside the old trace from the first peak to the last decline. The common failure is a late step: a compound built to match the peak but not the tail. A guardian looks hardest at the decline because that is where a missed dose appears.
   PROSE
 
   prose <<~PROSE, section: :economy, heading: "The Carriers"
-    A count is long. Something that halves in nine days holds a carrier for six or seven weeks on the first chart and as long again on the second, and the bench's ledger is a list of paid weeks rather than a list of compounds. A carrier is paid in current, parts and standing credit at two kitchens, and is barred from carrying for anything else while charted.
+    A drug that halves in nine days holds a carrier for six or seven weeks on the first chart and as long again on the second. The bench's ledger is therefore a list of paid weeks rather than a list of compounds. A carrier is paid in current, parts and standing credit at two kitchens, and carries for nothing else while charted.
 
-    The bench runs one compound at a time and turns away more than it takes. A kitchen that cannot wait sends its batch out on the strength of a partial count, which the courier is told and the far end usually is not.
+    The bench runs one compound at a time, and most batches fail. A kitchen that sends a batch out after a partial chart is selling medicine that has not survived the full decline.
   PROSE
 
   prose <<~PROSE, section: :limits, heading: "One Body"
     The bench cannot compare a substitute against a carrier's own guardian, because a guardian capable of making the comparison would report having made it. So the comparison is against a chart of that carrier from before, and every substitute the county sells is proved on one body and taken by many. Doses are corrected for weight and age at the far end, in a kitchen, by whoever is dispensing.
 
-    The card that leaves with a passed compound states the carrier's weight, age, the regimen charted and the largest separation found between the two charts. It states nothing about anybody else.
+    Each batch therefore rests on one carrier. The card that leaves with it gives that person's weight and age, and kitchens use only those two figures to adjust doses for everyone else.
   PROSE
 
-  log "2026-08-09 — The bench proves a substitute on one paid carrier because the only comparison available is that person's own earlier chart: a guardian able to compare would be a guardian reporting. That fixes the discipline's real limit — one body, generalized by weight and age at the point of dispensing — and it is the resistance's own version of an account of welfare that omits something."
+  log "2026-08-09 — The bench uses one paid carrier because the only private comparison is that person's earlier paper chart. Every later dose is adjusted from that one body by weight and age."
 end

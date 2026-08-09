@@ -183,28 +183,18 @@ relate :rel_forty_seven_depend_cairo_ridge, :depends_on, :the_forty_seven, :cair
 relate :rel_continuity_supplies_forty_seven, :supplies, :continuity, :the_forty_seven
 
 # ---- a week outside the Great Root ----
-relate :rel_root_regulates_separation_leave, :regulates, :the_great_root, :separation_leave
-relate :rel_separation_leave_practiced_by_joined, :practiced_by, :separation_leave, :the_joined
-relate :rel_separation_leave_depends_textiles, :depends_on, :separation_leave, :living_textiles
-relate :rel_separation_leave_depends_film, :depends_on, :separation_leave, :separation_film
-relate :rel_separation_leave_evades_mesh, :evades, :separation_leave, :mycelial_neural_mesh
-relate :rel_separation_leave_conducted_by_sun, :conducted_by, :separation_leave, :sun_yilan
 relate :rel_sun_employed_by_root, :employed_by, :sun_yilan, :the_great_root
 relate :rel_sun_operates_in_china, :operates_in, :sun_yilan, :mycelial_china
-relate :rel_separation_leave_at_mulberry, :manifests_at, :separation_leave, :mulberry_court_clinic
 relate :rel_mulberry_in_china, :located_in, :mulberry_court_clinic, :mycelial_china
 relate :rel_root_maintains_mulberry, :maintains, :the_great_root, :mulberry_court_clinic
+relate :rel_mulberry_depends_textiles, :depends_on, :mulberry_court_clinic, :living_textiles
 relate :rel_mulberry_maintains_film, :maintains, :mulberry_court_clinic, :separation_film
+relate :rel_mulberry_evades_mesh, :evades, :mulberry_court_clinic, :mycelial_neural_mesh
 relate :rel_film_evades_mesh, :evades, :separation_film, :mycelial_neural_mesh
 relate :rel_sun_located_mulberry, :located_in, :sun_yilan, :mulberry_court_clinic
 relate :rel_peng_inhabits_china, :inhabits, :peng_meizhen, :mycelial_china
 relate :rel_peng_symbiotic_root, :symbiotic_with, :peng_meizhen, :the_great_root
-relate :rel_leave_practiced_by_peng, :practiced_by, :separation_leave, :peng_meizhen
-relate :rel_fifth_room_at_mulberry, :manifests_at, :the_fifth_room_week, :mulberry_court_clinic
-relate :rel_fifth_room_during_holding, :active_during, :the_fifth_room_week, :the_holding
-relate :rel_peng_participated_fifth_room, :participated_in, :peng_meizhen, :the_fifth_room_week
-relate :rel_fifth_room_conducted_by_sun, :conducted_by, :the_fifth_room_week, :sun_yilan
-relate :rel_fifth_room_depends_film, :depends_on, :the_fifth_room_week, :separation_film
+relate :rel_peng_depends_film, :depends_on, :peng_meizhen, :separation_film
 
 # ---- the Race Street warehouse and its unpaid workers ----
 relate :rel_race_street_in_boswash, :located_in, :race_street_warehouse, :boswash_ruins, since: 2074
@@ -225,21 +215,11 @@ relate :rel_receipt_holders_draw_managed, :member_of, :the_managed, :the_receipt
 end
 
 # ---- people and places the separation cluster left unjoined ----
-relate :rel_peng_located_mulberry, :located_in, :peng_meizhen, :mulberry_court_clinic, since: 2090 do
-  prose "Room Five, seven blank check cards, and a disconnected medical kit."
-end
-relate :rel_sun_conducted_peng_leave, :conducted_by, :separation_leave, :sun_yilan, since: 2081
-relate :rel_sun_attends_peng, :attends, :sun_yilan, :peng_meizhen, since: 2090 do
-  prose "She made the cut, sealed the margins, watched the blue witness for seven days and seated the garment back on the first attempt."
-end
+relate :rel_peng_located_mulberry, :located_in, :peng_meizhen, :mulberry_court_clinic, since: 2090
+relate :rel_sun_attends_peng, :attends, :sun_yilan, :peng_meizhen, since: 2090
 relate :rel_peng_member_joined, :member_of, :peng_meizhen, :the_joined
-relate :rel_peng_operates_amur, :operates_in, :peng_meizhen, :the_amur_line, since: 2090
-relate :rel_fifth_room_mentions_amur, :mentions, :the_fifth_room_week, :the_amur_line
-relate :rel_leave_recorded_as_fifth_room, :commemorates, :the_fifth_room_week, :separation_leave
 relate :rel_film_depends_textiles, :depends_on, :separation_film, :living_textiles
-relate :rel_film_limits_implants, :evades, :separation_film, :symbiotic_implants do
-  prose "It cuts the path to the neighbourhood and leaves everything already grown through nerve, lymph and vessel exactly where it is."
-end
+relate :rel_film_limits_implants, :evades, :separation_film, :symbiotic_implants
 
 # ---- Cairo's roll-keeper and the households on it ----
 relate :rel_bell_records_forty_seven, :studies, :inez_bell, :the_forty_seven, since: 2090

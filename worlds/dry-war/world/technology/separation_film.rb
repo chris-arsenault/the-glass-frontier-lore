@@ -16,7 +16,7 @@ resource :separation_film do
   PROSE
 
   prose <<~PROSE, section: :limits, heading: "What Remains Joined"
-    Separation film cuts the path between a citizen and the neighbourhood. It does not remove #{ref :symbiotic_implants, "symbiotic structures"} already grown through nerves, lymph and blood vessels. Those structures continue local immune regulation from what they carry at the start of #{ref :separation_leave, "the leave"}; they cannot draw new compounds or instruction from the garment.
+    Separation film cuts the path between a citizen and the neighbourhood. It does not remove #{ref :symbiotic_implants, "symbiotic structures"} already grown through nerves, lymph and blood vessels. Those structures continue local immune regulation from what they carry when the garment is cut; they cannot draw new compounds or instruction from it.
 
     By the end of a full week, some cut margins begin to scar and take a graft less readily. Clinics keep the original garment warm and fed throughout the leave so the steward needs to prepare only one side of the returning union.
   PROSE
