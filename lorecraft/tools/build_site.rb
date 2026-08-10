@@ -195,7 +195,9 @@ def brand_icon_png(size)
 end
 
 def write_brand_icons(directory)
+  File.binwrite(directory.join("favicon-16x16.png"), brand_icon_png(16))
   icon_32 = brand_icon_png(32)
+  File.binwrite(directory.join("favicon-32x32.png"), icon_32)
   File.binwrite(directory.join("favicon.ico"),
                 [0, 1, 1].pack("vvv") +
                 [32, 32, 0, 0, 1, 32, icon_32.bytesize, 22].pack("CCCCvvVV") + icon_32)
