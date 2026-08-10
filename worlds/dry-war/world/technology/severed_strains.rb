@@ -4,14 +4,14 @@ resource :severed_strains do
   prominence :recognized
 
   prose <<~PROSE
-    The foundational resistance technology: descendants of Unified organisms whose ability to join the continental network has been removed or crippled. They still close wounds, sense their environment, filter, regulate temperature, repair structure and carry limited neural interfaces. They cannot talk to anything far away.
+    Severed strains descend from Unified fungi altered so their growth cannot join the continental mycelium. They still close wounds, sense heat and chemistry, filter water, regulate temperature, repair living structures and carry signals through a body. Their signals stop at the edge of the bed or implant.
 
-    Unified biologists consider them mutilated. Resistance communities regard them roughly the way an older century regarded open-source software.
+    Unified biologists call them mutilated tissue. Resistance clinics grow them because a poorer treatment that ends at the wall cannot carry a patient into the #{ref :the_great_root, "Great Root"}.
   PROSE
 
-  prose <<~PROSE, section: :limits, heading: "Provenance"
-    A severed strain is not safe. Biology mutates, and a strain that cannot reach the network today is a strain whose ancestry, reproductive history and behaviour are understood well enough that somebody is willing to take the risk.
+  prose <<~PROSE, section: :limits, heading: "Lineage Books"
+    No strain remains safe by design alone. Each division can mutate, take up foreign tissue or recover a lost signalling pathway. A bed travels with copied books naming its parent culture, every division, every contamination and every failed barrier test.
 
-    So the real technology is record-keeping. Entire traditions of biological provenance exist around it, and a village may state with enormous pride that its lineage has been disconnected for #{duration 70} — a claim it can document, and which the #{ref :the_gatekeepers, "Gatekeepers"} will audit for a fee.
+    A village may keep #{duration 70} of such books beside one living lineage. The #{ref :the_gatekeepers, "Gatekeepers"} compare the tissue with the record for a fee, then burn a bed when its growth contradicts the page.
   PROSE
 end

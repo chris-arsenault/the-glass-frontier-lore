@@ -80,16 +80,16 @@ relate :rel_decoys_depend_implants, :depends_on, :implant_decoys, :neural_implan
 relate :rel_substitutes_depend_implants, :depends_on, :substitute_drugs, :neural_implants
 
 # ---- fungal technology ----
-relate :rel_root_depends_mesh, :depends_on, :the_great_root, :mycelial_neural_mesh
-relate :rel_textiles_carry_mesh, :carries, :living_textiles, :mycelial_neural_mesh, since: 2040
+relate :rel_root_depends_mycelium, :depends_on, :the_great_root, :continental_mycelium
+relate :rel_textiles_carry_mycelium, :carries, :living_textiles, :continental_mycelium, since: 2040
 relate :rel_implants_derived_from_textiles, :derived_from, :symbiotic_implants, :living_textiles
-relate :rel_ecologies_maintained_by_root, :maintains, :the_great_root, :programmable_ecologies, since: 2052
-relate :rel_mesh_depends_water, :depends_on, :mycelial_neural_mesh, :water
+relate :rel_ecosystems_maintained_by_root, :maintains, :the_great_root, :seeded_ecosystems, since: 2052
+relate :rel_mycelium_depends_water, :depends_on, :continental_mycelium, :water
 relate :rel_severed_severed_from_root, :severed_from, :severed_strains, :the_great_root
 relate :rel_bonsai_derived_from_severed, :derived_from, :bonsai_intelligences, :severed_strains
-relate :rel_deadroot_derived_from_severed, :derived_from, :dead_root_interfaces, :severed_strains
-relate :rel_ceramics_derived_from_mesh, :derived_from, :memory_ceramics, :mycelial_neural_mesh
-relate :rel_sterile_evades_mesh, :evades, :sterile_machines, :mycelial_neural_mesh
+relate :rel_deadroot_grafts_derived_from_severed, :derived_from, :dead_root_grafts, :severed_strains
+relate :rel_ceramics_derived_from_mycelium, :derived_from, :memory_ceramics, :continental_mycelium
+relate :rel_sterile_evades_mycelium, :evades, :sterile_machines, :continental_mycelium
 
 # ---- the convergence nobody admits to ----
 relate :rel_mycomachines_derived_from_ferals, :derived_from, :mycomachines, :feral_models
@@ -171,8 +171,8 @@ relate :rel_mulberry_in_china, :located_in, :mulberry_court_clinic, :mycelial_ch
 relate :rel_root_maintains_mulberry, :maintains, :the_great_root, :mulberry_court_clinic
 relate :rel_mulberry_depends_textiles, :depends_on, :mulberry_court_clinic, :living_textiles
 relate :rel_mulberry_maintains_film, :maintains, :mulberry_court_clinic, :separation_film
-relate :rel_mulberry_evades_mesh, :evades, :mulberry_court_clinic, :mycelial_neural_mesh
-relate :rel_film_evades_mesh, :evades, :separation_film, :mycelial_neural_mesh
+relate :rel_mulberry_evades_mycelium, :evades, :mulberry_court_clinic, :continental_mycelium
+relate :rel_film_evades_mycelium, :evades, :separation_film, :continental_mycelium
 relate :rel_sun_located_mulberry, :located_in, :sun_yilan, :mulberry_court_clinic
 relate :rel_peng_inhabits_china, :inhabits, :peng_meizhen, :mycelial_china
 relate :rel_peng_symbiotic_root, :symbiotic_with, :peng_meizhen, :the_great_root

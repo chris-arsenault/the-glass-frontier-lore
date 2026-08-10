@@ -6,7 +6,7 @@ incident :the_marsyangdi_burn do
   prose <<~PROSE
     In the spring of 2089, a sealed case came down from #{ref :thorong_cold_house, "the Thorong Cold House"} with living growth in nine of its ten ordinary tubes and four of the five deprived of the sugar the organism was supposed to need. The blank tubes were clean. The nitrogen-fixing root associate inside had survived a Himalayan winter at 5,400 metres without its engineered dependency.
 
-    Three years earlier, the #{ref :the_great_root, "Great Root"}'s line service had planted it above the #{future "Marsyangdi Intake"} as one member of a nineteen-organism #{ref :programmable_ecologies, "programmed ecology"}. By the time the case returned, its roots ran through eleven hectares of terrace and pasture.
+    Three years earlier, the #{ref :the_great_root, "Great Root"}'s line service had planted it above the #{future "Marsyangdi Intake"} as one member of a nineteen-organism #{ref :seeded_ecosystems, "seeded ecosystem"}. By the time the case returned, its roots ran through eleven hectares of terrace and pasture.
   PROSE
 
   prose <<~PROSE, section: :course, heading: "Eleven Hectares"

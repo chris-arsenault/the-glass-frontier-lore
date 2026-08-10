@@ -10,7 +10,7 @@ geographic_location :sanchakou do
   PROSE
 
   prose <<~PROSE, section: :governance, heading: "What Moved"
-    #{ref :the_great_root, "The Great Root"} preserved Sanchakou's name, clinic team and dispatch rota. The new row placed each household's #{ref :living_textiles, "garment"} beside the same neighbouring garments when it reformed on the #{ref :mycelial_neural_mesh, "mesh"}. The state treats this as one settlement moved down its own road, not a settlement dissolved and another founded.
+    #{ref :the_great_root, "The Great Root"} preserved Sanchakou's name, clinic team and dispatch rota. The new row placed each household's #{ref :living_textiles, "garment"} beside the same neighbouring garments when it grew into the #{ref :continental_mycelium, "continental mycelium"}. The state treats this as one settlement moved down its own road, not a settlement dissolved and another founded.
 
     The graves stayed behind because soil from the belt may carry foreign tissue. Most rites are now held at a post where the road enters the belt. Four families visit the rise with the coring team.
   PROSE

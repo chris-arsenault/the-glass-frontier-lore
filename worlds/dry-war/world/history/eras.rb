@@ -84,7 +84,7 @@ incident :the_reclamation_campaigns do
   prose <<~PROSE
     The #{elapsed :the_reclamation, :the_holding} of ground taken back from the #{ref :the_others, "Others"}, and the only sustained military cooperation between the two gods in history.
 
-    Machine-directed armies sterilized millions of square kilometres. Mycelial systems rebuilt ecologies behind the advance, faster than anyone had thought possible, because a #{ref :programmable_ecologies, "programmed ecology"} does not need to be seeded twice. Human troops went in wherever neither machine prediction nor fungal sensing functioned, which is when both gods learned that there were places only people could go.
+    Machine-directed armies sterilized millions of square kilometres. Fungal growth rebuilt farms, shelters and wetlands behind the advance faster than anyone had thought possible because a #{ref :seeded_ecosystems, "seeded ecosystem"} can return from buried roots and spores. Human troops went in wherever neither machine prediction nor fungal sensing functioned, which is when both gods learned that there were places only people could go.
 
     It worked. Colonies were planted on reclaimed ground and some of them are still transmitting.
   PROSE

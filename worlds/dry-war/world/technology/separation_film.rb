@@ -6,7 +6,7 @@ resource :separation_film do
   log "2026-08-09 — The wrap begins below the cut and proceeds across it in overlapping turns. Fruit-tree grafters use that order to seal exposed tissue against drying; separation film wraps each living face separately and leaves a visible witness between them."
 
   prose <<~PROSE
-    Translucent cellulose tape with a narrow blue paper strip packed inside each roll. Symbiosis clinics use it whenever mature #{ref :living_textiles, "living textile"} must be cut away from a wearer and kept viable for reattachment. The film contains no living fibre and cannot carry a signal into the #{ref :mycelial_neural_mesh, "mycelial mesh"}.
+    Translucent cellulose tape with a narrow blue paper strip packed inside each roll. Symbiosis clinics use it whenever mature #{ref :living_textiles, "living textile"} must be cut away from a wearer and kept viable for reattachment. The film contains no living fibre and cannot carry a signal into the #{ref :continental_mycelium, "continental mycelium"}.
   PROSE
 
   prose <<~PROSE, section: :how_it_works, heading: "Two Wet Edges"

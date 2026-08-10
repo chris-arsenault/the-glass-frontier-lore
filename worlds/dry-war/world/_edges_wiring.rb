@@ -19,7 +19,7 @@ relate :rel_wr_fusion_derived_heresy, :derived_from, :proto_fusion, :the_water_h
 relate :rel_wr_preservationists_evade_root, :evades, :the_preservationists, :the_great_root
 
 # ---- hybridization: where the work is actually done ----
-relate :rel_wr_hybrid_depends_deadroot, :depends_on, :hybridization, :dead_root_interfaces
+relate :rel_wr_hybrid_depends_deadroot_grafts, :depends_on, :hybridization, :dead_root_grafts
 relate :rel_wr_hybrid_manifests_amur, :manifests_at, :hybridization, :the_amur_line
 relate :rel_wr_minds_studies_hybrid, :studies, :the_thousand_minds, :hybridization
 relate :rel_wr_mycomachines_part_hybrid, :part_of, :mycomachines, :hybridization
@@ -37,9 +37,9 @@ relate :rel_wr_bonsai_depends_severed, :depends_on, :bonsai_intelligences, :seve
 relate :rel_wr_bonsai_depends_sterile, :depends_on, :bonsai_intelligences, :sterile_machines
 relate :rel_wr_ceramics_studies_bonsai, :studies, :memory_ceramics, :bonsai_intelligences
 
-# ---- dead-root interfaces: the kill, and what dead tissue is worth ----
-relate :rel_wr_brokers_supplies_deadroot, :supplies, :the_brokers, :dead_root_interfaces
-relate :rel_wr_deadroot_manifests_amur, :manifests_at, :dead_root_interfaces, :the_amur_line
+# ---- dead-root grafts: the kill, and what dead tissue is worth ----
+relate :rel_wr_brokers_supplies_deadroot_grafts, :supplies, :the_brokers, :dead_root_grafts
+relate :rel_wr_deadroot_grafts_manifest_amur, :manifests_at, :dead_root_grafts, :the_amur_line
 
 # ---- proto-fusion: what purity costs and where plants cannot go ----
 relate :rel_wr_fusion_depends_water, :depends_on, :proto_fusion, :water

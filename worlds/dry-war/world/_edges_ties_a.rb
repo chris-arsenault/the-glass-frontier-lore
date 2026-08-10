@@ -9,13 +9,13 @@ relate :rel_ties_ensenada_during_holding, :active_during, :the_ensenada_bed, :th
 relate :rel_ties_ensenada_at_socal, :manifests_at, :the_ensenada_bed, :southern_california
 relate :rel_ties_ensenada_seed_from_sichuan, :sourced_from, :the_ensenada_bed, :sichuan
 
-# ---- B. Thorong and the Marsyangdi burn: Himalayan Holds ↔ programmable ecologies ----
+# ---- B. Thorong and the Marsyangdi burn: Himalayan Holds and seeded ecosystems ----
 relate :rel_ties_coldhouse_in_holds, :located_in, :thorong_cold_house, :the_himalayan_holds
 relate :rel_ties_holds_depend_coldhouse, :depends_on, :the_himalayan_holds, :thorong_cold_house
 relate :rel_ties_burn_at_coldhouse, :manifests_at, :the_marsyangdi_burn, :thorong_cold_house
 relate :rel_ties_burn_at_holds, :manifests_at, :the_marsyangdi_burn, :the_himalayan_holds
-relate :rel_ties_burn_caused_by_ecology, :caused_by, :the_marsyangdi_burn, :programmable_ecologies
-relate :rel_ties_ecologies_practiced_courts, :practiced_by, :programmable_ecologies, :the_garden_courts
+relate :rel_ties_burn_caused_by_ecosystem, :caused_by, :the_marsyangdi_burn, :seeded_ecosystems
+relate :rel_ties_ecosystems_practiced_courts, :practiced_by, :seeded_ecosystems, :the_garden_courts
 relate :rel_ties_burn_during_holding, :active_during, :the_marsyangdi_burn, :the_holding
 relate :rel_ties_root_in_burn, :participated_in, :the_great_root, :the_marsyangdi_burn
 

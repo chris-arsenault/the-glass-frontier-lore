@@ -22,7 +22,7 @@ concept :hybridization do
   prose <<~PROSE, section: :reference, heading: "Where The Work Is Being Done"
     The physical obstacle is translation. A machine reads discrete symbols at speed; the organism carries changing concentrations of chemicals through tissue. An interface has to turn each into the other without letting either side take control of it.
 
-    On the fungal side, #{ref :the_thousand_minds, "the Thousand Minds"} argue that a network which cannot be spoken to cannot be held responsible. On the machine side the work gathers along #{ref :the_amur_line, "the Amur Line"}, where the two civilizations already touch physically. Trade law there permits #{ref :dead_root_interfaces, "dead-root tissue"} once it no longer belongs to a living network. Coalition laboratories buy the spent membranes by weight and use them to read fungal signals.
+    On the fungal side, #{ref :the_thousand_minds, "the Thousand Minds"} argue that a network which cannot be spoken to cannot be held responsible. On the machine side the work gathers along #{ref :the_amur_line, "the Amur Line"}, where the two civilizations already touch physically. Trade law there permits #{ref :dead_root_grafts, "dead graft tissue"} once it no longer belongs to a living network. Coalition laboratories buy the spent membranes by weight and use them to read fungal signals.
 
     The #{future "Kamchatka joint experiment"} is the one attempt both governments have acknowledged in writing, and each acknowledgement blames the other for proposing it.
   PROSE

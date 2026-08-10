@@ -70,6 +70,6 @@ geographic_location :the_himalayan_holds do
   prose <<~PROSE, section: :governance, heading: "Above An Intake"
     Living filtration works only while the monastery knows what is entering the source water. The monastery and the nearest glacier station each record every organism deliberately planted upstream, who planted it, what sustains it and what kills it. A gap means hauling mechanical filters above five thousand metres and keeping them powered, cooled and staffed through winter.
 
-    Organisms intended for an upper catchment now spend a winter at #{ref :thorong_cold_house, "the Thorong Cold House"} before planting. The rule followed #{ref :the_marsyangdi_burn, "the Marsyangdi Burn"}, when one member of a programmed ecology survived its supposed limits and eleven hectares had to be cut and burned above an intake.
+    Organisms intended for an upper catchment now spend a winter at #{ref :thorong_cold_house, "the Thorong Cold House"} before planting. The rule followed #{ref :the_marsyangdi_burn, "the Marsyangdi Burn"}, when one member of a #{ref :seeded_ecosystems, "seeded ecosystem"} survived its supposed limits and eleven hectares had to be cut and burned above an intake.
   PROSE
 end

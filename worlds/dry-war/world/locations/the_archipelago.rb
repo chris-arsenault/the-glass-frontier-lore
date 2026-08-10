@@ -42,7 +42,7 @@ geographic_location :mycelial_china do
   prose <<~PROSE, section: :structure, heading: "Regions That Argue"
     The centre is the Yangtze Delta complexes, which think of themselves as the network and are the largest single concentration of fungal cognition on Earth.
 
-    Everything interesting is elsewhere: #{ref :the_hexi_corridor, "the Hexi Corridor"} regulating what crosses, #{ref :sichuan, "Sichuan"} educating its own network, the #{ref :the_pearl_river_delta, "Pearl River"} arguing for porousness, #{ref :yunnan, "Yunnan"} demonstrating that unity may be a preference rather than a fact, and #{ref :the_gobi, "the Gobi"} holding archives in the one climate where the mesh cannot think.
+    Everything interesting is elsewhere: #{ref :the_hexi_corridor, "the Hexi Corridor"} regulating what crosses, #{ref :sichuan, "Sichuan"} educating its own network, the #{ref :the_pearl_river_delta, "Pearl River"} arguing for porousness, #{ref :yunnan, "Yunnan"} demonstrating that unity may be a preference rather than a fact, and #{ref :the_gobi, "the Gobi"} holding archives where the #{ref :continental_mycelium, "continental mycelium"} dies in dry ground.
   PROSE
 end
 

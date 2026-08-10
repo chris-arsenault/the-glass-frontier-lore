@@ -6,7 +6,7 @@ installation :tangwang_post do
   prose <<~PROSE
     A forest post on the Tangwang, holding eleven kilometres of front in the Xiao Hinggan forest at the southern edge of #{ref :the_amur_line, "the Amur Line"}. It was a survey camp during the campaigns. Four crews now work out of it, cutting between four and five hundred of #{ref :the_dead_rings, "the dead rings"} in a season.
 
-    The post is three buildings around one enamel board. The plank coring room holds a core rack, reserved-band wood, ninety-six numbered blocks of #{ref :yunnan_reference_wood, "Yunnan reference wood"} and the dry stock for ring paste; #{ref :xie_lanting, "Xie Lanting"} keeps the wood. #{ref :continuity, "Continuity"}'s cabinet stands unattended in a separate shed under a mast and prints twice a day. The scout hut sits fifty metres downhill outside the post's #{ref :mycelial_neural_mesh, "mesh"}, with a slot in its wall for #{ref :nadya_tsoi, "Nadya Tsoi"}'s paper sheets.
+    The post is three buildings around one enamel board. The plank coring room holds a core rack, reserved-band wood, ninety-six numbered blocks of #{ref :yunnan_reference_wood, "Yunnan reference wood"} and the dry stock for ring paste; #{ref :xie_lanting, "Xie Lanting"} keeps the wood. #{ref :continuity, "Continuity"}'s cabinet stands unattended in a separate shed under a mast and prints twice a day. The scout hut sits fifty metres downhill beyond the post's #{ref :continental_mycelium, "fungal growth"}, with a slot in its wall for #{ref :nadya_tsoi, "Nadya Tsoi"}'s paper sheets.
   PROSE
 
   prose <<~PROSE, section: :structure, heading: "The Witness Trees"
