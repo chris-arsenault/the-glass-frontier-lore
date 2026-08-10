@@ -75,7 +75,19 @@ module Lorecraft
 
     def known_era?(name) = @by_name.key?(name&.to_sym)
 
+    def era_named(name) = @by_name[name&.to_sym]
+
     def era_start(name) = @by_name[name&.to_sym]&.start_year
+
+    def previous_era(name)
+      index = @eras.index { |era| era.name == name&.to_sym }
+      index&.positive? ? @eras[index - 1] : nil
+    end
+
+    def next_era(name)
+      index = @eras.index { |era| era.name == name&.to_sym }
+      index && index < @eras.length - 1 ? @eras[index + 1] : nil
+    end
 
     def total_span = @eras.empty? ? (0...0) : (@eras.first.start_year...@eras.last.end_year)
 

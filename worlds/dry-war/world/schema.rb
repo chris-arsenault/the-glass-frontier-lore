@@ -9,6 +9,7 @@ schema do
   # This world was drafted in assisted sessions from a worldbuilding
   # conversation, so blocks inherit machine-drafted status until they name a drafter.
   drafted_by_default :ai_human
+  require_fact_cards! from: :renowned
 
   # Symbiosis is a physical relationship here, not a metaphor, and legibility is
   # a form of power — both need edges the base taxonomy has no reason to carry.

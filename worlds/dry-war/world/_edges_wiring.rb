@@ -5,24 +5,15 @@
 # topology report counts it as waiting on writing rather than disconnected.
 
 # ---- the water heresy: the doctrine every coalition inherited ----
-relate :rel_wr_heresy_regulates_market, :regulates, :the_water_heresy, :market
-relate :rel_wr_heresy_regulates_caretaker, :regulates, :the_water_heresy, :caretaker
-relate :rel_wr_heresy_regulates_mercy, :regulates, :the_water_heresy, :mercy
-relate :rel_wr_heresy_regulates_continuity, :regulates, :the_water_heresy, :continuity
-relate :rel_wr_heresy_depends_water, :depends_on, :the_water_heresy, :water
-relate :rel_wr_heresy_mentions_managed, :mentions, :the_water_heresy, :the_managed
 relate :rel_wr_choir_evades_heresy, :evades, :the_choir, :the_water_heresy
 relate :rel_wr_deadcounties_evades_heresy, :evades, :the_dead_counties, :the_water_heresy
-relate :rel_wr_fusion_derived_heresy, :derived_from, :fusion_plants, :the_water_heresy
 
 # ---- the Preservationists: outside the continental network ----
 relate :rel_wr_preservationists_evade_root, :evades, :the_preservationists, :the_great_root
 
 # ---- mixed minds: where fungal and machine thought meet ----
-relate :rel_wr_mixed_minds_depend_deadroot_grafts, :depends_on, :mixed_minds, :dead_root_grafts
 relate :rel_wr_mixed_minds_manifest_amur, :manifests_at, :mixed_minds, :the_amur_line
 relate :rel_wr_thousand_minds_studies_mixed_minds, :studies, :the_thousand_minds, :mixed_minds
-relate :rel_wr_fungal_machines_part_mixed_minds, :part_of, :fungal_machines, :mixed_minds
 
 # ---- the Dead Counties: systems that stop at the next valley ----
 relate :rel_wr_counties_evade_market, :evades, :the_dead_counties, :market
@@ -48,7 +39,6 @@ relate :rel_wr_deadroot_grafts_manifest_amur, :manifests_at, :dead_root_grafts, 
 relate :rel_wr_fusion_depends_water, :depends_on, :fusion_plants, :water
 relate :rel_wr_fusion_regulated_market, :regulates, :market, :fusion_plants
 relate :rel_wr_choir_evades_fusion, :evades, :the_choir, :fusion_plants
-relate :rel_wr_fusion_depends_drywar, :part_of, :fusion_plants, :the_dry_war
 relate :rel_wr_caretaker_maintains_fusion, :maintains, :caretaker, :fusion_plants
 relate :rel_wr_mercy_supplies_fusion, :supplies, :mercy, :fusion_plants
 

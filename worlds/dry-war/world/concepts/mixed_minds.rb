@@ -3,6 +3,7 @@ concept :mixed_minds do
   subkind :physical_system
   tags :hybridization, :computation, :symbiosis
   prominence :renowned
+  function "Combines machine calculation and fungal sensing in one working mind."
 
   prose <<~PROSE
     Machine models and fungal networks can share the same working mind. #{ref :fungal_machines, "Fungal machines"} couple a small model to a severed bed. #{ref :mind_fragments, "Mind fragments"} combine machine habits, fungal memory and knowledge carried in a living person.
@@ -23,4 +24,6 @@ concept :mixed_minds do
 
     Coalition laboratories buy #{ref :dead_root_grafts, "spent grafts"} from Pearl River houses and use them to read fungal signals. The #{ref :the_thousand_minds, "Thousand Minds"} study the same work because they hold that a network which cannot be spoken to cannot be held responsible.
   PROSE
+
+  log "2026-08-10 — Removed a dependency on dead-root grafts. Amur laboratories use the grafts to study one interface; mixed minds do not inherently require them."
 end

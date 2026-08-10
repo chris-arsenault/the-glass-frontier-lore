@@ -3,6 +3,7 @@ concept :seeded_ecosystems do
   subkind :technology
   tags :ecology, :agriculture, :biotech, :military
   prominence :renowned
+  function "Establishes a farm, forest or wetland together with the organisms that sustain it."
 
   prose <<~PROSE
     Great Root biologists plant a farm, forest or wetland together with the insects, microbes and fungi that will live there. Microbes multiply in days; trees and soil communities take years. A new planting may not become the place its makers intended for a decade.

@@ -47,6 +47,7 @@ geographic_location :connected_china do
   subkind :world_region
   tags :symbiosis, :governance, :ecology, :agriculture
   prominence :mythic
+  population :the_joined
 
   prose <<~PROSE
     Connected China is the largest surviving human civilization. The #{ref :the_great_root, "Great Root"}, the Party and several hundred million #{ref :the_joined, "Joined people"} act through the same ministries and fungal channels.
@@ -107,6 +108,7 @@ geographic_location :coalition_north_america do
   subkind :world_region
   tags :computation, :water, :governance, :dependency
   prominence :mythic
+  population :the_managed
 
   prose <<~PROSE
     Four coalitions — #{ref :continuity, "Continuity"}, #{ref :mercy, "Mercy"}, #{ref :market, "Market"}, #{ref :caretaker, "Caretaker"} — administer overlapping territories and fight the #{ref :the_coalition_wars, "Coalition Wars"} through services their populations need every day.

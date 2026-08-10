@@ -3,6 +3,7 @@ resource :living_textiles do
   subkind :biological_material
   tags :biotech, :symbiosis, :medicine
   prominence :mythic
+  function "Regulates heat, filters air, monitors physiology, delivers medicine and connects the wearer to the Great Root."
 
   prose <<~PROSE
     The original breakthrough, and still the thing most people mean when they talk about the network. Clothing that regulates heat, filters what the air is carrying, monitors physiology, administers compounds, closes wounds, and connects its wearer to the #{ref :the_great_root, "Great Root"}.

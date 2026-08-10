@@ -3,6 +3,7 @@ conflict :the_forever_war do
   subkind :war
   tags :catastrophe, :military, :ecology
   prominence :mythic
+  fact :methods, "Sterilizes Contested ground, rebuilds behind the advance and holds each position until the surrounding ecology overtakes it"
 
   prose <<~PROSE
     Line crews named the continuing defence against the #{ref :the_others, "Others"}. Armies cut back Contested ground, hold the walls and abandon each position when the surrounding ecology can no longer be killed.

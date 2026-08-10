@@ -73,6 +73,22 @@ module Lorecraft
         year - @world.year_of(anchor)
       when :first_moment_year
         @world.moments_of(node.id).reject(&:genesis?).min_by(&:year)&.year
+      when :anchor_year
+        source = definitions_for(node).find { |candidate| candidate.name == definition.from }
+        anchor = resolve(node, source, year: year, audience: audience)
+        return nil if anchor.nil?
+
+        @world.year_of(anchor)
+      when :timeline_period
+        era = @world.timeline.era_named(node.id)
+        return nil unless era
+
+        ending = era.covers?(year) ? "present" : "#{era.end_year} CE"
+        "#{era.start_year} CE–#{ending}"
+      when :previous_era
+        @world.timeline.previous_era(node.id)&.name
+      when :next_era
+        @world.timeline.next_era(node.id)&.name
       end
     rescue DefinitionError
       nil

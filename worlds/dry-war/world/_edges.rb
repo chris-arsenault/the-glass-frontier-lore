@@ -41,11 +41,17 @@ relate :rel_market_regulates_water, :regulates, :market, :water, since: 2052
 relate :rel_coalitions_depend_water, :depends_on, :fusion_plants, :water
 relate :rel_america_depends_fusion, :depends_on, :coalition_north_america, :fusion_plants
 relate :rel_heresy_embodied_by_mercy, :embodies, :mercy, :the_water_heresy
+relate :rel_heresy_embodied_by_continuity, :embodies, :continuity, :the_water_heresy
+relate :rel_heresy_embodied_by_market, :embodies, :market, :the_water_heresy
+relate :rel_heresy_embodied_by_caretaker, :embodies, :caretaker, :the_water_heresy
 
 # ---- the Dry War ----
 relate :rel_dry_war_involves_root, :participated_in, :the_great_root, :the_dry_war
 relate :rel_dry_war_involves_continuity, :participated_in, :continuity, :the_dry_war
-relate :rel_dry_war_over_water, :depends_on, :the_dry_war, :water
+relate :rel_dry_war_involves_mercy, :participated_in, :mercy, :the_dry_war
+relate :rel_dry_war_involves_market, :participated_in, :market, :the_dry_war
+relate :rel_dry_war_involves_caretaker, :participated_in, :caretaker, :the_dry_war
+relate :rel_dry_war_over_water, :fought_over, :the_dry_war, :water
 relate :rel_dry_war_over_lakes, :manifests_at, :the_dry_war, :the_great_lakes
 relate :rel_dry_war_over_holds, :manifests_at, :the_dry_war, :the_himalayan_holds
 
@@ -98,12 +104,17 @@ relate :rel_mixed_minds_concerns_root, :mentions, :mixed_minds, :the_great_root
 
 # ---- the Breach and what came after ----
 relate :rel_breach_caused_others, :caused, :the_breach, :the_others
-relate :rel_breach_during_era, :active_during, :the_breach, :the_holding
 relate :rel_others_caused_forever_war, :caused, :the_others, :the_forever_war
+relate :rel_forever_war_during_holding, :active_during, :the_forever_war, :the_holding
 relate :rel_campaigns_part_of_forever_war, :part_of, :the_reclamation_campaigns, :the_forever_war
 relate :rel_campaigns_during_reclamation, :active_during, :the_reclamation_campaigns, :the_reclamation
 relate :rel_root_fought_campaigns, :participated_in, :the_great_root, :the_reclamation_campaigns
 relate :rel_continuity_fought_campaigns, :participated_in, :continuity, :the_reclamation_campaigns
+relate :rel_root_fights_forever_war, :participated_in, :the_great_root, :the_forever_war
+relate :rel_continuity_fights_forever_war, :participated_in, :continuity, :the_forever_war
+relate :rel_mercy_fights_forever_war, :participated_in, :mercy, :the_forever_war
+relate :rel_market_fights_forever_war, :participated_in, :market, :the_forever_war
+relate :rel_caretaker_fights_forever_war, :participated_in, :caretaker, :the_forever_war
 relate :rel_amur_contested, :manifests_at, :the_others, :the_amur_line
 relate :rel_medchain_contested, :manifests_at, :the_others, :the_mediterranean_chain
 relate :rel_holds_contested, :manifests_at, :the_others, :the_himalayan_holds

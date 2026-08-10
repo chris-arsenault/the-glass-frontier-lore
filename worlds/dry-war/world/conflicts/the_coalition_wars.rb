@@ -3,6 +3,9 @@ conflict :the_coalition_wars do
   subkind :war
   tags :governance, :computation, :military, :dependency
   prominence :renowned
+  fact :methods, "Electricity markets, drone logistics, reservoir access, firmware, population movement and personal propaganda"
+  question "When did competition among the four coalitions become the Coalition Wars?",
+           raised: "2026-08-10"
 
   prose <<~PROSE
     The wars between #{ref :continuity, "Continuity"}, #{ref :mercy, "Mercy"}, #{ref :market, "Market"} and #{ref :caretaker, "Caretaker"}. Each was built to keep people alive. They disagree over whether that requires citizenship, treatment, prices or lifelong care, and each can impose its answer across a continent.

@@ -409,6 +409,8 @@ class EntityFactsTest < Minitest::Test
     assert_includes report, "occupation: 0/1"
     assert_includes report, "home: 0/1"
     assert_includes report, "    unwritten: born, occupation, home"
+    assert_includes report, "=== Prominent Entry Cards ==="
+    assert_includes report, "renowned+: 0/0 cards present"
   end
 
   def test_subkind_facts_override_kind_facts_in_place_and_custom_facts_append
@@ -466,6 +468,52 @@ class EntityFactsTest < Minitest::Test
     row = Lorecraft::Facts.new(w).present(w.moments.fetch(:arrival)).first
     assert_equal :date, row.definition.name
     assert_equal 2012, row.value
+  end
+
+  def test_era_calculations_resolve_period_and_neighbours_from_the_timeline
+    w = Lorecraft.define do
+      schema do
+        entity_type :era
+        extend_kind :era do
+          calculated :period, calculate: :timeline_period, type: :text
+          calculated :preceded_by, calculate: :previous_era, type: :entity
+          calculated :followed_by, calculate: :next_era, type: :entity
+        end
+      end
+      timeline do
+        era :first, starts: 2000, length: 10
+        era :present, length: 20
+        now year: 2015
+      end
+      era :first do name "First" end
+      era :present do name "Present" end
+    end
+
+    first = Lorecraft::Facts.new(w).present(w.entity(:first))
+    present = Lorecraft::Facts.new(w).present(w.entity(:present))
+
+    assert_equal ["2000 CE–2010 CE", :present], first.map(&:value)
+    assert_equal ["2010 CE–present", :first], present.map(&:value)
+  end
+
+  def test_anchor_year_calculation_uses_an_entity_or_era_fact
+    w = Lorecraft.define do
+      schema do
+        entity_type :conflict, :era
+        relation :active_during, temporal: false
+        extend_kind :conflict do
+          relation_field :period, relation: :active_during, cardinality: :one
+          calculated :began, from: :period, calculate: :anchor_year, type: :year
+        end
+      end
+      timeline { era :holding, starts: 2088, length: 12; now year: 2090 }
+      era :holding do name "Holding" end
+      conflict :war do name "War" end
+      relate :war_period, :active_during, :war, :holding
+    end
+
+    rows = Lorecraft::Facts.new(w).present(w.entity(:war))
+    assert_equal [:holding, 2088], rows.map(&:value)
   end
 
   def test_elapsed_year_calculation_requires_a_declared_source
@@ -708,6 +756,24 @@ class LinterTest < Minitest::Test
       concept :a do name "A"; prose "It is horrifying, which is the point." end
     end
     refute(findings.any? { |f| f.message.include?("banned phrase") })
+  end
+
+  def test_world_can_require_public_fact_cards_from_a_prominence_level
+    findings = lint do
+      schema do
+        entity_type :concept
+        extend_kind(:concept) { field :function, type: :text, expected: false }
+        require_fact_cards! from: :renowned
+      end
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
+      concept :empty do name "Empty"; prominence :mythic end
+      concept :filled do name "Filled"; prominence :renowned; function "Does work" end
+      concept :small do name "Small"; prominence :recognized end
+    end
+
+    card_findings = findings.select { |finding| finding.message.include?("facts for its card") }
+    assert_equal 1, card_findings.size
+    assert_includes card_findings.first.message, "concept empty"
   end
 
   def test_double_article

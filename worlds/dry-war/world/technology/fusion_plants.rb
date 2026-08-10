@@ -3,6 +3,7 @@ resource :fusion_plants do
   subkind :infrastructure
   tags :energy, :water, :computation
   prominence :renowned
+  function "Powers coalition computer works with fusion reactors and water-cooled generating halls."
 
   prose <<~PROSE
     Coalition fusion plants power the largest computer works in North America. The reactors and computer halls release immense heat, and their cooling loops require a constant supply of exceptionally pure water.
@@ -21,4 +22,6 @@ resource :fusion_plants do
 
     #{ref :mercy, "Mercy"} runs the smallest fleet and buys power from the others. It controls few sites but closely manages #{ref :water, "the water left to nearby districts"}. #{ref :caretaker, "Caretaker"} has the largest fleet and assigns an advocate to every household upstream of a treatment hall. The #{future "Athabasca cold plant"} is the only site any coalition has abandoned because its water failed while the ground remained habitable.
   PROSE
+
+  log "2026-08-10 — Removed a part-of link to the Dry War. Fusion plants enable coalition campaigns but are not themselves campaigns or components of the conflict."
 end

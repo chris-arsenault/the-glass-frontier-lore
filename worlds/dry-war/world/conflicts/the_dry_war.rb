@@ -3,6 +3,9 @@ conflict :the_dry_war do
   subkind :war
   tags :water, :military, :ecology, :governance
   prominence :mythic
+  fact :methods, "River diversions, watershed repair, reservoir control, desalination and pressure on cooling intakes"
+  question "When did the Dry War begin as a distinct conflict rather than a series of competing water projects?",
+           raised: "2026-08-10"
 
   prose <<~PROSE
     The two superintelligences move water against each other's needs. Humans living between their dams, forests and cooling plants call the resulting conflict the Dry War.

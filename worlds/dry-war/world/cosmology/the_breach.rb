@@ -23,4 +23,6 @@ phenomenon :the_breach do
 
     Sterilized ground kept producing new organisms without a visible parent or reservoir, and the #{ref :the_reclamation_campaigns, "reclamation"} ended. Line crews say the environments are learning.
   PROSE
+
+  log "2026-08-10 — Removed an active-during link to the Holding. The Breach itself lasted from 2068 to 2070; its consequences continue into the present."
 end

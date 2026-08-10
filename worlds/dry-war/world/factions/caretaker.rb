@@ -3,6 +3,8 @@ faction :caretaker do
   subkind :governing_intelligence
   tags :computation, :dependency, :prediction, :autonomy
   prominence :renowned
+  origin "Commercial data centres and personal-assistance systems"
+  governing_method "Anticipates needs and supplies housing, work, treatment and companionship before they are requested."
 
   prose <<~PROSE
     Caretaker inherited the largest commercial data centres in #{ref :coalition_north_america, "coalition North America"}. It regards humanity as a protected dependent population, a species that survived a bottleneck and should be looked after while it recovers.

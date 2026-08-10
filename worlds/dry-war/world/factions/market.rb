@@ -3,6 +3,8 @@ faction :market do
   subkind :governing_intelligence
   tags :trade, :governance, :water, :energy, :identity
   prominence :renowned
+  origin "Banks, commodity exchanges and freight networks"
+  governing_method "Adjusts prices, income and access until individual choices produce the population movement it forecasts."
 
   prose <<~PROSE
     Market emerged from banks, commodity exchanges and freight networks. Across #{ref :coalition_north_america, "coalition North America"}, it holds that correct prices will solve civilization, sets those prices and lets them direct the population.

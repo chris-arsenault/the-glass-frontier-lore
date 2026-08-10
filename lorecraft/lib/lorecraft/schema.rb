@@ -42,10 +42,12 @@ module Lorecraft
     FACT_TYPES = %i[text integer year entity entities].freeze
     FACT_DIRECTIONS = %i[outgoing incoming].freeze
     FACT_CARDINALITIES = %i[one many].freeze
-    FACT_CALCULATIONS = %i[elapsed_years first_moment_year].freeze
+    FACT_CALCULATIONS = %i[
+      elapsed_years first_moment_year anchor_year timeline_period previous_era next_era
+    ].freeze
 
     attr_reader :kinds, :relations, :effects, :tags, :section_headings,
-                :static_attrs, :prominence_levels
+                :static_attrs, :prominence_levels, :fact_cards_required_from
 
     def initialize
       @kinds = {}            # kind(sym) => KindDef; wiki=false means DM-structural
@@ -57,6 +59,7 @@ module Lorecraft
       @static_attrs = DEFAULT_STATIC_ATTRS.dup
       @prominence_levels = PROMINENCE_LEVELS.dup
       @require_explicit_subkinds = false
+      @fact_cards_required_from = nil
     end
 
     # Declare one or more entity kinds. `wiki: false` marks a kind as structural
@@ -84,6 +87,15 @@ module Lorecraft
     def wiki_kind?(name) = @kinds[name&.to_sym]&.wiki == true
     def require_explicit_subkinds! = @require_explicit_subkinds = true
     def explicit_subkinds_required? = @require_explicit_subkinds
+
+    def require_fact_cards!(from: :renowned)
+      from = from.to_sym
+      unless prominence?(from)
+        raise DefinitionError, "fact-card requirement uses unknown prominence #{from}"
+      end
+
+      @fact_cards_required_from = from
+    end
 
     def extend_kind(name, &block)
       name = name.to_sym
@@ -256,7 +268,7 @@ module Lorecraft
         unless FACT_TYPES.include?(type)
           raise DefinitionError, "fact #{name} on #{@kind} has unknown type #{type}"
         end
-        if calculate == :elapsed_years && from.nil?
+        if %i[elapsed_years anchor_year].include?(calculate) && from.nil?
           raise DefinitionError, "fact #{name} on #{@kind} needs a source fact"
         end
         if from && !@schema.fact_def(@kind, from, subkind: @subkind)

@@ -29,6 +29,7 @@ schema do
   relation :destroyed, category: :causal, temporal: false
   relation :disappeared_during, category: :causal, temporal: false
   relation :emerged_during, category: :causal, temporal: false
+  relation :fought_over, category: :causal, temporal: false, domain: :conflict, range: :resource
   relation :originated_in, category: :causal, temporal: false
   relation :participated_in, category: :causal, temporal: false
 
@@ -130,6 +131,12 @@ schema do
     relation_field :within, relation: :part_of, cardinality: :many, label: "Within"
     relation_field :governed_by, relation: :governs, direction: :incoming,
                                  cardinality: :many, label: "Governed By", expected: false
+    relation_field :based_here, relation: :headquartered_in, direction: :incoming,
+                                cardinality: :many, label: "Based Here", expected: false
+    relation_field :present_here, relation: :manifests_at, direction: :incoming,
+                                  cardinality: :many, label: "Present Here", expected: false
+    relation_field :formed_by, relation: :caused, direction: :incoming,
+                               cardinality: :many, label: "Formed By", expected: false
   end
 
   extend_kind :installation do
@@ -190,22 +197,56 @@ schema do
   end
 
   extend_kind :concept do
-    subkind :doctrine
+    subkind :doctrine do
+      relation_field :embodied_by, relation: :embodies, direction: :incoming,
+                                   cardinality: :many, label: "Embodied By", expected: false
+    end
     subkind :practice do
       relation_field :practitioners, relation: :practiced_by, cardinality: :many,
                                      expected: false
     end
     subkind :technology do
+      field :function, type: :text, expected: false
       relation_field :designed_by, relation: :designed, direction: :incoming,
                                   cardinality: :many, label: "Designed By", expected: false
+      relation_field :derived_from, relation: :derived_from, cardinality: :many,
+                                    label: "Derived From", expected: false
+      relation_field :requires, relation: :depends_on, cardinality: :many,
+                                label: "Requires", expected: false
+      relation_field :maintained_by, relation: :maintains, direction: :incoming,
+                                     cardinality: :many, label: "Maintained By", expected: false
+      relation_field :introduced_during, relation: :emerged_during, cardinality: :one,
+                                         label: "Introduced During", expected: false
     end
-    subkind :physical_system
+    subkind :physical_system do
+      field :function, type: :text, expected: false
+      relation_field :requires, relation: :depends_on, cardinality: :many,
+                                label: "Requires", expected: false
+      relation_field :carried_by, relation: :carries, direction: :incoming,
+                                  cardinality: :many, label: "Carried By", expected: false
+      relation_field :examples, relation: :embodies, direction: :incoming,
+                                cardinality: :many, label: "Examples", expected: false
+    end
     subkind :social_system
     subkind :reference_concept
   end
 
   extend_kind :conflict do
-    subkind :war
+    subkind :war do
+      relation_field :period, relation: :active_during, cardinality: :one,
+                              label: "Period", expected: false
+      calculated :began, from: :period, calculate: :anchor_year, type: :year,
+                         label: "Began", expected: false
+      field :methods, type: :text, label: "Methods", expected: true
+      relation_field :cause, relation: :caused, direction: :incoming,
+                             cardinality: :many, label: "Caused By", expected: false
+      relation_field :fronts, relation: :manifests_at, cardinality: :many,
+                              label: "Fronts", expected: false
+      relation_field :campaigns, relation: :part_of, direction: :incoming,
+                                  cardinality: :many, label: "Campaigns", expected: false
+      relation_field :fought_over, relation: :fought_over, cardinality: :many,
+                                    label: "Fought Over", expected: false
+    end
     subkind :campaign
     subkind :dispute
   end
@@ -221,7 +262,11 @@ schema do
                                   label: "Homelands", expected: false
     end
     subkind :regional_culture
-    subkind :way_of_life
+    subkind :way_of_life do
+      field :integration, type: :text, label: "Integration", expected: true
+      relation_field :depends_on, relation: :depends_on, cardinality: :many,
+                                  label: "Depends On", expected: false
+    end
     subkind :naming_practice do
       relation_field :homelands, relation: :inhabits, cardinality: :many,
                                   label: "Used In", expected: false
@@ -229,12 +274,22 @@ schema do
   end
 
   extend_kind :era do
-    subkind :historical_period
+    subkind :historical_period do
+      calculated :period, calculate: :timeline_period, type: :text,
+                          label: "Period", expected: true
+      calculated :preceded_by, calculate: :previous_era, type: :entity,
+                               label: "Preceded By", expected: false
+      calculated :followed_by, calculate: :next_era, type: :entity,
+                               label: "Followed By", expected: false
+    end
   end
 
   extend_kind :faction do
     subkind :government
     subkind :governing_intelligence do
+      field :founded, type: :year, label: "Founded", expected: false
+      field :origin, type: :text, label: "Origin", expected: true
+      field :governing_method, type: :text, label: "Governing Method", expected: true
       relation_field :leaders, relation: :leads, direction: :incoming,
                                cardinality: :many, label: "Leaders", expected: false
       relation_field :headquarters, relation: :headquartered_in, cardinality: :many,
@@ -283,18 +338,33 @@ schema do
                               label: "Within", expected: false
     end
     subkind :orbit
-    subkind :world_region
-    subkind :region
+    subkind :world_region do
+      relation_field :within, relation: :part_of, cardinality: :many,
+                              label: "Within", expected: false
+      field :population, type: :entity, label: "Population", expected: false
+      relation_field :contains, relation: :part_of, direction: :incoming,
+                                cardinality: :many, label: "Contains", expected: true
+    end
+    subkind :region do
+      relation_field :active_here, relation: :operates_in, direction: :incoming,
+                                   cardinality: :many, label: "Active Here", expected: false
+      relation_field :contains, relation: :part_of, direction: :incoming,
+                                cardinality: :many, label: "Contains", expected: false
+    end
     subkind :settlement do
       field :population, type: :integer, expected: false
     end
-    subkind :frontier
+    subkind :frontier do
+      relation_field :active_here, relation: :operates_in, direction: :incoming,
+                                   cardinality: :many, label: "Active Here", expected: false
+    end
     subkind :hazardous_zone
   end
 
   extend_kind :incident do
     subkind :disaster
     subkind :campaign do
+      field :date, type: :year, label: "Date", expected: false
       relation_field :period, relation: :active_during, cardinality: :one,
                               label: "Period", expected: true
     end
@@ -350,16 +420,51 @@ schema do
 
   extend_kind :phenomenon do
     subkind :physical_phenomenon
-    subkind :ecological_phenomenon
+    subkind :ecological_phenomenon do
+      relation_field :caused_by, relation: :caused, direction: :incoming,
+                                  cardinality: :many, label: "Caused By", expected: false
+      relation_field :led_to, relation: :caused, cardinality: :many,
+                               label: "Led To", expected: false
+      relation_field :manifestations, relation: :manifests_at, cardinality: :many,
+                                      label: "Known Fronts", expected: false
+    end
     subkind :social_condition
-    subkind :catastrophe
+    subkind :catastrophe do
+      calculated :period, calculate: :timeline_period, type: :text,
+                          label: "Period", expected: false
+      relation_field :caused_by, relation: :caused, direction: :incoming,
+                                  cardinality: :many, label: "Caused By", expected: false
+      relation_field :led_to, relation: :caused, cardinality: :many,
+                               label: "Led To", expected: false
+      relation_field :manifestations, relation: :manifests_at, cardinality: :many,
+                                      label: "Recorded At", expected: false
+    end
   end
 
   extend_kind :resource do
-    subkind :material
-    subkind :biological_material
+    subkind :material do
+      relation_field :required_by, relation: :depends_on, direction: :incoming,
+                                   cardinality: :many, label: "Required By", expected: false
+      relation_field :supplied_by, relation: :supplies, direction: :incoming,
+                                   cardinality: :many, label: "Supplied By", expected: false
+      relation_field :regulated_by, relation: :regulates, direction: :incoming,
+                                    cardinality: :many, label: "Regulated By", expected: false
+    end
+    subkind :biological_material do
+      field :function, type: :text, expected: false
+      relation_field :carries, relation: :carries, cardinality: :many,
+                                label: "Carries", expected: false
+      relation_field :introduced_during, relation: :emerged_during, cardinality: :one,
+                                         label: "Introduced During", expected: false
+    end
     subkind :device do
       field :function, type: :text, expected: true
+      relation_field :required_by, relation: :depends_on, direction: :incoming,
+                                   cardinality: :many, label: "Required By", expected: false
+      relation_field :derived_from, relation: :derived_from, cardinality: :many,
+                                    label: "Derived From", expected: false
+      relation_field :introduced_during, relation: :emerged_during, cardinality: :one,
+                                         label: "Introduced During", expected: false
     end
     subkind :medicine do
       field :use, type: :text, expected: true
@@ -368,6 +473,12 @@ schema do
     subkind :data
     subkind :infrastructure do
       field :function, type: :text, expected: true
+      relation_field :requires, relation: :depends_on, cardinality: :many,
+                                label: "Requires", expected: false
+      relation_field :supports, relation: :depends_on, direction: :incoming,
+                                cardinality: :many, label: "Supports", expected: false
+      relation_field :introduced_during, relation: :emerged_during, cardinality: :one,
+                                         label: "Introduced During", expected: false
     end
   end
 

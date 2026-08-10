@@ -57,6 +57,7 @@ module Lorecraft
       check_dm_phrase_leakage
       check_markers
       check_prominence_reach
+      check_fact_cards
       check_typed_spans
       check_question_anchors
       check_double_article
@@ -198,6 +199,20 @@ module Lorecraft
     end
 
     def rank(e) = PROMINENCE_RANK[e.prominence&.to_sym] || 0
+
+    def check_fact_cards
+      threshold = @world.schema.fact_cards_required_from
+      return unless threshold
+
+      facts = Facts.new(@world)
+      pages.each do |entity|
+        next if entity.dm? || !@world.schema.wiki_kind?(entity.kind)
+        next if rank(entity) < PROMINENCE_RANK.fetch(threshold)
+        next unless facts.present(entity, audience: :player).empty?
+
+        err("#{label(entity)}: #{entity.prominence} entry has no public facts for its card")
+      end
+    end
 
     # Typed edges, either direction — the graph's own answer to "are these two
     # things connected?", independent of what the prose asserts.

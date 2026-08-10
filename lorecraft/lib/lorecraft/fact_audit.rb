@@ -36,6 +36,7 @@ module Lorecraft
         out << ""
       end
       out << "No expected kind facts declared." if out.size == 2
+      append_prominent_cards(out)
       out.join("\n")
     end
 
@@ -46,6 +47,29 @@ module Lorecraft
             .reject { |entity| entity[:status].to_s == "shell" }
             .group_by { |entity| [entity.kind, entity.subkind] }
             .sort_by { |(kind, subkind), _entities| [kind.to_s, subkind.to_s] }
+    end
+
+    def append_prominent_cards(out)
+      threshold = :renowned
+      threshold_index = @world.schema.prominence_levels.index(threshold)
+      entries = @world.entities.values.select do |entity|
+        prominence_index = @world.schema.prominence_levels.index(entity.prominence&.to_sym)
+        entity[:status].to_s != "shell" && !entity.dm? &&
+          @world.schema.wiki_kind?(entity.kind) && prominence_index && prominence_index >= threshold_index
+      end
+      rows = entries.map do |entity|
+        present = @facts.present(entity, at: @at, audience: :player)
+        [entity, present.map { |row| row.definition.name }]
+      end
+      empty = rows.select { |_entity, names| names.empty? }
+      thin = rows.select { |_entity, names| names.size == 1 }
+
+      out << "=== Prominent Entry Cards ==="
+      out << "renowned+: #{rows.size - empty.size}/#{rows.size} cards present"
+      out << "  empty: #{empty.size}"
+      empty.each { |entity, _names| out << "    #{entity.id}" }
+      out << "  one fact: #{thin.size}"
+      thin.each { |entity, names| out << "    #{entity.id}: #{names.first}" }
     end
   end
 end

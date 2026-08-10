@@ -3,6 +3,7 @@ concept :the_water_heresy do
   subkind :doctrine
   tags :water, :governance, :prediction
   prominence :renowned
+  custom_fact :daily_guarantee, "3.72 litres of drinking water per resident", label: "Daily Guarantee"
 
   prose <<~PROSE
     The #{ref :the_saints_of_plenty, "Saints of Plenty"} call the belief that a reliably watered person is a well-kept person the Water Heresy. All four coalitions inherited that belief from systems built during the #{ref :the_long_summer, "Long Summer"}.
@@ -17,4 +18,6 @@ concept :the_water_heresy do
 
     The #{ref :the_choir, "Choir"} falsifies the readings built around the number. The Saints spend guaranteed water on gardens and difficult crops. The #{ref :the_dead_counties, "Dead Counties"} send county totals and keep household use off the network.
   PROSE
+
+  log "2026-08-10 — Replaced broad regulate and depends-on wiring with authored coalition embodiment and the established daily guarantee."
 end

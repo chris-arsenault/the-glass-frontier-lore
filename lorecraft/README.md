@@ -101,7 +101,10 @@ end
   to one entry. `field` reads an authored value, `calculated` derives a value
   such as age from a date, and `relation_field` reads current typed edges.
   Missing expected values stay out of reader pages and appear, grouped by kind
-  and subkind, in `lorecraft facts` and the private editorial bundle.
+  and subkind, in `lorecraft facts` and the private editorial bundle. A world
+  can set `require_fact_cards! from: :renowned`; lint then rejects any public
+  entry at that prominence or above whose card resolves no facts. The facts
+  report also inventories empty and one-fact renowned/mythic cards.
 - **Time:** CE years are absolute ticks; eras have fixed boundaries (see the
   world's `world/timeline.rb`). `now` is the default query/render era.
 - **Visibility:** `dm!(public_entry: :x)` marks a hidden-truth entity; the player
