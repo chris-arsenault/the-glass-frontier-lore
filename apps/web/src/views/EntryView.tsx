@@ -7,6 +7,7 @@ import { EditorialPanel } from "../components/EditorialPanel";
 import { EntryFacts } from "../components/EntryFacts";
 import { ViewHeader } from "../components/ViewHeader";
 import { useWorld } from "../components/worldContext";
+import { entryTaxonomyLabel } from "../data/entryLabels";
 import { entryQuery } from "../data/queries";
 import { useRecordReading } from "../data/readingStore";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
@@ -14,7 +15,7 @@ import type { EntryDocument } from "../types/canon";
 
 function EntryArticle({ entry, worldId }: { entry: EntryDocument; worldId: string }) {
   return <article className="reader-page entry-page">
-    <ViewHeader eyebrow={`${entry.kind.replaceAll("_", " ")} · ${entry.subkind.replaceAll("_", " ")}`} title={entry.title}
+    <ViewHeader eyebrow={entryTaxonomyLabel(entry)} title={entry.title}
       description={entry.aliases.length > 0 ? `Also known as ${entry.aliases.join(", ")}` : null}
       actions={<Link className="quiet-link" to={`/${worldId}/compare?left=${entry.slug}`}>Compare</Link>} />
     <EntryFacts facts={entry.facts} compact={false} />

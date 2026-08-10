@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { ViewHeader } from "../components/ViewHeader";
 import { useWorld } from "../components/worldContext";
+import { entrySubkindLabel } from "../data/entryLabels";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import type { EntrySummary, WorldIndex } from "../types/canon";
 
@@ -42,7 +43,7 @@ function BrowseControls({ world, kind, subkind, tag, query, update }: BrowseCont
 function BrowseResults({ entries, update }: { entries: EntrySummary[]; update: BrowseControlsProps["update"] }) {
   return <div className="browse-results">{entries.map((entry) => (
     <article className="browse-row" key={entry.id}>
-      <div className="browse-row__meta"><span>{entry.subkind.replaceAll("_", " ")}</span>{entry.prominence && <span>{entry.prominence}</span>}</div>
+      <div className="browse-row__meta"><span>{entrySubkindLabel(entry)}</span>{entry.prominence && <span>{entry.prominence}</span>}</div>
       <h2><Link to={entry.route}>{entry.title}</Link></h2>
       <p>{entry.summary}</p>
       {entry.tags.length > 0 && <div className="tag-list">{entry.tags.map((entryTag) => (

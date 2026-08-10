@@ -72,6 +72,33 @@ def social_line(pixels, width, height, from, to, thickness, color)
   end
 end
 
+def social_curve(pixels, width, height, points, thickness, color)
+  previous = points.first
+  1.upto(80) do |step|
+    t = step / 80.0
+    inverse = 1 - t
+    current = [0, 1].map do |axis|
+      ((inverse**3 * points[0][axis]) +
+        (3 * inverse**2 * t * points[1][axis]) +
+        (3 * inverse * t**2 * points[2][axis]) +
+        (t**3 * points[3][axis])).round
+    end
+    social_line(pixels, width, height, previous, current, thickness, color)
+    previous = current
+  end
+end
+
+def social_circle(pixels, width, height, cx, cy, radius, thickness, color)
+  steps = [radius * 12, 120].max
+  previous = [cx + radius, cy]
+  1.upto(steps) do |step|
+    angle = step * 2 * Math::PI / steps
+    current = [cx + (radius * Math.cos(angle)).round, cy + (radius * Math.sin(angle)).round]
+    social_line(pixels, width, height, previous, current, thickness, color)
+    previous = current
+  end
+end
+
 def social_text(pixels, width, height, text, x, y, scale, color)
   cursor = x
   text.each_char do |character|
@@ -101,6 +128,80 @@ end
 
 def png_chunk(name, data)
   [data.bytesize].pack("N") + name + data + [Zlib.crc32(name + data)].pack("N")
+end
+
+def png_data(width, height, pixels)
+  raw = String.new(capacity: (width * 4 + 1) * height, encoding: Encoding::BINARY)
+  height.times do |y|
+    raw << "\0" << pixels.byteslice(y * width * 4, width * 4)
+  end
+  png = "\x89PNG\r\n\x1a\n".b
+  png << png_chunk("IHDR", [width, height, 8, 6, 0, 0, 0].pack("NNCCCCC"))
+  png << png_chunk("IDAT", Zlib::Deflate.deflate(raw, Zlib::BEST_COMPRESSION))
+  png << png_chunk("IEND", "")
+end
+
+def brand_icon_png(size)
+  background = [17, 27, 32, 255]
+  copper = [225, 143, 80, 255]
+  pale = [248, 246, 238, 255]
+  pixels = background.pack("C4") * (size * size)
+  scale = size / 64.0
+  point = ->(x, y) { [(x * scale).round, (y * scale).round] }
+  mark_stroke = [(1.05 * scale).round, 1].max
+  leaf_stroke = [(1.4 * scale).round, 1].max
+
+  social_circle(
+    pixels, size, size, (32 * scale).round, (32 * scale).round,
+    (25 * scale).round, mark_stroke, copper,
+  )
+
+  social_curve(
+    pixels, size, size,
+    [point.call(17, 20), point.call(26, 21), point.call(31, 25), point.call(32, 32)],
+    leaf_stroke, pale,
+  )
+  social_line(pixels, size, size, point.call(32, 32), point.call(32, 50), leaf_stroke, pale)
+  social_curve(
+    pixels, size, size,
+    [point.call(32, 50), point.call(30, 43), point.call(25, 39), point.call(17, 38)],
+    leaf_stroke, pale,
+  )
+  social_line(pixels, size, size, point.call(17, 38), point.call(17, 20), leaf_stroke, pale)
+
+  social_curve(
+    pixels, size, size,
+    [point.call(47, 20), point.call(38, 21), point.call(33, 25), point.call(32, 32)],
+    leaf_stroke, pale,
+  )
+  social_curve(
+    pixels, size, size,
+    [point.call(32, 50), point.call(34, 43), point.call(39, 39), point.call(47, 38)],
+    leaf_stroke, pale,
+  )
+  social_line(pixels, size, size, point.call(47, 38), point.call(47, 20), leaf_stroke, pale)
+
+  social_curve(
+    pixels, size, size,
+    [point.call(11, 39), point.call(24, 45), point.call(40, 45), point.call(53, 39)],
+    mark_stroke, copper,
+  )
+  social_disk(
+    pixels, size, size, (50 * scale).round, (16 * scale).round,
+    [(3 * scale).round, 1].max, copper,
+  )
+
+  png_data(size, size, pixels)
+end
+
+def write_brand_icons(directory)
+  icon_32 = brand_icon_png(32)
+  File.binwrite(directory.join("favicon.ico"),
+                [0, 1, 1].pack("vvv") +
+                [32, 32, 0, 0, 1, 32, icon_32.bytesize, 22].pack("CCCCvvVV") + icon_32)
+  File.binwrite(directory.join("apple-touch-icon.png"), brand_icon_png(180))
+  File.binwrite(directory.join("icon-192.png"), brand_icon_png(192))
+  File.binwrite(directory.join("icon-512.png"), brand_icon_png(512))
 end
 
 def write_social_card(path)
@@ -151,15 +252,7 @@ def write_social_card(path)
   social_text(pixels, width, height, "THE GLASS FRONTIER", 350, 445, 4, [190, 225, 222, 255])
   social_text(pixels, width, height, "THE DRY WAR", 850, 445, 4, [232, 193, 157, 255])
 
-  raw = String.new(capacity: (width * 4 + 1) * height, encoding: Encoding::BINARY)
-  height.times do |y|
-    raw << "\0" << pixels.byteslice(y * width * 4, width * 4)
-  end
-  png = "\x89PNG\r\n\x1a\n".b
-  png << png_chunk("IHDR", [width, height, 8, 6, 0, 0, 0].pack("NNCCCCC"))
-  png << png_chunk("IDAT", Zlib::Deflate.deflate(raw, Zlib::BEST_COMPRESSION))
-  png << png_chunk("IEND", "")
-  File.binwrite(path, png)
+  File.binwrite(path, png_data(width, height, pixels))
 end
 
 root = Lorecraft::Worlds.repo_root
@@ -172,6 +265,9 @@ FileUtils.rm_rf(public_out)
 FileUtils.rm_rf(internal_out)
 public_out.mkpath
 internal_out.mkpath
+
+FileUtils.cp_r(root.join("apps", "web", "public").children, public_out)
+write_brand_icons(public_out)
 
 worlds = Lorecraft::Worlds.all(root).reject(&:scaffold?).map do |entry|
   world = Lorecraft.load(entry.glob, prelude: entry.prelude)

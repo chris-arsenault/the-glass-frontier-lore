@@ -1,6 +1,7 @@
 import MiniSearch from "minisearch";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { entrySubkindLabel } from "../data/entryLabels";
 import type { EntrySummary, WorldIndex } from "../types/canon";
 import "./SearchDialog.css";
 
@@ -77,7 +78,10 @@ export function SearchButton({ world }: SearchButtonProps) {
             <Link key={String(result.id)} to={String(result.route)} onClick={close}>
               <div>
                 <strong>{String(result.title)}</strong>
-                <span>{String(result.subkind).replaceAll("_", " ")}</span>
+                <span>{entrySubkindLabel({
+                  kind: String(result.kind),
+                  subkind: typeof result.subkind === "string" ? result.subkind : undefined,
+                })}</span>
               </div>
               <p>{String(result.summary)}</p>
             </Link>

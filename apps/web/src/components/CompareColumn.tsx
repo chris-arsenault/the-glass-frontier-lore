@@ -1,4 +1,5 @@
 import type { EntryDocument } from "../types/canon";
+import { entryTaxonomyLabel } from "../data/entryLabels";
 import { ContentSections } from "./ContentSections";
 import { EntryFacts } from "./EntryFacts";
 
@@ -16,7 +17,7 @@ export function CompareColumn({ entry, emptyText }: CompareColumnProps) {
   return (
     <article className="compare-column">
       <header>
-        <div>{entry.kind.replaceAll("_", " ")} · {entry.subkind.replaceAll("_", " ")}</div>
+        <div>{entryTaxonomyLabel(entry)}</div>
         <h2>{entry.title}</h2>
         {entry.aliases.length > 0 && <p>{entry.aliases.join(", ")}</p>}
       </header>

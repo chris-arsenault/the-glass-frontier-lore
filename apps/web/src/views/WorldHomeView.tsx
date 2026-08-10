@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ContentSections } from "../components/ContentSections";
 import { ViewHeader } from "../components/ViewHeader";
 import { useWorld } from "../components/worldContext";
+import { entrySubkindLabel } from "../data/entryLabels";
 import { pageQuery } from "../data/queries";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
 
@@ -45,7 +46,7 @@ export function WorldHomeView() {
         <div className="entry-grid">
           {featured.map((entry) => (
             <Link className="entry-card" key={entry.id} to={entry.route}>
-              <div className="entry-card__kind">{entry.subkind.replaceAll("_", " ")}</div>
+              <div className="entry-card__kind">{entrySubkindLabel(entry)}</div>
               <h3>{entry.title}</h3>
               <p>{entry.summary}</p>
             </Link>

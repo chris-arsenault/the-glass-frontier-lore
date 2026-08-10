@@ -25,7 +25,7 @@ export interface EntrySummary {
   slug: string;
   title: string;
   kind: string;
-  subkind: string;
+  subkind: Optional<string>;
   section: Optional<string>;
   tags: string[];
   prominence: Optional<string>;
