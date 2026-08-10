@@ -4,7 +4,7 @@ installation :mulberry_court_clinic do
   prominence :marginal
 
   prose <<~PROSE
-    A municipal symbiosis clinic in #{ref :mycelial_china, "mycelial China"}, named for the old mulberry tree in its entrance court. The ordinary wards are as alive as the homes around them: floors read gait, bedding adjusts circulation and the tree carries neighbourhood traffic through its roots. The six rooms behind the western wall are kept outside that traffic for adults who want a week beyond the neighbourhood network.
+    A municipal symbiosis clinic in #{ref :connected_china, "connected China"}, named for the old mulberry tree in its entrance court. The ordinary wards are as alive as the homes around them: floors read gait, bedding adjusts circulation and the tree carries neighbourhood traffic through its roots. The six rooms behind the western wall are kept outside that traffic for adults who want a week beyond the neighbourhood network.
   PROSE
 
   prose <<~PROSE, section: :structure, heading: "The Western Rooms"

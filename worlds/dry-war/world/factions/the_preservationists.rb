@@ -6,7 +6,7 @@ faction :the_preservationists do
   prose <<~PROSE
     Gobi enclaves that consider themselves the legitimate continuation of the Chinese state. They hold its institutions in trust until the state can return.
 
-    Their foundational claim is constitutional rather than biological: the network has broken the relationship between ruler and ruled, because a human official can no longer demonstrate that a decision originated in human judgement. A government whose decisions may come from the Great Root has no authority.
+    They hold that the network broke the relationship between ruler and ruled. A human official can no longer show which decisions began in human judgement, so the Preservationists grant those decisions no authority.
   PROSE
 
   prose <<~PROSE, section: :culture, heading: "Continuity"
@@ -18,7 +18,7 @@ faction :the_preservationists do
   PROSE
 
   prose <<~PROSE, section: :tensions, heading: "Who They Fight"
-    Not, primarily, the #{ref :the_great_root, "Great Root"} — the desert does most of that. Their sharpest conflicts are with anyone proposing that the enclaves declare independence, with foreign intelligence services offering help on those terms, and with the #{ref :the_gatekeepers, "Gatekeepers"}, whose entire practice concedes that some symbiosis is useful.
+    The desert keeps the #{ref :the_great_root, "Great Root"} out of most enclave ground. The Preservationists fight secessionists who want a new desert state, foreign intelligence services offering help on those terms, and the #{ref :the_gatekeepers, "Gatekeepers"}, whose medicine concedes that some symbiosis is useful.
 
     They prohibit direct negotiation with the #{ref :the_brokers, "Pearl River brokers"} and still depend on goods the same houses carry through Yumen.
   PROSE

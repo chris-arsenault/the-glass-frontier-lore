@@ -12,10 +12,10 @@ concept :feral_models do
   PROSE
 
   prose <<~PROSE, section: :trade, heading: "What A Feral Is Worth Abroad"
-    Ferals are currency across the line. #{ref :the_brokers, "Pearl River houses"} take them in payment for interfaces because an unfamiliar model can test choices the Great Root's own systems would never make.
+    Ferals are currency across the line. #{ref :the_brokers, "Pearl River houses"} take them in payment for signal-carrying membranes because an unfamiliar model can test choices the Great Root's own systems would never make.
 
     A feral sold abroad leaves one copy on #{ref :witness_glass, "witness glass"}, written from the same source and in the same hour as the copy that ships. The glass remains at a house such as #{ref :wing_lok_godown, "Wing Lok"}, beyond the reach of both buyer and seller. It can show whether the model changed before or after the sale.
 
-    Reading the block separates and cracks every glass leaf, then produces a working copy of the model in the room. During #{ref :the_eleven_day_flush, "the eleven-day flush"}, the Guangzhou seller accepted the finding against its interface rather than open the feral model it had received as payment.
+    Reading the block separates and cracks every glass leaf, then produces a working copy of the model in the room. During #{ref :the_eleven_day_flush, "the eleven-day flush"}, the Guangzhou seller accepted the finding against its membrane rather than open the feral model it had received as payment.
   PROSE
 end

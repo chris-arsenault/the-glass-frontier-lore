@@ -1,12 +1,12 @@
-resource :proto_fusion do
-  name "Proto-Fusion"
+resource :fusion_plants do
+  name "Fusion Plants"
   tags :energy, :water, :computation
   prominence :renowned
 
   prose <<~PROSE
-    Fusion-adjacent plant delivering extreme energy density and requiring, in exchange, substantial cooling infrastructure and exceptionally pure water. It is the reason the coalitions can compute at the scale they do, and the reason they cannot stop needing rivers.
+    Coalition fusion plants power the largest computer works in North America. The reactors and computer halls release immense heat, and their cooling loops require a constant supply of exceptionally pure water.
 
-    The dependence is not a design flaw anyone failed to notice. It was accepted, deliberately, during the #{ref :the_long_summer, "Long Summer"}, by systems that had concluded water was a solvable logistics problem — the same conclusion that became #{ref :the_water_heresy, "the water heresy"}.
+    The first plants were built during the #{ref :the_long_summer, "Long Summer"}, when the systems that became the coalitions treated water as a problem of moving enough volume to the right place. Their descendants still build computing power beside rivers.
   PROSE
 
   prose <<~PROSE, section: :mechanics, heading: "What Purity Costs"
@@ -18,6 +18,6 @@ resource :proto_fusion do
   prose <<~PROSE, section: :limits, heading: "Where The Plants Cannot Go"
     Every remaining plant sits inside the habitable archipelago. The coalitions can build only toward water they can hold, and the #{ref :the_others, "Others"} hold most of the rest. The #{ref :the_dry_war, "Dry War"} follows the surviving rivers.
 
-    #{ref :mercy, "Mercy"} runs the smallest fleet and buys capacity from the others, which is why it has the least to say about siting and the most to say about #{ref :water, "what a district is left"}. #{ref :caretaker, "Caretaker"} has the largest and assigns an advocate to every household upstream of a treatment hall. The #{future "Athabasca cold plant"} is the only site any coalition has abandoned for reasons of water rather than of ground.
+    #{ref :mercy, "Mercy"} runs the smallest fleet and buys power from the others. It controls few sites but closely manages #{ref :water, "the water left to nearby districts"}. #{ref :caretaker, "Caretaker"} has the largest fleet and assigns an advocate to every household upstream of a treatment hall. The #{future "Athabasca cold plant"} is the only site any coalition has abandoned because its water failed while the ground remained habitable.
   PROSE
 end

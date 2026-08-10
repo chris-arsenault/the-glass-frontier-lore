@@ -22,7 +22,7 @@ faction :the_saints_of_plenty do
   prose <<~PROSE, section: :tensions, heading: "The Claim"
     Their most repeated claim is simple: survival is not the same thing as living.
 
-    The #{ref :the_dead_counties, "Dead Counties"} think this is what people say when they have never had to fix their own generator.
+    The #{ref :the_dead_counties, "Dead Counties"} answer that survival comes before feasts when a town must repair its own generator.
 
     Their quarrel with #{ref :the_garden_courts, "the Garden Courts"} concerns what a place can do to a crop. The Courts consider three generations in one valley enough to make a local pepper. The Saints keep the old lineage and blame the change on water and ground. #{ref :the_ensenada_bed, "The Ensenada Bed"} gave both traditions healthy plants, but only the Baja line dried cleanly.
   PROSE

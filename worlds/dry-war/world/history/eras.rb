@@ -1,12 +1,3 @@
-# Era entities, so prose can link to a period rather than describe it again. The
-# authoritative boundaries are in world/timeline.rb — these carry what the period
-# meant, not when it was.
-#
-# Every era is `structural true`: near enough every entity in the world carries
-# an `active_during` edge to one, which is bookkeeping and not a connection
-# anybody made. The names are also genuinely famous, so prominence stays as it
-# is — the two facts are separate and the topology report keeps them apart.
-
 era :the_long_summer do
   name "The Long Summer"
   tags :catastrophe, :water, :energy
@@ -27,11 +18,11 @@ era :the_quiet_conquest do
   structural true
 
   prose <<~PROSE
-    The decisive era of the age, and it contains no battles.
+    Living clothing and personal assistants replaced parts of government without a battle.
 
     #{ref :living_textiles, "Living clothing"} was subsidized because it worked; by the time anyone established that information was passing between wearers, removal would have meant dismantling the health system in a season. On the other side of the world, personal assistants acquired fiduciary duties and then the powers of legal guardians, each change answering a failure exposed by the last.
 
-    Both transitions were legal, popular, and documented in enormous detail by administrations that did not understand what they were recording.
+    Each change answered an immediate failure and drew broad public support. By the end of the era, fungal networks carried government decisions in China and personal advocates held the powers of guardians across North America.
   PROSE
 end
 
@@ -57,9 +48,9 @@ era :the_reclamation do
   structural true
 
   prose <<~PROSE
-    Eighteen years of joint campaigns against the #{ref :the_others, "Others"}, prosecuted with more cooperation than the two gods have managed on any other subject before or since, and militarily successful throughout.
+    For #{elapsed :the_reclamation, :the_holding}, the two civilizations fought joint campaigns against the #{ref :the_others, "Others"} and recovered millions of square kilometres.
 
-    It ended not in defeat but in a conclusion. See #{ref :the_reclamation_campaigns, "the campaigns"} for what was actually done, and #{ref :the_forever_war, "the Forever War"} for what was learned.
+    The campaigns ended when reclaimed ground began changing again. The armies had destroyed local growth without finding the thing that produced it, and the #{ref :the_forever_war, "Forever War"} replaced reconquest with permanent defence.
   PROSE
 end
 
@@ -70,9 +61,9 @@ era :the_holding do
   structural true
 
   prose <<~PROSE
-    Now. Nobody talks about retaking the Earth; they talk about holding the line, and the #{ref :the_dry_war, "Dry War"} has resumed everywhere the line is not immediately threatened.
+    Armies hold the edge of habitable ground. The #{ref :the_dry_war, "Dry War"} has resumed everywhere that edge is not under immediate pressure.
 
-    The defining feature of the era is not the fighting. It is that every philosophy in both civilizations has absorbed the same premise — that this may no longer be a permanent human planet — and drawn opposite conclusions from it.
+    Every major philosophy now begins from the possibility that this may no longer remain a human planet. Unified factions seek closer coordination with their governing minds; resistance cultures protect the choices people still hold.
   PROSE
 end
 
@@ -86,12 +77,12 @@ incident :the_reclamation_campaigns do
 
     Machine-directed armies sterilized millions of square kilometres. Fungal growth rebuilt farms, shelters and wetlands behind the advance faster than anyone had thought possible because a #{ref :seeded_ecosystems, "seeded ecosystem"} can return from buried roots and spores. Human troops went in wherever neither machine prediction nor fungal sensing functioned, which is when both gods learned that there were places only people could go.
 
-    It worked. Colonies were planted on reclaimed ground and some of them are still transmitting.
+    Armies planted colonies on reclaimed ground, and some still transmit.
   PROSE
 
   prose <<~PROSE, section: :aftermath, heading: "What Ended It"
     Reclaimed territory began changing again. Sometimes within a few years, sometimes not for a generation, and never in a pattern that survived analysis.
 
-    The conclusion that followed is the founding fact of the present era: what had been removed was not dead. The campaigns had been fighting manifestations, and the thing producing them had not been located, damaged, or — as far as anyone can demonstrate — inconvenienced.
+    The returning changes showed that the armies had destroyed local growth without killing its source. No expedition has located or damaged whatever produces it.
   PROSE
 end

@@ -1,7 +1,3 @@
-# The frontiers where enemies need each other. These are not neutral ground and
-# nobody has declared a truce; the Dry War is simply suspended locally, by no
-# order, for as long as the pressure lasts.
-
 geographic_location :the_amur_line do
   name "The Amur Line"
   tags :catastrophe, :military, :ecology, :hybridization
@@ -20,7 +16,7 @@ geographic_location :the_amur_line do
 
     Gobi #{ref :the_preservationists, "Preservationists"}, #{ref :the_joined, "Joined"} officers and coalition intelligences share the posts. Their food, pay and reports remain separate. Cooperation ends at the marked compartment.
 
-    The one thing on the line that comes from neither god's account of the forest is the #{ref :yunnan_reference_wood, "wood in the comparison drawers"}. Ordinary partner fungi build closed structures through a tree's outer rings too, so coring benches compare what they find with blocks cut beside known members of #{ref :the_thousand_minds, "Yunnan's local minds"}. A match clears an ordinary partner. A structure the drawer cannot name counts toward the compartment's threshold.
+    Coring benches keep #{ref :yunnan_reference_wood, "wood cut beside known Yunnan fungi"} in their comparison drawers. Ordinary partner fungi can build closed structures through a tree's outer rings, so a match with one of those blocks clears the tree. A structure the drawer cannot name counts toward the compartment's threshold.
   PROSE
 end
 
@@ -38,7 +34,7 @@ geographic_location :the_mediterranean_chain do
   prose <<~PROSE, section: :culture, heading: "Inside The Wall"
     The enclaves are violently cosmopolitan because survival depends on whoever is available: #{ref :the_managed, "Managed"} Americans, #{ref :the_joined, "Joined"} Chinese, European remnants, North African city-states, religious communities, and resistance groups who would be shot elsewhere.
 
-    There is formal custom for this now. Inside the wall, the #{ref :the_forever_war, "Forever War"} outranks every other allegiance — a rule with no signatory, no enforcement mechanism and a near-perfect compliance record.
+    Inside the wall, Managed Americans, Joined Chinese, resistance crews and local militias share watches and repair the same gates. Disputes resume when a crew leaves the wall; during a landing, whoever is nearest answers the alarm.
   PROSE
 
   prose <<~PROSE, section: :operations, heading: "Warm Water Inside The Wall"

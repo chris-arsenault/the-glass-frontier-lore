@@ -2,32 +2,32 @@
 # graph can traverse. Temporal bounds use absolute years — see world/timeline.rb.
 
 # ---- spatial hierarchy: everything sits inside the archipelago ----
-relate :rel_china_in_archipelago, :part_of, :mycelial_china, :the_habitable_archipelago
-relate :rel_america_in_archipelago, :part_of, :ai_north_america, :the_habitable_archipelago
-relate :rel_gobi_in_china, :part_of, :the_gobi, :mycelial_china
-relate :rel_hexi_in_china, :part_of, :the_hexi_corridor, :mycelial_china
-relate :rel_sichuan_in_china, :part_of, :sichuan, :mycelial_china
-relate :rel_pearl_in_china, :part_of, :the_pearl_river_delta, :mycelial_china
-relate :rel_yunnan_in_china, :part_of, :yunnan, :mycelial_china
-relate :rel_appalachia_in_america, :part_of, :appalachia, :ai_north_america
-relate :rel_lakes_in_america, :part_of, :the_great_lakes, :ai_north_america
-relate :rel_socal_in_america, :part_of, :southern_california, :ai_north_america
-relate :rel_boswash_in_america, :part_of, :boswash_ruins, :ai_north_america
+relate :rel_china_in_archipelago, :part_of, :connected_china, :the_habitable_archipelago
+relate :rel_america_in_archipelago, :part_of, :coalition_north_america, :the_habitable_archipelago
+relate :rel_gobi_in_china, :part_of, :the_gobi, :connected_china
+relate :rel_hexi_in_china, :part_of, :the_hexi_corridor, :connected_china
+relate :rel_sichuan_in_china, :part_of, :sichuan, :connected_china
+relate :rel_pearl_in_china, :part_of, :the_pearl_river_delta, :connected_china
+relate :rel_yunnan_in_china, :part_of, :yunnan, :connected_china
+relate :rel_appalachia_in_america, :part_of, :appalachia, :coalition_north_america
+relate :rel_lakes_in_america, :part_of, :the_great_lakes, :coalition_north_america
+relate :rel_socal_in_america, :part_of, :southern_california, :coalition_north_america
+relate :rel_boswash_in_america, :part_of, :boswash_ruins, :coalition_north_america
 relate :rel_amur_in_archipelago, :part_of, :the_amur_line, :the_habitable_archipelago
 relate :rel_medchain_in_archipelago, :part_of, :the_mediterranean_chain, :the_habitable_archipelago
 relate :rel_holds_in_archipelago, :part_of, :the_himalayan_holds, :the_habitable_archipelago
 
 # ---- who governs what ----
-relate :rel_root_governs_china, :governs, :the_great_root, :mycelial_china, since: 2052
-relate :rel_continuity_governs_america, :governs, :continuity, :ai_north_america, since: 2052
-relate :rel_mercy_governs_america, :governs, :mercy, :ai_north_america, since: 2052
-relate :rel_market_governs_america, :governs, :market, :ai_north_america, since: 2052
-relate :rel_caretaker_governs_america, :governs, :caretaker, :ai_north_america, since: 2052
+relate :rel_root_governs_china, :governs, :the_great_root, :connected_china, since: 2052
+relate :rel_continuity_governs_america, :governs, :continuity, :coalition_north_america, since: 2052
+relate :rel_mercy_governs_america, :governs, :mercy, :coalition_north_america, since: 2052
+relate :rel_market_governs_america, :governs, :market, :coalition_north_america, since: 2052
+relate :rel_caretaker_governs_america, :governs, :caretaker, :coalition_north_america, since: 2052
 
 # ---- the two subject populations ----
 relate :rel_joined_symbiotic_root, :symbiotic_with, :the_joined, :the_great_root, since: 2040
-relate :rel_joined_inhabits_china, :inhabits, :the_joined, :mycelial_china, since: 2040
-relate :rel_managed_inhabits_america, :inhabits, :the_managed, :ai_north_america, since: 2052
+relate :rel_joined_inhabits_china, :inhabits, :the_joined, :connected_china, since: 2040
+relate :rel_managed_inhabits_america, :inhabits, :the_managed, :coalition_north_america, since: 2052
 relate :rel_managed_depends_implants, :depends_on, :the_managed, :neural_implants
 
 # ---- coalitions and their quarrel ----
@@ -38,8 +38,8 @@ relate :rel_coalition_wars_involves_caretaker, :participated_in, :caretaker, :th
 relate :rel_caretaker_models_managed, :models, :caretaker, :the_managed, since: 2052
 relate :rel_mercy_supplies_water, :supplies, :mercy, :water, since: 2052
 relate :rel_market_regulates_water, :regulates, :market, :water, since: 2052
-relate :rel_coalitions_depend_water, :depends_on, :proto_fusion, :water
-relate :rel_america_depends_fusion, :depends_on, :ai_north_america, :proto_fusion
+relate :rel_coalitions_depend_water, :depends_on, :fusion_plants, :water
+relate :rel_america_depends_fusion, :depends_on, :coalition_north_america, :fusion_plants
 relate :rel_heresy_embodied_by_mercy, :embodies, :mercy, :the_water_heresy
 
 # ---- the Dry War ----
@@ -50,15 +50,11 @@ relate :rel_dry_war_over_lakes, :manifests_at, :the_dry_war, :the_great_lakes
 relate :rel_dry_war_over_holds, :manifests_at, :the_dry_war, :the_himalayan_holds
 
 # ---- the fungal civilization's own argument ----
-relate :rel_mandate_concerns_root, :mentions, :the_mandate_question, :the_great_root
 relate :rel_preservationists_in_gobi, :headquartered_in, :the_preservationists, :the_gobi, since: 2052
 relate :rel_gatekeepers_in_hexi, :headquartered_in, :the_gatekeepers, :the_hexi_corridor, since: 2052
 relate :rel_courts_in_sichuan, :headquartered_in, :the_garden_courts, :sichuan, since: 2060
 relate :rel_brokers_in_pearl, :headquartered_in, :the_brokers, :the_pearl_river_delta, since: 2052
 relate :rel_minds_in_yunnan, :headquartered_in, :the_thousand_minds, :yunnan, since: 2060
-relate :rel_preservationists_embody_mandate, :embodies, :the_preservationists, :the_mandate_question
-relate :rel_courts_embody_locality, :embodies, :the_garden_courts, :the_mandate_question
-relate :rel_minds_embody_mandate, :embodies, :the_thousand_minds, :the_mandate_question
 relate :rel_gatekeepers_maintain_severed, :maintains, :the_gatekeepers, :severed_strains, since: 2060
 relate :rel_preservationists_hold_ceramics, :possesses, :the_preservationists, :memory_ceramics, since: 2060
 relate :rel_brokers_trade_with_market, :cooperates_with, :the_brokers, :market, since: 2070
@@ -69,7 +65,7 @@ relate :rel_dead_counties_in_appalachia, :headquartered_in, :the_dead_counties, 
 relate :rel_choir_in_lakes, :operates_in, :the_choir, :the_great_lakes, since: 2065
 relate :rel_saints_in_socal, :headquartered_in, :the_saints_of_plenty, :southern_california, since: 2065
 relate :rel_unpersons_in_boswash, :headquartered_in, :the_unpersons, :boswash_ruins, since: 2060
-relate :rel_pilgrims_operate_america, :operates_in, :the_pilgrims, :ai_north_america, since: 2060
+relate :rel_pilgrims_operate_america, :operates_in, :the_pilgrims, :coalition_north_america, since: 2060
 relate :rel_pilgrims_evade_caretaker, :evades, :the_pilgrims, :caretaker, since: 2060
 relate :rel_unpersons_evade_caretaker, :evades, :the_unpersons, :caretaker, since: 2060
 relate :rel_saints_reject_heresy, :evades, :the_saints_of_plenty, :the_water_heresy, since: 2065
@@ -94,11 +90,11 @@ relate :rel_sterile_evades_mycelium, :evades, :sterile_machines, :continental_my
 # ---- the convergence nobody admits to ----
 relate :rel_fungal_machines_derived_from_ferals, :derived_from, :fungal_machines, :feral_models
 relate :rel_fungal_machines_derived_from_severed, :derived_from, :fungal_machines, :severed_strains
-relate :rel_fungal_machines_embody_hybridization, :embodies, :fungal_machines, :hybridization
+relate :rel_fungal_machines_embody_mixed_minds, :embodies, :fungal_machines, :mixed_minds
 relate :rel_mind_fragments_derived_from_implants, :derived_from, :mind_fragments, :neural_implants
 relate :rel_mind_fragments_derived_from_ceramics, :derived_from, :mind_fragments, :memory_ceramics
-relate :rel_mind_fragments_embody_hybridization, :embodies, :mind_fragments, :hybridization
-relate :rel_hybridization_concerns_root, :mentions, :hybridization, :the_great_root
+relate :rel_mind_fragments_embody_mixed_minds, :embodies, :mind_fragments, :mixed_minds
+relate :rel_mixed_minds_concerns_root, :mentions, :mixed_minds, :the_great_root
 
 # ---- the Breach and what came after ----
 relate :rel_breach_caused_others, :caused, :the_breach, :the_others
@@ -119,7 +115,7 @@ relate :rel_forever_war_at_holds, :manifests_at, :the_forever_war, :the_himalaya
 relate :rel_summer_precedes_conquest, :caused, :the_long_summer, :the_quiet_conquest
 relate :rel_conquest_caused_calm, :caused, :the_quiet_conquest, :the_unified_calm
 relate :rel_textiles_emerged_summer, :emerged_during, :living_textiles, :the_long_summer
-relate :rel_fusion_emerged_summer, :emerged_during, :proto_fusion, :the_long_summer
+relate :rel_fusion_emerged_summer, :emerged_during, :fusion_plants, :the_long_summer
 relate :rel_root_emerged_conquest, :emerged_during, :the_great_root, :the_quiet_conquest
 relate :rel_managed_emerged_conquest, :emerged_during, :the_managed, :the_quiet_conquest
 relate :rel_reclamation_after_breach, :caused_by, :the_reclamation, :the_breach
@@ -143,7 +139,7 @@ relate :rel_yao_petitions_ma, :petitions, :yao_lin, :ma_renqing, since: 2078
 relate :rel_preservationists_petition_gatekeepers, :petitions, :the_preservationists, :the_gatekeepers, since: 2060
 
 # ---- the Cairo retreat appeal ----
-relate :rel_cairo_in_america, :part_of, :cairo, :ai_north_america
+relate :rel_cairo_in_america, :part_of, :cairo, :coalition_north_america
 relate :rel_continuity_governs_cairo, :governs, :continuity, :cairo, since: 2052
 relate :rel_managed_inhabit_cairo, :inhabits, :the_managed, :cairo, since: 2052
 relate :rel_inez_employed_by_continuity, :employed_by, :inez_bell, :continuity
@@ -166,15 +162,15 @@ relate :rel_continuity_supplies_forty_seven, :supplies, :continuity, :the_forty_
 
 # ---- a week outside the Great Root ----
 relate :rel_sun_employed_by_root, :employed_by, :sun_yilan, :the_great_root
-relate :rel_sun_operates_in_china, :operates_in, :sun_yilan, :mycelial_china
-relate :rel_mulberry_in_china, :located_in, :mulberry_court_clinic, :mycelial_china
+relate :rel_sun_operates_in_china, :operates_in, :sun_yilan, :connected_china
+relate :rel_mulberry_in_china, :located_in, :mulberry_court_clinic, :connected_china
 relate :rel_root_maintains_mulberry, :maintains, :the_great_root, :mulberry_court_clinic
 relate :rel_mulberry_depends_textiles, :depends_on, :mulberry_court_clinic, :living_textiles
 relate :rel_mulberry_maintains_film, :maintains, :mulberry_court_clinic, :separation_film
 relate :rel_mulberry_evades_mycelium, :evades, :mulberry_court_clinic, :continental_mycelium
 relate :rel_film_evades_mycelium, :evades, :separation_film, :continental_mycelium
 relate :rel_sun_located_mulberry, :located_in, :sun_yilan, :mulberry_court_clinic
-relate :rel_peng_inhabits_china, :inhabits, :peng_meizhen, :mycelial_china
+relate :rel_peng_inhabits_china, :inhabits, :peng_meizhen, :connected_china
 relate :rel_peng_symbiotic_root, :symbiotic_with, :peng_meizhen, :the_great_root
 relate :rel_peng_depends_film, :depends_on, :peng_meizhen, :separation_film
 

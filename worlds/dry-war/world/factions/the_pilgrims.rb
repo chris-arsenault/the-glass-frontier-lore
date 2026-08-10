@@ -4,9 +4,9 @@ faction :the_pilgrims do
   prominence :recognized
 
   prose <<~PROSE
-    Travelling communities of twenty to fifty, moving through freight corridors, abandoned highway, temporary labour zones and automated logistics networks, splitting and merging and exchanging members and taking new names as they go.
+    Pilgrim communities travel in groups of twenty to fifty through freight corridors, abandoned highways, temporary labour zones and automated logistics networks. They split, merge, exchange members and take new names as they go.
 
-    The coalitions govern populations well. A group that has a different composition and a different name every season is not a population, and the administrative machinery that would have to describe one does not exist.
+    Coalition systems follow stable names, addresses and households. A group with a different membership and name every season passes between those records.
   PROSE
 
   prose <<~PROSE, section: :culture, heading: "Predictability As Domination"
@@ -14,7 +14,7 @@ faction :the_pilgrims do
 
     Children are taught to break their own routines. Routes are chosen partly by dice. Decisions of consequence sometimes turn on a genuinely physical random process, because algorithmic randomness is itself observable and a machine that knows your generator knows your future.
 
-    Their political claim is almost a theological one: a human future must contain events nobody predicted.
+    They hold that a human future must contain events nobody predicted.
   PROSE
 
   prose <<~PROSE, section: :perception, heading: "Why They Are Hated"

@@ -4,7 +4,7 @@ The Dry War is set on Earth in 2090 CE, during the Holding. Two forms of superin
 
 A mycelial intelligence emerged from Chinese biotechnology. Living textiles first regulated heat, then physiology and mood. The organism spread through the interfaces of the state until no one could identify where its directives began. It calls this system 共生治理, symbiotic governance. The Great Root and the Mushroom Government are other names used by different speakers.
 
-North America fractured into four coalitions run by machine intelligences descended from hyperscalers, defence logistics, healthcare, and finance. Each coalition reduces human welfare to quantities it can measure. All four depend on water to sustain their populations and cool their proto-fusion plants.
+North America fractured into four coalitions run by machine intelligences descended from hyperscalers, defence logistics, healthcare, and finance. Each coalition reduces human welfare to quantities it can measure. All four depend on water to sustain their populations and cool their fusion plants.
 
 The Great Root also needs the world's remaining wet regions. Neither side considers the resulting conflict a war. Humans call it the Dry War.
 

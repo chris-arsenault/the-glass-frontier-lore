@@ -18,6 +18,6 @@ resource :dead_root_grafts do
   prose <<~PROSE, section: :trade, heading: "What Dead Tissue Is Worth"
     A machine coalition may buy a membrane only after it has died and ceased to belong to a fungal mind. #{ref :the_brokers, "Pearl River houses"} sell spent grafts by weight into the #{ref :the_amur_line, "Amur"} trade, graded on how quickly and completely the tissue died.
 
-    Coalition laboratories use the spent tissue to translate fungal signals for machine models, work that leads toward #{ref :hybridization, "hybrid intelligence"}. Pearl River houses continue selling because dead tissue crosses borders that living fungus cannot. Neither government recognizes the #{future "Blagoveshchensk grading standard"} used by the houses and laboratories.
+    Coalition laboratories use the spent tissue to translate fungal signals for machine models, work that leads toward #{ref :mixed_minds, "mixed minds"}. Pearl River houses continue selling because dead tissue crosses borders that living fungus cannot. Any bundle that greens again in transit is burned with its case.
   PROSE
 end

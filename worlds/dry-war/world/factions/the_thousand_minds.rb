@@ -18,7 +18,7 @@ faction :the_thousand_minds do
   prose <<~PROSE, section: :tensions, heading: "Unity"
     The Great Root understands itself as the ecological expression of Chinese civilization. Yunnan contradicts that singular claim: hundreds of networks persist with their own territories, memories and human relationships.
 
-    The dispute is nearly theological: is unity an emergent fact, or the preference of the biggest network?
+    Yangtze theologians teach that unity emerges naturally from connected life. Yunnan communities answer that it is the preference of the biggest network.
 
     The centre runs integration campaigns instead of extermination. Some minds join it. Others negotiate limited exchanges of memory while remaining separate, and others withdraw farther into the mountains.
   PROSE

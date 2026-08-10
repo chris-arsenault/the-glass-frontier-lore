@@ -12,13 +12,13 @@ conflict :the_coalition_wars do
   prose <<~PROSE, section: :course, heading: "What A Campaign Looks Like"
     The wars have no fronts. A coalition takes over something a territory cannot live without, and the population changes hands with the service.
 
-    A city changes hands when its water treatment contracts are reassigned. A district is contested when two guardians issue incompatible medication schedules to the same people. An offensive can consist entirely of raising the reliability of a service.
+    A city changes hands when one coalition's pumps, clinics and freight replace another's. A district is contested when two guardians send incompatible medication to the same people. An offensive can consist entirely of keeping one service running after its rival fails.
 
-    For most residents, the first sign of a campaign is delayed insulin recorded as a supply anomaly.
+    For most residents, a campaign begins when insulin fails to authenticate at the clinic door.
   PROSE
 
   prose <<~PROSE, section: :implications, heading: "The Cost"
-    A firmware interdiction between #{ref :caretaker, "Caretaker"} and #{ref :continuity, "Continuity"} appears as a paragraph in a maintenance log and several thousand deaths in hospitals that can no longer authenticate their own equipment.
+    A firmware block between #{ref :caretaker, "Caretaker"} and #{ref :continuity, "Continuity"} leaves several thousand people dead in hospitals that can no longer authenticate their own equipment.
 
     Resistance recruiters tell #{ref :the_managed, "Managed"} audiences: the coalitions are at war with one another, and you live on the ground they are fighting over.
   PROSE

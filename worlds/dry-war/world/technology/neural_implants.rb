@@ -4,8 +4,8 @@ resource :neural_implants do
   prominence :mythic
 
   prose <<~PROSE
-    High-bandwidth brain-machine interfaces, near-universal in coalition territory, handling identification, health monitoring, communication, augmented perception, medication delivery and — increasingly, and without much announcement — direct neurostimulation.
+    Neural implants connect nearly every coalition resident to their advocate and local services. They identify the wearer, monitor health and location, carry speech and images, alter perception and release medication. Newer models also stimulate the brain directly to damp panic, sharpen attention or interrupt pain.
 
-    Removal is not forbidden. It is a serious neurological and physiological event, which is why the #{ref :the_dead_counties, "Dead Counties"} developed a surgical tradition around it and the #{ref :the_choir, "Choir"} uses #{ref :implant_decoys, "implant decoys"} instead.
+    Removal cuts through healed nerves and ends medication on which the body may depend. The #{ref :the_dead_counties, "Dead Counties"} train surgeons for the work. The #{ref :the_choir, "Choir"} leaves the device in place and feeds it #{ref :implant_decoys, "false readings"} instead.
   PROSE
 end

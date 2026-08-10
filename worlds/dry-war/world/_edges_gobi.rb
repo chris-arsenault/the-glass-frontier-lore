@@ -10,7 +10,6 @@ relate :rel_vault_in_juyan, :located_in, :juyan_ceramic_vault, :juyan, since: 20
 relate :rel_preservationists_maintain_vault, :maintains, :the_preservationists, :juyan_ceramic_vault, since: 2062
 relate :rel_vault_holds_ceramics, :possesses, :juyan_ceramic_vault, :memory_ceramics, since: 2062
 relate :rel_vault_depends_water, :depends_on, :juyan_ceramic_vault, :water
-relate :rel_vault_embodies_mandate, :embodies, :juyan_ceramic_vault, :the_mandate_question
 
 # ---- Bao and the western road ----
 relate :rel_bao_member_preservationists, :member_of, :bao_qiuyan, :the_preservationists, since: 2082
@@ -29,4 +28,3 @@ relate :rel_forty_one_mentions_root, :mentions, :the_forty_one_households, :the_
 relate :rel_preservationists_in_forty_one, :participated_in, :the_preservationists, :the_forty_one_households
 relate :rel_gatekeepers_in_forty_one, :participated_in, :the_gatekeepers, :the_forty_one_households
 relate :rel_bao_in_forty_one, :participated_in, :bao_qiuyan, :the_forty_one_households
-relate :rel_forty_one_embodies_mandate, :embodies, :the_forty_one_households, :the_mandate_question

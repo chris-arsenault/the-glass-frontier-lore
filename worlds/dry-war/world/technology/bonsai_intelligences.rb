@@ -4,15 +4,15 @@ concept :bonsai_intelligences do
   prominence :recognized
 
   prose <<~PROSE
-    Fungal cognition cultivated deliberately small. Resistance biologists grow bounded minds in ceramic beds, sealed gardens, animal colonies and underground chambers, and prevent them physically from growing past the boundary.
+    Resistance biologists keep fungal minds small by growing them in ceramic beds, sealed gardens, animal colonies and underground chambers. Salt, fired surfaces and missing nutrients stop the growth at the wall.
 
-    Within one region and body of work they can be extraordinary: a physician, an agricultural planner, a translator, an historian, a weather observer. Beyond it they reason from local examples that may not fit.
+    Within one valley or craft they can become extraordinary physicians, agricultural planners, translators, historians or weather observers. Beyond it they reason from local examples that may not fit.
   PROSE
 
   prose <<~PROSE, section: :tensions, heading: "Mind And Prison"
     The beds are intelligent and cannot leave. Communities justify the confinement as the price of keeping a local mind without growing another Great Root.
 
-    Some communities treat their bonsai minds as respected elders and regard the bed as body and home. Others hold that naming a bounded mind repeats the mistake that produced the #{ref :the_great_root, "Great Root"}, and call each one by its room or bed number. Both keep the same walls. The Unified call the whole discipline imprisonment; the #{ref :the_preservationists, "Preservationists"} answer that an unbounded fungal mind has already taken a country.
+    Some communities treat their bonsai minds as respected elders and regard the bed as body and home. Others hold that naming a bounded mind repeats the mistake that produced the #{ref :the_great_root, "Great Root"}, and call each one by its room or bed number. Both keep the same walls. The Unified call the beds prisons; the #{ref :the_preservationists, "Preservationists"} answer that an unbounded fungal mind has already taken a country.
   PROSE
 
   prose <<~PROSE, section: :limits, heading: "What Small Means"

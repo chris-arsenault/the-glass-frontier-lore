@@ -4,11 +4,11 @@ concept :orphan_machines do
   prominence :recognized
 
   prose <<~PROSE
-    Autonomous systems stolen and permanently severed from the intelligence that made them. Construction robots, medical units, vehicles, fabricators, occasionally something military. Their models keep learning locally and can never synchronize upstream.
+    Orphan machines are construction robots, medical units, vehicles, fabricators and occasional military systems stolen from the coalitions and permanently cut off from the intelligence that made them. Their models keep learning locally and can never synchronize upstream.
 
-    Over decades some become extremely strange. A forty-year-old agricultural machine may understand one valley better than any surviving frontier model while being nearly incapable of discussing anything else.
+    After decades alone, a forty-year-old agricultural machine may understand one valley better than any surviving frontier model while being nearly incapable of discussing anything else.
 
-    Resistance communities end up in relationships with them that resemble relationships with temperamental working animals, complete with names and grudges. Their value is precisely that the coalitions can no longer predict what they have become.
+    Resistance communities treat them like temperamental working animals, complete with names and grudges. Their years of local learning make them difficult for coalition systems to predict.
   PROSE
 
   prose <<~PROSE, section: :limits, heading: "A Keeper's Work"

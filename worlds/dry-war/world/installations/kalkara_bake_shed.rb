@@ -18,7 +18,7 @@ installation :kalkara_bake_shed do
   prose <<~PROSE, section: :limits, heading: "What The Ovens Take"
     Anything returned inside an enclave wall must survive one of the three ovens. Oiled bearings, seated gaskets, sealed voids and laminated skins fail there. Their remains stay on the stripping floor instead of going back down the slip.
 
-    Enclave buyers inspect the heap before ordering machinery. #{ref :sterile_machines, "Machines designed to come apart and be baked"} pass through Kalkara with little loss, which is why Chinese resistance workshops sell pumps and gate gear to enclaves that otherwise avoid them.
+    Enclave buyers inspect the heap before ordering machinery. #{ref :sterile_machines, "Machines designed to come apart and be baked"} pass through Kalkara with little loss. Chinese resistance workshops therefore sell pumps and gate gear to enclaves that otherwise avoid them.
   PROSE
 
   log "2026-08-09 — Built on the creek careenage of a Grand Harbour dockyard, where a hull was hove down against the quay to have its bottom burned and scraped and the yard's book recorded what came off. Borrowed because it puts the whole operation on a slipway with a stripping floor beside it, and because the weighing-out that decides whether a piece is fitted back is the yard's own accounting rather than an inspection."

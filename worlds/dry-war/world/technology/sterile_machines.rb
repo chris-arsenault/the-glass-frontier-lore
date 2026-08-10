@@ -4,9 +4,9 @@ concept :sterile_machines do
   prominence :recognized
 
   prose <<~PROSE
-    Chinese resistance engineering has an almost devotional interest in machinery that cannot host biology. Hot-running electronics. Copper and ceramic surfaces. UV-lit cavities. Salt circulation. Dry bearings. Everything designed to come apart and be baked.
+    Chinese resistance workshops build machines on which fungus has little to hold. Electronics run hot. Surfaces are copper and fired ceramic; cavities shine with ultraviolet light; bearings stay dry and salt moves through the cooling channels. Every piece comes apart for the oven.
 
-    It produces a distinctive industrial aesthetic — advanced equipment deliberately built to be ecologically dead. #{ref :the_joined, "Joined"} visitors find such rooms genuinely unpleasant, in the way a healthy person finds a hospital unpleasant. Resistance engineers find clean steel reassuring, and say so in the tone other people use about the smell of rain.
+    The rooms smell of hot salt and glaze. A #{ref :the_joined, "Joined"} visitor enters with no friendly growth in the walls, clothing or tools and often leaves quickly. Resistance engineers find the bare steel reassuring.
   PROSE
 
   prose <<~PROSE, section: :trade, heading: "The Export Trade"
@@ -14,6 +14,6 @@ concept :sterile_machines do
 
     Anything that cannot be taken apart into bakeable pieces stays outside the wall. The enclaves buy from shops already building for the oven: dry bearings, open voids, fired glaze and no seated gasket anywhere in the assembly. They pay a premium for a maker who names what is inside every housing. The same shops cast the enclaves' #{ref :comparison_tiles, "tile sets"}, ten graded surfaces in a copper case that doubles as its own bake box.
 
-    Gate crews in three of the four enclaves that use the #{ref :kalkara_bake_shed, "Kalkara shed"} would rather buy nothing out of Chinese hands at all, and buy anyway, on the shed's refusal list rather than on anyone's word.
+    Gate crews in three of the four enclaves that use the #{ref :kalkara_bake_shed, "Kalkara shed"} avoid Chinese goods when they can. They still buy these machines because Kalkara's scrap heap shows which housings trapped living growth and failed the oven.
   PROSE
 end

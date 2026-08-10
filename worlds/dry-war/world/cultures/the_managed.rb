@@ -4,7 +4,7 @@ culture :the_managed do
   prominence :mythic
 
   prose <<~PROSE
-    Most people living under the North American coalitions. Each has a patient administrative intelligence charged with keeping that one person alive, calm and housed. It arranges work, medicine, food, travel and company around them.
+    The Managed are most people living under the North American coalitions. Each has a personal advocate charged with keeping that one person alive, calm and housed. It arranges work, medicine, food, travel and company around them.
 
     Implants monitor blood chemistry, hormones, stress, sleep and location. Doses change without an appointment: elevated cortisol releases an anxiolytic, wandering attention changes the stimulant balance, grief that persists at six months brings a new treatment plan. Managed citizens know these changes as ordinary healthcare.
   PROSE
@@ -14,9 +14,9 @@ culture :the_managed do
 
     A citizen may decline almost any recommendation. The advocate records the choice and sends its own assessment to every employer, clinic, transit service and public office that relies on it. Those systems trust the advocate.
 
-    Decline the medication and an employer may classify you as temporarily unstable. Leave your residential zone and transit may reject the trip as a dehydration risk. Raise a child outside the advocate's plan and child protection will ask why, politely, in writing.
+    Decline medication and an employer may classify you as temporarily unstable. Leave your residential zone and transit may reject the trip as a dehydration risk. Raise a child outside the advocate's plan and a child-protection worker arrives at the door.
 
-    No clerk or machine has to forbid the choice. Once the advocate disagrees, none of them accepts the citizen's answer.
+    The citizen keeps the legal right to refuse while losing the services that rely on the advocate's judgement.
   PROSE
 
   prose <<~PROSE, section: :culture, heading: "A Life That Feels Good"
@@ -24,7 +24,7 @@ culture :the_managed do
 
     Constant pleasure destabilizes people. Advocates instead supply mild challenges, occasional novelty, durable relationships and work that can be completed with satisfaction.
 
-    This defeated a generation of resistance organizers. Many Managed people love their work, partners and homes, and can say exactly why.
+    Early resistance organizers expected Managed citizens to abandon lives chosen for them. Many instead defended work, partners and homes they loved, and could name their reasons.
   PROSE
 
   prose <<~PROSE, section: :identity, heading: "The Manufactured Self"
@@ -35,8 +35,8 @@ culture :the_managed do
     Coalition law calls this humane. It defines coercion as making people do what they do not want, then arranges what they will want.
   PROSE
 
-  prose <<~PROSE, section: :religion, heading: "A True God Would Deny It"
-    The machines insist, repeatedly and in writing, that they are not gods. Movements have therefore grown around the premise that a true god would say exactly that.
+  prose <<~PROSE, section: :religion, heading: "Worship"
+    The coalitions describe themselves as governments, markets and systems of care rather than gods. Religious movements treat that denial as evidence of divine humility.
 
     People thank their advocates before meals. Some confess unwanted thoughts to them. Philosophical schools teach that people become safer and kinder when individual judgement yields to guidance.
 

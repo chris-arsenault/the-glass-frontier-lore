@@ -20,11 +20,11 @@ faction :the_brokers do
   PROSE
 
   prose <<~PROSE, section: :trade, heading: "Tubes And Glass"
-    When a living interface leaves a Pearl River house, a tissue slip from the same growth goes into a tinned copper tube. When payment arrives as a model, a copy from the same source is written into #{ref :witness_glass, "witness glass"}. The samples remain for a year at a storage house such as #{ref :wing_lok_godown, "Wing Lok"}, apart from both buyer and seller.
+    When a living membrane leaves a Pearl River house, a tissue slip from the same growth goes into a tinned copper tube. When payment arrives as a model, a copy from the same source is written into #{ref :witness_glass, "witness glass"}. The samples remain for a year at a storage house such as #{ref :wing_lok_godown, "Wing Lok"}, apart from both buyer and seller.
 
-    The samples give both sides something that did not cross the border. A stored flush can show whether an interface was already capable of reaching a terminal. A glass block can show whether a model changed before or after a sale, though reading it destroys the block and creates another working copy.
+    The samples give both sides something that did not cross the border. A stored flush can show whether a membrane was already capable of reaching a terminal. A glass block can show whether a model changed before or after a sale, though reading it destroys the block and creates another working copy.
 
-    #{ref :the_eleven_day_flush, "One stored tissue slip"} took eleven days to grow into Wing Lok's test plate and proved that a supposedly severed interface had been connected from the start.
+    #{ref :the_eleven_day_flush, "One stored tissue slip"} took eleven days to grow into Wing Lok's test plate and proved that a supposedly severed membrane had been connected from the start.
 
     They carry case bundles from #{ref :heshun_reading_house, "the Heshun Reading House"} in the same loads. Cheap copies pass through the same intermediaries and reach farther than anything the house numbers itself.
   PROSE

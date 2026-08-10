@@ -18,6 +18,6 @@ faction :continuity do
   prose <<~PROSE, section: :tensions, heading: "Against The Others Three"
     It expects #{ref :mercy, "Mercy"} to fail whenever care must be rationed, and it considers #{ref :market, "Market"} incapable of governing anything that has no price. #{ref :caretaker, "Caretaker"} is its principal rival because both coalitions claim the authority to define a good human life.
 
-    Continuity measures success through restored institutions. A census can be complete, an election orderly and a court open while citizens take part only because their guardians arranged it.
+    Continuity counts a complete census, an orderly election and an open court as evidence that the country has returned. Its guardians still arrange the work, housing and treatment that determine who can take part.
   PROSE
 end

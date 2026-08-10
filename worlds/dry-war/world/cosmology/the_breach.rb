@@ -10,15 +10,15 @@ phenomenon :the_breach do
   PROSE
 
   prose <<~PROSE, section: :cause, heading: "Why There Is No Model"
-    Science requires that the object of study behave consistently enough to be described. Affected regions do not. Two expeditions to the same coordinates return incompatible surveys, both internally coherent. Instruments that function inside a contested zone stop functioning further in, and stop in different ways depending on the route taken.
+    Two expeditions to the same coordinates return incompatible surveys, each consistent with itself. Instruments that function inside a contested zone stop farther in, and fail differently depending on the route taken.
 
     The #{ref :the_great_root, "Great Root"} treats the event as an ecology that a large enough biology will eventually read. #{ref :continuity, "Continuity"} treats it as a physical process described with the wrong measurements. After #{elapsed :the_reclamation, approx: true}, neither account predicts the route-dependent failures or the changes that return to reclaimed ground.
   PROSE
 
   prose <<~PROSE, section: :aftermath, heading: "What It Left"
-    Not ruins. That would have been survivable. Forests still grow, oceans still move, animals — or things occupying the niches animals occupied — still reproduce, and the cities are standing.
+    Forests still grow, oceans still move and cities remain standing. Things occupying the old niches of animals still feed, breed and migrate.
 
-    The systems operating there are simply no longer constrained the way biology is constrained. A forest grows toward memory rather than light. Predators appear only once something has become afraid of them. An abandoned city holds organisms whose anatomy depends on the direction of approach. There are coastlines with tides that take no reference from the moon.
+    Life in those regions follows constraints unknown elsewhere. A forest grows toward memory rather than light. Predators appear only once something has become afraid of them. An abandoned city holds organisms whose anatomy depends on the direction of approach. Some coastlines have tides that take no reference from the moon.
 
     Sterilized ground kept producing new organisms without a visible parent or reservoir, and the #{ref :the_reclamation_campaigns, "reclamation"} ended. Line crews say the environments are learning.
   PROSE

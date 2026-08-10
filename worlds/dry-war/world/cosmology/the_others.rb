@@ -7,11 +7,11 @@ phenomenon :the_others do
   prose <<~PROSE
     The #{ref :the_great_root, "Great Root"} calls them foreign ecology. Coalition reports call them adverse ecology. Expedition crews, line settlements and nearly everyone else call them the Others. The plural remains because the affected regions have never behaved like the work of one species or one organism.
 
-    They are not a species and may not be organisms. They form an ecology that kills ordinary life. Weather is not malicious either, and cannot be negotiated with.
+    No single species or organism accounts for the affected ground. Animals, plants, weather and soil change together into an ecology that kills ordinary life.
   PROSE
 
   prose <<~PROSE, section: :dangers, heading: "What Happens To People"
-    Humans entering mature #{ref :the_breach, "Breach"} territory die. This is uncomplicated and holds across every category of human the world now contains.
+    Humans entering mature #{ref :the_breach, "Breach"} territory die, regardless of which civilization prepared their bodies.
 
     #{ref :the_joined, "Joined"} humans die, and the fungal biology they carry becomes foreign tissue to the Great Root. #{ref :the_managed, "Managed"} humans die, and their implants report normal blood chemistry and movement for some hours afterward. Machine bodies stop without a precursor fault in their logs.
 

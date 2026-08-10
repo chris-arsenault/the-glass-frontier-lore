@@ -6,7 +6,7 @@ resource :water do
   prose <<~PROSE
     The Great Root and the coalitions both need the surviving rivers, for different uses that neither can abandon.
 
-    The #{ref :the_great_root, "Great Root"} needs it as habitat. Mycelial cognition requires continuity of moist substrate; a dry belt is not an obstacle to the network but a place where it cannot think. The coalitions need it as coolant. #{ref :proto_fusion, "Proto-fusion"} plants and the computation they exist to feed consume it in volumes that would have been considered fictional before #{ref :the_long_summer, "the Long Summer"}.
+    The #{ref :the_great_root, "Great Root"} needs it as habitat. Mycelial cognition requires continuous moist ground; a dry belt is a place where the network cannot think. The coalitions need water as coolant. #{ref :fusion_plants, "Fusion plants"} and the computer works beside them consume rivers at volumes unknown before #{ref :the_long_summer, "the Long Summer"}.
 
     Their territories therefore meet at rivers, lakes and high catchments even where neither side wants the other land.
   PROSE
@@ -14,7 +14,7 @@ resource :water do
   prose <<~PROSE, section: :economy, heading: "As A Unit Of Value"
     In coalition territory, a water allocation determines what a household may grow, what #{ref :market, "Market"} charges it and when #{ref :mercy, "Mercy"} opens a clinical case. The number appears on apartment walls and public accounts. See #{ref :the_water_heresy, "the water heresy"}.
 
-    In fungal territory it is not priced at all, which foreign observers consistently misread as abundance. It is not abundant. It is simply not for sale, because the network does not experience its own habitat as a commodity, and a province that diverted a river for local advantage would be doing something closer to self-harm than trade.
+    Fungal territory does not price water, which foreign observers often mistake for abundance. The network experiences rivers and wet ground as its own habitat. A province diverting a river for local advantage cuts living tissue away from the whole.
   PROSE
 
   prose <<~PROSE, section: :dangers, heading: "The Thing Upstream"

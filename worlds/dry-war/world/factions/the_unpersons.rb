@@ -6,7 +6,7 @@ faction :the_unpersons do
   prose <<~PROSE
     They live directly underneath the oldest administrative systems on the continent — the tunnels, utility corridors, basements, decommissioned data centres and abandoned transit extensions under Washington, Baltimore, Philadelphia and New York.
 
-    Their working material is administrative identity. The machine civilization assumes every human corresponds to one persistent digital person and has never been able to operate without that assumption, so the Unpersons work on the record rather than on the cameras.
+    They survive by changing the identities stored above them. Coalition systems assume that every body belongs to one persistent digital person, so the Unpersons alter that link instead of hiding from every camera.
   PROSE
 
   prose <<~PROSE, section: :how_it_works, heading: "Bodies And Identities"
@@ -18,9 +18,9 @@ faction :the_unpersons do
   PROSE
 
   prose <<~PROSE, section: :tensions, heading: "What They Want"
-    Something more radical than autonomy: the destruction of the premise that a human being must be legible to a machine government in order to exist.
+    They want a person to exist without being readable to a machine government.
 
-    The other resistance cultures find them useful and frightening in roughly equal measure. The #{ref :the_choir, "Choir"} depends on Unperson identity work for anything that has to cross a coalition border. The #{ref :the_dead_counties, "Dead Counties"} bar them from settling, on the grounds that a community whose members cannot be counted cannot be trusted to bury its own.
+    The #{ref :the_choir, "Choir"} depends on Unperson identity work for anything that has to cross a coalition border. The #{ref :the_dead_counties, "Dead Counties"} bar them from settling because county clerks cannot join their bodies, names and graves.
 
     The Unpersons' own long argument is whether a resistance *movement* is already too machine-readable a shape to survive, and whether they should therefore stop being one.
   PROSE

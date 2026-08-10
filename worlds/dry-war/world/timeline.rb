@@ -19,45 +19,42 @@ timeline do
 
   era :the_quiet_conquest, length: 12, title: "The Quiet Conquest (2040–2052 CE)",
       description: <<~MD
-        Nobody surrendered. Living clothing was subsidized because it worked, and
-        by the time information was observed passing between wearers, removing it
-        would have meant dismantling the health system. On the other side of the
-        world, assistants became fiduciaries and then guardians. The decisive
-        decade of the age contains no battles.
+        Living clothing spread through Chinese hospitals, farms and households.
+        By the time information was observed passing between wearers, removing it
+        would have dismantled the health system. In North America, personal
+        assistants acquired fiduciary duties and then the powers of guardians.
       MD
 
   era :the_unified_calm, length: 16, title: "The Unified Calm (2052–2068 CE)",
       description: <<~MD
         Violent crime fell. Cancers were caught early. Famine stopped happening.
-        A generation grew up for whom the arrangement was simply how the world
-        worked, and the surviving records of the period are full of people saying
-        that humanity had finally got through its crisis. The generation raised
-        among those accounts met the Breach as the collapse of a lasting order.
+        A generation grew up inside the new arrangement. Surviving diaries and
+        broadcasts describe humanity as having come through its crisis. People
+        raised among those accounts met the Breach as the collapse of a lasting
+        order.
       MD
 
   era :the_breach, length: 2, title: "The Breach (2068–2070 CE)",
       description: <<~MD
         Two years in which most of the planet stopped being habitable without
-        being destroyed. Forests still grow. Cities still stand. The rules no
-        longer agree with ours. There is no accepted model of the event, because
-        the affected regions stopped behaving consistently enough for models to
-        hold.
+        being destroyed. Forests still grow and cities still stand, but organisms,
+        weather and distance change with the route taken through them. No model
+        predicts the affected regions consistently.
       MD
 
   era :the_reclamation, length: 18, title: "The Reclamation (2070–2088 CE)",
       description: <<~MD
-        Eighteen years of campaigns, fought jointly, and successful. Machine
-        armies sterilized territory; mycelial systems rebuilt ecologies behind
-        them. Then the reclaimed ground began changing again — sometimes years
-        later, sometimes a generation. The conclusion was unavoidable: the
-        manifestations had been killed and the thing producing them had not.
+        Eighteen years of joint campaigns recovered ground from the Others.
+        Machine armies sterilized territory and fungal growth rebuilt settlements
+        behind them. Years later, reclaimed ground began changing again. The
+        armies had killed local growth without finding what produced it.
       MD
 
   era :the_holding, length: 12, title: "The Holding (2088 CE–present)",
       description: <<~MD
-        Nobody talks about retaking the Earth. They talk about holding the line.
-        The Dry War continues between the two gods over what is left of the wet
-        world, interrupted wherever both of them need the same wall to stand.
+        Armies hold the edge of habitable ground. The Dry War continues over the
+        remaining wet regions and stops locally wherever both civilizations need
+        the same wall, intake or forest post to stand.
       MD
 
   now year: 2090
