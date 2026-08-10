@@ -284,6 +284,70 @@ class GraphRenderTest < Minitest::Test
   end
 end
 
+class SiteRenderTest < Minitest::Test
+  def render(world, dir)
+    Lorecraft::Render::Site.new(world, root: dir).render(
+      out: File.join(dir, "public"),
+      internal_out: File.join(dir, "internal"),
+      world_id: "sample-world",
+      title: "Sample World",
+      revision: "abc123",
+    )
+  end
+
+  def test_public_export_has_catalog_entry_graph_and_timeline_documents
+    Dir.mktmpdir do |dir|
+      render(sample_world, dir)
+      root = File.join(dir, "public", "worlds", "sample-world")
+      index = JSON.parse(File.read(File.join(root, "index.json")))
+      entry = JSON.parse(File.read(File.join(root, "entries", "concord.json")))
+      graph = JSON.parse(File.read(File.join(root, "graph.json")))
+      timeline = JSON.parse(File.read(File.join(root, "timeline.json")))
+
+      assert_equal "abc123", index["revision"]
+      assert_includes index["entries"].map { |item| item["id"] }, "concord"
+      assert_includes entry["sections"].first["markdown"], "(/sample-world/entry/reach)"
+      assert graph["edges"].any? { |edge| edge["src"] == "concord" && edge["tgt"] == "reach" }
+      assert_includes timeline["events"].map { |event| event["id"] }, "seizure"
+    end
+  end
+
+  def test_editorial_export_keeps_questions_logs_and_provenance_out_of_public_data
+    world = Lorecraft.define do
+      schema do
+        entity_type :concept
+        drafted_by_default :ai
+      end
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
+      concept :public_entry do
+        name "Public Entry"
+        prose "The visible world fact."
+        question "Check the date", raised: "2026-08-10", on: "world fact"
+        log "2026-08-10 — retained the observed date"
+      end
+      concept :hidden_entry do
+        name "Hidden Entry"
+        dm!
+        prose "The concealed fact."
+      end
+    end
+
+    Dir.mktmpdir do |dir|
+      render(world, dir)
+      public_root = File.join(dir, "public", "worlds", "sample-world")
+      public_text = Dir.glob(File.join(public_root, "**", "*.json")).map { |path| File.read(path) }.join
+      editorial = JSON.parse(File.read(File.join(dir, "internal", "worlds", "sample-world.json")))
+
+      refute_includes public_text, "Check the date"
+      refute_includes public_text, "retained the observed date"
+      refute_includes public_text, "concealed fact"
+      assert_equal "Check the date", editorial.dig("entries", "public_entry", "questions", 0, "text")
+      assert_equal "Hidden Entry", editorial.dig("entries", "hidden_entry", "title")
+      assert_equal "ai", editorial.dig("entries", "public_entry", "provenance", 0, "drafted_by")
+    end
+  end
+end
+
 class LinterTest < Minitest::Test
   def lint(&block)
     Lorecraft.define(&block).lint(root: Dir.mktmpdir)

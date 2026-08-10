@@ -1,0 +1,111 @@
+.timeline-view {
+  width: min(100%, 1280px);
+}
+
+.era-track {
+  display: flex;
+  gap: 8px;
+  padding: 34px 0 18px;
+  overflow-x: auto;
+}
+
+.era-card {
+  display: grid;
+  min-width: 220px;
+  max-width: 280px;
+  align-content: start;
+  gap: 8px;
+  padding: 18px;
+  border: 1px solid var(--paper-300);
+  color: var(--ink-700);
+  background: rgb(251 250 246 / 70%);
+  text-align: left;
+}
+
+.era-card:hover,
+.era-card--selected {
+  border-color: var(--world-accent);
+  background: var(--world-accent-soft);
+}
+
+.era-card span {
+  color: var(--world-accent);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.era-card strong {
+  color: var(--ink-900);
+  font-family: var(--serif);
+  font-size: 1.02rem;
+  font-weight: 650;
+}
+
+.era-card p {
+  display: -webkit-box;
+  margin: 0;
+  overflow: hidden;
+  color: var(--ink-600);
+  font-family: var(--serif);
+  font-size: 0.74rem;
+  line-height: 1.45;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+}
+
+.chronology {
+  max-width: 900px;
+  margin: 64px auto 0;
+}
+
+.chronology .section-heading button {
+  padding: 0;
+  border: 0;
+  color: var(--world-accent);
+  background: transparent;
+  font-size: 0.72rem;
+}
+
+.chronology ol {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.chronology li {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 30px;
+  padding: 30px 0;
+  border-top: 1px solid var(--paper-300);
+}
+
+.chronology__year {
+  color: var(--world-accent);
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.chronology h3 {
+  margin: 0 0 12px;
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.chronology h3 a {
+  text-decoration: none;
+}
+
+.chronology .prose {
+  font-size: 0.94rem;
+}
+
+@media (max-width: 680px) {
+  .chronology li {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}

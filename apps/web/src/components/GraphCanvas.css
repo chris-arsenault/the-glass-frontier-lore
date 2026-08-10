@@ -1,0 +1,17 @@
+.graph-canvas {
+  width: 100%;
+  min-height: 680px;
+  border: 1px solid var(--paper-300);
+  background:
+    radial-gradient(circle at center, rgb(255 255 255 / 70%), transparent 65%),
+    linear-gradient(rgb(82 101 108 / 5%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(82 101 108 / 5%) 1px, transparent 1px), var(--paper-100);
+  background-size: auto, 24px 24px, 24px 24px, auto;
+  box-shadow: inset 0 0 60px rgb(17 27 32 / 6%);
+}
+
+@media (max-width: 700px) {
+  .graph-canvas {
+    min-height: 560px;
+  }
+}

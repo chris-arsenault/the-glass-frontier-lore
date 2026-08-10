@@ -1,0 +1,115 @@
+.compare-view {
+  width: min(100%, 1420px);
+}
+
+.compare-picker {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin: 30px 0 20px;
+}
+
+.compare-picker label {
+  display: grid;
+  gap: 6px;
+  color: var(--ink-600);
+  font-size: 0.68rem;
+  font-weight: 750;
+}
+
+.compare-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.compare-column {
+  min-width: 0;
+  padding: clamp(20px, 3vw, 38px);
+  border: 1px solid var(--paper-300);
+  background: rgb(251 250 246 / 72%);
+  box-shadow: var(--shadow-small);
+}
+
+.compare-column--empty {
+  display: grid;
+  min-height: 320px;
+  place-items: center;
+  border-style: dashed;
+  color: var(--ink-500);
+  box-shadow: none;
+}
+
+.compare-column header > div {
+  color: var(--world-accent);
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.compare-column header h2 {
+  margin: 8px 0;
+  color: var(--ink-950);
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 3.3rem);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.compare-column header p {
+  color: var(--ink-500);
+  font-family: var(--serif);
+  font-style: italic;
+}
+
+.compare-facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  margin: 28px 0;
+  background: var(--paper-300);
+}
+
+.compare-facts div {
+  padding: 10px;
+  background: var(--paper-100);
+}
+
+.compare-facts dt {
+  color: var(--ink-500);
+  font-size: 0.57rem;
+  text-transform: uppercase;
+}
+
+.compare-facts dd {
+  margin: 4px 0 0;
+  color: var(--ink-800);
+  font-family: var(--serif);
+  font-size: 0.9rem;
+}
+
+.compare-column > section {
+  padding-top: 26px;
+  margin-top: 26px;
+  border-top: 1px solid var(--paper-300);
+}
+
+.compare-column h3 {
+  margin: 0 0 13px;
+  font-family: var(--serif);
+  font-size: 1.25rem;
+}
+
+.compare-column .prose {
+  font-size: 0.93rem;
+}
+
+@media (max-width: 850px) {
+  .compare-picker,
+  .compare-columns {
+    grid-template-columns: 1fr;
+  }
+}

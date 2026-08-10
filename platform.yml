@@ -1,0 +1,11 @@
+project: tsonu-canon
+prefix: tsonu-canon
+stack:
+  - rust
+  - typescript
+  - terraform
+rust_dir: backend
+typescript_dir: apps/web
+rust_artifacts:
+  lambdas:
+    - editorial-api

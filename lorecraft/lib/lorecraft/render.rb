@@ -15,6 +15,7 @@ module Lorecraft
       case target.to_sym
       when :markdown then Markdown
       when :wiki then Wiki
+      when :site then Site
       when :graph then Graph
       when :timeline then Timeline
       else raise Error, "unknown render target #{target.inspect}"
@@ -399,3 +400,4 @@ module Lorecraft
 end
 
 require_relative "render/wiki"
+require_relative "render/site"

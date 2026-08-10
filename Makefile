@@ -1,4 +1,4 @@
-.PHONY: validate lint check check-all wiki graph stats topology worlds test clean
+.PHONY: validate lint check check-all wiki site-data graph stats topology worlds test provenance queue web reader-dev reader-build backend-check app-check clean
 
 # Every target runs against one world. Override with WORLD=<id>; `make worlds`
 # lists what is available. The default comes from worlds.yml.
@@ -29,6 +29,24 @@ check-all:
 # worlds marked `publish: true`; it is never committed here.
 wiki:
 	@$(LC) wiki $(OUT)/wiki
+
+# Build the versioned public reader data and the separate editorial bundle.
+site-data:
+	@ruby lorecraft/tools/build_site.rb build/site build/site-internal
+
+# Branded multi-world reader. Install dependencies in apps/web before use.
+reader-dev:
+	@cd apps/web && pnpm run dev
+
+reader-build:
+	@cd apps/web && pnpm run build
+
+backend-check:
+	@cd backend && cargo fmt --all --check && cargo clippy --workspace --all-targets -- -D warnings && cargo test --workspace
+
+app-check: test check-all site-data backend-check
+	@cd apps/web && pnpm exec eslint . && pnpm exec tsc --noEmit && pnpm exec vitest run --coverage && pnpm run build
+	@terraform fmt -check -recursive infrastructure/terraform
 
 # Graph JSON projection, stats, topology.
 graph:

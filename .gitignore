@@ -1,6 +1,17 @@
 __pycache__/
 node_modules/
 tools/review-app/dist/
+apps/web/dist/
+apps/web/coverage/
+apps/web/*.tsbuildinfo
+backend/target/
+backend/target-cov/
+backend/target-lambda/
+backend/coverage/
+infrastructure/terraform/.terraform/
+infrastructure/terraform/.terraform.lock.hcl
+*.tfstate
+*.tfstate.*
 
 # Lorecraft render artifacts — every command writes under build/<world>/.
 build/

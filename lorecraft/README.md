@@ -1,9 +1,9 @@
 # Lorecraft
 
-A Ruby internal DSL that is the **single source of truth** for the Glass Frontier
-world. No graph database, no markdown-on-disk as the store — the world is an
-in-memory object graph with a real temporal model, and markdown + the graph
-projection are *render targets*.
+A Ruby internal DSL that is the **single source of truth** for every world in
+Tsonu Canon. No graph database, no markdown-on-disk as the store: each world is
+an in-memory object graph with a real temporal model, and the reader data,
+markdown and graph projection are *render targets*.
 
 This replaces the previous Memgraph + `graph_cli.py` + prose-on-disk arrangement,
 which required keeping prose and a separate graph in sync by hand.
@@ -30,6 +30,7 @@ world.validate!                                   # spec §8 + repo rules
 world.at(era: :the_accord, year: 5).out(:coremark, :operates_in)
 world.render(:markdown, out: "build/tree")        # regenerate the wiki tree
 world.render(:graph)                              # JSON node/edge projection
+world.render(:site, out: "build/site")            # public reader data
 ```
 
 CLI:
@@ -93,7 +94,7 @@ end
 ```
 lorecraft/
   lib/lorecraft/        engine: schema, timeline, entity, event, relation, worlds,
-                        resolver (fold), validator, render/{markdown,graph,timeline}
+                        resolver (fold), validator, render/{markdown,graph,timeline,site}
   bin/lorecraft         CLI — `--world <id>` picks the tenant
   tools/each_world.rb   run a make target across every world with canon
   tools/import.rb       one-shot migration: markdown + graph snapshot → world/
@@ -104,6 +105,8 @@ craft/schema/base.rb    kinds, effect verbs, relation taxonomy — every world l
 worlds/<id>/world/      THE CONTENT — the only source of truth, one dir per world
   schema.rb timeline.rb <type>/<id>.rb _shells.rb _edges.rb
 build/<id>/             generated artifacts (gitignored)
+build/site/             public multi-world reader data (gitignored)
+build/site-internal/    private editorial data (gitignored)
 ```
 
 The engine holds no world knowledge. `Lorecraft::Worlds` reads `worlds.yml` and
