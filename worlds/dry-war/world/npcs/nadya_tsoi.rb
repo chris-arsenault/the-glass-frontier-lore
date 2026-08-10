@@ -6,7 +6,7 @@ npc :nadya_tsoi do
   prose <<~PROSE
     A contract scout on #{ref :tangwang_post, "Tangwang Post"}'s roll, from a Bureya-bank family that has put scouts on the #{ref :the_amur_line, "line"} since the campaigns. She walks a compartment and the two kilometres beyond it. Her mark decides where crews make the next of #{ref :the_dead_rings, "the dead rings"}.
 
-    She carries a brass compass, a watch, a glass soil thermometer, a knife, a pencil and paper. Nothing she carries reports and nothing she wears is alive. Her hut stands outside the post's #{ref :continental_mycelium, "fungal growth"}. This gives the post one observer whom neither the fungus nor Continuity can feed a reading before she enters the trees.
+    She carries a brass compass, a watch, a glass soil thermometer, a knife, a pencil and paper. Nothing she carries reports and nothing she wears is alive. Her hut stands outside the post's #{ref :continental_mycelium, "fungal growth"}. This gives the post one observer whose first reading comes from her own instruments at the tree line.
   PROSE
 
   prose <<~PROSE, section: :operations, heading: "How She Walks"

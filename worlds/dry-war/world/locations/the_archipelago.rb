@@ -17,9 +17,9 @@ geographic_location :the_habitable_archipelago do
   PROSE
 
   prose <<~PROSE, section: :geography, heading: "The Inventory"
-    The core fungal territories of #{ref :connected_china, "China"} form the largest habitable landmass on Earth. Substantial portions of #{ref :coalition_north_america, "North America"} remain under coalition management. The Central Asian drylands hold human populations that answer to neither.
+    The core fungal territories of #{ref :connected_china, "China"} form the largest habitable landmass on Earth. Substantial portions of #{ref :coalition_north_america, "North America"} remain under coalition management. Independent human populations hold parts of the Central Asian drylands.
 
-    Beyond that: the #{ref :the_mediterranean_chain, "Mediterranean Chain"}, the #{ref :the_himalayan_holds, "Himalayan Holds"}, the #{ref :the_amur_line, "Amur Line"}, and corridors nobody has bothered to name because their tenure is measured in years.
+    Beyond that: the #{ref :the_mediterranean_chain, "Mediterranean Chain"}, the #{ref :the_himalayan_holds, "Himalayan Holds"}, the #{ref :the_amur_line, "Amur Line"}, and short-lived corridors known by local rivers, road markers and settlements.
 
     The borders move faster than maps can be printed. New editions still guide settlements, supply routes and evacuations until a checkpoint or dead road proves them wrong.
   PROSE

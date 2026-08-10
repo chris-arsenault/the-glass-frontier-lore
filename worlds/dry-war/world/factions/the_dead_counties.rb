@@ -18,7 +18,7 @@ faction :the_dead_counties do
   PROSE
 
   prose <<~PROSE, section: :structure, heading: "One Valley At A Time"
-    One town's current cannot be balanced from the next. A mill slows when the clinic sterilizer heats. Workshops keep two lathes because neither takes the other's tools, and a mechanic who knows both is worth more than either machine. At #{ref :cabin_creek_bench, "Cabin Creek"}, a severed bedside monitor draws on paper because nothing else in the room can receive its readings.
+    One town's current cannot be balanced from the next. A mill slows when the clinic sterilizer heats. Workshops keep two lathes built around different tools, and a mechanic who knows both is worth more than either machine. At #{ref :cabin_creek_bench, "Cabin Creek"}, a severed bedside monitor draws on paper because nothing else in the room can receive its readings.
 
     These mismatches waste power and parts. They also keep a machine taken from one workshop from reading or directing the whole county. The cost arrives as winter outages, duplicate stock and hours spent fitting one maker's parts to another's. Where a valley has no hidden bench or #{ref :orphan_machines, "old machine"} to protect, people connect the grids again.
   PROSE

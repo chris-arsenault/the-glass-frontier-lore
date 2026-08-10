@@ -20,7 +20,7 @@ installation :ste_anne_belfry do
 
     The band is eight people who can handle a rope. #{ref :cecile_ouellette, "Ouellette"} is the fourth captain since the programme began and the only ringer on the roster who learned from a band predating it. Two of the eight are past seventy. Marchand's return for #{year :now} records nine sessions cancelled for want of a band and none for weather.
 
-    Seven of the eight ropes are interchangeable to a competent ringer. The sixth is not: it is the heaviest-going of the ring and sits slightly off the others in strike note, and neither of the two oldest ringers will take it. A morning that assembles seven ringers is short the sixth more often than any other rope.
+    Seven of the eight ropes are interchangeable to a competent ringer. The sixth is the heaviest-going of the ring and sits slightly off the others in strike note; the two oldest ringers always choose other ropes. A morning that assembles seven ringers is short the sixth more often than any other rope.
   PROSE
 
   prose <<~PROSE, section: :history, heading: "The Old Sixth"

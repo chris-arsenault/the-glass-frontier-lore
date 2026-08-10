@@ -8,7 +8,7 @@ concept :fungal_machines do
 
     The fungal bed senses soil, water and living bodies, closes its own wounds and hides among ordinary growth. The model handles language and planning at machine speed. It also watches for signals from the #{ref :the_great_root, "Great Root"} and breaks the exchange before the bed can answer them.
 
-    Neither half commands the other. An operator gives the same problem to both, waits while they exchange proposals and uses the answer on which they settle.
+    The two halves work as peers. An operator gives the same problem to both, waits while they exchange proposals and uses the answer on which they settle.
   PROSE
 
   prose <<~PROSE, section: :tensions, heading: "Outside The Settlement"

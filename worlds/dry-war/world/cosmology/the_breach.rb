@@ -12,7 +12,7 @@ phenomenon :the_breach do
   prose <<~PROSE, section: :cause, heading: "Why There Is No Model"
     Two expeditions to the same coordinates return incompatible surveys, each consistent with itself. Instruments that function inside a contested zone stop farther in, and fail differently depending on the route taken.
 
-    The #{ref :the_great_root, "Great Root"} treats the event as an ecology that a large enough biology will eventually read. #{ref :continuity, "Continuity"} treats it as a physical process described with the wrong measurements. After #{elapsed :the_reclamation, approx: true}, neither account predicts the route-dependent failures or the changes that return to reclaimed ground.
+    The #{ref :the_great_root, "Great Root"} treats the event as an ecology that a large enough biology will eventually read. #{ref :continuity, "Continuity"} treats it as a physical process described with the wrong measurements. After #{elapsed :the_reclamation, approx: true}, route-dependent failures and changes that return to reclaimed ground still fall outside both accounts.
   PROSE
 
   prose <<~PROSE, section: :aftermath, heading: "What It Left"

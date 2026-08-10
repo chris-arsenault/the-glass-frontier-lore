@@ -7,7 +7,7 @@
 # first — the validator rejects undeclared tags.
 schema do
   # This world was drafted in assisted sessions from a worldbuilding
-  # conversation, so a block that does not say who wrote it was machine-drafted.
+  # conversation, so blocks inherit machine-drafted status until they name a drafter.
   drafted_by_default :ai_human
 
   # Symbiosis is a physical relationship here, not a metaphor, and legibility is
@@ -54,6 +54,20 @@ schema do
   ban_phrase "that's what makes", "narrator explaining its own material"
   ban_phrase "that is most of the horror", "narrator assigning the reader an emotion"
   ban_phrase "that is the horror", "narrator assigning the reader an emotion"
+  ban_phrase "refuses to explain", "state the motive or describe the visible action"
+  ban_phrase "refused to explain", "state the motive or describe the visible action"
+  ban_phrase "will not say why", "state the motive or describe the visible action"
+  ban_phrase "would not say why", "state the motive or describe the visible action"
+  ban_phrase "does not say why", "state the motive or describe the visible action"
+  ban_phrase "did not say why", "state the motive or describe the visible action"
+  ban_phrase "declines to answer", "describe the visible action"
+  ban_phrase "declined to answer", "describe the visible action"
+  ban_phrase "keeps the reason private", "state the motive or omit it"
+  ban_phrase "keeps their reasons private", "state the motive or omit it"
+  ban_phrase "leaves no account", "describe the known action and stop"
+  ban_phrase "left no account", "describe the known action and stop"
+  ban_phrase "neither calls", "describe the conflict directly"
+  ban_phrase "neither side acknowledges", "describe the conflict directly"
 
   tag :agriculture, "Farming, soil, crops, food systems"
   tag :autonomy, "Human self-determination and what happens to it"

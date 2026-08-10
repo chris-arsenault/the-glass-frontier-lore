@@ -14,7 +14,7 @@ concept :mixed_minds do
 
     A union could read living conditions at machine speed, repair its own sensors and move its calculations wherever wet tissue survived. Its purposes would develop inside the mixed mind rather than remain those of either parent.
 
-    Supporters want such a mind as a weapon against the #{ref :the_others, "Others"}, which neither civilization can predict or hold alone.
+    Supporters want such a mind as a weapon against the #{ref :the_others, "Others"}, whose changes outrun coalition forecasts and overrun Great Root growth.
   PROSE
 
   prose <<~PROSE, section: :reference, heading: "Along The Amur"

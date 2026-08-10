@@ -6,7 +6,7 @@ installation :cabin_creek_bench do
   prose <<~PROSE
     A timing bench in a shed on Cabin Creek, one of perhaps forty places in the #{ref :the_dead_counties, "Dead Counties"} where a substitute compound is proved before it goes out. The compounds are made elsewhere in the county and arrive with the courier who will take them away again; the bench makes nothing.
 
-    What it holds is a pendulum regulator, a rack of ninety stoppered tubes, a spirit burner, glass syringes, and a bedside monitor of a pattern that predates the coalitions — #{ref :orphan_machines, "severed"}, running on shed current, wired to a chart recorder that draws on paper. Two people work it on a fortnight rotation and neither of them is a chemist.
+    What it holds is a pendulum regulator, a rack of ninety stoppered tubes, a spirit burner, glass syringes, and a bedside monitor of a pattern that predates the coalitions — #{ref :orphan_machines, "severed"}, running on shed current, wired to a chart recorder that draws on paper. Two practical operators work it on a fortnight rotation.
   PROSE
 
   prose <<~PROSE, section: :mechanics, heading: "Two Paper Traces"

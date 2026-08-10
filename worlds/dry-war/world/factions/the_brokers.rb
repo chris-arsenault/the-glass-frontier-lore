@@ -10,7 +10,7 @@ faction :the_brokers do
   PROSE
 
   prose <<~PROSE, section: :tensions, heading: "Openness"
-    The Brokers make an older argument: China has always grown stronger by absorbing foreign techniques. They want neither separation from the fungal state nor a sealed network. They pay their taxes, sit on municipal committees and keep importing things the Great Root would rather examine before they enter the country.
+    The Brokers make an older argument: China has always grown stronger by absorbing foreign techniques. They want to remain part of the fungal state while keeping its network open to foreign knowledge. They pay their taxes, sit on municipal committees and keep importing things the Great Root would rather examine before they enter the country.
   PROSE
 
   prose <<~PROSE, section: :trade, heading: "What Moves"

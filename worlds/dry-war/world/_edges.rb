@@ -87,7 +87,7 @@ relate :rel_deadroot_grafts_derived_from_severed, :derived_from, :dead_root_graf
 relate :rel_ceramics_derived_from_mycelium, :derived_from, :memory_ceramics, :continental_mycelium
 relate :rel_sterile_evades_mycelium, :evades, :sterile_machines, :continental_mycelium
 
-# ---- the convergence nobody admits to ----
+# ---- machine and fungal cognition ----
 relate :rel_fungal_machines_derived_from_ferals, :derived_from, :fungal_machines, :feral_models
 relate :rel_fungal_machines_derived_from_severed, :derived_from, :fungal_machines, :severed_strains
 relate :rel_fungal_machines_embody_mixed_minds, :embodies, :fungal_machines, :mixed_minds

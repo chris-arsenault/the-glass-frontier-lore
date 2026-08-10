@@ -4,11 +4,11 @@ resource :water do
   prominence :mythic
 
   prose <<~PROSE
-    The Great Root and the coalitions both need the surviving rivers, for different uses that neither can abandon.
+    The surviving rivers carry two civilizations: habitat for the Great Root and coolant for the coalitions.
 
     The #{ref :the_great_root, "Great Root"} needs it as habitat. Mycelial cognition requires continuous moist ground; a dry belt is a place where the network cannot think. The coalitions need water as coolant. #{ref :fusion_plants, "Fusion plants"} and the computer works beside them consume rivers at volumes unknown before #{ref :the_long_summer, "the Long Summer"}.
 
-    Their territories therefore meet at rivers, lakes and high catchments even where neither side wants the other land.
+    Rivers, lakes and high catchments therefore pull their territories together. A strip of land matters because it holds water both systems use.
   PROSE
 
   prose <<~PROSE, section: :economy, heading: "As A Unit Of Value"

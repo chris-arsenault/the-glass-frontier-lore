@@ -16,7 +16,7 @@ incident :the_marsyangdi_burn do
   PROSE
 
   prose <<~PROSE, section: :aftermath, heading: "After The Burn"
-    Organisms meant for the Marsyangdi catchment now spend a winter at Thorong before they enter the ground. The Great Root has sent two replacement systems; both went to the cold house first, and neither has yet been planted above the intake.
+    Organisms meant for the Marsyangdi catchment now spend a winter at Thorong before they enter the ground. The Great Root has sent two replacement systems; both went to the cold house first and remain there before planting above the intake.
 
     The Root's own line service reported the survival and carried out the burn. It also pays the carriers, the replacement filter beds and the stored water drawn during the closure.
   PROSE

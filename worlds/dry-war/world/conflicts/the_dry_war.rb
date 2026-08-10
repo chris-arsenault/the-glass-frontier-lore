@@ -14,13 +14,13 @@ conflict :the_dry_war do
   prose <<~PROSE, section: :course, heading: "How It Is Fought"
     Most campaigns move water or organisms rather than troops.
 
-    A watershed is diverted for flood control and a fungal ecology two thousand kilometres downstream fails to reach a river it has used for #{elapsed :the_quiet_conquest, approx: true}. A coalition desalination programme changes coastal salinity and something stops growing. Spore loads appear in the intake filters of a cooling plant, and the plant's operators cannot prove intent because there is no intent to prove — the organism grows toward water.
+    A watershed is diverted for flood control and a fungal ecology two thousand kilometres downstream fails to reach a river it has used for #{elapsed :the_quiet_conquest, approx: true}. A coalition desalination programme changes coastal salinity and something stops growing. Spore loads appear in the intake filters of a cooling plant as the organism grows toward water. The growth blocks the same intake a military attack would target.
 
     Engineers recognize a campaign when the failures they repair begin moving upstream or across a watershed.
   PROSE
 
-  prose <<~PROSE, section: :implications, heading: "Why It Cannot Be Settled"
-    The Great Root governs 山河, and mountains and rivers cross customs posts. Coalition planners follow water demand, power demand and predicted casualties across the same borders. Neither side confines its works to a treaty line.
+  prose <<~PROSE, section: :implications, heading: "Why The Campaigns Continue"
+    The Great Root governs 山河, a domain of mountains and rivers that crosses customs posts. Coalition planners follow water demand, power demand and predicted casualties across the same borders. Their works spread along the same watersheds and reservoirs.
 
     The #{ref :the_forever_war, "Forever War"} interrupts the conflict where both civilizations need the same wall to stand. Crews on the #{ref :the_amur_line, "Amur Line"} and at the #{ref :the_himalayan_holds, "Himalayan Holds"} suspend attacks on one another while the pressure lasts.
   PROSE

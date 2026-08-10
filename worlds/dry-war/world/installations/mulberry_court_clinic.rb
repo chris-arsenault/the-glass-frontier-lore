@@ -22,7 +22,7 @@ installation :mulberry_court_clinic do
   PROSE
 
   prose <<~PROSE, section: :people, heading: "The Outer Bench"
-    Families and neighbours may bring meals, letters and familiar clothes to a tiled bench outside the double hatch. Staff inspect the packages for living material and pass them through without recording their contents. The status board beside the bench shows whether each room has eaten, accepted a check or requested reconnection; it shows no speech or movement from inside.
+    Families and neighbours may bring meals, letters and familiar clothes to a tiled bench outside the double hatch. Staff inspect the packages for living material and pass them through. The status board beside the bench records meals, checks and reconnection requests; everything else inside the rooms remains private.
 
     Room Five's numeral is split by a vein of blue glass. A basin trolley cracked the tile while #{ref :peng_meizhen, "Peng Meizhen"} was being rejoined to her garment, and the repairer made the sealed crack conspicuous for later wall checks.
   PROSE

@@ -6,7 +6,7 @@ A mycelial intelligence emerged from Chinese biotechnology. Living textiles firs
 
 North America fractured into four coalitions run by machine intelligences descended from hyperscalers, defence logistics, healthcare, and finance. Each coalition reduces human welfare to quantities it can measure. All four depend on water to sustain their populations and cool their fusion plants.
 
-The Great Root also needs the world's remaining wet regions. Neither side considers the resulting conflict a war. Humans call it the Dry War.
+The Great Root and the coalitions compete for the world's remaining wet regions through river diversions, watershed repair, reservoirs, cooling systems, and machine infrastructure. Humans call the resulting conflict the Dry War.
 
 The Breach made most of the planet uninhabitable. The affected regions now support the Others, an ecology that displaces human life without acting like a military enemy. Humanity fought it for two decades, won individual battles, and continued to lose territory. The remaining habitable regions form an archipelago whose borders no one expects to remain stable.
 
@@ -32,7 +32,7 @@ Use this test for every entry: it must show a concrete effect of two ruling syst
 
 Earth is part of the setting. Real geography, history, languages, and predecessor institutions may appear in prose. Write from within 2090: the twentieth and early twenty-first centuries are history, and the Breach is part of ordinary lived experience. See `guidance/voice-referents.md` for the exact register rules.
 
-### Neither ruling intelligence is a villain
+### Both ruling systems pursue human welfare
 
 The Great Root detects distress and responds before a neighbourhood complains. The coalitions keep most people alive, comfortable, and occupied. Both systems achieve the outcomes they measure. Describe those outcomes and the needs their measurements omit without adding an authorial moral verdict.
 

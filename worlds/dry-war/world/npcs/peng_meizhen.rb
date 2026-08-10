@@ -6,7 +6,7 @@ npc :peng_meizhen do
   prose <<~PROSE
     A municipal pump dispatcher and an ordinary #{ref :the_joined, "Joined"} citizen. When her elder sister, #{future "Peng Lihua"}, accepted a posting at #{ref :the_amur_line, "the Amur Line"}, the household asked Peng to move in and share care of her niece. Peng spent seven days in a disconnected room at #{ref :mulberry_court_clinic, "Mulberry Court Clinic"} before she answered.
 
-    She opposed neither the posting nor the move. She wanted to hear the choice without her family and the #{ref :the_great_root, "Great Root"} already present in the thought. Before #{ref :sun_yilan, "Sun Yilan"} cut her garment away, Peng said: *I know what all of us want. I am asking what I want before I add it back.*
+    She accepted the posting and the move. She wanted to hear the choice without her family and the #{ref :the_great_root, "Great Root"} already present in the thought. Before #{ref :sun_yilan, "Sun Yilan"} cut her garment away, Peng said: *I know what all of us want. I am asking what I want before I add it back.*
   PROSE
 
   prose <<~PROSE, section: :present_day, heading: "Room Five"
