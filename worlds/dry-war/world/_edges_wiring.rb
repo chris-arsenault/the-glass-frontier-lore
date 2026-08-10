@@ -22,7 +22,7 @@ relate :rel_wr_preservationists_evade_root, :evades, :the_preservationists, :the
 relate :rel_wr_hybrid_depends_deadroot_grafts, :depends_on, :hybridization, :dead_root_grafts
 relate :rel_wr_hybrid_manifests_amur, :manifests_at, :hybridization, :the_amur_line
 relate :rel_wr_minds_studies_hybrid, :studies, :the_thousand_minds, :hybridization
-relate :rel_wr_mycomachines_part_hybrid, :part_of, :mycomachines, :hybridization
+relate :rel_wr_fungal_machines_part_hybrid, :part_of, :fungal_machines, :hybridization
 
 # ---- the Dead Counties: systems that stop at the next valley ----
 relate :rel_wr_counties_evade_market, :evades, :the_dead_counties, :market
@@ -39,6 +39,9 @@ relate :rel_wr_ceramics_studies_bonsai, :studies, :memory_ceramics, :bonsai_inte
 
 # ---- dead-root grafts: the kill, and what dead tissue is worth ----
 relate :rel_wr_brokers_supplies_deadroot_grafts, :supplies, :the_brokers, :dead_root_grafts
+relate :rel_wr_brokers_supplies_severed_strains, :supplies, :the_brokers, :severed_strains
+relate :rel_wr_brokers_supplies_memory_ceramics, :supplies, :the_brokers, :memory_ceramics
+relate :rel_wr_brokers_supplies_fungal_machines, :supplies, :the_brokers, :fungal_machines
 relate :rel_wr_deadroot_grafts_manifest_amur, :manifests_at, :dead_root_grafts, :the_amur_line
 
 # ---- proto-fusion: what purity costs and where plants cannot go ----

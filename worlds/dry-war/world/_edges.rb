@@ -92,12 +92,12 @@ relate :rel_ceramics_derived_from_mycelium, :derived_from, :memory_ceramics, :co
 relate :rel_sterile_evades_mycelium, :evades, :sterile_machines, :continental_mycelium
 
 # ---- the convergence nobody admits to ----
-relate :rel_mycomachines_derived_from_ferals, :derived_from, :mycomachines, :feral_models
-relate :rel_mycomachines_derived_from_severed, :derived_from, :mycomachines, :severed_strains
-relate :rel_mycomachines_embody_hybridization, :embodies, :mycomachines, :hybridization
-relate :rel_forks_derived_from_implants, :derived_from, :human_forks, :neural_implants
-relate :rel_forks_derived_from_ceramics, :derived_from, :human_forks, :memory_ceramics
-relate :rel_forks_embody_hybridization, :embodies, :human_forks, :hybridization
+relate :rel_fungal_machines_derived_from_ferals, :derived_from, :fungal_machines, :feral_models
+relate :rel_fungal_machines_derived_from_severed, :derived_from, :fungal_machines, :severed_strains
+relate :rel_fungal_machines_embody_hybridization, :embodies, :fungal_machines, :hybridization
+relate :rel_mind_fragments_derived_from_implants, :derived_from, :mind_fragments, :neural_implants
+relate :rel_mind_fragments_derived_from_ceramics, :derived_from, :mind_fragments, :memory_ceramics
+relate :rel_mind_fragments_embody_hybridization, :embodies, :mind_fragments, :hybridization
 relate :rel_hybridization_concerns_root, :mentions, :hybridization, :the_great_root
 
 # ---- the Breach and what came after ----

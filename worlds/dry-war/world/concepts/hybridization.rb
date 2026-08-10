@@ -16,7 +16,7 @@ concept :hybridization do
 
     Factions on both sides are working toward it as a weapon against the #{ref :the_others, "Others"}. Supporters answer every objection by pointing to the ground neither civilization can hold.
 
-    #{ref :mycomachines, "Mycomachines"} join a small model to a severed fungal network. Resistance settlements use them while destroying any growth that reaches beyond the assigned bed.
+    #{ref :fungal_machines, "Fungal machines"} join a small model to a severed fungal network. Resistance settlements use them while destroying any growth that reaches beyond the assigned bed.
   PROSE
 
   prose <<~PROSE, section: :reference, heading: "Where The Work Is Being Done"

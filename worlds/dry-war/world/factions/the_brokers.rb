@@ -6,7 +6,7 @@ faction :the_brokers do
   prose <<~PROSE
     The Pearl River trading houses keep routes open between connected China and settlements beyond the #{ref :the_great_root, "Great Root"}. The network treats imported machines, models and habits as uncontrolled mutation. The Brokers consider that exchange necessary to keep China capable of learning from anyone outside itself.
 
-    Shenzhen engineers build semi-sentient interfaces to order. Guangzhou families have traded between connected and unconnected societies for three generations. Hong Kong courts distinguish biological property, fungal persons, human-fungal composites and organisms that may be foreign extensions of a continental intelligence.
+    Shenzhen engineers grow membranes that turn fungal chemistry into electrical signals. Guangzhou families have traded between connected and unconnected societies for three generations. Hong Kong courts decide whether seized tissue belongs to a person, a trading house or the Great Root, and whether a machine living inside it is cargo or another party to the case.
   PROSE
 
   prose <<~PROSE, section: :tensions, heading: "Openness"
@@ -14,7 +14,7 @@ faction :the_brokers do
   PROSE
 
   prose <<~PROSE, section: :trade, heading: "What Moves"
-    Interfaces, strains, lineage records, #{ref :memory_ceramics, "memory ceramics"}, medical fungi, and components of #{ref :mycomachines, "mycomachines"} passed west through independent carriers at the inland transfer houses.
+    #{ref :dead_root_grafts, "Dead-root grafts"}, #{ref :severed_strains, "severed strains"}, lineage books, #{ref :memory_ceramics, "memory ceramics"}, medical fungi and parts for #{ref :fungal_machines, "fungal machines"} pass west through independent carriers at the inland transfer houses.
 
     #{ref :market, "Market"} is their largest counterparty. The #{ref :the_preservationists, "Preservationists"} prohibit direct dealings with them and still depend on goods carried through their houses.
   PROSE
