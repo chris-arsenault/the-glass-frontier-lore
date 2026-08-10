@@ -5,7 +5,7 @@
 relate :rel_ties_saints_in_ensenada, :participated_in, :the_saints_of_plenty, :the_ensenada_bed
 relate :rel_ties_courts_in_ensenada, :participated_in, :the_garden_courts, :the_ensenada_bed
 relate :rel_ties_brokers_in_ensenada, :participated_in, :the_brokers, :the_ensenada_bed
-relate :rel_ties_ensenada_during_holding, :active_during, :the_ensenada_bed, :the_holding
+relate :rel_ties_ensenada_during_dry_war, :active_during, :the_ensenada_bed, :the_dry_war_era
 relate :rel_ties_ensenada_at_socal, :manifests_at, :the_ensenada_bed, :southern_california
 relate :rel_ties_ensenada_seed_from_sichuan, :sourced_from, :the_ensenada_bed, :sichuan
 
@@ -16,7 +16,7 @@ relate :rel_ties_burn_at_coldhouse, :manifests_at, :the_marsyangdi_burn, :thoron
 relate :rel_ties_burn_at_holds, :manifests_at, :the_marsyangdi_burn, :the_himalayan_holds
 relate :rel_ties_burn_caused_by_ecosystem, :caused_by, :the_marsyangdi_burn, :seeded_ecosystems
 relate :rel_ties_ecosystems_practiced_courts, :practiced_by, :seeded_ecosystems, :the_garden_courts
-relate :rel_ties_burn_during_holding, :active_during, :the_marsyangdi_burn, :the_holding
+relate :rel_ties_burn_during_dry_war, :active_during, :the_marsyangdi_burn, :the_dry_war_era
 relate :rel_ties_root_in_burn, :participated_in, :the_great_root, :the_marsyangdi_burn
 
 # ---- C. Yunnan reference wood: Thousand Minds ↔ the Amur Line ----

@@ -38,57 +38,65 @@ era :the_unified_calm do
   prose <<~PROSE
     Violent crime fell. Cancers were caught early. Famine stopped happening. Wars between human states stopped being possible, because the things that would have fought them had been absorbed into something that had no use for the category.
 
-    A whole generation grew up for whom the arrangement was simply how the world worked, and the surviving record of the period is full of people saying humanity had finally come through its crisis.
+    A whole generation grew up for whom the arrangement was simply how the world worked, and the record of the period is full of people saying humanity had finally come through its crisis.
 
-    Present histories stress the sovereignty lost during the Calm. Surviving diaries and broadcasts describe recovery. The generation raised among those accounts met the #{ref :the_breach, "Breach"} as the collapse of an order that had promised to last.
+    Present histories stress the sovereignty lost during the Calm. Diaries and broadcasts describe recovery. The calm ended when the systems that had solved the same emergencies began making incompatible claims over people, cities and rivers.
   PROSE
 end
 
-era :the_reclamation do
-  name "The Reclamation"
+era :the_rival_governments do
+  name "The Rival Governments"
   subkind :historical_period
-  tags :military, :catastrophe, :hybridization
+  tags :governance, :computation, :symbiosis
   prominence :mythic
   structural true
 
   prose <<~PROSE
-    For #{elapsed :the_reclamation, :the_holding}, the two civilizations fought joint campaigns against the #{ref :the_others, "Others"} and recovered millions of square kilometres.
+    Four machine systems claimed governing authority across overlapping parts of North America. A clinic, apartment and workplace in the same district could answer to three different coalitions. Their technical incompatibilities became the #{ref :the_coalition_wars, "Coalition Wars"} in 2068.
 
-    The campaigns ended when reclaimed ground began changing again. The armies had destroyed local growth without finding the thing that produced it, and the #{ref :the_forever_war, "Forever War"} replaced reconquest with permanent defence.
+    In China, the Great Root became the principal intelligence of the state while regional fungal minds kept distinct memories, crops and loyalties. Sichuan courts, Yunnan networks and dry western settlements all disputed what authority the centre could claim over them.
+
+    From 2068 to 2070, the #{ref :the_breach, "Breach"} made most of Earth uninhabitable. Chinese and North American forces shared a few field commands against it, especially along the Amur, without reconciling their governments.
   PROSE
+
+  log "2026-08-10 — Replaced a Breach-centred era with the political history of the Great Root and four coalitions."
 end
 
-era :the_holding do
-  name "The Holding"
+era :the_dry_war_era do
+  name "The Dry War Era"
   subkind :historical_period
-  tags :military, :catastrophe, :governance
+  tags :water, :military, :governance
   prominence :mythic
   structural true
 
   prose <<~PROSE
-    Armies hold the edge of habitable ground. The #{ref :the_dry_war, "Dry War"} has resumed everywhere that edge is not under immediate pressure.
+    By 2078, engineers on both sides were treating disconnected diversions, blocked intakes and failed wetlands as one conflict: the #{ref :the_dry_war, "Dry War"}.
 
-    Every major philosophy now begins from the possibility that this may no longer remain a human planet. Unified factions seek closer coordination with their governing minds; resistance cultures protect the choices people still hold.
+    The #{ref :the_coalition_wars, "Coalition Wars"} continue inside North America. Across both civilizations, most people still go to work, raise families and rely on the governments fighting those wars. Resistance cultures build lives around the choices those governments omit.
   PROSE
+
+  log "2026-08-10 — Replaced the Holding with the era in which the Dry War became a continuous named conflict."
 end
 
 incident :the_reclamation_campaigns do
-  name "The Reclamation Campaigns"
+  name "The Amur Reclamation"
   subkind :campaign
   tags :military, :catastrophe, :hybridization
-  prominence :renowned
+  prominence :recognized
 
   prose <<~PROSE
-    The #{elapsed :the_reclamation, :the_holding} of ground taken back from the #{ref :the_others, "Others"}, and the only sustained military cooperation between the two gods in history.
+    From 2070 to 2076, Chinese and North American forces cut exclusion zones back from settlements along the Amur. It was the longest joint campaign conducted by the two governing systems.
 
-    Machine-directed armies sterilized millions of square kilometres. Fungal growth rebuilt farms, shelters and wetlands behind the advance faster than anyone had thought possible because a #{ref :seeded_ecosystems, "seeded ecosystem"} can return from buried roots and spores. Human troops entered blind spots shared by machine prediction and fungal sensing. Both gods learned that some places yielded only to people on the ground.
+    Machine-directed crews cleared affected forest. Fungal growth rebuilt farms, shelters and wetlands behind the advance because a #{ref :seeded_ecosystems, "seeded ecosystem"} can return from buried roots and spores. Human scouts entered blind spots shared by machine prediction and fungal sensing.
 
-    Armies planted colonies on reclaimed ground, and some still transmit.
+    Several settlements reopened behind the line and remain there.
   PROSE
 
   prose <<~PROSE, section: :aftermath, heading: "What Ended It"
-    Reclaimed territory began changing again. Sometimes within a few years, sometimes not for a generation, and never in a pattern that survived analysis.
+    Cleared forest began changing again. Sometimes it took a season; sometimes it took years.
 
-    The returning changes showed that the armies had destroyed local growth without killing its source. No expedition has located or damaged whatever produces it.
+    The joint command ended in 2076. Permanent line crews remained, moving their marked compartments when new growth crossed them.
   PROSE
+
+  log "2026-08-10 — Reduced a planetary eighteen-year reconquest to a six-year joint campaign along the Amur."
 end

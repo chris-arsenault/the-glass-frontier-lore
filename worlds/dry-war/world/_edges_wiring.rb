@@ -50,11 +50,6 @@ relate :rel_wr_preservationists_evades_implants, :evades, :the_preservationists,
 relate :rel_wr_courts_petitions_implants, :petitions, :the_garden_courts, :symbiotic_implants
 relate :rel_wr_joined_possesses_implants, :possesses, :the_joined, :symbiotic_implants
 
-# ---- the Breach: what it left, and why there is no model ----
+# ---- the Breach and the Amur campaign ----
 relate :rel_wr_breach_caused_archipelago, :caused, :the_breach, :the_habitable_archipelago
-relate :rel_wr_breach_caused_forever_war, :caused, :the_breach, :the_forever_war
-relate :rel_wr_root_studies_breach, :studies, :the_great_root, :the_breach
-relate :rel_wr_continuity_studies_breach, :studies, :continuity, :the_breach
 relate :rel_wr_campaigns_caused_by_breach, :caused_by, :the_reclamation_campaigns, :the_breach
-relate :rel_wr_breach_manifests_boswash, :manifests_at, :the_breach, :boswash_ruins
-relate :rel_wr_breach_manifests_cairo, :manifests_at, :the_breach, :cairo

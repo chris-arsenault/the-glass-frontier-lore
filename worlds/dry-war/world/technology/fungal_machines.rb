@@ -14,7 +14,7 @@ concept :fungal_machines do
   PROSE
 
   prose <<~PROSE, section: :tensions, heading: "Outside The Settlement"
-    The Great Root treats the fungal bed as diseased tissue cut from its body and sends Joined crews to destroy it. The coalitions treat the model as an uncontrolled artificial intelligence living in growth they cannot search or shut down. #{ref :caretaker, "Caretaker"} handles a confirmed fungal machine as part of the #{ref :the_forever_war, "Forever War"}.
+    The Great Root treats the fungal bed as diseased tissue cut from its body and sends Joined crews to destroy it. The coalitions treat the model as an uncontrolled artificial intelligence living in growth they cannot search or shut down. #{ref :caretaker, "Caretaker"} separates a captured model from its bed and destroys whichever half resists transfer.
 
     Resistance settlements use them for work that needs both local sensing and fast planning. They grow the beds beyond houses, fields and drains, then burn any thread that crosses the assigned boundary.
   PROSE

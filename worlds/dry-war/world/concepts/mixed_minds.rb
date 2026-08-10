@@ -14,9 +14,9 @@ concept :mixed_minds do
   prose <<~PROSE, section: :dangers, heading: "A Continental Mind"
     The machines calculate quickly but depend on power plants, cooling water and manufactured sensors. The Great Root senses through living tissue, repairs itself and carries out chemistry across a continent, but its signals travel slowly.
 
-    A union could read living conditions at machine speed, repair its own sensors and move its calculations wherever wet tissue survived. Its purposes would develop inside the mixed mind rather than remain those of either parent.
+    A union could read living conditions at machine speed, repair its own sensors and move its calculations with growing tissue. Its purposes would develop inside the mixed mind rather than remain those of either parent.
 
-    Supporters want such a mind as a weapon against the #{ref :the_others, "Others"}, whose changes outrun coalition forecasts and overrun Great Root growth.
+    Supporters want such a mind to translate directly between the Great Root and a coalition intelligence during disputes over water. No governing intelligence has accepted the contact.
   PROSE
 
   prose <<~PROSE, section: :reference, heading: "Along The Amur"

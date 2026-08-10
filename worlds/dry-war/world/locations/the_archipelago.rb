@@ -6,23 +6,9 @@ geographic_location :the_habitable_archipelago do
   prominence :mythic
 
   prose <<~PROSE
-    The name for all places where a human can still live. Since the #{ref :the_breach, "Breach"}, they form an archipelago rather than a set of continents.
+    Most of Earth can no longer support permanent human settlement. The regions that can form an archipelago: two large continuous territories, smaller enclaves and a few defended corridors between them.
 
-    Two large territories, a scatter of habitable corridors, some isolated enclaves and a handful of front lines held jointly by enemies. Beyond them, people travel briefly or send instruments.
-  PROSE
-
-  prose <<~PROSE, section: :geography, heading: "Four Words On Every Map"
-    **Stable** ground behaves like the world before the Breach. Nearly everyone lives there. **Contested** ground shows the first wrong seasons, tissues and weather; permanent crews cut out each change as it appears. **Altered** ground follows different rules consistently enough for a prepared expedition to enter and leave. **Deep** ground takes only remote probes, and some returning records contain details of the crews that launched them.
-
-    The Great Root and the coalitions use the same four words. Their borders disagree. The word on a place decides whether families may settle, which machines can enter and how long a crew is expected to survive.
-  PROSE
-
-  prose <<~PROSE, section: :geography, heading: "The Inventory"
-    The core fungal territories of #{ref :connected_china, "China"} form the largest habitable landmass on Earth. Substantial portions of #{ref :coalition_north_america, "North America"} remain under coalition management. Independent human populations hold parts of the Central Asian drylands.
-
-    Beyond that: the #{ref :the_mediterranean_chain, "Mediterranean Chain"}, the #{ref :the_himalayan_holds, "Himalayan Holds"}, the #{ref :the_amur_line, "Amur Line"}, and short-lived corridors known by local rivers, road markers and settlements.
-
-    The borders move faster than maps can be printed. New editions still guide settlements, supply routes and evacuations until a checkpoint or dead road proves them wrong.
+    #{ref :connected_china, "Connected China"} and #{ref :coalition_north_america, "coalition North America"} hold most surviving people. The #{ref :the_mediterranean_chain, "Mediterranean Chain"}, #{ref :the_himalayan_holds, "Himalayan Holds"} and #{ref :the_amur_line, "Amur Line"} remain connected by narrow sea, air and overland routes.
   PROSE
 
   cards "The Largest Territories" do
@@ -32,11 +18,11 @@ geographic_location :the_habitable_archipelago do
          "The cities, waterworks and contested districts governed by four rival machine coalitions."
   end
 
-  cards "The Habitable Edges" do
+  cards "Smaller Regions" do
     card :the_mediterranean_chain,
-         "Port cities and island routes that survive by keeping short crossings open."
+         "Coastal enclaves and island routes held behind reefs, barriers and gates."
     card :the_himalayan_holds,
-         "High settlements divided from both great civilizations by mountains and altered ground."
+         "High settlements that protect the headwaters of several surviving river systems."
     card :the_amur_line,
          "A northern front where rival governments share posts against the Others."
   end

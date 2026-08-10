@@ -18,7 +18,7 @@ relate :rel_tc_dead_counties_supply_glass, :supplies, :the_dead_counties, :witne
 
 # ---- the eleven-day flush ----
 relate :rel_tc_flush_at_godown, :manifests_at, :the_eleven_day_flush, :wing_lok_godown
-relate :rel_tc_flush_during_holding, :active_during, :the_eleven_day_flush, :the_holding
+relate :rel_tc_flush_during_dry_war, :active_during, :the_eleven_day_flush, :the_dry_war_era
 relate :rel_tc_brokers_in_flush, :participated_in, :the_brokers, :the_eleven_day_flush
 relate :rel_tc_dead_counties_in_flush, :participated_in, :the_dead_counties, :the_eleven_day_flush
 relate :rel_tc_flush_depends_glass, :depends_on, :the_eleven_day_flush, :witness_glass
@@ -36,8 +36,7 @@ relate :rel_tc_kalkara_regulates_sterile, :regulates, :kalkara_bake_shed, :steri
 relate :rel_tc_zonqor_at_medchain, :manifests_at, :the_zonqor_drone, :the_mediterranean_chain
 relate :rel_tc_zonqor_at_kalkara, :manifests_at, :the_zonqor_drone, :kalkara_bake_shed
 relate :rel_tc_zonqor_depends_tiles, :depends_on, :the_zonqor_drone, :comparison_tiles
-relate :rel_tc_zonqor_mentions_others, :mentions, :the_zonqor_drone, :the_others
-relate :rel_tc_zonqor_during_reclamation, :active_during, :the_zonqor_drone, :the_reclamation
+relate :rel_tc_zonqor_during_dry_war, :active_during, :the_zonqor_drone, :the_dry_war_era
 
 # ---- Heshun: travelling lessons and the false headwater ----
 relate :rel_tc_heshun_in_yunnan, :located_in, :heshun_reading_house, :yunnan, since: 2069
@@ -46,7 +45,7 @@ relate :rel_tc_heshun_supplies_bonsai, :supplies, :heshun_reading_house, :bonsai
 relate :rel_tc_heshun_supplies_orphans, :supplies, :heshun_reading_house, :orphan_machines, since: 2074
 
 relate :rel_tc_false_headwater_at_heshun, :manifests_at, :the_false_headwater, :heshun_reading_house
-relate :rel_tc_false_headwater_during_reclamation, :active_during, :the_false_headwater, :the_reclamation
+relate :rel_tc_false_headwater_during_dry_war, :active_during, :the_false_headwater, :the_dry_war_era
 relate :rel_tc_false_headwater_mentions_bonsai, :mentions, :the_false_headwater, :bonsai_intelligences
 relate :rel_tc_false_headwater_mentions_orphans, :mentions, :the_false_headwater, :orphan_machines
 relate :rel_tc_dead_counties_in_false_headwater, :participated_in, :the_dead_counties, :the_false_headwater

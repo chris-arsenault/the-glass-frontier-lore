@@ -12,7 +12,7 @@ relate :rel_tb_osei_studies_shard, :studies, :ruth_osei, :the_six_faced_pipe_sha
 
 # ---- the repair the rubbing helped settle ----
 relate :rel_tb_callowhill_at_warehouse, :manifests_at, :the_callowhill_riser, :race_street_warehouse
-relate :rel_tb_callowhill_during_holding, :active_during, :the_callowhill_riser, :the_holding
+relate :rel_tb_callowhill_during_dry_war, :active_during, :the_callowhill_riser, :the_dry_war_era
 relate :rel_tb_callowhill_depends_vault, :depends_on, :the_callowhill_riser, :juyan_ceramic_vault
 relate :rel_tb_callowhill_depends_shard, :depends_on, :the_callowhill_riser, :the_six_faced_pipe_shard
 relate :rel_tb_callowhill_conducted_by_osei, :conducted_by, :the_callowhill_riser, :ruth_osei
@@ -29,14 +29,14 @@ relate :rel_tb_pilgrims_operate_yard, :operates_in, :the_pilgrims, :conowingo_sl
 
 # ---- the Long Grass return ----
 relate :rel_tb_long_grass_at_yard, :manifests_at, :the_long_grass_return, :conowingo_sluice_yard
-relate :rel_tb_long_grass_during_holding, :active_during, :the_long_grass_return, :the_holding
+relate :rel_tb_long_grass_during_dry_war, :active_during, :the_long_grass_return, :the_dry_war_era
 relate :rel_tb_pilgrims_in_long_grass, :participated_in, :the_pilgrims, :the_long_grass_return
 relate :rel_tb_market_in_long_grass, :participated_in, :market, :the_long_grass_return
 
 # ---- the Eight-Auger Round ----
 relate :rel_tb_eight_augers_at_post, :manifests_at, :the_eight_auger_round, :tangwang_post
 relate :rel_tb_eight_augers_at_sanchakou, :manifests_at, :the_eight_auger_round, :sanchakou
-relate :rel_tb_eight_augers_during_holding, :active_during, :the_eight_auger_round, :the_holding
+relate :rel_tb_eight_augers_during_dry_war, :active_during, :the_eight_auger_round, :the_dry_war_era
 relate :rel_tb_eight_augers_caused_by_ring, :caused_by, :the_eight_auger_round, :the_sanchakou_ring
 relate :rel_tb_continuity_in_eight_augers, :participated_in, :continuity, :the_eight_auger_round
 relate :rel_tb_xie_in_eight_augers, :participated_in, :xie_lanting, :the_eight_auger_round

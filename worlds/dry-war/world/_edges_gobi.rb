@@ -4,7 +4,6 @@
 # ---- the basin and the vault ----
 relate :rel_juyan_in_gobi, :part_of, :juyan, :the_gobi
 relate :rel_juyan_severed_from_root, :severed_from, :juyan, :the_great_root
-relate :rel_juyan_mentions_breach, :mentions, :juyan, :the_breach
 relate :rel_preservationists_operate_juyan, :operates_in, :the_preservationists, :juyan, since: 2062
 relate :rel_vault_in_juyan, :located_in, :juyan_ceramic_vault, :juyan, since: 2062
 relate :rel_preservationists_maintain_vault, :maintains, :the_preservationists, :juyan_ceramic_vault, since: 2062
@@ -22,7 +21,7 @@ relate :rel_yao_operates_gobi, :operates_in, :yao_lin, :the_gobi, since: 2078
 # ---- the forty-one households ----
 relate :rel_forty_one_at_vault, :manifests_at, :the_forty_one_households, :juyan_ceramic_vault
 relate :rel_forty_one_at_juyan, :manifests_at, :the_forty_one_households, :juyan
-relate :rel_forty_one_during_holding, :active_during, :the_forty_one_households, :the_holding
+relate :rel_forty_one_during_dry_war, :active_during, :the_forty_one_households, :the_dry_war_era
 relate :rel_forty_one_depends_ceramics, :depends_on, :the_forty_one_households, :memory_ceramics
 relate :rel_forty_one_mentions_root, :mentions, :the_forty_one_households, :the_great_root
 relate :rel_preservationists_in_forty_one, :participated_in, :the_preservationists, :the_forty_one_households

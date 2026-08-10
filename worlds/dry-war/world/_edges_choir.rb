@@ -23,7 +23,7 @@ relate :rel_rc_odile_cooperates_cecile, :cooperates_with, :odile_marchand, :ceci
 
 # ---- the Gratiot solo ----
 relate :rel_rc_solo_in_lakes, :manifests_at, :the_gratiot_solo, :the_great_lakes
-relate :rel_rc_solo_during_holding, :active_during, :the_gratiot_solo, :the_holding
+relate :rel_rc_solo_during_dry_war, :active_during, :the_gratiot_solo, :the_dry_war_era
 relate :rel_rc_solo_depends_belfry, :depends_on, :the_gratiot_solo, :ste_anne_belfry
 relate :rel_rc_choir_in_solo, :participated_in, :the_choir, :the_gratiot_solo
 relate :rel_rc_caretaker_in_solo, :participated_in, :caretaker, :the_gratiot_solo

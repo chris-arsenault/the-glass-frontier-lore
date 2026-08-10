@@ -4,6 +4,7 @@
 relate :rel_amur_rings_at_line, :manifests_at, :the_dead_rings, :the_amur_line
 relate :rel_amur_rings_at_post, :manifests_at, :the_dead_rings, :tangwang_post, since: 2088
 relate :rel_amur_rings_caused_by_others, :caused_by, :the_dead_rings, :the_others
+relate :rel_amur_reference_wood_mentions_others, :mentions, :yunnan_reference_wood, :the_others
 relate :rel_amur_root_maintains_rings, :maintains, :the_great_root, :the_dead_rings, since: 2088
 relate :rel_amur_continuity_models_rings, :models, :continuity, :the_dead_rings, since: 2088
 
@@ -38,7 +39,7 @@ relate :rel_amur_continuity_petitions_tsoi, :petitions, :continuity, :nadya_tsoi
 relate :rel_amur_xie_cooperates_tsoi, :cooperates_with, :xie_lanting, :nadya_tsoi, since: 2087
 
 # ---- the Sanchakou ring ----
-relate :rel_amur_sanchakou_ring_during_holding, :active_during, :the_sanchakou_ring, :the_holding
+relate :rel_amur_sanchakou_ring_during_dry_war, :active_during, :the_sanchakou_ring, :the_dry_war_era
 relate :rel_amur_sanchakou_ring_embodies_rings, :embodies, :the_sanchakou_ring, :the_dead_rings
 relate :rel_amur_sanchakou_ring_at_post, :manifests_at, :the_sanchakou_ring, :tangwang_post
 relate :rel_amur_sanchakou_ring_at_line, :manifests_at, :the_sanchakou_ring, :the_amur_line

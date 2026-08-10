@@ -8,7 +8,7 @@ geographic_location :juyan do
   prose <<~PROSE
     The dry lake basin at the end of the Ejin river, north of the corridor road, and the settlement where the #{ref :the_preservationists, "Preservationists"} keep the largest of their archives. Han garrisons filed their duty rosters on this ground on wooden slips, and dry air held the ink legible until somebody dug them up two millennia later. The settlement's founders cited those slips in the petition that established the site.
 
-    Water arrives underground or not at all. The surface channel has filled twice since #{ref :the_breach, "the Breach"} and drained both times within a season; the wells stand in a line along the old bed, each sunk deeper than the one before it, and the line's recovery rate sets what the settlement may spend in a day.
+    Water arrives underground or not at all. The surface channel has filled twice and drained both times within a season; the wells stand in a line along the old bed, each sunk deeper than the one before it, and the line's recovery rate sets what the settlement may spend in a day.
   PROSE
 
   prose <<~PROSE, section: :access, heading: "The Well Line And The Grove"

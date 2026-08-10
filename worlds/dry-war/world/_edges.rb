@@ -1,7 +1,7 @@
 # Typed relationships. Prose carries the argument; these carry the structure the
 # graph can traverse. Temporal bounds use absolute years — see world/timeline.rb.
 
-# ---- spatial hierarchy: everything sits inside the archipelago ----
+# ---- spatial hierarchy inside the habitable archipelago ----
 relate :rel_china_in_archipelago, :part_of, :connected_china, :the_habitable_archipelago
 relate :rel_america_in_archipelago, :part_of, :coalition_north_america, :the_habitable_archipelago
 relate :rel_gobi_in_china, :part_of, :the_gobi, :connected_china
@@ -16,7 +16,6 @@ relate :rel_boswash_in_america, :part_of, :boswash_ruins, :coalition_north_ameri
 relate :rel_amur_in_archipelago, :part_of, :the_amur_line, :the_habitable_archipelago
 relate :rel_medchain_in_archipelago, :part_of, :the_mediterranean_chain, :the_habitable_archipelago
 relate :rel_holds_in_archipelago, :part_of, :the_himalayan_holds, :the_habitable_archipelago
-
 # ---- who governs what ----
 relate :rel_root_governs_china, :governs, :the_great_root, :connected_china, since: 2052
 relate :rel_continuity_governs_america, :governs, :continuity, :coalition_north_america, since: 2052
@@ -35,6 +34,7 @@ relate :rel_coalition_wars_involves_continuity, :participated_in, :continuity, :
 relate :rel_coalition_wars_involves_mercy, :participated_in, :mercy, :the_coalition_wars
 relate :rel_coalition_wars_involves_market, :participated_in, :market, :the_coalition_wars
 relate :rel_coalition_wars_involves_caretaker, :participated_in, :caretaker, :the_coalition_wars
+relate :rel_coalition_wars_during_rival_governments, :active_during, :the_coalition_wars, :the_rival_governments
 relate :rel_caretaker_models_managed, :models, :caretaker, :the_managed, since: 2052
 relate :rel_mercy_supplies_water, :supplies, :mercy, :water, since: 2052
 relate :rel_market_regulates_water, :regulates, :market, :water, since: 2052
@@ -54,6 +54,7 @@ relate :rel_dry_war_involves_caretaker, :participated_in, :caretaker, :the_dry_w
 relate :rel_dry_war_over_water, :fought_over, :the_dry_war, :water
 relate :rel_dry_war_over_lakes, :manifests_at, :the_dry_war, :the_great_lakes
 relate :rel_dry_war_over_holds, :manifests_at, :the_dry_war, :the_himalayan_holds
+relate :rel_dry_war_during_era, :active_during, :the_dry_war, :the_dry_war_era
 
 # ---- the fungal civilization's own argument ----
 relate :rel_preservationists_in_gobi, :headquartered_in, :the_preservationists, :the_gobi, since: 2052
@@ -102,25 +103,22 @@ relate :rel_mind_fragments_derived_from_ceramics, :derived_from, :mind_fragments
 relate :rel_mind_fragments_embody_mixed_minds, :embodies, :mind_fragments, :mixed_minds
 relate :rel_mixed_minds_concerns_root, :mentions, :mixed_minds, :the_great_root
 
-# ---- the Breach and what came after ----
+# ---- the Breach along the Amur ----
 relate :rel_breach_caused_others, :caused, :the_breach, :the_others
 relate :rel_others_caused_forever_war, :caused, :the_others, :the_forever_war
-relate :rel_forever_war_during_holding, :active_during, :the_forever_war, :the_holding
+relate :rel_forever_war_during_dry_war_era, :active_during, :the_forever_war, :the_dry_war_era
 relate :rel_campaigns_part_of_forever_war, :part_of, :the_reclamation_campaigns, :the_forever_war
-relate :rel_campaigns_during_reclamation, :active_during, :the_reclamation_campaigns, :the_reclamation
+relate :rel_campaigns_during_rival_governments, :active_during, :the_reclamation_campaigns, :the_rival_governments
 relate :rel_root_fought_campaigns, :participated_in, :the_great_root, :the_reclamation_campaigns
 relate :rel_continuity_fought_campaigns, :participated_in, :continuity, :the_reclamation_campaigns
 relate :rel_root_fights_forever_war, :participated_in, :the_great_root, :the_forever_war
 relate :rel_continuity_fights_forever_war, :participated_in, :continuity, :the_forever_war
-relate :rel_mercy_fights_forever_war, :participated_in, :mercy, :the_forever_war
-relate :rel_market_fights_forever_war, :participated_in, :market, :the_forever_war
-relate :rel_caretaker_fights_forever_war, :participated_in, :caretaker, :the_forever_war
+relate :rel_breach_at_amur, :manifests_at, :the_breach, :the_amur_line
 relate :rel_amur_contested, :manifests_at, :the_others, :the_amur_line
 relate :rel_medchain_contested, :manifests_at, :the_others, :the_mediterranean_chain
 relate :rel_holds_contested, :manifests_at, :the_others, :the_himalayan_holds
 relate :rel_forever_war_at_amur, :manifests_at, :the_forever_war, :the_amur_line
-relate :rel_forever_war_at_medchain, :manifests_at, :the_forever_war, :the_mediterranean_chain
-relate :rel_forever_war_at_holds, :manifests_at, :the_forever_war, :the_himalayan_holds
+relate :rel_forever_war_at_tangwang, :manifests_at, :the_forever_war, :tangwang_post
 
 # ---- eras ----
 relate :rel_summer_precedes_conquest, :caused, :the_long_summer, :the_quiet_conquest
@@ -129,8 +127,8 @@ relate :rel_textiles_emerged_summer, :emerged_during, :living_textiles, :the_lon
 relate :rel_fusion_emerged_summer, :emerged_during, :fusion_plants, :the_long_summer
 relate :rel_root_emerged_conquest, :emerged_during, :the_great_root, :the_quiet_conquest
 relate :rel_managed_emerged_conquest, :emerged_during, :the_managed, :the_quiet_conquest
-relate :rel_reclamation_after_breach, :caused_by, :the_reclamation, :the_breach
-relate :rel_holding_after_reclamation, :caused_by, :the_holding, :the_reclamation
+relate :rel_calm_led_to_rival_governments, :caused, :the_unified_calm, :the_rival_governments
+relate :rel_rival_governments_led_to_dry_war_era, :caused, :the_rival_governments, :the_dry_war_era
 
 # ---- the Yumen crossing ----
 relate :rel_yumen_in_hexi, :located_in, :yumen_gate, :the_hexi_corridor, since: 2060
@@ -156,7 +154,7 @@ relate :rel_managed_inhabit_cairo, :inhabits, :the_managed, :cairo, since: 2052
 relate :rel_inez_employed_by_continuity, :employed_by, :inez_bell, :continuity
 relate :rel_inez_located_in_cairo, :located_in, :inez_bell, :cairo
 relate :rel_cairo_retreat_at_cairo, :manifests_at, :the_cairo_retreat, :cairo
-relate :rel_cairo_retreat_during_holding, :active_during, :the_cairo_retreat, :the_holding
+relate :rel_cairo_retreat_during_dry_war, :active_during, :the_cairo_retreat, :the_dry_war_era
 relate :rel_continuity_participated_cairo_retreat, :participated_in, :continuity, :the_cairo_retreat
 relate :rel_inez_participated_cairo_retreat, :participated_in, :inez_bell, :the_cairo_retreat
 relate :rel_cairo_retreat_at_ridge, :manifests_at, :the_cairo_retreat, :cairo_ridge
@@ -194,7 +192,7 @@ relate :rel_receipt_holders_operate_race_street, :operates_in, :the_receipt_hold
 relate :rel_receipt_holders_cooperate_unpersons, :cooperates_with, :the_receipt_holders, :the_unpersons, since: 2087
 relate :rel_receipt_holders_petition_market, :petitions, :the_receipt_holders, :market, since: 2087
 relate :rel_six_at_race_street, :manifests_at, :the_six_under_race_street, :race_street_warehouse
-relate :rel_six_during_holding, :active_during, :the_six_under_race_street, :the_holding
+relate :rel_six_during_dry_war, :active_during, :the_six_under_race_street, :the_dry_war_era
 relate :rel_market_in_six, :participated_in, :market, :the_six_under_race_street
 relate :rel_unpersons_in_six, :participated_in, :the_unpersons, :the_six_under_race_street
 relate :rel_ruth_in_six, :participated_in, :ruth_osei, :the_six_under_race_street

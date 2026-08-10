@@ -17,8 +17,8 @@ resource :fusion_plants do
     That fraction is what #{ref :market, "Market"} prices and what a #{ref :the_choir, "Choir"} action attacks. Push a treatment train beyond its limit and salts blind its membranes, pumps choke on the concentrated waste, and the power cluster shuts down without anyone striking the reactors. The Choir excludes treatment halls and clinics from its targets.
   PROSE
 
-  prose <<~PROSE, section: :limits, heading: "Where The Plants Cannot Go"
-    Every remaining plant sits inside the habitable archipelago. The coalitions can build only toward water they can hold, and the #{ref :the_others, "Others"} hold most of the rest. The #{ref :the_dry_war, "Dry War"} follows the surviving rivers.
+  prose <<~PROSE, section: :limits, heading: "Where Plants Can Run"
+    A coalition can operate a plant only where it can withdraw water, remove its salts and living matter, and return enough flow to the districts downstream. The #{ref :the_dry_war, "Dry War"} follows those rivers and treatment works.
 
     #{ref :mercy, "Mercy"} runs the smallest fleet and buys power from the others. It controls few sites but closely manages #{ref :water, "the water left to nearby districts"}. #{ref :caretaker, "Caretaker"} has the largest fleet and assigns an advocate to every household upstream of a treatment hall. The #{future "Athabasca cold plant"} is the only site any coalition has abandoned because its water failed while the ground remained habitable.
   PROSE

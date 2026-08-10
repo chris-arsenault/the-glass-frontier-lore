@@ -3,26 +3,32 @@ phenomenon :the_breach do
   subkind :catastrophe
   tags :catastrophe, :ecology
   prominence :mythic
+  custom_fact :began, 2068, type: :year, label: "Began"
 
   prose <<~PROSE
-    The two years in which most of the planet stopped being habitable without being destroyed. It began #{elapsed :the_breach, ago: true}. No proposed cause matches the order of the first sites or their different effects.
+    The Breach names the two years in which most of the planet stopped being habitable without being destroyed. It began #{elapsed :the_breach, ago: true}. Forests, tidal flats and agricultural districts developed plants, animals, soils and weather that changed together.
 
-    The world was already under enormous strain. The mycelium was changing soils, atmospheric chemistry and ocean microorganisms. The coalitions managed weather, desalination, clouds and vast heat stores, while surviving human governments ran climate programmes across both. No single programme matches the places where the Breach began or the order in which it spread. Line crews say the work made the world thin enough for something to notice us.
+    The first sites appeared on several continents. No proposed cause matches their order or their different effects.
   PROSE
 
-  prose <<~PROSE, section: :cause, heading: "Why There Is No Model"
+  prose <<~PROSE, section: :cause, heading: "Competing Accounts"
     Two expeditions to the same coordinates return incompatible surveys, each consistent with itself. Instruments that function inside a contested zone stop farther in, and fail differently depending on the route taken.
 
-    The #{ref :the_great_root, "Great Root"} treats the event as an ecology that a large enough biology will eventually read. #{ref :continuity, "Continuity"} treats it as a physical process described with the wrong measurements. After #{elapsed :the_reclamation, approx: true}, route-dependent failures and changes that return to reclaimed ground still fall outside both accounts.
+    Chinese ecologists treat each zone as a living system that can eventually be read. Coalition laboratories treat the same changes as physical processes measured with the wrong instruments. Route-dependent failures and changes that return to cleared ground still fall outside both accounts.
   PROSE
 
   prose <<~PROSE, section: :aftermath, heading: "What It Left"
     Forests still grow, oceans still move and cities remain standing. Things occupying the old niches of animals still feed, breed and migrate.
 
-    Life in those regions follows constraints unknown elsewhere. A forest grows toward memory rather than light. Predators appear only once something has become afraid of them. An abandoned city holds organisms whose anatomy depends on the direction of approach. Some coastlines have tides that take no reference from the moon.
+    Across the altered regions, life follows constraints unknown elsewhere. A stand of trees may grow toward an earlier fire rather than toward light. Animals change migration and feeding together with the plants around them. The same ground can remain ordinary for years after a line crew clears it.
 
-    Sterilized ground kept producing new organisms without a visible parent or reservoir, and the #{ref :the_reclamation_campaigns, "reclamation"} ended. Line crews say the environments are learning.
+    Cleared ground along the Amur kept producing new organisms without a visible parent or reservoir, ending the #{ref :the_reclamation_campaigns, "joint reclamation"} there. Line crews still cut each change back as it appears.
   PROSE
 
   log "2026-08-10 — Removed an active-during link to the Holding. The Breach itself lasted from 2068 to 2070; its consequences continue into the present."
+  log "2026-08-10 — Kept the Breach's global extent while removing it as the spine of the present-day timeline."
+end
+
+moment :breach_begins, year: 2068, of: :the_breach do
+  title "First Breach zones recorded"
 end

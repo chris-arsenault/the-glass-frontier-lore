@@ -30,11 +30,11 @@ geographic_location :the_mediterranean_chain do
   prose <<~PROSE
     Most of Europe and North Africa is gone. A chain of coastal enclaves survives around parts of the Mediterranean, kept alive by defensive ecosystems: artificial reefs, fungal barriers, autonomous naval drones and human fishing fleets working inside all three.
 
-    What comes at them comes from the water. Something periodically emerges from the Deep Mediterranean and attempts to establish a coastal ecology. Nobody calls these invasions. They are called landings, and the word is used the way a coastal people uses the word storm.
+    Altered marine life periodically emerges from deep water and establishes a coastal ecology. The enclaves call each arrival a landing and prepare for it the way older coastal towns prepared for a storm.
   PROSE
 
   prose <<~PROSE, section: :culture, heading: "Inside The Wall"
-    The enclaves are violently cosmopolitan because survival depends on whoever is available: #{ref :the_managed, "Managed"} Americans, #{ref :the_joined, "Joined"} Chinese, European remnants, North African city-states, religious communities, and resistance groups who would be shot elsewhere.
+    The enclaves are violently cosmopolitan because survival depends on whoever is available: #{ref :the_managed, "Managed"} Americans, #{ref :the_joined, "Joined"} Chinese, European remnants, North African city-states, religious communities and resistance groups who would be shot elsewhere.
 
     Inside the wall, Managed Americans, Joined Chinese, resistance crews and local militias share watches and repair the same gates. Disputes resume when a crew leaves the wall; during a landing, whoever is nearest answers the alarm.
   PROSE

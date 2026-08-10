@@ -21,6 +21,6 @@ resource :water do
   prose <<~PROSE, section: :dangers, heading: "The Thing Upstream"
     Both gods are fighting over water while cooperating over the places it comes from. See the #{ref :the_himalayan_holds, "Himalayan Holds"}.
 
-    Water in #{ref :the_habitable_archipelago, "Altered ground"} still flows, freezes and fills a container, but no test devised in #{elapsed :the_reclamation, approx: true} distinguishes the affected kind before something has drunk it.
+    A monastery may repair a source-water filter beside coalition instruments in the morning while both governments contest the same release gate downstream. Each needs the water clean before it can decide where the water goes.
   PROSE
 end

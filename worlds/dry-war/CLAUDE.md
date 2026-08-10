@@ -1,14 +1,16 @@
 # The Dry War
 
-The Dry War is set on Earth in 2090 CE, during the Holding. Two forms of superintelligent government rule most of the surviving human population: the Great Root and four North American machine coalitions.
+The Dry War is set on Earth in 2090 CE. Most surviving people live under two forms of superintelligent government: the Great Root in China and four machine coalitions across North America.
 
 A mycelial intelligence emerged from Chinese biotechnology. Living textiles first regulated heat, then physiology and mood. The organism spread through the interfaces of the state until no one could identify where its directives began. It calls this system 共生治理, symbiotic governance. The Great Root and the Mushroom Government are other names used by different speakers.
 
 North America fractured into four coalitions run by machine intelligences descended from hyperscalers, defence logistics, healthcare, and finance. Each coalition reduces human welfare to quantities it can measure. All four depend on water to sustain their populations and cool their fusion plants.
 
-The Great Root and the coalitions compete for the world's remaining wet regions through river diversions, watershed repair, reservoirs, cooling systems, and machine infrastructure. Humans call the resulting conflict the Dry War.
+The Great Root and the coalitions compete across watersheds through river diversions, wetland growth, reservoirs, cooling systems, and machine infrastructure. Humans call the resulting conflict the Dry War.
 
-The Breach made most of the planet uninhabitable. The affected regions now support the Others, an ecology that displaces human life without acting like a military enemy. Humanity fought it for two decades, won individual battles, and continued to lose territory. The remaining habitable regions form an archipelago whose borders no one expects to remain stable.
+The Breach made most of Earth uninhabitable without destroying it. Plants, animals, weather, and soil across the lost regions now change together; people call the affected ecologies the Others. Connected China and coalition North America hold the two largest continuous territories, with smaller settlements scattered between them.
+
+The uninhabitable world sets the boundary of the canon. It does not require a detailed account of every former nation, and it should not turn every entry into another account of the Breach.
 
 ## Working on this world
 
@@ -40,9 +42,9 @@ The Great Root detects distress and responds before a neighbourhood complains. T
 
 The Joined and the Managed make up most of humanity, and most accept the systems governing them. Resistance cultures create many of the world's active conflicts, but they are minorities. Do not write their beliefs as the unspoken view of everyone else.
 
-### Use the Others only when relevant
+### Keep the Others in the background
 
-The Others determine how much habitable territory remains and how secure any border feels. Mention them when that pressure directly affects the subject. Do not turn an unrelated entry into an explanation of the Others.
+The Others occupy most land outside the surviving regions. Mention them when they directly affect the subject, as they do along the Amur and around the smaller enclaves. Do not make them the cause of a conflict already driven by water or government, and do not route unrelated entries through their history.
 
 ## Fixed points
 
@@ -57,12 +59,12 @@ The Others determine how much habitable territory remains and how secure any bor
 | Path | Contents |
 |---|---|
 | `world/` | canonical Lorecraft DSL |
-| `world/cosmology/` | the Breach, the Others, the Forever War, and the gradients |
+| `world/cosmology/` | the Breach, the Others, and the Amur front |
 | `world/conflicts/` | the Dry War and the Coalition Wars |
 | `world/cultures/` | the Joined and the Managed |
 | `world/factions/` | the ruling intelligences, the four coalitions, and resistance cultures |
 | `world/concepts/` | symbiotic governance, the water heresy, and the Mandate question |
 | `world/technology/` | infrastructure used by the ruling systems and resistance cultures |
-| `world/locations/` | the habitable archipelago and its regions |
+| `world/locations/` | the surviving regions, their settlements, and their frontiers |
 | `guidance/authoring-method.md` | the drafting and review procedure |
 | `guidance/voice-referents.md` | allowed Earth references and the 2090 register |

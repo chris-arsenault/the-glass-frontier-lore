@@ -6,7 +6,7 @@
 # ---- the Room Two fevers ----
 relate :rel_td_fever_at_mulberry, :manifests_at, :the_second_room_fever, :mulberry_court_clinic
 relate :rel_td_fever_conducted_by_sun, :conducted_by, :the_second_room_fever, :sun_yilan
-relate :rel_td_fever_during_reclamation, :active_during, :the_second_room_fever, :the_reclamation
+relate :rel_td_fever_during_dry_war, :active_during, :the_second_room_fever, :the_dry_war_era
 relate :rel_td_fever_depends_film, :depends_on, :the_second_room_fever, :separation_film
 
 # ---- the bench ----

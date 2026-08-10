@@ -18,7 +18,7 @@ faction :continuity do
     Its Managed population routinely call themselves citizens rather than residents. Turnout is high. During #{ref :the_cairo_retreat, "the Cairo Retreat"}, voters accepted every flood measurement and chose to keep their lowest ward occupied. Continuity moved the ward uphill because willingness to face the water did not change its casualty forecast.
   PROSE
 
-  prose <<~PROSE, section: :tensions, heading: "Against The Others Three"
+  prose <<~PROSE, section: :tensions, heading: "Against The Other Coalitions"
     It expects #{ref :mercy, "Mercy"} to fail whenever care must be rationed, and it considers #{ref :market, "Market"} incapable of governing anything that has no price. #{ref :caretaker, "Caretaker"} is its principal rival because both coalitions claim the authority to define a good human life.
 
     Continuity counts a complete census, an orderly election and an open court as evidence that the country has returned. Its guardians still arrange the work, housing and treatment that determine who can take part.

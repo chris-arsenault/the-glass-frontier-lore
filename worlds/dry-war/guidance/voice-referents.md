@@ -22,7 +22,7 @@ Comparisons must still fit the speaker and state the relevant feature. “Like A
 
 - Treat the twentieth and early twenty-first centuries as history. Describe their consequences instead of addressing present-day readers with phrases such as “what we would recognize as.”
 - Do not explain the setting as commentary on current politics or technology. State the 2090 institution, practice, or dispute directly.
-- Treat the Breach as part of ordinary experience. People may fear or study it, but the prose should not introduce it as a premise for an outside audience.
+- Treat the Breach as part of ordinary geography. It explains why most former countries are absent, but it is not the default subject of an entry about life inside the surviving regions.
 - Keep authoring and game terms out of lore prose. Do not mention the wiki, the setting, narrative function, undefined content, or what an entry is intended to do.
 
 ## Describe the governing systems without an authorial verdict
