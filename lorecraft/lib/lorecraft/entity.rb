@@ -12,8 +12,8 @@ module Lorecraft
   # here — it is the fold of moments, computed by the Resolver. The entity only
   # holds what is constant: who it is, not what has happened to it.
   class Entity
-    attr_reader :id, :kind, :static_attrs, :prose_blocks, :derives, :source_file,
-                :log_entries, :questions
+    attr_reader :id, :kind, :static_attrs, :fact_values, :custom_fact_defs,
+                :content_blocks, :derives, :source_file, :log_entries, :questions
     attr_accessor :visibility, :public_entry, :index_note
 
     def initialize(id:, kind:, source_file: nil)
@@ -21,7 +21,9 @@ module Lorecraft
       @kind = kind.to_sym
       @source_file = source_file
       @static_attrs = {}
-      @prose_blocks = []
+      @fact_values = {}
+      @custom_fact_defs = []
+      @content_blocks = []
       @log_entries = []
       @questions = []
       @derives = {}
@@ -35,6 +37,10 @@ module Lorecraft
     def title = @static_attrs[:title] || @id.to_s.split("_").map(&:capitalize).join(" ")
     def tags = Array(@static_attrs[:tags]).map(&:to_sym)
     def prominence = @static_attrs[:prominence]
+    def subkind = (@static_attrs[:subkind] || @kind).to_sym
+    def authored_blocks = @content_blocks
+    def prose_blocks = @content_blocks.select(&:prose?)
+    def card_blocks = @content_blocks.select(&:cards?)
 
     # Referenced for bookkeeping rather than for a world fact — see
     # Schema::DEFAULT_STATIC_ATTRS. Orthogonal to prominence.
@@ -58,7 +64,7 @@ module Lorecraft
       def initialize(entity, world)
         @entity = entity
         @world = world
-        @prose_order = 0
+        @content_order = 0
       end
 
       # --- common static attributes (explicit for clarity / validation) -----
@@ -80,6 +86,7 @@ module Lorecraft
       def status(value)    = set(:status, value.to_sym)
       def region(value)    = set(:region, value)
       def narrative_role(value) = set(:narrative_role, value.to_sym)
+      def subkind(value) = set(:subkind, value.to_sym)
 
       # Mark this entity DM-only. `public_entry:` names the player-facing entity
       # this hidden truth extends.
@@ -100,12 +107,69 @@ module Lorecraft
       #   prose(<<~MD, section: :history, at: { era: :reconnection, year: 2 })
       def prose(text, section: :main, heading: nil, at: nil, dm: false,
                 origin: nil, drafted_by: nil, reviewed: nil)
-        @entity.prose_blocks << ProseBlock.new(
+        @entity.content_blocks << ProseBlock.new(
           text: text, section: section.to_sym, heading: heading,
           at_year: at && @world.timeline.year_for(at),
-          dm: dm, order: (@prose_order += 1),
+          dm: dm, order: (@content_order += 1),
           origin: origin&.to_sym, drafted_by: drafted_by&.to_sym, reviewed: reviewed
         )
+      end
+
+      # An authored set of onward links. Unlike typed relationships, these are
+      # editorial choices: their heading, order and descriptions appear exactly
+      # as written.
+      def cards(heading, section: :relationships, at: nil, dm: false,
+                origin: nil, drafted_by: nil, reviewed: nil, &block)
+        list = CardListBuilder.new
+        list.instance_eval(&block) if block
+        @entity.content_blocks << CardBlock.new(
+          cards: list.items, section: section.to_sym, heading: heading,
+          at_year: at && @world.timeline.year_for(at),
+          dm: dm, order: (@content_order += 1),
+          origin: origin&.to_sym, drafted_by: drafted_by&.to_sym, reviewed: reviewed
+        )
+      end
+
+      # Set one attribute-backed fact declared for this entity's kind. The
+      # explicit form is available when a fact name collides with another DSL
+      # method; ordinary facts can use their name directly (`born 2012`).
+      def fact(name, value)
+        definition = @world.schema.fact_def(
+          @entity.kind, name, subkind: @entity.subkind, custom: @entity.custom_fact_defs
+        )
+        raise DefinitionError, "unknown fact #{name} on entity kind #{@entity.kind}" unless definition
+        unless definition.source == :attribute
+          raise DefinitionError, "fact #{name} on #{@entity.kind} is derived and cannot be set"
+        end
+
+        @entity.fact_values[definition.name] = value
+      end
+
+      # One reader fact that applies only to this entry. Repeated facts belong
+      # on the kind or subkind instead, where other entries can inherit them.
+      def custom_fact(name, value, type: nil, label: nil)
+        name = name.to_sym
+        if @world.schema.fact_def(
+          @entity.kind, name, subkind: @entity.subkind, custom: @entity.custom_fact_defs
+        )
+          raise DefinitionError, "custom fact #{name} duplicates an inherited fact on #{@entity.id}"
+        end
+
+        type = (type || infer_fact_type(value)).to_sym
+        unless Schema::FACT_TYPES.include?(type)
+          raise DefinitionError, "custom fact #{name} on #{@entity.id} has unknown type #{type}"
+        end
+
+        definition = Schema::FactDef.new(
+          name: name,
+          label: label || name.to_s.split("_").map(&:capitalize).join(" "),
+          source: :attribute,
+          type: type,
+          expected: false,
+          order: @entity.custom_fact_defs.size + 1
+        )
+        @entity.custom_fact_defs << definition
+        @entity.fact_values[name] = value
       end
 
       # A note about the ENTRY, not about the world: why a fact changed, what a
@@ -137,12 +201,26 @@ module Lorecraft
       # Any other bare call sets a static attribute of that name.
       def method_missing(name, *args)
         return super if args.empty?
+        definition = @world.schema.fact_def(
+          @entity.kind, name, subkind: @entity.subkind, custom: @entity.custom_fact_defs
+        )
+        return fact(name, args.size == 1 ? args.first : args) if definition
+
         set(name, args.size == 1 ? args.first : args)
       end
 
       def respond_to_missing?(*) = true
 
       private
+
+      def infer_fact_type(value)
+        case value
+        when Integer then :integer
+        when Symbol then :entity
+        when Array then :entities
+        else :text
+        end
+      end
 
       def set(key, value)
         @entity.static_attrs[key.to_sym] = value

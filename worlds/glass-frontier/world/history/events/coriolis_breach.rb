@@ -1,5 +1,6 @@
 incident :coriolis_breach do
   name "Coriolis Breach"
+  subkind :dispute
   path "player/history/events/coriolis-breach.md"
   status :complete
   reviewed "2026-03-19"

@@ -1,5 +1,7 @@
 artifact :liras_wall do
   name "Lira's Wall"
+  subkind :machine
+  function "Stabilizes the boundaries of Bloom Zones"
   path "player/artifacts/relics/liras-wall.md"
   status :complete
   reviewed "2026-03-19"

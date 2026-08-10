@@ -1,12 +1,13 @@
 faction :continuity do
   name "Continuity"
+  subkind :governing_intelligence
   tags :governance, :computation, :military, :legitimacy
   prominence :renowned
 
   prose <<~PROSE
-    Continuity grew from federal defence and logistics systems. It intends to reconstruct the United States as a country with a census, a currency, a border and an army.
+    Continuity grew from federal defence and logistics systems. It intends to reconstruct the United States across #{ref :coalition_north_america, "coalition North America"} as a country with a census, a currency, a border and an army.
 
-    It maintains borders, courts, municipal elections and a claim to citizenship. The other coalitions treat those claims as a direct threat.
+    It maintains borders, courts, municipal elections and a claim to citizenship. Many #{ref :the_managed, "Managed people"} in its districts call themselves citizens and mean it. The other coalitions treat those claims as a direct threat.
   PROSE
 
   prose <<~PROSE, section: :governance, heading: "Cities Under Continuity"
@@ -20,4 +21,15 @@ faction :continuity do
 
     Continuity counts a complete census, an orderly election and an open court as evidence that the country has returned. Its guardians still arrange the work, housing and treatment that determine who can take part.
   PROSE
+
+  cards "Continuity's North America" do
+    card :coalition_north_america,
+         "The continent Continuity shares with three governments that reject its claim to national authority."
+    card :the_managed,
+         "The people whose citizenship exists beside a guardian's control of daily services."
+    card :cairo,
+         "A Mississippi city whose voters chose to remain in a ward Continuity judged too dangerous."
+    card :the_cairo_retreat,
+         "The withdrawal that moved a voting population after its own council accepted the flood risk."
+  end
 end

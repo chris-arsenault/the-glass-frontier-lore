@@ -123,16 +123,16 @@ module Lorecraft
 
       def content_page(node, year)
         body = +""
-        node.prose_blocks.each do |b|
+        node.authored_blocks.each do |b|
           next if b.dm? || !b.visible_at?(year, audience: :player)
 
           body << "## #{b.heading}\n\n" if b.section != :main && b.heading
-          body << wikitext(b.text, node.id, year).strip << "\n\n"
+          body << wiki_block(b, node.id, year) << "\n\n"
         end
         # An entity's history (moments, oldest first) and connections
         # (relationships) render as further plain paragraphs on its page.
         connection_paragraphs(node, year).each { |para| body << para << "\n\n" }
-        metadata_box(node) + body.strip + "\n"
+        metadata_box(node, year) + body.strip + "\n"
       end
 
       # Prose paragraphs from this entity's moments + relationships (player
@@ -144,6 +144,17 @@ module Lorecraft
         end.reject(&:empty?)
       end
 
+      def wiki_block(block, subject, year)
+        return wikitext(block.text, subject, year).strip unless block.cards?
+
+        block.cards.map do |card|
+          target = @world[card.target]
+          title = target&.title || card.target.to_s
+          description = wikitext(card.description, subject, year).strip
+          "- **[[#{title}]]**: #{description}"
+        end.join("\n")
+      end
+
       def authored_page(page, year)
         body = +""
         page.prose_blocks.each do |b|
@@ -153,12 +164,30 @@ module Lorecraft
         body.strip + "\n"
       end
 
-      def metadata_box(node)
-        parts = ["**Type:** #{node.kind}"]
+      def metadata_box(node, year)
+        parts = ["**Type:** #{node.kind}", "**Subkind:** #{node.subkind}"]
         parts << "**Tags:** #{node.tags.join(', ')}" unless node.tags.empty?
         parts << "**Region:** #{node[:region]}" if node[:region]
         parts << "**Alias:** #{Array(node[:alias]).join(', ')}" if node[:alias] && !Array(node[:alias]).empty?
+        Facts.new(@world).present(node, at: year, audience: :player).each do |row|
+          value = wiki_fact_value(row)
+          parts << "**#{row.definition.label}:** #{value}" unless value.empty?
+        end
         "> #{parts.join(' | ')}\n\n"
+      end
+
+      def wiki_fact_value(row)
+        case row.definition.type
+        when :entity, :entities
+          Array(row.value).filter_map do |id|
+            target = @world[id]
+            "[[#{target.title}]]" if wiki_visible?(target)
+          end.sort.join(", ")
+        when :year
+          "#{@world.year_of(row.value)} CE"
+        else
+          row.value.to_s
+        end
       end
 
       # ---- generated meta pages -------------------------------------------

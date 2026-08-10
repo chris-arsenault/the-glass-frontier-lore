@@ -1,5 +1,6 @@
 species :gnomes do
   name "Gnomes"
+  subkind :sapient_species
   path "player/concepts/species/gnomes.md"
   status :complete
   reviewed "2026-03-18"

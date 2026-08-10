@@ -1,5 +1,6 @@
 geographic_location :bloom_zones do
   name "Bloom Zones"
+  subkind :hazardous_zone
   path "player/locations/landmarks/bloom-zones.md"
   status :complete
   reviewed "2026-03-18"

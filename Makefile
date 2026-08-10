@@ -1,4 +1,4 @@
-.PHONY: validate lint check check-all wiki site-data graph stats topology worlds test provenance queue web reader-dev reader-build backend-check app-check clean
+.PHONY: validate lint check check-all wiki site-data graph stats topology worlds test provenance facts queue web reader-dev reader-build backend-check app-check clean
 
 # Every target runs against one world. Override with WORLD=<id>; `make worlds`
 # lists what is available. The default comes from worlds.yml.
@@ -58,6 +58,9 @@ topology:
 # Who drafted the prose and who has read it, per block.
 provenance:
 	@$(LC) provenance
+# Which expected kind facts are known, grouped by entity kind and entry.
+facts:
+	@$(LC) facts
 # What the world needs next: declared questions + computed findings.
 queue:
 	@$(LC) queue

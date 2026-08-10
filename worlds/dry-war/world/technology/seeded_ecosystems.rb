@@ -1,5 +1,6 @@
 concept :seeded_ecosystems do
   name "Seeded Ecosystems"
+  subkind :technology
   tags :ecology, :agriculture, :biotech, :military
   prominence :renowned
 

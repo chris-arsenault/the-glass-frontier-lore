@@ -1,5 +1,6 @@
 faction :clarisant do
   name "Clarisant"
+  subkind :religious_order
   path "player/npcs/factions/clarisant.md"
   tags :resonance, :training, :governance, :"social-structure"
   prominence :recognized

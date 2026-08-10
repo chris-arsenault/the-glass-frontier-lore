@@ -1,7 +1,9 @@
 incident :the_marsyangdi_burn do
   name "The Marsyangdi Burn"
+  subkind :disaster
   tags :water, :ecology, :agriculture, :hybridization
   prominence :marginal
+  date 2089
 
   prose <<~PROSE
     In the spring of 2089, a sealed case came down from #{ref :thorong_cold_house, "the Thorong Cold House"} with living growth in nine of its ten ordinary tubes and four of the five deprived of the sugar the organism was supposed to need. The blank tubes were clean. The nitrogen-fixing root associate inside had survived a Himalayan winter at 5,400 metres without its engineered dependency.

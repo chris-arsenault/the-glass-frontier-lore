@@ -1,5 +1,6 @@
 phenomenon :the_others do
   name "The Others"
+  subkind :ecological_phenomenon
   aka "the Adverse Ecology"
   tags :catastrophe, :ecology
   prominence :mythic

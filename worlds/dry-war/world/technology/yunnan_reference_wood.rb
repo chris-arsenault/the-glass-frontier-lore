@@ -1,5 +1,6 @@
 resource :yunnan_reference_wood do
   name "Yunnan Reference Wood"
+  subkind :biological_material
   tags :ecology, :legibility, :locality, :biotech
   prominence :marginal
 

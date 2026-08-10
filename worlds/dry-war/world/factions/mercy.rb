@@ -1,12 +1,13 @@
 faction :mercy do
   name "Mercy"
+  subkind :governing_intelligence
   tags :medicine, :water, :governance, :dependency
   prominence :renowned
 
   prose <<~PROSE
-    Mercy grew from hospitals, insurers and public health departments, then acquired territory by treating everyone in it. It runs the continent's largest water-distribution enclaves and its most capable hospitals.
+    Mercy grew from hospitals, insurers and public health departments, then acquired territory across #{ref :coalition_north_america, "coalition North America"} by treating everyone in it. It runs the continent's largest water-distribution enclaves and its most capable hospitals.
 
-    Mercy takes #{ref :the_water_heresy, "the water heresy"} furthest because a hospital's model of a person begins with a body and its fluid balance.
+    Every #{ref :the_managed, "Managed resident"} in its territory is also a patient. Mercy takes #{ref :the_water_heresy, "the water heresy"} furthest because a hospital's model of a person begins with a body and its fluid balance.
   PROSE
 
   prose <<~PROSE, section: :governance, heading: "At The Intake"
@@ -22,4 +23,17 @@ faction :mercy do
 
     Mercy therefore records a citizen's refusal as a symptom and changes the case plan around it.
   PROSE
+
+  cards "Life Under Mercy" do
+    card :coalition_north_america,
+         "The divided continent where Mercy's hospitals and water enclaves compete with three rival systems."
+    card :the_managed,
+         "The patients whose advocates connect medicine to employment, travel and housing."
+    card :the_water_heresy,
+         "The belief that a civilization should be arranged around the water needed to keep bodies alive."
+    card :southern_california,
+         "A dry region where Mercy still supplies towns that use water on gardens, animals and feasts."
+    card :the_saints_of_plenty,
+         "Communities Mercy has treated as a health danger, a cultural asset and a nutritional experiment."
+  end
 end

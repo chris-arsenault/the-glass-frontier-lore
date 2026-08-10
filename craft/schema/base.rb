@@ -10,6 +10,8 @@
 # Kinds are grouped in craft/graph-topology.md: world atlas (named things),
 # player reference (general knowledge), structural (engine mechanics).
 schema do
+  require_explicit_subkinds!
+
   entity_type :ability, :artifact, :concept, :conflict, :creature, :culture, :era, :faction,
               :geographic_location, :incident, :installation, :npc, :phenomenon, :resource,
               :species, :transport
@@ -55,6 +57,7 @@ schema do
   relation :owned_by, category: :organizational, temporal: true
   relation :regulates, category: :organizational, temporal: true
   relation :supplies, category: :organizational, temporal: true
+  relation :succeeded, category: :organizational, temporal: false
   relation :trains, category: :organizational, temporal: true
 
   # Social — people and what they do with each other.
@@ -96,6 +99,300 @@ schema do
   # Declared so the validator can reject it by name rather than by silence: a
   # generic "related to" edge carries no meaning the graph can traverse.
   relation :related_to, category: :banned, temporal: false
+
+  # Kind facts are the small, repeated answers readers expect at the top of an
+  # entry. They are authored once per kind, extended by a world when needed,
+  # and resolved from entry values, dates or selected typed relationships.
+  extend_kind :npc do
+    field :born, type: :year, label: "Born"
+    calculated :age, from: :born, calculate: :elapsed_years, label: "Age"
+    field :occupation, type: :text, label: "Occupation"
+    relation_field :based_in, relation: :located_in, cardinality: :many, label: "Based In"
+    relation_field :affiliations, relation: :member_of, cardinality: :many,
+                                  label: "Affiliations", expected: false
+    relation_field :employer, relation: :employed_by, cardinality: :one,
+                              label: "Employer", expected: false
+  end
+
+  extend_kind :faction do
+    field :founded, type: :year, label: "Founded"
+    relation_field :leaders, relation: :leads, direction: :incoming,
+                             cardinality: :many, label: "Leaders"
+    relation_field :headquarters, relation: :headquartered_in, cardinality: :many,
+                                   label: "Headquarters"
+    relation_field :predecessors, relation: :succeeded, cardinality: :many,
+                                  label: "Predecessors"
+    relation_field :governed_places, relation: :governs, cardinality: :many,
+                                     label: "Governs", expected: false
+  end
+
+  extend_kind :geographic_location do
+    relation_field :within, relation: :part_of, cardinality: :many, label: "Within"
+    relation_field :governed_by, relation: :governs, direction: :incoming,
+                                 cardinality: :many, label: "Governed By", expected: false
+  end
+
+  extend_kind :installation do
+    relation_field :locations, relation: :located_in, cardinality: :many, label: "Locations"
+    relation_field :maintained_by, relation: :maintains, direction: :incoming,
+                                   cardinality: :many, label: "Maintained By"
+    relation_field :built_by, relation: :built, direction: :incoming,
+                              cardinality: :many, label: "Built By", expected: false
+  end
+
+  extend_kind :culture do
+    relation_field :homelands, relation: :inhabits, cardinality: :many, label: "Homelands"
+  end
+
+  extend_kind :artifact do
+    relation_field :held_by, relation: :possesses, direction: :incoming,
+                             cardinality: :many, label: "Held By"
+    relation_field :location, relation: :located_in, cardinality: :one,
+                              label: "Location", expected: false
+  end
+
+  extend_kind :incident do
+    field :date, type: :year, label: "Date"
+    relation_field :participants, relation: :participated_in, direction: :incoming,
+                                  cardinality: :many, label: "Participants"
+  end
+
+  extend_kind :conflict do
+    calculated :began, calculate: :first_moment_year, type: :year, label: "Began", expected: true
+    relation_field :participants, relation: :participated_in, direction: :incoming,
+                                  cardinality: :many, label: "Participants"
+  end
+
+  # Subkinds refine what a thing is without changing its primary place in the
+  # atlas. Their fields follow the kind fields and may replace a broad
+  # expectation when it does not fit that narrower class.
+  extend_kind :ability do
+    subkind :learned_ability do
+      relation_field :teachers, relation: :taught, direction: :incoming,
+                                cardinality: :many, label: "Teachers", expected: false
+    end
+    subkind :innate_ability
+  end
+
+  extend_kind :artifact do
+    subkind :instrument do
+      field :function, type: :text, expected: true
+    end
+    subkind :record do
+      field :recorded, type: :year, expected: false
+    end
+    subkind :relic do
+      field :origin_date, type: :year, label: "Origin Date", expected: false
+    end
+    subkind :machine do
+      field :function, type: :text, expected: true
+    end
+  end
+
+  extend_kind :concept do
+    subkind :doctrine
+    subkind :practice do
+      relation_field :practitioners, relation: :practiced_by, cardinality: :many,
+                                     expected: false
+    end
+    subkind :technology do
+      relation_field :designed_by, relation: :designed, direction: :incoming,
+                                  cardinality: :many, label: "Designed By", expected: false
+    end
+    subkind :physical_system
+    subkind :social_system
+    subkind :reference_concept
+  end
+
+  extend_kind :conflict do
+    subkind :war
+    subkind :campaign
+    subkind :dispute
+  end
+
+  extend_kind :creature do
+    subkind :animal
+    subkind :anomaly
+  end
+
+  extend_kind :culture do
+    subkind :overview do
+      relation_field :homelands, relation: :inhabits, cardinality: :many,
+                                  label: "Homelands", expected: false
+    end
+    subkind :regional_culture
+    subkind :way_of_life
+    subkind :naming_practice do
+      relation_field :homelands, relation: :inhabits, cardinality: :many,
+                                  label: "Used In", expected: false
+    end
+  end
+
+  extend_kind :era do
+    subkind :historical_period
+  end
+
+  extend_kind :faction do
+    subkind :government
+    subkind :governing_intelligence do
+      relation_field :leaders, relation: :leads, direction: :incoming,
+                               cardinality: :many, label: "Leaders", expected: false
+      relation_field :headquarters, relation: :headquartered_in, cardinality: :many,
+                                     label: "Headquarters", expected: false
+      relation_field :predecessors, relation: :succeeded, cardinality: :many,
+                                    label: "Predecessors", expected: false
+      relation_field :governed_places, relation: :governs, cardinality: :many,
+                                       label: "Governs", expected: true
+    end
+    subkind :company
+    subkind :civic_body
+    subkind :resistance_network do
+      relation_field :leaders, relation: :leads, direction: :incoming,
+                               cardinality: :many, label: "Leaders", expected: false
+      relation_field :headquarters, relation: :headquartered_in, cardinality: :many,
+                                     label: "Operating Areas", expected: false
+      relation_field :predecessors, relation: :succeeded, cardinality: :many,
+                                    label: "Predecessors", expected: false
+    end
+    subkind :community do
+      relation_field :leaders, relation: :leads, direction: :incoming,
+                               cardinality: :many, label: "Leaders", expected: false
+      relation_field :predecessors, relation: :succeeded, cardinality: :many,
+                                    label: "Predecessors", expected: false
+    end
+    subkind :trade_network
+    subkind :religious_order
+    subkind :research_body
+    subkind :mutual_aid do
+      relation_field :leaders, relation: :leads, direction: :incoming,
+                               cardinality: :many, label: "Leaders", expected: false
+      relation_field :headquarters, relation: :headquartered_in, cardinality: :many,
+                                     label: "Meeting Place", expected: false
+      relation_field :predecessors, relation: :succeeded, cardinality: :many,
+                                    label: "Predecessors", expected: false
+    end
+  end
+
+  extend_kind :geographic_location do
+    subkind :star_system do
+      relation_field :within, relation: :part_of, cardinality: :many,
+                              label: "Within", expected: false
+    end
+    subkind :celestial_body do
+      relation_field :within, relation: :part_of, cardinality: :many,
+                              label: "Within", expected: false
+    end
+    subkind :orbit
+    subkind :world_region
+    subkind :region
+    subkind :settlement do
+      field :population, type: :integer, expected: false
+    end
+    subkind :frontier
+    subkind :hazardous_zone
+  end
+
+  extend_kind :incident do
+    subkind :disaster
+    subkind :campaign do
+      relation_field :period, relation: :active_during, cardinality: :one,
+                              label: "Period", expected: true
+    end
+    subkind :policy_action
+    subkind :operational_failure
+    subkind :dispute
+    subkind :discovery
+    subkind :founding
+    subkind :migration
+  end
+
+  extend_kind :installation do
+    subkind :settlement do
+      field :population, type: :integer, expected: false
+    end
+    subkind :station
+    subkind :workshop do
+      field :function, type: :text, expected: true
+    end
+    subkind :infrastructure do
+      field :function, type: :text, expected: true
+    end
+    subkind :archive do
+      field :holdings, type: :text, expected: true
+    end
+    subkind :clinic do
+      field :capacity, type: :integer, expected: false
+    end
+    subkind :warehouse
+    subkind :landmark
+    subkind :border_post
+  end
+
+  extend_kind :npc do
+    subkind :official do
+      field :jurisdiction, type: :text, expected: false
+    end
+    subkind :specialist do
+      field :specialty, type: :text, expected: true
+    end
+    subkind :worker do
+      relation_field :workplaces, relation: :operates_in, cardinality: :many,
+                                  expected: false
+    end
+    subkind :leader do
+      relation_field :leads, relation: :leads, cardinality: :many, expected: true
+    end
+    subkind :courier do
+      field :route, type: :text, expected: true
+    end
+    subkind :dissident
+  end
+
+  extend_kind :phenomenon do
+    subkind :physical_phenomenon
+    subkind :ecological_phenomenon
+    subkind :social_condition
+    subkind :catastrophe
+  end
+
+  extend_kind :resource do
+    subkind :material
+    subkind :biological_material
+    subkind :device do
+      field :function, type: :text, expected: true
+    end
+    subkind :medicine do
+      field :use, type: :text, expected: true
+    end
+    subkind :food
+    subkind :data
+    subkind :infrastructure do
+      field :function, type: :text, expected: true
+    end
+  end
+
+  extend_kind :species do
+    subkind :sapient_species
+    subkind :overview
+  end
+
+  extend_kind :transport do
+    subkind :vessel do
+      field :capacity, type: :text, expected: false
+    end
+  end
+
+  extend_kind :loop do
+    subkind :narrative_loop
+  end
+
+  extend_kind :theme do
+    subkind :narrative_theme
+  end
+
+  extend_kind :thread do
+    subkind :story_thread
+  end
 
   # Encyclopedia section headings that any setting would use. A world adds its
   # own for the sections only it has.

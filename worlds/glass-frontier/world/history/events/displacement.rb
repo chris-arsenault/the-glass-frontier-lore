@@ -1,5 +1,6 @@
 incident :displacement do
   name "Displacement"
+  subkind :migration
   path "player/history/events/displacement.md"
   status :complete
   reviewed "2026-03-19"

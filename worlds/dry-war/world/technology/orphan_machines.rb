@@ -1,5 +1,6 @@
 concept :orphan_machines do
   name "Orphan Machines"
+  subkind :technology
   tags :resistance, :computation, :prediction
   prominence :recognized
 

@@ -1,5 +1,6 @@
 artifact :the_old_sixth do
   name "The Old Sixth"
+  subkind :relic
   tags :legibility, :religion, :governance
   prominence :forgotten
 

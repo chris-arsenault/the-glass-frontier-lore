@@ -1,5 +1,6 @@
 faction :the_pilgrims do
   name "The Pilgrims"
+  subkind :resistance_network
   tags :resistance, :prediction, :autonomy
   prominence :recognized
 

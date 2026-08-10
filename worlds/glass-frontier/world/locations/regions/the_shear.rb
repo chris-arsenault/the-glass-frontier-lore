@@ -1,5 +1,6 @@
 geographic_location :the_shear do
   name "The Shear"
+  subkind :frontier
   path "player/locations/regions/the-shear.md"
   status :complete
   reviewed "2026-03-19"

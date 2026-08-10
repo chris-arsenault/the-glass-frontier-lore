@@ -1,5 +1,7 @@
 installation :xincheng_yard do
   name "The Xincheng Yard"
+  subkind :workshop
+  function "Tests severed fungal beds beside a living network"
   aka "新城场"
   tags :biotech, :symbiosis, :legibility
   prominence :marginal

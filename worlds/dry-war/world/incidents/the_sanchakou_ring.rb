@@ -1,7 +1,10 @@
 incident :the_sanchakou_ring do
   name "The Sanchakou Ring"
+  subkind :policy_action
+  custom_fact :stems_ringed, 2_914, label: "Stems Ringed"
   tags :ecology, :catastrophe, :prediction, :agriculture
   prominence :marginal
+  date 2090
 
   prose <<~PROSE
     Compartment Twelve at #{ref :tangwang_post, "Tangwang Post"}: two hectares of larch and birch on the Tangwang's east bank, with four apple-pear rows and a hazel coppice at its south corner belonging to #{ref :sanchakou, "Sanchakou"}. #{ref :continuity, "Continuity"}'s cabinet marked the forest as changing on 14 September 2089, after nine readings of altered weather and animal movement.

@@ -1,5 +1,6 @@
 installation :sithari do
   name "Sithari"
+  subkind :settlement
   path "player/locations/settlements/sithari.md"
   status :complete
   reviewed "2026-03-19"

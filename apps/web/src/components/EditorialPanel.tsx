@@ -113,6 +113,14 @@ function EditorialContent({ editorial }: { editorial: EditorialEntry }) {
           </ul>
         </div>
       )}
+      {editorial.missing_facts.length > 0 && (
+        <div className="editorial-panel__section">
+          <h3>Facts to establish</h3>
+          <ul>
+            {editorial.missing_facts.map((fact) => <li key={fact.id}>{fact.label}</li>)}
+          </ul>
+        </div>
+      )}
       {editorial.log.length > 0 && (
         <div className="editorial-panel__section">
           <h3>Entry log</h3>

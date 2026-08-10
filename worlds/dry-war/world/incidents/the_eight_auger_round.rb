@@ -1,7 +1,9 @@
 incident :the_eight_auger_round do
   name "The Eight-Auger Round"
+  subkind :operational_failure
   tags :prediction, :autonomy, :ecology
   prominence :marginal
+  date 2089
 
   prose <<~PROSE
     In the fourth quarter of 2089 the coring team at #{ref :tangwang_post, "Tangwang Post"} entered the belt at #{ref :sanchakou, "Sanchakou"} with eight augers instead of nine. #{ref :continuity, "Continuity"} had barred #{ref :gao_wen, "Gao Wen"}, although nothing observed about his body or work had changed.

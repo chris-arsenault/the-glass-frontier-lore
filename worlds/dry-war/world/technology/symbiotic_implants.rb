@@ -1,5 +1,6 @@
 resource :symbiotic_implants do
   name "Symbiotic Implants"
+  subkind :device
   tags :medicine, :symbiosis, :biotech
   prominence :recognized
 

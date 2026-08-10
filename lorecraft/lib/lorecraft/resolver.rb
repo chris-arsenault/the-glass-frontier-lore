@@ -7,7 +7,9 @@ module Lorecraft
   # their dynamic attribute values, and which relation edges are live. Produced
   # by the Resolver; immutable once returned.
   class State
-    Edge = Struct.new(:subject, :relation, :target, :from_year, keyword_init: true)
+    Edge = Struct.new(:subject, :relation, :target, :from_year, :dm, keyword_init: true) do
+      def dm? = dm == true
+    end
 
     attr_reader :year
 
@@ -28,20 +30,24 @@ module Lorecraft
     def attrs(id) = @attrs[id.to_sym] || {}
 
     # Outgoing edge targets from `id` (optionally filtered to one relation).
-    def out(id, relation = nil)
+    def out(id, relation = nil, audience: :all)
       id = id.to_sym
-      @edges.select { |e| e.subject == id && (relation.nil? || e.relation == relation.to_sym) }
+      visible_edges(audience).select { |e| e.subject == id && (relation.nil? || e.relation == relation.to_sym) }
             .map(&:target)
     end
 
     # Incoming edge sources to `id` (optionally filtered to one relation).
-    def in(id, relation = nil)
+    def in(id, relation = nil, audience: :all)
       id = id.to_sym
-      @edges.select { |e| e.target == id && (relation.nil? || e.relation == relation.to_sym) }
+      visible_edges(audience).select { |e| e.target == id && (relation.nil? || e.relation == relation.to_sym) }
             .map(&:subject)
     end
 
     def edges = @edges
+
+    private
+
+    def visible_edges(audience) = audience == :player ? @edges.reject(&:dm?) : @edges
   end
 
   # Folds the world's ordered effect log into state. State-at-T is the fold of
@@ -67,11 +73,14 @@ module Lorecraft
 
       @world.all_effects.each do |entry|
         break if entry[:year] > year
-        apply(entry[:effect], entry[:year], attrs, open, ex, causality: true)
+        apply(entry[:effect], entry[:year], attrs, open, ex, causality: true, dm: entry[:dm])
       end
 
-      edges = open.map do |(s, r, t), from|
-        State::Edge.new(subject: s, relation: r, target: t, from_year: from)
+      edges = open.map do |(s, r, t), opened|
+        State::Edge.new(
+          subject: s, relation: r, target: t,
+          from_year: opened[:year], dm: opened[:dm]
+        )
       end
       State.new(year: year, existence: ex, attrs: attrs, edges: edges)
     end
@@ -98,7 +107,7 @@ module Lorecraft
       ex
     end
 
-    def apply(eff, year, attrs, open, ex, causality:)
+    def apply(eff, year, attrs, open, ex, causality:, dm: false)
       case eff.verb
       when :create, :destroy
         # existence already computed globally; nothing to fold per-year
@@ -106,7 +115,7 @@ module Lorecraft
         if eff.relation
           check_exists!(eff.subject, year, ex) if causality
           check_exists!(eff.target, year, ex) if causality
-          open[[eff.subject, eff.relation, eff.target]] ||= year
+          open[[eff.subject, eff.relation, eff.target]] ||= { year: year, dm: dm }
         else
           attrs[eff.subject][eff.attr] = eff.value
         end

@@ -1,7 +1,9 @@
 incident :the_six_under_race_street do
   name "The Six Under Race Street"
+  subkind :dispute
   tags :trade, :identity, :autonomy
   prominence :recognized
+  date 2087
 
   prose <<~PROSE
     In 2087 a return pipe split in the cooling plant beneath #{ref :race_street_warehouse, "the Race Street warehouse"}. Six #{ref :the_unpersons, "Unpersons"} reached it through a disused service tunnel, isolated the line and replaced the split section before Market's contracted crew arrived.

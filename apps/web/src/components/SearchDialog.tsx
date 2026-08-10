@@ -10,10 +10,10 @@ interface SearchButtonProps {
 
 function createSearch(entries: EntrySummary[]) {
   const search = new MiniSearch<EntrySummary>({
-    fields: ["title", "summary", "aliases", "tags"],
-    storeFields: ["title", "kind", "route", "summary"],
+    fields: ["title", "summary", "aliases", "tags", "subkind"],
+    storeFields: ["title", "kind", "subkind", "route", "summary"],
     searchOptions: {
-      boost: { title: 4, aliases: 3, tags: 1.5 },
+      boost: { title: 4, aliases: 3, tags: 1.5, subkind: 1.5 },
       fuzzy: 0.2,
       prefix: true,
     },
@@ -77,7 +77,7 @@ export function SearchButton({ world }: SearchButtonProps) {
             <Link key={String(result.id)} to={String(result.route)} onClick={close}>
               <div>
                 <strong>{String(result.title)}</strong>
-                <span>{String(result.kind).replaceAll("_", " ")}</span>
+                <span>{String(result.subkind).replaceAll("_", " ")}</span>
               </div>
               <p>{String(result.summary)}</p>
             </Link>

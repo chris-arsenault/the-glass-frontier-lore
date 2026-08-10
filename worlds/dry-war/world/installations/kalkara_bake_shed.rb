@@ -1,5 +1,7 @@
 installation :kalkara_bake_shed do
   name "The Kalkara Bake Shed"
+  subkind :workshop
+  function "Sterilizes wet machine parts and casts comparison tiles"
   tags :ecology, :military, :water
   prominence :marginal
 

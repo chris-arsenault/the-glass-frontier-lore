@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
-import { MarkdownContent } from "../components/MarkdownContent";
+import { ContentSections } from "../components/ContentSections";
 import { ViewHeader } from "../components/ViewHeader";
 import { useWorld } from "../components/worldContext";
 import { pageQuery } from "../data/queries";
@@ -34,12 +34,7 @@ export function WorldHomeView() {
       />
       {home.data && (
         <div className="world-home__intro">
-          {home.data.sections.map((section) => (
-            <section key={section.id}>
-              {section.heading && <h2>{section.heading}</h2>}
-              <MarkdownContent markdown={section.markdown} />
-            </section>
-          ))}
+          <ContentSections sections={home.data.sections} headingLevel={2} sectionClassName={null} />
         </div>
       )}
       <section className="shelf">
@@ -50,7 +45,7 @@ export function WorldHomeView() {
         <div className="entry-grid">
           {featured.map((entry) => (
             <Link className="entry-card" key={entry.id} to={entry.route}>
-              <div className="entry-card__kind">{entry.kind.replaceAll("_", " ")}</div>
+              <div className="entry-card__kind">{entry.subkind.replaceAll("_", " ")}</div>
               <h3>{entry.title}</h3>
               <p>{entry.summary}</p>
             </Link>

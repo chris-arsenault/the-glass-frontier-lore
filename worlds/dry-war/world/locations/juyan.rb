@@ -1,5 +1,6 @@
 geographic_location :juyan do
   name "Juyan"
+  subkind :settlement
   aka "居延", "the Ejin basin"
   tags :resistance, :legitimacy, :water, :ecology
   prominence :recognized

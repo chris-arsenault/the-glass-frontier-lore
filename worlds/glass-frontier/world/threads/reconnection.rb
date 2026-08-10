@@ -1,5 +1,6 @@
 thread :reconnection do
   name "Thread: The Reconnection"
+  subkind :story_thread
   path "dm/threads/reconnection.md"
   reviewed "2026-03-19"
   contains_dm true

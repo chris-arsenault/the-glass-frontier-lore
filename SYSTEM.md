@@ -28,9 +28,9 @@ Requires Ruby 3.x. `gem install minitest` for the test suite.
 ## Object Model
 
 ```
-World ── Schema     (kinds, relation taxonomy, effect verbs, tag/section vocab)
+World ── Schema     (kinds, subkinds and their facts; relations; vocabularies)
       ── Timeline   (ordered eras with fixed boundaries; CE year = absolute tick)
-      ── Entity*    (id, kind, static attributes, owned prose, derives)
+      ── Entity*    (id, kind, subkind, custom facts, prose/cards, derives)
       ── Event*     (tick/span, effects, prose — addressable, page-bearing)
       ── Relation*  (named edges, promotable; otherwise edges come from effects)
 ```
@@ -38,6 +38,13 @@ World ── Schema     (kinds, relation taxonomy, effect verbs, tag/section voc
 - **Static attributes** are declared on the entity and never change (`title`, `tags`, `prominence`, `region`, `narrative_role`, `status`, `path`, …).
 - **Dynamic state** (relationship edges, mutable attrs) is *never* stored — it is the fold of the event log at a query tick. `world.at(point).out(id, :verb)` replays history to the answer.
 - The static/dynamic split is compiler-enforced: an effect touching a static attribute is a validation error.
+- **Fact fields** compose in three layers. Kind fields apply to every entry;
+  subkind fields append or replace fields for one narrower class; custom fields
+  belong to one entry. Attribute facts come from the entity, relationship facts
+  query the graph at the render year, and calculated facts derive values such
+  as age from canonical dates. Production worlds require an explicit declared
+  subkind. Unknown facts are omitted publicly, while missing expected facts
+  appear in the private editorial bundle and `make facts WORLD=<id>`.
 
 ## Time
 
@@ -59,7 +66,7 @@ Hard invariants; raises on any violation:
 - Static/dynamic violation (effect sets a static attribute).
 - Temporal causality (use of an entity before `create` / after `destroy`).
 - `:one` cardinality with two live targets; mutually-exclusive relations live at once.
-- Tag not in the world's declared vocabulary; non-canonical prose section; **DM-leak** (public prose referencing a DM-only entity).
+- Tag not in the world's declared vocabulary; non-canonical authored section; unresolved or hidden card target; **DM-leak** (public content referencing a DM-only entity).
 
 ## Lint (`make lint`)
 
@@ -83,7 +90,7 @@ Graded findings — errors / warnings / futures — over the in-memory graph:
 
 Generated output is never committed here.
 
-- `make site-data` writes two bundles. `build/site` contains player-visible JSON, the exact OpenGraph route manifest and the social card. `build/site-internal` contains questions, logs, review state, drafting provenance and DM entries. The browser never receives the internal bundle from the static origin.
+- `make site-data` writes two bundles. `build/site` contains player-visible JSON, including known kind facts, the exact OpenGraph route manifest and the social card. `build/site-internal` contains questions, logs, review state, drafting provenance, missing expected facts and DM entries. The browser never receives the internal bundle from the static origin.
 - `make reader-build` copies the public bundle into the Vite build and produces `apps/web/dist`. Terraform injects the production API and Cognito values through `config.js`.
 
 - `make wiki WORLD=<id>` → GitHub wiki export into `build/<id>/wiki`: flat `Title.md` with `[[wiki links]]`, authored `page`s (Home, …), generated **Tags / Timeline / Causality** pages, generated per-type indexes, sidebar and future stubs. Player audience only (DM, shells and DM edges excluded).
@@ -91,7 +98,7 @@ Generated output is never committed here.
 - `lorecraft timeline <id> --world <world>` → life-of-entity event strip.
 - A dir-by-type markdown renderer (`Render::Markdown`) also exists for ad-hoc export to `build/`, but is not part of the published pipeline.
 
-The site renderer records direct references, typed relationships and embedded passages as graph edges. Graph and chronology views filter those facts at the selected year. Entry routes remain stable because they use the world id and entity slug.
+The site renderer records direct references, typed relationships and embedded passages as graph edges. Authored cards remain presentation: their targets, order and descriptions render on the owning entry without creating a factual relationship. Graph and chronology views filter their facts at the selected year. Entry routes remain stable because they use the world id and entity slug.
 
 ## Editorial boundary
 

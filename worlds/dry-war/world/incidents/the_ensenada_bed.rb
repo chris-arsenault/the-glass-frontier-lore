@@ -1,7 +1,9 @@
 incident :the_ensenada_bed do
   name "The Ensenada Bed"
+  subkind :discovery
   tags :agriculture, :locality, :trade, :water
   prominence :marginal
+  date 2089
 
   prose <<~PROSE
     East of Ensenada, eleven hundred 二荆条 pepper seeds went into a #{ref :the_saints_of_plenty, "Saints of Plenty"} garden in April 2089. #{ref :the_brokers, "Delta traders"} had carried them from Sichuan. The growers planted them around four middle rows of older Baja seed, so both lines took the same water, dry wind and hands.

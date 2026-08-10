@@ -1,5 +1,6 @@
 installation :pelhari do
   name "Pelhari"
+  subkind :settlement
   path "player/locations/settlements/pelhari.md"
   tags :"outer-system", :training, :resonance, :trade, :"ring-era"
   prominence :recognized

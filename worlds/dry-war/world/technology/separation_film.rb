@@ -1,5 +1,6 @@
 resource :separation_film do
   name "Separation Film"
+  subkind :biological_material
   tags :autonomy, :biotech, :medicine, :symbiosis
   prominence :recognized
 

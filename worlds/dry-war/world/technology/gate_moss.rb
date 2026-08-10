@@ -1,5 +1,6 @@
 resource :gate_moss do
   name "Gate-Moss"
+  subkind :biological_material
   aka "关苔"
   tags :biotech, :medicine, :symbiosis, :trade
   prominence :recognized

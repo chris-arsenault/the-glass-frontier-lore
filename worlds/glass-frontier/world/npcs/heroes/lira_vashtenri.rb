@@ -1,5 +1,7 @@
 npc :lira_vashtenri do
   name "Lira Vashtenri"
+  subkind :specialist
+  specialty "Bloom containment"
   path "player/npcs/heroes/lira-vashtenri.md"
   reviewed "2026-03-19"
   tags :resonance, :salvage

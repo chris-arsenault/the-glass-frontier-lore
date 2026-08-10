@@ -27,6 +27,24 @@ schema do
   # person who performed one is a fact the record keeps.
   relation :attends, category: :social, temporal: true
 
+  # Facts specific to this world. Shared expectations such as an NPC's birth
+  # year or a faction's founding date come from craft/schema/base.rb.
+  extend_kind :npc do
+    field :citizenship, type: :text, label: "Citizenship", expected: false
+    relation_field :works_at, relation: :operates_in, cardinality: :many,
+                              label: "Works At", expected: false
+  end
+
+  extend_kind :faction do
+    relation_field :depends_on, relation: :depends_on, cardinality: :many,
+                                label: "Depends On", expected: false
+  end
+
+  extend_kind :culture do
+    relation_field :joined_with, relation: :symbiotic_with, cardinality: :many,
+                                 label: "Joined With", expected: false
+  end
+
   # Sections the base vocabulary has no reason to carry. Both gods produced
   # religions nobody established, and both remade what a person is.
   section_heading :religion

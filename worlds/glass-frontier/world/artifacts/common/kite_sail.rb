@@ -1,5 +1,7 @@
 resource :kite_sail do
   name "KITE"
+  subkind :device
+  function "Moves vehicles by redirecting opposing forces into a frequency null space"
   path "player/artifacts/common/kite-sail.md"
   status :complete
   reviewed "2026-03-19"

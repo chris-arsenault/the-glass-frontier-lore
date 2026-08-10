@@ -1,5 +1,6 @@
 concept :bonsai_intelligences do
   name "Bonsai Intelligences"
+  subkind :technology
   tags :resistance, :biotech, :autonomy
   prominence :recognized
 

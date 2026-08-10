@@ -1,5 +1,6 @@
 phenomenon :the_breach do
   name "The Breach"
+  subkind :catastrophe
   tags :catastrophe, :ecology
   prominence :mythic
 

@@ -111,6 +111,7 @@ Restating instead of embedding is the most common way this corpus goes wrong: tw
 
 - `title` — required. The entry's name.
 - `kind` — required. Determines which directory it lives in. See the taxonomy below.
+- `subkind` — required. Narrows the kind to the entry's concrete class and adds that class's fact fields.
 - `tags` — optional. Topics and themes this entry involves. **Controlled vocabulary** — only tags declared in the world's `world/schema.rb` (`tag :name, "meaning"`). Add a tag there before using it. Tags describe what an entry is *about* (`governance`, `resonance`, `trade`), not what it is *related to*.
 - `prominence` — optional but encouraged. How widely known this entity is: `forgotten`, `marginal`, `recognized`, `renowned`, `mythic`. NOT power or importance — only awareness. Gates how far references should reach in the knowledge graph.
 - `narrative_role` — optional. `viewpoint` or `titan`, for NPCs with elevated narrative functions. See `craft/narrative-roles.md`. Most NPCs don't have this.
@@ -119,6 +120,38 @@ Restating instead of embedding is the most common way this corpus goes wrong: tw
 - Additional fields as needed (`region`, `era`, …). Add only when they carry real information.
 
 Generic `related:` lists do not exist. Relationships are typed edges from the schema taxonomy (LEADS, DEPENDS_ON, LOCATED_IN, …); unknown types are rejected by the validator.
+
+### Kind, subkind and custom facts
+
+Facts compose in order: kind fields, then subkind fields, then custom fields on
+one entry. The shared declarations live in `craft/schema/base.rb`; a world may
+add subkinds or fields with `extend_kind` in `world/schema.rb`.
+
+```ruby
+extend_kind :npc do
+  field :born, type: :year
+  calculated :age, from: :born, calculate: :elapsed_years
+  field :occupation, type: :text
+  relation_field :based_in, relation: :located_in, cardinality: :many
+
+  subkind :official do
+    field :jurisdiction, type: :text, expected: false
+  end
+end
+
+npc :inez_bell do
+  subkind :official
+  occupation "Municipal seal and voter-roll keeper"
+  custom_fact :counter, "Cairo Ridge records hall"
+end
+```
+
+Subkind fields may replace a kind field's label or `expected` setting without
+moving it. Use `custom_fact` only for a useful fact unique to one entry; if a
+second entry needs it, move the field into their subkind. Relationship facts
+come from typed edges, and calculated facts come from canonical values. Reader
+pages omit missing facts; `make facts WORLD=<id>` reports coverage by kind and
+subkind. Do not fill a gap with `unknown`, `none recorded`, or a guessed value.
 
 ### Prominence and cross-references
 
@@ -251,6 +284,7 @@ Every command runs against one world. `WORLD=<id>` on make, `--world <id>` (or `
 | `timeline <id>` | Life-of-entity event strip. |
 | `log [<id>]` | The entries' own history — why a fact changed, what a correction rests on. Not world content. |
 | `provenance` | Per block: who drafted it, who has read it, whose read has expired. |
+| `facts` | Coverage of expected kind facts, with missing fields grouped by entry. |
 | `queue` | What the world needs next — `question` declarations plus computed findings. A render, not a file. |
 | `page <id>` | One entity's rendered page on stdout. What the review app shows as prose. |
 | `web` | What holds together without the most prominent entities. The work list for `craft/connecting-entities.md`. |

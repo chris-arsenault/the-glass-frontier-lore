@@ -1,5 +1,6 @@
 faction :the_thousand_minds do
   name "The Thousand Minds"
+  subkind :community
   tags :locality, :symbiosis, :religion, :ecology
   prominence :recognized
 

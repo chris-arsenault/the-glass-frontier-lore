@@ -1,5 +1,6 @@
 installation :yumen_gate do
   name "Yumen Gate"
+  subkind :border_post
   aka "玉门关", "the Jade Gate"
   tags :trade, :medicine, :symbiosis
   prominence :recognized

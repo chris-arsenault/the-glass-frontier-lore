@@ -1,5 +1,6 @@
 installation :fermata_station do
   name "Fermata Station"
+  subkind :settlement
   path "player/locations/settlements/fermata-station.md"
   status :complete
   reviewed "2026-03-19"

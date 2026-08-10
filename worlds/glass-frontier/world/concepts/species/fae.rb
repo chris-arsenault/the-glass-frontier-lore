@@ -1,5 +1,6 @@
 species :fae do
   name "Fae"
+  subkind :sapient_species
   path "player/concepts/species/fae.md"
   status :complete
   reviewed "2026-03-18"

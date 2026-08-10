@@ -1,5 +1,6 @@
 geographic_location :appalachia do
   name "Appalachia"
+  subkind :region
   tags :resistance, :autonomy, :legibility
   prominence :renowned
 
@@ -12,6 +13,7 @@ end
 
 geographic_location :the_great_lakes do
   name "The Great Lakes"
+  subkind :region
   tags :water, :surveillance, :prediction
   prominence :mythic
 
@@ -26,6 +28,7 @@ end
 
 geographic_location :southern_california do
   name "Southern California"
+  subkind :region
   aka "the Saintlands"
   tags :water, :agriculture, :autonomy
   prominence :renowned
@@ -39,6 +42,7 @@ end
 
 geographic_location :boswash_ruins do
   name "The BosWash Ruins"
+  subkind :region
   tags :identity, :legibility, :governance
   prominence :renowned
 

@@ -1,5 +1,6 @@
 installation :tangwang_post do
   name "Tangwang Post"
+  subkind :station
   tags :ecology, :military, :hybridization, :legibility
   prominence :recognized
 

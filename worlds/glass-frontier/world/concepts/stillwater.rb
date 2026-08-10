@@ -1,5 +1,6 @@
 resource :stillwater do
   name "Stillwater"
+  subkind :material
   path "player/concepts/stillwater.md"
   reviewed "2026-03-19"
   tags :resonance, :"signal-freq", :materials

@@ -1,5 +1,6 @@
 installation :pyre do
   name "Pyre"
+  subkind :landmark
   path "player/locations/landmarks/pyre.md"
   status :complete
   reviewed "2026-03-20"

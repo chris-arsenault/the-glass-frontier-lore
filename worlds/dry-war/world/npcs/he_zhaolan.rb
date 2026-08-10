@@ -1,7 +1,10 @@
 npc :he_zhaolan do
   name "He Zhaolan"
+  subkind :specialist
+  specialty "Reference-wood matching"
   tags :ecology, :locality, :legibility
   prominence :marginal
+  occupation "Reference-wood cutter"
 
   prose <<~PROSE
     He Zhaolan cuts #{ref :yunnan_reference_wood, "reference wood"} in a Naxi village on the ridge above #{future "Baishuitai"}, in #{ref :yunnan, "Yunnan"}. When she finds a closed fungal structure in a tree ring, she takes a section of the stem and the fruiting organism beside it within the hour. She splits the wood into four blocks, presses the organism and burns the same number into each piece. Six hundred and forty samples carry her mark.

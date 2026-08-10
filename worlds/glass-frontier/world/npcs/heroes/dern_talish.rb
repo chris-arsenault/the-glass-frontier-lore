@@ -1,5 +1,6 @@
 npc :dern_talish do
   name "Dern Talish"
+  subkind :official
   path "player/npcs/heroes/dern-talish.md"
   reviewed "2026-03-18"
   tags :governance, :resonance, :diplomacy

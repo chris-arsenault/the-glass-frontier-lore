@@ -1,10 +1,14 @@
 npc :cecile_ouellette do
   name "Cécile Ouellette"
+  subkind :official
+  custom_fact :bells, 8
   tags :resistance, :religion, :surveillance
   prominence :marginal
+  born 2012
+  occupation "Tower captain"
 
   prose <<~PROSE
-    Cécile Ouellette is the seventy-eight-year-old tower captain at #{ref :ste_anne_belfry, "the Ste. Anne belfry"} and a member of #{ref :the_choir, "the Choir"}. She learned full-circle ringing from her mother's band before #{ref :caretaker, "Caretaker"} installed the Ste. Anne ring. She joined its heritage roster in 2074, took the captain's rope in 2085 and receives a stipend that covers her rope stock.
+    Cécile Ouellette is the tower captain at #{ref :ste_anne_belfry, "the Ste. Anne belfry"} and a member of #{ref :the_choir, "the Choir"}. She learned full-circle ringing from her mother's band before #{ref :caretaker, "Caretaker"} installed the Ste. Anne ring. She joined its heritage roster in 2074, took the captain's rope in 2085 and receives a stipend that covers her rope stock.
 
     She calls the session. She reads the method off #{ref :mercy, "Mercy"}'s public intake board on her walk to the tower, counts the rounds, calls the change and calls stand at the end. The bells select a starting place and waiting period for #{ref :the_choir, "Choir"} sequences across the district, hidden inside Caretaker's ambience programme.
   PROSE

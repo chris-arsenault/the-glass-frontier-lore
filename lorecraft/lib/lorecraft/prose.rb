@@ -1,6 +1,27 @@
 # frozen_string_literal: true
 
+require_relative "markers"
+
 module Lorecraft
+  module AuthoredBlock
+    def dm? = dm == true
+
+    # Visible at render year T for the given audience?
+    def visible_at?(year, audience:)
+      return false if dm? && audience == :player
+      at_year.nil? || year.nil? || at_year <= year
+    end
+
+    def reviewed? = !(reviewed.nil? || reviewed == false)
+
+    # Scaffolding carries no claim, so it needs no human read.
+    def claims? = origin != :structural
+
+    # The risk this audit exists to measure: a machine wrote it and nobody has
+    # checked it against the writing rules.
+    def unread_machine_prose? = drafted_by != :human && claims? && !reviewed?
+  end
+
   # One paragraph-level block of owned prose. Entities, moments, and named
   # relations all own an ordered list of these. A block may be scoped to a
   # canonical section (e.g. :history) and to an era (only rendered once the
@@ -28,21 +49,38 @@ module Lorecraft
 
   ProseBlock = Struct.new(:text, :section, :heading, :at_year, :dm, :order,
                           :origin, :drafted_by, :reviewed, keyword_init: true) do
-    def dm? = dm == true
+    include AuthoredBlock
 
-    # Visible at render year T for the given audience?
-    def visible_at?(year, audience:)
-      return false if dm? && audience == :player
-      at_year.nil? || year.nil? || at_year <= year
+    def prose? = true
+    def cards? = false
+    def text_fragments = [text]
+  end
+
+  Card = Struct.new(:target, :description, keyword_init: true)
+
+  # An ordered, authored set of links placed among an entry's prose. The
+  # author chooses the heading, targets, order and descriptions. These links do
+  # not invent graph relationships; they tell a reader where to continue.
+  CardBlock = Struct.new(:cards, :section, :heading, :at_year, :dm, :order,
+                         :origin, :drafted_by, :reviewed, keyword_init: true) do
+    include AuthoredBlock
+
+    def prose? = false
+    def cards? = true
+    def text_fragments = cards.map(&:description)
+  end
+
+  class CardListBuilder
+    include Markers
+
+    attr_reader :items
+
+    def initialize
+      @items = []
     end
 
-    def reviewed? = !(reviewed.nil? || reviewed == false)
-
-    # Scaffolding carries no claim, so it needs no human read.
-    def claims? = origin != :structural
-
-    # The risk this audit exists to measure: a machine wrote it and nobody has
-    # checked it against the writing rules.
-    def unread_machine_prose? = drafted_by != :human && claims? && !reviewed?
+    def card(target, description)
+      @items << Card.new(target: target&.to_sym, description: description.to_s)
+    end
   end
 end

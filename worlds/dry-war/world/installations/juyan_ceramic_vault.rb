@@ -1,5 +1,7 @@
 installation :juyan_ceramic_vault do
   name "The Juyan Ceramic Vault"
+  subkind :archive
+  holdings "More than ninety thousand pieces of memory ceramic"
   aka "册库", "the stack"
   tags :governance, :legibility, :resistance, :water
   prominence :recognized

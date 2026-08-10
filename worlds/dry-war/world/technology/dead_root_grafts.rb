@@ -1,5 +1,6 @@
 resource :dead_root_grafts do
   name "Dead-Root Grafts"
+  subkind :biological_material
   tags :resistance, :biotech, :symbiosis
   prominence :recognized
 

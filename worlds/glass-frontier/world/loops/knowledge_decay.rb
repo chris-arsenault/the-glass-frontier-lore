@@ -1,5 +1,6 @@
 loop :knowledge_decay do
   name "Loop: Knowledge Decay"
+  subkind :narrative_loop
   path "dm/loops/knowledge-decay.md"
   reviewed "2026-03-18"
 

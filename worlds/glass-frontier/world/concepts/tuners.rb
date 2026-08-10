@@ -1,5 +1,6 @@
 concept :tuners do
   name "Tuners"
+  subkind :practice
   path "player/concepts/tuners.md"
   status :complete
   reviewed "2026-03-19"

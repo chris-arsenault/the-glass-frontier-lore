@@ -89,9 +89,9 @@ module Lorecraft
     def shell?(e) = e[:status].to_s == "shell"
     def label(e) = "#{e.kind} #{e.id}"
 
-    # Plain text of every prose block on an entity (markers stripped to labels).
+    # Plain text of every authored block on an entity (markers stripped to labels).
     def prose_text(owner)
-      owner.prose_blocks.map { |b| Markers.strip(b.text) }.join("\n\n")
+      owner.authored_blocks.flat_map(&:text_fragments).map { |text| Markers.strip(text) }.join("\n\n")
     end
 
     def check_titles
@@ -114,8 +114,10 @@ module Lorecraft
     def check_markers
       (pages + @world.moments.values).each do |owner|
         @owner = owner
-        owner.prose_blocks.each do |b|
-          Markers.scan(b.text) { |_m, marker| marker.resolve(self) }
+        owner.authored_blocks.each do |b|
+          b.text_fragments.each do |text|
+            Markers.scan(text) { |_m, marker| marker.resolve(self) }
+          end
         end
       end
     end
@@ -369,8 +371,11 @@ module Lorecraft
 
     def refs_in(owner)
       out = []
-      owner.prose_blocks.each do |b|
-        Markers.scan(b.text) { |_m, marker| out << marker.id if marker.kind == :ref && marker.id }
+      owner.authored_blocks.each do |b|
+        out.concat(b.cards.map(&:target)) if b.cards?
+        b.text_fragments.each do |text|
+          Markers.scan(text) { |_m, marker| out << marker.id if marker.kind == :ref && marker.id }
+        end
       end
       out.uniq
     end

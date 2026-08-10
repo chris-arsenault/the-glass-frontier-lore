@@ -1,5 +1,6 @@
 resource :witness_glass do
   name "Witness Glass"
+  subkind :material
   tags :resistance, :computation, :legibility, :trade
   prominence :marginal
 

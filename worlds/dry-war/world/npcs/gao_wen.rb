@@ -1,7 +1,9 @@
 npc :gao_wen do
   name "Gao Wen"
+  subkind :worker
   tags :ecology, :prediction, :autonomy
   prominence :marginal
+  occupation "Grid-hand"
 
   prose <<~PROSE
     A grid-hand from #{ref :sanchakou, "Sanchakou"}, paid by #{ref :tangwang_post, "Tangwang Post"} to carry an increment auger along the forty-metre forest grid. He knows how to free a bit without splitting the core, how wet bark changes the count of turns and which windthrows offer a root plate without digging.

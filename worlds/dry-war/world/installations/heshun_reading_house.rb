@@ -1,5 +1,7 @@
 installation :heshun_reading_house do
   name "The Heshun Reading House"
+  subkind :workshop
+  function "Turns local machine and fungal experience into portable lessons"
   tags :computation, :locality, :trade
   prominence :marginal
 

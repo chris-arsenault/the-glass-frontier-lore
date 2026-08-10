@@ -1,7 +1,10 @@
 npc :yao_lin do
   name "Yao Lin"
+  subkind :courier
+  route "The ceramic road between Juyan and Yumen"
   tags :resistance, :legitimacy, :trade
   prominence :marginal
+  occupation "Archive courier"
 
   prose <<~PROSE
     A #{ref :the_preservationists, "Preservationist"} courier on the western run. She carries #{ref :memory_ceramics, "memory ceramics"} east to the copying houses and brings archive requests back, eight or nine crossings a year at #{ref :yumen_gate, "Yumen Gate"} since she was nineteen, and she has never lost a piece.

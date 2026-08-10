@@ -1,5 +1,6 @@
 concept :sterile_machines do
   name "Sterile Machines"
+  subkind :technology
   tags :resistance, :biotech
   prominence :recognized
 

@@ -1,5 +1,6 @@
 geographic_location :the_glass_frontier do
   name "The Glass Frontier"
+  subkind :world_region
   path "player/cosmology/the-glass-frontier.md"
   status :complete
   reviewed "2026-03-19"

@@ -177,7 +177,7 @@ module Lorecraft
     # ---- markdown tree (parity target) ----------------------------------
     class Markdown < Base
       FRONTMATTER_ORDER = %i[
-        title type alias tags prominence region status narrative_role
+        title type subkind alias tags prominence region status narrative_role
         species culture era date registry prominence_xrefs public_entry dm
       ].freeze
 
@@ -211,8 +211,9 @@ module Lorecraft
       private
 
       def frontmatter(node)
-        attrs = node.static_attrs.dup
+        attrs = node.static_attrs.merge(node.respond_to?(:fact_values) ? node.fact_values : {})
         attrs[:type] = node.kind
+        attrs[:subkind] = node.subkind
         attrs[:dm] = true if node.respond_to?(:dm?) && node.dm?
         if node.respond_to?(:public_entry) && node.public_entry
           # Emit the target's actual page slug (filename stem), not the internal
@@ -240,15 +241,15 @@ module Lorecraft
 
       def body(node, from_path, year, audience)
         @rel_subject_for = node.id
-        blocks = node.prose_blocks.select { |b| b.visible_at?(year, audience: audience.equal?(:all) ? :all : :player) }
+        blocks = node.authored_blocks.select { |b| b.visible_at?(year, audience: audience.equal?(:all) ? :all : :player) }
         main = blocks.select { |b| b.section == :main }
         sectioned = blocks.reject { |b| b.section == :main }
 
-        parts = main.map { |b| resolve_prose(b.text, from_path: from_path, year: year).strip }
+        parts = main.map { |b| render_authored_block(b, from_path, year, audience) }
         sectioned.each do |b|
           heading = b.heading || humanize(b.section)
           parts << "## #{heading} <!-- #{humanize(b.section)} -->\n\n" +
-                   resolve_prose(b.text, from_path: from_path, year: year).strip
+                   render_authored_block(b, from_path, year, audience)
         end
         player = !audience.equal?(:all)
         (moments_for(node.id) + relationships_for(node.id)).each do |owner|
@@ -289,7 +290,7 @@ module Lorecraft
       # stated, not buried in a separate audit.
       def drafting(node)
         read = node.respond_to?(:[]) && node[:reviewed]
-        drafters = node.prose_blocks.map { |b| b.drafted_by || @world.schema.default_drafter }.compact.uniq
+        drafters = node.authored_blocks.map { |b| b.drafted_by || @world.schema.default_drafter }.compact.uniq
         return nil if read.nil? && drafters.empty?
 
         bits = []
@@ -306,6 +307,27 @@ module Lorecraft
 
       def humanize(sym)
         sym.to_s.split("_").map { |w| w == "dm" ? "DM" : w.capitalize }.join(" ")
+      end
+
+      def render_authored_block(block, from_path, year, audience)
+        if block.cards?
+          block.cards.map do |card|
+            target = @world[card.target]
+            title = target&.title || humanize(card.target)
+            target_path = path_index[card.target]
+            linked = target_path ? link(title, target_path, from_path, nil) : title
+            description = resolve_prose(
+              card.description, from_path: from_path, year: year,
+              audience: audience.equal?(:all) ? :all : :player
+            ).strip
+            "- **#{linked}**: #{description}"
+          end.join("\n")
+        else
+          resolve_prose(
+            block.text, from_path: from_path, year: year,
+            audience: audience.equal?(:all) ? :all : :player
+          ).strip
+        end
       end
     end
 
@@ -324,7 +346,7 @@ module Lorecraft
           next if audience == :player && n.respond_to?(:dm?) && n.dm?
 
           {
-            id: n.id, kind: n.kind, title: n.title,
+            id: n.id, kind: n.kind, subkind: n.subkind, title: n.title,
             prominence: (n.prominence if n.respond_to?(:prominence)),
             tags: (n.tags if n.respond_to?(:tags)),
             dm: (n.respond_to?(:dm?) && n.dm?),

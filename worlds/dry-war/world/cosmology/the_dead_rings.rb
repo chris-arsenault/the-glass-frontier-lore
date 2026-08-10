@@ -1,5 +1,6 @@
 phenomenon :the_dead_rings do
   name "The Dead Rings"
+  subkind :ecological_phenomenon
   tags :ecology, :military, :catastrophe
   prominence :recognized
 

@@ -1,5 +1,6 @@
 faction :the_dead_counties do
   name "The Dead Counties"
+  subkind :resistance_network
   tags :resistance, :autonomy, :legibility
   prominence :recognized
 

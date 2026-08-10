@@ -1,5 +1,6 @@
 resource :microcavities do
   name "Microcavities"
+  subkind :material
   path "player/concepts/microcavities.md"
   reviewed "2026-03-19"
   tags :resonance, :trade, :materials

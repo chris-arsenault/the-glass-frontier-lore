@@ -1,5 +1,6 @@
 faction :bloom_coalition do
   name "Bloom Coalition"
+  subkind :civic_body
   path "player/npcs/factions/bloom-coalition.md"
   tags :governance, :diplomacy, :resonance, :danger, :rebuilding
   prominence :renowned

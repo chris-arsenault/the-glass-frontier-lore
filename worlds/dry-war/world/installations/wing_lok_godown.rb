@@ -1,5 +1,6 @@
 installation :wing_lok_godown do
   name "The Wing Lok Godown"
+  subkind :warehouse
   tags :trade, :legibility, :biotech
   prominence :marginal
 

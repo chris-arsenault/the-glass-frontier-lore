@@ -1,5 +1,6 @@
 faction :coremark do
   name "Coremark"
+  subkind :company
   path "player/npcs/factions/coremark.md"
   reviewed "2026-03-19"
   tags :salvage, :ringglass, :trade, :danger

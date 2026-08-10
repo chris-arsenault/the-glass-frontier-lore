@@ -1,7 +1,9 @@
 incident :the_eleven_day_flush do
   name "The Eleven-Day Flush"
+  subkind :operational_failure
   tags :trade, :legibility, :biotech, :computation
   prominence :marginal
+  date 2088
 
   prose <<~PROSE
     In 2088 a Guangzhou house of #{ref :the_brokers, "the Brokers"} sold a sensory membrane to a workshop in #{ref :the_dead_counties, "the Dead Counties"}. The membrane was grown on a #{ref :severed_strains, "severed fungal strain"} and sold as unable to find a network terminal. The workshop paid with a #{ref :feral_models, "feral model"} rather than coin.

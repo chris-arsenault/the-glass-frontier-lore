@@ -1,5 +1,6 @@
 installation :span_nine do
   name "Span Nine"
+  subkind :landmark
   path "player/locations/landmarks/span-nine.md"
   status :complete
   reviewed "2026-03-19"

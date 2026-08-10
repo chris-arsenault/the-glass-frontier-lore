@@ -1,5 +1,6 @@
 faction :the_brokers do
   name "The Brokers"
+  subkind :trade_network
   tags :trade, :biotech, :legitimacy
   prominence :recognized
 

@@ -1,7 +1,9 @@
 npc :odile_marchand do
   name "Odile Marchand"
+  subkind :official
   tags :surveillance, :governance, :legibility
   prominence :marginal
+  occupation "District sound officer"
 
   prose <<~PROSE
     #{ref :caretaker, "Caretaker"}'s district sound officer for Detroit, holding the ambience programme's schedule, its platform arrays and the acoustic return on every heritage session. She has had the post since 2085 and books #{ref :ste_anne_belfry, "the Ste. Anne belfry"} for eleven or twelve sessions a year.

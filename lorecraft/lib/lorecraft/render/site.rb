@@ -11,7 +11,7 @@ module Lorecraft
     # player knowledge. Questions, entry logs and drafting records go into a
     # separate document intended for the authenticated editorial API.
     class Site < Base
-      SCHEMA_VERSION = 1
+      SCHEMA_VERSION = 4
       CAUSAL_RELATIONS = %w[causes caused caused_by].freeze
 
       def initialize(world, root: Dir.pwd)
@@ -152,6 +152,7 @@ module Lorecraft
           entries: entries.sort_by { |entry| entry[:title] },
           pages: pages.sort_by { |page| page[:title] },
           kinds: kind_index(entries),
+          subkinds: subkind_index(entries),
           tags: @world.schema.tags.sort_by { |name, _| name.to_s }.map do |name, description|
             { id: name.to_s, title: humanize(name), description: description }
           end,
@@ -168,6 +169,7 @@ module Lorecraft
           slug: slug(node.id),
           title: node.title,
           kind: node.kind.to_s,
+          subkind: node.subkind.to_s,
           section: section_for(node),
           tags: node.respond_to?(:tags) ? node.tags.map(&:to_s) : [],
           prominence: node.respond_to?(:prominence) && node.prominence&.to_s,
@@ -175,7 +177,7 @@ module Lorecraft
           status: node.respond_to?(:[]) && node[:status]&.to_s,
           region: node.respond_to?(:[]) && node[:region]&.to_s,
           narrative_role: node.respond_to?(:[]) && node[:narrative_role]&.to_s,
-          summary: summarize(sections.map { |section| section[:markdown] }.join("\n\n")),
+          summary: summarize(prose_markdown(sections)),
           route: entry_route(node.id),
         }.compact
       end
@@ -189,6 +191,7 @@ module Lorecraft
           revision: @revision,
           generated_at_year: @year,
           sections: sections_for(node, audience),
+          facts: fact_documents(node, audience),
           connections: edges.map { |edge| connection_document(node.id, edge) },
           timeline_event_ids: event_ids_for(node.id),
         )
@@ -203,19 +206,20 @@ module Lorecraft
           slug: slug(node.id),
           title: node.title,
           kind: node.kind.to_s,
+          subkind: node.subkind.to_s,
           tags: node.respond_to?(:tags) ? node.tags.map(&:to_s) : [],
           prominence: node.respond_to?(:prominence) && node.prominence&.to_s,
           aliases: array_attr(node, :alias),
           status: node.respond_to?(:[]) && node[:status]&.to_s,
           region: node.respond_to?(:[]) && node[:region]&.to_s,
           dm: node.respond_to?(:dm?) && node.dm?,
-          summary: summarize(sections.map { |section| section[:markdown] }.join("\n\n")),
+          summary: summarize(prose_markdown(sections)),
           route: entry_route(node.id),
         }.compact
       end
 
       def sections_for(node, audience)
-        blocks = node.prose_blocks.select do |block|
+        blocks = node.authored_blocks.select do |block|
           block.visible_at?(@year, audience: audience == :player ? :player : :all)
         end
         sections = blocks.sort_by(&:order).map do |block|
@@ -235,11 +239,37 @@ module Lorecraft
       end
 
       def block_document(block, subject, audience, owner:)
+        return card_block_document(block, subject, audience, owner: owner) if block.cards?
+
         {
           id: "#{owner.id}:#{block.section}:#{block.order}",
+          format: "prose",
           section: block.section.to_s,
           heading: block.heading || (block.section == :main ? nil : humanize(block.section)),
           markdown: resolve_site_text(block.text, subject: subject, audience: audience).strip,
+          at_year: block.at_year,
+          owner_id: owner.id.to_s,
+          owner_kind: owner.respond_to?(:kind) ? owner.kind.to_s : "relationship",
+        }.compact
+      end
+
+      def card_block_document(block, subject, audience, owner:)
+        {
+          id: "#{owner.id}:#{block.section}:#{block.order}",
+          format: "cards",
+          section: block.section.to_s,
+          heading: block.heading || humanize(block.section),
+          cards: block.cards.map do |card|
+            target = @world[card.target]
+            {
+              entry_id: card.target.to_s,
+              title: target&.title || humanize(card.target),
+              route: entry_route(card.target),
+              description: resolve_site_text(
+                card.description, subject: subject, audience: audience
+              ).strip,
+            }
+          end,
           at_year: block.at_year,
           owner_id: owner.id.to_s,
           owner_kind: owner.respond_to?(:kind) ? owner.kind.to_s : "relationship",
@@ -252,7 +282,7 @@ module Lorecraft
           id: page.id.to_s,
           slug: slug(page.id),
           title: page.title,
-          summary: summarize(content.map { |section| section[:markdown] }.join("\n\n")),
+          summary: summarize(prose_markdown(content)),
           route: page.id == :home ? "/#{@world_id}" : "/#{@world_id}/page/#{slug(page.id)}",
         }
       end
@@ -270,6 +300,7 @@ module Lorecraft
         page.prose_blocks.sort_by { |block| block[:order] }.map do |block|
           {
             id: "#{page.id}:#{block[:order]}",
+            format: "prose",
             section: block[:heading] ? slug(block[:heading]) : "main",
             heading: block[:heading],
             markdown: resolve_site_text(block[:text], subject: page.id, audience: :player).strip,
@@ -306,6 +337,36 @@ module Lorecraft
           nodes: nodes,
           edges: edges.sort_by { |edge| [edge["src"], edge["rel"], edge["tgt"], edge["from"]] },
         }
+      end
+
+      def fact_documents(node, audience)
+        Facts.new(@world).present(node, at: @year, audience: audience).filter_map do |row|
+          definition = row.definition
+          if %i[entity entities].include?(definition.type)
+            targets = Array(row.value).filter_map do |id|
+              target = @world[id]
+              next unless site_visible?(target, audience)
+
+              { entry_id: id.to_s, title: target.title, route: entry_route(id) }
+            end.sort_by { |target| target[:title] }
+            next if targets.empty?
+
+            { id: definition.name.to_s, label: definition.label, links: targets }
+          else
+            {
+              id: definition.name.to_s,
+              label: definition.label,
+              value: format_fact_value(definition, row.value),
+            }
+          end
+        end
+      end
+
+      def format_fact_value(definition, value)
+        case definition.type
+        when :year then "#{@world.year_of(value)} CE"
+        else value.to_s
+        end
       end
 
       def timeline_document
@@ -386,6 +447,18 @@ module Lorecraft
         end.sort_by { |kind| kind[:title] }
       end
 
+      def subkind_index(entries)
+        entries.group_by { |entry| [entry[:kind], entry[:subkind]] }.map do |(kind, subkind), members|
+          definition = @world.schema.subkind_def(kind, subkind)
+          {
+            id: subkind,
+            kind: kind,
+            title: definition&.label || humanize(subkind),
+            count: members.size,
+          }
+        end.sort_by { |subkind| [subkind[:kind], subkind[:title]] }
+      end
+
       def relation_definition(relation)
         {
           id: relation.name.to_s,
@@ -428,6 +501,9 @@ module Lorecraft
             { text: question.text, raised: question.raised, on: question.on }.compact
           end : [],
           log: node.respond_to?(:log_entries) ? node.log_entries : [],
+          missing_facts: Facts.new(@world).missing(node, at: @year).map do |row|
+            { id: row.definition.name.to_s, label: row.definition.label }
+          end,
           provenance: rows.map do |row|
             {
               section: row.section.to_s,
@@ -478,6 +554,10 @@ module Lorecraft
 
         boundary = plain.rindex(/\s/, 217) || 217
         "#{plain[0...boundary]}…"
+      end
+
+      def prose_markdown(sections)
+        sections.filter_map { |section| section[:markdown] }.join("\n\n")
       end
 
       def entry_route(id) = "/#{@world_id}/entry/#{slug(id)}"

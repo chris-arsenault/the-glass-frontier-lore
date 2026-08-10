@@ -1,5 +1,6 @@
 geographic_location :the_gobi do
   name "The Gobi"
+  subkind :region
   tags :resistance, :legitimacy, :ecology
   prominence :renowned
 
@@ -20,6 +21,7 @@ end
 
 geographic_location :the_hexi_corridor do
   name "The Hexi Corridor"
+  subkind :frontier
   tags :trade, :symbiosis, :medicine
   prominence :renowned
 
@@ -32,6 +34,7 @@ end
 
 geographic_location :sichuan do
   name "Sichuan"
+  subkind :region
   tags :locality, :agriculture, :symbiosis
   prominence :renowned
 
@@ -44,6 +47,7 @@ end
 
 geographic_location :the_pearl_river_delta do
   name "The Pearl River Delta"
+  subkind :region
   tags :trade, :biotech, :legitimacy
   prominence :renowned
 
@@ -56,6 +60,7 @@ end
 
 geographic_location :yunnan do
   name "Yunnan"
+  subkind :region
   tags :locality, :ecology, :religion
   prominence :renowned
 

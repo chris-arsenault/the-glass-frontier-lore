@@ -1,7 +1,9 @@
 npc :nadya_tsoi do
   name "Nadya Tsoi"
+  subkind :official
   tags :military, :catastrophe, :autonomy
   prominence :marginal
+  occupation "Contract scout"
 
   prose <<~PROSE
     A contract scout on #{ref :tangwang_post, "Tangwang Post"}'s roll, from a Bureya-bank family that has put scouts on the #{ref :the_amur_line, "line"} since the campaigns. She walks a compartment and the two kilometres beyond it. Her mark decides where crews make the next of #{ref :the_dead_rings, "the dead rings"}.

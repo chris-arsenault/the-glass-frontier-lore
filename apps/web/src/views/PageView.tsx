@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import { ErrorState, LoadingState } from "../components/AsyncState";
-import { MarkdownContent } from "../components/MarkdownContent";
+import { ContentSections } from "../components/ContentSections";
 import { ViewHeader } from "../components/ViewHeader";
 import { useWorld } from "../components/worldContext";
 import { pageQuery } from "../data/queries";
@@ -19,12 +19,7 @@ export function PageView() {
   return (
     <main className="reader-page standalone-page">
       <ViewHeader eyebrow={null} title={page.data.title} description={page.data.summary} actions={null} />
-      {page.data.sections.map((section) => (
-        <section key={section.id}>
-          {section.heading && <h2>{section.heading}</h2>}
-          <MarkdownContent markdown={section.markdown} />
-        </section>
-      ))}
+      <ContentSections sections={page.data.sections} headingLevel={2} sectionClassName={null} />
     </main>
   );
 }

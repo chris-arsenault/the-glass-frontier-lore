@@ -1,5 +1,6 @@
 installation :mulberry_court_clinic do
   name "Mulberry Court Clinic"
+  subkind :clinic
   tags :autonomy, :medicine, :surveillance, :symbiosis
   prominence :marginal
 

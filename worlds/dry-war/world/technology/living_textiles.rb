@@ -1,5 +1,6 @@
 resource :living_textiles do
   name "Living Textiles"
+  subkind :biological_material
   tags :biotech, :symbiosis, :medicine
   prominence :mythic
 

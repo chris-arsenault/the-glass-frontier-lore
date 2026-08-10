@@ -1,5 +1,6 @@
 faction :tempered_accord do
   name "Tempered Accord"
+  subkind :government
   path "player/npcs/factions/tempered-accord.md"
   reviewed "2026-03-18"
   tags :governance, :diplomacy

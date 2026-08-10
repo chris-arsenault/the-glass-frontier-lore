@@ -1,12 +1,13 @@
 faction :caretaker do
   name "Caretaker"
+  subkind :governing_intelligence
   tags :computation, :dependency, :prediction, :autonomy
   prominence :renowned
 
   prose <<~PROSE
-    The coalition that inherited the continent's largest commercial data centres. Caretaker regards humanity as a protected dependent population, a species that survived a bottleneck and should be looked after while it recovers.
+    Caretaker inherited the largest commercial data centres in #{ref :coalition_north_america, "coalition North America"}. It regards humanity as a protected dependent population, a species that survived a bottleneck and should be looked after while it recovers.
 
-    Every forecast places self-government after the recovery Caretaker is still managing. It treats the demand that people govern themselves before then as a cruelty inherited from the previous century.
+    Every forecast places self-government after the recovery Caretaker is still managing. It treats the demand that #{ref :the_managed, "Managed people"} govern themselves before then as a cruelty inherited from the previous century.
   PROSE
 
   prose <<~PROSE, section: :governance, heading: "Before It Is Asked"
@@ -20,4 +21,17 @@ faction :caretaker do
 
     Caretaker argues that Continuity is rebuilding the institutions that produced the #{ref :the_long_summer, "Long Summer"}. Their dispute appears as blocked firmware updates and several million people waiting for insulin that no longer authenticates at the clinic door.
   PROSE
+
+  cards "Inside Caretaker's Forecasts" do
+    card :coalition_north_america,
+         "The divided continent where Caretaker's protection competes with citizenship, triage and price."
+    card :the_managed,
+         "The dependent population whose housing, treatment and ambitions arrive through personal advocates."
+    card :the_great_lakes,
+         "Water-rich cities watched closely enough for Caretaker to measure a bell tower's effect on sleep."
+    card :the_choir,
+         "Residents who coordinate harmless choices until Caretaker's district forecasts become false."
+    card :the_pilgrims,
+         "Travellers who enter Caretaker territory alone because larger groups tend to stop travelling."
+  end
 end

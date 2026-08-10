@@ -1,5 +1,6 @@
 culture :hab_worlder do
   name "Hab-Worlder"
+  subkind :way_of_life
   path "player/concepts/cultures/hab-worlder.md"
   status :complete
   reviewed "2026-03-18"

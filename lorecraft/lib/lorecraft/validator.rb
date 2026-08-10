@@ -16,6 +16,7 @@ module Lorecraft
 
     def validate
       check_references
+      check_cards
       check_relation_types
       check_static_dynamic
       check_causality
@@ -23,6 +24,8 @@ module Lorecraft
       check_exclusivity
       check_tags
       check_prominence
+      check_subkinds
+      check_facts
       check_sections
       check_statuses
       check_provenance
@@ -46,11 +49,13 @@ module Lorecraft
     # marker" and "render this marker" are the same traversal with different
     # `on_*` bodies, so there is no `case` on marker kind here.
     def check_references
-      each_prose_owner do |owner, block|
+      each_authored_owner do |owner, block|
         @owner = owner
         # A DM owner or a DM block may name hidden entities; a public one may not.
         @dm_context = dm_owner?(owner) || block.dm?
-        Markers.scan(block.text) { |_match, marker| marker.resolve(self) }
+        block.text_fragments.each do |text|
+          Markers.scan(text) { |_match, marker| marker.resolve(self) }
+        end
       end
 
       @world.moments.each_value do |ev|
@@ -70,6 +75,51 @@ module Lorecraft
       @world.relation_instances.each_value do |ri|
         err("relation #{ri.id}: source → unknown id #{ri.source}") unless known?(ri.source)
         err("relation #{ri.id}: target → unknown id #{ri.target}") unless known?(ri.target)
+      end
+    end
+
+    # Authored cards point only to pages a reader can open. Their selection and
+    # wording remain editorial; validation only protects resolvability,
+    # visibility and basic block integrity.
+    def check_cards
+      @world.prose_owners.each do |owner|
+        owner.authored_blocks.select(&:cards?).each do |block|
+          if block.heading.to_s.strip.empty?
+            err("#{label(owner)}: card block has no heading")
+          end
+          if block.cards.empty?
+            err("#{label(owner)}: card block '#{block.heading}' has no cards")
+            next
+          end
+
+          duplicates = block.cards.map(&:target).compact.tally.select { |_target, count| count > 1 }.keys
+          duplicates.each do |target|
+            err("#{label(owner)}: card block '#{block.heading}' repeats target #{target}")
+          end
+
+          block.cards.each do |card|
+            if card.description.strip.empty?
+              err("#{label(owner)}: card to #{card.target || '(missing target)'} has no description")
+            end
+            unless card.target && known?(card.target)
+              err("#{label(owner)}: card target → unknown id #{card.target || '(missing target)'}")
+              next
+            end
+
+            target = @world[card.target]
+            unless @world.pages.include?(target) && @schema.wiki_kind?(target.kind)
+              err("#{label(owner)}: card target #{card.target} has no reader page")
+              next
+            end
+            if target.respond_to?(:[]) && target[:status].to_s == "shell"
+              err("#{label(owner)}: card target #{card.target} is a shell")
+            end
+            next if dm_owner?(owner) || block.dm?
+
+            err("#{label(owner)}: public card references DM-only entity #{card.target}") \
+              if target.respond_to?(:dm?) && target.dm?
+          end
+        end
       end
     end
 
@@ -265,13 +315,105 @@ module Lorecraft
       end
     end
 
+    def check_facts
+      @world.pages.each do |node|
+        authored_fact_values(node).each do |name, value|
+          definition = @schema.fact_def(
+            node.kind, name, subkind: node.subkind, custom: custom_fact_defs(node)
+          )
+          unless definition
+            err("#{label(node)}: fact '#{name}' is not declared for #{node.kind}")
+            next
+          end
+
+          check_fact_value(node, definition, value)
+        end
+
+        effective_facts(node).select { |definition| definition.source == :relation }.each do |definition|
+          next unless definition.cardinality == :one
+
+          state = @world.at(:now)
+          targets = if definition.direction == :incoming
+                      state.in(node.id, definition.relation)
+                    else
+                      state.out(node.id, definition.relation)
+                    end
+          if targets.size > 1
+            err("#{label(node)}: fact '#{definition.name}' expects one #{definition.relation} target, got #{targets.size}")
+          end
+        end
+      end
+    end
+
+    def authored_fact_values(node)
+      return node.fact_values if node.respond_to?(:fact_values)
+
+      attribute_names = effective_facts(node)
+                               .select { |definition| definition.source == :attribute }
+                               .map(&:name)
+      node.static_attrs.slice(*attribute_names)
+    end
+
+    def effective_facts(node)
+      @schema.facts_for(node.kind, subkind: node.subkind, custom: custom_fact_defs(node))
+    end
+
+    def custom_fact_defs(node)
+      node.respond_to?(:custom_fact_defs) ? node.custom_fact_defs : []
+    end
+
+    def check_subkinds
+      @world.pages.each do |node|
+        next unless @schema.kind?(node.kind)
+
+        if @schema.explicit_subkinds_required? && node.is_a?(Entity) && node[:subkind].nil?
+          err("#{label(node)}: subkind is required")
+          next
+        end
+
+        unless @schema.subkind?(node.kind, node.subkind)
+          err("#{label(node)}: unknown subkind '#{node.subkind}' for #{node.kind}")
+        end
+      end
+    end
+
+    def check_fact_value(entity, definition, value)
+      case definition.type
+      when :text
+        err("#{label(entity)}: fact '#{definition.name}' expects text") unless value.is_a?(String)
+      when :integer
+        err("#{label(entity)}: fact '#{definition.name}' expects an integer") unless value.is_a?(Integer)
+      when :year
+        @world.year_of(value)
+      when :entity
+        check_fact_target(entity, definition, value)
+      when :entities
+        Array(value).each { |target| check_fact_target(entity, definition, target) }
+      end
+    rescue DefinitionError
+      err("#{label(entity)}: fact '#{definition.name}' has unknown date anchor #{value.inspect}")
+    end
+
+    def check_fact_target(entity, definition, value)
+      id = value.respond_to?(:to_sym) ? value.to_sym : nil
+      unless id && known?(id)
+        err("#{label(entity)}: fact '#{definition.name}' → unknown id #{value}")
+        return
+      end
+      return if entity.dm?
+
+      target = @world[id]
+      err("#{label(entity)}: public fact '#{definition.name}' references DM-only entity #{id}") \
+        if target.respond_to?(:dm?) && target.dm?
+    end
+
     def check_sections
       return if @schema.section_headings.empty?
 
-      each_prose_owner do |owner, block|
+      each_authored_owner do |owner, block|
         next if block.section == :main
 
-        err("#{label(owner)}: prose section '#{block.section}' not in canonical vocabulary") \
+        err("#{label(owner)}: authored section '#{block.section}' not in canonical vocabulary") \
           unless @schema.section_heading?(block.section)
       end
     end
@@ -302,7 +444,7 @@ module Lorecraft
         err("#{label(e)}: reviewed #{e[:reviewed].inspect} is not a YYYY-MM-DD date")
       end
 
-      each_prose_owner do |owner, block|
+      each_authored_owner do |owner, block|
         if block.origin && !ORIGINS.include?(block.origin)
           err("#{label(owner)}: unknown prose origin #{block.origin.inspect} (#{ORIGINS.join('/')})")
         end
@@ -317,9 +459,9 @@ module Lorecraft
 
     # --- helpers -----------------------------------------------------------
 
-    def each_prose_owner
-      (@world.pages + @world.relation_instances.values).each do |owner|
-        owner.prose_blocks.each { |b| yield owner, b }
+    def each_authored_owner
+      @world.prose_owners.each do |owner|
+        owner.authored_blocks.each { |block| yield owner, block }
       end
     end
 

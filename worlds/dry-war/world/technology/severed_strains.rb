@@ -1,5 +1,6 @@
 resource :severed_strains do
   name "Severed Strains"
+  subkind :biological_material
   tags :resistance, :biotech, :symbiosis
   prominence :recognized
 

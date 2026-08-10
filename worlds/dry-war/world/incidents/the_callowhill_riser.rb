@@ -1,7 +1,9 @@
 incident :the_callowhill_riser do
   name "The Callowhill Riser"
+  subkind :dispute
   tags :trade, :identity, :legibility
   prominence :marginal
+  date 2088
 
   prose <<~PROSE
     A chilled-water return riser replaced beneath a Callowhill Street block in 2088. The buyer accepted the work and paid #{ref :market, "Market"}. Eleven months later two people came to #{ref :race_street_warehouse, "the Race Street warehouse"}, eleven days apart, each claiming the reserved price. Both arrived with identity records that required repair before the warehouse could use them.

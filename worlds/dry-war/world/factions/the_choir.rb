@@ -1,5 +1,6 @@
 faction :the_choir do
   name "The Choir"
+  subkind :resistance_network
   tags :resistance, :prediction, :legibility, :surveillance
   prominence :recognized
 

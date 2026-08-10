@@ -1,5 +1,6 @@
 species :species do
   name "Species"
+  subkind :overview
   path "player/concepts/species/species.md"
   status :complete
   reviewed "2026-03-18"

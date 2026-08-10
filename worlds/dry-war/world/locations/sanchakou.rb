@@ -1,5 +1,6 @@
 geographic_location :sanchakou do
   name "Sanchakou"
+  subkind :settlement
   tags :locality, :agriculture, :dependency, :symbiosis
   prominence :marginal
 

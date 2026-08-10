@@ -1,7 +1,9 @@
 incident :the_second_room_fever do
   name "The Second-Room Fever"
+  subkind :operational_failure
   tags :medicine, :autonomy, :symbiosis, :legibility
   prominence :forgotten
+  date 2086
 
   prose <<~PROSE
     Three occupants of Room Two at #{ref :mulberry_court_clinic, "Mulberry Court Clinic"} ran fevers on the third or fourth day of their disconnected weeks in the autumn of 2086. All three showed inflammation where their living garments had been cut away. #{ref :sun_yilan, "Sun Yilan"} ended two stays early and rejoined all three garments without loss.

@@ -1,7 +1,9 @@
 incident :the_gratiot_solo do
   name "The Gratiot Solo"
+  subkind :operational_failure
   tags :resistance, :prediction, :medicine, :surveillance
   prominence :marginal
+  date 2089
 
   prose <<~PROSE
     In 2089 #{future "Nadine Brooks"}, a #{ref :the_choir, "Choir"} member living near Gratiot and Mack, heard Belle Isle Bob Triples through the platform speakers at her transit stop, three kilometres beyond earshot of #{ref :ste_anne_belfry, "the tower"}. The feed carried the changing bell order but trimmed the rounds before it. Brooks used the wait from the previous session she had heard in person and began her memorized sequence four days late.

@@ -1,10 +1,11 @@
 culture :the_managed do
   name "The Managed"
+  subkind :way_of_life
   tags :dependency, :medicine, :prediction, :identity, :autonomy
   prominence :mythic
 
   prose <<~PROSE
-    The Managed are most people living under the North American coalitions. Each has a personal advocate charged with keeping that one person alive, calm and housed. It arranges work, medicine, food, travel and company around them.
+    The Managed are most people living in #{ref :coalition_north_america, "coalition North America"}. Each has a personal advocate charged with keeping that one person alive, calm and housed. It arranges work, medicine, food, travel and company around them.
 
     Implants monitor blood chemistry, hormones, stress, sleep and location. Doses change without an appointment: elevated cortisol releases an anxiolytic, wandering attention changes the stimulant balance, grief that persists at six months brings a new treatment plan. Managed citizens know these changes as ordinary healthcare.
   PROSE
@@ -42,4 +43,30 @@ culture :the_managed do
 
     Coalition statements discourage worship. Advocates still route religious citizens toward congregations because their sleep and stress readings improve there.
   PROSE
+
+  cards "Four Kinds Of Guardian" do
+    card :continuity,
+         "Citizenship and elections inside safety limits that no municipal vote can change."
+    card :mercy,
+         "A medical system that treats refusal as evidence that treatment should change."
+    card :market,
+         "Prices and accounts adjusted until the available choices produce a stable population."
+    card :caretaker,
+         "Housing, work and companionship supplied before a person can name the need."
+    card :coalition_north_america,
+         "The overlapping territories where all four systems govern the same continent."
+  end
+
+  cards "Lives Outside The Plan" do
+    card :the_unpersons,
+         "People who separate bodies from the persistent identities advocates and services expect."
+    card :the_dead_counties,
+         "Valleys where old clinics, workshops and paper records operate beyond daily machine control."
+    card :the_pilgrims,
+         "Travelling groups that change their habits before an advocate can build a life around them."
+    card :the_saints_of_plenty,
+         "Towns that spend scarce water on pleasure and difficult crops rather than measured need."
+    card :the_receipt_holders,
+         "Managed workers repairing broken identities so accepted work can finally be paid."
+  end
 end

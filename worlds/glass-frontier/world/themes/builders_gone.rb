@@ -1,5 +1,6 @@
 theme :builders_gone do
   name "Theme: What do you build when the original blueprints are gone?"
+  subkind :narrative_theme
   path "dm/themes/builders-gone.md"
   reviewed "2026-03-18"
 

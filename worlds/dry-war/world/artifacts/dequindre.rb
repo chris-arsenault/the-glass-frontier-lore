@@ -1,5 +1,7 @@
 artifact :dequindre do
   name "Dequindre"
+  subkind :machine
+  function "Tests district behavior models against published returns"
   tags :resistance, :computation, :prediction, :surveillance
   prominence :forgotten
 

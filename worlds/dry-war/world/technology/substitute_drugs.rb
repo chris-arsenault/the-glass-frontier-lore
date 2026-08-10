@@ -1,5 +1,6 @@
 resource :substitute_drugs do
   name "Substitute Drugs"
+  subkind :medicine
   tags :resistance, :medicine, :dependency
   prominence :recognized
 

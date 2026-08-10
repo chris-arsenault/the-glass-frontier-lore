@@ -1,5 +1,6 @@
 geographic_location :sable_crescent do
   name "Sable Crescent"
+  subkind :region
   path "player/locations/regions/sable-crescent.md"
   status :complete
   reviewed "2026-03-20"

@@ -1,5 +1,6 @@
 concept :resonance do
   name "Resonance"
+  subkind :physical_system
   path "player/cosmology/resonance.md"
   status :complete
   reviewed "2026-06-18"

@@ -1,5 +1,6 @@
 faction :the_saints_of_plenty do
   name "The Saints of Plenty"
+  subkind :community
   tags :resistance, :water, :agriculture, :autonomy
   prominence :recognized
 

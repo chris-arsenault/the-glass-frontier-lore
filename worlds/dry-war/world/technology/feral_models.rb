@@ -1,5 +1,6 @@
 concept :feral_models do
   name "Feral Models"
+  subkind :technology
   tags :resistance, :computation, :prediction
   prominence :recognized
 

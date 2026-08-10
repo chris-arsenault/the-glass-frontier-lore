@@ -1,5 +1,6 @@
 resource :comparison_tiles do
   name "Comparison Tiles"
+  subkind :material
   aka "the set"
   tags :ecology, :military, :trade, :legibility
   prominence :marginal

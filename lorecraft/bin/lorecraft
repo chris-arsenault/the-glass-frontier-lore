@@ -9,6 +9,7 @@
 #   lorecraft render build/wiki --audience player   # player-facing only
 #   lorecraft graph [out.json]         # graph projection (Memgraph replacement)
 #   lorecraft timeline <entity-id>     # life-of-entity moment strip
+#   lorecraft facts                    # expected fact coverage by kind and entry
 #   lorecraft stats
 #   lorecraft worlds                   # list the tenants in worlds.yml
 #
@@ -195,6 +196,8 @@ when "provenance"
   # Who drafted the prose and who has read it, per block. Review dates come from
   # the DSL; whether a date still covers the text comes from git.
   puts Lorecraft::Provenance.new(load_world, root: WORLD.root).report
+when "facts"
+  puts Lorecraft::FactAudit.new(load_world, at: at).report
 when "log"
   # The entry's own history: why facts changed, what corrections rest on. Not
   # world content, so it appears on no reader-facing page.

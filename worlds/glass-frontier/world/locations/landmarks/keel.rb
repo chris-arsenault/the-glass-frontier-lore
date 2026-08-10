@@ -1,5 +1,7 @@
 installation :keel do
   name "The Keel"
+  subkind :infrastructure
+  function "Connects the system's major ringglass, trade and settlement nodes"
   path "player/locations/landmarks/keel.md"
   status :complete
   reviewed "2026-03-18"

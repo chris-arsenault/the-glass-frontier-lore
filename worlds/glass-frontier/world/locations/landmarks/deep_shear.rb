@@ -1,5 +1,6 @@
 geographic_location :deep_shear do
   name "Deep Shear"
+  subkind :hazardous_zone
   path "player/locations/landmarks/deep-shear.md"
   tags :orbital, :danger, :resonance, :salvage
   prominence :recognized

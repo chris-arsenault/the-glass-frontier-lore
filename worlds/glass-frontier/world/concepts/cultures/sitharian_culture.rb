@@ -1,5 +1,6 @@
 culture :sitharian_culture do
   name "Sitharian Culture"
+  subkind :regional_culture
   path "player/concepts/cultures/sitharian-culture.md"
   status :complete
   reviewed "2026-03-19"

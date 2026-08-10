@@ -1,5 +1,6 @@
 phenomenon :echo_rivers do
   name "Echo Rivers"
+  subkind :physical_phenomenon
   path "player/cosmology/echo-rivers.md"
   status :complete
   reviewed "2026-03-19"

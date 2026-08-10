@@ -1,5 +1,6 @@
 faction :echo_ledger_conclave do
   name "Echo Ledger Conclave"
+  subkind :religious_order
   path "player/npcs/factions/echo-ledger-conclave.md"
   reviewed "2026-03-18"
   tags :archives, :resonance, :"signal-freq", :governance

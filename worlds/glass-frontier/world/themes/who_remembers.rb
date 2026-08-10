@@ -1,5 +1,6 @@
 theme :who_remembers do
   name "Theme: Who decides what gets remembered?"
+  subkind :narrative_theme
   path "dm/themes/who-remembers.md"
   reviewed "2026-03-18"
 

@@ -1,5 +1,6 @@
 species :humans do
   name "Humans"
+  subkind :sapient_species
   path "player/concepts/species/humans.md"
   status :complete
   reviewed "2026-03-18"

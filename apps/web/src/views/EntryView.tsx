@@ -2,28 +2,23 @@ import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { ErrorState, LoadingState } from "../components/AsyncState";
+import { ContentSections } from "../components/ContentSections";
 import { EditorialPanel } from "../components/EditorialPanel";
-import { MarkdownContent } from "../components/MarkdownContent";
+import { EntryFacts } from "../components/EntryFacts";
 import { ViewHeader } from "../components/ViewHeader";
 import { useWorld } from "../components/worldContext";
 import { entryQuery } from "../data/queries";
 import { useRecordReading } from "../data/readingStore";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
-import type { EntryDocument, EntrySummary } from "../types/canon";
+import type { EntryDocument } from "../types/canon";
 
-function EntryArticle({ entry, related, worldId }: { entry: EntryDocument; related: EntrySummary[]; worldId: string }) {
+function EntryArticle({ entry, worldId }: { entry: EntryDocument; worldId: string }) {
   return <article className="reader-page entry-page">
-    <ViewHeader eyebrow={entry.kind.replaceAll("_", " ")} title={entry.title}
+    <ViewHeader eyebrow={`${entry.kind.replaceAll("_", " ")} · ${entry.subkind.replaceAll("_", " ")}`} title={entry.title}
       description={entry.aliases.length > 0 ? `Also known as ${entry.aliases.join(", ")}` : null}
       actions={<Link className="quiet-link" to={`/${worldId}/compare?left=${entry.slug}`}>Compare</Link>} />
-    {entry.sections.map((section) => <section className="entry-section" key={section.id}>
-      {section.heading && <h2>{section.heading}</h2>}<MarkdownContent markdown={section.markdown} />
-    </section>)}
-    {related.length > 0 && <section className="related-entries"><h2>Near this entry</h2><div>
-      {related.map((candidate) => <Link key={candidate.id} to={candidate.route}>
-        <span>{candidate.title}</span><small>{candidate.kind.replaceAll("_", " ")}</small>
-      </Link>)}
-    </div></section>}
+    <EntryFacts facts={entry.facts} compact={false} />
+    <ContentSections sections={entry.sections} headingLevel={2} sectionClassName="entry-section" />
   </article>;
 }
 
@@ -65,17 +60,9 @@ export function EntryView() {
     return <ErrorState title="Entry not found" detail={`No entry named ${entrySlug} could be read.`} />;
   }
 
-  const related = world.entries
-    .filter(
-      (candidate) =>
-        candidate.id !== entry.data.id &&
-        candidate.tags.some((tag) => entry.data.tags.includes(tag))
-    )
-    .slice(0, 4);
-
   return (
     <main className="entry-layout">
-      <EntryArticle entry={entry.data} related={related} worldId={world.id} />
+      <EntryArticle entry={entry.data} worldId={world.id} />
       <EntryContext entry={entry.data} worldId={world.id} />
     </main>
   );

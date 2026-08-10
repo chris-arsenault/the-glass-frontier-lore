@@ -1,5 +1,6 @@
 resource :ringglass do
   name "Ringglass"
+  subkind :material
   path "player/concepts/ringglass.md"
   status :complete
   reviewed "2026-03-19"

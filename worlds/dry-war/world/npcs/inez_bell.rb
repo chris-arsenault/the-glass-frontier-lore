@@ -1,7 +1,9 @@
 npc :inez_bell do
   name "Inez Bell"
+  subkind :official
   tags :governance, :legibility, :water
   prominence :marginal
+  occupation "Municipal seal and voter-roll keeper"
 
   prose <<~PROSE
     Keeper of #{ref :cairo, "Cairo"}'s municipal seal and voter rolls. #{ref :continuity, "Continuity"} moved her counter uphill during #{ref :the_cairo_retreat, "the Cairo Retreat"}; Bell carried the seal, the poll books and the brass tablet that told field crews which order was in force.

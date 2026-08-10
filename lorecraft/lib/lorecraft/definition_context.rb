@@ -83,6 +83,7 @@ module Lorecraft
     alias name title
     def tags(*values) = @moment.static_attr(:tags, values.flatten.map(&:to_sym))
     def prominence(value) = @moment.static_attr(:prominence, value.to_sym)
+    def subkind(value) = @moment.static_attr(:subkind, value.to_sym)
     def actor(id) = @moment.static_attr(:actor, id.to_sym)
     def participants(*ids) = @moment.static_attr(:participants, ids.flatten.map(&:to_sym))
     def outcome(subject, result) = @moment.static_attr(:outcome, [subject.to_sym, result.to_sym])

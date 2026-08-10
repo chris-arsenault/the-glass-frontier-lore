@@ -1,7 +1,10 @@
 faction :the_receipt_holders do
   name "The Receipt Holders"
+  subkind :mutual_aid
+  custom_fact :meeting_place, :race_street_warehouse, type: :entity, label: "Meeting Place"
   tags :trade, :identity, :legibility, :autonomy
   prominence :marginal
+  founded 2087
 
   prose <<~PROSE
     A mutual operating from the east gallery of #{ref :race_street_warehouse, "the Race Street warehouse"}. It reconstructs damaged identity records, finds worksite witnesses and provides meals and transit to claimants while their money remains in reserve. It takes no share of a released payment.

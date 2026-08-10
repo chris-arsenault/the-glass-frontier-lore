@@ -1,5 +1,7 @@
 resource :resonant_instruments do
   name "Resonant Instruments"
+  subkind :device
+  function "Produce adjustable resonance effects through physical vibration"
   path "player/artifacts/common/resonant-instruments.md"
   status :complete
   reviewed "2026-03-19"

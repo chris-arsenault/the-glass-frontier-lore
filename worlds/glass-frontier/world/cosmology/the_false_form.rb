@@ -1,5 +1,6 @@
 concept :the_false_form do
   name "The False Form"
+  subkind :physical_system
   path "player/cosmology/the-false-form.md"
   reviewed "2026-06-18"
   tags :resonance, :cosmology, :religion, :legend

@@ -1,5 +1,6 @@
 concept :mixed_minds do
   name "Mixed Minds"
+  subkind :physical_system
   tags :hybridization, :computation, :symbiosis
   prominence :renowned
 

@@ -1,5 +1,7 @@
 installation :cabin_creek_bench do
   name "The Cabin Creek Bench"
+  subkind :workshop
+  function "Tests substitute medicines before distribution"
   tags :resistance, :medicine, :dependency
   prominence :forgotten
 

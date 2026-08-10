@@ -1,5 +1,6 @@
 faction :the_forty_seven do
   name "The Forty-Seven"
+  subkind :community
   tags :autonomy, :locality, :governance, :water
   prominence :marginal
 

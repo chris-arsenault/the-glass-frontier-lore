@@ -44,6 +44,37 @@ def sample_world
   end
 end
 
+def fact_world
+  Lorecraft.define do
+    schema do
+      entity_type :person, :place
+      relation :lives_in, temporal: true
+
+      extend_kind :person do
+        field :born, type: :year
+        calculated :age, from: :born, calculate: :elapsed_years
+        field :occupation, type: :text
+        relation_field :home, relation: :lives_in, cardinality: :one
+        subkind :cartographer do
+          field :chart_room, type: :text, label: "Chart Room"
+        end
+      end
+    end
+    timeline { era :t, starts: 1970, length: 100; now year: 2020 }
+    place :harbour do name "Harbour" end
+    person :ada do
+      name "Ada"
+      subkind :cartographer
+      born 1980
+      occupation "Cartographer"
+      chart_room "North loft"
+      custom_fact :working_language, "River Cant"
+    end
+    person :unwritten do name "Unwritten" end
+    relate :ada_home, :lives_in, :ada, :harbour
+  end
+end
+
 class TimelineTest < Minitest::Test
   def setup = @w = sample_world
 
@@ -232,6 +263,224 @@ class ValidatorTest < Minitest::Test
     end
     assert(w.validate.any? { |p| p.include?("public prose references DM-only") })
   end
+
+  def test_authored_cards_require_reader_pages_and_descriptions
+    w = Lorecraft.define do
+      schema { entity_type :concept; section_heading :relationships }
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
+      concept :shell do name "Shell"; status :shell end
+      concept :hidden do name "Hidden"; dm!; prose "Hidden fact." end
+      concept :public_page do
+        name "Public"
+        prose "Visible fact."
+        cards "Broken paths" do
+          card :missing, "Unknown."
+          card :shell, "See #{ref :also_missing}."
+          card :hidden, "Secret."
+          card :shell, ""
+        end
+        cards "Empty" do
+        end
+      end
+    end
+
+    problems = w.validate
+    assert(problems.any? { |p| p.include?("unknown id missing") })
+    assert(problems.any? { |p| p.include?("unknown id also_missing") })
+    assert(problems.any? { |p| p.include?("target shell is a shell") })
+    assert(problems.any? { |p| p.include?("public card references DM-only entity hidden") })
+    assert(problems.any? { |p| p.include?("repeats target shell") })
+    assert(problems.any? { |p| p.include?("card to shell has no description") })
+    assert(problems.any? { |p| p.include?("card block 'Empty' has no cards") })
+  end
+end
+
+class EntityFactsTest < Minitest::Test
+  def world
+    Lorecraft.define do
+      schema do
+        entity_type :person, :place, :group
+        relation :lives_in, temporal: true
+        relation :leads, temporal: true
+        effect :set
+
+        extend_kind :person do
+          field :born, type: :year
+          calculated :age, from: :born, calculate: :elapsed_years
+          field :occupation, type: :text
+          relation_field :home, relation: :lives_in, cardinality: :one
+        end
+        extend_kind :group do
+          relation_field :leaders, relation: :leads, direction: :incoming, cardinality: :many
+        end
+      end
+      timeline { era :t, starts: 1970, length: 100; now year: 2020 }
+      place :harbour do name "Harbour" end
+      group :guild do name "Guild" end
+      person :ada do
+        name "Ada"
+        born 1980
+        occupation "Cartographer"
+      end
+      genesis :facts, at: { year: 2000 } do
+        effects do
+          set :ada, lives_in: :harbour
+          set :ada, leads: :guild
+        end
+      end
+    end
+  end
+
+  def test_kind_extensions_keep_order_and_resolve_attributes_calculations_and_relations
+    w = world
+    rows = Lorecraft::Facts.new(w).present(w.entity(:ada))
+
+    assert_equal %i[born age occupation home], rows.map { |row| row.definition.name }
+    assert_equal [1980, 40, "Cartographer", :harbour], rows.map(&:value)
+    leaders = Lorecraft::Facts.new(w).present(w.entity(:guild)).first
+    assert_equal [:ada], leaders.value
+  end
+
+  def test_expected_missing_facts_are_reported_without_inventing_values
+    w = world
+    missing = Lorecraft::Facts.new(w).missing(w.entity(:harbour))
+    assert_empty missing
+
+    missing_world = Lorecraft.define do
+      schema do
+        entity_type :person
+        extend_kind(:person) { field :born, type: :year; field :occupation, type: :text }
+      end
+      timeline { era :t, starts: 2000, length: 100; now year: 50 }
+      person :unnamed do name "Unnamed" end
+    end
+    assert_equal %i[born occupation], Lorecraft::Facts.new(missing_world)
+                                                       .missing(missing_world.entity(:unnamed))
+                                                       .map { |row| row.definition.name }
+  end
+
+  def test_fact_values_are_typed_and_entity_targets_resolve
+    w = Lorecraft.define do
+      schema do
+        entity_type :person
+        extend_kind :person do
+          field :born, type: :year
+          field :friend, type: :entity
+        end
+      end
+      timeline { era :t, starts: 2000, length: 100; now year: 50 }
+      person :a do name "A"; born "last winter"; friend :missing end
+    end
+
+    problems = w.validate
+    assert(problems.any? { |problem| problem.include?("unknown date anchor") })
+    assert(problems.any? { |problem| problem.include?("fact 'friend' → unknown id missing") })
+  end
+
+  def test_player_fact_relations_exclude_dm_edges
+    w = Lorecraft.define do
+      schema do
+        entity_type :person, :group
+        relation :member_of, temporal: true
+        extend_kind(:person) do
+          relation_field :groups, relation: :member_of, cardinality: :many
+        end
+      end
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
+      person :member do name "Member" end
+      group :public_group do name "Public Group" end
+      group :hidden_group do name "Hidden Group" end
+      relate :public_membership, :member_of, :member, :public_group
+      relate :hidden_membership, :member_of, :member, :hidden_group, dm: true
+    end
+
+    facts = Lorecraft::Facts.new(w)
+    assert_equal [:public_group], facts.present(w.entity(:member), audience: :player).first.value
+    assert_equal %i[hidden_group public_group], facts.present(w.entity(:member)).first.value.sort
+  end
+
+  def test_fact_audit_groups_missing_expected_values_by_entry
+    report = Lorecraft::FactAudit.new(fact_world).report
+
+    assert_includes report, "person/cartographer: 4/4 expected facts established"
+    assert_includes report, "chart_room: 1/1"
+    assert_includes report, "person/person: 0/3 expected facts established"
+    assert_includes report, "born: 0/1"
+    assert_includes report, "occupation: 0/1"
+    assert_includes report, "home: 0/1"
+    assert_includes report, "    unwritten: born, occupation, home"
+  end
+
+  def test_subkind_facts_override_kind_facts_in_place_and_custom_facts_append
+    w = Lorecraft.define do
+      schema do
+        entity_type :person do
+          field :occupation, type: :text, label: "Occupation"
+          subkind :official do
+            field :occupation, type: :text, label: "Office", expected: false
+            field :jurisdiction, type: :text
+          end
+        end
+      end
+      timeline { era :t, starts: 2000, length: 100; now year: 2050 }
+      person :clerk do
+        name "Clerk"
+        subkind :official
+        occupation "Registrar"
+        jurisdiction "North Ward"
+        custom_fact :seal, "Red wax"
+      end
+    end
+
+    rows = Lorecraft::Facts.new(w).present(w.entity(:clerk))
+    assert_equal %i[occupation jurisdiction seal], rows.map { |row| row.definition.name }
+    assert_equal ["Office", "Jurisdiction", "Seal"], rows.map { |row| row.definition.label }
+  end
+
+  def test_explicit_subkind_requirement_and_unknown_subkind_are_validated
+    w = Lorecraft.define do
+      schema do
+        entity_type(:person) { subkind :official }
+        require_explicit_subkinds!
+      end
+      timeline { era :t, starts: 2000, length: 100; now year: 2050 }
+      person :missing do name "Missing" end
+      person :wrong do name "Wrong"; subkind :captain end
+    end
+
+    problems = w.validate
+    assert(problems.any? { |problem| problem.include?("person missing: subkind is required") })
+    assert(problems.any? { |problem| problem.include?("unknown subkind 'captain'") })
+  end
+
+  def test_moment_backed_incident_uses_its_timeline_year_as_its_date
+    w = Lorecraft.define do
+      schema do
+        entity_type :incident
+        extend_kind(:incident) { field :date, type: :year }
+      end
+      timeline { era :t, starts: 2000, length: 100; now year: 2050 }
+      moment :arrival, at: { year: 2012 } do name "Arrival" end
+    end
+
+    row = Lorecraft::Facts.new(w).present(w.moments.fetch(:arrival)).first
+    assert_equal :date, row.definition.name
+    assert_equal 2012, row.value
+  end
+
+  def test_elapsed_year_calculation_requires_a_declared_source
+    error = assert_raises(Lorecraft::DefinitionError) do
+      Lorecraft.define do
+        schema do
+          entity_type :person
+          extend_kind(:person) { calculated :age, calculate: :elapsed_years }
+        end
+        timeline { era :t, starts: 2000, length: 100; now year: 2050 }
+      end
+    end
+
+    assert_includes error.message, "needs a source fact"
+  end
 end
 
 class MarkdownRenderTest < Minitest::Test
@@ -274,6 +523,8 @@ class GraphRenderTest < Minitest::Test
     refute_includes ids, "seed"      # genesis is not a page
     assert_includes ids, "seizure"   # narrative moment is
     assert_includes ids, "concord"
+    concord = @graph["nodes"].find { |node| node["id"] == "concord" }
+    assert_equal "faction", concord["subkind"]
   end
 
   def test_edges_have_intervals
@@ -346,6 +597,57 @@ class SiteRenderTest < Minitest::Test
       assert_equal "ai", editorial.dig("entries", "public_entry", "provenance", 0, "drafted_by")
     end
   end
+
+  def test_authored_cards_keep_their_position_wording_and_target
+    world = Lorecraft.define do
+      schema { entity_type :concept; section_heading :relationships }
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
+      concept :destination do
+        name "The Destination"
+        prose "People live here."
+      end
+      concept :origin do
+        name "The Origin"
+        prose "Begin here."
+        cards "Continue reading" do
+          card :destination, "The place reached by the old road."
+        end
+        prose "Then return here.", section: :relationships, heading: "Afterward"
+      end
+    end
+
+    Dir.mktmpdir do |dir|
+      render(world, dir)
+      entry = JSON.parse(File.read(File.join(dir, "public", "worlds", "sample-world", "entries", "origin.json")))
+
+      assert_equal %w[prose cards prose], entry["sections"].map { |section| section["format"] }
+      cards = entry["sections"][1]
+      assert_equal "Continue reading", cards["heading"]
+      assert_equal "The Destination", cards.dig("cards", 0, "title")
+      assert_equal "/sample-world/entry/destination", cards.dig("cards", 0, "route")
+      assert_equal "The place reached by the old road.", cards.dig("cards", 0, "description")
+    end
+  end
+
+  def test_entry_facts_render_values_calculations_links_and_editorial_gaps
+    Dir.mktmpdir do |dir|
+      render(fact_world, dir)
+      public_root = File.join(dir, "public", "worlds", "sample-world")
+      ada = JSON.parse(File.read(File.join(public_root, "entries", "ada.json")))
+      index = JSON.parse(File.read(File.join(public_root, "index.json")))
+      editorial = JSON.parse(File.read(File.join(dir, "internal", "worlds", "sample-world.json")))
+
+      assert_equal 4, ada["schema_version"]
+      assert_equal "cartographer", ada["subkind"]
+      assert(index["subkinds"].any? { |item| item["kind"] == "person" && item["id"] == "cartographer" })
+      assert_equal ["born", "age", "occupation", "home", "chart_room", "working_language"], ada["facts"].map { |fact| fact["id"] }
+      assert_equal "1980 CE", ada["facts"][0]["value"]
+      assert_equal "40", ada["facts"][1]["value"]
+      assert_equal "Cartographer", ada["facts"][2]["value"]
+      assert_equal "/sample-world/entry/harbour", ada.dig("facts", 3, "links", 0, "route")
+      assert_equal %w[born occupation home], editorial.dig("entries", "unwritten", "missing_facts").map { |fact| fact["id"] }
+    end
+  end
 end
 
 class LinterTest < Minitest::Test
@@ -378,6 +680,25 @@ class LinterTest < Minitest::Test
     assert_equal 1, banned.size
     assert_includes banned.first.message, "narrator verdict"
     assert_includes banned.first.message, "concept a".split.last
+  end
+
+  def test_banned_phrases_apply_to_authored_card_descriptions
+    findings = lint do
+      schema do
+        entity_type :concept
+        ban_phrase "which is the point", "narrator verdict"
+      end
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
+      concept :target do name "Target"; prose "There." end
+      concept :source do
+        name "Source"
+        cards "Continue" do
+          card :target, "It is disturbing, which is the point."
+        end
+      end
+    end
+
+    assert(findings.any? { |finding| finding.level == :error && finding.message.include?("banned phrase") })
   end
 
   def test_no_bans_declared_means_no_check
@@ -516,6 +837,41 @@ class WikiRenderTest < Minitest::Test
       assert_includes page, "Soon<!-- stub: no entry yet -->"
       refute_match(/\*\(stub\)\*/, page)
       refute(files.any? { |f| f.include?("Hidden") }, "DM page leaked into wiki")
+    end
+  end
+
+  def test_wiki_renders_authored_cards_in_order
+    Dir.mktmpdir do |dir|
+      w = Lorecraft.define do
+        schema { entity_type :concept; section_heading :relationships }
+        timeline { era :t, starts: 0, length: 10; now year: 1 }
+        concept :destination do name "The Destination"; prose "There." end
+        concept :origin do
+          name "The Origin"
+          prose "Start."
+          cards "Continue reading" do
+            card :destination, "The road ends here."
+          end
+        end
+      end
+      Lorecraft::Render::Wiki.new(w, root: dir).render(out: File.join(dir, "wiki"))
+      page = File.read(File.join(dir, "wiki", "The-Origin.md"))
+
+      assert_operator page.index("Start."), :<, page.index("Continue reading")
+      assert_includes page, "**[[The Destination]]**: The road ends here."
+    end
+  end
+
+  def test_wiki_metadata_renders_known_kind_facts
+    Dir.mktmpdir do |dir|
+      Lorecraft::Render::Wiki.new(fact_world, root: dir).render(out: File.join(dir, "wiki"))
+      page = File.read(File.join(dir, "wiki", "Ada.md"))
+
+      assert_includes page, "**Born:** 1980 CE"
+      assert_includes page, "**Subkind:** cartographer"
+      assert_includes page, "**Age:** 40"
+      assert_includes page, "**Occupation:** Cartographer"
+      assert_includes page, "**Home:** [[Harbour]]"
     end
   end
 end
@@ -957,6 +1313,25 @@ class ProvenanceTest < Minitest::Test
     assert(problems.any? { |p| p.include?("unknown prose drafter") })
     assert(problems.any? { |p| p.include?("unknown prose origin") })
     assert(problems.any? { |p| p.include?("not a YYYY-MM-DD date") })
+  end
+
+  def test_authored_card_descriptions_are_provenance_blocks
+    w = Lorecraft.define do
+      schema { entity_type :concept; drafted_by_default :ai }
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
+      concept :target do name "Target"; prose "There." end
+      concept :source do
+        name "Source"
+        cards "Continue" do
+          card :target, "An authored description."
+        end
+      end
+    end
+
+    rows = Lorecraft::Provenance.new(w).rows.select { |row| row.owner == :source }
+    assert_equal 1, rows.size
+    assert_equal :relationships, rows.first.section
+    assert_equal :ai, rows.first.drafter
   end
 end
 

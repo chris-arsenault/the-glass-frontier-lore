@@ -1,5 +1,6 @@
 artifact :bloom_relics do
   name "Bloom Relics"
+  subkind :relic
   path "player/artifacts/relics/bloom-relics.md"
   reviewed "2026-03-19"
   tags :resonance, :danger

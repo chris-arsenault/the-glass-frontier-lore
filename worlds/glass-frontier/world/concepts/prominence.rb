@@ -1,5 +1,6 @@
 concept :prominence do
   name "Prominence"
+  subkind :reference_concept
   path "player/concepts/prominence.md"
   status :complete
   reviewed "2026-03-19"

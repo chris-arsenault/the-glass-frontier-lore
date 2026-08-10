@@ -1,7 +1,9 @@
 npc :peng_meizhen do
   name "Peng Meizhen"
+  subkind :official
   tags :autonomy, :identity, :symbiosis
   prominence :marginal
+  occupation "Municipal pump dispatcher"
 
   prose <<~PROSE
     A municipal pump dispatcher and an ordinary #{ref :the_joined, "Joined"} citizen. When her elder sister, #{future "Peng Lihua"}, accepted a posting at #{ref :the_amur_line, "the Amur Line"}, the household asked Peng to move in and share care of her niece. Peng spent seven days in a disconnected room at #{ref :mulberry_court_clinic, "Mulberry Court Clinic"} before she answered.

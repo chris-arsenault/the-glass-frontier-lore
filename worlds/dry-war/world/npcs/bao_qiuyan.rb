@@ -1,7 +1,9 @@
 npc :bao_qiuyan do
   name "Bao Qiuyan"
+  subkind :official
   tags :governance, :legibility, :identity
   prominence :marginal
+  occupation "North hall keeper"
 
   prose <<~PROSE
     Keeper of the north hall at the #{ref :juyan_ceramic_vault, "Juyan Ceramic Vault"}. She receives the loads that survive the western road and can tell flooded glaze from frost damage by the feel of an edge under her thumb. Before a ceramic enters the stack, she weighs it, turns each face under a low lamp and watches the salt bed beneath it for moisture.

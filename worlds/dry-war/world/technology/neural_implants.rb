@@ -1,5 +1,6 @@
 resource :neural_implants do
   name "Neural Implants"
+  subkind :device
   tags :medicine, :surveillance, :dependency, :identity
   prominence :mythic
 

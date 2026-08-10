@@ -1,5 +1,6 @@
 species :elves do
   name "Elves"
+  subkind :sapient_species
   path "player/concepts/species/elves.md"
   status :complete
   reviewed "2026-03-19"

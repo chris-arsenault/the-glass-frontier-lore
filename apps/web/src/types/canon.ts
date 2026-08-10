@@ -25,6 +25,7 @@ export interface EntrySummary {
   slug: string;
   title: string;
   kind: string;
+  subkind: string;
   section: Optional<string>;
   tags: string[];
   prominence: Optional<string>;
@@ -46,6 +47,13 @@ export interface PageSummary {
 
 export interface KindSummary {
   id: string;
+  title: string;
+  count: number;
+}
+
+export interface SubkindSummary {
+  id: string;
+  kind: string;
   title: string;
   count: number;
 }
@@ -77,19 +85,38 @@ export interface WorldIndex {
   entries: EntrySummary[];
   pages: PageSummary[];
   kinds: KindSummary[];
+  subkinds: SubkindSummary[];
   tags: TagDefinition[];
   relations: RelationDefinition[];
 }
 
-export interface ProseSection {
+interface AuthoredSectionBase {
   id: string;
   section: string;
   heading: Optional<string>;
-  markdown: string;
   at_year: Optional<number>;
   owner_id: Optional<string>;
   owner_kind: Optional<string>;
 }
+
+export interface ProseSection extends AuthoredSectionBase {
+  format: "prose";
+  markdown: string;
+}
+
+export interface AuthoredCard {
+  entry_id: string;
+  title: string;
+  route: string;
+  description: string;
+}
+
+export interface CardSection extends AuthoredSectionBase {
+  format: "cards";
+  cards: AuthoredCard[];
+}
+
+export type AuthoredSection = ProseSection | CardSection;
 
 export interface EntryConnection {
   direction: "outgoing" | "incoming";
@@ -103,12 +130,26 @@ export interface EntryConnection {
   live: boolean;
 }
 
+export interface EntryFactLink {
+  entry_id: string;
+  title: string;
+  route: string;
+}
+
+export interface EntryFact {
+  id: string;
+  label: string;
+  value: Optional<string>;
+  links: Optional<EntryFactLink[]>;
+}
+
 export interface EntryDocument extends EntrySummary {
   schema_version: number;
   world_id: string;
   revision: string;
   generated_at_year: number;
-  sections: ProseSection[];
+  sections: AuthoredSection[];
+  facts: EntryFact[];
   connections: EntryConnection[];
   timeline_event_ids: string[];
   dm: Optional<boolean>;
@@ -118,12 +159,13 @@ export interface PageDocument extends PageSummary {
   schema_version: number;
   world_id: string;
   revision: string;
-  sections: ProseSection[];
+  sections: AuthoredSection[];
 }
 
 export interface GraphNode {
   id: string;
   kind: string;
+  subkind: string;
   title: string;
   prominence: Optional<string>;
   tags: string[];
@@ -203,6 +245,7 @@ export interface EditorialEntry {
   dm: boolean;
   questions: EditorialQuestion[];
   log: string[];
+  missing_facts: Array<{ id: string; label: string }>;
   provenance: ProvenanceRecord[];
   entry: EntryDocument;
 }

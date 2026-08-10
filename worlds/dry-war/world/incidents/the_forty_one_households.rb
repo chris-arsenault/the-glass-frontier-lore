@@ -1,5 +1,6 @@
 incident :the_forty_one_households do
   name "The Forty-One Households"
+  subkind :dispute
   tags :governance, :identity, :legitimacy, :legibility
   prominence :recognized
 

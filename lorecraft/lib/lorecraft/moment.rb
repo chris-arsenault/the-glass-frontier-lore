@@ -64,6 +64,9 @@ module Lorecraft
     def title = @static_attrs[:title] || @id.to_s.split("_").map(&:capitalize).join(" ")
     def tags = Array(@static_attrs[:tags]).map(&:to_sym)
     def prominence = @static_attrs[:prominence]
+    def subkind = (@static_attrs[:subkind] || @kind).to_sym
+    def custom_fact_defs = []
+    def authored_blocks = @prose_blocks
     def [](key) = @static_attrs[key.to_sym]
     def public_entry = nil
 

@@ -1,5 +1,6 @@
 resource :water do
   name "Water"
+  subkind :material
   tags :water, :energy, :ecology, :governance
   prominence :mythic
 

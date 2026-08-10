@@ -1,7 +1,9 @@
 npc :ma_renqing do
   name "Ma Renqing"
+  subkind :official
   tags :trade, :medicine, :symbiosis
   prominence :marginal
+  occupation "Senior border inspector"
 
   prose <<~PROSE
     Senior inspector at #{ref :yumen_gate, "Yumen Gate"}, Hui, from a Zhangye family that held posts on this road before the corridor became a border. She has run the eastbound hall for #{elapsed future: "Ma Renqing takes the senior inspector's post at Yumen", about: 9, approx: true}.

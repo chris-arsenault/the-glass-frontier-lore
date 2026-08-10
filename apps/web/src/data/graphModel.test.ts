@@ -11,6 +11,7 @@ const graph: GraphDocument = {
     id,
     title: id.toUpperCase(),
     kind: "concept",
+    subkind: "reference_concept",
     prominence: undefined,
     tags: [],
     dm: false,

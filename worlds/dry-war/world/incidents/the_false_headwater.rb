@@ -1,7 +1,9 @@
 incident :the_false_headwater do
   name "The False Headwater"
+  subkind :operational_failure
   tags :computation, :trade, :autonomy
   prominence :marginal
+  date 2086
 
   prose <<~PROSE
     In the autumn of 2086 a #{ref :bonsai_intelligences, "bounded physician"} in a Nu valley bed added a watershed warning to a fever case. It named an eastern headwater on a river with no eastern branch, placed four households below it and advised moving the lower two.

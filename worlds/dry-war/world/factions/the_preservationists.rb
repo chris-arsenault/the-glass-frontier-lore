@@ -1,5 +1,6 @@
 faction :the_preservationists do
   name "The Preservationists"
+  subkind :resistance_network
   tags :resistance, :legitimacy, :governance
   prominence :recognized
 

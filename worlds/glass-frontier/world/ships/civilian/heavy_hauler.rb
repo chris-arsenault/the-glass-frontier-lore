@@ -1,5 +1,6 @@
 transport :heavy_hauler do
   name "Heavy Hauler"
+  subkind :vessel
   path "player/ships/civilian/heavy-hauler.md"
   tags :trade, :transport, :ringglass, :"kinetic-freq", :orbital, :navigation
   prominence :recognized

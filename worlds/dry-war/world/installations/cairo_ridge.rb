@@ -1,5 +1,6 @@
 installation :cairo_ridge do
   name "Cairo Ridge"
+  subkind :settlement
   tags :governance, :water, :autonomy, :locality
   prominence :recognized
 

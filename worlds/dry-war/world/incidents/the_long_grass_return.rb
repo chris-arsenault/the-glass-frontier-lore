@@ -1,7 +1,9 @@
 incident :the_long_grass_return do
   name "The Long Grass Return"
+  subkind :discovery
   tags :prediction, :autonomy, :trade
   prominence :marginal
+  date 2089
 
   prose <<~PROSE
     In the 2088 season a travelling group of thirty-one, calling itself Long Grass that year, took gallery and barge work at #{ref :conowingo_sluice_yard, "the Conowingo sluice yard"}. Four workers directed part of their pay to relatives at fixed addresses, on the first and sixteenth of each month. The rest remained with #{ref :market, "Market"} because the workers used no recognized identities.

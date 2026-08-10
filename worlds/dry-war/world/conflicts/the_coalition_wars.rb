@@ -1,5 +1,6 @@
 conflict :the_coalition_wars do
   name "The Coalition Wars"
+  subkind :war
   tags :governance, :computation, :military, :dependency
   prominence :renowned
 

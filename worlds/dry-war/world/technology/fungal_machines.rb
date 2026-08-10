@@ -1,5 +1,6 @@
 concept :fungal_machines do
   name "Fungal Machines"
+  subkind :technology
   tags :hybridization, :resistance, :computation, :symbiosis
   prominence :renowned
 

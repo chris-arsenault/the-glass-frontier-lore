@@ -23,6 +23,7 @@ module Lorecraft
     end
 
     def dm? = @dm == true
+    def authored_blocks = @prose_blocks
 
     def build(world, &block)
       Builder.new(self, world).instance_eval(&block) if block

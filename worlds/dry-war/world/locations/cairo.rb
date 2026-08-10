@@ -1,5 +1,6 @@
 geographic_location :cairo do
   name "Cairo"
+  subkind :settlement
   tags :water, :governance, :autonomy, :locality
   prominence :recognized
 

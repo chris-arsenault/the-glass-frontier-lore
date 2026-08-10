@@ -1,7 +1,9 @@
 incident :the_yumen_bed_fire do
   name "The Yumen Bed Fire"
+  subkind :disaster
   tags :biotech, :symbiosis, :medicine, :legibility
   prominence :marginal
+  date 2085
 
   prose <<~PROSE
     In 2085, two travellers were treated on the same #{ref :severed_strains, "severed fungal bed"} at #{ref :yumen_gate, "Yumen Gate"}, one day apart. Both left with a genetically identical knot of foreign mycelium beneath the sternum. Only the first traveller had carried it on arrival. The bed had retained living tissue from one exposure and passed it into the next.

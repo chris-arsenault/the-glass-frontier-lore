@@ -1,5 +1,6 @@
 resource :memory_ceramics do
   name "Memory Ceramics"
+  subkind :material
   tags :resistance, :biotech, :legibility
   prominence :recognized
 

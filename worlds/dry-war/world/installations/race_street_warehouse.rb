@@ -1,5 +1,6 @@
 installation :race_street_warehouse do
   name "The Race Street Warehouse"
+  subkind :warehouse
   tags :trade, :identity, :legibility
   prominence :recognized
 

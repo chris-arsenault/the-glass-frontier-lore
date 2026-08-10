@@ -1,5 +1,6 @@
 concept :mind_fragments do
   name "Mind Fragments"
+  subkind :technology
   tags :hybridization, :identity, :medicine, :resistance
   prominence :renowned
 

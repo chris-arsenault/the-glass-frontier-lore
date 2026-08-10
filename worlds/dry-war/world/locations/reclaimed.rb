@@ -1,5 +1,6 @@
 geographic_location :the_amur_line do
   name "The Amur Line"
+  subkind :frontier
   tags :catastrophe, :military, :ecology, :hybridization
   prominence :renowned
 
@@ -22,6 +23,7 @@ end
 
 geographic_location :the_mediterranean_chain do
   name "The Mediterranean Chain"
+  subkind :frontier
   tags :catastrophe, :military, :water, :trade
   prominence :renowned
 
@@ -48,6 +50,7 @@ end
 
 geographic_location :the_himalayan_holds do
   name "The Himalayan Holds"
+  subkind :frontier
   tags :water, :catastrophe, :ecology, :religion
   prominence :renowned
 

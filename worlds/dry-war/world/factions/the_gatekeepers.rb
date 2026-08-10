@@ -1,5 +1,6 @@
 faction :the_gatekeepers do
   name "The Gatekeepers"
+  subkind :government
   tags :resistance, :symbiosis, :trade, :medicine
   prominence :recognized
 

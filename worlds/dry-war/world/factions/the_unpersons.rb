@@ -1,5 +1,6 @@
 faction :the_unpersons do
   name "The Unpersons"
+  subkind :resistance_network
   tags :resistance, :identity, :legibility
   prominence :recognized
 

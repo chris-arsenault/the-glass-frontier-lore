@@ -1,7 +1,9 @@
 incident :the_zonqor_drone do
   name "The Żonqor Drone"
+  subkind :operational_failure
   tags :ecology, :military, :catastrophe
   prominence :marginal
+  date 2087
 
   prose <<~PROSE
     A naval drone recovered off Żonqor in the spring of 2087 with pale film across its skin and crust in the seats of its gate ram. A surveyor at #{ref :kalkara_bake_shed, "Kalkara"} compared it with a set of #{ref :comparison_tiles, "graded tiles"}, judged the growth soft enough to brush away, and returned the drone to the water that day.

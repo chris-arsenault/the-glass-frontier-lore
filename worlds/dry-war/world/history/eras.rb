@@ -1,5 +1,6 @@
 era :the_long_summer do
   name "The Long Summer"
+  subkind :historical_period
   tags :catastrophe, :water, :energy
   prominence :mythic
   structural true
@@ -13,6 +14,7 @@ end
 
 era :the_quiet_conquest do
   name "The Quiet Conquest"
+  subkind :historical_period
   tags :governance, :symbiosis, :dependency
   prominence :mythic
   structural true
@@ -28,6 +30,7 @@ end
 
 era :the_unified_calm do
   name "The Unified Calm"
+  subkind :historical_period
   tags :governance, :medicine, :agriculture
   prominence :mythic
   structural true
@@ -43,6 +46,7 @@ end
 
 era :the_reclamation do
   name "The Reclamation"
+  subkind :historical_period
   tags :military, :catastrophe, :hybridization
   prominence :mythic
   structural true
@@ -56,6 +60,7 @@ end
 
 era :the_holding do
   name "The Holding"
+  subkind :historical_period
   tags :military, :catastrophe, :governance
   prominence :mythic
   structural true
@@ -69,6 +74,7 @@ end
 
 incident :the_reclamation_campaigns do
   name "The Reclamation Campaigns"
+  subkind :campaign
   tags :military, :catastrophe, :hybridization
   prominence :renowned
 

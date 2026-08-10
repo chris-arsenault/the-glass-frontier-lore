@@ -1,5 +1,6 @@
 phenomenon :shuttered_habs do
   name "Shuttered Habs"
+  subkind :social_condition
   path "player/concepts/shuttered-habs.md"
   status :complete
   reviewed "2026-03-19"

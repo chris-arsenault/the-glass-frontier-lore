@@ -1,5 +1,6 @@
 faction :the_garden_courts do
   name "The Garden Courts"
+  subkind :government
   tags :locality, :symbiosis, :agriculture, :governance
   prominence :recognized
 

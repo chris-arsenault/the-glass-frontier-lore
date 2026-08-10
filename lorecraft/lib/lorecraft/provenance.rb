@@ -34,7 +34,7 @@ module Lorecraft
         # An entry-level `reviewed` date covers every block in it; a block that
         # was read separately says so itself.
         entry_reviewed = owner.respond_to?(:[]) ? owner[:reviewed] : nil
-        owner.prose_blocks.map do |b|
+        owner.authored_blocks.map do |b|
           read_on = b.reviewed || entry_reviewed
           Row.new(owner: owner.id, section: b.section, origin: b.origin,
                   drafted_by: b.drafted_by, drafter: b.drafted_by || @default_drafter,
@@ -68,7 +68,7 @@ module Lorecraft
     def report
       s = summary
       out = ["=== Provenance ===",
-             "  prose blocks:      #{s[:blocks]}",
+             "  authored blocks:   #{s[:blocks]}",
              "  declared on block: #{s[:declared]}/#{s[:blocks]}#{pct(s[:declared], s[:blocks])}" \
              "#{@default_drafter ? " (rest attributed to :#{@default_drafter} by the world)" : ''}",
              "  reviewed by human: #{s[:reviewed]}#{pct(s[:reviewed], s[:blocks])}",

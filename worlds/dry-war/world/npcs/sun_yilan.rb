@@ -1,7 +1,10 @@
 npc :sun_yilan do
   name "Sun Yilan"
+  subkind :specialist
+  specialty "Disconnected care for Joined patients"
   tags :autonomy, :medicine, :symbiosis
   prominence :marginal
+  occupation "Textile steward"
 
   prose <<~PROSE
     The textile steward for the six western rooms at #{ref :mulberry_court_clinic, "Mulberry Court Clinic"}. Sun Yilan cuts living garments from people who want a week outside the neighbourhood network, keeps the garments viable in shallow basins and grafts them back when their wearers return. Her patients call her Sun-shifu; the clinic roster calls her a symbiosis maintenance worker, grade four.

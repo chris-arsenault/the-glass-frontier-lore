@@ -1,5 +1,6 @@
 installation :thorong_cold_house do
   name "The Thorong Cold House"
+  subkind :station
   tags :water, :ecology, :biotech, :catastrophe
   prominence :marginal
 

@@ -1,5 +1,7 @@
 artifact :the_yumen_fount do
   name "The Yumen Fount"
+  subkind :instrument
+  function "Prints the crossing station's monthly certificates"
   tags :trade, :legibility, :governance
   prominence :forgotten
 

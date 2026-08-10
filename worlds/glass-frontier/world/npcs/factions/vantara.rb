@@ -1,5 +1,6 @@
 faction :vantara do
   name "Vantara"
+  subkind :company
   path "player/npcs/factions/vantara.md"
   reviewed "2026-03-18"
   tags :trade, :transport, :governance

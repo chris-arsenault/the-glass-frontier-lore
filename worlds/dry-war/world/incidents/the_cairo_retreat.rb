@@ -1,7 +1,9 @@
 incident :the_cairo_retreat do
   name "The Cairo Retreat"
+  subkind :policy_action
   tags :governance, :autonomy, :prediction, :water
   prominence :recognized
+  date 2090
 
   prose <<~PROSE
     #{ref :continuity, "Continuity"}'s withdrawal of municipal services from #{ref :cairo, "Cairo"}'s lowest ward in #{year :now} CE. Its flood model put the old streets above the coalition's permitted casualty threshold. Cairo voted to stay even though the city accepted the forecast, the measured river stage and the reported condition of the levee.

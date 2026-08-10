@@ -41,6 +41,7 @@ ruby lorecraft/bin/lorecraft render build/tree [--audience player] [--at 2435]
 ruby lorecraft/bin/lorecraft graph [out.json]
 ruby lorecraft/bin/lorecraft timeline the_glassfall
 ruby lorecraft/bin/lorecraft stats
+ruby lorecraft/bin/lorecraft facts
 ```
 
 ## Authoring
@@ -57,6 +58,10 @@ faction :coremark do
   prose <<~PROSE, section: :operations, heading: "Operations"
     ...
   PROSE
+  cards "Continue Reading" do
+    card :the_shear, "The place where Coremark's largest crews work."
+    card :kite_sail, "The engine that carries salvage back from the drift."
+  end
   derive(:holdings) { |state| state.out(:coremark, :operates_in).size }
 end
 
@@ -84,6 +89,19 @@ end
 - **Block provenance:** `prose text, drafted_by: :human, reviewed: "2026-08-09"`.
   Unstated drafters fall back to the world's `drafted_by_default`. `Provenance`
   reports the gap and expires a review once the file's prose changed after it.
+- **Authored cards:** `cards "Heading" do ... end` places an ordered set of
+  onward links among an entity's prose. Each `card :target, "description"`
+  preserves the author's target, order and wording in every reader render. A
+  card does not create a graph relationship; declare a typed edge separately
+  when the world establishes one. Card descriptions carry the same provenance,
+  language checks and audience rules as prose.
+- **Kind facts:** `extend_kind :npc do ... end` declares the ordered facts that
+  every NPC can show. A nested `subkind :official do ... end` appends or
+  overrides fields for officials, while `custom_fact :bells, 8` appends a fact
+  to one entry. `field` reads an authored value, `calculated` derives a value
+  such as age from a date, and `relation_field` reads current typed edges.
+  Missing expected values stay out of reader pages and appear, grouped by kind
+  and subkind, in `lorecraft facts` and the private editorial bundle.
 - **Time:** CE years are absolute ticks; eras have fixed boundaries (see the
   world's `world/timeline.rb`). `now` is the default query/render era.
 - **Visibility:** `dm!(public_entry: :x)` marks a hidden-truth entity; the player

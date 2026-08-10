@@ -1,5 +1,6 @@
 resource :fusion_plants do
   name "Fusion Plants"
+  subkind :infrastructure
   tags :energy, :water, :computation
   prominence :renowned
 

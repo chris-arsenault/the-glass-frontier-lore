@@ -2,248 +2,298 @@
 # status :shell suppresses file rendering; they exist only as edge endpoints + index rows.
 geographic_location :ashenmaw do
   name "Ashenmaw"
+  subkind :celestial_body
   status :shell
   prominence :recognized
 end
 installation :ashvane do
   name "Ashvane"
+  subkind :settlement
   status :shell
   prominence :recognized
 end
 ability :attunement do
   name "Attunement"
+  subkind :innate_ability
   status :shell
   prominence :recognized
 end
 resource :communication_shard do
   name "Communication Shard"
+  subkind :data
   status :shell
   dm!
 end
 incident :compact_charter do
   name "Compact Charter"
+  subkind :founding
   status :shell
   prominence :recognized
 end
 geographic_location :crucible do
   name "Crucible"
+  subkind :celestial_body
   status :shell
   prominence :recognized
 end
 resource :crystal_core_lantern do
   name "Crystal-core lantern"
+  subkind :device
   status :shell
   prominence :mythic
 end
 npc :dez_morrn do
   name "Dez Morrn"
+  subkind :npc
   status :shell
   prominence :forgotten
 end
 incident :disappearance_of_the_elves do
   name "Disappearance of the Elves"
+  subkind :migration
   status :shell
   prominence :recognized
 end
 npc :duthrek do
   name "Duthrek"
+  subkind :leader
   status :shell
   prominence :recognized
 end
 phenomenon :glassfall_showers do
   name "Glassfall showers"
+  subkind :physical_phenomenon
   status :shell
   prominence :recognized
 end
 npc :goruth do
   name "Goruth"
+  subkind :npc
   status :shell
   prominence :forgotten
 end
 geographic_location :kaleidos do
   name "Kaleidos"
+  subkind :celestial_body
   status :shell
   prominence :mythic
 end
 geographic_location :kaleidos_orbit do
   name "Kaleidos Orbit"
+  subkind :orbit
   status :shell
   prominence :mythic
 end
 geographic_location :korvath do
   name "Korvath"
+  subkind :celestial_body
   status :shell
   prominence :recognized
 end
 installation :ledgerfall do
   name "Ledgerfall"
+  subkind :settlement
   status :shell
   prominence :marginal
 end
 faction :lumenshard_conservatory do
   name "Lumenshard Conservatory"
+  subkind :research_body
   status :shell
   prominence :recognized
 end
 npc :ol_dent do
   name "Ol'dent"
+  subkind :specialist
   status :shell
   prominence :forgotten
 end
 resource :pre_glassfall_transmissions do
   name "Pre-Glassfall Transmissions"
+  subkind :data
   status :shell
 end
 faction :prismwell_kite_guild do
   name "Prismwell Kite Guild"
+  subkind :company
   status :shell
   prominence :recognized
 end
 npc :renn_duvasi do
   name "Renn Duvasi"
+  subkind :specialist
   status :shell
   prominence :recognized
 end
 phenomenon :resonance_depletion do
   name "Resonance Depletion"
+  subkind :physical_phenomenon
   status :shell
   prominence :recognized
 end
 faction :ring_collective do
   name "Ring Collective"
+  subkind :government
   status :shell
   prominence :recognized
 end
 npc :sable_korr do
   name "Sable Korr"
+  subkind :dissident
   status :shell
   prominence :forgotten
 end
 npc :shei_lush do
   name "Shei Lush"
+  subkind :leader
   status :shell
   prominence :forgotten
 end
 era :signal_famine do
   name "Signal Famine"
+  subkind :historical_period
   status :shell
 end
 npc :span_replication_lead do
   name "Span Replication Lead"
+  subkind :specialist
   status :shell
   prominence :recognized
 end
 era :the_accord do
   name "The Accord"
+  subkind :historical_period
   status :shell
   prominence :renowned
 end
 conflict :the_bitter_reach do
   name "The Bitter Reach"
+  subkind :war
   status :shell
   prominence :renowned
 end
 conflict :the_bloom do
   name "The Bloom"
+  subkind :war
   status :shell
   prominence :renowned
 end
 installation :the_choir_fragment do
   name "The Choir Fragment"
+  subkind :landmark
   status :shell
   prominence :recognized
 end
 era :the_contested_reach do
   name "The Contested Reach"
+  subkind :historical_period
   status :shell
   prominence :renowned
 end
 faction :the_continuity do
   name "The Continuity"
+  subkind :government
   status :shell
   prominence :recognized
 end
 conflict :the_corridor_disputes do
   name "The Corridor Disputes"
+  subkind :dispute
   status :shell
   prominence :recognized
 end
 npc :the_dissident do
   name "The Dissident"
+  subkind :dissident
   status :shell
   dm!
 end
 incident :the_fermata_open do
   name "The Fermata Open"
+  subkind :dispute
   status :shell
   prominence :recognized
 end
 geographic_location :the_fracture do
   name "The Fracture"
+  subkind :celestial_body
   status :shell
   prominence :renowned
 end
 concept :the_keel do
   name "the-keel"
+  subkind :physical_system
   status :shell
 end
 installation :the_pale_shard do
   name "The Pale Shard"
+  subkind :landmark
   status :shell
   prominence :recognized
 end
 era :the_rekindling do
   name "The Rekindling"
+  subkind :historical_period
   status :shell
   prominence :renowned
 end
 era :the_ring_age do
   name "The Ring Age"
+  subkind :historical_period
   status :shell
   prominence :mythic
 end
 incident :the_silent_bloom do
   name "The Silent Bloom"
+  subkind :disaster
   status :shell
   prominence :renowned
 end
 geographic_location :the_sun do
   name "The Sun"
+  subkind :celestial_body
   status :shell
   prominence :mythic
 end
 resource :tuning_compass do
   name "Tuning compass"
+  subkind :device
   status :shell
   prominence :renowned
 end
 installation :underlayers do
   name "Underlayers"
+  subkind :settlement
   status :shell
   prominence :recognized
 end
 incident :vashtenri_thesis do
   name "Vashtenri Thesis"
+  subkind :discovery
   status :shell
   prominence :marginal
 end
 geographic_location :vastine do
   name "Vastine"
+  subkind :celestial_body
   status :shell
   prominence :recognized
 end
 npc :venn_talis do
   name "Venn Talis"
+  subkind :npc
   status :shell
   prominence :recognized
 end
 installation :verathi do
   name "Verathi"
+  subkind :settlement
   status :shell
   prominence :marginal
 end
 geographic_location :vitrael do
   name "Vitrael"
+  subkind :celestial_body
   status :shell
   prominence :recognized
 end

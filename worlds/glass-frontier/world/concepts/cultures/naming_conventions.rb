@@ -1,5 +1,6 @@
 culture :naming_conventions do
   name "Naming Conventions"
+  subkind :naming_practice
   path "player/concepts/cultures/naming-conventions.md"
   status :complete
   reviewed "2026-03-18"

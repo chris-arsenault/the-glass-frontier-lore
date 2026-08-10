@@ -1,5 +1,6 @@
 concept :ratters do
   name "Ratters"
+  subkind :practice
   path "player/concepts/ratters.md"
   tags :salvage, :"social-structure", :orbital, :trade
   prominence :recognized

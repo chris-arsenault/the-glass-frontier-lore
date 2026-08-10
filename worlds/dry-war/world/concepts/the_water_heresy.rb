@@ -1,5 +1,6 @@
 concept :the_water_heresy do
   name "The Water Heresy"
+  subkind :doctrine
   tags :water, :governance, :prediction
   prominence :renowned
 

@@ -1,7 +1,9 @@
 npc :ruth_osei do
   name "Ruth Osei"
+  subkind :official
   tags :trade, :identity, :legibility, :governance
   prominence :marginal
+  occupation "Senior claims examiner"
 
   prose <<~PROSE
     Senior claims examiner at #{ref :race_street_warehouse, "the Race Street warehouse"}, where she handles accepted work whose payee cannot be joined to a recognized identity. She has held the post since 2081. Her #{ref :market, "Market"} guardian record, household account and registered dependent obligations pass every identity query she performs.

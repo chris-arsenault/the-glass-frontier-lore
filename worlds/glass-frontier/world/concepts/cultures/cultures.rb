@@ -1,5 +1,6 @@
 culture :cultures do
   name "Cultures"
+  subkind :overview
   path "player/concepts/cultures/cultures.md"
   status :complete
   reviewed "2026-03-18"

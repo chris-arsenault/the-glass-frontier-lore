@@ -1,5 +1,6 @@
 loop :cooperation_fracture do
   name "Loop: Cooperation-Fracture Cycle"
+  subkind :narrative_loop
   path "dm/loops/cooperation-fracture.md"
   reviewed "2026-03-19"
 

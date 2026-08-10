@@ -1,5 +1,6 @@
 species :orcs do
   name "Orcs"
+  subkind :sapient_species
   path "player/concepts/species/orcs.md"
   status :complete
   reviewed "2026-03-18"

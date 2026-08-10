@@ -1,5 +1,7 @@
 installation :conowingo_sluice_yard do
   name "The Conowingo Sluice Yard"
+  subkind :infrastructure
+  function "Clears sediment and debris from the dam's intake works"
   tags :trade, :identity, :water, :energy
   prominence :marginal
 

@@ -1,5 +1,6 @@
 incident :shardfall do
   name "Shardfall"
+  subkind :disaster
   path "player/history/events/shardfall.md"
   status :complete
   reviewed "2026-03-19"

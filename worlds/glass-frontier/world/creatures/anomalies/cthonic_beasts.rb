@@ -1,5 +1,6 @@
 creature :cthonic_beasts do
   name "Cthonic Beasts"
+  subkind :anomaly
   path "player/creatures/anomalies/cthonic-beasts.md"
   tags :danger, :orbital, :resonance, :ecology, :mystery
   prominence :recognized

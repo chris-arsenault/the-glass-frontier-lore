@@ -1,5 +1,6 @@
 thread :bloom_containment do
   name "Thread: The Bloom Containment"
+  subkind :story_thread
   path "dm/threads/bloom-containment.md"
   reviewed "2026-03-18"
   contains_dm true

@@ -1,5 +1,6 @@
 geographic_location :kaleidos_system do
   name "The Kaleidos System"
+  subkind :star_system
   path "player/cosmology/kaleidos-system.md"
   status :complete
   reviewed "2026-03-19"

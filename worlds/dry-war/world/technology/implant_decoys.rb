@@ -1,5 +1,6 @@
 resource :implant_decoys do
   name "Implant Decoys"
+  subkind :device
   tags :resistance, :medicine, :surveillance, :identity
   prominence :recognized
 

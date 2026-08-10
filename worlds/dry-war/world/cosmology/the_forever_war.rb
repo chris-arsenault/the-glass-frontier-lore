@@ -1,5 +1,6 @@
 conflict :the_forever_war do
   name "The Forever War"
+  subkind :war
   tags :catastrophe, :military, :ecology
   prominence :mythic
 

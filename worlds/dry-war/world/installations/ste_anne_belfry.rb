@@ -1,5 +1,6 @@
 installation :ste_anne_belfry do
   name "The Ste. Anne Belfry"
+  subkind :landmark
   tags :resistance, :surveillance, :religion, :legibility
   prominence :recognized
 

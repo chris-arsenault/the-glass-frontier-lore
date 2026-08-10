@@ -1,5 +1,6 @@
 conflict :the_dry_war do
   name "The Dry War"
+  subkind :war
   tags :water, :military, :ecology, :governance
   prominence :mythic
 

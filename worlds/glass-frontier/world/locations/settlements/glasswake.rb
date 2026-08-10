@@ -1,5 +1,6 @@
 installation :glasswake do
   name "Glasswake"
+  subkind :settlement
   path "player/locations/settlements/glasswake.md"
   status :complete
   reviewed "2026-03-18"

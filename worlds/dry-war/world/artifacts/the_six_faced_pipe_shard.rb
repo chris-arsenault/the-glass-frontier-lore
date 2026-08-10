@@ -1,5 +1,6 @@
 artifact :the_six_faced_pipe_shard do
   name "The Six-Faced Pipe Shard"
+  subkind :record
   aka "Admission 41806", "压力管道验收表"
   tags :legibility, :trade, :resistance
   prominence :marginal

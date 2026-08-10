@@ -29,5 +29,6 @@ end
 require_relative "lorecraft/world"
 require_relative "lorecraft/worlds"
 require_relative "lorecraft/provenance"
+require_relative "lorecraft/fact_audit"
 require_relative "lorecraft/queue"
 require_relative "lorecraft/web"

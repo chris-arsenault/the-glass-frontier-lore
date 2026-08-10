@@ -1,5 +1,6 @@
 resource :duskgrain do
   name "Duskgrain"
+  subkind :food
   path "player/concepts/duskgrain.md"
   reviewed "2026-03-19"
   tags :resonance, :danger, :materials

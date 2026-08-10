@@ -1,5 +1,6 @@
 concept :continental_mycelium do
   name "Continental Mycelium"
+  subkind :physical_system
   tags :biotech, :computation, :ecology
   prominence :renowned
 
