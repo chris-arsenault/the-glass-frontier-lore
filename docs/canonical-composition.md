@@ -98,16 +98,20 @@ separate their audiences:
 
 | Data | Public reader bundle | Private editorial bundle | CLI query |
 |---|---|---|---|
-| prose and known facts | yes | no | `page`, `facts` |
-| typed graph and chronology | yes | no | `graph`, `timeline` |
-| unresolved future names | name only | no | `lint`, `queue` |
-| questions | no | yes | `queue` |
-| entry logs | no | yes | `log` |
-| drafting and review state | no | yes | `provenance` |
-| missing expected facts | no | yes | `facts` |
+| prose and known facts | yes | no | `page ID`, `facts ID` |
+| typed graph and chronology | yes | no | `connections ID`, `path FROM TO`, `timeline ID`, `graph` |
+| unresolved future names | name only | no | `lint`, `queue [ID]` |
+| questions | no | yes | `queue [ID]` |
+| entry logs | no | yes | `log ID` |
+| drafting and review state | no | yes | `provenance [ID]` |
+| missing expected facts | no | yes | `facts [ID]` |
 | DM entry metadata | no | yes | audience-specific projections |
 
 The reader combines the public bundle with authorized editorial records when a
 reviewer signs in. The separation prevents authoring state from interrupting
 encyclopedia prose while keeping it attached to stable entity ids and versioned
 source.
+
+Queries whose help lists `--audience player` apply the same public boundary.
+Queries whose help lists `--format json` serialize their typed result directly;
+the text report is not an interchange format.

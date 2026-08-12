@@ -42,9 +42,10 @@ module Lorecraft
         body: <<~TEXT,
           Traverse relationships in either direction while preserving and showing
           each edge's canonical direction. Only edges live at the selected year
-          participate. Generic bookkeeping relations are excluded so shared era
-          or index nodes do not manufacture an uninformative shortcut. The default
-          is 6 hops and the maximum is 20.
+          participate. active_during, emerged_during, created_during,
+          disappeared_during, and mentions are excluded so shared structural
+          nodes do not manufacture an uninformative shortcut. The default is 6
+          hops and the maximum is 20.
         TEXT
       },
       "schema" => {
@@ -62,16 +63,17 @@ module Lorecraft
         usage: "guide [list | NAME] [--format text|json] [--world ID]",
         body: <<~TEXT,
           List the guidance available for the selected world, or print one file
-          with its canonical repo-relative path. The short aliases voice, naming,
-          method, and canon prefer a matching world guide and fall back to the
-          relevant shared guide. Content is read from Markdown, not copied here.
+          with its canonical repo-relative path. guide world reads the world's
+          CLAUDE.md. The short aliases voice, naming, method, and canon prefer a
+          matching world guide and fall back to the relevant shared guide.
+          Content is read from Markdown, not copied here.
         TEXT
       },
       "page" => {
         summary: "Render one entry as reviewable Markdown on stdout.",
         usage: "page ID [--audience all|player] [--world ID]",
         body: <<~TEXT,
-          Use this for the reader-facing text of one known entry. It resolves
+          Use this for the present-day reader text of one known entry. It resolves
           references, transclusions, relationship markers, and computed dates.
           The source DSL remains authoritative; read the entry file before editing.
         TEXT
@@ -80,9 +82,11 @@ module Lorecraft
         summary: "Show every state-changing effect that touches one entity.",
         usage: "timeline ID [--audience all|player] [--format text|json] [--world ID]",
         body: <<~TEXT,
-          Use this to inspect how an entity changes and which moments or named
+          Use this to inspect every change to an entity and which moments or named
           relations establish those changes. Output is chronological and written
-          to stdout. This is an effect strip, not encyclopedia prose.
+          to stdout. The default all audience includes DM effects; player filters
+          them. This is an effect strip, not a state-at-year view or encyclopedia
+          prose.
         TEXT
       },
       "log" => {
@@ -197,7 +201,7 @@ module Lorecraft
       },
     }.freeze
 
-    TOPICS = %w[model workflow authoring schema markers entry time audience composition review].freeze
+    TOPICS = %w[model workflow authoring schema-authoring markers entry time audience composition review].freeze
 
     module_function
 
@@ -205,7 +209,7 @@ module Lorecraft
       return overview if topic.nil? || topic.empty?
       return command(topic, COMMANDS.fetch(topic)) if COMMANDS.key?(topic)
 
-      public_send(topic) if TOPICS.include?(topic)
+      public_send(topic.tr("-", "_")) if TOPICS.include?(topic)
     end
 
     def overview
@@ -218,14 +222,18 @@ module Lorecraft
         Markdown and JSON are views; worlds/<id>/world/ is the source of truth.
 
         Usage:
-          #{EXE} COMMAND [ARGS] [--world ID] [--at now|YEAR] [--audience all|player] [--format text|json]
+          #{EXE} COMMAND [ARGS] [OPTIONS]
           #{EXE} help COMMAND
           #{EXE} help TOPIC
 
+        Content commands select a world with --world ID, LORECRAFT_WORLD, or
+        worlds.yml. Command help lists the selectors each command uses.
+
         Read only the context the task needs:
-          discover       worlds, search, schema, guide, queue
-          inspect        page, connections, timeline, log, facts
-          inspect graph  connections, path, topology, web, graph, stats
+          discover       worlds, guide, search, schema
+          inspect entry  page, connections, timeline, log, facts
+          inspect graph  path, topology, web, graph, stats
+          editorial      queue, provenance
           verify         validate, lint
           export         render, wiki
 
@@ -236,7 +244,7 @@ module Lorecraft
           model        why the DSL is the canonical store
           workflow     a context-efficient editing sequence
           authoring    entry and relationship shapes
-          schema       kinds, subkinds, facts, and relations
+          schema-authoring  declaring kinds, subkinds, facts, and relations
           markers      references, composition, and computed time
           entry        one entry's canonical shape and local queries
           time         dated facts, effects, and computed spans
@@ -268,9 +276,9 @@ module Lorecraft
 
         The Ruby files under worlds/<id>/world/ hold prose and structured facts in
         one canonical model. Loading them produces an in-memory graph and timeline.
-        Commands then project the slice needed for a task: one rendered page, one
-        entity's history, missing facts, open questions, or connectivity after hubs
-        are removed.
+        Commands then project the slice needed for a task: an id search, one
+        authoritative guide, the live schema, one rendered page, one entry's
+        neighborhood, or a bounded route through typed edges.
 
         This extends an LLM's effective working context without fine-tuning. The
         model can discover an unfamiliar world's vocabulary and constraints at run
@@ -296,19 +304,21 @@ module Lorecraft
       <<~TEXT
         Context-efficient workflow
 
-        1. Run `#{EXE} worlds` and read worlds/<id>/CLAUDE.md.
-        2. Run `#{EXE} queue --world ID` when choosing work. Use `search QUERY`
-           when the subject's stable id is unknown.
-        3. Render the subject with `page ID`; use `timeline ID` and `log ID` only
+        1. Run `#{EXE} worlds` to select the tenant.
+        2. Run `#{EXE} guide world --world ID`, then `guide list` and only the
+           craft or world guide relevant to the task.
+        3. Run `queue --world ID` when choosing work. Use `search QUERY` when the
+           subject's stable id is unknown.
+        4. Render the subject with `page ID`; use `timeline ID` and `log ID` only
            when the task concerns history or prior decisions.
-        4. Use `schema kind NAME` or `schema relation NAME` when an edit depends
+        5. Use `schema kind NAME` or `schema relation NAME` when an edit depends
            on the loaded ontology. Use `connections ID` for the local graph and
-           `path FROM TO` only when the task concerns how two entries connect.
-        5. Read the entry source and relevant neighbor sources. Use facts,
+           `path FROM TO` only when the route between two entries matters.
+        6. Read the canonical entry and relevant neighbor sources. Use facts,
            topology, or web only when the task concerns those dimensions.
-        6. Edit the DSL, preserving the distinction between canon, editorial
+        7. Edit the DSL, preserving the distinction between canon, editorial
            questions, and generated output.
-        7. Run `make check WORLD=ID`. Use `make check-all` before repository-wide
+        8. Run `make check WORLD=ID`. Use `make check-all` before repository-wide
            handoff.
 
         Do not treat build/, a wiki export, a search result, or an old research
@@ -338,7 +348,7 @@ module Lorecraft
       TEXT
     end
 
-    def schema
+    def schema_authoring
       <<~TEXT
         Schema shape
 
@@ -387,9 +397,10 @@ module Lorecraft
       <<~TEXT
         Entry-focused work
 
-        Use search to find the stable id, page to inspect resolved prose, and
-        connections to inspect its typed neighborhood. facts, queue, provenance,
-        timeline, and log all accept the same id when that dimension matters.
+        Use search to find the stable id, page to inspect present-day resolved
+        prose, and connections to inspect its typed neighborhood at a selected
+        year. facts, queue, provenance, timeline, and log all accept the same id
+        when that dimension matters.
 
         The entity's Ruby file remains canonical. Read it before editing because
         rendered prose omits DSL fields, questions, logs, and source placement.
@@ -402,8 +413,10 @@ module Lorecraft
         Time model
 
         Canon stores dated events and interval boundaries. Moment effects and
-        named relations produce state at a selected year; use --at with page,
-        connections, facts, graph, or timeline where supported.
+        named relations produce state at a selected year. search, connections,
+        path, facts, graph, render, and wiki support --at. page always renders
+        the present, while timeline reports every effect rather than one year's
+        state.
 
         Prose derives spans with elapsed and absolute dates with year. Use
         duration only for a length that has no chronological anchor. A missing

@@ -53,7 +53,8 @@ ruby lorecraft/bin/lorecraft help model
 ruby lorecraft/bin/lorecraft help workflow
 
 ruby lorecraft/bin/lorecraft worlds
-ruby lorecraft/bin/lorecraft search "water authority" --world dry-war --audience player
+ruby lorecraft/bin/lorecraft guide world --world dry-war
+ruby lorecraft/bin/lorecraft search "water" --world dry-war --audience player
 ruby lorecraft/bin/lorecraft schema relation governs --world dry-war
 ruby lorecraft/bin/lorecraft guide method --world dry-war
 ruby lorecraft/bin/lorecraft queue inez_bell --world dry-war
@@ -68,16 +69,17 @@ make check WORLD=dry-war
 
 `search` finds the stable id and canonical source for a subject. `guide` reads
 one current craft or world instruction file without duplicating it in the CLI.
-`schema`
-reports the kinds, facts, relations, tags, and sections the selected world will
-enforce. `page` answers
-“what does a reader see?”, `connections` exposes its typed neighborhood and
-source files, `timeline` answers “what changed this entity?”,
-`facts` answers “which declared fields are missing?”, and `queue`
-answers “what needs attention?”. `topology` and `web` expose broader graph shape
-only when the task needs it. This progressive path reduces context poisoning:
-generated indexes, old reports, unrelated entries, and DM-only material do not
-enter an edit merely because they share a directory or search term.
+`schema` reports the kinds, facts, relations, tags, and sections the selected
+world will enforce. `page` answers “what does a reader see?”, `connections`
+exposes its typed neighborhood and source files, and `path` connects two known
+ids when their route matters. `timeline` answers “what changed this entity?”,
+`facts` answers “which declared fields are missing?”, and `queue` answers “what
+needs attention?”. `topology` and `web` expose broader graph shape only when the
+task needs it. Commands whose help lists `--format` can return native JSON; the
+others intentionally remain human-readable. This progressive path reduces
+context poisoning: generated indexes, old reports, unrelated entries, and
+DM-only material do not enter an edit merely because they share a directory or
+search term.
 
 See [the Lorecraft guide](lorecraft/README.md) for authoring and every command,
 [the language reference](docs/lorecraft-spec.md) for the current DSL, and

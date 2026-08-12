@@ -12,20 +12,22 @@ working prompt and by making important constraints executable. It does not
 fine-tune the model or change its context-window size.
 
 ```text
-world guidance + canonical DSL
-              │
-              ▼
-    loader ── schema ── timeline
-              │
-              ▼
-       in-memory World
-        │      │      │
-        │      │      └── validate/lint feedback
-        │      └───────── page/timeline/facts/queue/log
-        └──────────────── graph/topology/web/provenance
-              │
-              ▼
- public reader · private editorial data · optional Markdown exports
+world guidance ─────────────────────── guide
+       +
+canonical DSL
+       │
+       ▼
+loader ── schema ── timeline
+       │
+       ▼
+in-memory World
+  │      │      │
+  │      │      └── validate/lint feedback
+  │      └───────── search/page/facts/queue/timeline/log
+  └──────────────── schema/connections/path/topology/web/provenance
+       │
+       ▼
+graph/stats · public reader · private editorial data · Markdown exports
 ```
 
 This shape has four useful properties:
@@ -140,8 +142,11 @@ views are:
 |---|---|
 | What worlds can I work on? | `worlds` |
 | Which craft or world instructions apply? | `guide list`, then `guide <name>` |
+| What is this subject's stable id? | `search <query>` |
+| Which types and values will validation accept? | `schema kind <name>`, `schema relation <name>`, `schema tags`, or `schema sections` |
 | What needs attention? | `queue [ID]` |
 | What does one reader see? | `page <id>` |
+| What directly touches this entry? | `connections <id>` |
 | How do two entries connect now? | `path <from> <to>` |
 | What changed this entity? | `timeline <id>` |
 | Why did this entry change? | `log <id>` |
@@ -156,7 +161,8 @@ projection simply because it exists.
 
 Bounded queries expose `--format text|json` when another tool needs typed data.
 Their JSON is serialized from the query model rather than recovered from the
-human-readable report.
+human-readable report. `graph` is already a JSON projection and does not use
+that selector.
 
 ## Validation and lint
 

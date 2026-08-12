@@ -305,7 +305,7 @@ Each world is a **[Lorecraft](lorecraft/README.md) DSL** — Ruby files under `w
 ### When creating or modifying an entry:
 
 1. **Read the world's `CLAUDE.md`** and the guidance it points at.
-2. **Look at the neighborhood.** Read the entity's file and the edges it appears in (`world/_edges.rb`).
+2. **Look at the neighborhood.** Run `connections <id>`, then read the entity's file and the relevant `world/_edges*.rb` sources it reports.
 3. **Edit the world file.** Static facts as attributes; prose via `prose` blocks; cross-links via `#{ref :other_id}`; unwritten things via `#{future "Name"}`.
 4. **Add typed relationships.** Every meaningful connection is a typed edge — `relate :id, :verb, :src, :tgt` (optionally `since:`/`till:`/`dm: true`) or a moment effect. Unknown relation types are rejected.
 5. **Validate and lint:** `make check WORLD=<id>`
@@ -320,15 +320,16 @@ JSON from the same query model.
 
 | Command | Use |
 |---------|-----|
-| `help [command\|topic]` | Task-sized command and focused topics, including `workflow`, `entry`, `time`, `audience`, `composition`, and `review`. |
+| `help [command\|topic]` | Task-sized command and focused topics, including `workflow`, `schema-authoring`, `entry`, `time`, `audience`, `composition`, and `review`. |
 | `make worlds` | list the tenants and their status |
 | `make check WORLD=<id>` | validate + lint one world |
 | `make check-all` | validate + lint every world with canon (scaffolds skipped) |
-| `search <query>` | Find stable ids and canonical source paths from titles, aliases, schema terms, and resolved summaries. |
+| `search <query>` | Find stable ids and canonical source paths from titles, aliases, tags, subkinds, and resolved summaries. |
 | `schema kinds\|kind\|relations\|relation\|tags\|sections` | Inspect the ontology loaded for one world. |
 | `guide list\|<name>` | Read one authoritative craft or world guidance file. |
 | `validate` | Hard structural invariants (refs resolve, domain/range, cardinality, causality, DM-leak). Exits nonzero on failure. |
 | `lint` | Graded findings: errors / warnings (prominence reach, orphans, double-article, …) / futures. |
+| `render <dir>` | Generate a directory-shaped Markdown inspection view; defaults to all audiences. |
 | `wiki` | Generate an optional GitHub wiki export into `build/<world>/wiki` (player audience; DM excluded). |
 | `graph` | Node/edge JSON projection at a point in time. |
 | `stats` / `topology` | Counts by kind; degree/reachability health. |

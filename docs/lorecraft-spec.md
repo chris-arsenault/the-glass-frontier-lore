@@ -388,7 +388,63 @@ audience filters DM edges. `World#relationships` is the distinct all-time graph,
 including derived embed edges. `pending_edges` lists future names by owning
 entity and does not invent nodes for them.
 
-## 11. Validation and lint
+## 11. Command query surface
+
+`help` is repository-independent. Every content command selects one world with
+`--world ID`, `LORECRAFT_WORLD`, or the default in `worlds.yml`. The CLI exposes
+small queries so a caller can inspect one concern without loading a generated
+wiki or the whole graph:
+
+| Need | Command |
+|---|---|
+| find a stable id | `search QUERY` |
+| read current instructions | `guide list` / `guide NAME` |
+| inspect allowed types and values | `schema kinds` / `schema kind NAME` / `schema relations` / `schema relation NAME` / `schema tags` / `schema sections` |
+| read one reader-shaped entry | `page ID` |
+| inspect one entry's graph | `connections ID` |
+| connect two known entries | `path FROM TO` |
+| inspect all changes to one entry | `timeline ID` |
+| inspect structured facts | `facts [ID]` |
+| choose or narrow editorial work | `queue [ID]` |
+| inspect drafting and review | `provenance [ID]` |
+| recover settled entry history | `log [ID]` |
+
+`search` ranks titles, ids, aliases, tags, subkinds, and resolved summaries. It
+returns a bounded result with each stable id and canonical source. Player
+audience excludes DM entries, shells, and non-reader kinds. A result locates
+canon; it does not replace source inspection.
+
+`guide` reads authoritative Markdown and reports its source path. `guide world`
+returns the selected world's `CLAUDE.md`; `guide list` inventories shared and
+world guidance. The aliases `voice`, `naming`, `method`, and `canon` prefer a
+matching world guide and otherwise resolve to shared guidance. No guide text is
+copied into the CLI.
+
+`schema` inspects the merged shared and world schema that validation will use.
+Kind detail includes subkinds and fact shapes; relation detail includes its
+declared constraints. Tags and prose sections come from the selected world.
+
+`connections` reports every historical relationship interval touching one
+entry, including direction, neighbor title and type, canonical source, and
+whether the interval is live at the selected year. `path` searches only live
+edges at that year. It traverses them in either direction but reports their
+canonical direction, defaults to six hops, and accepts at most twenty. It
+excludes `active_during`, `emerged_during`, `created_during`,
+`disappeared_during`, and `mentions` so shared bookkeeping nodes do not create a
+misleading route.
+
+The optional id on `facts`, `queue`, and `provenance` narrows the existing
+world-wide report without changing its meaning. `page` always renders the
+present reader view. `timeline` returns every effect touching the entity rather
+than a snapshot at one year.
+
+Commands whose exact help lists `--format text|json` serialize JSON from the
+same query objects that produce their text reports. Other commands reject JSON.
+`graph` is always JSON, either on stdout or in its optional output file. Run
+`help COMMAND` before using a selector; the CLI rejects `--world`, `--at`,
+`--audience`, or `--format` when that command's help does not list it.
+
+## 12. Validation and lint
 
 `validate` checks hard invariants:
 
@@ -414,7 +470,7 @@ location hierarchy.
 `make check WORLD=<id>` runs both. `make check-all` applies that gate to every
 active world.
 
-## 12. Render targets
+## 13. Render targets
 
 ```ruby
 world.render(:markdown, out: "build/tree", audience: :player, at: :now)
@@ -436,7 +492,7 @@ world.render(:site, out: "build/site", world_id: "dry-war",
 
 All targets are disposable. The DSL is the only source loaded on the next run.
 
-## 13. Deliberate boundaries
+## 14. Deliberate boundaries
 
 - Lorecraft is an internal Ruby DSL, not a sandbox for untrusted input.
 - It does not infer facts or relationships from prose.

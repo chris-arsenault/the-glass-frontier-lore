@@ -2101,15 +2101,49 @@ class CLIHelpTest < Minitest::Test
     end
   end
 
+  def test_every_advertised_command_is_dispatched_by_the_cli
+    executable = File.read(File.expand_path("../bin/lorecraft", __dir__))
+
+    Lorecraft::CLIHelp::COMMANDS.each_key do |command|
+      assert_match(/when \"#{Regexp.escape(command)}\"/, executable, command)
+    end
+  end
+
+  def test_engine_guide_names_every_advertised_command
+    guide = File.read(File.expand_path("../README.md", __dir__))
+
+    Lorecraft::CLIHelp::COMMANDS.each_key do |command|
+      assert_includes guide, "`#{command}", command
+    end
+  end
+
+  def test_commands_and_topics_have_distinct_names
+    assert_empty Lorecraft::CLIHelp::COMMANDS.keys & Lorecraft::CLIHelp::TOPICS
+  end
+
+  def test_schema_command_and_authoring_topic_are_both_reachable
+    assert_includes Lorecraft::CLIHelp.render("schema"), "schema [kinds"
+    assert_includes Lorecraft::CLIHelp.render("schema-authoring"), "Schema shape"
+  end
+
   def test_review_is_a_topic_not_an_advertised_command
     refute_includes Lorecraft::CLIHelp::COMMANDS.keys, "review"
     assert_includes Lorecraft::CLIHelp.render("review"), "Never set reviewed"
   end
 
   def test_focused_context_topics_are_available
-    %w[entry time audience composition review].each do |topic|
+    Lorecraft::CLIHelp::TOPICS.each do |topic|
       refute_empty Lorecraft::CLIHelp.render(topic)
     end
+  end
+
+  def test_time_topic_distinguishes_snapshots_from_present_and_full_history
+    help = Lorecraft::CLIHelp.render("time")
+
+    assert_includes help, "search, connections,"
+    assert_includes help, "page always renders"
+    assert_includes help, "timeline reports every effect"
+    refute_includes help, "use --at with page"
   end
 
   def test_cli_emits_parseable_json_for_bounded_queries
@@ -2131,6 +2165,25 @@ class CLIHelpTest < Minitest::Test
     assert_predicate status, :success?
     assert_empty stderr
     assert_equal "located_in", JSON.parse(stdout).dig("relation", "name")
+  end
+
+  def test_cli_rejects_selectors_the_command_does_not_advertise
+    executable = File.expand_path("../bin/lorecraft", __dir__)
+    repo = File.expand_path("../..", __dir__)
+    cases = [
+      %w[page inez_bell --world dry-war --at 2080],
+      %w[timeline inez_bell --world dry-war --at 2080],
+      %w[graph --world dry-war --format json],
+    ]
+
+    cases.each do |arguments|
+      _stdout, stderr, status = Open3.capture3(
+        RbConfig.ruby, executable, *arguments, chdir: repo
+      )
+
+      refute_predicate status, :success?, arguments.join(" ")
+      assert_includes stderr, "not supported by", arguments.join(" ")
+    end
   end
 end
 
@@ -2161,5 +2214,14 @@ class GuideTest < Minitest::Test
 
     assert_equal "naming-craft", result[:resolved_name]
     assert_equal "craft/naming-craft.md", result[:source]
+  end
+
+  def test_every_advertised_guide_source_exists
+    target = Lorecraft::Worlds.find("glass-frontier")
+    repo = Pathname.new(Lorecraft::Worlds.repo_root)
+
+    Lorecraft::Guide.new(target).entries.each do |entry|
+      assert_predicate repo.join(entry.path), :file?, entry.path
+    end
   end
 end

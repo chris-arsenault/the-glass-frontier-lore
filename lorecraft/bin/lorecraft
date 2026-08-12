@@ -30,8 +30,14 @@ def emit(query, format)
   puts(format == :json ? JSON.pretty_generate(query.data) : query.report)
 end
 
-# --world is global, so strip it before reading the subcommand. Resolve the
-# manifest after help dispatch so JIT documentation also works outside a repo.
+# Record explicit global selectors before stripping them. Command help is the
+# contract for which selectors a command uses; silently ignoring another one
+# would make a precise-looking query return the wrong view.
+explicit_selectors = %w[--world --audience --at --format].select { |flag| ARGV.include?(flag) }
+
+# --world appears after the subcommand in normal usage, so strip it before
+# reading that subcommand. Resolve the manifest after help dispatch so JIT
+# documentation also works outside a repo.
 world_id = opt(ARGV, "--world", ENV["LORECRAFT_WORLD"])
 cmd = ARGV.shift || "validate"
 
@@ -57,6 +63,15 @@ if (help_flag = ARGV.index { |arg| %w[--help -h].include?(arg) })
   end
   puts output
   exit
+end
+
+if (doc = Lorecraft::CLIHelp::COMMANDS[cmd])
+  unsupported = explicit_selectors.reject { |flag| doc.fetch(:usage).include?(flag) }
+  unless unsupported.empty?
+    help_command = "#{Lorecraft::CLIHelp::EXE} help #{cmd}"
+    warn "not supported by #{cmd}: #{unsupported.join(', ')}; run `#{help_command}`"
+    exit 2
+  end
 end
 
 WORLD = begin
@@ -95,8 +110,8 @@ unless %i[text json].include?(format)
   warn "--format must be text or json"
   exit 2
 end
-json_commands = %w[search connections path schema guide timeline queue provenance facts graph]
-if format == :json && !json_commands.include?(cmd)
+format_supported = Lorecraft::CLIHelp::COMMANDS.dig(cmd, :usage)&.include?("--format")
+if format == :json && !format_supported
   warn "--format json is not supported by #{cmd}"
   exit 2
 end

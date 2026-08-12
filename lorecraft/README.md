@@ -13,8 +13,8 @@ does this at inference time, without changing model weights:
 
 1. The repository instructions identify the world and its local guidance.
 2. Command help describes the available queries when they become relevant.
-3. A command returns a bounded view: one entry, one history, one fact audit, or
-   one graph-health question.
+3. Bounded commands find an id, load one authoritative guide, inspect one
+   entry, or answer one graph or editorial question.
 4. Stable ids and typed edges let the model move sideways through the corpus
    instead of following only page order or keyword similarity.
 5. Validation rejects resolvability, type, time, vocabulary, and audience errors
@@ -45,17 +45,28 @@ ruby lorecraft/bin/lorecraft help             # route a task to a command
 ruby lorecraft/bin/lorecraft help model       # context architecture
 ruby lorecraft/bin/lorecraft help workflow    # bounded inspection sequence
 ruby lorecraft/bin/lorecraft help authoring   # entry and edge example
-ruby lorecraft/bin/lorecraft help schema      # kinds, facts, relationships
+ruby lorecraft/bin/lorecraft help schema-authoring # declaring kinds, facts, relationships
 ruby lorecraft/bin/lorecraft help markers     # inline composition and dates
+ruby lorecraft/bin/lorecraft help entry       # one entry and its local queries
+ruby lorecraft/bin/lorecraft help time        # state, effects, and computed spans
 ruby lorecraft/bin/lorecraft help audience    # public, DM, and editorial boundaries
+ruby lorecraft/bin/lorecraft help composition # prose ownership and transclusion
 ruby lorecraft/bin/lorecraft help review      # questions, logs, and human review
 ruby lorecraft/bin/lorecraft help search      # discover an entry id
+ruby lorecraft/bin/lorecraft help schema      # live schema command arguments
 ruby lorecraft/bin/lorecraft help page        # one command in detail
 ```
 
 The help text is executable documentation: tests assert that every advertised
 command has a help entry. It complements the longer reference in
 [`docs/lorecraft-spec.md`](../docs/lorecraft-spec.md).
+
+For an unfamiliar world, start with `worlds`, then read `guide world` and the
+one guide relevant to the task. Use `search` to resolve an unknown id, `page` to
+see its current reader form, and `schema`, `connections`, or `path` only when
+the edit depends on those dimensions. Read the reported canonical source before
+editing and finish with `make check WORLD=<id>`. Search results and generated
+views locate canon; they do not replace it.
 
 ## Choosing a query
 
@@ -94,6 +105,12 @@ not from parsing the text report. The normal repository gate is:
 ```sh
 make check WORLD=glass-frontier
 ```
+
+`connections` returns every historical interval touching one entity and marks
+which rows are live at the selected year. `path` traverses only live rows in
+either direction while preserving each edge's authored direction. It excludes
+`active_during`, `emerged_during`, `created_during`, `disappeared_during`, and
+`mentions`, whose shared structural nodes would create misleading shortcuts.
 
 ## Loading and querying
 
