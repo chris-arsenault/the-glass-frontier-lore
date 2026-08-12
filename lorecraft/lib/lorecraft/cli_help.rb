@@ -46,6 +46,16 @@ module Lorecraft
           time behavior, inverse, symmetry, and exclusions when declared.
         TEXT
       },
+      "guide" => {
+        summary: "Read one authoritative craft or world guidance file.",
+        usage: "guide [list | NAME] [--world ID]",
+        body: <<~TEXT,
+          List the guidance available for the selected world, or print one file
+          with its canonical repo-relative path. The short aliases voice, naming,
+          method, and canon prefer a matching world guide and fall back to the
+          relevant shared guide. Content is read from Markdown, not copied here.
+        TEXT
+      },
       "page" => {
         summary: "Render one entry as reviewable Markdown on stdout.",
         usage: "page ID [--audience all|player] [--world ID]",
@@ -174,17 +184,9 @@ module Lorecraft
           not generated pages and not prose quality.
         TEXT
       },
-      "review" => {
-        summary: "Explain the retired review command.",
-        usage: "review",
-        body: <<~TEXT,
-          Review state now lives on entries as question, reviewed, and status
-          declarations. Use queue and provenance, or the local review app.
-        TEXT
-      }
     }.freeze
 
-    TOPICS = %w[model workflow authoring schema markers].freeze
+    TOPICS = %w[model workflow authoring schema markers entry time audience composition review].freeze
 
     module_function
 
@@ -210,7 +212,7 @@ module Lorecraft
           #{EXE} help TOPIC
 
         Read only the context the task needs:
-          discover       worlds, search, schema, queue
+          discover       worlds, search, schema, guide, queue
           inspect        page, connections, timeline, log, facts
           inspect graph  topology, web, graph, stats
           verify         validate, lint
@@ -225,6 +227,11 @@ module Lorecraft
           authoring    entry and relationship shapes
           schema       kinds, subkinds, facts, and relations
           markers      references, composition, and computed time
+          entry        one entry's canonical shape and local queries
+          time         dated facts, effects, and computed spans
+          audience     public, DM, and editorial boundaries
+          composition  ownership and transclusion
+          review       questions, logs, provenance, and human review
 
         The repository Makefile supplies the normal gates and multi-world builds.
         Run `make check WORLD=<id>` after an edit and `make check-all` before handoff.
@@ -359,6 +366,80 @@ module Lorecraft
         knows the world, audience, and year. Use ref for an existing node, future
         for a missing one, and embed when another entry owns the passage. Never
         copy timeline arithmetic into prose.
+      TEXT
+    end
+
+    def entry
+      <<~TEXT
+        Entry-focused work
+
+        Use search to find the stable id, page to inspect resolved prose, and
+        connections to inspect its typed neighborhood. facts, queue, provenance,
+        timeline, and log all accept the same id when that dimension matters.
+
+        The entity's Ruby file remains canonical. Read it before editing because
+        rendered prose omits DSL fields, questions, logs, and source placement.
+        Query `schema kind NAME` before adding a repeated fact or subkind.
+      TEXT
+    end
+
+    def time
+      <<~TEXT
+        Time model
+
+        Canon stores dated events and interval boundaries. Moment effects and
+        named relations produce state at a selected year; use --at with page,
+        connections, facts, graph, or timeline where supported.
+
+        Prose derives spans with elapsed and absolute dates with year. Use
+        duration only for a length that has no chronological anchor. A missing
+        event date uses an elapsed future marker until the event is established.
+        Do not type a span that the timeline can calculate.
+      TEXT
+    end
+
+    def audience
+      <<~TEXT
+        Audience boundaries
+
+        Public entries state what players and NPCs can know. DM entries and
+        DM-only blocks hold hidden truth. --audience player excludes DM material
+        from supported queries and projections; all is the editorial default.
+
+        Questions, entry logs, drafting declarations, expired reviews, and
+        missing expected facts are editorial state. They never render as lore.
+        Validation rejects public references or embeds that cross into DM truth.
+      TEXT
+    end
+
+    def composition
+      <<~TEXT
+        Composition
+
+        The entity a passage describes owns it. Another entry uses
+        #{'#{embed :owner}'} or #{'#{embed :owner, :section}'} instead of copying
+        the prose. The engine derives an embeds edge and resolves nested markers
+        for the selected time and audience.
+
+        Validation rejects missing targets, shells, absent sections, and public
+        embeds of DM material. Lint rejects cycles. Use connections ID to inspect
+        the resulting local composition graph. Run `lorecraft guide composition`
+        for the full authoritative document.
+      TEXT
+    end
+
+    def review
+      <<~TEXT
+        Review state
+
+        question records an unresolved judgment on the entry. Delete it when
+        resolved and add log only when the reason for the decision will matter
+        later. queue ID reads questions and matching computed findings.
+
+        reviewed means a human read the words on that date. provenance ID reports
+        who drafted each owned block and expires a read when its prose changes.
+        Never set reviewed on a person's behalf. status :complete states that the
+        entry is finished; it does not imply a human review.
       TEXT
     end
   end

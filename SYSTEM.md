@@ -139,6 +139,7 @@ views are:
 | Question | View |
 |---|---|
 | What worlds can I work on? | `worlds` |
+| Which craft or world instructions apply? | `guide list`, then `guide <name>` |
 | What needs attention? | `queue [ID]` |
 | What does one reader see? | `page <id>` |
 | What changed this entity? | `timeline <id>` |

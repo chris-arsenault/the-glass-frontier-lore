@@ -35,7 +35,8 @@ on. Do not bulk-load the lore tree. Use the command help and the narrowest view
 that answers the task:
 
 1. `ruby lorecraft/bin/lorecraft help workflow`
-2. Read the world's `CLAUDE.md` and the guidance it names.
+2. Read the world's `CLAUDE.md`. Use `guide list --world <id>` and
+   `guide <name> --world <id>` for the guidance the task needs.
 3. Use `search <query>` when the stable id is unknown. Then use `page <id>` for
    rendered prose, `timeline <id>` for change, `log <id>` for settled editorial
    reasoning, and `facts <id>` for local schema gaps.
@@ -317,10 +318,13 @@ or `--world <id>` (or `LORECRAFT_WORLD`) on the CLI. The default comes from
 
 | Command | Use |
 |---------|-----|
-| `help [command|topic]` | Task-sized command and language guidance (`model`, `workflow`, `authoring`, `schema`, `markers`). |
+| `help [command\|topic]` | Task-sized command and focused topics, including `workflow`, `entry`, `time`, `audience`, `composition`, and `review`. |
 | `make worlds` | list the tenants and their status |
 | `make check WORLD=<id>` | validate + lint one world |
 | `make check-all` | validate + lint every world with canon (scaffolds skipped) |
+| `search <query>` | Find stable ids and canonical source paths from titles, aliases, schema terms, and resolved summaries. |
+| `schema kinds\|kind\|relations\|relation\|tags\|sections` | Inspect the ontology loaded for one world. |
+| `guide list\|<name>` | Read one authoritative craft or world guidance file. |
 | `validate` | Hard structural invariants (refs resolve, domain/range, cardinality, causality, DM-leak). Exits nonzero on failure. |
 | `lint` | Graded findings: errors / warnings (prominence reach, orphans, double-article, …) / futures. |
 | `wiki` | Generate an optional GitHub wiki export into `build/<world>/wiki` (player audience; DM excluded). |
@@ -328,10 +332,11 @@ or `--world <id>` (or `LORECRAFT_WORLD`) on the CLI. The default comes from
 | `stats` / `topology` | Counts by kind; degree/reachability health. |
 | `timeline <id>` | Life-of-entity effect strip. |
 | `log [<id>]` | The entries' own history — why a fact changed, what a correction rests on. Not world content. |
-| `provenance` | Per block: who drafted it, who has read it, whose read has expired. |
-| `facts` | Coverage of expected kind facts, with missing fields grouped by entry. |
-| `queue` | What the world needs next — `question` declarations plus computed findings. A render, not a file. |
+| `provenance [<id>]` | Global or entry-owned blocks: who drafted them, who read them, and whose read expired. |
+| `facts [<id>]` | Global expected-fact coverage or one entry's resolved and missing values. |
+| `queue [<id>]` | Global or entry-scoped `question` declarations plus computed findings. A render, not a file. |
 | `page <id>` | One entity's rendered page on stdout. What the review app shows as prose. |
+| `connections <id>` | Incoming and outgoing typed edges with intervals, titles, and source paths. |
 | `web` | What holds together without the most prominent entities. The work list for `craft/connecting-entities.md`. |
 
 Historical state is a query, not a stored field: `world.at(era: :the_accord, year: 5).out(:coremark, :operates_in)`.

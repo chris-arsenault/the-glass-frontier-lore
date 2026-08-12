@@ -1974,4 +1974,45 @@ class CLIHelpTest < Minitest::Test
       assert_includes Lorecraft::CLIHelp.render(command), "Usage:"
     end
   end
+
+  def test_review_is_a_topic_not_an_advertised_command
+    refute_includes Lorecraft::CLIHelp::COMMANDS.keys, "review"
+    assert_includes Lorecraft::CLIHelp.render("review"), "Never set reviewed"
+  end
+
+  def test_focused_context_topics_are_available
+    %w[entry time audience composition review].each do |topic|
+      refute_empty Lorecraft::CLIHelp.render(topic)
+    end
+  end
+end
+
+class GuideTest < Minitest::Test
+  def test_list_exposes_shared_and_selected_world_guidance
+    target = Lorecraft::Worlds.find("glass-frontier")
+    result = Lorecraft::Guide.new(target).data("list")
+
+    names = result[:guides].map { |guide| guide[:name] }
+    assert_includes names, "writing"
+    assert_includes names, "tone"
+    assert_includes names, "voice-referents"
+    assert_includes result[:aliases], { name: "voice", target: "voice-referents" }
+  end
+
+  def test_world_alias_reads_the_authoritative_file
+    target = Lorecraft::Worlds.find("glass-frontier")
+    result = Lorecraft::Guide.new(target).data("voice")
+
+    assert_equal "voice-referents", result[:resolved_name]
+    assert_equal "worlds/glass-frontier/guidance/voice-referents.md", result[:source]
+    assert_includes result[:content], "#"
+  end
+
+  def test_alias_falls_back_to_shared_guidance
+    target = Lorecraft::Worlds.find("dry-war")
+    result = Lorecraft::Guide.new(target).data("naming")
+
+    assert_equal "naming-craft", result[:resolved_name]
+    assert_equal "craft/naming-craft.md", result[:source]
+  end
 end

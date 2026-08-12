@@ -47,6 +47,8 @@ ruby lorecraft/bin/lorecraft help workflow    # bounded inspection sequence
 ruby lorecraft/bin/lorecraft help authoring   # entry and edge example
 ruby lorecraft/bin/lorecraft help schema      # kinds, facts, relationships
 ruby lorecraft/bin/lorecraft help markers     # inline composition and dates
+ruby lorecraft/bin/lorecraft help audience    # public, DM, and editorial boundaries
+ruby lorecraft/bin/lorecraft help review      # questions, logs, and human review
 ruby lorecraft/bin/lorecraft help search      # discover an entry id
 ruby lorecraft/bin/lorecraft help page        # one command in detail
 ```
@@ -66,6 +68,7 @@ Every content/query command selects one world through `--world ID`,
 | discover worlds | `worlds` | manifest ids and status |
 | find an entry id | `search QUERY` | ranked ids, types, sources, and summaries |
 | inspect the live ontology | `schema kind NAME` / `schema relation NAME` | allowed facts and edges |
+| read authoritative guidance | `guide list` / `guide NAME` | one current craft or world Markdown source |
 | choose work | `queue [ID]` | global or entry-scoped questions and findings |
 | read one resolved entry | `page ID` | reader-shaped Markdown on stdout |
 | inspect its local graph | `connections ID` | typed neighbors, intervals, and source paths |

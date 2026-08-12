@@ -233,6 +233,13 @@ when "schema"
   rescue Lorecraft::Error => e
     abort e.message
   end
+when "guide"
+  name = ARGV.shift || "list"
+  begin
+    puts Lorecraft::Guide.new(WORLD, repo_root: Lorecraft::Worlds.repo_root).report(name)
+  rescue Lorecraft::Error => e
+    abort e.message
+  end
 when "review"
   abort <<~MSG
     `review` is gone. Review state lives on the content:
