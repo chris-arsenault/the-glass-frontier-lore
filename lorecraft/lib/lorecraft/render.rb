@@ -355,43 +355,17 @@ module Lorecraft
       end
 
       def edges(year, audience)
-        intervals(audience).map do |e|
-          { src: e[:subject], rel: e[:relation], tgt: e[:target],
-            from: e[:from], to: e[:to], dm: e[:dm],
-            live_at_render: e[:from] <= year && (e[:to].nil? || year < e[:to]) }
+        Edges.new(@world, at: year, audience: audience).rows.map do |edge|
+          {
+            src: edge.subject,
+            rel: edge.relation,
+            tgt: edge.target,
+            from: edge.from,
+            to: edge.to,
+            dm: edge.dm,
+            live_at_render: edge.live,
+          }
         end
-      end
-
-      # All edges with [from,to) intervals (not just those live now).
-      def intervals(audience)
-        open = {}
-        result = []
-        @world.all_effects.each do |entry|
-          eff = entry[:effect]
-          next unless eff.relation
-          next if audience == :player && entry[:dm]
-
-          key = [eff.subject, eff.relation, eff.target]
-          case eff.verb
-          when :set then open[key] ||= { year: entry[:year], dm: entry[:dm] }
-          when :clear
-            if eff.target
-              o = open.delete(key)
-              result << close(key, o, entry[:year]) if o
-            else
-              open.keys.select { |k| k[0] == eff.subject && k[1] == eff.relation }.each do |k|
-                result << close(k, open.delete(k), entry[:year])
-              end
-            end
-          end
-        end
-        open.each { |key, o| result << close(key, o, nil) }
-        result
-      end
-
-      def close(key, opened, to_year)
-        { subject: key[0], relation: key[1], target: key[2],
-          from: opened[:year], to: to_year, dm: opened[:dm] }
       end
     end
 

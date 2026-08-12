@@ -67,6 +67,7 @@ Every content/query command selects one world through `--world ID`,
 | find an entry id | `search QUERY` | ranked ids, types, sources, and summaries |
 | choose work | `queue` | entry questions plus current findings |
 | read one resolved entry | `page ID` | reader-shaped Markdown on stdout |
+| inspect its local graph | `connections ID` | typed neighbors, intervals, and source paths |
 | inspect one entity's changes | `timeline ID` | chronological effect strip |
 | recover settled editorial reasoning | `log ID` | non-reader entry history |
 | find missing structured facts | `facts` | coverage by kind, subkind, and entry |

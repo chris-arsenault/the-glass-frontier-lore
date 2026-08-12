@@ -26,6 +26,16 @@ module Lorecraft
           shells, and non-reader kinds. The default limit is 12; the maximum is 100.
         TEXT
       },
+      "connections" => {
+        summary: "Show every typed edge touching one entity.",
+        usage: "connections ID [--at now|YEAR] [--audience all|player] [--world ID]",
+        body: <<~TEXT,
+          Inspect incoming and outgoing relationships after finding or rendering
+          an entry. Each row includes the neighbor's stable id, title, type, source
+          path, complete interval, and whether it is live at the selected year.
+          The establishing moment or named relation is shown when available.
+        TEXT
+      },
       "page" => {
         summary: "Render one entry as reviewable Markdown on stdout.",
         usage: "page ID [--audience all|player] [--world ID]",
@@ -189,7 +199,7 @@ module Lorecraft
 
         Read only the context the task needs:
           discover       worlds, search, queue
-          inspect        page, timeline, log, facts
+          inspect        page, connections, timeline, log, facts
           inspect graph  topology, web, graph, stats
           verify         validate, lint
           export         render, wiki
@@ -259,8 +269,9 @@ module Lorecraft
            when the subject's stable id is unknown.
         3. Render the subject with `page ID`; use `timeline ID` and `log ID` only
            when the task concerns history or prior decisions.
-        4. Read the entry source and its typed edges. Use facts, topology, or web
-           only when the task concerns those dimensions.
+        4. Use `connections ID` for the local typed neighborhood, then read the
+           entry source and relevant neighbor sources. Use facts, topology, or
+           web only when the task concerns those dimensions.
         5. Edit the DSL, preserving the distinction between canon, editorial
            questions, and generated output.
         6. Run `make check WORLD=ID`. Use `make check-all` before repository-wide

@@ -719,6 +719,78 @@ class SearchTest < Minitest::Test
   end
 end
 
+class ConnectionsTest < Minitest::Test
+  def test_connections_show_incoming_outgoing_and_historical_intervals
+    rows = Lorecraft::Connections.new(sample_world, entity: :concord).rows
+    reach = rows.find { |row| row.neighbor_id == :reach }
+    quarter = rows.find { |row| row.neighbor_id == :quarter }
+
+    assert_equal :outgoing, reach.direction
+    assert_equal :controls, reach.relation
+    assert_equal [10, 105, false], [reach.from, reach.to, reach.live]
+    assert_equal [105, nil, true], [quarter.from, quarter.to, quarter.live]
+
+    incoming = Lorecraft::Connections.new(sample_world, entity: :quarter).rows.first
+    assert_equal :incoming, incoming.direction
+    assert_equal "The Concord", incoming.neighbor_title
+  end
+
+  def test_connections_distinguish_future_from_historical_intervals
+    report = Lorecraft::Connections.new(sample_world, entity: :concord, at: 50).report
+
+    assert_includes report, "[10, 105) live"
+    assert_includes report, "[105, ∞) future"
+  end
+
+  def test_connections_report_neighbor_and_establishing_source
+    report = Lorecraft::Connections.new(sample_world, entity: :concord).report
+
+    assert_includes report, "The Quarter"
+    assert_includes report, "established by: seizure"
+    assert_includes report, "[105, ∞) live"
+  end
+
+  def test_connections_include_composition_edges
+    world = Lorecraft.define do
+      schema { entity_type :concept }
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
+      concept :owner do name "Owner"; prose "Owned words." end
+      concept :reader do name "Reader"; prose "Uses #{embed :owner}." end
+    end
+
+    row = Lorecraft::Connections.new(world, entity: :reader).rows.first
+    assert_equal :embeds, row.relation
+    assert_equal :owner, row.neighbor_id
+    assert_predicate row, :live
+  end
+
+  def test_player_connections_hide_dm_edges_and_neighbors
+    world = Lorecraft.define do
+      schema do
+        entity_type :concept
+        relation :knows, temporal: true
+        effect :set
+      end
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
+      concept :public_entry do name "Public" end
+      concept :hidden_entry do name "Hidden"; dm! end
+      genesis :seed, at: { year: 0 }, dm: true do
+        effects { set :public_entry, knows: :hidden_entry }
+      end
+    end
+
+    assert_equal 1, Lorecraft::Connections.new(world, entity: :public_entry).rows.size
+    assert_empty Lorecraft::Connections.new(
+      world,
+      entity: :public_entry,
+      audience: :player,
+    ).rows
+    assert_raises(Lorecraft::Error) do
+      Lorecraft::Connections.new(world, entity: :hidden_entry, audience: :player)
+    end
+  end
+end
+
 class GraphRenderTest < Minitest::Test
   def setup
     @w = sample_world
@@ -1793,7 +1865,7 @@ class CLIHelpTest < Minitest::Test
     help = Lorecraft::CLIHelp.render
 
     assert_includes help, "Read only the context the task needs"
-    assert_includes help, "page, timeline, log, facts"
+    assert_includes help, "page, connections, timeline, log, facts"
     assert_includes help, "help TOPIC"
   end
 

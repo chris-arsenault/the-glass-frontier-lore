@@ -212,6 +212,19 @@ when "search"
     tag: tag,
     limit: limit,
   ).report
+when "connections"
+  id = ARGV.shift or abort("usage: #{Lorecraft::CLIHelp::EXE} connections ID")
+  begin
+    puts Lorecraft::Connections.new(
+      load_world,
+      entity: id.tr("-", "_").to_sym,
+      root: Lorecraft::Worlds.repo_root,
+      audience: audience,
+      at: at,
+    ).report
+  rescue Lorecraft::Error => e
+    abort e.message
+  end
 when "review"
   abort <<~MSG
     `review` is gone. Review state lives on the content:
