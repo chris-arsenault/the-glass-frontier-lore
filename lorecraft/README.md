@@ -86,7 +86,9 @@ Every content/query command selects one world through `--world ID`,
 | project flat reader Markdown | `wiki DIR` | optional player-only wiki export |
 
 Run `ruby lorecraft/bin/lorecraft help COMMAND` for exact arguments and
-audience behavior. The normal repository gate is:
+audience behavior. Bounded queries that list `--format` can emit `text` for a
+person or native `json` for another tool; the JSON comes from the query model,
+not from parsing the text report. The normal repository gate is:
 
 ```sh
 make check WORLD=glass-frontier

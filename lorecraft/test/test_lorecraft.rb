@@ -93,6 +93,17 @@ class TimelineTest < Minitest::Test
   def test_year_outside_era_raises
     assert_raises(Lorecraft::DefinitionError) { @w.timeline.year_for(era: :early, year: 200) }
   end
+
+  def test_timeline_data_preserves_typed_effect_fields
+    data = Lorecraft::Render::Timeline.new(@w).data(entity: :concord)
+    seizure = data[:events].find { |event| event[:source] == :seizure && event[:verb] == :set }
+
+    assert_equal 150, data[:generated_at_year]
+    assert_equal :concord, data.dig(:entity, :id)
+    assert_equal :controls, seizure[:relation]
+    assert_equal :quarter, seizure[:target]
+    assert_equal 105, seizure[:year]
+  end
 end
 
 class FoldTest < Minitest::Test
@@ -484,6 +495,16 @@ class EntityFactsTest < Minitest::Test
     refute_includes report, "unwritten"
   end
 
+  def test_scoped_fact_data_retains_types_and_raw_values
+    data = Lorecraft::FactAudit.new(fact_world, entity: :ada).data
+    home = data[:facts].find { |fact| fact[:name] == :home }
+
+    assert_equal "entity", data[:scope]
+    assert_equal :entity, home[:type]
+    assert_equal :harbour, home[:value]
+    assert_empty data[:missing_expected]
+  end
+
   def test_subkind_facts_override_kind_facts_in_place_and_custom_facts_append
     w = Lorecraft.define do
       schema do
@@ -728,6 +749,14 @@ class SearchTest < Minitest::Test
     assert_equal 1, results.size
     assert_equal :location, results.first.kind
   end
+
+  def test_search_data_is_native_and_bounded
+    data = Lorecraft::Search.new(sample_world, query: "the", limit: 1).data
+
+    assert_equal "the", data[:query]
+    assert_equal 1, data[:count]
+    assert_kind_of Hash, data[:results].first
+  end
 end
 
 class ConnectionsTest < Minitest::Test
@@ -799,6 +828,14 @@ class ConnectionsTest < Minitest::Test
     assert_raises(Lorecraft::Error) do
       Lorecraft::Connections.new(world, entity: :hidden_entry, audience: :player)
     end
+  end
+
+  def test_connections_data_includes_entity_and_typed_rows
+    data = Lorecraft::Connections.new(sample_world, entity: :concord).data
+
+    assert_equal :concord, data.dig(:entity, :id)
+    assert_equal 2, data[:count]
+    assert_includes data[:connections].map { |row| row[:relation] }, :controls
   end
 end
 
@@ -1603,6 +1640,17 @@ class QuestionTest < Minitest::Test
     refute_includes report, "About B"
     refute_includes report, "check that"
   end
+
+  def test_queue_data_keeps_questions_separate_from_findings
+    w = world do
+      concept :a do name "A"; prose "a"; question "About A", raised: "2026-08-12" end
+    end
+    finding = Lorecraft::Linter::Finding.new(:warn, "concept a: check this")
+    data = Lorecraft::Queue.new(w, findings: [finding], entity: :a).data
+
+    assert_equal "About A", data[:questions].first[:text]
+    assert_equal :warn, data[:findings].first[:level]
+  end
 end
 
 class WebTest < Minitest::Test
@@ -1741,6 +1789,15 @@ class ProvenanceTest < Minitest::Test
     assert_equal [:a], audit.rows.map(&:owner).uniq
     assert_includes audit.report, "Provenance — A (a)"
     refute_includes audit.report, "b (main)"
+  end
+
+  def test_provenance_data_contains_summary_and_blocks
+    data = Lorecraft::Provenance.new(world, entity: :a).data
+
+    assert_equal "entity", data[:scope]
+    assert_equal 4, data.dig(:summary, :blocks)
+    assert_equal :main, data[:blocks].first[:section]
+    assert data[:blocks].first[:declared]
   end
 end
 
@@ -1984,6 +2041,27 @@ class CLIHelpTest < Minitest::Test
     %w[entry time audience composition review].each do |topic|
       refute_empty Lorecraft::CLIHelp.render(topic)
     end
+  end
+
+  def test_cli_emits_parseable_json_for_bounded_queries
+    executable = File.expand_path("../bin/lorecraft", __dir__)
+    repo = File.expand_path("../..", __dir__)
+    stdout, stderr, status = Open3.capture3(
+      RbConfig.ruby,
+      executable,
+      "schema",
+      "relation",
+      "located_in",
+      "--world",
+      "dry-war",
+      "--format",
+      "json",
+      chdir: repo,
+    )
+
+    assert_predicate status, :success?
+    assert_empty stderr
+    assert_equal "located_in", JSON.parse(stdout).dig("relation", "name")
   end
 end
 

@@ -24,6 +24,21 @@ module Lorecraft
 
     attr_reader :entity
 
+    def data
+      {
+        generated_at_year: @edges.year,
+        entity: {
+          id: @entity.id,
+          title: @entity.title,
+          kind: @entity.kind,
+          subkind: @entity.subkind,
+          source_file: relative_source(@entity),
+        },
+        count: rows.size,
+        connections: rows.map(&:to_h),
+      }
+    end
+
     def rows
       @rows ||= @edges.touching(@entity.id).map do |edge|
         outgoing = edge.subject == @entity.id

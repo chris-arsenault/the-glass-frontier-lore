@@ -18,7 +18,7 @@ module Lorecraft
       },
       "search" => {
         summary: "Find canonical entities when the stable id is unknown.",
-        usage: "search QUERY [--kind KIND] [--tag TAG] [--limit N] [--audience all|player] [--at now|YEAR] [--world ID]",
+        usage: "search QUERY [--kind KIND] [--tag TAG] [--limit N] [--audience all|player] [--at now|YEAR] [--format text|json] [--world ID]",
         body: <<~TEXT,
           Search titles, aliases, tags, subkinds, and resolved entry summaries.
           Results are ranked and bounded, and include the stable id and canonical
@@ -28,7 +28,7 @@ module Lorecraft
       },
       "connections" => {
         summary: "Show every typed edge touching one entity.",
-        usage: "connections ID [--at now|YEAR] [--audience all|player] [--world ID]",
+        usage: "connections ID [--at now|YEAR] [--audience all|player] [--format text|json] [--world ID]",
         body: <<~TEXT,
           Inspect incoming and outgoing relationships after finding or rendering
           an entry. Each row includes the neighbor's stable id, title, type, source
@@ -38,7 +38,7 @@ module Lorecraft
       },
       "schema" => {
         summary: "Inspect the selected world's loaded schema.",
-        usage: "schema [kinds | kind NAME | relations | relation NAME | tags | sections] [--world ID]",
+        usage: "schema [kinds | kind NAME | relations | relation NAME | tags | sections] [--format text|json] [--world ID]",
         body: <<~TEXT,
           Query the ontology that validation will enforce after shared craft and
           world extensions are loaded. Kind detail includes subkinds and fact
@@ -48,7 +48,7 @@ module Lorecraft
       },
       "guide" => {
         summary: "Read one authoritative craft or world guidance file.",
-        usage: "guide [list | NAME] [--world ID]",
+        usage: "guide [list | NAME] [--format text|json] [--world ID]",
         body: <<~TEXT,
           List the guidance available for the selected world, or print one file
           with its canonical repo-relative path. The short aliases voice, naming,
@@ -67,7 +67,7 @@ module Lorecraft
       },
       "timeline" => {
         summary: "Show every state-changing effect that touches one entity.",
-        usage: "timeline ID [--world ID]",
+        usage: "timeline ID [--audience all|player] [--format text|json] [--world ID]",
         body: <<~TEXT,
           Use this to inspect how an entity changes and which moments or named
           relations establish those changes. Output is chronological and written
@@ -85,7 +85,7 @@ module Lorecraft
       },
       "queue" => {
         summary: "Assemble open questions and computed findings.",
-        usage: "queue [ID] [--world ID]",
+        usage: "queue [ID] [--format text|json] [--world ID]",
         body: <<~TEXT,
           Start here when choosing work. The report combines question declarations
           stored on entries with current lint findings; it is a view, not a tracker
@@ -95,7 +95,7 @@ module Lorecraft
       },
       "facts" => {
         summary: "Report expected fact coverage by kind, subkind, and entry.",
-        usage: "facts [ID] [--at now|YEAR] [--world ID]",
+        usage: "facts [ID] [--at now|YEAR] [--format text|json] [--world ID]",
         body: <<~TEXT,
           Use this before filling an infobox or adding a repeated field. It shows
           which declared facts resolve at the selected year and names missing
@@ -123,7 +123,7 @@ module Lorecraft
       },
       "provenance" => {
         summary: "Report who drafted prose and whether human reviews still cover it.",
-        usage: "provenance [ID] [--world ID]",
+        usage: "provenance [ID] [--format text|json] [--world ID]",
         body: <<~TEXT,
           Review state comes from the DSL and git history. A review expires when
           its prose changes. Never add a human review date unless that person read
@@ -207,7 +207,7 @@ module Lorecraft
         Markdown and JSON are views; worlds/<id>/world/ is the source of truth.
 
         Usage:
-          #{EXE} COMMAND [ARGS] [--world ID] [--at now|YEAR] [--audience all|player]
+          #{EXE} COMMAND [ARGS] [--world ID] [--at now|YEAR] [--audience all|player] [--format text|json]
           #{EXE} help COMMAND
           #{EXE} help TOPIC
 
@@ -235,6 +235,8 @@ module Lorecraft
 
         The repository Makefile supplies the normal gates and multi-world builds.
         Run `make check WORLD=<id>` after an edit and `make check-all` before handoff.
+        Bounded inspection commands that list --format can emit native JSON for
+        callers that should not parse their text reports.
       TEXT
     end
 

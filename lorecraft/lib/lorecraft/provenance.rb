@@ -88,6 +88,23 @@ module Lorecraft
       out.join("\n")
     end
 
+    def data
+      totals = summary
+      totals = totals.merge(
+        by_drafter: totals[:by_drafter].map do |drafter, count|
+          { drafter: drafter, count: count }
+        end
+      )
+      {
+        scope: @entity ? "entity" : "world",
+        entity: (@entity && { id: @entity.id, title: @entity.title }),
+        summary: totals,
+        blocks: rows.map do |row|
+          row.to_h.merge(declared: row.declared?)
+        end,
+      }.compact
+    end
+
     private
 
     # When each entry's prose last changed, from git. Moving a file is not a

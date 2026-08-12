@@ -32,11 +32,22 @@ module Lorecraft
     def results
       return [] if @query.empty?
 
-      candidates.filter_map do |entity|
+      @results ||= candidates.filter_map do |entity|
         summary = @renderer.render(entity, year: @year, audience: @audience)
         score = score(entity, summary)
         result_for(entity, summary, score) if score
       end.sort_by { |row| [-row.score, row.title.downcase, row.id.to_s] }.first(@limit)
+    end
+
+    def data
+      {
+        query: @query,
+        generated_at_year: @year,
+        audience: @audience,
+        filters: { kind: @kind, tag: @tag, limit: @limit }.compact,
+        count: results.size,
+        results: results.map(&:to_h),
+      }
     end
 
     def report

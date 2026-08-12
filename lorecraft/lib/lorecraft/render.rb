@@ -371,24 +371,64 @@ module Lorecraft
 
     # ---- life-of-entity timeline strip ----------------------------------
     class Timeline < Base
-      def render(entity:, **)
-        id = entity.to_sym
-        rows = @world.all_effects.select { |e| touches?(e[:effect], id) }
-                     .map { |e| describe(e) }
-        header = "# Timeline — #{title_for(id)}\n\n"
+      def render(entity:, at: :now, audience: :all, **)
+        result = data(entity: entity, at: at, audience: audience)
+        rows = result[:events].map { |event| describe(event) }
+        header = "# Timeline — #{result[:entity][:title]}\n\n"
         header + (rows.empty? ? "_No recorded moments._\n" : rows.uniq.join("\n") + "\n")
+      end
+
+      def data(entity:, at: :now, audience: :all)
+        id = entity.to_sym
+        node = @world[id] || raise(Error, "unknown entity: #{entity}")
+        if audience.to_sym == :player && node.respond_to?(:dm?) && node.dm?
+          raise Error, "unknown entity: #{entity}"
+        end
+
+        year = @world.timeline.year_for(at)
+        events = @world.all_effects.filter_map do |entry|
+          next unless touches?(entry[:effect], id)
+          next if audience.to_sym == :player && entry[:dm]
+
+          event_data(entry)
+        end
+        {
+          generated_at_year: year,
+          entity: { id: id, title: title_for(id), kind: node.respond_to?(:kind) ? node.kind : nil }.compact,
+          events: events,
+        }
       end
 
       private
 
       def touches?(eff, id) = eff.subject == id || eff.target == id
 
-      def describe(entry)
-        eff = entry[:effect]
+      def event_data(entry)
+        effect = entry[:effect]
         era = @world.timeline.era_at(entry[:year])
-        when_s = era ? "#{era.name} +#{entry[:year] - era.start_year}" : "year #{entry[:year]}"
-        verb = eff.relation ? "#{eff.verb} #{eff.relation} → #{eff.target}" : "#{eff.verb} #{eff.attr || eff.subject}"
-        "- **#{when_s}** (#{entry[:source]}): #{verb}"
+        {
+          year: entry[:year],
+          era: era&.name,
+          era_year: era && entry[:year] - era.start_year,
+          source: entry[:source],
+          verb: effect.verb,
+          subject: effect.subject,
+          relation: effect.relation,
+          target: effect.target,
+          attribute: effect.attr,
+          value: effect.value,
+          dm: entry[:dm] == true,
+        }.compact
+      end
+
+      def describe(event)
+        when_s = event[:era] ? "#{event[:era]} +#{event[:era_year]}" : "year #{event[:year]}"
+        verb = if event[:relation]
+                 "#{event[:verb]} #{event[:relation]} → #{event[:target]}"
+               else
+                 "#{event[:verb]} #{event[:attribute] || event[:subject]}"
+               end
+        "- **#{when_s}** (#{event[:source]}): #{verb}"
       end
     end
   end

@@ -43,7 +43,68 @@ module Lorecraft
       out.join("\n")
     end
 
+    def data
+      return entry_data if @entity
+
+      {
+        generated_at_year: @world.timeline.year_for(@at),
+        scope: "world",
+        groups: groups.filter_map do |(kind, subkind), entities|
+          definitions = @world.schema.facts_for(kind, subkind: subkind).select(&:expected?)
+          next if definitions.empty?
+
+          missing = entities.to_h do |entity|
+            names = @facts.missing(entity, at: @at).map { |row| row.definition.name }
+            [entity.id, names]
+          end
+          {
+            kind: kind,
+            subkind: subkind,
+            entity_count: entities.size,
+            expected_fact_count: definitions.size,
+            established: definitions.to_h do |definition|
+              count = entities.count do |entity|
+                @facts.present(entity, at: @at).any? { |row| row.definition == definition }
+              end
+              [definition.name, count]
+            end,
+            missing_by_entity: missing.reject { |_id, names| names.empty? },
+          }
+        end,
+        prominent_cards: prominent_card_data,
+      }
+    end
+
     private
+
+    def entry_data
+      rows = @facts.rows(@entity, at: @at)
+      {
+        generated_at_year: @world.timeline.year_for(@at),
+        scope: "entity",
+        entity: {
+          id: @entity.id,
+          title: @entity.title,
+          kind: @entity.kind,
+          subkind: @entity.subkind,
+        },
+        facts: rows.map do |row|
+          definition = row.definition
+          {
+            name: definition.name,
+            label: definition.label,
+            source: definition.source,
+            type: definition.type,
+            expected: definition.expected?,
+            missing: row.missing?,
+            value: row.value,
+          }
+        end,
+        missing_expected: rows.filter_map do |row|
+          row.definition.name if row.definition.expected? && row.missing?
+        end,
+      }
+    end
 
     def entry_report
       year = @world.timeline.year_for(@at)
@@ -112,6 +173,25 @@ module Lorecraft
           out << "    #{entity.id}: #{names.size}"
         end
       end
+    end
+
+    def prominent_card_data
+      threshold = :renowned
+      threshold_index = @world.schema.prominence_levels.index(threshold)
+      entries = @world.entities.values.select do |entity|
+        prominence_index = @world.schema.prominence_levels.index(entity.prominence&.to_sym)
+        entity[:status].to_s != "shell" && !entity.dm? &&
+          @world.schema.wiki_kind?(entity.kind) && prominence_index && prominence_index >= threshold_index
+      end
+      minimum = @world.schema.fact_cards_required_minimum
+      {
+        threshold: threshold,
+        minimum: minimum,
+        entries: entries.map do |entity|
+          names = @facts.present(entity, at: @at, audience: :player).map { |row| row.definition.name }
+          { id: entity.id, facts: names, count: names.size, meets_minimum: names.size >= minimum }
+        end,
+      }
     end
   end
 end

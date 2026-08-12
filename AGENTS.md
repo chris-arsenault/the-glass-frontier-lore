@@ -315,6 +315,8 @@ Each world is a **[Lorecraft](lorecraft/README.md) DSL** — Ruby files under `w
 Every content/query command runs against one world. Use `WORLD=<id>` on make,
 or `--world <id>` (or `LORECRAFT_WORLD`) on the CLI. The default comes from
 `worlds.yml`; `help` loads no world and `worlds` lists the manifest.
+Commands whose help lists `--format` emit either human-readable text or native
+JSON from the same query model.
 
 | Command | Use |
 |---------|-----|

@@ -153,6 +153,10 @@ Broader projections such as `graph` and `stats` remain available when a task
 needs whole-world structure. A normal edit should not begin with the widest
 projection simply because it exists.
 
+Bounded queries expose `--format text|json` when another tool needs typed data.
+Their JSON is serialized from the query model rather than recovered from the
+human-readable report.
+
 ## Validation and lint
 
 `make validate WORLD=<id>` enforces hard invariants:

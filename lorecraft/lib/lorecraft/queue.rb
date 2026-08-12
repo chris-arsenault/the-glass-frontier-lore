@@ -47,6 +47,23 @@ module Lorecraft
       out.join("\n")
     end
 
+    def data
+      {
+        scope: @entity ? "entity" : "world",
+        entity: (@entity && { id: @entity.id, title: @entity.title }),
+        questions: questions.map do |entity, question|
+          {
+            entity_id: entity.id,
+            entity_title: entity.title,
+            text: question.text,
+            raised: question.raised,
+            on: question.on,
+          }.compact
+        end,
+        findings: findings.map { |finding| { level: finding.level, message: finding.message } },
+      }.compact
+    end
+
     private
 
     def question_section

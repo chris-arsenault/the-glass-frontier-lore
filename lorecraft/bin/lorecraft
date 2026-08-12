@@ -26,6 +26,10 @@ def opt(args, flag, default = nil)
   val
 end
 
+def emit(query, format)
+  puts(format == :json ? JSON.pretty_generate(query.data) : query.report)
+end
+
 # --world is global, so strip it before reading the subcommand. Resolve the
 # manifest after help dispatch so JIT documentation also works outside a repo.
 world_id = opt(ARGV, "--world", ENV["LORECRAFT_WORLD"])
@@ -83,6 +87,17 @@ at = begin
   at_arg == "now" ? :now : Integer(at_arg)
 rescue ArgumentError
   warn "--at must be now or an integer year"
+  exit 2
+end
+
+format = opt(ARGV, "--format", "text").to_sym
+unless %i[text json].include?(format)
+  warn "--format must be text or json"
+  exit 2
+end
+json_commands = %w[search connections schema guide timeline queue provenance facts graph]
+if format == :json && !json_commands.include?(cmd)
+  warn "--format json is not supported by #{cmd}"
   exit 2
 end
 
@@ -202,7 +217,7 @@ when "search"
   if tag && !w.schema.tags.key?(tag.to_sym)
     abort "unknown tag: #{tag}"
   end
-  puts Lorecraft::Search.new(
+  query = Lorecraft::Search.new(
     w,
     query: query,
     root: Lorecraft::Worlds.repo_root,
@@ -211,17 +226,19 @@ when "search"
     kind: kind,
     tag: tag,
     limit: limit,
-  ).report
+  )
+  emit(query, format)
 when "connections"
   id = ARGV.shift or abort("usage: #{Lorecraft::CLIHelp::EXE} connections ID")
   begin
-    puts Lorecraft::Connections.new(
+    query = Lorecraft::Connections.new(
       load_world,
       entity: id.tr("-", "_").to_sym,
       root: Lorecraft::Worlds.repo_root,
       audience: audience,
       at: at,
-    ).report
+    )
+    emit(query, format)
   rescue Lorecraft::Error => e
     abort e.message
   end
@@ -229,14 +246,15 @@ when "schema"
   topic = ARGV.shift || "kinds"
   name = ARGV.shift
   begin
-    puts Lorecraft::SchemaInspection.new(load_world, topic: topic, name: name).report
+    emit(Lorecraft::SchemaInspection.new(load_world, topic: topic, name: name), format)
   rescue Lorecraft::Error => e
     abort e.message
   end
 when "guide"
   name = ARGV.shift || "list"
   begin
-    puts Lorecraft::Guide.new(WORLD, repo_root: Lorecraft::Worlds.repo_root).report(name)
+    guide = Lorecraft::Guide.new(WORLD, repo_root: Lorecraft::Worlds.repo_root)
+    puts(format == :json ? JSON.pretty_generate(guide.data(name)) : guide.report(name))
   rescue Lorecraft::Error => e
     abort e.message
   end
@@ -270,7 +288,19 @@ when "graph"
   end
 when "timeline"
   id = ARGV.shift or abort("usage: #{Lorecraft::CLIHelp::EXE} timeline <entity-id>")
-  puts load_world.render(:timeline, entity: id, at: at)
+  w = load_world
+  timeline = Lorecraft::Render::Timeline.new(w)
+  begin
+    puts(
+      if format == :json
+        JSON.pretty_generate(timeline.data(entity: id, at: at, audience: audience))
+      else
+        timeline.render(entity: id, at: at, audience: audience)
+      end
+    )
+  rescue Lorecraft::Error => e
+    abort e.message
+  end
 when "page"
   # One entity's rendered page, on stdout. The review app reads this so a
   # reviewer sees prose rather than source, and so an anchor taken from what they
@@ -289,11 +319,12 @@ when "queue"
   w = load_world
   id = ARGV.shift
   begin
-    puts Lorecraft::Queue.new(
+    query = Lorecraft::Queue.new(
       w,
       findings: w.lint(root: WORLD.root),
       entity: id&.tr("-", "_")&.to_sym,
-    ).report
+    )
+    emit(query, format)
   rescue Lorecraft::Error => e
     abort e.message
   end
@@ -302,22 +333,24 @@ when "provenance"
   # the DSL; whether a date still covers the text comes from git.
   id = ARGV.shift
   begin
-    puts Lorecraft::Provenance.new(
+    query = Lorecraft::Provenance.new(
       load_world,
       root: WORLD.root,
       entity: id&.tr("-", "_")&.to_sym,
-    ).report
+    )
+    emit(query, format)
   rescue Lorecraft::Error => e
     abort e.message
   end
 when "facts"
   id = ARGV.shift
   begin
-    puts Lorecraft::FactAudit.new(
+    query = Lorecraft::FactAudit.new(
       load_world,
       at: at,
       entity: id&.tr("-", "_")&.to_sym,
-    ).report
+    )
+    emit(query, format)
   rescue Lorecraft::Error => e
     abort e.message
   end
