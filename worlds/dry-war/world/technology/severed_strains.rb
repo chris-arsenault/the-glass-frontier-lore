@@ -3,6 +3,11 @@ resource :severed_strains do
   subkind :biological_material
   tags :resistance, :biotech, :symbiosis
   prominence :recognized
+  form "Fungal cultures altered so their growth cannot join the continental mycelium"
+  function "Closes wounds, senses, filters water, regulates temperature and carries local signals"
+  adoption "Maintained by resistance clinics and Gatekeeper villages that accept poorer treatment for separation"
+  production "Divided through recorded lineages and checked against contamination and barrier tests"
+  operating_limit "Mutation, foreign tissue or a recovered signalling pathway can reconnect a supposedly safe culture"
 
   prose <<~PROSE
     Severed strains descend from Unified fungi altered so their growth cannot join the continental mycelium. They still close wounds, sense heat and chemistry, filter water, regulate temperature, repair living structures and carry signals through a body. Their signals stop at the edge of the bed or implant.

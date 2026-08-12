@@ -3,6 +3,11 @@ concept :bonsai_intelligences do
   subkind :technology
   tags :resistance, :biotech, :autonomy
   prominence :recognized
+  form "A fungal intelligence confined to a ceramic bed, sealed garden, animal colony or underground chamber"
+  function "Local medicine, agriculture, translation, history or weather work"
+  operating_limit "Its judgement becomes unreliable beyond the people, place and craft represented in its local records"
+  deployment "Kept by resistance communities that want local fungal intelligence without a continental network"
+  legal_status "Accepted as a community mind by some keepers and condemned as imprisonment by the Unified"
 
   prose <<~PROSE
     Resistance biologists keep fungal minds small by growing them in ceramic beds, sealed gardens, animal colonies and underground chambers. Salt, fired surfaces and missing nutrients stop the growth at the wall.

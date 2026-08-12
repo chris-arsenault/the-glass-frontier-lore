@@ -3,6 +3,11 @@ faction :the_brokers do
   subkind :trade_network
   tags :trade, :biotech, :legitimacy
   prominence :recognized
+  goods "Signal-carrying membranes, severed strains, medical fungi, memory ceramics, models and machine parts"
+  trading_method "Independent carriers move goods between Pearl River houses and inland transfer points"
+  settlement_method "A tissue slip or glass copy stays with a third-party house for a year as evidence of the traded condition"
+  evidence "Tinned tissue samples and destructively readable witness glass"
+  principal_constraint "The Great Root treats imports as uncontrolled mutation, while some western buyers prohibit direct dealings"
 
   prose <<~PROSE
     The Pearl River trading houses keep routes open between connected China and settlements beyond the #{ref :the_great_root, "Great Root"}. The network treats imported machines, models and habits as uncontrolled mutation. The Brokers consider that exchange necessary to keep China capable of learning from anyone outside itself.

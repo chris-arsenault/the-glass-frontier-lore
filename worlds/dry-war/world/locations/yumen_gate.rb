@@ -4,6 +4,11 @@ installation :yumen_gate do
   aka "玉门关", "the Jade Gate"
   tags :trade, :medicine, :symbiosis
   prominence :recognized
+  function "Screens people and freight moving between connected China and the dry western interior"
+  layout "An intake hall, drying shed, clinic and case room behind one wall"
+  traffic "Sixty to ninety eastbound arrivals a day, about forty westbound travellers and three westbound freight columns a week"
+  screening "Garment weighing, skin swabs on gate-moss and dry-shed observation"
+  crossing_time "About twenty minutes westbound; at least an hour eastbound and weeks when living tissue lies below the skin"
 
   prose <<~PROSE
     The westernmost of the #{ref :the_gatekeepers, "Gatekeepers"}' staffed crossings, sited on the old Jade Gate road where the #{ref :the_hexi_corridor, "Hexi Corridor"} narrows to a gravel plain and the last irrigation ends. Everything moving west out of the fungal civilization on wheels passes through it, along with most of what moves east.

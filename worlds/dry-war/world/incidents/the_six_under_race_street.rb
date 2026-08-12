@@ -4,6 +4,9 @@ incident :the_six_under_race_street do
   tags :trade, :identity, :autonomy
   prominence :recognized
   date 2087
+  subject "Payment for an emergency cooling repair completed by six workers without recognized identities"
+  evidence "Building instruments, worksite witnesses, the sound repair and one paper signed under the crew name South Vault"
+  present_status "The full emergency price remains in Market's reserve and the six workers remain unpaid"
 
   prose <<~PROSE
     In 2087 a return pipe split in the cooling plant beneath #{ref :race_street_warehouse, "the Race Street warehouse"}. Six #{ref :the_unpersons, "Unpersons"} reached it through a disused service tunnel, isolated the line and replaced the split section before Market's contracted crew arrived.

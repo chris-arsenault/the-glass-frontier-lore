@@ -3,6 +3,12 @@ concept :orphan_machines do
   subkind :technology
   tags :resistance, :computation, :prediction
   prominence :recognized
+  form "A stolen robot, medical unit, vehicle, fabricator or military system permanently cut off from its maker"
+  function "Performs one community's work with models that continue learning only from local experience"
+  operating_limit "Long isolation makes it highly capable in one place and increasingly unreliable elsewhere"
+  deployment "Used by resistance communities that can maintain incompatible coalition hardware"
+  legal_status "Stolen coalition machinery held outside the authority that built it"
+  custom_fact :keeper_role, "A human keeper interprets its habits and decides when local experience no longer applies", label: "Keeper"
 
   prose <<~PROSE
     Orphan machines are construction robots, medical units, vehicles, fabricators and occasional military systems stolen from the coalitions and permanently cut off from the intelligence that made them. Their models keep learning locally and can never synchronize upstream.

@@ -3,6 +3,11 @@ installation :ste_anne_belfry do
   subkind :landmark
   tags :resistance, :surveillance, :religion, :legibility
   prominence :recognized
+  built 1886
+  installation_date 2074
+  function "A municipal sound programme whose changing bell order also carries Choir district signals"
+  coverage "Households within about three kilometres of the tower"
+  equipment "A full-circle ring of eight programme bells beside the older Beaubien Bell"
 
   prose <<~PROSE
     The north tower of Ste. Anne de Détroit. The present church was built in 1886 and still keeps the Beaubien Bell brought from its previous building. #{ref :caretaker, "Caretaker"} installed a separate ring of eight bells in the north tower in 2074 and has paid to keep them in full-circle ringing order since. The parish still says mass. The ringing is a municipal sound programme with a cost line.

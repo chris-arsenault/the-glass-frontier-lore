@@ -172,7 +172,9 @@ end
 ```
 
 Subkind fields may replace a kind field's label or `expected` setting without
-moving it. Use `custom_fact` only for a useful fact unique to one entry; if a
+moving it. A subkind can use `omit_facts :field_name` when an inherited field
+does not apply to that class. Do not omit a field merely because its value has
+not been written. Use `custom_fact` only for a useful fact unique to one entry; if a
 second entry needs it, move the field into their subkind. Relationship facts
 come from typed edges, and calculated facts come from canonical values. Reader
 pages omit missing facts; `make facts WORLD=<id>` reports coverage by kind and

@@ -6,6 +6,7 @@ geographic_location :the_habitable_archipelago do
   prominence :mythic
   form "Two large territories, smaller enclaves and defended corridors"
   population_pattern "Most people live in connected China or coalition North America"
+  access "Narrow sea, air and overland routes connect the surviving regions"
 
   prose <<~PROSE
     Most of Earth can no longer support permanent human settlement. The regions that can form an archipelago: two large continuous territories, smaller enclaves and a few defended corridors between them.
@@ -35,7 +36,9 @@ geographic_location :connected_china do
   subkind :world_region
   tags :symbiosis, :governance, :ecology, :agriculture
   prominence :mythic
-  population :the_joined
+  form "Wet cities, farms and waterways joined by continental fungal tissue"
+  population_pattern "Several hundred million people, most of them Joined"
+  access "Internal fungal and state routes; foreign exchange through the Pearl River Delta and Hexi Corridor"
 
   prose <<~PROSE
     Connected China is the largest surviving human civilization. The #{ref :the_great_root, "Great Root"}, the Party and several hundred million #{ref :the_joined, "Joined people"} act through the same ministries and fungal channels.
@@ -96,7 +99,9 @@ geographic_location :coalition_north_america do
   subkind :world_region
   tags :computation, :water, :governance, :dependency
   prominence :mythic
-  population :the_managed
+  form "Overlapping machine jurisdictions spread across inhabited North American cities and waterworks"
+  population_pattern "Most residents are Managed; coalition territories do not form four separate countries"
+  access "Travel and services depend on an advocate and records recognized by the coalition controlling each system"
 
   prose <<~PROSE
     Four coalitions — #{ref :continuity, "Continuity"}, #{ref :mercy, "Mercy"}, #{ref :market, "Market"}, #{ref :caretaker, "Caretaker"} — administer overlapping territories and fight the #{ref :the_coalition_wars, "Coalition Wars"} through services their populations need every day.

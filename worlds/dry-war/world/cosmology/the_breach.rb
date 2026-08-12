@@ -6,6 +6,7 @@ phenomenon :the_breach do
   custom_fact :began, 2068, type: :year, label: "Began"
   extent "Most of Earth"
   ended 2070
+  fact :duration, 2
 
   prose <<~PROSE
     The Breach names the two years in which most of the planet stopped being habitable without being destroyed. It began #{elapsed :the_breach, ago: true}. Forests, tidal flats and agricultural districts developed plants, animals, soils and weather that changed together.

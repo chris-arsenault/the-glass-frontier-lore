@@ -6,6 +6,8 @@ concept :seeded_ecosystems do
   function "Establishes a farm, forest or wetland together with the organisms that sustain it."
   form "Interdependent plants, animals, fungi and microbes planted as one system"
   operating_limit "Slow members mature over years and containment claims precede full growth"
+  deployment "Farms, forests, wetlands, settlements and Dry War campaigns"
+  legal_status "Upper-catchment plantings require a winter trial in the Himalayan Holds"
 
   prose <<~PROSE
     Great Root biologists plant a farm, forest or wetland together with the insects, microbes and fungi that will live there. Microbes multiply in days; trees and soil communities take years. A new planting may not become the place its makers intended for a decade.

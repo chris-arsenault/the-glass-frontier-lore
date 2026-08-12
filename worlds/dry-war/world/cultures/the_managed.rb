@@ -6,6 +6,7 @@ culture :the_managed do
   integration "Neural implants and a personal advocate linked to work, housing, medicine, travel and water"
   population "Most residents of coalition North America"
   governing_interface "A personal advocate connected to every major service"
+  daily_life "Advocates arrange work, housing, medicine, food, travel and company"
 
   prose <<~PROSE
     The Managed are most people living in #{ref :coalition_north_america, "coalition North America"}. Each has a personal advocate charged with keeping that one person alive, calm and housed. It arranges work, medicine, food, travel and company around them.

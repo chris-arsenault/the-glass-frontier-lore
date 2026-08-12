@@ -85,6 +85,8 @@ module Lorecraft
 
         ending = era.covers?(year) ? "present" : "#{era.end_year} CE"
         "#{era.start_year} CE–#{ending}"
+      when :timeline_duration
+        @world.timeline.era_named(node.id)&.length
       when :previous_era
         @world.timeline.previous_era(node.id)&.name
       when :next_era

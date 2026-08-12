@@ -62,6 +62,7 @@ module Lorecraft
             name: subkind.name,
             label: subkind.label,
             default: subkind.name == kind.name,
+            omitted_facts: subkind.omitted_facts,
             facts: subkind.facts.map { |fact| fact_data(fact) },
             resolved_facts: @schema.facts_for(kind.name, subkind: subkind.name).map { |fact| fact_data(fact) },
           }
@@ -143,6 +144,7 @@ module Lorecraft
       kind[:subkinds].each do |subkind|
         marker = subkind[:default] ? " (default)" : ""
         lines << "  #{subkind[:name]} — #{subkind[:label]}#{marker}"
+        lines << "    omits: #{subkind[:omitted_facts].join(', ')}" unless subkind[:omitted_facts].empty?
         if subkind[:facts].empty?
           lines << "    no added or overridden facts"
         else

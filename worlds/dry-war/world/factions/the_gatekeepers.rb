@@ -3,6 +3,11 @@ faction :the_gatekeepers do
   subkind :government
   tags :resistance, :symbiosis, :trade, :medicine
   prominence :recognized
+  authority "Control of staffed crossings and biological quarantine through the Hexi Corridor"
+  governing_method "Limits how much fungal tissue may cross, enter a body or remain connected"
+  territorial_basis "The dry boundary between connected China and the western interior"
+  central_dispute "Whether bounded symbiosis preserves human sovereignty or concedes it"
+  principal_work "Running quarantine towns, sterilization stations, courier routes and crossings"
 
   prose <<~PROSE
     The Gatekeepers hold the Hexi Corridor, the old road between the Chinese heartland and Central Asia and now the boundary between dense fungal civilization and the dry interior.

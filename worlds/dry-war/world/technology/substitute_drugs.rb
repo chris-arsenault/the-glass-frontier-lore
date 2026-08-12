@@ -3,6 +3,11 @@ resource :substitute_drugs do
   subkind :medicine
   tags :resistance, :medicine, :dependency
   prominence :recognized
+  use "Changes a monitored medicine's effect on the brain while leaving the expected blood markers"
+  form "A replacement compound matched to one prescribed drug and its recorded dosing history"
+  effect "The coalition advocate sees the prescribed regimen while the patient experiences a different treatment"
+  production "Tested one compound at a time against two paper charts across five half-lives"
+  operating_limit "A late mismatch resembles a missed dose and triggers review, a visit and a changed regimen"
 
   prose <<~PROSE
     Replacement medicines for people whose coalition advocates monitor every dose. A substitute leaves the expected markers in blood while changing the effect on the brain. The advocate sees the regimen it prescribed; the person taking it feels something else.

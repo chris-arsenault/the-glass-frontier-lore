@@ -3,6 +3,11 @@ faction :the_pilgrims do
   subkind :resistance_network
   tags :resistance, :prediction, :autonomy
   prominence :recognized
+  membership "Travelling groups of twenty to fifty people"
+  organization "Groups split, merge, exchange members and take new names without lasting leaders"
+  operating_method "Changes routes, habits and membership, using physical randomness for consequential choices"
+  objective "Keep part of the human future beyond prediction"
+  principal_risk "Housing, treatment, relationships and recognized payment ties create the stable records they avoid"
 
   prose <<~PROSE
     Pilgrim communities travel in groups of twenty to fifty through freight corridors, abandoned highways, temporary labour zones and automated logistics networks. They split, merge, exchange members and take new names as they go.

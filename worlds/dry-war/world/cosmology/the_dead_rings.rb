@@ -3,6 +3,11 @@ phenomenon :the_dead_rings do
   subkind :ecological_phenomenon
   tags :ecology, :military, :catastrophe
   prominence :recognized
+  form "Two-hectare rectangles of standing trees killed by complete chest-height cuts packed with lime and oil"
+  extent "A moving series of cleared compartments along the Amur Line"
+  human_response "Crews kill trees in place, mark each compartment and core the dead wood as the front changes"
+  restricted_zone "A two-kilometre uninhabited belt behind every new ring"
+  rate "The forest advances between six hundred and nine hundred metres a year on the Tangwang reach"
 
   prose <<~PROSE
     Rectangles of dead forest stand along #{ref :the_amur_line, "the Amur Line"}, two hectares at a time. Each stem carries a complete cut through bark and cambium at chest height, packed with pale lime and oil. By the second summer the crowns are grey. The trunks stay upright and the roots stay in the soil.

@@ -105,7 +105,7 @@ schema do
   # entry. They are authored once per kind, extended by a world when needed,
   # and resolved from entry values, dates or selected typed relationships.
   extend_kind :npc do
-    field :born, type: :year, label: "Born"
+    field :born, type: :year, label: "Born", expected: false
     calculated :age, from: :born, calculate: :elapsed_years, label: "Age"
     field :occupation, type: :text, label: "Occupation"
     relation_field :based_in, relation: :located_in, cardinality: :many, label: "Based In"
@@ -283,6 +283,8 @@ schema do
     subkind :historical_period do
       calculated :period, calculate: :timeline_period, type: :text,
                           label: "Period", expected: true
+      calculated :duration, calculate: :timeline_duration, type: :integer,
+                            label: "Length (years)", expected: true
       calculated :preceded_by, calculate: :previous_era, type: :entity,
                                label: "Preceded By", expected: false
       calculated :followed_by, calculate: :next_era, type: :entity,
@@ -299,7 +301,7 @@ schema do
       relation_field :leaders, relation: :leads, direction: :incoming,
                                cardinality: :many, label: "Leaders", expected: false
       relation_field :headquarters, relation: :headquartered_in, cardinality: :many,
-                                     label: "Headquarters", expected: false
+                                     label: "Home", expected: false
       relation_field :predecessors, relation: :succeeded, cardinality: :many,
                                     label: "Predecessors", expected: false
       relation_field :governed_places, relation: :governs, cardinality: :many,
@@ -311,7 +313,7 @@ schema do
       relation_field :leaders, relation: :leads, direction: :incoming,
                                cardinality: :many, label: "Leaders", expected: false
       relation_field :headquarters, relation: :headquartered_in, cardinality: :many,
-                                     label: "Operating Areas", expected: false
+                                     label: "Home", expected: false
       relation_field :predecessors, relation: :succeeded, cardinality: :many,
                                     label: "Predecessors", expected: false
     end

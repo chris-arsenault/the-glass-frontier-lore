@@ -3,6 +3,11 @@ geographic_location :cairo do
   subkind :settlement
   tags :water, :governance, :autonomy, :locality
   prominence :recognized
+  setting "The Illinois point between the Ohio and Mississippi, from the floodplain to the inner levee and terraces"
+  water_supply "Municipal water at Cairo Ridge; sealed water left at the service barrier for households in the old ward"
+  civic_status "A Continuity municipality whose charter and serviced addresses have moved to Cairo Ridge"
+  principal_work "Municipal services and regional employment reached through the ridge bus loop"
+  defining_feature "One transferred voter roll and a separate paper record for forty-seven households behind the levee"
 
   prose <<~PROSE
     A #{ref :continuity, "Continuity"} municipality on the old Illinois point between the Ohio and Mississippi. The inhabited town climbs the inner levee and the terraces behind it. Its lowest ward remains on the floodplain because the courthouse, cemetery, ferry landing and oldest occupied streets are there.

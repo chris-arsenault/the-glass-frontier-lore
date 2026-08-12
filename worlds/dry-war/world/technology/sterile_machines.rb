@@ -3,6 +3,12 @@ concept :sterile_machines do
   subkind :technology
   tags :resistance, :biotech
   prominence :recognized
+  form "Electronics and mechanisms built from copper, fired ceramic, ultraviolet lamps, dry salt and heat-tolerant parts"
+  function "Provides computation and mechanical work without giving living fungus a sheltered surface"
+  operating_limit "Runs hot, wears quickly and must come apart so every piece can be baked or inspected"
+  deployment "Built in dry settlements and sold at a premium to Mediterranean enclaves"
+  legal_status "Preferred wherever living infrastructure could carry an unwanted fungal connection"
+  custom_fact :serviceability, "Fasteners, housings and wiring remain exposed enough for repeated disassembly", label: "Serviceability"
 
   prose <<~PROSE
     Chinese resistance workshops build machines on which fungus has little to hold. Electronics run hot. Surfaces are copper and fired ceramic; cavities shine with ultraviolet light; bearings stay dry and salt moves through the cooling channels. Every piece comes apart for the oven.

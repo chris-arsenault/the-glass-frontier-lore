@@ -5,6 +5,8 @@ conflict :the_forever_war do
   tags :catastrophe, :military, :ecology
   prominence :recognized
   fact :methods, "Cuts changing forest back from settlements and moves the marked line when cleared ground changes again"
+  scope "The northeastern edge of connected China along the Amur"
+  present_state "Chinese and coalition crews hold a moving line after the joint command ended in 2076"
 
   prose <<~PROSE
     The Amur Front is the continuing defence against the #{ref :the_others, "Others"} along the northeastern edge of connected China. Line crews also call it the Forever War.

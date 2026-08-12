@@ -4,6 +4,9 @@ incident :the_cairo_retreat do
   tags :governance, :autonomy, :prediction, :water
   prominence :recognized
   date 2090
+  subject "Whether Cairo's lowest ward could remain occupied after residents accepted Continuity's flood forecast"
+  action "Continuity transferred the charter and services uphill, then closed water and local power behind the levee"
+  outcome "Forty-seven households remained without municipal addresses while services continued at Cairo Ridge"
 
   prose <<~PROSE
     #{ref :continuity, "Continuity"}'s withdrawal of municipal services from #{ref :cairo, "Cairo"}'s lowest ward in #{year :now} CE. Its flood model put the old streets above the coalition's permitted casualty threshold. Cairo voted to stay even though the city accepted the forecast, the measured river stage and the reported condition of the levee.

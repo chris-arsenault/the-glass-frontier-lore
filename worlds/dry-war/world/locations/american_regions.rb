@@ -5,6 +5,8 @@ geographic_location :appalachia do
   prominence :renowned
   landscape "Narrow valleys across West Virginia, eastern Kentucky and the Tennessee uplands"
   defining_system "County totals conceal workshops and settlements between inspections"
+  settlement_pattern "Towns separated by ridges and broken aerial freight routes"
+  principal_activity "Unregistered workshops and municipal record keeping"
 
   prose <<~PROSE
     Narrow valleys in West Virginia, eastern Kentucky and the Tennessee uplands break aerial freight routes and hide one town from the next. Coalition inspectors arrive at intervals and read county totals between visits.
@@ -20,6 +22,8 @@ geographic_location :the_great_lakes do
   prominence :mythic
   landscape "Five freshwater lakes and their adjoining industrial cities"
   defining_system "Twenty per cent of the world's surface fresh water under dense observation"
+  settlement_pattern "Detroit, Chicago, Cleveland and Toronto form the principal inhabited belt"
+  principal_activity "Freshwater control, heavy industry and coalition computation"
 
   prose <<~PROSE
     Twenty per cent of the world's surface fresh water, in a civilization that computes with water, on the same continent as a rival that grows through it. Detroit, Chicago, Cleveland and Toronto are consequently the most heavily observed inhabited places on Earth.
@@ -38,6 +42,8 @@ geographic_location :southern_california do
   prominence :renowned
   landscape "Hot, dry settlements across Southern California and Baja"
   defining_system "Gardens, animals and public feasts sustained through measured coalition water"
+  settlement_pattern "Saint settlements spread through Southern California and Baja"
+  principal_activity "Gardening, brewing, animal keeping and public feasts"
 
   prose <<~PROSE
     Southern California and Baja are hot, dry and occupied by a culture built on extravagance. The #{ref :the_saints_of_plenty, "Saints of Plenty"} chose ground where every garden and feast spends water the coalitions can measure.
@@ -53,6 +59,8 @@ geographic_location :boswash_ruins do
   prominence :renowned
   landscape "Inhabited eastern cities above tunnels, basements and retired data centres"
   defining_system "Legacy identity records remain attached to living people"
+  settlement_pattern "Washington, Baltimore, Philadelphia and New York remain inhabited above ground"
+  principal_activity "Identity work and informal trade through buried infrastructure"
 
   prose <<~PROSE
     Washington, Baltimore, Philadelphia and New York remain inhabited above ground and are administered by the oldest coalition systems on the continent. Those systems carry decades of records migrated from one machine to the next, with old errors still attached to living names.

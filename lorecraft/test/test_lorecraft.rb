@@ -531,6 +531,51 @@ class EntityFactsTest < Minitest::Test
     assert_equal ["Office", "Jurisdiction", "Seal"], rows.map { |row| row.definition.label }
   end
 
+  def test_subkind_can_omit_inapplicable_inherited_facts
+    w = Lorecraft.define do
+      schema do
+        entity_type :person do
+          field :born, type: :year
+          calculated :age, from: :born, calculate: :elapsed_years
+          field :occupation, type: :text
+          subkind :collective do
+            omit_facts :born, :age
+            field :membership, type: :integer
+          end
+        end
+      end
+      timeline { era :t, starts: 2000, length: 100; now year: 2050 }
+      person :council do
+        name "Council"
+        subkind :collective
+        occupation "Government"
+        membership 12
+      end
+    end
+
+    rows = Lorecraft::Facts.new(w).present(w.entity(:council))
+    collective = Lorecraft::SchemaInspection.new(w, topic: "kind", name: "person")
+                                            .data[:kind][:subkinds]
+                                            .find { |subkind| subkind[:name] == :collective }
+    assert_equal %i[occupation membership], rows.map { |row| row.definition.name }
+    assert_equal %i[text integer], rows.map { |row| row.definition.type }
+    assert_equal %i[born age], collective[:omitted_facts]
+  end
+
+  def test_subkind_cannot_omit_an_unknown_fact
+    error = assert_raises(Lorecraft::DefinitionError) do
+      Lorecraft.define do
+        schema do
+          entity_type(:person) do
+            subkind(:official) { omit_facts :rank }
+          end
+        end
+      end
+    end
+
+    assert_includes error.message, "cannot omit unknown fact rank"
+  end
+
   def test_world_can_extend_an_existing_subkind
     w = Lorecraft.define do
       schema do
@@ -602,6 +647,7 @@ class EntityFactsTest < Minitest::Test
         entity_type :era
         extend_kind :era do
           calculated :period, calculate: :timeline_period, type: :text
+          calculated :duration, calculate: :timeline_duration, type: :integer
           calculated :preceded_by, calculate: :previous_era, type: :entity
           calculated :followed_by, calculate: :next_era, type: :entity
         end
@@ -618,8 +664,8 @@ class EntityFactsTest < Minitest::Test
     first = Lorecraft::Facts.new(w).present(w.entity(:first))
     present = Lorecraft::Facts.new(w).present(w.entity(:present))
 
-    assert_equal ["2000 CE–2010 CE", :present], first.map(&:value)
-    assert_equal ["2010 CE–present", :first], present.map(&:value)
+    assert_equal ["2000 CE–2010 CE", 10, :present], first.map(&:value)
+    assert_equal ["2010 CE–present", 20, :first], present.map(&:value)
   end
 
   def test_anchor_year_calculation_uses_an_entity_or_era_fact
@@ -1089,12 +1135,15 @@ class SiteRenderTest < Minitest::Test
       index = JSON.parse(File.read(File.join(public_root, "index.json")))
       editorial = JSON.parse(File.read(File.join(dir, "internal", "worlds", "sample-world.json")))
 
-      assert_equal 4, ada["schema_version"]
+      assert_equal 5, ada["schema_version"]
       assert_equal "cartographer", ada["subkind"]
       assert(index["subkinds"].any? { |item| item["kind"] == "person" && item["id"] == "cartographer" })
       assert_equal ["born", "age", "occupation", "home", "chart_room", "working_language"], ada["facts"].map { |fact| fact["id"] }
       assert_equal "1980 CE", ada["facts"][0]["value"]
-      assert_equal "40", ada["facts"][1]["value"]
+      assert_equal 40, ada["facts"][1]["value"]
+      assert_equal "year", ada["facts"][0]["type"]
+      assert_equal "integer", ada["facts"][1]["type"]
+      assert_equal "entity", ada["facts"][3]["type"]
       assert_equal "Cartographer", ada["facts"][2]["value"]
       assert_equal "/sample-world/entry/harbour", ada.dig("facts", 3, "links", 0, "route")
       assert_equal %w[born occupation home], editorial.dig("entries", "unwritten", "missing_facts").map { |fact| fact["id"] }
@@ -1188,6 +1237,25 @@ class LinterTest < Minitest::Test
     assert_equal 2, card_findings.size
     assert(card_findings.any? { |finding| finding.message.include?("concept empty") })
     assert(card_findings.any? { |finding| finding.message.include?("concept thin") })
+  end
+
+  def test_fact_audit_uses_the_worlds_required_prominence_threshold
+    world = Lorecraft.define do
+      schema do
+        entity_type :concept
+        extend_kind(:concept) { field :function, type: :text, expected: false }
+        require_fact_cards! from: :recognized, minimum: 1
+      end
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
+      concept :widely_known do name "Widely Known"; prominence :renowned; function "Works" end
+      concept :locally_known do name "Locally Known"; prominence :recognized; function "Works" end
+      concept :obscure do name "Obscure"; prominence :marginal; function "Works" end
+    end
+
+    cards = Lorecraft::FactAudit.new(world).data[:prominent_cards]
+    assert_equal :recognized, cards[:threshold]
+    assert_equal %i[widely_known locally_known], cards[:entries].map { |entry| entry[:id] }
+    assert_includes Lorecraft::FactAudit.new(world).report, "recognized+: 2/2 cards present"
   end
 
   def test_double_article

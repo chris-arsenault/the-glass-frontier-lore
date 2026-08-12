@@ -3,6 +3,12 @@ concept :feral_models do
   subkind :technology
   tags :resistance, :computation, :prediction
   prominence :recognized
+  form "A small artificial intelligence cut off from coalition updates and controls"
+  function "Runs local workshops, clinics and defences without reporting to a coalition"
+  operating_limit "Usually slower and less accurate than coalition intelligence and trained on a narrow local record"
+  deployment "Retained in American resistance settlements and traded across the Chinese border"
+  legal_status "Outside coalition control and valuable precisely because coalition systems cannot predict it reliably"
+  custom_fact :trade_value, "Exchanged for living membranes and unfamiliar fungal decisions", label: "Trade Value"
 
   prose <<~PROSE
     American resistance settlements use small artificial intelligences in workshops, clinics and local defences. They call a model feral once it has been cut off from coalition updates and controls.

@@ -4,6 +4,11 @@ resource :gate_moss do
   aka "关苔"
   tags :biotech, :medicine, :symbiosis, :trade
   prominence :recognized
+  form "A grey-green fungal plate that turns wet black where living network tissue touches it"
+  function "Clears travellers and garments at crossings between connected and unconnected territory"
+  adoption "Used at every Gatekeeper crossing and kept inside the Hexi Corridor"
+  production "Grown in fired ceramic beds, pruned below cognitive mass and destroyed after four months"
+  operating_limit "Cannot signal or repair itself and dies within a day outside its bed"
 
   prose <<~PROSE
     A #{ref :severed_strains, "severed strain"} cultivated by the #{ref :the_gatekeepers, "Gatekeepers"} for one purpose: it turns from grey-green to wet black where it meets living network tissue, in a spreading front, within a quarter-hour. It does nothing else. It cannot signal, cannot repair, and dies within a day of leaving its bed.

@@ -3,6 +3,10 @@ resource :separation_film do
   subkind :biological_material
   tags :autonomy, :biotech, :medicine, :symbiosis
   prominence :recognized
+  form "Translucent cellulose tape with a narrow blue paper strip inside each roll"
+  function "Keeps two cut faces of living textile moist, viable and physically separate"
+  adoption "Used by symbiosis clinics when a mature living garment must be removed and later reattached"
+  operating_limit "It interrupts the garment connection but cannot remove fungal structures already grown through the body"
 
   log "2026-08-09 — The wrap begins below the cut and proceeds across it in overlapping turns. Fruit-tree grafters use that order to seal exposed tissue against drying; separation film wraps each living face separately and leaves a visible witness between them."
 

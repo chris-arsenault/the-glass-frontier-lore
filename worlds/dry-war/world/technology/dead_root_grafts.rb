@@ -3,6 +3,11 @@ resource :dead_root_grafts do
   subkind :biological_material
   tags :resistance, :biotech, :symbiosis
   prominence :recognized
+  form "A pale sensory membrane grown across a courier's forearm"
+  function "Touches the continental mycelium for ninety seconds without leaving a living connection"
+  adoption "Used by resistance couriers and traded after death to coalition laboratories"
+  production "Grown from a severed strain with the killing agent already carried inside the graft"
+  operating_limit "The membrane dies after ninety seconds, puckers and tears when removed"
 
   prose <<~PROSE
     Couriers grow these pale sensory membranes across the forearm to touch the #{ref :continental_mycelium, "continental mycelium"} for ninety seconds. The graft carries a chemical that kills it at the end of that interval, leaving dead tissue between the courier and the fungal network.

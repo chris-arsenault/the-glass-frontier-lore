@@ -5,6 +5,7 @@ npc :xie_lanting do
   tags :ecology, :biotech, :legibility
   prominence :recognized
   occupation "Line-service ecologist"
+  custom_fact :evidence, "Tree cores, bark, litter, root plates and numbered Yunnan reference blocks"
 
   prose <<~PROSE
     Xie Lanting works in the plank coring room at #{ref :tangwang_post, "Tangwang Post"}. #{ref :the_great_root, "The Great Root"}'s line service sent her to the #{ref :the_amur_line, "Amur"} reaches as an ecologist. Each survey brings her twenty pencil-thin cores from a forty-metre grid, which she reads under a bench lens before the wood dries. She calls a closed tube through the outer rings a sleeve and a separate mass inside one a body.

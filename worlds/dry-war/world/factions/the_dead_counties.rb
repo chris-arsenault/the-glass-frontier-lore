@@ -3,6 +3,11 @@ faction :the_dead_counties do
   subkind :resistance_network
   tags :resistance, :autonomy, :legibility
   prominence :recognized
+  membership "Appalachian towns across West Virginia, eastern Kentucky and the Tennessee uplands"
+  organization "County governments and workshops that share plausible aggregate reports without joining their local systems"
+  operating_method "Hides repair shops, clinics and obsolete machinery behind the totals expected from a declining rural county"
+  objective "Keep places where people can make consequential choices outside continuous coalition direction"
+  principal_risk "Incompatible grids and old equipment bring winter outages, duplicate stock and costly hand-fitting"
 
   prose <<~PROSE
     Appalachian communities across West Virginia, eastern Kentucky and the Tennessee uplands. Coalition maps assign every road and household to an administrator, but inspectors arrive at intervals and most machines report only county totals. Across this region, rule comes and goes.

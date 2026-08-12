@@ -3,6 +3,14 @@ resource :memory_ceramics do
   subkind :material
   tags :resistance, :biotech, :legibility
   prominence :recognized
+  form "Porcelain fired around the shape and chemistry of a fungal memory pattern"
+  function "Stores writing, models or sensory records without power or living tissue"
+  civilizational_uses "Statutes, household records, engineering manuals, expert systems and portions of recorded memory"
+  allocation "Most surviving Chinese written records outside the Great Root are held by the Preservationists"
+  custom_fact :reading_method, "Grind one face flat, press damp paper into the exposed relief and ink the raised ground",
+              label: "Reading Method"
+  custom_fact :operating_limit, "Every reading destroys one usable face and consumes water, paper and abrasive grit",
+              label: "Operating Limit"
 
   prose <<~PROSE
     Fungal tissue holds memory in the shape and chemistry of its growth. Resistance kilns transfer those patterns into porcelain before the tissue is killed.

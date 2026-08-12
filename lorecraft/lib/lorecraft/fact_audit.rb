@@ -145,7 +145,7 @@ module Lorecraft
     end
 
     def append_prominent_cards(out)
-      threshold = :renowned
+      threshold = @world.schema.fact_cards_required_from || :renowned
       threshold_index = @world.schema.prominence_levels.index(threshold)
       entries = (@entity ? [@entity] : @world.entities.values).select do |entity|
         prominence_index = @world.schema.prominence_levels.index(entity.prominence&.to_sym)
@@ -162,7 +162,7 @@ module Lorecraft
       incomplete = rows.select { |_entity, names| names.size < minimum }
 
       out << "=== Prominent Entry Cards ==="
-      out << "renowned+: #{rows.size - empty.size}/#{rows.size} cards present"
+      out << "#{threshold}+: #{rows.size - empty.size}/#{rows.size} cards present"
       out << "  empty: #{empty.size}"
       empty.each { |entity, _names| out << "    #{entity.id}" }
       out << "  one fact: #{thin.size}"
@@ -176,7 +176,7 @@ module Lorecraft
     end
 
     def prominent_card_data
-      threshold = :renowned
+      threshold = @world.schema.fact_cards_required_from || :renowned
       threshold_index = @world.schema.prominence_levels.index(threshold)
       entries = @world.entities.values.select do |entity|
         prominence_index = @world.schema.prominence_levels.index(entity.prominence&.to_sym)

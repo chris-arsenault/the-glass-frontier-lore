@@ -3,6 +3,10 @@ geographic_location :the_gobi do
   subkind :region
   tags :resistance, :legitimacy, :ecology
   prominence :renowned
+  landscape "Dry ground between archive settlements, wells and the former Ejin river"
+  defining_system "Fungal colonies cannot exchange signals reliably across the desert"
+  settlement_pattern "Kiln-dried compounds enclosed by salt, ceramic and burned ground"
+  principal_activity "Archival storage, dry medicine and controlled water distribution"
 
   prose <<~PROSE
     The Gobi is the one large place inside the fungal civilization's reach where the network cannot finish a thought. Disconnected colonies cannot exchange information reliably across dry ground, so long-range cognition fails and humans can hold opinions the #{ref :the_great_root, "Great Root"} did not shape.
@@ -27,6 +31,7 @@ geographic_location :the_hexi_corridor do
   setting "The Gansu passage between dense fungal growth and the dry interior"
   primary_work "Quarantine and trade in medicine, machines and human passage"
   principal_hazard "Uncontrolled fungal connection crossing into dry settlements"
+  defences "Checkpoints, quarantine towns and severed medical strains"
 
   prose <<~PROSE
     The Hexi Corridor is the narrow road through Gansu that carried traffic between the Chinese heartland and Central Asia for two thousand years. It now lies on the boundary between dense fungal growth and the dry interior.
@@ -42,6 +47,8 @@ geographic_location :sichuan do
   prominence :renowned
   landscape "Wet basins where fungal networks cannot be excluded"
   defining_system "Garden Courts raise distinct local mycelium over generations"
+  settlement_pattern "Valleys joined to local networks trained on their own crops and archives"
+  principal_activity "Agriculture and the cultivation of provincial fungal minds"
 
   prose <<~PROSE
     Sichuan is too wet to keep the network out. The #{ref :the_garden_courts, "Garden Courts"} raise local mycelium over generations on local plants, opera, archives and argument.
@@ -57,6 +64,8 @@ geographic_location :the_pearl_river_delta do
   prominence :renowned
   landscape "Guangzhou, Shenzhen and Hong Kong facing external trade routes"
   defining_system "Broker houses move machine models, medicine and memory ceramics"
+  settlement_pattern "Three trading cities linked through houses several generations old"
+  principal_activity "Foreign trade in living technology, machines and medical fungi"
 
   prose <<~PROSE
     Guangzhou, Shenzhen and Hong Kong face the unconnected world. The #{ref :the_brokers, "Brokers"} grow signal-carrying membranes here and move machine models, medical fungi and memory ceramics through trading houses three generations old.
@@ -72,6 +81,8 @@ geographic_location :yunnan do
   prominence :renowned
   landscape "Biologically varied forests, mountains and villages"
   defining_system "Hundreds of local fungal minds with separate habits and loyalties"
+  settlement_pattern "Villages and forest communities joined to local or seasonal minds"
+  principal_activity "Local cultivation and periodic negotiation with the central network"
 
   prose <<~PROSE
     In Yunnan, the #{ref :the_great_root, "Great Root"} met the most biologically varied country on the continent and divided into hundreds of local minds.

@@ -27,6 +27,8 @@ relate :rel_caretaker_governs_america, :governs, :caretaker, :coalition_north_am
 relate :rel_joined_symbiotic_root, :symbiotic_with, :the_joined, :the_great_root, since: 2040
 relate :rel_joined_inhabits_china, :inhabits, :the_joined, :connected_china, since: 2040
 relate :rel_managed_inhabits_america, :inhabits, :the_managed, :coalition_north_america, since: 2052
+relate :rel_joined_inhabits_archipelago, :inhabits, :the_joined, :the_habitable_archipelago, since: 2068
+relate :rel_managed_inhabits_archipelago, :inhabits, :the_managed, :the_habitable_archipelago, since: 2068
 relate :rel_managed_depends_implants, :depends_on, :the_managed, :neural_implants
 
 # ---- coalitions and their quarrel ----
@@ -35,6 +37,10 @@ relate :rel_coalition_wars_involves_mercy, :participated_in, :mercy, :the_coalit
 relate :rel_coalition_wars_involves_market, :participated_in, :market, :the_coalition_wars
 relate :rel_coalition_wars_involves_caretaker, :participated_in, :caretaker, :the_coalition_wars
 relate :rel_coalition_wars_during_rival_governments, :active_during, :the_coalition_wars, :the_rival_governments
+relate :rel_caretaker_emerged_quiet_conquest, :emerged_during, :caretaker, :the_quiet_conquest
+relate :rel_continuity_emerged_quiet_conquest, :emerged_during, :continuity, :the_quiet_conquest
+relate :rel_market_emerged_quiet_conquest, :emerged_during, :market, :the_quiet_conquest
+relate :rel_mercy_emerged_quiet_conquest, :emerged_during, :mercy, :the_quiet_conquest
 relate :rel_caretaker_models_managed, :models, :caretaker, :the_managed, since: 2052
 relate :rel_mercy_supplies_water, :supplies, :mercy, :water, since: 2052
 relate :rel_market_regulates_water, :regulates, :market, :water, since: 2052
@@ -85,6 +91,7 @@ relate :rel_substitutes_depend_implants, :depends_on, :substitute_drugs, :neural
 # ---- fungal technology ----
 relate :rel_root_depends_mycelium, :depends_on, :the_great_root, :continental_mycelium
 relate :rel_textiles_carry_mycelium, :carries, :living_textiles, :continental_mycelium, since: 2040
+relate :rel_mycelium_manifests_china, :manifests_at, :continental_mycelium, :connected_china
 relate :rel_implants_derived_from_textiles, :derived_from, :symbiotic_implants, :living_textiles
 relate :rel_ecosystems_maintained_by_root, :maintains, :the_great_root, :seeded_ecosystems, since: 2052
 relate :rel_mycelium_depends_water, :depends_on, :continental_mycelium, :water

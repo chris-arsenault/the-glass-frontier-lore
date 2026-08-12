@@ -8,7 +8,7 @@ module Lorecraft
   # this.
   class Schema
     KindDef = Struct.new(:name, :wiki, :facts, :subkinds, keyword_init: true)
-    SubkindDef = Struct.new(:name, :label, :facts, keyword_init: true)
+    SubkindDef = Struct.new(:name, :label, :facts, :omitted_facts, keyword_init: true)
     FactDef = Struct.new(
       :name, :label, :source, :type, :expected, :relation, :direction,
       :cardinality, :from, :calculate, :order,
@@ -43,7 +43,8 @@ module Lorecraft
     FACT_DIRECTIONS = %i[outgoing incoming].freeze
     FACT_CARDINALITIES = %i[one many].freeze
     FACT_CALCULATIONS = %i[
-      elapsed_years first_moment_year anchor_year timeline_period previous_era next_era
+      elapsed_years first_moment_year anchor_year timeline_period timeline_duration
+      previous_era next_era
     ].freeze
 
     attr_reader :kinds, :relations, :effects, :tags, :section_headings,
@@ -76,7 +77,9 @@ module Lorecraft
         name = name.to_sym
         raise DefinitionError, "duplicate entity kind #{name}" if @kinds.key?(name)
 
-        default_subkind = SubkindDef.new(name: name, label: humanize(name), facts: [])
+        default_subkind = SubkindDef.new(
+          name: name, label: humanize(name), facts: [], omitted_facts: []
+        )
         @kinds[name] = KindDef.new(
           name: name, wiki: wiki, facts: [], subkinds: { name => default_subkind }
         )
@@ -134,7 +137,7 @@ module Lorecraft
       end
 
       definition.subkinds[name] ||= SubkindDef.new(
-        name: name, label: label || humanize(name), facts: []
+        name: name, label: label || humanize(name), facts: [], omitted_facts: []
       )
     end
 
@@ -143,7 +146,10 @@ module Lorecraft
       return [] unless definition
 
       subkind ||= kind
-      inherited = definition.facts + Array(definition.subkinds[subkind&.to_sym]&.facts)
+      subkind_definition = definition.subkinds[subkind&.to_sym]
+      omitted = Array(subkind_definition&.omitted_facts)
+      inherited = definition.facts.reject { |fact| omitted.include?(fact.name) } +
+                  Array(subkind_definition&.facts).reject { |fact| omitted.include?(fact.name) }
       compose_facts(inherited + Array(custom))
     end
 
@@ -162,6 +168,19 @@ module Lorecraft
 
       definition.order = facts.size + 1
       facts << definition
+    end
+
+    def omit_facts(kind, subkind, names)
+      kind_definition = @kinds.fetch(kind.to_sym)
+      subkind_definition = kind_definition.subkinds.fetch(subkind.to_sym)
+      available = (kind_definition.facts + subkind_definition.facts).map(&:name)
+      names.map(&:to_sym).each do |name|
+        unless available.include?(name)
+          raise DefinitionError, "cannot omit unknown fact #{name} from #{kind}/#{subkind}"
+        end
+
+        subkind_definition.omitted_facts << name unless subkind_definition.omitted_facts.include?(name)
+      end
     end
 
     # Declare a relation type. Mirrors the repository taxonomy (category +
@@ -247,6 +266,14 @@ module Lorecraft
       def subkind(name, label: nil, &block)
         definition = @schema.add_subkind(@kind, name, label: label)
         KindBuilder.new(@schema, @kind, subkind: definition.name).instance_eval(&block) if block
+      end
+
+      def omit_facts(*names)
+        unless @subkind
+          raise DefinitionError, "omit_facts is only valid inside a subkind"
+        end
+
+        @schema.omit_facts(@kind, @subkind, names)
       end
 
       def field(name, type: :text, label: nil, expected: true)

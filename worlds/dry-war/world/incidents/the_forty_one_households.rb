@@ -3,6 +3,9 @@ incident :the_forty_one_households do
   subkind :dispute
   tags :governance, :identity, :legitimacy, :legibility
   prominence :recognized
+  subject "Whether forty-one Liangzhou households omitted from one surviving copy belong in the public line of descent"
+  evidence "Two ceramic records four years apart that agree on everything except the forty-one households"
+  present_status "Eleven descendant households retain offices and rations while their ancestry remains formally disputed"
 
   prose <<~PROSE
     Two ceramic pieces at the #{ref :juyan_ceramic_vault, "Juyan Ceramic Vault"} preserve the 2061 household list for the same Liangzhou ward. One includes forty-one families that the other omits. The pieces came from different copying houses, four years apart. Their readings agree on the other eleven hundred and eighty-two households, the ward boundary and the year.

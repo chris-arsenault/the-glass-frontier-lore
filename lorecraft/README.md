@@ -189,7 +189,9 @@ relation :located_in,
 Fact types are `text`, `integer`, `year`, `entity`, and `entities`. Fields can
 read an authored value, derive a supported calculation, or query incoming or
 outgoing typed relationships at the selected year. Subkind fields follow kind
-fields and can replace a broad definition with a narrower one.
+fields and can replace a broad definition with a narrower one. A subkind may
+use `omit_facts :field_name` when that inherited field does not apply to any
+member of the narrower class. A missing value is not a reason to omit a field.
 
 Relations always have a declared name and category. They may also declare
 domain, range, cardinality, temporal metadata, symmetry, an inverse name, and

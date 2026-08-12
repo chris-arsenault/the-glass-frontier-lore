@@ -3,6 +3,11 @@ faction :the_garden_courts do
   subkind :government
   tags :locality, :symbiosis, :agriculture, :governance
   prominence :recognized
+  authority "Valley communities governing with fungal networks educated across generations"
+  governing_method "Seasonal deliberation through crops, roots, oral history, local archives and human judgement"
+  territorial_basis "Sichuan valleys whose networks, crops and customs have developed together"
+  central_dispute "How much authority the central network may exercise over a local human and fungal government"
+  principal_work "Maintaining local crops and teaching each valley's network the history and needs of its ground"
 
   prose <<~PROSE
     Sichuan is far too wet to hold the #{ref :the_great_root, "Great Root"} off biologically, so the province raises its own network instead. The Garden Courts educate the mycelium under their valleys the way a family trains an orchard, across generations, on a curriculum they choose.

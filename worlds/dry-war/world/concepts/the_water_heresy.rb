@@ -6,6 +6,8 @@ concept :the_water_heresy do
   custom_fact :daily_guarantee, "3.72 litres of drinking water per resident", label: "Daily Guarantee"
   claim "A reliably watered person is a well-kept person"
   visible_expression "Drinking-water guarantees remain after kitchens, fields and markets fail"
+  social_scope "Coalition housing, medicine, food and public services"
+  consequence "Water for measured survival takes priority over cooking, gardens and public life"
 
   prose <<~PROSE
     The #{ref :the_saints_of_plenty, "Saints of Plenty"} call the belief that a reliably watered person is a well-kept person the Water Heresy. All four coalitions inherited that belief from systems built during the #{ref :the_long_summer, "Long Summer"}.

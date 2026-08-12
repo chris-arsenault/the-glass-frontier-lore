@@ -3,6 +3,10 @@ installation :tangwang_post do
   subkind :station
   tags :ecology, :military, :hybridization, :legibility
   prominence :recognized
+  function "Surveys changing forest and directs compartment rings along the Tangwang reach"
+  coverage "Eleven kilometres of the Amur front"
+  staff "Four ring crews, posted line staff, contracted scouts and fourteen paid grid-hands from Sanchakou"
+  equipment "Core racks, ring-paste stock, ninety-six reference blocks, a coalition cabinet and paper walk sheets"
 
   prose <<~PROSE
     A forest post on the Tangwang, holding eleven kilometres of front in the Xiao Hinggan forest at the southern edge of #{ref :the_amur_line, "the Amur Line"}. It was a survey camp during the campaigns. Four crews now work out of it, cutting between four and five hundred of #{ref :the_dead_rings, "the dead rings"} in a season.

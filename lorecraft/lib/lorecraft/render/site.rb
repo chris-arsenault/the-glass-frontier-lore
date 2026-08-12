@@ -11,7 +11,7 @@ module Lorecraft
     # player knowledge. Questions, entry logs and drafting records go into a
     # separate document intended for the authenticated editorial API.
     class Site < Base
-      SCHEMA_VERSION = 4
+      SCHEMA_VERSION = 5
       CAUSAL_RELATIONS = %w[causes caused caused_by].freeze
 
       def initialize(world, root: Dir.pwd)
@@ -351,11 +351,17 @@ module Lorecraft
             end.sort_by { |target| target[:title] }
             next if targets.empty?
 
-            { id: definition.name.to_s, label: definition.label, links: targets }
+            {
+              id: definition.name.to_s,
+              label: definition.label,
+              type: definition.type.to_s,
+              links: targets,
+            }
           else
             {
               id: definition.name.to_s,
               label: definition.label,
+              type: definition.type.to_s,
               value: format_fact_value(definition, row.value),
             }
           end
@@ -365,6 +371,7 @@ module Lorecraft
       def format_fact_value(definition, value)
         case definition.type
         when :year then "#{@world.year_of(value)} CE"
+        when :integer then value
         else value.to_s
         end
       end

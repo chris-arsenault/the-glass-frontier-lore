@@ -5,6 +5,10 @@ installation :juyan_ceramic_vault do
   aka "册库", "the stack"
   tags :governance, :legibility, :resistance, :water
   prominence :recognized
+  structure "Four fired-brick halls, salt-glazed fittings and a private well"
+  environmental_control "Turned salt beds, sealed coffers and rooms where used water is boiled away before dawn"
+  reading_method "Grind away one face, press damp paper into the relief and ink the raised ground"
+  access "Ceramics remain at Juyan; requested readings travel as paper rubbings"
 
   prose <<~PROSE
     Four fired-brick halls and a private well at #{ref :juyan, "Juyan"}, holding more than ninety thousand pieces of #{ref :memory_ceramics, "memory ceramic"}. Statutes stand beside examination papers, household lists, engineering manuals, court rulings and classical texts. Floors, benches, coffers and lids are fired clay or salt-glazed brick. Every fitting can be removed and baked. Most have been.

@@ -3,6 +3,11 @@ faction :the_saints_of_plenty do
   subkind :community
   tags :resistance, :water, :agriculture, :autonomy
   prominence :recognized
+  membership "Settlement communities in Southern California and Baja"
+  organization "Local settlements linked by seed, recipes and pirate broadcasts"
+  common_practice "Spending water and labour on difficult crops, gardens, animals, cooking and public celebration"
+  central_claim "Survival is not the same thing as living"
+  principal_pressure "Coalition models classify their water use as dangerous even while measuring the communities as healthy"
 
   prose <<~PROSE
     The Saints of Plenty live in Southern California and Baja. They object to #{ref :the_water_heresy, "water civilization"}: the reduction of a life to the resource that sustains it.

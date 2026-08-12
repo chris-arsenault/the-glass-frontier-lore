@@ -139,7 +139,8 @@ export interface EntryFactLink {
 export interface EntryFact {
   id: string;
   label: string;
-  value: Optional<string>;
+  type: "text" | "integer" | "year" | "entity" | "entities";
+  value: Optional<string | number>;
   links: Optional<EntryFactLink[]>;
 }
 

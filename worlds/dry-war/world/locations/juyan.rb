@@ -4,6 +4,11 @@ geographic_location :juyan do
   aka "居延", "the Ejin basin"
   tags :resistance, :legitimacy, :water, :ecology
   prominence :recognized
+  setting "A dry lake basin at the end of the Ejin river north of the Hexi road"
+  water_supply "A line of deep wells whose recovery rate fixes the settlement's daily allowance"
+  civic_status "A Preservationist settlement with local assemblies, fixed household shares and its own public record"
+  principal_work "Archival storage, destructive ceramic reading and kiln work"
+  defining_feature "A dead poplar grove supplies the fired woodwork of a settlement that cannot support a living grove"
 
   prose <<~PROSE
     The dry lake basin at the end of the Ejin river, north of the corridor road, and the settlement where the #{ref :the_preservationists, "Preservationists"} keep the largest of their archives. Han garrisons filed their duty rosters on this ground on wooden slips, and dry air held the ink legible until somebody dug them up two millennia later. The settlement's founders cited those slips in the petition that established the site.

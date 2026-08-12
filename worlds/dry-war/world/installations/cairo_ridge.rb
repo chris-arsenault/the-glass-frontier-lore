@@ -3,6 +3,10 @@ installation :cairo_ridge do
   subkind :settlement
   tags :governance, :water, :autonomy, :locality
   prominence :recognized
+  function "Holds Cairo's transferred municipal services and housing above the forecast flood line"
+  facilities "Apartment courts, clinic, school rooms, records hall, bus loop and water tower"
+  civic_status "The legal and serviced continuation of Cairo's lowest ward"
+  layout "Courts, precincts and house numbers follow the old ward's street order"
 
   prose <<~PROSE
     A neighbourhood #{ref :continuity, "Continuity"} built above #{ref :cairo, "Cairo"}'s forecast flood line. It contains apartment courts, a clinic, school rooms, a records hall, a bus loop and a water tower sized for every occupied address in the old ward. The first residents arrived while #{ref :the_cairo_retreat, "the Cairo Retreat"} was still being decided.

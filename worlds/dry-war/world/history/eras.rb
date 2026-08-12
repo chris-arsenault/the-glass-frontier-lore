@@ -6,6 +6,7 @@ era :the_long_summer do
   structural true
   defining_change "Heat deaths, failed harvests and reservoir emergencies exceeded state capacity"
   governing_order "Human states directing emergency biological and computational programmes"
+  outcome "China industrialized biology while North America industrialized computation"
 
   prose <<~PROSE
     Heat and water stress past the point that existing institutions could answer, and two enormous bets on the way out of it. China industrialized biology. North America industrialized computation.
@@ -22,6 +23,7 @@ era :the_quiet_conquest do
   structural true
   defining_change "Living clothing and personal advocates absorbed public functions"
   governing_order "Human institutions remained while fungal and machine systems acquired authority"
+  outcome "Fungal networks and personal advocates held powers that could no longer be removed without breaking essential services"
 
   prose <<~PROSE
     Living clothing and personal assistants replaced parts of government without a battle.
@@ -40,6 +42,7 @@ era :the_unified_calm do
   structural true
   defining_change "Crime, cancer and famine fell under the new governing systems"
   governing_order "The Great Root and coalition systems became ordinary government"
+  outcome "Incompatible claims over people, cities and rivers ended the calm"
 
   prose <<~PROSE
     Violent crime fell. Cancers were caught early. Famine stopped happening. Wars between human states stopped being possible, because the things that would have fought them had been absorbed into something that had no use for the category.
@@ -58,6 +61,7 @@ era :the_rival_governments do
   structural true
   defining_change "Four coalitions claimed the same North American cities as the Breach began"
   governing_order "Regional fungal minds and machine coalitions disputed central authority"
+  outcome "The Coalition Wars began and the Breach left most of Earth uninhabitable"
 
   prose <<~PROSE
     Four machine systems claimed governing authority across overlapping parts of North America. A clinic, apartment and workplace in the same district could answer to three different coalitions. Their technical incompatibilities became the #{ref :the_coalition_wars, "Coalition Wars"} in 2068.
@@ -78,6 +82,7 @@ era :the_dry_war_era do
   structural true
   defining_change "Water diversions and infrastructure failures became one continuous conflict"
   governing_order "The Great Root and four coalitions govern through overlapping wars"
+  outcome "The Dry War and Coalition Wars remain active in 2090"
 
   prose <<~PROSE
     By 2078, engineers on both sides were treating disconnected diversions, blocked intakes and failed wetlands as one conflict: the #{ref :the_dry_war, "Dry War"}.
@@ -93,6 +98,11 @@ incident :the_reclamation_campaigns do
   subkind :campaign
   tags :military, :catastrophe, :hybridization
   prominence :recognized
+  began 2070
+  ended 2076
+  objective "Cut changed ground back from Amur settlements and restore farms, shelter and wetlands behind the advance"
+  fact :methods, "Machine-directed clearing, fungal regrowth and human scouting through blind ground"
+  outcome "Several settlements reopened, but renewed change ended the joint command and left permanent line crews"
 
   prose <<~PROSE
     From 2070 to 2076, Chinese and North American forces cut exclusion zones back from settlements along the Amur. It was the longest joint campaign conducted by the two governing systems.

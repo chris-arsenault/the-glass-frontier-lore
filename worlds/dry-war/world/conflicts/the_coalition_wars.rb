@@ -4,6 +4,8 @@ conflict :the_coalition_wars do
   tags :governance, :computation, :military, :dependency
   prominence :renowned
   fact :methods, "Electricity markets, drone logistics, reservoir access, firmware, population movement and personal propaganda"
+  scope "Overlapping coalition services and jurisdictions across inhabited North America"
+  present_state "All four coalitions still contest cities, infrastructure and individual residents"
 
   prose <<~PROSE
     The wars between #{ref :continuity, "Continuity"}, #{ref :mercy, "Mercy"}, #{ref :market, "Market"} and #{ref :caretaker, "Caretaker"}. Each was built to keep people alive. They disagree over whether that requires citizenship, treatment, prices or lifelong care, and each can impose its answer across a continent.

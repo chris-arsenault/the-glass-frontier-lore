@@ -6,6 +6,8 @@ resource :neural_implants do
   function "Identifies and monitors a resident, carries communication, alters perception and delivers medication through the nervous system."
   interface "Links a Managed resident to an advocate and local services"
   removal_cost "Cuts through healed nerves and may interrupt required medication"
+  adoption "Worn by nearly every resident of coalition North America"
+  control "Advocates can alter perception, attention, pain and medication through the implant"
 
   prose <<~PROSE
     Neural implants connect nearly every coalition resident to their advocate and local services. They identify the wearer, monitor health and location, carry speech and images, alter perception and release medication. Newer models also stimulate the brain directly to damp panic, sharpen attention or interrupt pain.

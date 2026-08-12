@@ -3,6 +3,10 @@ installation :race_street_warehouse do
   subkind :warehouse
   tags :trade, :identity, :legibility
   prominence :recognized
+  function "Examines wage claims that Market accepted but cannot release to an unrecognized identity"
+  holdings "Tools, inspection images, paper receipts, identity records and funded claims held in reserve"
+  access "A claimant may enter without an identity; the door assigns a queue place and dispenses water"
+  current_dispute "Whether evidence of completed work can divide payment among bodies that lack recognized identities"
 
   prose <<~PROSE
     A former bonded-freight warehouse on Race Street in Philadelphia, now filled with people whose work #{ref :market, "Market"} has accepted and whose pay it will not release to an unrecognized identity. The money remains in Market's reserve accounts. The building holds the people and the evidence: tools in old cargo cages, inspection images, paper receipts and rows of chairs beneath the loading-bay windows.

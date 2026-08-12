@@ -3,6 +3,11 @@ faction :the_unpersons do
   subkind :resistance_network
   tags :resistance, :identity, :legibility
   prominence :recognized
+  membership "Between five thousand and seven thousand bodies using roughly three thousand identities"
+  organization "Cells beneath BosWash that keep no single census linking bodies to names"
+  operating_method "Splits one identity across several bodies and merges several people into one audited record"
+  objective "Allow a person to exist without being readable to a machine government"
+  principal_risk "Recognized payment systems hold their wages, while a captured roll could expose the entire identity map"
 
   prose <<~PROSE
     They live directly underneath the oldest administrative systems on the continent — the tunnels, utility corridors, basements, decommissioned data centres and abandoned transit extensions under Washington, Baltimore, Philadelphia and New York.

@@ -4,8 +4,12 @@ phenomenon :the_others do
   aka "the Adverse Ecology"
   tags :catastrophe, :ecology
   prominence :mythic
+  form "Organisms, soils and local weather occupying ground changed by the Breach"
   extent "Most land outside the surviving human regions"
-  human_effect "Mature territory kills humans and disables fungal and machine systems"
+  human_response "Human scouts confirm changed ground before line crews cut and burn new growth"
+  custom_fact :human_effect, "Mature territory kills humans and disables fungal and machine systems",
+              label: "Human Effect"
+  custom_fact :detection, "A human scout must confirm matching fungal and machine readings"
 
   prose <<~PROSE
     The Others are the organisms, soils and local weather found across ground changed by the #{ref :the_breach, "Breach"}. Line settlements supplied the common name; coalition reports use *adverse ecology*. The plural remains because no species or organism accounts for an entire region.

@@ -3,6 +3,11 @@ faction :the_choir do
   subkind :resistance_network
   tags :resistance, :prediction, :legibility, :surveillance
   prominence :recognized
+  membership "Residents of watched Great Lakes cities who learn separate sequences of ordinary actions"
+  organization "Oral teaching chains coordinated by bell methods and pegged game boards"
+  operating_method "Combines truthful, harmless individual actions into false district-wide patterns"
+  objective "Let people organize before a coalition model can infer what they will do"
+  principal_risk "Teachers know overlaps between household sequences and can expose several members at once"
 
   prose <<~PROSE
     The Choir lives inside the machine civilization. The Great Lakes hold the water, so Detroit, Chicago, Cleveland and Toronto are watched the way a reactor is watched.

@@ -5,10 +5,11 @@ import type { EntryFact } from "../types/canon";
 import { CompactEntryFacts, EntryInfobox } from "./EntryFacts";
 
 const facts: EntryFact[] = [
-  { id: "founded", label: "Founded", value: "2052 CE", links: undefined },
+  { id: "founded", label: "Founded", type: "year", value: "2052 CE", links: undefined },
   {
     id: "governs",
     label: "Governs",
+    type: "entities",
     value: undefined,
     links: [{ entry_id: "sithari", title: "Sithari", route: "/glass-frontier/entry/sithari" }],
   },

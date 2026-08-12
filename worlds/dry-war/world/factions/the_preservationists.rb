@@ -3,6 +3,11 @@ faction :the_preservationists do
   subkind :resistance_network
   tags :resistance, :legitimacy, :governance
   prominence :recognized
+  membership "Gobi enclaves that claim continuity with the Chinese state"
+  organization "Local assemblies, examinations, archives and a continuous civil record"
+  operating_method "Keeps institutions and records on paper and memory ceramic beyond the Great Root's reach"
+  objective "Hold the Chinese state in trust until human officials can exercise accountable authority again"
+  principal_risk "Their settlements prohibit direct broker dealings while depending on goods the same houses carry"
 
   prose <<~PROSE
     Gobi enclaves that consider themselves the legitimate continuation of the Chinese state. They hold its institutions in trust until the state can return.

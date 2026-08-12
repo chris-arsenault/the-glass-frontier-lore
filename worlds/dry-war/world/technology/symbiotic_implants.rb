@@ -3,6 +3,12 @@ resource :symbiotic_implants do
   subkind :device
   tags :medicine, :symbiosis, :biotech
   prominence :recognized
+  function "Sharpens senses, regulates immunity, carries messages, alters mood and repairs damaged tissue"
+  interface "Fungal structures grown through peripheral nerves, lymphatic tissue and blood vessels"
+  removal_cost "Mature growth has no boundary a surgeon can cut along"
+  adoption "Ordinary medical care for Joined citizens; bounded versions are grown by Gatekeeper villages"
+  control "Compounds from a living garment guide growth and the mature implant reports local health into the network"
+  operating_limit "A severed-strain implant gives poorer treatment but cannot reach a distant fungal network"
 
   prose <<~PROSE
     Symbiotic implants are fungal structures grown through peripheral nerves, lymphatic tissue and blood vessels. They sharpen senses, regulate immunity, carry messages and alter mood or impulse.

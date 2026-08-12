@@ -4,6 +4,8 @@ conflict :the_dry_war do
   tags :water, :military, :ecology, :governance
   prominence :mythic
   fact :methods, "River diversions, watershed repair, reservoir control, desalination and pressure on cooling intakes"
+  scope "Shared watersheds from Tibet and Siberia to the Great Lakes, Andes and Antarctic meltwater"
+  present_state "Continuous campaigns recognized by engineers since 2078"
 
   prose <<~PROSE
     The Great Root and four coalitions move water against each other's needs. Humans living between their dams, forests and cooling plants call the resulting conflict the Dry War.

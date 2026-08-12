@@ -3,6 +3,11 @@ resource :implant_decoys do
   subkind :device
   tags :resistance, :medicine, :surveillance, :identity
   prominence :recognized
+  function "Keeps a neural implant reporting a plausible patient while its wearer acts outside the reported state"
+  interface "Modified firmware, synthetic receptors and peripheral devices alter commands and supply false readings"
+  adoption "Built in Dead County workshops for people who must remain legible to a coalition advocate"
+  control "The decoy changes the implant's local signals while the distant advocate continues treating the simulated patient"
+  operating_limit "False readings must age, vary by season and decline consistently with the wearer's existing history"
 
   prose <<~PROSE
     Modified firmware, synthetic receptors and small peripheral devices that keep a #{ref :neural_implants, "neural implant"} reporting a plausible patient while its wearer does something else. One device changes a stimulation command before it reaches the brain. Another supplies false blood chemistry or movement. Together they can show SUBJECT CALM / COMPLIANT / RESTING while the wearer drives an armoured truck across Nebraska.

@@ -3,6 +3,11 @@ faction :the_thousand_minds do
   subkind :community
   tags :locality, :symbiosis, :religion, :ecology
   prominence :recognized
+  membership "Hundreds or thousands of fungal intelligences and the Yunnan communities that live with them"
+  organization "Overlapping village, forest and seasonal networks rather than one body"
+  common_practice "Political, religious and domestic relationships between a community and its local mind"
+  central_claim "A local fungal mind may remain distinct without ceasing to belong to Chinese civilization"
+  principal_pressure "Integration campaigns draw some minds into the Great Root and push others deeper into the mountains"
 
   prose <<~PROSE
     The Thousand Minds are Yunnan's overlapping fungal intelligences, not an organization. The #{ref :the_great_root, "Great Root"} encountered them in the most biologically varied country on the continent and found cognition taking forms unlike its own.
