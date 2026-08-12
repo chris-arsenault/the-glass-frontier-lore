@@ -225,6 +225,14 @@ when "connections"
   rescue Lorecraft::Error => e
     abort e.message
   end
+when "schema"
+  topic = ARGV.shift || "kinds"
+  name = ARGV.shift
+  begin
+    puts Lorecraft::SchemaInspection.new(load_world, topic: topic, name: name).report
+  rescue Lorecraft::Error => e
+    abort e.message
+  end
 when "review"
   abort <<~MSG
     `review` is gone. Review state lives on the content:

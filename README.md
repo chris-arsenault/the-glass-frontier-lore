@@ -54,6 +54,7 @@ ruby lorecraft/bin/lorecraft help workflow
 
 ruby lorecraft/bin/lorecraft worlds
 ruby lorecraft/bin/lorecraft search "water authority" --world dry-war --audience player
+ruby lorecraft/bin/lorecraft schema relation governs --world dry-war
 ruby lorecraft/bin/lorecraft queue --world dry-war
 ruby lorecraft/bin/lorecraft page inez_bell --world dry-war --audience player
 ruby lorecraft/bin/lorecraft connections inez_bell --world dry-war --audience player
@@ -62,7 +63,9 @@ ruby lorecraft/bin/lorecraft facts --world dry-war
 make check WORLD=dry-war
 ```
 
-`search` finds the stable id and canonical source for a subject. `page` answers
+`search` finds the stable id and canonical source for a subject. `schema`
+reports the kinds, facts, relations, tags, and sections the selected world will
+enforce. `page` answers
 “what does a reader see?”, `connections` exposes its typed neighborhood and
 source files, `timeline` answers “what changed this entity?”,
 `facts` answers “which declared fields are missing?”, and `queue`

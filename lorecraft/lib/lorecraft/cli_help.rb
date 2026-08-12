@@ -36,6 +36,16 @@ module Lorecraft
           The establishing moment or named relation is shown when available.
         TEXT
       },
+      "schema" => {
+        summary: "Inspect the selected world's loaded schema.",
+        usage: "schema [kinds | kind NAME | relations | relation NAME | tags | sections] [--world ID]",
+        body: <<~TEXT,
+          Query the ontology that validation will enforce after shared craft and
+          world extensions are loaded. Kind detail includes subkinds and fact
+          shapes. Relation detail includes category, domain, range, cardinality,
+          time behavior, inverse, symmetry, and exclusions when declared.
+        TEXT
+      },
       "page" => {
         summary: "Render one entry as reviewable Markdown on stdout.",
         usage: "page ID [--audience all|player] [--world ID]",
@@ -198,7 +208,7 @@ module Lorecraft
           #{EXE} help TOPIC
 
         Read only the context the task needs:
-          discover       worlds, search, queue
+          discover       worlds, search, schema, queue
           inspect        page, connections, timeline, log, facts
           inspect graph  topology, web, graph, stats
           verify         validate, lint
@@ -269,12 +279,13 @@ module Lorecraft
            when the subject's stable id is unknown.
         3. Render the subject with `page ID`; use `timeline ID` and `log ID` only
            when the task concerns history or prior decisions.
-        4. Use `connections ID` for the local typed neighborhood, then read the
-           entry source and relevant neighbor sources. Use facts, topology, or
-           web only when the task concerns those dimensions.
-        5. Edit the DSL, preserving the distinction between canon, editorial
+        4. Use `schema kind NAME` or `schema relation NAME` when an edit depends
+           on the loaded ontology. Use `connections ID` for the local graph.
+        5. Read the entry source and relevant neighbor sources. Use facts,
+           topology, or web only when the task concerns those dimensions.
+        6. Edit the DSL, preserving the distinction between canon, editorial
            questions, and generated output.
-        6. Run `make check WORLD=ID`. Use `make check-all` before repository-wide
+        7. Run `make check WORLD=ID`. Use `make check-all` before repository-wide
            handoff.
 
         Do not treat build/, a wiki export, a search result, or an old research

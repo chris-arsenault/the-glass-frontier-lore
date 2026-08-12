@@ -39,8 +39,9 @@ that answers the task:
 3. Use `search <query>` when the stable id is unknown. Then use `page <id>` for
    rendered prose, `timeline <id>` for change, `log <id>` for settled editorial
    reasoning, and `facts` for schema gaps.
-4. Use `connections <id>` for the local graph, then read the canonical entity
-   and the relevant neighbor sources before editing.
+4. Query `schema kind <name>` or `schema relation <name>` when the edit depends
+   on the ontology. Use `connections <id>` for the local graph, then read the
+   canonical entity and the relevant neighbor sources before editing.
 5. Use `topology`, `web`, or `graph` only when the task concerns wider graph
    structure.
 

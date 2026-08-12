@@ -65,6 +65,7 @@ Every content/query command selects one world through `--world ID`,
 |---|---|---|
 | discover worlds | `worlds` | manifest ids and status |
 | find an entry id | `search QUERY` | ranked ids, types, sources, and summaries |
+| inspect the live ontology | `schema kind NAME` / `schema relation NAME` | allowed facts and edges |
 | choose work | `queue` | entry questions plus current findings |
 | read one resolved entry | `page ID` | reader-shaped Markdown on stdout |
 | inspect its local graph | `connections ID` | typed neighbors, intervals, and source paths |

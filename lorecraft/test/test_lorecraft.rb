@@ -791,6 +791,62 @@ class ConnectionsTest < Minitest::Test
   end
 end
 
+class SchemaInspectionTest < Minitest::Test
+  def test_kind_list_reports_reader_status_and_shape_counts
+    kinds = Lorecraft::SchemaInspection.new(fact_world, topic: "kinds").data[:kinds]
+    person = kinds.find { |kind| kind[:name] == :person }
+
+    assert person[:reader]
+    assert_equal 2, person[:subkind_count]
+    assert_equal 4, person[:fact_count]
+  end
+
+  def test_kind_detail_exposes_fact_and_subkind_contracts
+    detail = Lorecraft::SchemaInspection.new(
+      fact_world,
+      topic: "kind",
+      name: "person",
+    ).data[:kind]
+    age = detail[:facts].find { |fact| fact[:name] == :age }
+    cartographer = detail[:subkinds].find { |subkind| subkind[:name] == :cartographer }
+
+    assert_equal :calculated, age[:source]
+    assert_equal :elapsed_years, age[:calculate]
+    assert_equal :born, age[:from]
+    assert_includes cartographer[:resolved_facts].map { |fact| fact[:name] }, :chart_room
+  end
+
+  def test_relation_detail_exposes_validation_constraints
+    detail = Lorecraft::SchemaInspection.new(
+      sample_world,
+      topic: "relation",
+      name: "controls",
+    ).data[:relation]
+
+    assert_equal :spatial, detail[:category]
+    assert detail[:temporal]
+    assert_equal [:faction], detail[:domain]
+    assert_equal [:location], detail[:range]
+    assert_equal :one, detail[:cardinality]
+  end
+
+  def test_tags_and_sections_are_live_controlled_vocabularies
+    tags = Lorecraft::SchemaInspection.new(sample_world, topic: "tags").data[:tags]
+    sections = Lorecraft::SchemaInspection.new(sample_world, topic: "sections").data[:sections]
+
+    assert_includes tags.map { |tag| tag[:name] }, :salvage
+    assert_includes sections.map { |section| section[:name] }, :history
+  end
+
+  def test_unknown_schema_names_raise_clear_errors
+    error = assert_raises(Lorecraft::Error) do
+      Lorecraft::SchemaInspection.new(sample_world, topic: "kind", name: "missing").report
+    end
+
+    assert_equal "unknown entity kind: missing", error.message
+  end
+end
+
 class GraphRenderTest < Minitest::Test
   def setup
     @w = sample_world
