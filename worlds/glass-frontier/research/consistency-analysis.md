@@ -5,7 +5,14 @@ date: 2026-03-16
 
 # Consistency Analysis
 
-Comprehensive audit of all player/ and dm/ content files. Every .md file with lore content was read in full. Findings organized by category.
+Archived pre-DSL audit from 2026-03-16. Its paths, counts, dates, and findings
+describe the former Markdown corpus and are not current instructions or canon.
+Use `make check WORLD=glass-frontier`, `make queue WORLD=glass-frontier`, and the
+DSL under `world/` for current state. This report remains as research evidence
+for decisions already incorporated into the world.
+
+The original audit read every lore Markdown file and organized its findings by
+category.
 
 ---
 
@@ -90,7 +97,7 @@ Multiple files use constructions where "the" precedes a link whose display text 
 
 The rendered text reads "the The Keel" which is grammatically incorrect.
 
-**Fix:** Either change link text to `[the Keel](...)` or remove the preceding "the" and let the link carry the article.
+**Fix:** Either include “the” in the Keel link text or remove the article before the link.
 
 **B3. Lowercase `[future:veilfire]` in Kite-Sail** — YELLOW
 

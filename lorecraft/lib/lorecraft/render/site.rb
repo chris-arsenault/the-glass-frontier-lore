@@ -315,7 +315,7 @@ module Lorecraft
           @visible_ids.include?(edge.fetch("src").to_sym) && @visible_ids.include?(edge.fetch("tgt").to_sym)
         end
         existing = edges.map { |edge| [edge["src"], edge["rel"], edge["tgt"]] }.to_set
-        @world.embed_edges.each do |source, relation, target|
+        @world.embed_edges(audience: :player).each do |source, relation, target|
           next unless @visible_ids.include?(source) && @visible_ids.include?(target)
           next if existing.include?([source.to_s, relation.to_s, target.to_s])
 

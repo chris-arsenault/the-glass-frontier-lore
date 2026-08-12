@@ -28,6 +28,25 @@ The test: would this still be true in a world with different physics, different 
 
 `craft/` states the rule and the method; a world's `guidance/` supplies the substitutions — its examples, vocabulary, banned referents, fixed dates, culture patterns. Craft binds every world. A world may narrow a craft rule, never loosen it, and a genuine departure is written down as `Departs from craft/<file> §N: …` rather than left implicit. See `craft/README.md`.
 
+## Context-Efficient Discovery
+
+Lorecraft is also an interface for an LLM entering a world it was not trained
+on. Do not bulk-load the lore tree. Use the command help and the narrowest view
+that answers the task:
+
+1. `ruby lorecraft/bin/lorecraft help workflow`
+2. Read the world's `CLAUDE.md` and the guidance it names.
+3. Use `page <id>` for rendered prose, `timeline <id>` for change, `log <id>`
+   for settled editorial reasoning, and `facts` for schema gaps.
+4. Read the canonical entity and its typed edges before editing.
+5. Use `topology`, `web`, or `graph` only when the task concerns wider graph
+   structure.
+
+This path reduces context poisoning from stale generated pages, old reports,
+unrelated lore, and private material. It extends effective context through
+runtime retrieval and validation, not fine-tuning. The typed schema prevents
+declared structural mistakes; it does not prove free prose true or complete.
+
 ## Writing Style
 
 - **Write like a world encyclopedia, not a design document.** Entries should feel like they were written by someone who lives in the world — or at least by a skilled chronicler, not a systems engineer.
@@ -36,7 +55,7 @@ The test: would this still be true in a world with different physics, different 
 - **Show, don't specify.** Describe what a place feels like, what a faction cares about, what an artifact does — not its entity ID or moderation hook.
 - **Keep entries concise.** A few paragraphs is ideal. Long entries should be split.
 - **Play it straight.** Even the strangest elements are presented matter-of-factly. The absurdity comes from the fiction being taken seriously, not from the author nudging the reader.
-- **Name entities, don't describe them.** When prose references something that could be its own entity — a faction, a location, a person, an artifact — use a `#{future "Name"}` marker rather than describing the concept inline without naming it. `The #{future "Continuity"} has governed Sithari for 130 years`, not "the ruling party has governed for 130 years." Every named thing should be discoverable.
+- **Name entities, don't describe them.** When prose references something that could be its own entity — a faction, a location, a person, an artifact — use a `#{future "Name"}` marker rather than describing the concept inline without naming it. `The #{future "Continuity"} governs Sithari`, not "the ruling party governs Sithari." Every named thing should be discoverable.
 
 Full rules: `craft/writing-guidance.md`. Tone and references are per-world — `worlds/<id>/guidance/tone.md`.
 
@@ -51,7 +70,7 @@ All prose must be written from inside the world. There is no Earth. Three violat
 
 A world that finds itself repeating a phrase it does not want can declare it with `ban_phrase "…", "why"` in its `world/schema.rb`; `make check` then fails on the next one.
 
-**Work product versus history.** Prose is what is true of the world. Why a fact changed, what a correction rests on, which decision settled a name — that is history of the *entry*, and it goes in `log "YYYY-MM-DD — …"` on the entity, where `lorecraft log` can read it and no reader-facing render shows it. Never in prose.
+**Work product versus history.** Prose is what is true of the world. Why a fact changed, what a correction rests on, which decision settled a name — that is history of the *entry*, and it goes in `log "YYYY-MM-DD — …"` on the entity, where `ruby lorecraft/bin/lorecraft log ID --world ID` can read it and no reader-facing render shows it. Never in prose.
 
 **Who wrote it, and who has read it.** An entry declares `reviewed "YYYY-MM-DD"` once a person has read it against these rules, and a block may override with its own `reviewed:` or declare `drafted_by:` (`:ai` / `:human` / `:ai_human`). Each world declares its default drafter (`drafted_by_default :ai` in `world/schema.rb`), so a block only states the exception. `make provenance WORLD=<id>` reports the gap, and expires a read once the prose changed under it. Never set `reviewed` on a human's behalf — the point of the field is that a person read the words.
 
@@ -119,7 +138,9 @@ Restating instead of embedding is the most common way this corpus goes wrong: tw
 - `status` — `complete`, `draft`, `shell`, `needs_refinement`.
 - Additional fields as needed (`region`, `era`, …). Add only when they carry real information.
 
-Generic `related:` lists do not exist. Relationships are typed edges from the schema taxonomy (LEADS, DEPENDS_ON, LOCATED_IN, …); unknown types are rejected by the validator.
+Generic `related:` lists do not exist. Relationships are typed edges from the
+schema taxonomy (`leads`, `depends_on`, `located_in`, …); unknown and explicitly
+banned types are rejected by the validator.
 
 ### Kind, subkind and custom facts
 
@@ -180,9 +201,18 @@ Kinds are declared once for every world in `craft/schema/base.rb`, grouped into 
 `species`, `culture`, `ability`, `resource`, `phenomenon`, `concept`
 
 **Structural** (engine mechanics):
-`era`, `dm`, `thread`, `loop`, `theme`
+`era`, `thread`, `loop`, `theme`
 
-Choosing: a named, specific thing → atlas kind. Something describing how the world works (species traits, materials, systems) → reference kind. DM-only or narrative structure → structural kind.
+Era entities are reader-facing chronology but may declare `structural true` so
+topology reports their bookkeeping degree separately. `thread`, `loop`, and
+`theme` are non-reader kinds.
+
+DM knowledge is a visibility flag on an entity or prose block, not an entity kind.
+
+Choosing: a named, specific thing → atlas kind. Something describing how the
+world works (species traits, materials, systems) → reference kind. Narrative
+structure → structural kind. DM-only entities keep the kind that describes what
+they are and add the visibility flag.
 
 ### Multi-kind entries
 
@@ -195,9 +225,9 @@ Many entries touch several kinds. A habitat might involve governance, physics, s
 
 ## Indexes and Shells
 
-Indexes are **generated** by the wiki render — an artifact, not a source. The authoritative registry is the world's `world/` directory: every entity is a node, so per-type indexes fall out of the model.
+Indexes are **generated** by the reader and wiki renders — artifacts, not sources. The authoritative registry is the world's `world/` directory: every entity is a node, so browse views and per-type indexes fall out of the model.
 
-**Shells** — entities referenced but not yet written — are real nodes with `status :shell` and no `path`. They appear in indexes and can be edge endpoints; the wiki render skips them. Use `#{future "Name"}` for a thing that has no entity at all yet. To flesh out a shell: drop `status :shell`, give it a `path`, write its prose.
+**Shells** — entities referenced but not yet written — are real nodes with `status :shell` and no `path`. They can be edge endpoints and appear in broad graph projections; the public reader and wiki skip them. Use `#{future "Name"}` for a thing that has no entity at all yet. To flesh out a shell: drop `status :shell`, give it a `path`, write its prose.
 
 ## Meta Files
 
@@ -241,19 +271,22 @@ tools/review-app/           # inline review tool (Vite + React + Express)
 CLAUDE.md / AGENTS.md       # this file — repo-wide conventions (kept in sync)
 SYSTEM.md                   # technical architecture (the Lorecraft engine)
 Makefile                    # validate / lint / wiki / graph / test, per world
-.github/workflows/wiki.yml  # CI: check every world, publish the Glass Frontier wiki
+.github/workflows/ci.yml    # CI: check active worlds, build and deploy the reader
 ```
 
-**No committed markdown lore tree.** The only markdown output is the GitHub wiki, generated by CI from the published world's `world/` — never committed here. See `SYSTEM.md` for the engine and `lorecraft/README.md` for authoring the DSL.
+**No committed markdown lore tree.** The deployed reader consumes generated
+JSON; Markdown trees and the GitHub wiki are optional exports. All are generated
+from `world/` and never committed here. See `SYSTEM.md` for the architecture and
+`lorecraft/README.md` for authoring and just-in-time command help.
 
 ## DM Knowledge
 
-DM knowledge is true in the world but unavailable to players and NPCs. It is **excluded from the wiki render** and never referenced from public entries.
+DM knowledge is true in the world but unavailable to players and NPCs. It is **excluded from the public reader and wiki render** and never referenced from public entries.
 
 - Public entries describe what NPCs know — observable facts, common theories, gaps in the record.
 - DM entries describe the hidden truth and cross-reference the public entry they extend.
 - Public entries must stand on their own. Write them as if the DM entry doesn't exist.
-- DM entities and edges carry `dm: true`. The validator fails the build on a public entry referencing a DM-only entity.
+- DM entities use `dm!(public_entry: :id)`; DM blocks and edges use `dm: true`. The validator fails the build on public content referencing a DM-only entity.
 
 **What is DM knowledge:** secret motivations, hidden factions, the true cause of historical events — anything players should discover through play.
 
@@ -261,7 +294,7 @@ DM knowledge is true in the world but unavailable to players and NPCs. It is **e
 
 ## Critical: Lorecraft Workflow
 
-Each world is a **[Lorecraft](lorecraft/README.md) DSL** — Ruby files under `worlds/<id>/world/`. The in-memory object graph is the structured truth layer; there is no database to keep in sync. The wiki and the graph JSON are **render targets**.
+Each world is a **[Lorecraft](lorecraft/README.md) DSL** — Ruby files under `worlds/<id>/world/`. The in-memory object graph is the structured truth layer; there is no database to keep in sync. Reader JSON, editorial JSON, Markdown, wiki pages, and graph JSON are **render targets**.
 
 **Safety:** `worlds/` is versioned by git — that is the snapshot mechanism. Commit before a large rewrite.
 
@@ -275,19 +308,22 @@ Each world is a **[Lorecraft](lorecraft/README.md) DSL** — Ruby files under `w
 
 ### Commands
 
-Every command runs against one world. `WORLD=<id>` on make, `--world <id>` (or `LORECRAFT_WORLD`) on the CLI. The default comes from `worlds.yml`.
+Every content/query command runs against one world. Use `WORLD=<id>` on make,
+or `--world <id>` (or `LORECRAFT_WORLD`) on the CLI. The default comes from
+`worlds.yml`; `help` loads no world and `worlds` lists the manifest.
 
 | Command | Use |
 |---------|-----|
+| `help [command|topic]` | Task-sized command and language guidance (`model`, `workflow`, `authoring`, `schema`, `markers`). |
 | `make worlds` | list the tenants and their status |
 | `make check WORLD=<id>` | validate + lint one world |
 | `make check-all` | validate + lint every world with canon (scaffolds skipped) |
-| `validate` | Hard structural invariants (refs resolve, domain/range, cardinality, causality, DM-leak). Raises. |
+| `validate` | Hard structural invariants (refs resolve, domain/range, cardinality, causality, DM-leak). Exits nonzero on failure. |
 | `lint` | Graded findings: errors / warnings (prominence reach, orphans, double-article, …) / futures. |
-| `wiki` | Generate the GitHub wiki into `build/<world>/wiki` (player audience; DM excluded). |
+| `wiki` | Generate an optional GitHub wiki export into `build/<world>/wiki` (player audience; DM excluded). |
 | `graph` | Node/edge JSON projection at a point in time. |
 | `stats` / `topology` | Counts by kind; degree/reachability health. |
-| `timeline <id>` | Life-of-entity event strip. |
+| `timeline <id>` | Life-of-entity effect strip. |
 | `log [<id>]` | The entries' own history — why a fact changed, what a correction rests on. Not world content. |
 | `provenance` | Per block: who drafted it, who has read it, whose read has expired. |
 | `facts` | Coverage of expected kind facts, with missing fields grouped by entry. |
@@ -299,7 +335,8 @@ Historical state is a query, not a stored field: `world.at(era: :the_accord, yea
 
 ## Review Workflow
 
-**Review state lives on the content, and nowhere else.** There is no tracker, no queue file, no comments file — those were sidecars keyed by file path, and a path key does not survive a reorganisation.
+**Review state lives on the content, and nowhere else.** There is no tracker,
+queue file, or comments file keyed by source path.
 
 | What | Where |
 |---|---|

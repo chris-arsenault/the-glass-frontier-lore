@@ -5,11 +5,10 @@ require "pathname"
 require_relative "markers"
 
 module Lorecraft
-  # Render targets turn the in-memory world into artifacts. Markdown is the
-  # primary one — it regenerates the dir-by-type tree that used to BE the source
-  # of truth, so existing downstream tooling (wiki generation) still works. The
-  # graph JSON replaces the Memgraph projection; the timeline strip is a
-  # life-of-entity view.
+  # Render targets turn the in-memory world into disposable artifacts. Markdown
+  # provides a directory-shaped compatibility view, graph JSON exposes nodes and
+  # relationship intervals, the timeline is a life-of-entity effect strip, and
+  # the site renderer builds public and editorial reader data.
   module Render
     def self.for(target)
       case target.to_sym
@@ -331,7 +330,7 @@ module Lorecraft
       end
     end
 
-    # ---- graph JSON (Memgraph replacement) ------------------------------
+    # ---- graph JSON ------------------------------------------------------
     class Graph < Base
       def render(at: :now, audience: :all, pretty: true)
         year = @world.timeline.year_for(at)

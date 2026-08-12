@@ -4,9 +4,9 @@ title: Archetype Slots — The Glass Frontier
 
 # Archetype Slots — The Glass Frontier
 
-Which archetypes in the Kaleidos system are full and which are thin. This is what `craft/writing-guidance.md` §2 asks for when it says not to default to a known entity: check the category before attributing anything. The schema behind the counts is `craft/entity-bank-schema.md`; the live roster is the `world/` DSL.
-
-The automated archetype-gap report was retired with the graph. Use judgement and the roster.
+Check these categories before attributing a new fact. The `world/` DSL is the
+current roster; this file states only where one familiar name must not become
+the default answer.
 
 ## Thin — reach for a `future` marker instead
 
@@ -18,6 +18,9 @@ The automated archetype-gap report was retired with the graph. Use judgement and
 
 - **Governance body** — the Tempered Accord, the Displacement Council and the Shear Compact cover the system. Naming one of them is fine where it is the right answer.
 
-## The Habit
+## Attribution rule
 
-If an archetype has N filled and M expected and N < M, treat the named entities as *one of several* rather than *the one*. The Kaleidos system is much bigger than the entities written so far, and every unnamed carrier or syndicate that gets pinned to Vantara or Coremark makes it smaller.
+When a category should contain more examples than the DSL currently names,
+treat the known entities as some of the examples, not the only possible ones.
+The Kaleidos system is much bigger than the entries written so far. Pinning
+every unnamed carrier or syndicate to Vantara or Coremark makes it smaller.

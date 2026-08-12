@@ -7,8 +7,8 @@ require_relative "errors"
 module Lorecraft
   # The repository's world manifest (`worlds.yml` at the repo root). This
   # repository holds several worlds side by side under `worlds/<id>/`; every
-  # command runs against exactly one of them. The manifest is the only place
-  # that knows which worlds exist and which one is the default.
+  # content query runs against exactly one of them. The manifest is the only
+  # place that knows which worlds exist and which one is the default.
   module Worlds
     MANIFEST = "worlds.yml"
 
@@ -18,7 +18,7 @@ module Lorecraft
     BASE_SCHEMA = File.join("craft", "schema", "base.rb")
 
     # One tenant: its identity, its directory, and whether it has canon yet.
-    Entry = Struct.new(:id, :title, :status, :publish, :root, :prelude, keyword_init: true) do
+    Entry = Struct.new(:id, :title, :status, :root, :prelude, keyword_init: true) do
       # The DSL files that make up this world's canon.
       def glob
         File.join(root, "world", "**", "*.rb")
@@ -29,9 +29,6 @@ module Lorecraft
         status.to_s == "scaffold"
       end
 
-      def publish?
-        publish ? true : false
-      end
     end
 
     class << self
@@ -55,7 +52,6 @@ module Lorecraft
       def all(root = repo_root)
         manifest(root).fetch("worlds").map do |w|
           Entry.new(id: w["id"], title: w["title"], status: w["status"],
-                    publish: w.fetch("publish", false),
                     root: (Pathname.new(root) + "worlds" + w["id"]).to_s,
                     prelude: [(Pathname.new(root) + BASE_SCHEMA).to_s])
         end

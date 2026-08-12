@@ -3,8 +3,7 @@
 #   id        directory name under worlds/
 #   title     display name
 #   status    active | scaffold — scaffold worlds have no canon yet and are
-#             skipped by `make check-all` and by CI
-#   publish   true if CI generates and pushes this world's wiki
+#             skipped by `make check-all`, reader-data builds, and CI
 #
 # The engine reads this file to resolve `lorecraft --world <id>`.
 
@@ -14,14 +13,11 @@ worlds:
   - id: glass-frontier
     title: The Glass Frontier
     status: active
-    publish: true
 
   - id: ice-remembers
     title: The Ice Remembers
     status: scaffold
-    publish: false
 
   - id: dry-war
     title: The Dry War
     status: active
-    publish: false

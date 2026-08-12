@@ -1,4 +1,4 @@
-# Timeline — CE years are absolute years (matches edge valid_from/valid_to).
+# Timeline — CE years are absolute years (matches relation since/till bounds).
 # Era descriptions feed the generated Timeline wiki page.
 timeline do
   era :the_ring_age, starts: 2000, length: 140, title: "The Ring Age (pre-2140 CE)",

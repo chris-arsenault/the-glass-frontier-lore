@@ -1,271 +1,448 @@
-# Lorecraft — Specification (v0.1)
+# Lorecraft Language Reference
 
-The design spec the engine was built from, kept as a record. `lorecraft/README.md`
-describes the engine as it actually is; where the two disagree, the README wins.
-Paths here predate the multi-world layout — content now lives under
-`worlds/<id>/world/` rather than a single root `world/`.
+This document describes the implemented DSL. The shorter operational guide is
+[`lorecraft/README.md`](../lorecraft/README.md); command-specific documentation
+is available through `ruby lorecraft/bin/lorecraft help`.
 
-A single Ruby internal DSL that is the **sole source of truth** for a narrative world.
-No graph DB, no markdown on disk. Both are render targets. The world is an in-memory
-object graph with a real temporal model; state is the fold of an ordered event log.
+Lorecraft uses ordinary Ruby files as a canonical declaration language. Loading
+a world constructs an in-memory `World` containing its schema, timeline,
+entities, moments, named relationship instances, and authored pages. No database
+or generated Markdown participates in the load.
 
----
+## 1. World selection and load order
 
-## 1. Core model
-
-```
-Schema        — declares entity types, relation types (with domain/range/rules),
-                effect verbs, and the era timeline. Compiler authority.
-Entity        — a node with a stable symbol id, static attributes, owned prose,
-                and dynamic state derived by replaying events.
-Relation      — a typed, directed (optionally symmetric), optionally temporal edge.
-                Anonymous by default; promotable to a named, addressable instance.
-Event         — occurs at an absolute tick; carries effects that mutate dynamic state.
-                Drivers of all change. Owns prose.
-Prose         — paragraph-level node (1→N), owned by an entity / relation-instance /
-                event, optionally era-scoped, containing `ref`/`rel` bindings.
-Timeline      — ordered eras with FIXED boundaries → every (era, year) maps to an
-                absolute integer tick.
-```
-
-### State is split (compiler-enforced)
-- **Static attributes**: declared on the entity. Constant (or with their own explicit
-  intervals). NEVER targeted by event effects. e.g. `name`, `region`, `biology`.
-- **Dynamic state**: NEVER set directly on an entity. Only ever changed by event
-  `effects`. e.g. `controls`, `status`, `members`. Querying it = fold events ≤ T.
-
-Setting dynamic state on an entity, or an effect touching a static attr → compile error.
-
-### Genesis events
-Initial dynamic state is bootstrapped by `genesis` events (sanctioned). They look like
-normal events but require no narrative provenance and conventionally sit at era start.
-This avoids forcing backstory for every standing fact.
-
----
-
-## 2. Time
-
-Eras are declared in order with fixed boundaries. `(era, year)` → absolute tick.
-`now` is the default query time for all queries and renders.
+`worlds.yml` declares each world's `id`, `title`, and `status`, plus the default
+id. `Lorecraft::Worlds.find` resolves the manifest from any directory below the
+repository root.
 
 ```ruby
-timeline do
-  era :the_drift,        starts: 0,   length: 100   # ticks 0..99
-  era :the_long_quiet,   length: 60                 # ticks 100..159
-  era :the_reconnection, length: 40                 # ticks 160..199
-  now era: :the_reconnection, year: 14              # tick 174
-end
+target = Lorecraft::Worlds.find("dry-war")
+world = Lorecraft.load(target.glob, prelude: target.prelude)
 ```
 
-A point `{era: :the_long_quiet, year: 9}` → `100 + 9 = 109`.
-Spans are `[from_tick, to_tick)` half-open intervals.
+The shared `craft/schema/base.rb` prelude loads first. Within the world glob,
+`schema.rb` and `timeline.rb` load before the remaining files, which then load
+in sorted path order. This gives effects in the same year a deterministic final
+tie-break. Definitions may refer forward because validation runs after the
+whole world loads.
 
----
+A scaffold world has a schema and placeholder timeline but no canon.
+Repository-wide checks and site-data builds skip it.
 
-## 3. Schema
+## 2. Schema
+
+The schema declares the language a world may use.
 
 ```ruby
 schema do
-  entity_type :faction, :location, :npc, :event_e, :artifact,
-              :creature, :ship, :concept, :cosmology
+  entity_type :npc, :faction, :geographic_location
+  entity_type :thread, wiki: false
 
-  # relations
-  relation :controls,
-    domain: :faction, range: :location,
-    temporal: true, cardinality: :many, inverse: :controlled_by
-  relation :rival_of,
-    domain: :faction, range: :faction,
-    symmetric: true, temporal: true
-  relation :member_of,
-    domain: :npc, range: :faction,
-    temporal: true, cardinality: :one, inverse: :members
+  effect :set
+  effect :clear
+  effect :create
+  effect :destroy
+  effect :transfer
 
-  # effect verbs allowed inside events, and what they may touch
-  effect :set        # set/replace a dynamic attr or temporal relation
-  effect :clear      # end a temporal relation / unset dynamic attr
-  effect :destroy    # entity ceases to exist after this tick
-  effect :create     # entity begins to exist at this tick
-  effect :transfer   # convenience: clear(from) + set(to) on a relation
+  relation :located_in,
+    category: :spatial,
+    temporal: true,
+    domain: :npc,
+    range: :geographic_location,
+    cardinality: :many
+
+  tag :governance, "Authority and who decides"
+  section_heading :history
+  drafted_by_default :ai_human
 end
 ```
 
-Compiler validates every declaration + every effect against this schema:
-domain/range, cardinality, symmetry (auto-creates inverse, flags contradictions),
-temporal-only verbs on temporal relations, static/dynamic separation.
+Multiple `schema` blocks extend the same `Schema` instance. The shared prelude
+declares world-independent kinds, facts, effects, and relationship types. A
+world schema adds its controlled tags and sections, setting-specific relations,
+and narrower fact definitions.
 
----
+### Kinds and subkinds
 
-## 4. Entity declaration
-
-```ruby
-faction :sable_concord do
-  # static
-  name    "The Sable Concord"
-  founded at: { era: :the_drift, year: 12 }
-  tags    :salvage, :coalition
-
-  # prose: paragraph-level, ordered, optionally era-scoped, bindings inline
-  prose <<~MD
-    The Concord rose from #{ref :ashfall_reach} salvage crews — a loose coalition
-    that hardened into a polity over a single brutal decade.
-  MD
-  prose section: :history, at: { era: :the_reconnection }, <<~MD
-    By the time the rings spoke again, the Concord #{rel :controls} held more
-    glassreach than any rival had in living memory.
-  MD
-
-  # derived (entity-oriented): recomputed at query_time, not stored
-  derive(:territory_count) { controls(at: query_time).count }
-end
-
-location :glasswright_quarter do
-  name   "The Glasswright Quarter"
-  region :ashfall_reach          # static relation-ish attr
-end
-```
-
-No `controls` is declared on the entity — territory is a **consequence of events**.
-
----
-
-## 5. Events mutate state
+`entity_type` registers a top-level entity constructor. `wiki: false` marks a
+kind that the public reader and wiki omit. The repository's shared schema
+requires every authored entity to declare a known subkind.
 
 ```ruby
-# bootstrap standing facts without backstory
-genesis :drift_settlement, at: { era: :the_drift, year: 12 } do
-  effects do
-    create :sable_concord
-    set :sable_concord, controls: :ashfall_reach
+extend_kind :npc do
+  field :born, type: :year
+  calculated :age, from: :born, calculate: :elapsed_years
+  relation_field :based_in, relation: :located_in, cardinality: :many
+
+  subkind :official do
+    field :jurisdiction, type: :text, expected: false
   end
 end
 
-event :seizure_of_glasswright_quarter, at: { era: :the_long_quiet, year: 9 } do
-  actor :sable_concord
-  prose <<~MD
-    The siege lasted forty days. When it ended the Quarter answered to the Concord.
-  MD
+extend_subkind :npc, :official do
+  field :appointing_body, type: :entity, expected: false
+end
+```
+
+Facts compose in this order: kind fields, subkind fields, then one entity's
+custom fields. A later definition with the same name replaces the earlier one
+without changing its position.
+
+Supported fact types:
+
+| Type | Authored value |
+|---|---|
+| `text` | Ruby `String` |
+| `integer` | Ruby `Integer` |
+| `year` | an absolute year or another supported time anchor |
+| `entity` | one known entity id |
+| `entities` | one or more known entity ids |
+
+`field` reads an authored value. `relation_field` reads incoming or outgoing
+edges at the query year and has `one` or `many` cardinality. `calculated`
+supports `elapsed_years`, `first_moment_year`, `anchor_year`,
+`timeline_period`, `previous_era`, and `next_era`.
+
+`expected: true` makes absence visible in `facts`; it does not force an author
+to invent a value. `require_fact_cards! from: :renowned, minimum: 4` makes too
+few resolved public facts a lint error for entries at or above that prominence.
+
+### Relationships
+
+```ruby
+relation :opposes,
+  category: :social,
+  temporal: true,
+  domain: :npc,
+  range: :faction
+
+relation :member_of,
+  category: :organizational,
+  temporal: true,
+  domain: :npc,
+  range: :faction,
+  cardinality: :one,
+  exclusive_with: :opposes
+```
+
+Every relationship use must name a registered type. Definitions record:
+
+- `category`, required by convention and exposed to consumers;
+- `temporal`, exposed as relation metadata;
+- optional `domain` and `range` kind allowlists;
+- `cardinality`, where `one` forbids overlapping live targets for a source;
+- `exclusive_with`, which forbids the listed relation on the same pair;
+- optional `symmetric` and `inverse` metadata;
+- an optional human description.
+
+The validator enforces known and non-banned relation names, domain, range,
+cardinality, and exclusions. `symmetric` and `inverse` describe the relation for
+rendered consumers; the resolver stores and queries the authored direction.
+Use `state.in` for reverse traversal.
+
+The shared schema declares `related_to` with category `banned`, allowing the
+validator to issue a specific error for a generic edge instead of reporting an
+unknown word.
+
+### Controlled declarations
+
+- `tag :id, "meaning"` defines the only tag ids entries may use.
+- `section_heading :id` defines non-main prose sections.
+- `ban_phrase "text", "reason"` turns a known world-specific prose habit into
+  a lint error.
+- `drafted_by_default :ai`, `:human`, or `:ai_human` supplies block provenance
+  when a block has no override.
+- `require_explicit_subkinds!` rejects entities that omit `subkind`.
+- `declare_static_attr :name` adds an attribute that effects may not mutate.
+
+## 3. Timeline
+
+```ruby
+timeline do
+  era :first_age, starts: 2000, length: 40, title: "The First Age"
+  era :second_age, length: 60, title: "The Second Age"
+  now year: 2085
+end
+```
+
+Eras are ordered half-open intervals. When `starts:` is omitted, the next era
+begins where the previous one ends. An era may carry a title and description for
+rendered chronology.
+
+Accepted time points are:
+
+- an integer absolute year;
+- `:now`;
+- `{ year: 2085 }`;
+- `{ era: :second_age, year: 5 }`, where `year` is an offset from the era start.
+
+`World#year_of` also resolves a moment id, an era id, or an entity id. An entity
+anchors to the earliest moment that belongs to it.
+
+## 4. Entities
+
+An entity constructor is the entity's registered kind.
+
+```ruby
+npc :inez_bell do
+  name "Inez Bell"
+  subkind :official
+  tags :governance, :legibility
+  prominence :marginal
+  status :complete
+  path "player/npcs/inez-bell.md"
+
+  occupation "Municipal seal and voter-roll keeper"
+  jurisdiction "Cairo"
+  custom_fact :counter, "Cairo Ridge records hall"
+
+  prose "Bell works at #{ref :cairo_ridge, "Cairo Ridge"}."
+end
+```
+
+Common explicit methods are `name`/`title`, `tags`, `prominence`, `aka`,
+`status`, `region`, `narrative_role`, `subkind`, `reviewed`, `dm!`, `prose`,
+`cards`, `fact`, `custom_fact`, `question`, `log`, and `derive`.
+
+A call matching an attribute-backed schema fact sets that typed fact. Other
+unknown calls with arguments become extensible static attributes. This is why
+Lorecraft's schema is strong around declared facts and relationships but is not
+a static type system for every Ruby expression in an entity body.
+
+Allowed authoring statuses are `complete`, `draft`, `shell`, and
+`needs_refinement`. Status describes the entry, not the entity's standing in
+the world. A shell is a graph node with no rendered page. A complete or draft
+entry needs a render path; fresh entries may omit status until their path and
+review state are settled.
+
+`derive(:name) { |state| ... }` stores an advanced calculation hook on the
+entity. Callers invoke the proc explicitly; fact cards use declared
+`calculated` fields instead.
+
+## 5. Prose, cards, and markers
+
+### Prose blocks
+
+```ruby
+prose <<~PROSE
+  Main text.
+PROSE
+
+prose <<~PROSE, section: :history, heading: "History", at: 2080, dm: false
+  Text visible from 2080 onward.
+PROSE
+```
+
+Blocks keep declaration order. `section` defaults to `main`; non-main sections
+must use the controlled section vocabulary. `at:` delays a block until that
+year. `dm: true` hides one block without hiding its owner. Entity prose may
+declare `origin:`, `drafted_by:`, and `reviewed:`.
+
+### Authored cards
+
+```ruby
+cards "Continue reading", section: :relationships do
+  card :cairo, "The city whose records Bell keeps."
+  card :the_cairo_retreat, "The event that moved her office."
+end
+```
+
+Cards preserve an author's heading, order, targets, and descriptions. They are
+navigation, not world facts, and do not create typed relationship edges. A card
+target must be a known, written reader page available to the block's audience.
+
+### Inline markers
+
+Markers are Ruby interpolation helpers encoded in the prose until a validator
+or renderer supplies the world, year, format, and audience.
+
+```ruby
+#{ref :cairo, "Cairo"}                       # known entity link
+#{ref nil, "Timeline", path: "Timeline.md"} # non-entity path
+#{rel :located_in}                           # live outgoing targets
+#{rel :located_in, :cairo}                   # one pinned target
+#{future "North Levee Office"}               # no entity yet
+#{embed :cairo, :history}                    # transcluded prose
+#{elapsed :the_cairo_retreat, ago: true}      # computed span
+#{elapsed future: "Office founding", about: 8}
+#{year :the_cairo_retreat}                    # absolute year
+#{duration 80}                                # length with no date anchor
+```
+
+`ref` must resolve unless it uses a path. `future` is an explicit unresolved
+name and enters lint's future inventory. `embed` accepts only entity prose,
+creates a derived `embeds` edge, and rejects missing, shell, empty-section,
+audience-unsafe, or cyclic composition.
+
+`elapsed` accepts `:now`, a year, a moment, an era, or an entity as either
+anchor. The exact style uses digits; `approx: true` uses centralized rounded
+wording; `ago: true` appends “ago”. A future start requires an `about:` estimate
+until a matching dated id exists. `duration` is reserved for a length with no
+event anchor.
+
+## 6. Moments and effects
+
+```ruby
+genesis :bell_baseline, at: 2078 do
+  effects { set :inez_bell, located_in: :cairo }
+end
+
+moment :cairo_retreat, at: 2082, of: :inez_bell, type: :incident do
+  title "The Cairo Retreat"
+  prose "Bell carried the municipal seal uphill."
   effects do
-    set     :sable_concord, controls: :glasswright_quarter
-    destroy :glasswright_quarter   # location gone after tick 109
+    transfer :located_in, from: :cairo, to: :cairo_ridge, subject: :inez_bell
   end
 end
+```
 
-event :the_glasswright_war, type: :war,
-      span: { from: {era: :the_long_quiet, year: 4}, to: {era: :the_long_quiet, year: 9} } do
-  participants :sable_concord, :glasswright_guild   # ordered → war.participants[0]
-  outcome :sable_concord, :victory
+`genesis` establishes baseline state and has no reader page. `moment` records a
+dated occurrence, may own prose, and is page-bearing unless it is genesis. Use
+`span: { from:, to: }` instead of `at:` for a ranged moment. `of:` selects the
+entity whose page receives the moment prose; otherwise the first effect subject
+is the home entity.
+
+Effects:
+
+| Effect | Result |
+|---|---|
+| `create :id` | entity begins existing at the moment year |
+| `destroy :id` | entity stops existing at the moment year |
+| `set :id, relation: :target` | opens one typed edge |
+| `set :id, attribute: value` | sets dynamic state when the key is not a relation |
+| `clear :id, :relation, :target` | closes one edge |
+| `clear :id, :relation` | closes all matching outgoing edges |
+| `transfer :relation, from:, to:, subject:` | clear old target, then set new target |
+
+The resolver folds effects through a query year in deterministic order. An
+entity without explicit `create`/`destroy` exists across the whole timeline.
+Validation rejects a relation use before creation or after destruction. It also
+rejects effects that target declared static attributes.
+
+## 7. Named relationship instances
+
+```ruby
+relate :bell_at_ridge, :located_in, :inez_bell, :cairo_ridge,
+       since: 2082, till: 2090 do
+  prose "The records hall kept Bell's counter until the new levee opened."
 end
 ```
 
-State-at-T = fold of every effect with `tick <= T`, applied in tick order
-(ties broken by declaration order). `sable_concord.controls(at: :now)` replays
-to the answer. Causality errors (effect references a not-yet-created or
-already-destroyed entity at its tick) are raised during the fold.
+`relate` gives one edge a stable source id, interval, DM flag, and optional
+prose. The edge lowers to set and clear effects. Its prose renders on the source
+entity's page. Named relationship instances are not entity pages and are not
+targets for `ref`.
 
----
+With no `since:`, the edge begins at the first timeline year. `till:` is
+exclusive.
 
-## 6. Navigation & query (entity-oriented)
-
-```ruby
-world = Lorecraft.load("world/**/*.rb")
-
-war = world[:the_glasswright_war]
-war.participants[0].name              # => "The Sable Concord"
-war.participants[0].controls          # at :now → [<Location ...>]
-war.participants[0].controls(at: { era: :the_drift, year: 50 })  # historical
-
-concord = world[:sable_concord]
-concord.controls.map(&:name)
-concord.territory_count               # derived
-concord.rivals                        # inverse of rival_of, auto-provided
-concord.prose(section: :history, at: :now)
-
-# graph-ish traversal
-world.query { from(:sable_concord).out(:controls).at(:now) }
-world.query { events_touching(:glasswright_quarter) }
-```
-
-`a.b.0.name` style works because every relation accessor returns resolved
-**objects** (ordered where the relation says so), never symbols/strings. A rename
-of an entity id is one edit; all `ref`/`rel`/relation bindings resolve by symbol.
-
----
-
-## 7. Named-when-needed relations
-
-Anonymous unless the edge owns prose or is referenced; then promote:
+## 8. Authored pages
 
 ```ruby
-relate :concord_guild_rivalry, :rival_of, :sable_concord, :glasswright_guild,
-       since: { era: :the_drift, year: 88 } do
-  prose <<~MD
-    What began as a contract dispute over salvage rights curdled into eighty years
-    of sabotage, propaganda, and the occasional open street battle.
-  MD
+page :home, title: "The Dry War", wiki: "Home", audience: :player do
+  prose "Begin with #{ref :the_dry_war, "the Dry War"}."
 end
-
-world[:concord_guild_rivalry]         # addressable, owns prose, referenceable
 ```
 
----
+Pages hold reader front matter such as Home. They do not enter the entity graph
+and carry no fact card or relationships. Their markers resolve through the same
+world and audience rules as entity prose; validation rejects unknown ids and
+public references to DM entities.
 
-## 8. Validation pass (what the compiler rejects)
-
-1. **Unresolved reference** — any `ref`/`rel`/relation/effect target with no matching id.
-2. **Type constraint** — relation domain/range mismatch; effect verb misused.
-3. **Static/dynamic violation** — dynamic state set on entity; effect touches static attr.
-4. **Temporal causality** — entity used before `create`/`founded` or after `destroy`;
-   event span outside any valid era; relation interval inverted.
-5. **Symmetry/inverse contradiction** — A `rival_of` B but B `ally_of` A.
-6. **Cardinality** — `:one` relation with two live values at the same tick.
-7. **Dangling forward-ref at build** — referenced-before-defined is fine *within* a load;
-   unresolved at end of load is an error (replaces `[future:]`).
-
----
-
-## 9. Render targets
+## 9. Editorial state
 
 ```ruby
-world.render(:wiki, at: :now, out: "build/wiki")   # your existing dir-by-type layout,
-                                                    # cross-links, per-type index.md
-world.render(:graph, format: :json)                # node/edge projection for inspection
-world.render(:timeline, entity: :glasswright_quarter)  # life-of-entity event strip
+reviewed "2026-08-12"
+question "Where was Bell born?", raised: "2026-08-12", on: "Bell works"
+log "2026-08-12 — Moved the office after the retreat acquired a date."
 ```
 
-`render(:wiki)` assembles each entity page by collecting its owned prose paragraphs in
-declared order, resolving `ref`/`rel` to links/labels **at the render era**, and walking
-relations live at that era. The on-disk markdown you have today becomes a pure artifact.
+`reviewed` means a human read the words on that date. Block-level `reviewed:`
+overrides the entity date. `provenance` uses git history to mark a review expired
+after the relevant prose changes.
 
----
+`question` is unresolved work. `on:` anchors it to reader-shaped text; lint
+warns when the anchor no longer appears. Delete an answered question and use
+`log` when the reason for the resulting decision will matter later. Logs and
+questions never enter public reader output.
 
-## 10. File / module layout
+## 10. Query API
 
-```
-lorecraft/                      # the engine (gem-shaped)
-  lib/lorecraft.rb              # entry: Lorecraft.load / .define
-  lib/lorecraft/schema.rb       # schema DSL + registry
-  lib/lorecraft/timeline.rb     # era table, tick conversion
-  lib/lorecraft/entity.rb       # entity object, static attrs, prose, derive
-  lib/lorecraft/relation.rb     # relation defs + instances (named/anon)
-  lib/lorecraft/event.rb        # event + effects DSL
-  lib/lorecraft/world.rb        # registry, two-pass load, query API
-  lib/lorecraft/resolver.rb     # temporal fold: state-at-T
-  lib/lorecraft/validator.rb    # the rejection rules in §8
-  lib/lorecraft/render/wiki.rb
-  lib/lorecraft/render/graph.rb
-world/                          # YOUR content (the only source of truth)
-  schema.rb
-  timeline.rb
-  factions/sable_concord.rb
-  locations/glasswright_quarter.rb
-  events/glasswright_war.rb
-build/                          # generated, gitignored
+```ruby
+world.entity(:inez_bell)
+world.moment(:cairo_retreat)
+world[:inez_bell]
+world.at(:now).exists?(:inez_bell)
+world.at(2080).out(:inez_bell, :located_in, audience: :player)
+world.at(2080).in(:cairo, :located_in)
+world.at(2080).attr(:inez_bell, :standing)
+world.moments_of(:inez_bell)
+world.relationships
+world.pending_edges
+world.year_of(:cairo_retreat)
+world.elapsed(:cairo_retreat, :now)
 ```
 
----
+`State#out` returns target ids; `State#in` returns source ids. The optional
+audience filters DM edges. `World#relationships` is the distinct all-time graph,
+including derived embed edges. `pending_edges` lists future names by owning
+entity and does not invent nodes for them.
 
-## 11. Open / deferred (not blocking v0.1)
-- Fuzzy era boundaries (you chose fixed — locked).
-- Multi-world / variant timelines (branching what-ifs).
-- Incremental recompile / caching for large worlds.
-- FalkorDB re-introduction as an *export* target (dropped for now).
+## 11. Validation and lint
+
+`validate` checks hard invariants:
+
+- reference, card, fact, effect, and relationship targets resolve;
+- public content does not reference or embed DM-only entities;
+- a relationship with a DM-only endpoint declares `dm: true`;
+- relationship type, banned category, optional domain/range, cardinality, and
+  exclusions;
+- effects do not change declared static attributes;
+- temporal existence and moment ordering are causal;
+- tags, prominence, subkinds, fact types, and sections use their schemas;
+- narrative roles apply only to NPCs and use `viewpoint` or `titan`;
+- authoring status and provenance values have allowed shapes.
+
+`lint` runs checks that need assembled prose or graph shape. It reports levels
+`error`, `warn`, `future`, and `info`. Current checks cover titles, known DM-leak
+phrases, stale futures, prominence reach, required prominent-entry facts,
+hand-typed span inventory, stale question anchors, double articles,
+world-banned phrases, resonance vocabulary, DM public-entry links, shell/path
+consistency, causal and spatial cycles, antisymmetry, embed cycles, orphans, and
+location hierarchy.
+
+`make check WORLD=<id>` runs both. `make check-all` applies that gate to every
+active world.
+
+## 12. Render targets
+
+```ruby
+world.render(:markdown, out: "build/tree", audience: :player, at: :now)
+world.render(:wiki, out: "build/wiki", at: :now)
+world.render(:graph, audience: :player, at: 2080)
+world.render(:timeline, entity: :inez_bell)
+world.render(:site, out: "build/site", world_id: "dry-war",
+                    title: "The Dry War", revision: "...")
+```
+
+- `markdown` writes a directory tree with front matter and resolved prose.
+- `wiki` writes flat player-facing pages plus generated indexes, tags, timeline,
+  causality, and sidebar.
+- `graph` returns JSON nodes and full relationship intervals, marking which are
+  live at the render year.
+- `timeline` returns a Markdown effect strip for one entity.
+- `site` writes the public JSON used by the React reader and can write a
+  separate private editorial bundle.
+
+All targets are disposable. The DSL is the only source loaded on the next run.
+
+## 13. Deliberate boundaries
+
+- Lorecraft is an internal Ruby DSL, not a sandbox for untrusted input.
+- It does not infer facts or relationships from prose.
+- It does not prove prose truth, completeness, tone, or originality.
+- Auxiliary static attributes remain extensible unless promoted to schema facts.
+- Symmetric and inverse relation declarations are metadata; stored traversal
+  follows authored edge direction.
+- Generated search and graph views help discovery but do not replace source
+  inspection before an edit.

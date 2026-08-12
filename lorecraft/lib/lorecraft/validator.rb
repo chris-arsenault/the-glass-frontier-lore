@@ -18,12 +18,14 @@ module Lorecraft
       check_references
       check_cards
       check_relation_types
+      check_dm_edges
       check_static_dynamic
       check_causality
       check_cardinality
       check_exclusivity
       check_tags
       check_prominence
+      check_narrative_roles
       check_subkinds
       check_facts
       check_sections
@@ -55,6 +57,14 @@ module Lorecraft
         @dm_context = dm_owner?(owner) || block.dm?
         block.text_fragments.each do |text|
           Markers.scan(text) { |_match, marker| marker.resolve(self) }
+        end
+      end
+
+      @world.authored_pages.each_value do |page|
+        @owner = page
+        @dm_context = !%i[all player].include?(page.audience)
+        page.prose_blocks.each do |block|
+          Markers.scan(block[:text]) { |_match, marker| marker.resolve(self) }
         end
       end
 
@@ -213,12 +223,20 @@ module Lorecraft
           err("#{source}: unknown relation type #{eff.relation}")
           next
         end
+        if @schema.relation_def(eff.relation).category == :banned
+          err("#{source}: banned relation type #{eff.relation}")
+          next
+        end
         check_domain_range(eff.relation, eff.subject, eff.target, source)
       end
 
       @world.relation_instances.each_value do |ri|
         unless @schema.relation?(ri.verb)
           err("relation #{ri.id}: unknown relation type #{ri.verb}")
+          next
+        end
+        if @schema.relation_def(ri.verb).category == :banned
+          err("relation #{ri.id}: banned relation type #{ri.verb}")
           next
         end
         check_domain_range(ri.verb, ri.source, ri.target, "relation #{ri.id}")
@@ -234,6 +252,20 @@ module Lorecraft
       end
       if rd.range && (e = @world.entity(target)) && !rd.range.include?(e.kind)
         err("#{source}: #{verb} range expects #{rd.range.join('|')}, got #{e.kind} (#{target})")
+      end
+    end
+
+    def check_dm_edges
+      @world.all_effects.each do |entry|
+        effect = entry[:effect]
+        next unless effect.verb == :set && effect.relation
+        next if entry[:dm]
+
+        source = @world.entity(effect.subject)
+        target = @world.entity(effect.target)
+        next unless source&.dm? || target&.dm?
+
+        err("#{entry[:source]}: relation involving a DM-only entity must use dm: true")
       end
     end
 
@@ -312,6 +344,18 @@ module Lorecraft
         next if p.nil?
 
         err("#{label(e)}: prominence '#{p}' is not a known level") unless @schema.prominence?(p)
+      end
+    end
+
+    def check_narrative_roles
+      @world.entities.each_value do |entity|
+        role = entity[:narrative_role]
+        next if role.nil?
+
+        err("#{label(entity)}: narrative role is only valid on an npc") unless entity.kind == :npc
+        unless %i[viewpoint titan].include?(role.to_sym)
+          err("#{label(entity)}: unknown narrative role #{role.inspect} (allowed: viewpoint, titan)")
+        end
       end
     end
 
@@ -508,6 +552,7 @@ module Lorecraft
       when Entity then "#{owner.kind} #{owner.id}"
       when Moment then "moment #{owner.id}"
       when RelationInstance then "relation #{owner.id}"
+      when Page then "page #{owner.id}"
       else owner.to_s
       end
     end

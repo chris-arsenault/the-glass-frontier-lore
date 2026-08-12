@@ -1,5 +1,10 @@
 # Entity Bank Schema
 
+Archived pre-DSL planning record. Its counts, “Existing” lists, subkind names,
+and marker syntax do not describe the current Lorecraft world. Query the DSL
+with `facts`, `topology`, and `queue`; use
+`guidance/archetype-slots.md` for the current attribution rule.
+
 A structured inventory of entity sub-kinds, semantic axes, and density targets. The bank exists to solve the entity attribution problem: when prose needs a name, the author should reach into the bank rather than defaulting to the handful of well-known entities.
 
 This document defines the schema. A companion file (TBD) will contain the actual stub inventory.

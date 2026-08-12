@@ -147,10 +147,10 @@ module Lorecraft
       [REL, verb, FIELD, target, ENDM].join
     end
 
-    # A placeholder for a named thing with no entity yet (a shell). NOT a
-    # resolution error — renders as `[future:Name]`, which downstream wiki
-    # generation turns into a stub. Preserves the repo's `[future:...]`
-    # convention.
+    # A placeholder for a named thing with no entity at all, distinct from a
+    # shell node. It is not a resolution error: reader renders show the name,
+    # lint inventories it, and the compatibility Markdown view preserves it as
+    # `[future:Name]`.
     def future(name)
       [FUT, name, ENDM].join
     end

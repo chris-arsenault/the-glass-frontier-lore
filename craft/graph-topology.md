@@ -1,205 +1,177 @@
 # Graph Topology Guide
 
-Every world here feeds the same narrative engine, so every world has to reach the same structural properties: the engine traverses the graph, and what it cannot reach it cannot use.
+Typed relationships let a reader, tool, or LLM move through a world by meaning
+rather than by filename order or keyword similarity. This guide sets authoring
+targets. Live measurements come from the DSL:
 
-Targets only. Where a world actually stands is a measurement, not craft — run `make topology WORLD=<id>` for the live numbers, and record a gap you are not closing yet as a `question` on the entity it concerns.
+```sh
+make topology WORLD=<id>
+make web WORLD=<id>
+```
 
-## Target Metrics
+Record a gap that will remain open as a `question` on the entity it concerns.
+Do not copy live counts into guidance.
+
+## Targets
 
 | Metric | Target |
-|--------|--------|
-| Entities with fewer than 3 typed edges | 0 |
-| Median degree per prominence tier | rises with prominence |
-| 2-hop kind reachability | 100% all kinds |
-| Relationship type variety | 20+ types with 5+ edges each |
-| Components with mythic dropped | 1 |
-| Components with mythic and renowned dropped | 1 |
+|---|---|
+| Non-structural entries with fewer than 3 world edges | 0 |
+| Minimum and median degree by prominence | generally rise with prominence |
+| Components after mythic entries are removed | 1 |
+| Components after mythic and renowned entries are removed | 1 |
+| Isolated entries after either prominence cut | 0 |
 
-There is no target for edges per entity or for mean degree. Both average over a
-population that prominence stratifies on purpose: a mythic name may be
-referenced from anywhere and a forgotten one only from what already links to it,
-so the tiers have different degrees by design and one figure across all of them
-describes no entity in the graph. Worse, the average moves the right way for the
-wrong reason — adding well-connected marginal entities under a thin roof raises
-it while the graph gets more top-heavy. Read `make topology` tier by tier.
+There is no target for mean degree. Prominence deliberately produces different
+distributions: a mythic name can appear across the world, while a forgotten one
+should connect only to its immediate context. One average hides that shape.
 
-## Core Principles
+## What the commands count
 
-### 1. Every entity must have typed relationships
+`topology` reads `World#relationships`, the distinct all-time graph. It includes
+historical edges and derived `embeds` edges. The per-entry degree excludes
+bookkeeping relations such as `active_during`, `emerged_during`,
+`created_during`, `disappeared_during`, and `mentions`. Structural entries are
+reported separately from prominence tiers.
 
-No entity should exist in the graph with zero outgoing or incoming typed edges (excluding MENTIONS, HAS_SECTION, HAS_ARCHETYPE). This is the most basic requirement. The narrative engine traverses the graph — isolated nodes are invisible to it.
+An entry below the three-edge floor appears in one of two lists:
 
-**When creating an entity, add at least 3 typed relationships.** Check with `world.at(:now).out(:id)` — or read the entity out of `make topology`, which lists anything left at zero degree.
+- **disconnected:** it has too few world edges and no future markers;
+- **waiting on unwritten entities:** future markers show where intended
+  connections do not have nodes yet.
 
-### 2. Cross-kind bridges are more valuable than same-kind connections
+`web` treats edges as undirected for connectivity, removes structural entries
+at every cut, then removes mythic entries and finally mythic plus renowned
+entries. A remaining island depends on a famous hub for every route to the rest
+of the world.
 
-The narrative engine needs to reach any entity kind from any other kind in 2 hops. This requires deliberate cross-kind relationships. The canonry graph achieves this through bridge relationship types:
+Neither command judges prose quality or whether an edge is a good fact.
 
-| Bridge Rel | Connects | Our Equivalent |
-|-----------|----------|----------------|
-| `created_during` | everything → era | `EMERGED_DURING`, `ACTIVE_DURING` |
-| `practitioner_of` | npc → ability/concept | `USES`, `PRACTICES` |
-| `manifests_at` | concept → location | `MANIFESTS_AT`, `LOCATED_IN` |
-| `resident_of` | npc → location | `LOCATED_IN`, `BASED_IN` |
-| `owned_by` | artifact → faction/npc | `OWNED_BY`, `CREATED_BY` |
-| `participant_in` | npc/faction → occurrence | `PARTICIPATED_IN` |
-| `originated_in` | faction/concept → location | `FOUNDED_IN`, `ORIGINATED_IN` |
-| `controls` | faction → location | `GOVERNS`, `CONTROLS` |
-| `catalyst_of` | concept → occurrence | `CAUSED`, `TRIGGERED` |
-| `commemorates` | concept → occurrence | `COMMEMORATES`, `REFERENCES` |
-| `member_of` | npc → faction | `MEMBER_OF`, `LEADS` |
-| `central_to` | artifact → concept | `CENTRAL_TO`, `EMBODIES` |
+## 1. Give every entry local relationships
 
-The bridges that go thin first, in every world so far: artifact↔anything, concept↔faction, npc↔artifact, concept↔incident. Check those four before declaring a pass finished.
+Create at least three meaningful incoming or outgoing typed edges for every
+non-structural entry. Count the relationship in either direction; the point is
+that another query can locate the entry through concrete world facts.
 
-### 3. High-degree hub nodes provide structural connectivity
+Use the narrowest declared verb. `located_in`, `member_of`, `depends_on`, and
+`caused` answer different questions. The shared schema declares `related_to` as
+banned, and validation rejects it, because a generic edge cannot guide a later
+query.
 
-Eras, themes, threads and loops are the graph's hubs. Nearly everything connects to an era through `active_during` or `emerged_during`, and to a theme or thread through `fills_beat` or `at_stage`, which is how temporal and thematic traversal works at all.
+Do not add edges merely to satisfy the floor. A future marker is more honest
+than a false connection, and `topology` reports that distinction.
 
-This is good, and it is also the easiest kind of connectivity to mistake for the real thing. The graph must hold together **with those hubs removed.** If deleting every era, theme, thread and loop fragments it, the entity-to-entity topology is too thin.
+## 2. Connect different kinds through actual facts
 
-**Test:** Mentally remove all meta-structure nodes (themes, threads, loops, and eras if we add them). Do the remaining entities still form a connected graph with reasonable degree? If not, the entity-to-entity relationships are insufficient. The narrative engine traverses both meta-structure paths and direct entity paths — both must work independently.
+Same-kind edges are useful, but a world becomes navigable when a query can move
+between people, places, organizations, events, and reference material.
 
-Hub nodes provide thematic/temporal shortcuts. Direct entity relationships provide the ground-truth connectivity the engine needs for local traversal.
+Common bridges in the shared schema include:
 
-### 4. Degree is stratified by prominence, and that is where to read it
+| From | Relationship | To |
+|---|---|---|
+| NPC | `member_of`, `employed_by` | faction |
+| NPC | `located_in`, `operates_in` | location or installation |
+| faction | `headquartered_in`, `governs`, `operates_in` | place |
+| faction or NPC | `participated_in` | incident or conflict |
+| faction or NPC | `possesses` | artifact |
+| installation | `located_in`, `part_of` | geographic location |
+| artifact or resource | `derived_from`, `depends_on` | resource or concept |
+| culture or species | `inhabits` | geographic location |
+| phenomenon | `manifests_at` | place |
+| any causal source | `caused`, `causes`, `created`, `destroyed` | affected entity |
 
-Prominence gates how far a name travels, so it also fixes how many edges an
-entity can plausibly carry. Median degree should rise from `forgotten` to
-`mythic`. No entity should sit below 3 edges, and none besides an era should
-exceed 40.
+A world may declare additional verbs for setting-specific facts. Check its
+`world/schema.rb` rather than inventing a near-synonym.
 
-`make topology` prints the minimum, median and maximum for each tier. Two
-failures show up there and nowhere else:
+The gaps worth checking first are artifact to owner or place, concept to faction
+or practice, NPC to artifact, and concept to incident. These connections often
+exist in prose before anyone declares them as edges.
 
-**An inverted graph.** The top tiers have the lowest medians. The world's biggest
-names are being written about in prose and never wired, while the small entities
-written to connect things carry all the edges. The names still read as central
-and the graph no longer agrees.
+## 3. Do not confuse hubs with local structure
 
-**A thin tier floor.** A `mythic` or `renowned` entity with one or two edges is a
-name every entry may reach for and nothing can reach through. Fix these before
-anything else — one edge added at the top of the graph does more for reachability
-than ten added at the bottom.
+Eras, themes, threads, and loops can gather many edges because they organize
+history or narrative material. Mythic and renowned entities gather edges because
+their names travel widely. Those connections are useful, but they can make a
+tree with famous roots look like a web.
 
-The tier minimums matter more than the medians. A tier's median can look healthy
-while its minimum is 1.
+Use `make web WORLD=<id>` to test the less-prominent graph directly. Repair an
+island with a credible place, object, job, resource, danger, or dispute shared by
+both sides. Follow `craft/connecting-entities.md`; do not add an unearned edge
+between existing nodes just to merge components.
 
-### 5. Temporal coherence over edge count
+## 4. Read degree by prominence
 
-Edge count is easy to raise by ignoring dates: an NPC born in one era participating in events five eras later, a faction thriving at a location after it was destroyed. Every metric above improves and the history stops reading coherently.
+`topology` prints minimum, median, and maximum world degree for each prominence
+tier.
 
-Fewer relationships that make chronological sense are worth more than many that do not. Concretely:
+An inverted distribution, where famous entities have the lowest medians, means
+prose treats those entities as central but the graph does not. A thin tier floor
+means one widely usable name offers almost no path onward. Fix the minimum before
+optimizing a median.
 
-- **Check temporal bounds before adding relationships.** An edge's `since:`/`till:` has to sit inside the window both endpoints exist in. A faction dissolved in one era cannot act in the next; the validator rejects the edge, but it is cheaper to notice while writing.
-- **Prefer era-appropriate connections.** When choosing which entities to link, pick ones that coexist temporally. An NPC active in the present day should relate to present-day factions and locations, not pre-Glassfall ones (unless the relationship is explicitly historical, like "studies ruins of").
-- **Accept lower edge counts as the cost of coherence.** If an entity genuinely only has 3 coherent relationships, that is better than 6 with temporal nonsense. The floor of 3, the kind-reachability target and the component counts still apply — every entity must connect to *something*, all kinds must be reachable in 2 hops, and the graph must hold together with its famous entities removed. Above the floor, individual counts flex.
+A high degree can also be wrong. If one person, place, or faction becomes the
+default source of every detail, split the responsibility among more specific
+entities instead of giving the hub another role.
 
-The narrative engine benefits more from a graph it can traverse without producing contradictions than from one with high connectivity but broken timelines.
+## 5. Preserve time
 
-## Kind Taxonomy
+`World#relationships` contains edges from every date, so topology can look
+healthy even when no useful path exists at the year a task asks about. Check
+historical compatibility while authoring:
 
-Kinds are split into three categories. Each kind has a `category` tag on its taxonomy node.
+- both endpoints must exist during a temporal edge's interval;
+- `since:` is inclusive and `till:` is exclusive;
+- an omitted `since:` begins at the world's first timeline year;
+- `world.at(YEAR).out(:id, :verb)` and `.in` show only live edges;
+- `ruby lorecraft/bin/lorecraft timeline ID --world <id>` shows the effects that
+  touch one entity.
 
-### World Atlas (category: atlas) — named entities, primary graph content
+The schema's `temporal` flag tells consumers that a relation represents changing
+state. The stored interval still comes from `relate since:/till:` or dated
+moment effects.
 
-These are the core of the narrative engine. Named things with identity, history, and relationships.
+Fewer chronological facts are better than many impossible ones. The validator
+checks explicit existence intervals, but an author must still judge whether the
+relationship belongs in that period.
 
-| Kind | Description | Priority Relationships |
-|------|-------------|----------------------|
-| **npc** | Named sentient individuals | member_of(faction), located_in(installation), participated_in(incident), employed_by(faction) |
-| **geographic_location** | Natural places — planets, regions, biomes. Mostly static. | contains(geographic_location), part_of(geographic_location) |
-| **installation** | Constructed places — cities, stations, habs, ruins. Can change over time. | located_in(geographic_location), governs←(faction), built_by←(faction/npc) |
-| **faction** | Named organized groups — governments, guilds, syndicates | controls(installation), allied/enemy(faction), member_of←(npc), headquartered_in(installation) |
-| **artifact** | Named unique objects of power or importance | owned_by(faction/npc), located_in(installation), embodies(ability/concept) |
-| **creature** | Non- or semi-sentient notable entities. Distinct from NPC. | inhabits(geographic_location), depends_on(ability) |
-| **transport** | Named ships, vehicles, stations with identity and history | owned_by(faction/npc), operates_in(geographic_location), depends_on(resource) |
-| **incident** | Discrete, time-bound events. Happened and ended. | caused(entity), participated_in←(npc/faction), occurred_at(installation/geographic_location) |
-| **conflict** | Ongoing large-scale tensions. Long-horizon. | involves←(faction), manifests_at(geographic_location/installation), caused_by(incident) |
-| **rumor** | Investigatable hooks with uncertain truth. May reference any entity type. Anomalous signals and broadcasts are rumors — a strange transmission out of a hazard zone is something to investigate, not a kind of its own. | references(any), heard_at(installation), investigated_by←(npc/faction) |
-| **edict** | Laws, taboos, enforced systems. Comes into use once a world has governance detail to enforce. | enforced_in(installation/geographic_location), issued_by(faction), violates←(npc/faction) |
+## Kind taxonomy
 
-### Player Reference (category: reference) — general knowledge, highly connected hubs
+The shared schema groups kinds by use.
 
-These describe how the world works. Accessible as general knowledge. Expected to be highly connected — many atlas entities should link to them. A reference entity with degree <3 is under-connected.
+### World atlas
 
-| Kind | Description | Priority Relationships |
-|------|-------------|----------------------|
-| **species** | Biological or synthetic lineage. Referenced by npc/creature. | inhabits(geographic_location), depends_on(ability) |
-| **culture** | Shared norms, beliefs, aesthetics. Cross-cuts factions and species. | manifests_at(installation), originated_in(geographic_location) |
-| **ability** | Natural or technological capabilities. Will have subtypes (resonance, faith-based, etc). | practiced_by←(npc/species), manifests_at(geographic_location/installation), depends_on(resource) |
-| **resource** | World-specific materials — categories, not instances. Ringglass, stillwater, etc. | sourced_from(geographic_location), derived_from(resource), depends_on←(ability/artifact) |
-| **phenomenon** | Environmental/cosmic effects — echo rivers, Bloom Zone distortion, resonance depletion. | manifests_at(geographic_location), depends_on(ability/resource) |
-| **concept** | Remaining reference material — professions, meta-systems, worldbuilding overviews. | depends_on(concept), manifests_at(geographic_location) |
+Named things that form the primary graph:
 
-### Structural (category: structural) — engine mechanics
+`npc`, `geographic_location`, `installation`, `faction`, `artifact`, `creature`,
+`transport`, `incident`, `conflict`, `rumor`, `edict`.
 
-Not player-facing query buckets. Used for temporal filtering, hidden knowledge, and narrative guidance.
+### Player reference
 
-| Kind | Description |
-|------|-------------|
-| **era** | Temporal bins for filtering and context |
-| **dm** | Hidden knowledge — secrets, true causes, DM-only motivations |
-| **thread** | Narrative beat sequences |
-| **loop** | Recurring narrative patterns |
-| **theme** | Thematic questions that entries can engage with |
+General knowledge that many atlas entries can share:
 
-## Temporal Edges
+`species`, `culture`, `ability`, `resource`, `phenomenon`, `concept`.
 
-Relationship types are classified as **temporal** or **non-temporal** in the taxonomy (`temporal` flag on RelationType nodes).
+### Structural
 
-### Temporal relationships (state that changes over time)
+Chronology and authorial organization:
 
-These represent ongoing conditions with a start and optional end. They carry `valid_from` (year CE, required) and `valid_to` (year CE, nullable — omit for ongoing).
+`era`, `theme`, `thread`, `loop`.
 
-**Always temporal:** GOVERNS, GOVERNED_BY, LEADS, CHAIRS, REGULATES, MEMBER_OF, OPERATES_IN, HEADQUARTERED_IN, COOPERATES_WITH, INHABITS, POSSESSES, STUDIES, MAINTAINS, TRAINS, HOSTS, SUPPLIES, EMPLOYED_BY, OWNED_BY
+Era entries may remain reader-facing while `structural true` keeps their
+bookkeeping degree out of prominence comparisons. The shared schema marks
+`theme`, `thread`, and `loop` as non-reader kinds. DM visibility is a flag on an
+entity or block, not a separate entity kind.
 
-**Sometimes temporal:** LOCATED_IN, PRACTICED_BY, CARRIES — physical structures don't move, but communities relocate and traditions change.
+## Authoring sequence
 
-### Non-temporal relationships
+1. Read the source and target entries and the world's relation declarations.
+2. Choose the verb that states the actual fact.
+3. Add `since:` and `till:` when the fact changes over time.
+4. Run `make check WORLD=<id>` for type, audience, and causality errors.
+5. Run `make topology WORLD=<id>` and inspect any entry below the floor.
+6. Run `make web WORLD=<id>` when the change affects broader connectivity.
 
-Point-in-time events (CAUSED, CREATED, DESTROYED), structural/astronomical (PART_OF, ORBITS), physical properties (DEPENDS_ON, DERIVED_FROM), and all narrative/meta edges.
-
-### When adding temporal edges
-
-Edges are authored in a world's `world/` directory (years are absolute ticks). A `relate` instance, or an event effect:
-
-```ruby
-relate :coremark_in_shear, :operates_in, :coremark, :the_shear, since: 2320
-relate :continuity_gov_sithari, :governs, :the_continuity, :sithari, since: 2245
-relate :bloom_coop, :cooperates_with, :bloom_coalition, :displacement_council,
-       since: 2380, till: 2396
-```
-
-Validation rejects edges whose interval falls outside either endpoint's existence.
-
-### Point-in-time queries
-
-```
-ruby lorecraft/bin/lorecraft graph --at 2340   # whole-world projection at a year
-```
-
-In Ruby: `world.at(2340).out(:sithari)` / `.in(:sithari)` — state folded to that tick. Non-temporal edges are always active.
-
-## When Adding Relationships
-
-Before adding a relationship, consider archetype fill state by hand — if the relationship would make an entity the sole representative of its archetype in yet another context, prefer a `#{future "Name"}` marker instead.
-
-After adding relationships to an entity, query its neighborhood (`world.at(:now).out(id)`) and verify:
-- At least 3 typed relationships (not counting MENTIONS/HAS_SECTION)
-- Connections to at least 2 different entity kinds
-- At least one temporal relationship (era or occurrence link)
-- Temporal-typed edges have `valid_from` set
-
-## Where Topology Goes Wrong
-
-Every metric in the table above can be satisfied by a graph that is a tree with famous roots: entities reach one another through a handful of mythic hubs and nothing at the same scale is joined. `make web WORLD=<id>` removes the top prominence tiers and reports what separates. `craft/connecting-entities.md` is the procedure for closing those gaps with new entities rather than with edges.
-
-The same four failures turn up in every world, in roughly this order:
-
-1. **Thin edge density.** Entities get written and never wired. Density is the last metric to come up because it only moves when someone goes back over finished entries.
-2. **A kind that reaches nothing.** Usually `culture` or `ability` — the reference kinds whose content sits inside other entries as prose instead of existing as an entity other entries can link to.
-3. **Empty kinds mistaken for unneeded kinds.** `rumor`, `edict`, `transport` and `conflict` stay empty long past the point where the world has the material for them.
-4. **Reference material buried in prose.** Abilities and resources described inside a concept entry carry none of the connectivity they would as entities.
-
-Two dimensions the engine does not carry: a strength on a relationship, to weight one traversal over another, and a distance on a location edge. Every edge is currently equal and every neighbour equally near. Nothing in the DSL accepts either value, so an entry cannot express them and no linter looks for them.
+If a new field such as relationship strength or physical distance is needed,
+extend the schema and its query/render behavior first. The current edge model
+does not store either value.

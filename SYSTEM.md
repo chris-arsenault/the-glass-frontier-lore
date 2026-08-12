@@ -1,137 +1,246 @@
 # System Architecture
 
-The technical systems that support this lore repository. This is a living document — update it when systems change.
+Tsonu Canon stores each world as a Lorecraft DSL under
+`worlds/<id>/world/`. Lorecraft loads those files into an in-memory graph and
+timeline, answers bounded queries, validates edits, and generates every reader
+or editorial artifact. There is no canonical database or Markdown tree.
 
-Each world is authored as a **[Lorecraft](lorecraft/README.md) DSL** (Ruby) under `worlds/<id>/world/`. Lorecraft loads those files into an in-memory object graph with a real temporal model; the reader data, markdown and graph projection are *render targets*, not stores. There is no canonical database. (Until 2026‑06 the truth layer was a Memgraph graph kept in sync with markdown by hand; that arrangement, and its Python tooling — `graph_cli.py`, `lint.py`, `wiki_gen.py`, `review.py` — has been retired.)
+## Context architecture
 
-## Multiple Worlds
+The system increases an LLM's effective context by controlling what enters the
+working prompt and by making important constraints executable. It does not
+fine-tune the model or change its context-window size.
 
-The engine is world-agnostic. `worlds.yml` at the repo root declares the tenants — id, title, status, and whether CI publishes the world's wiki — and names the default. `Lorecraft::Worlds` reads it; every command resolves exactly one world through `--world <id>`, `LORECRAFT_WORLD`, or that default.
-
-A world load is two globs: `craft/schema/base.rb` first, then `worlds/<id>/world/**/*.rb`. The base declares the entity kinds, effect verbs and relation taxonomy every world shares; the world's own `schema.rb` adds its tags, section headings, and any relation that only means something in that setting. `schema do … end` blocks merge into one Schema object, so the two files compose without the engine knowing which is which.
-
-A world marked `status: scaffold` has a schema and a placeholder timeline and no entities. `make check-all` skips those — a vacuous pass would read as coverage.
-
-## Infrastructure
-
-| Component | Location | Purpose |
-|-----------|----------|---------|
-| Lorecraft engine | `lorecraft/` (Ruby) | Loads a world, validates, queries time, renders |
-| World manifest | `worlds.yml` | Which worlds exist, which is default, which publishes |
-| Site renderer | `lorecraft/lib/lorecraft/render/site.rb` | Builds public reader JSON and a separate editorial bundle |
-| Reader | `apps/web/` | Multi-world React app with search, graph, chronology, trails and comparison |
-| Editorial API | `backend/editorial-api/` | Returns private entry questions, logs and review records after ALB JWT validation |
-| Ahara deployment | `infrastructure/terraform/` | CloudFront/S3 site, Cognito client, ALB Lambda and private editorial bucket |
-
-Requires Ruby 3.x. `gem install minitest` for the test suite.
-
-## Object Model
-
-```
-World ── Schema     (kinds, subkinds and their facts; relations; vocabularies)
-      ── Timeline   (ordered eras with fixed boundaries; CE year = absolute tick)
-      ── Entity*    (id, kind, subkind, custom facts, prose/cards, derives)
-      ── Event*     (tick/span, effects, prose — addressable, page-bearing)
-      ── Relation*  (named edges, promotable; otherwise edges come from effects)
+```text
+world guidance + canonical DSL
+              │
+              ▼
+    loader ── schema ── timeline
+              │
+              ▼
+       in-memory World
+        │      │      │
+        │      │      └── validate/lint feedback
+        │      └───────── page/timeline/facts/queue/log
+        └──────────────── graph/topology/web/provenance
+              │
+              ▼
+ public reader · private editorial data · optional Markdown exports
 ```
 
-- **Static attributes** are declared on the entity and never change (`title`, `tags`, `prominence`, `region`, `narrative_role`, `status`, `path`, …).
-- **Dynamic state** (relationship edges, mutable attrs) is *never* stored — it is the fold of the event log at a query tick. `world.at(point).out(id, :verb)` replays history to the answer.
-- The static/dynamic split is compiler-enforced: an effect touching a static attribute is a validation error.
-- **Fact fields** compose in three layers. Kind fields apply to every entry;
-  subkind fields append or replace fields for one narrower class; custom fields
-  belong to one entry. Attribute facts come from the entity, relationship facts
-  query the graph at the render year, and calculated facts derive values such
-  as age from canonical dates. Production worlds require an explicit declared
-  subkind. Unknown facts are omitted publicly, while missing expected facts
-  appear in the private editorial bundle and `make facts WORLD=<id>`.
+This shape has four useful properties:
 
-## Time
+- **Progressive disclosure:** command help routes a task to one small query,
+  such as one rendered entry or one entity's effect history.
+- **Non-linear access:** stable ids and typed relationships support traversal by
+  location, membership, cause, dependency, time, or another declared meaning.
+- **Context boundaries:** generated artifacts, unresolved editorial questions,
+  historical logs, and DM knowledge have distinct channels and audiences.
+- **Specific feedback:** schema violations name the invalid id, relation, fact,
+  date, vocabulary value, or audience crossing.
 
-Eras are declared in order with fixed boundaries; every `(era, year)` maps to one absolute integer tick. CE years *are* the ticks, so edge temporal bounds (`since:`/`till:`) need no conversion. `now` is the default query/render era. Each world declares its own eras in `worlds/<id>/world/timeline.rb`.
+A raw Markdown wiki can render Lorecraft output, but pages and links alone do
+not carry these distinctions. The public site and wiki remain views because
+letting a generated page become an input would reintroduce duplicate facts and
+stale derived context.
 
-## Relationships
+Lorecraft does not type or verify every sentence. It enforces declared facts,
+relationships, timelines, vocabularies, provenance shapes, and selected prose
+rules. Entity bodies retain extensible static attributes, and free prose still
+requires world guidance and human review.
 
-Edges are semantically typed against the schema taxonomy (`craft/schema/base.rb` plus the world's additions, 60+ types with `category` + `temporal` flags — LOCATED_IN, GOVERNS, CAUSED, OPERATES_IN, …). Unknown types are rejected by the validator; there are no generic/banned edges to police because only declared types load.
+## Multiple worlds
 
-Edges are produced by event effects (`set`/`clear`/`transfer`) or by named `relate` instances; both carry an optional `[from, to)` interval and a `dm` flag. Temporal relations model ongoing states (a faction governs a place 2340–2355); non-temporal relations are inherent (PART_OF, ORBITS, CAUSED).
+`worlds.yml` declares each tenant's id, title, and status and selects the
+default. Content/query commands resolve exactly one world through `--world
+<id>`, `LORECRAFT_WORLD`, or that default. Help loads no world.
+`Lorecraft::Worlds` locates the manifest by walking upward from the current
+directory.
 
-Prose carries inline bindings — `ref :id` (cross-link, resolved at render era), `rel :verb` (live target(s) of the owner's relation), `future "Name"` (placeholder for a thing with no entity yet). These are the successor to graph MENTIONS edges.
+A load evaluates `craft/schema/base.rb`, then the world's `schema.rb` and
+`timeline.rb`, then the other `world/**/*.rb` files in sorted path order. Schema
+blocks compose into one `Schema`. The shared file owns setting-independent
+kinds, fact fields, effects, and relationship types; a world adds controlled
+tags, section names, fields, banned phrases, and setting-specific relations.
 
-## Validation (`make validate`)
+A world marked `scaffold` has no canon. `make check-all` and `make site-data`
+skip it so an empty world cannot appear to have passed a content gate.
 
-Hard invariants; raises on any violation:
+## Runtime model
 
-- Unresolved `ref`/effect/`relate` target; unknown relation type; declared domain/range mismatch.
-- Static/dynamic violation (effect sets a static attribute).
-- Temporal causality (use of an entity before `create` / after `destroy`).
-- `:one` cardinality with two live targets; mutually-exclusive relations live at once.
-- Tag not in the world's declared vocabulary; non-canonical authored section; unresolved or hidden card target; **DM-leak** (public content referencing a DM-only entity).
+```text
+World ── Schema              kinds, subkinds, facts, relations, vocabularies
+      ├─ Timeline            fixed era ranges and the present year
+      ├─ Entity*             static facts, prose/cards, questions, logs
+      ├─ Moment*             dated prose and state-changing effects
+      ├─ RelationInstance*   named edges with optional intervals and prose
+      └─ Page*               authored reader pages outside the entity graph
+```
 
-## Lint (`make lint`)
+Static entity attributes do not change through history. Dynamic attributes and
+live relationships are the fold of ordered effects through a query year.
+`world.at(2080)` returns an immutable `State` with `out`, `in`, `attr`, and
+`exists?` queries. Same-year effects use author sequence and deterministic load
+order as tie-breaks.
 
-Graded findings — errors / warnings / futures — over the in-memory graph:
+Entities exist across the whole timeline unless `create` and `destroy` effects
+narrow their interval. Genesis moments establish baseline state. Ordinary
+moments record change and may place prose on an entity's page. Named `relate`
+declarations lower to the same set and clear effects used by moments.
 
-| Check | Catches |
-|-------|---------|
-| DM-phrase leakage | "the truth is", "secretly", … in player prose |
-| Stale future | `future "X"` where a written page `:x` exists |
-| Prominence reach | renowned/mythic entry linking to a lower-prominence entity not in `prominence_xrefs` |
-| Required infobox facts | public entries at or above a world's configured prominence with fewer than its required fact count |
-| Double-article / resonance vocab | "the The …"; non-standard "high/low-band" terms |
-| DM `public_entry` | DM page missing its `public_entry` |
-| Shell consistency | shell with a path; complete with none |
-| Causal / PART_OF cycles | cycles in `causes` / `part_of` |
-| Antisymmetry | A and B both `governs`/`leads`/… each other |
-| Orphans / location spatial | complete entity with no edges; location with no spatial-hierarchy edge |
+## Typed schema
 
-**Retired with the graph:** embedding-based semantic duplication (old L2/L3), archetype-gap reports, and the vector index — these required Memgraph + an embedding service and have no in-memory equivalent.
+Kinds identify the broad class of a node. Required subkinds provide the concrete
+class used by reader fact cards. Fact definitions compose from kind, subkind,
+and one-entry custom fields:
+
+- attribute facts read canonical values from the entity;
+- relationship facts query typed edges at the render year;
+- calculated facts derive values such as age or era period from canonical dates.
+
+Fact types are text, integer, year, entity, and entities. Missing expected facts
+do not produce public placeholders; `make facts WORLD=<id>` and the private
+editorial bundle report them.
+
+Every relationship has a declared name and category. It may also constrain
+domain, range, cardinality, mutual exclusion, and temporal meaning. Validation
+rejects unknown types, types declared as banned, domain/range mismatches,
+overlapping `:one` targets, and exclusive relations held together. Symmetry and
+inverse names are exported metadata; stored traversal follows the declared edge
+direction.
+
+The schema also controls tags, non-main prose sections, prominence levels,
+authoring statuses, provenance values, and per-world banned phrases. Auxiliary
+entity attributes remain open by design and should become schema facts when a
+second entry needs the same field.
+
+## Prose composition
+
+Prose stays readable Ruby text and uses deferred inline markers:
+
+- `ref` resolves a known entity or authored path;
+- `rel` renders current targets of one typed outgoing relationship;
+- `future` records a named entity that has not been written;
+- `embed` transcludes prose owned by another entity and derives an `embeds` edge;
+- `elapsed`, `year`, and `duration` centralize time arithmetic and wording.
+
+Markers resolve only after the engine knows the world, output format, audience,
+and year. Validators use the same marker dispatch as renderers, so a new marker
+must define behavior for every resolver or fail loudly.
+
+Cards are authored navigation with stable order and descriptions. They do not
+assert a world relationship. A factual connection must still use a typed edge.
+
+## Just-in-time query surfaces
+
+`ruby lorecraft/bin/lorecraft help` groups commands by task. The main bounded
+views are:
+
+| Question | View |
+|---|---|
+| What worlds can I work on? | `worlds` |
+| What needs attention? | `queue` |
+| What does one reader see? | `page <id>` |
+| What changed this entity? | `timeline <id>` |
+| Why did this entry change? | `log <id>` |
+| Which structured facts are absent? | `facts` |
+| Which entries lack local graph support? | `topology` |
+| Does the graph survive without famous hubs? | `web` |
+| Which machine-drafted prose lacks a current human read? | `provenance` |
+
+Broader projections such as `graph` and `stats` remain available when a task
+needs whole-world structure. A normal edit should not begin with the widest
+projection simply because it exists.
+
+## Validation and lint
+
+`make validate WORLD=<id>` enforces hard invariants:
+
+- ids used by prose, cards, facts, effects, pages, and named edges resolve;
+- public entities and pages do not name or embed DM-only entities;
+- relationships with DM-only endpoints carry the DM flag;
+- relation types, banned categories, domain/range, cardinality, and exclusions;
+- static attributes are not changed by effects;
+- entity existence and effect use are temporally causal;
+- tags, prominence, subkinds, fact types, sections, statuses, and provenance
+  values follow their declared vocabularies;
+- narrative roles appear only on NPCs and use `viewpoint` or `titan`.
+
+`make lint WORLD=<id>` runs assembled quality checks. Errors cover defects such
+as stale futures, required fact-card gaps, banned phrases, DM metadata gaps,
+embed cycles, and impossible shell state. Warnings identify prominence reach,
+stale question anchors, antisymmetry, orphans, and missing spatial hierarchy.
+Futures inventory unwritten names and dates. Informational findings identify
+hand-typed spans that may need timeline markers.
+
+`make check WORLD=<id>` runs both. `make check-all` runs both for every active
+world.
 
 ## Render targets
 
-Generated output is never committed here.
+Generated output is disposable and gitignored.
 
-- `make site-data` writes two bundles. `build/site` contains player-visible JSON, including known kind facts, the exact OpenGraph route manifest and the social card. `build/site-internal` contains questions, logs, review state, drafting provenance, missing expected facts and DM entries. The browser never receives the internal bundle from the static origin.
-- `make reader-build` copies the public bundle into the Vite build and produces `apps/web/dist`. Terraform injects the production API and Cognito values through `config.js`.
+- `make site-data` writes `build/site` and `build/site-internal`. The public
+  bundle contains reader-visible entries, pages, facts, graph, chronology,
+  search material, route metadata, and social assets. The internal bundle adds
+  questions, entry logs, provenance, missing expected facts, and editorial
+  records for DM entries.
+- `make reader-build` embeds the public bundle in the production Vite build at
+  `apps/web/dist`.
+- `make wiki WORLD=<id>` writes an optional flat player wiki with entry pages,
+  authored pages, indexes, tags, timeline, causality, and sidebar.
+- `make graph WORLD=<id>` writes node and relationship-interval JSON.
+- `render` writes a directory-shaped Markdown compatibility view. Its default
+  audience is `all`; callers must select `player` before sharing it publicly.
 
-- `make wiki WORLD=<id>` → GitHub wiki export into `build/<id>/wiki`: flat `Title.md` with `[[wiki links]]`, authored `page`s (Home, …), generated **Tags / Timeline / Causality** pages, generated per-type indexes, sidebar and future stubs. Player audience only (DM, shells and DM edges excluded).
-- `make graph WORLD=<id>` → node/edge JSON projection at a tick (the Memgraph-projection replacement).
-- `lorecraft timeline <id> --world <world>` → life-of-entity event strip.
-- A dir-by-type markdown renderer (`Render::Markdown`) also exists for ad-hoc export to `build/`, but is not part of the published pipeline.
-
-The site renderer records direct references, typed relationships and embedded passages as graph edges. Authored cards remain presentation: their targets, order and descriptions render on the owning entry without creating a factual relationship. Graph and chronology views filter their facts at the selected year. Entry routes remain stable because they use the world id and entity slug.
+The public React reader and wiki exclude DM entities, DM blocks, DM edges,
+non-reader kinds, and shells. Graph and raw Markdown projections have their own
+audience behavior documented by `help graph` and `help render`.
 
 ## Editorial boundary
 
-CloudFront serves the public React app and player bundle from S3. Editorial data goes to a different, private S3 bucket. The browser uses a public Cognito client with authorization-code PKCE and sends the ID token to `api.canon.tsonu.com`; the shared ALB validates the token before invoking the Rust Lambda. The Lambda can read only the generated editorial objects and returns one entry at a time with `private, no-store` caching.
+CloudFront serves the React application and public bundle from S3. Private
+editorial JSON lives in a separate S3 bucket. The browser uses Cognito
+authorization-code PKCE and sends its ID token to `api.canon.tsonu.com`; the
+shared ALB validates the token before invoking the Rust editorial Lambda. The
+Lambda reads only the requested editorial object and returns it with private,
+no-store caching.
 
-OpenGraph requests take a separate path. Lorecraft generates an exact route-to-metadata manifest with the public bundle. The shared OG Lambda reads that manifest from the public site bucket and returns the React shell with route-specific tags; it has no access to editorial data.
+OpenGraph rendering uses the exact public route manifest generated by
+Lorecraft. The shared OpenGraph Lambda can read the public site bucket and has
+no access to editorial data.
+
+## CI and deployment
+
+`.github/workflows/ci.yml` runs the Lorecraft tests, checks every active world,
+and builds public and private site data. The application job then delegates to
+the shared Ahara workflow, which builds and deploys the repository stack. The
+GitHub wiki export is available locally but is not the deployed publication
+path.
 
 ## Layout
 
-```
-worlds.yml             # the manifest — tenants, default, publish flags
+```text
+worlds.yml                    world manifest and default
 worlds/<id>/
-  world/               # SOURCE OF TRUTH for this world
-    schema.rb          # this world's tags, sections, setting-specific relations
-    timeline.rb        # eras (descriptions) — drives the generated Timeline page
-    pages.rb           # authored `page` constructs (Home, …) — not entities
-    <type>/<id>.rb     # one file per entity (kind → directory)
-    _shells.rb _edges.rb # shell stubs; relationship edges
-  guidance/            # this world's substitutions into craft/
-  work-tracking/       # pre-DSL migration snapshots where retained
-  research/            # audits and analysis of this world
+  CLAUDE.md                   setting premise and narrowed rules
+  guidance/                   setting-specific substitutions into craft
+  world/
+    schema.rb                 tags, fields, phrases, setting relations
+    timeline.rb               eras and present year
+    pages.rb                  authored non-entity reader pages
+    <kind>/<id>.rb            canonical entities
+    _edges*.rb                named typed relationships
 craft/
-  schema/base.rb       # kinds, relation taxonomy, effect verbs — loaded by every world
-  *.md                 # world-agnostic writing craft
+  schema/base.rb              shared executable schema
+  *.md                        shared writing craft
 lorecraft/
-  lib/lorecraft/       # engine: schema, timeline, entity, event, relation, page, worlds,
-                       # resolver (fold), validator, linter, render/{markdown,wiki,graph,timeline,site}
-  bin/lorecraft        # CLI
-  tools/               # each_world.rb; import.rb, parity.rb (one-shot migration record)
-  test/                # minitest suite
-docs/                  # repo docs
-build/<id>/            # generated output (gitignored)
-apps/web/dist/         # generated production reader (gitignored)
-backend/target/        # generated Rust artifacts (gitignored)
+  bin/lorecraft               CLI and help dispatcher
+  lib/lorecraft/              model, queries, checks, and renderers
+  tools/                      site build and retained migration utilities
+  test/                       unit and smoke tests
+apps/web/                     public reader
+backend/editorial-api/        authenticated editorial API
+infrastructure/terraform/     site, identity, storage, and API deployment
+build/                        generated artifacts
 ```

@@ -24,7 +24,6 @@ When you are unsure where something belongs, ask whether it would still be true 
 | `naming-by-kind.md` | per-kind naming checks |
 | `narrative-roles.md` | viewpoint and titan tiers |
 | `graph-topology.md` | target graph health and relationship budgets |
-| `entity-bank-schema.md` | archetype sub-kinds, axes, density targets |
 | `crosswalk-review.md` | the periodic consistency audit |
 | `schema/base.rb` | the entity kinds, effect verbs and relation taxonomy every world loads |
 | `research/` | craft reference material, not tied to a setting |

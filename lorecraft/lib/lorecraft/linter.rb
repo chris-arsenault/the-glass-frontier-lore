@@ -7,11 +7,11 @@ module Lorecraft
   # The lore quality gate — the in-memory successor to lint.py. Where the
   # Validator enforces hard structural invariants (and raises), the Linter
   # reports graded findings: errors (must fix), warnings (should review), and
-  # futures (shells noted, not problems). It runs entirely against the world
-  # object graph plus the on-disk meta files; no database.
+  # futures (unwritten names and undated anchors, not problems). It runs against
+  # the world object graph plus the on-disk meta files; no database.
   #
-  # Checks that depended on Memgraph embeddings (semantic duplication L2/L3) are
-  # intentionally absent — they died with the graph.
+  # Semantic-duplication checks are intentionally absent: the in-memory graph
+  # has no embedding index, so Lorecraft does not claim to prove prose meaning.
   class Linter
     Finding = Struct.new(:level, :message)
 

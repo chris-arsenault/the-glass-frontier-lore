@@ -4,6 +4,7 @@ $LOAD_PATH.unshift File.expand_path("../lib", __dir__)
 Encoding.default_external = Encoding::UTF_8
 Encoding.default_internal = Encoding::UTF_8
 require "minitest/autorun"
+require "open3"
 require "tmpdir"
 require "lorecraft"
 
@@ -251,6 +252,21 @@ class ValidatorTest < Minitest::Test
     assert(problems.any? { |p| p.include?("domain") || p.include?("range") })
   end
 
+  def test_declared_banned_relation_is_rejected
+    w = Lorecraft.define do
+      schema do
+        entity_type :concept
+        relation :related_to, category: :banned
+      end
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
+      concept :a do name "A" end
+      concept :b do name "B" end
+      relate :generic_link, :related_to, :a, :b
+    end
+
+    assert(w.validate.any? { |p| p.include?("banned relation type related_to") })
+  end
+
   def test_dm_leak_caught
     w = Lorecraft.define do
       schema do
@@ -262,6 +278,50 @@ class ValidatorTest < Minitest::Test
       concept :public_page do name "Public"; prose "see #{ref :hidden}" end
     end
     assert(w.validate.any? { |p| p.include?("public prose references DM-only") })
+  end
+
+  def test_public_authored_page_cannot_reference_dm_entity
+    w = Lorecraft.define do
+      schema do
+        entity_type :concept
+        entity_type :secret, wiki: false
+      end
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
+      secret :hidden do name "Hidden"; dm! end
+      page :home, title: "Home", audience: :player do
+        prose "See #{ref :hidden}."
+      end
+    end
+
+    assert(w.validate.any? { |p| p.include?("page home: public prose references DM-only") })
+  end
+
+  def test_narrative_role_is_limited_to_known_npc_roles
+    w = Lorecraft.define do
+      schema { entity_type :npc, :concept }
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
+      npc :miscast do name "Miscast"; narrative_role :oracle end
+      concept :misplaced do name "Misplaced"; narrative_role :titan end
+    end
+
+    problems = w.validate
+    assert(problems.any? { |p| p.include?("unknown narrative role :oracle") })
+    assert(problems.any? { |p| p.include?("only valid on an npc") })
+  end
+
+  def test_relation_to_dm_entity_must_be_dm
+    w = Lorecraft.define do
+      schema do
+        entity_type :concept
+        relation :knows, temporal: false
+      end
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
+      concept :public_entry do name "Public" end
+      concept :hidden do name "Hidden"; dm! end
+      relate :leak, :knows, :public_entry, :hidden
+    end
+
+    assert(w.validate.any? { |p| p.include?("relation involving a DM-only entity must use dm: true") })
   end
 
   def test_authored_cards_require_reader_pages_and_descriptions
@@ -1221,6 +1281,16 @@ class EmbedTest < Minitest::Test
     assert_includes w.relationships, [:borrower, :embeds, :owner]
   end
 
+  def test_dm_block_embed_is_not_a_player_edge
+    w = build do
+      concept :owner do name "Owner"; prose "X." end
+      concept :borrower do name "Borrower"; prose "#{embed :owner}", dm: true end
+    end
+
+    assert_includes w.embed_edges, [:borrower, :embeds, :owner]
+    refute_includes w.embed_edges(audience: :player), [:borrower, :embeds, :owner]
+  end
+
   def test_embedding_a_missing_section_is_a_validation_error
     w = build do
       concept :owner do name "Owner"; prose "X." end
@@ -1639,5 +1709,40 @@ class MarkersTest < Minitest::Test
       Lorecraft::Markers.scan(ref(:a)) { |_m, marker| marker.resolve(incomplete) }
     end
     assert_match(/on_ref/, err.message)
+  end
+end
+
+class CLIHelpTest < Minitest::Test
+  def test_help_does_not_require_a_world_manifest
+    executable = File.expand_path("../bin/lorecraft", __dir__)
+    stdout, stderr, status = Open3.capture3(
+      RbConfig.ruby, executable, "help", "model", chdir: Dir.tmpdir
+    )
+
+    assert_predicate status, :success?
+    assert_empty stderr
+    assert_includes stdout, "without fine-tuning"
+  end
+
+  def test_overview_routes_tasks_to_small_queries
+    help = Lorecraft::CLIHelp.render
+
+    assert_includes help, "Read only the context the task needs"
+    assert_includes help, "page, timeline, log, facts"
+    assert_includes help, "help TOPIC"
+  end
+
+  def test_model_topic_states_capability_and_boundary
+    help = Lorecraft::CLIHelp.render("model")
+
+    assert_includes help, "without fine-tuning"
+    assert_includes help, "context poisoning"
+    assert_includes help, "does not prove that free prose is true"
+  end
+
+  def test_every_advertised_command_has_help
+    Lorecraft::CLIHelp::COMMANDS.each_key do |command|
+      assert_includes Lorecraft::CLIHelp.render(command), "Usage:"
+    end
   end
 end

@@ -1,7 +1,8 @@
 .PHONY: validate lint check check-all wiki site-data graph stats topology worlds test provenance facts queue web reader-dev reader-build backend-check app-check clean
 
-# Every target runs against one world. Override with WORLD=<id>; `make worlds`
-# lists what is available. The default comes from worlds.yml.
+# Content targets run against one world unless their name says otherwise.
+# Override with WORLD=<id>; `make worlds` lists what is available. The default
+# comes from worlds.yml.
 WORLD ?= glass-frontier
 LC := ruby lorecraft/bin/lorecraft --world $(WORLD)
 OUT := build/$(WORLD)
@@ -25,8 +26,8 @@ check: validate lint
 check-all:
 	@ruby lorecraft/tools/each_world.rb check
 
-# Generate the GitHub wiki into build/<world>/wiki. CI publishes the wiki for
-# worlds marked `publish: true`; it is never committed here.
+# Generate an optional GitHub wiki export into build/<world>/wiki. The deployed
+# reader uses `site-data`; neither generated target is committed here.
 wiki:
 	@$(LC) wiki $(OUT)/wiki
 

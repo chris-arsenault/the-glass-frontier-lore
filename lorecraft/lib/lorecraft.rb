@@ -11,7 +11,8 @@
 # The engine is world-agnostic. Which worlds this repository holds, and where
 # their files live, is `worlds.yml` — see Lorecraft::Worlds.
 #
-# See SYSTEM in the repo for the authoring guide.
+# See lorecraft/README.md for authoring and docs/lorecraft-spec.md for the
+# implemented language reference.
 module Lorecraft
   VERSION = "0.1.0"
 
@@ -28,6 +29,7 @@ end
 
 require_relative "lorecraft/world"
 require_relative "lorecraft/worlds"
+require_relative "lorecraft/cli_help"
 require_relative "lorecraft/provenance"
 require_relative "lorecraft/fact_audit"
 require_relative "lorecraft/queue"

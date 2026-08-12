@@ -61,7 +61,7 @@ NPCs fall into three tiers: regular NPCs, viewpoint characters, and titans. Most
 
 **Viewpoint characters** are NPCs whose stories a player enters mid-arc. They are the player's ground-level introduction to a thread or theme. Their backstories generate minor entities — forgotten locations, marginal factions, personal incidents that only matter because this character interacts with them. Viewpoints are narrative generators: writing one should produce 5-10 shell entries. They are typically recognized or marginal prominence. Their connections are specific and high-fidelity, mostly to low-prominence things.
 
-**Titans** are NPCs (or institutions) whose decisions shaped the world the player walks through. Known through reputation and consequences. Described through impact, not interiority. Their entries are shorter — mystique comes from restraint. They generate renowned/mythic shells. The player navigates a titan's consequences long before engaging directly.
+**Titans** are NPCs whose decisions shaped the world the player walks through. Known through reputation and consequences. Described through impact, not interiority. Their entries are shorter — mystique comes from restraint. They generate renowned/mythic shells. The player navigates a titan's consequences long before engaging directly.
 
 The player experiences viewpoint paths first (personal, investigative) and titan paths later (confrontational, system-scale). When a titan becomes aware of a viewpoint character, that is a narrative event, not the default.
 
@@ -79,14 +79,25 @@ Player entries must stand on their own. They should never hint at DM knowledge o
 
 No "technically true." No "what they don't know." No narrator winks. The linter catches leakage phrases automatically.
 
-## Occurrences Are Independent Entities
+## Incidents And Conflicts Are Independent Entities
 
-Events that happened are first-class entities with their own type, temporal bounds, and causal relationships. They participate in the DAG as nodes, not just descriptions. "Event" is an overloaded word — we use "occurrence" instead.
+A named event or ongoing conflict is a first-class `incident` or `conflict`
+entity with its own facts and causal relationships. A Lorecraft `moment` is
+different: it is a dated change that belongs to an entity and carries effects.
+Use an entity when readers or other entities need to reference the occurrence;
+use a moment to establish when state changed.
 
 ## The Causality DAG Is Entity-to-Entity
 
-Every node in the causality DAG must be a real entity ID or an entity::heading reference. No descriptions, no state changes, no narrative commentary. "Refugees organize into a council" is wrong — it should be `displacement → [caused] → displacement_council`, where the displacement is an occurrence entity.
+Every endpoint in the causality graph must be a real entity id. No descriptions,
+state changes, section headings, or narrative commentary. “Refugees organize
+into a council” is not an endpoint; declare an incident entity and connect it to
+the council with the narrow causal relation that states the fact.
 
 ## The World File Is the Structured Truth
 
-A world's `world/` DSL is the single source of truth for its entities, relationships, and temporal data — markdown and the graph projection are rendered from it. Every relationship is a semantically typed edge from the schema taxonomy; generic relationships are not expressible. Edit `world/`, never the generated markdown. See `SYSTEM.md`.
+A world's `world/` DSL is the single source of truth for its entities,
+relationships, and temporal data. Markdown and graph projections are generated
+from it. Every relationship uses a declared semantic type; validation rejects
+the generic `related_to` type. Edit `world/`, never generated output. See
+`SYSTEM.md`.

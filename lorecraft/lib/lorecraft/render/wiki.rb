@@ -58,8 +58,8 @@ module Lorecraft
       def wiki_filename(title) = "#{title.gsub(' ', '-')}.md"
 
       # A node belongs in the player wiki only if it has a title, is not DM-only,
-      # is not a shell, and its kind is a wiki kind (excludes the structural
-      # kinds — theme/thread/loop/dm — which are authorial scaffolding).
+      # is not a shell, and its kind is a wiki kind (excluding the non-reader
+      # theme, thread, and loop kinds).
       def wiki_visible?(node)
         return false unless node.respond_to?(:title)
         return false if node.respond_to?(:dm?) && node.dm?
@@ -199,7 +199,7 @@ module Lorecraft
       end
 
       def timeline_page
-        out = +"# Timeline\n\nMajor eras of the Kaleidos system, oldest first.\n\n"
+        out = +"# Timeline\n\nMajor eras of this world, oldest first.\n\n"
         @world.timeline.eras.each do |era|
           out << "## #{era.title || era.name}\n\n"
           out << "#{era.description.strip}\n\n" if era.description

@@ -172,9 +172,14 @@ module Lorecraft
     # transclusion is a real connection — the entry cannot be read without the
     # target — so the composition web belongs in the graph, and topology and the
     # prominence-reach check see it without anyone declaring an edge.
-    def embed_edges
-      @embed_edges ||= prose_owners.flat_map do |owner|
+    def embed_edges(audience: :all)
+      @embed_edges ||= {}
+      @embed_edges[audience] ||= prose_owners.flat_map do |owner|
+        next [] if audience == :player && owner.respond_to?(:dm?) && owner.dm?
+
         owner.prose_blocks.flat_map do |block|
+          next [] if audience == :player && block.dm?
+
           Markers.scan(block.text).filter_map do |_m, marker|
             [owner.id, :embeds, marker.id] if marker.kind == :embed
           end

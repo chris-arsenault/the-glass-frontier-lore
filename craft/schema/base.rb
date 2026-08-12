@@ -4,8 +4,8 @@
 # base taxonomy does not carry.
 #
 # A relation belongs here when the concept survives a change of setting
-# (LOCATED_IN, GOVERNS, CAUSED). A relation that only means something inside one
-# world (ATTUNED_TO, SEEPING_THROUGH) belongs in that world's schema.rb.
+# (`located_in`, `governs`, `caused`). A relation that only means something
+# inside one world belongs in that world's schema.rb.
 #
 # Kinds are grouped in craft/graph-topology.md: world atlas (named things),
 # player reference (general knowledge), structural (engine mechanics).
@@ -14,7 +14,7 @@ schema do
 
   entity_type :ability, :artifact, :concept, :conflict, :creature, :culture, :era, :faction,
               :geographic_location, :incident, :installation, :npc, :phenomenon, :resource,
-              :species, :transport
+              :rumor, :species, :transport, :edict
   entity_type :loop, :theme, :thread, wiki: false
 
   effect :set ; effect :clear ; effect :create ; effect :destroy ; effect :transfer

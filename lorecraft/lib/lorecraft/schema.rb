@@ -51,7 +51,7 @@ module Lorecraft
                 :fact_cards_required_minimum
 
     def initialize
-      @kinds = {}            # kind(sym) => KindDef; wiki=false means DM-structural
+      @kinds = {}            # kind(sym) => KindDef; wiki=false means non-reader
       @relations = {}        # name(sym) => RelationDef
       @effects = {}          # verb(sym) => description
       @tags = {}             # tag(sym) => description
@@ -64,9 +64,9 @@ module Lorecraft
       @fact_cards_required_minimum = 1
     end
 
-    # Declare one or more entity kinds. `wiki: false` marks a kind as structural
-    # / DM-only (themes, threads, loops, the dm kind) — excluded from the player
-    # wiki render.
+    # Declare one or more entity kinds. `wiki: false` marks a kind as absent
+    # from player-facing renders. DM knowledge is a separate visibility flag on
+    # an entity or content block.
     def entity_type(*names, wiki: true, &block)
       if block && names.size != 1
         raise DefinitionError, "an entity_type block must name exactly one kind"

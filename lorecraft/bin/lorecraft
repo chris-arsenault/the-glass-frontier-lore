@@ -1,20 +1,12 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-# Lorecraft CLI — the day-to-day entry point. Replaces the graph_cli / lint /
-# wiki_gen workflow for the DSL world.
+# Lorecraft CLI — task-sized views over one canonical DSL world.
+# Run `ruby lorecraft/bin/lorecraft help` for commands and JIT authoring topics.
 #
-#   lorecraft validate                 # load the world, run the validator
-#   lorecraft render build/tree        # regenerate the markdown tree
-#   lorecraft render build/wiki --audience player   # player-facing only
-#   lorecraft graph [out.json]         # graph projection (Memgraph replacement)
-#   lorecraft timeline <entity-id>     # life-of-entity moment strip
-#   lorecraft facts                    # expected fact coverage by kind and entry
-#   lorecraft stats
-#   lorecraft worlds                   # list the tenants in worlds.yml
-#
-# Every command runs against exactly one world. Pick it with `--world <id>` or
-# LORECRAFT_WORLD; otherwise the manifest default is used.
+# Every content command runs against exactly one world. Pick it with `--world
+# <id>` or LORECRAFT_WORLD; otherwise the manifest default is used. Help does
+# not load a world.
 Encoding.default_external = Encoding::UTF_8
 Encoding.default_internal = Encoding::UTF_8
 $LOAD_PATH.unshift File.expand_path("../lib", __dir__)
@@ -25,14 +17,46 @@ def opt(args, flag, default = nil)
   return default unless i
 
   val = args[i + 1]
+  if val.nil? || val.start_with?("-")
+    warn "#{flag} requires a value"
+    exit 2
+  end
   args.delete_at(i + 1)
   args.delete_at(i)
   val
 end
 
-# --world is global, so it is stripped before the subcommand is read.
+# --world is global, so strip it before reading the subcommand. Resolve the
+# manifest after help dispatch so JIT documentation also works outside a repo.
+world_id = opt(ARGV, "--world", ENV["LORECRAFT_WORLD"])
+cmd = ARGV.shift || "validate"
+
+if %w[help --help -h].include?(cmd)
+  topic = ARGV.shift
+  output = Lorecraft::CLIHelp.render(topic)
+  unless output
+    warn "unknown help topic: #{topic}"
+    warn "known commands: #{Lorecraft::CLIHelp::COMMANDS.keys.join(', ')}"
+    warn "known topics: #{Lorecraft::CLIHelp::TOPICS.join(', ')}"
+    exit 2
+  end
+  puts output
+  exit
+end
+
+if (help_flag = ARGV.index { |arg| %w[--help -h].include?(arg) })
+  ARGV.delete_at(help_flag)
+  output = Lorecraft::CLIHelp.render(cmd)
+  unless output
+    warn "no help for unknown command: #{cmd}"
+    exit 2
+  end
+  puts output
+  exit
+end
+
 WORLD = begin
-  Lorecraft::Worlds.find(opt(ARGV, "--world", ENV["LORECRAFT_WORLD"]))
+  Lorecraft::Worlds.find(world_id)
 rescue Lorecraft::Error => e
   warn e.message
   exit 2
@@ -48,10 +72,19 @@ rescue => e
   exit 2
 end
 
-cmd = ARGV.shift || "validate"
 audience = opt(ARGV, "--audience", "all").to_sym
-at = opt(ARGV, "--at", "now")
-at = at == "now" ? :now : Integer(at)
+unless %i[all player].include?(audience)
+  warn "--audience must be all or player"
+  exit 2
+end
+
+at_arg = opt(ARGV, "--at", "now")
+at = begin
+  at_arg == "now" ? :now : Integer(at_arg)
+rescue ArgumentError
+  warn "--at must be now or an integer year"
+  exit 2
+end
 
 case cmd
 when "validate"
@@ -76,7 +109,7 @@ when "lint"
   puts "\n#{'─' * 40}\n  #{e} error(s), #{w} warning(s), #{fu} future(s), #{i} to convert"
   exit(e.positive? ? 1 : 0)
 when "wiki"
-  out = ARGV.shift or abort("usage: lorecraft wiki OUT_DIR")
+  out = ARGV.shift or abort("usage: #{Lorecraft::CLIHelp::EXE} wiki OUT_DIR")
   files = load_world.render(:wiki, out: out, at: at)
   puts "generated #{files.size} wiki pages → #{out}/"
 when "topology"
@@ -142,7 +175,7 @@ when "topology"
   end
 when "worlds"
   Lorecraft::Worlds.all.each do |w|
-    marks = [w.status, ("publishes wiki" if w.publish?)].compact.join(", ")
+    marks = w.status.to_s
     default = " (default)" if w.id == Lorecraft::Worlds.default_id
     puts "  #{w.id.ljust(16)} #{w.title.ljust(24)} #{marks}#{default}"
   end
@@ -153,10 +186,12 @@ when "review"
       reviewed "YYYY-MM-DD"   on the entity, once a human has read it
       status :complete        when the entry is finished
 
-    `lorecraft provenance` reports what has been read and whose read expired.
+    `#{Lorecraft::CLIHelp::EXE} provenance` reports what has been read and whose read expired.
   MSG
 when "render"
-  out = ARGV.shift or abort("usage: lorecraft render OUT_DIR [--audience player] [--at TICK]")
+  out = ARGV.shift or abort(
+    "usage: #{Lorecraft::CLIHelp::EXE} render OUT_DIR [--audience player] [--at YEAR]"
+  )
   w = load_world
   w.validate! rescue (warn "refusing to render an invalid world; run `lorecraft validate`"; exit 1)
   files = w.render(:markdown, out: out, audience: audience, at: at)
@@ -173,13 +208,13 @@ when "graph"
     puts json
   end
 when "timeline"
-  id = ARGV.shift or abort("usage: lorecraft timeline <entity-id>")
+  id = ARGV.shift or abort("usage: #{Lorecraft::CLIHelp::EXE} timeline <entity-id>")
   puts load_world.render(:timeline, entity: id, at: at)
 when "page"
   # One entity's rendered page, on stdout. The review app reads this so a
   # reviewer sees prose rather than source, and so an anchor taken from what they
   # highlighted matches the prose the linter checks against.
-  id = ARGV.shift or abort("usage: lorecraft page <entity-id>")
+  id = ARGV.shift or abort("usage: #{Lorecraft::CLIHelp::EXE} page <entity-id>")
   w = load_world
   node = w.entity(id.tr("-", "_").to_sym) or abort("unknown entity: #{id}")
   puts Lorecraft::Render::Markdown.new(w)
@@ -218,5 +253,5 @@ when "stats"
   puts "by kind:"
   kinds.each { |k, v| puts "  #{v.to_s.rjust(4)}  #{k}" }
 else
-  abort "unknown command: #{cmd}\nsee the header of bin/lorecraft for usage"
+  abort "unknown command: #{cmd}\nrun `ruby lorecraft/bin/lorecraft help`"
 end
