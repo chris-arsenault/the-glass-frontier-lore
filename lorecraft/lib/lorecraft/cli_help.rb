@@ -16,6 +16,16 @@ module Lorecraft
           is skipped by repository-wide content checks and reader-data builds.
         TEXT
       },
+      "search" => {
+        summary: "Find canonical entities when the stable id is unknown.",
+        usage: "search QUERY [--kind KIND] [--tag TAG] [--limit N] [--audience all|player] [--at now|YEAR] [--world ID]",
+        body: <<~TEXT,
+          Search titles, aliases, tags, subkinds, and resolved entry summaries.
+          Results are ranked and bounded, and include the stable id and canonical
+          source path for the next query. Player audience excludes DM entries,
+          shells, and non-reader kinds. The default limit is 12; the maximum is 100.
+        TEXT
+      },
       "page" => {
         summary: "Render one entry as reviewable Markdown on stdout.",
         usage: "page ID [--audience all|player] [--world ID]",
@@ -178,7 +188,7 @@ module Lorecraft
           #{EXE} help TOPIC
 
         Read only the context the task needs:
-          discover       worlds, queue
+          discover       worlds, search, queue
           inspect        page, timeline, log, facts
           inspect graph  topology, web, graph, stats
           verify         validate, lint
@@ -245,7 +255,8 @@ module Lorecraft
         Context-efficient workflow
 
         1. Run `#{EXE} worlds` and read worlds/<id>/CLAUDE.md.
-        2. Run `#{EXE} queue --world ID` when choosing work.
+        2. Run `#{EXE} queue --world ID` when choosing work. Use `search QUERY`
+           when the subject's stable id is unknown.
         3. Render the subject with `page ID`; use `timeline ID` and `log ID` only
            when the task concerns history or prior decisions.
         4. Read the entry source and its typed edges. Use facts, topology, or web

@@ -654,6 +654,71 @@ class MarkdownRenderTest < Minitest::Test
   end
 end
 
+class SearchTest < Minitest::Test
+  def test_search_ranks_titles_and_returns_resolved_summary
+    results = Lorecraft::Search.new(sample_world, query: "concord", root: Dir.pwd).results
+
+    assert_equal :concord, results.first.id
+    assert_equal :faction, results.first.kind
+    assert_includes results.first.summary, "The Reach"
+  end
+
+  def test_search_matches_alias_tags_subkind_and_prose
+    world = Lorecraft.define do
+      schema do
+        entity_type :place
+        tag :water
+        extend_kind(:place) { subkind :reservoir }
+      end
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
+      place :north_pool do
+        name "North Pool"
+        subkind :reservoir
+        aka "Glass Basin"
+        tags :water
+        prose "Stores the city's winter reserve."
+      end
+    end
+
+    assert_equal :north_pool, Lorecraft::Search.new(world, query: "Glass Basin").results.first.id
+    assert_equal :north_pool, Lorecraft::Search.new(world, query: "water").results.first.id
+    assert_equal :north_pool, Lorecraft::Search.new(world, query: "reservoir").results.first.id
+    assert_equal :north_pool, Lorecraft::Search.new(world, query: "winter reserve").results.first.id
+  end
+
+  def test_player_search_excludes_dm_shell_and_non_reader_entities
+    world = Lorecraft.define do
+      schema do
+        entity_type :concept
+        entity_type :secret, wiki: false
+      end
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
+      concept :visible do name "Needle Visible"; prose "A public needle." end
+      concept :shell do name "Needle Shell"; status :shell end
+      concept :hidden do name "Needle Hidden"; dm!; prose "A hidden needle." end
+      secret :mechanic do name "Needle Mechanic"; prose "A structural needle." end
+    end
+
+    all = Lorecraft::Search.new(world, query: "needle").results.map(&:id)
+    player = Lorecraft::Search.new(world, query: "needle", audience: :player).results.map(&:id)
+
+    assert_equal %i[hidden mechanic shell visible], all.sort
+    assert_equal [:visible], player
+  end
+
+  def test_search_filters_and_bounds_results
+    results = Lorecraft::Search.new(
+      sample_world,
+      query: "the",
+      kind: :location,
+      limit: 1,
+    ).results
+
+    assert_equal 1, results.size
+    assert_equal :location, results.first.kind
+  end
+end
+
 class GraphRenderTest < Minitest::Test
   def setup
     @w = sample_world

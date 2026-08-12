@@ -53,6 +53,7 @@ ruby lorecraft/bin/lorecraft help model
 ruby lorecraft/bin/lorecraft help workflow
 
 ruby lorecraft/bin/lorecraft worlds
+ruby lorecraft/bin/lorecraft search "water authority" --world dry-war --audience player
 ruby lorecraft/bin/lorecraft queue --world dry-war
 ruby lorecraft/bin/lorecraft page inez_bell --world dry-war --audience player
 ruby lorecraft/bin/lorecraft timeline inez_bell --world dry-war
@@ -60,8 +61,9 @@ ruby lorecraft/bin/lorecraft facts --world dry-war
 make check WORLD=dry-war
 ```
 
-`page` answers “what does a reader see?”, `timeline` answers “what changed this
-entity?”, `facts` answers “which declared fields are missing?”, and `queue`
+`search` finds the stable id and canonical source for a subject. `page` answers
+“what does a reader see?”, `timeline` answers “what changed this entity?”,
+`facts` answers “which declared fields are missing?”, and `queue`
 answers “what needs attention?”. `topology` and `web` expose broader graph shape
 only when the task needs it. This progressive path reduces context poisoning:
 generated indexes, old reports, unrelated entries, and DM-only material do not

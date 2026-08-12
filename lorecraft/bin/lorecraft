@@ -179,6 +179,39 @@ when "worlds"
     default = " (default)" if w.id == Lorecraft::Worlds.default_id
     puts "  #{w.id.ljust(16)} #{w.title.ljust(24)} #{marks}#{default}"
   end
+when "search"
+  kind = opt(ARGV, "--kind")
+  tag = opt(ARGV, "--tag")
+  limit_arg = opt(ARGV, "--limit", Lorecraft::Search::DEFAULT_LIMIT.to_s)
+  limit = begin
+    Integer(limit_arg)
+  rescue ArgumentError
+    warn "--limit must be a positive integer"
+    exit 2
+  end
+  if limit < 1
+    warn "--limit must be a positive integer"
+    exit 2
+  end
+  query = ARGV.join(" ").strip
+  abort("usage: #{Lorecraft::CLIHelp::EXE} search QUERY") if query.empty?
+  w = load_world
+  if kind && !w.schema.kind?(kind)
+    abort "unknown entity kind: #{kind}"
+  end
+  if tag && !w.schema.tags.key?(tag.to_sym)
+    abort "unknown tag: #{tag}"
+  end
+  puts Lorecraft::Search.new(
+    w,
+    query: query,
+    root: Lorecraft::Worlds.repo_root,
+    audience: audience,
+    at: at,
+    kind: kind,
+    tag: tag,
+    limit: limit,
+  ).report
 when "review"
   abort <<~MSG
     `review` is gone. Review state lives on the content:
