@@ -60,6 +60,7 @@ ruby lorecraft/bin/lorecraft queue inez_bell --world dry-war
 ruby lorecraft/bin/lorecraft page inez_bell --world dry-war --audience player
 ruby lorecraft/bin/lorecraft connections inez_bell --world dry-war --audience player
 ruby lorecraft/bin/lorecraft connections inez_bell --world dry-war --format json
+ruby lorecraft/bin/lorecraft path inez_bell continuity --world dry-war
 ruby lorecraft/bin/lorecraft timeline inez_bell --world dry-war
 ruby lorecraft/bin/lorecraft facts inez_bell --world dry-war
 make check WORLD=dry-war

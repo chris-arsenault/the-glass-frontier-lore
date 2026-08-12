@@ -5,6 +5,10 @@ module Lorecraft
   # relations, and prose composition. Every graph-facing query uses these rows
   # so historical state and audience filtering stay consistent.
   class Edges
+    BOOKKEEPING_RELATIONS = %i[
+      active_during emerged_during created_during disappeared_during mentions
+    ].freeze
+
     Row = Struct.new(
       :subject, :relation, :target, :from, :to, :dm, :origin, :live,
       keyword_init: true

@@ -95,7 +95,7 @@ unless %i[text json].include?(format)
   warn "--format must be text or json"
   exit 2
 end
-json_commands = %w[search connections schema guide timeline queue provenance facts graph]
+json_commands = %w[search connections path schema guide timeline queue provenance facts graph]
 if format == :json && !json_commands.include?(cmd)
   warn "--format json is not supported by #{cmd}"
   exit 2
@@ -136,7 +136,7 @@ when "topology"
   n = ents.size
   # Edges every entity gets for bookkeeping rather than because of a world fact.
   # Counting them as connectivity hides exactly the entries that have none.
-  bookkeeping = %i[active_during emerged_during created_during disappeared_during mentions]
+  bookkeeping = Lorecraft::Edges::BOOKKEEPING_RELATIONS
   world_deg = Hash.new(0)
   rels.each do |s, v, t|
     next if bookkeeping.include?(v)
@@ -237,6 +237,29 @@ when "connections"
       root: Lorecraft::Worlds.repo_root,
       audience: audience,
       at: at,
+    )
+    emit(query, format)
+  rescue Lorecraft::Error => e
+    abort e.message
+  end
+when "path"
+  max_hops_arg = opt(ARGV, "--max-hops", Lorecraft::PathQuery::DEFAULT_MAX_HOPS.to_s)
+  from = ARGV.shift or abort("usage: #{Lorecraft::CLIHelp::EXE} path FROM TO")
+  to = ARGV.shift or abort("usage: #{Lorecraft::CLIHelp::EXE} path FROM TO")
+  max_hops = begin
+    Integer(max_hops_arg)
+  rescue ArgumentError
+    warn "--max-hops must be an integer"
+    exit 2
+  end
+  begin
+    query = Lorecraft::PathQuery.new(
+      load_world,
+      from: from,
+      to: to,
+      at: at,
+      audience: audience,
+      max_hops: max_hops,
     )
     emit(query, format)
   rescue Lorecraft::Error => e

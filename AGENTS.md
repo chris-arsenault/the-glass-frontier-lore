@@ -339,6 +339,7 @@ JSON from the same query model.
 | `queue [<id>]` | Global or entry-scoped `question` declarations plus computed findings. A render, not a file. |
 | `page <id>` | One entity's rendered page on stdout. What the review app shows as prose. |
 | `connections <id>` | Incoming and outgoing typed edges with intervals, titles, and source paths. |
+| `path <from> <to>` | Bounded shortest route over live typed edges, excluding bookkeeping relations. |
 | `web` | What holds together without the most prominent entities. The work list for `craft/connecting-entities.md`. |
 
 Historical state is a query, not a stored field: `world.at(era: :the_accord, year: 5).out(:coremark, :operates_in)`.

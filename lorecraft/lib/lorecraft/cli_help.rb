@@ -36,6 +36,17 @@ module Lorecraft
           The establishing moment or named relation is shown when available.
         TEXT
       },
+      "path" => {
+        summary: "Find a bounded shortest path through live typed edges.",
+        usage: "path FROM TO [--at now|YEAR] [--audience all|player] [--max-hops N] [--format text|json] [--world ID]",
+        body: <<~TEXT,
+          Traverse relationships in either direction while preserving and showing
+          each edge's canonical direction. Only edges live at the selected year
+          participate. Generic bookkeeping relations are excluded so shared era
+          or index nodes do not manufacture an uninformative shortcut. The default
+          is 6 hops and the maximum is 20.
+        TEXT
+      },
       "schema" => {
         summary: "Inspect the selected world's loaded schema.",
         usage: "schema [kinds | kind NAME | relations | relation NAME | tags | sections] [--format text|json] [--world ID]",
@@ -214,7 +225,7 @@ module Lorecraft
         Read only the context the task needs:
           discover       worlds, search, schema, guide, queue
           inspect        page, connections, timeline, log, facts
-          inspect graph  topology, web, graph, stats
+          inspect graph  connections, path, topology, web, graph, stats
           verify         validate, lint
           export         render, wiki
 
@@ -291,7 +302,8 @@ module Lorecraft
         3. Render the subject with `page ID`; use `timeline ID` and `log ID` only
            when the task concerns history or prior decisions.
         4. Use `schema kind NAME` or `schema relation NAME` when an edit depends
-           on the loaded ontology. Use `connections ID` for the local graph.
+           on the loaded ontology. Use `connections ID` for the local graph and
+           `path FROM TO` only when the task concerns how two entries connect.
         5. Read the entry source and relevant neighbor sources. Use facts,
            topology, or web only when the task concerns those dimensions.
         6. Edit the DSL, preserving the distinction between canon, editorial

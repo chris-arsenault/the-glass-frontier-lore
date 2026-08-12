@@ -142,6 +142,7 @@ views are:
 | Which craft or world instructions apply? | `guide list`, then `guide <name>` |
 | What needs attention? | `queue [ID]` |
 | What does one reader see? | `page <id>` |
+| How do two entries connect now? | `path <from> <to>` |
 | What changed this entity? | `timeline <id>` |
 | Why did this entry change? | `log <id>` |
 | Which structured facts are absent? | `facts [ID]` |

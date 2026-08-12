@@ -839,6 +839,75 @@ class ConnectionsTest < Minitest::Test
   end
 end
 
+class PathQueryTest < Minitest::Test
+  def test_path_uses_live_edges_and_preserves_canonical_direction
+    forward = Lorecraft::PathQuery.new(sample_world, from: :concord, to: :quarter)
+    reverse = Lorecraft::PathQuery.new(sample_world, from: :quarter, to: :concord)
+
+    assert_equal 1, forward.steps.size
+    assert_equal :outgoing, forward.steps.first.direction
+    assert_equal :controls, forward.steps.first.relation
+    assert_equal :incoming, reverse.steps.first.direction
+    assert_equal :concord, reverse.steps.first.to_id
+  end
+
+  def test_path_respects_the_selected_year
+    historical = Lorecraft::PathQuery.new(sample_world, from: :concord, to: :reach, at: 50)
+    future = Lorecraft::PathQuery.new(sample_world, from: :concord, to: :quarter, at: 50)
+
+    assert historical.data[:found]
+    refute future.data[:found]
+  end
+
+  def test_path_finds_the_shortest_route_and_honors_the_bound
+    world = Lorecraft.define do
+      schema do
+        entity_type :concept
+        relation :touches, temporal: false
+      end
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
+      %i[a b c d e].each { |id| concept(id) { name id.to_s.upcase } }
+      relate :ab, :touches, :a, :b
+      relate :bc, :touches, :b, :c
+      relate :ad, :touches, :a, :d
+      relate :de, :touches, :d, :e
+      relate :ec, :touches, :e, :c
+    end
+
+    path = Lorecraft::PathQuery.new(world, from: :a, to: :c)
+    bounded = Lorecraft::PathQuery.new(world, from: :a, to: :c, max_hops: 1)
+
+    assert_equal %i[b c], path.steps.map(&:to_id)
+    refute bounded.data[:found]
+  end
+
+  def test_path_excludes_bookkeeping_shortcuts
+    world = Lorecraft.define do
+      schema do
+        entity_type :concept, :era
+        relation :active_during, temporal: false
+      end
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
+      concept :a do name "A" end
+      concept :b do name "B" end
+      era :period do name "Period" end
+      relate :a_period, :active_during, :a, :period
+      relate :b_period, :active_during, :b, :period
+    end
+
+    refute Lorecraft::PathQuery.new(world, from: :a, to: :b).data[:found]
+  end
+
+  def test_path_data_is_structured
+    data = Lorecraft::PathQuery.new(sample_world, from: :concord, to: :quarter).data
+
+    assert data[:found]
+    assert_equal 1, data[:hop_count]
+    assert_equal :concord, data[:steps].first[:canonical_subject]
+    assert_equal :quarter, data[:steps].first[:canonical_target]
+  end
+end
+
 class SchemaInspectionTest < Minitest::Test
   def test_kind_list_reports_reader_status_and_shape_counts
     kinds = Lorecraft::SchemaInspection.new(fact_world, topic: "kinds").data[:kinds]

@@ -72,6 +72,7 @@ Every content/query command selects one world through `--world ID`,
 | choose work | `queue [ID]` | global or entry-scoped questions and findings |
 | read one resolved entry | `page ID` | reader-shaped Markdown on stdout |
 | inspect its local graph | `connections ID` | typed neighbors, intervals, and source paths |
+| connect two known entries | `path FROM TO` | bounded route over live typed edges |
 | inspect one entity's changes | `timeline ID` | chronological effect strip |
 | recover settled editorial reasoning | `log ID` | non-reader entry history |
 | find missing structured facts | `facts [ID]` | global coverage or one entry's values |
