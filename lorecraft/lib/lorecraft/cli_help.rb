@@ -75,20 +75,22 @@ module Lorecraft
       },
       "queue" => {
         summary: "Assemble open questions and computed findings.",
-        usage: "queue [--world ID]",
+        usage: "queue [ID] [--world ID]",
         body: <<~TEXT,
           Start here when choosing work. The report combines question declarations
           stored on entries with current lint findings; it is a view, not a tracker
-          or source file.
+          or source file. Give an entry id to keep only that entry's questions and
+          computed findings whose messages name it.
         TEXT
       },
       "facts" => {
         summary: "Report expected fact coverage by kind, subkind, and entry.",
-        usage: "facts [--at now|YEAR] [--world ID]",
+        usage: "facts [ID] [--at now|YEAR] [--world ID]",
         body: <<~TEXT,
           Use this before filling an infobox or adding a repeated field. It shows
           which declared facts resolve at the selected year and names missing
-          expected values. Missing values should stay missing until known.
+          expected values. Give an entry id to see each resolved or missing value
+          for that entry. Missing values should stay missing until known.
         TEXT
       },
       "topology" => {
@@ -111,11 +113,11 @@ module Lorecraft
       },
       "provenance" => {
         summary: "Report who drafted prose and whether human reviews still cover it.",
-        usage: "provenance [--world ID]",
+        usage: "provenance [ID] [--world ID]",
         body: <<~TEXT,
           Review state comes from the DSL and git history. A review expires when
           its prose changes. Never add a human review date unless that person read
-          the rendered words.
+          the rendered words. Give an entry id to inspect only blocks it owns.
         TEXT
       },
       "validate" => {

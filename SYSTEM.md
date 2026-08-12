@@ -139,14 +139,14 @@ views are:
 | Question | View |
 |---|---|
 | What worlds can I work on? | `worlds` |
-| What needs attention? | `queue` |
+| What needs attention? | `queue [ID]` |
 | What does one reader see? | `page <id>` |
 | What changed this entity? | `timeline <id>` |
 | Why did this entry change? | `log <id>` |
-| Which structured facts are absent? | `facts` |
+| Which structured facts are absent? | `facts [ID]` |
 | Which entries lack local graph support? | `topology` |
 | Does the graph survive without famous hubs? | `web` |
-| Which machine-drafted prose lacks a current human read? | `provenance` |
+| Which machine-drafted prose lacks a current human read? | `provenance [ID]` |
 
 Broader projections such as `graph` and `stats` remain available when a task
 needs whole-world structure. A normal edit should not begin with the widest

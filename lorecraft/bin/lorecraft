@@ -280,13 +280,40 @@ when "web"
 when "queue"
   # Assembled, never authored: declared questions on entries + computed findings.
   w = load_world
-  puts Lorecraft::Queue.new(w, findings: w.lint(root: WORLD.root)).report
+  id = ARGV.shift
+  begin
+    puts Lorecraft::Queue.new(
+      w,
+      findings: w.lint(root: WORLD.root),
+      entity: id&.tr("-", "_")&.to_sym,
+    ).report
+  rescue Lorecraft::Error => e
+    abort e.message
+  end
 when "provenance"
   # Who drafted the prose and who has read it, per block. Review dates come from
   # the DSL; whether a date still covers the text comes from git.
-  puts Lorecraft::Provenance.new(load_world, root: WORLD.root).report
+  id = ARGV.shift
+  begin
+    puts Lorecraft::Provenance.new(
+      load_world,
+      root: WORLD.root,
+      entity: id&.tr("-", "_")&.to_sym,
+    ).report
+  rescue Lorecraft::Error => e
+    abort e.message
+  end
 when "facts"
-  puts Lorecraft::FactAudit.new(load_world, at: at).report
+  id = ARGV.shift
+  begin
+    puts Lorecraft::FactAudit.new(
+      load_world,
+      at: at,
+      entity: id&.tr("-", "_")&.to_sym,
+    ).report
+  rescue Lorecraft::Error => e
+    abort e.message
+  end
 when "log"
   # The entry's own history: why facts changed, what corrections rest on. Not
   # world content, so it appears on no reader-facing page.

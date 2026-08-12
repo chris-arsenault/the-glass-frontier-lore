@@ -55,11 +55,11 @@ ruby lorecraft/bin/lorecraft help workflow
 ruby lorecraft/bin/lorecraft worlds
 ruby lorecraft/bin/lorecraft search "water authority" --world dry-war --audience player
 ruby lorecraft/bin/lorecraft schema relation governs --world dry-war
-ruby lorecraft/bin/lorecraft queue --world dry-war
+ruby lorecraft/bin/lorecraft queue inez_bell --world dry-war
 ruby lorecraft/bin/lorecraft page inez_bell --world dry-war --audience player
 ruby lorecraft/bin/lorecraft connections inez_bell --world dry-war --audience player
 ruby lorecraft/bin/lorecraft timeline inez_bell --world dry-war
-ruby lorecraft/bin/lorecraft facts --world dry-war
+ruby lorecraft/bin/lorecraft facts inez_bell --world dry-war
 make check WORLD=dry-war
 ```
 

@@ -66,15 +66,15 @@ Every content/query command selects one world through `--world ID`,
 | discover worlds | `worlds` | manifest ids and status |
 | find an entry id | `search QUERY` | ranked ids, types, sources, and summaries |
 | inspect the live ontology | `schema kind NAME` / `schema relation NAME` | allowed facts and edges |
-| choose work | `queue` | entry questions plus current findings |
+| choose work | `queue [ID]` | global or entry-scoped questions and findings |
 | read one resolved entry | `page ID` | reader-shaped Markdown on stdout |
 | inspect its local graph | `connections ID` | typed neighbors, intervals, and source paths |
 | inspect one entity's changes | `timeline ID` | chronological effect strip |
 | recover settled editorial reasoning | `log ID` | non-reader entry history |
-| find missing structured facts | `facts` | coverage by kind, subkind, and entry |
+| find missing structured facts | `facts [ID]` | global coverage or one entry's values |
 | measure local graph coverage | `topology` | typed degree and thin entries |
 | test dependence on famous hubs | `web` | components after prominence cuts |
-| audit drafting and review | `provenance` | block provenance and expired reads |
+| audit drafting and review | `provenance [ID]` | global or entry-owned block provenance |
 | enforce hard invariants | `validate` | structural errors, nonzero on failure |
 | enforce assembled quality rules | `lint` | errors, warnings, futures, span inventory |
 | inspect corpus size | `stats` | entity, moment, edge, effect, and kind counts |

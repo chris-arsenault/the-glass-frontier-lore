@@ -5,13 +5,16 @@ module Lorecraft
   # Missing values are authoring work, not world content, so this report and the
   # private editorial bundle are the only places that name them.
   class FactAudit
-    def initialize(world, at: :now)
+    def initialize(world, at: :now, entity: nil)
       @world = world
       @at = at
       @facts = Facts.new(world)
+      @entity = entity && (world.entity(entity.to_sym) || raise(Error, "unknown entity: #{entity}"))
     end
 
     def report
+      return entry_report if @entity
+
       out = ["=== Entity Facts ===", ""]
       groups.each do |(kind, subkind), entities|
         definitions = @world.schema.facts_for(kind, subkind: subkind).select(&:expected?)
@@ -42,8 +45,39 @@ module Lorecraft
 
     private
 
+    def entry_report
+      year = @world.timeline.year_for(@at)
+      rows = @facts.rows(@entity, at: @at)
+      out = ["=== Entity Facts — #{@entity.title} (#{@entity.id}) ===",
+             "  kind: #{@entity.kind}/#{@entity.subkind}",
+             "  at: #{year}",]
+      if rows.empty?
+        out << "  No facts declared for this kind, subkind, or entry."
+        return out.join("\n")
+      end
+
+      rows.each do |row|
+        definition = row.definition
+        state = definition.expected? ? "expected" : "optional"
+        value = row.missing? ? "missing" : format_value(row.value)
+        out << "  #{definition.name} (#{definition.label}): #{value} [#{state}]"
+      end
+      missing = rows.select { |row| row.definition.expected? && row.missing? }
+      out << "  missing expected: #{missing.empty? ? 'none' : missing.map { |row| row.definition.name }.join(', ')}"
+      out.join("\n")
+    end
+
+    def format_value(value)
+      values = Array(value).map do |item|
+        node = item.is_a?(Symbol) && @world[item]
+        node&.respond_to?(:title) ? "#{item} (#{node.title})" : item.to_s
+      end
+      value.is_a?(Array) ? values.join(", ") : values.first.to_s
+    end
+
     def groups
-      @world.entities.values
+      entities = @entity ? [@entity] : @world.entities.values
+      entities
             .reject { |entity| entity[:status].to_s == "shell" }
             .group_by { |entity| [entity.kind, entity.subkind] }
             .sort_by { |(kind, subkind), _entities| [kind.to_s, subkind.to_s] }
@@ -52,7 +86,7 @@ module Lorecraft
     def append_prominent_cards(out)
       threshold = :renowned
       threshold_index = @world.schema.prominence_levels.index(threshold)
-      entries = @world.entities.values.select do |entity|
+      entries = (@entity ? [@entity] : @world.entities.values).select do |entity|
         prominence_index = @world.schema.prominence_levels.index(entity.prominence&.to_sym)
         entity[:status].to_s != "shell" && !entity.dm? &&
           @world.schema.wiki_kind?(entity.kind) && prominence_index && prominence_index >= threshold_index

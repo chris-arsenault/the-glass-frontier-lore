@@ -12,25 +12,36 @@ module Lorecraft
   #
   # Nothing here is a source. Delete the render and nothing is lost.
   class Queue
-    def initialize(world, findings: nil)
+    def initialize(world, findings: nil, entity: nil)
       @world = world
       @findings = findings
+      @entity = entity && (world.entity(entity.to_sym) || raise(Error, "unknown entity: #{entity}"))
     end
 
     # Declared questions, entity by entity, in load order.
     def questions
-      @world.entities.values
+      entities = @entity ? [@entity] : @world.entities.values
+      entities
             .reject { |e| e.questions.empty? }
             .sort_by { |e| e.id.to_s }
             .flat_map { |e| e.questions.sort_by(&:order).map { |q| [e, q] } }
     end
 
     def findings_by_level
-      (@findings || @world.lint).group_by(&:level)
+      findings.group_by(&:level)
+    end
+
+    def findings
+      found = @findings || @world.lint
+      return found unless @entity
+
+      id = Regexp.escape(@entity.id.to_s)
+      found.select { |finding| finding.message.match?(/(?<![a-z0-9_])#{id}(?![a-z0-9_])/) }
     end
 
     def report
-      out = ["=== Work Queue ===", ""]
+      title = @entity ? " — #{@entity.title} (#{@entity.id})" : ""
+      out = ["=== Work Queue#{title} ===", ""]
       out.concat(question_section)
       out.concat(computed_section)
       out.join("\n")
@@ -72,6 +83,7 @@ module Lorecraft
         found.first(3).each { |f| out << "    #{f.message}" }
         out << "    …" if found.size > 3
       end
+      out << "  none for this entry" if @entity && by.values.all?(&:empty?)
       out
     end
 

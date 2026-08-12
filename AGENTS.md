@@ -38,7 +38,7 @@ that answers the task:
 2. Read the world's `CLAUDE.md` and the guidance it names.
 3. Use `search <query>` when the stable id is unknown. Then use `page <id>` for
    rendered prose, `timeline <id>` for change, `log <id>` for settled editorial
-   reasoning, and `facts` for schema gaps.
+   reasoning, and `facts <id>` for local schema gaps.
 4. Query `schema kind <name>` or `schema relation <name>` when the edit depends
    on the ontology. Use `connections <id>` for the local graph, then read the
    canonical entity and the relevant neighbor sources before editing.

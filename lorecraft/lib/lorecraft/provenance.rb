@@ -23,14 +23,16 @@ module Lorecraft
     # `root` is a world root; given one, git answers when each entry's prose last
     # changed. `changed_at` overrides that for tests — a lambda taking the owner
     # and returning an ISO timestamp.
-    def initialize(world, root: nil, changed_at: nil)
+    def initialize(world, root: nil, changed_at: nil, entity: nil)
       @world = world
       @default_drafter = world.schema.default_drafter
       @changed_at = changed_at || (root ? git_history(root) : ->(_owner) { nil })
+      @entity = entity && (world.entity(entity.to_sym) || raise(Error, "unknown entity: #{entity}"))
     end
 
     def rows
-      @rows ||= @world.prose_owners.flat_map do |owner|
+      owners = @entity ? [@entity] : @world.prose_owners
+      @rows ||= owners.flat_map do |owner|
         # An entry-level `reviewed` date covers every block in it; a block that
         # was read separately says so itself.
         entry_reviewed = owner.respond_to?(:[]) ? owner[:reviewed] : nil
@@ -67,7 +69,8 @@ module Lorecraft
 
     def report
       s = summary
-      out = ["=== Provenance ===",
+      title = @entity ? " — #{@entity.title} (#{@entity.id})" : ""
+      out = ["=== Provenance#{title} ===",
              "  authored blocks:   #{s[:blocks]}",
              "  declared on block: #{s[:declared]}/#{s[:blocks]}#{pct(s[:declared], s[:blocks])}" \
              "#{@default_drafter ? " (rest attributed to :#{@default_drafter} by the world)" : ''}",

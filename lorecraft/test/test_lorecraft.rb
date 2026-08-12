@@ -473,6 +473,17 @@ class EntityFactsTest < Minitest::Test
     assert_includes report, "renowned+: 0/0 cards present"
   end
 
+  def test_fact_audit_can_show_one_entrys_resolved_values
+    report = Lorecraft::FactAudit.new(fact_world, entity: :ada).report
+
+    assert_includes report, "Entity Facts — Ada (ada)"
+    assert_includes report, "born (Born): 1980 [expected]"
+    assert_includes report, "age (Age): 40 [optional]"
+    assert_includes report, "home (Home): harbour (Harbour) [expected]"
+    assert_includes report, "missing expected: none"
+    refute_includes report, "unwritten"
+  end
+
   def test_subkind_facts_override_kind_facts_in_place_and_custom_facts_append
     w = Lorecraft.define do
       schema do
@@ -1576,6 +1587,22 @@ class QuestionTest < Minitest::Test
     report = Lorecraft::Queue.new(w, findings: findings).report
     assert_includes report, "2 warning(s)"
   end
+
+  def test_queue_can_scope_questions_and_findings_to_one_entry
+    w = world do
+      concept :a do name "A"; prose "a"; question "About A" end
+      concept :b do name "B"; prose "b"; question "About B" end
+    end
+    findings = [Lorecraft::Linter::Finding.new(:warn, "concept a: check this"),
+                Lorecraft::Linter::Finding.new(:warn, "concept b: check that")]
+    report = Lorecraft::Queue.new(w, findings: findings, entity: :a).report
+
+    assert_includes report, "Work Queue — A (a)"
+    assert_includes report, "About A"
+    assert_includes report, "check this"
+    refute_includes report, "About B"
+    refute_includes report, "check that"
+  end
 end
 
 class WebTest < Minitest::Test
@@ -1705,6 +1732,15 @@ class ProvenanceTest < Minitest::Test
     assert_equal 1, rows.size
     assert_equal :relationships, rows.first.section
     assert_equal :ai, rows.first.drafter
+  end
+
+  def test_provenance_can_scope_to_one_entry
+    audit = Lorecraft::Provenance.new(world, entity: :a)
+
+    assert_equal 4, audit.rows.size
+    assert_equal [:a], audit.rows.map(&:owner).uniq
+    assert_includes audit.report, "Provenance — A (a)"
+    refute_includes audit.report, "b (main)"
   end
 end
 
