@@ -6,6 +6,9 @@ faction :tempered_accord do
   tags :governance, :diplomacy
   prominence :renowned
   prominence_xrefs ["lattice-proxy-synod", "vantara", "displacement-council", "shear-compact"]
+  founded 2423
+  mandate "Mediate disputes and maintain shared standards between settlements"
+  authority "Reputation, trade access and member enforcement"
 
   prose <<~PROSE
     The system's governance framework. Not a government — a mediation structure. A set of shared norms that most settlements have agreed to honor most of the time. It holds because the alternative is the Bitter Reach again, and nobody wants that.

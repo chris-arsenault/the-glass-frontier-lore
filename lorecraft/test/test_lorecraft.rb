@@ -439,6 +439,40 @@ class EntityFactsTest < Minitest::Test
     assert_equal ["Office", "Jurisdiction", "Seal"], rows.map { |row| row.definition.label }
   end
 
+  def test_world_can_extend_an_existing_subkind
+    w = Lorecraft.define do
+      schema do
+        entity_type(:person) { subkind :official }
+        extend_subkind(:person, :official) do
+          field :jurisdiction, type: :text
+        end
+      end
+      timeline { era :t, starts: 2000, length: 100; now year: 2050 }
+      person :clerk do
+        name "Clerk"
+        subkind :official
+        jurisdiction "North Ward"
+      end
+    end
+
+    rows = Lorecraft::Facts.new(w).present(w.entity(:clerk))
+    assert_equal [:jurisdiction], rows.map { |row| row.definition.name }
+    assert_equal ["North Ward"], rows.map(&:value)
+  end
+
+  def test_unknown_subkind_cannot_be_extended
+    error = assert_raises(Lorecraft::DefinitionError) do
+      Lorecraft.define do
+        schema do
+          entity_type :person
+          extend_subkind(:person, :official) { field :jurisdiction, type: :text }
+        end
+      end
+    end
+
+    assert_includes error.message, "unknown subkind official"
+  end
+
   def test_explicit_subkind_requirement_and_unknown_subkind_are_validated
     w = Lorecraft.define do
       schema do
@@ -758,22 +792,32 @@ class LinterTest < Minitest::Test
     refute(findings.any? { |f| f.message.include?("banned phrase") })
   end
 
-  def test_world_can_require_public_fact_cards_from_a_prominence_level
+  def test_world_can_require_a_minimum_public_fact_count_from_a_prominence_level
     findings = lint do
       schema do
         entity_type :concept
-        extend_kind(:concept) { field :function, type: :text, expected: false }
-        require_fact_cards! from: :renowned
+        extend_kind(:concept) do
+          field :function, type: :text, expected: false
+          field :scope, type: :text, expected: false
+        end
+        require_fact_cards! from: :renowned, minimum: 2
       end
       timeline { era :t, starts: 0, length: 10; now year: 1 }
       concept :empty do name "Empty"; prominence :mythic end
-      concept :filled do name "Filled"; prominence :renowned; function "Does work" end
+      concept :thin do name "Thin"; prominence :renowned; function "Does work" end
+      concept :filled do
+        name "Filled"
+        prominence :renowned
+        function "Does work"
+        scope "Everywhere"
+      end
       concept :small do name "Small"; prominence :recognized end
     end
 
-    card_findings = findings.select { |finding| finding.message.include?("facts for its card") }
-    assert_equal 1, card_findings.size
-    assert_includes card_findings.first.message, "concept empty"
+    card_findings = findings.select { |finding| finding.message.include?("infobox requires") }
+    assert_equal 2, card_findings.size
+    assert(card_findings.any? { |finding| finding.message.include?("concept empty") })
+    assert(card_findings.any? { |finding| finding.message.include?("concept thin") })
   end
 
   def test_double_article

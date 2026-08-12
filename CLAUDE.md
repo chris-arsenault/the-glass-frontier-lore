@@ -153,10 +153,11 @@ come from typed edges, and calculated facts come from canonical values. Reader
 pages omit missing facts; `make facts WORLD=<id>` reports coverage by kind and
 subkind. Do not fill a gap with `unknown`, `none recorded`, or a guessed value.
 
-A world may declare `require_fact_cards! from: :renowned`. Its public entries
-at that prominence and above must resolve at least one fact or lint fails. The
-same `make facts` report lists empty and one-fact renowned/mythic cards so thin
-cards remain visible even when they satisfy the hard requirement.
+A world may declare `require_fact_cards! from: :renowned, minimum: 4`. Its
+public entries at that prominence and above must resolve that many facts or lint
+fails. The same `make facts` report lists entries below the configured minimum.
+Use `extend_subkind :faction, :government do ... end` when a world's recurring
+fact applies to one existing subkind rather than the whole kind.
 
 ### Prominence and cross-references
 

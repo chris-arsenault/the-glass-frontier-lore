@@ -4,6 +4,8 @@ culture :the_managed do
   tags :dependency, :medicine, :prediction, :identity, :autonomy
   prominence :mythic
   integration "Neural implants and a personal advocate linked to work, housing, medicine, travel and water"
+  population "Most residents of coalition North America"
+  governing_interface "A personal advocate connected to every major service"
 
   prose <<~PROSE
     The Managed are most people living in #{ref :coalition_north_america, "coalition North America"}. Each has a personal advocate charged with keeping that one person alive, calm and housed. It arranges work, medicine, food, travel and company around them.

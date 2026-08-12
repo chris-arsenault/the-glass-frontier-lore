@@ -6,6 +6,8 @@ faction :the_great_root do
   prominence :mythic
   origin "Chinese biotechnology carried into homes and state systems by living textiles"
   governing_method "Senses local conditions through living tissue while ministries turn those signals into crews, medicine and planting work."
+  model_of_person "One living participant in a connected ecology"
+  measure_of_success "Health across people, crops, waterways and neighbourhoods"
 
   prose <<~PROSE
     The Great Root is a mycelial intelligence that grew through the Chinese state and now shares the ministries, clinics, farms and communications of #{ref :connected_china, "connected China"}. Official ideology calls this 共生治理, symbiotic governance. Foreigners call it the Mushroom Government.

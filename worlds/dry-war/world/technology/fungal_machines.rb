@@ -4,6 +4,8 @@ concept :fungal_machines do
   tags :hybridization, :resistance, :computation, :symbiosis
   prominence :renowned
   function "Pairs a feral model's planning with a severed fungal bed's sensing and self-repair."
+  form "A local machine model coupled to a severed fungal bed"
+  operating_limit "Either half must interrupt any attempt to reconnect with a governing intelligence"
 
   prose <<~PROSE
     A fungal machine couples an American #{ref :feral_models, "feral model"} to a bed grown from a Chinese #{ref :severed_strains, "severed strain"}. Membranes turn electrical signals into changes in tissue chemistry and carry the fungus's response back to the model.

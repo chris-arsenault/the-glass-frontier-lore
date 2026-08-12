@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { ErrorState, LoadingState } from "../components/AsyncState";
 import { ContentSections } from "../components/ContentSections";
 import { EditorialPanel } from "../components/EditorialPanel";
-import { EntryFacts } from "../components/EntryFacts";
+import { EntryInfobox } from "../components/EntryFacts";
 import { ViewHeader } from "../components/ViewHeader";
 import { useWorld } from "../components/worldContext";
 import { entryTaxonomyLabel } from "../data/entryLabels";
@@ -14,12 +14,15 @@ import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import type { EntryDocument } from "../types/canon";
 
 function EntryArticle({ entry, worldId }: { entry: EntryDocument; worldId: string }) {
+  const taxonomy = entryTaxonomyLabel(entry);
   return <article className="reader-page entry-page">
-    <ViewHeader eyebrow={entryTaxonomyLabel(entry)} title={entry.title}
-      description={entry.aliases.length > 0 ? `Also known as ${entry.aliases.join(", ")}` : null}
+    <ViewHeader eyebrow={taxonomy} title={entry.title}
+      description={null}
       actions={<Link className="quiet-link" to={`/${worldId}/compare?left=${entry.slug}`}>Compare</Link>} />
-    <EntryFacts facts={entry.facts} compact={false} />
-    <ContentSections sections={entry.sections} headingLevel={2} sectionClassName="entry-section" />
+    <div className="entry-article__body">
+      <EntryInfobox aliases={entry.aliases} facts={entry.facts} taxonomy={taxonomy} title={entry.title} />
+      <ContentSections sections={entry.sections} headingLevel={2} sectionClassName="entry-section" />
+    </div>
   </article>;
 }
 

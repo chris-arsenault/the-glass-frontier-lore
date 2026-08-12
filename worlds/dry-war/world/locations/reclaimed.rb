@@ -3,6 +3,9 @@ geographic_location :the_amur_line do
   subkind :frontier
   tags :catastrophe, :military, :ecology, :hybridization
   prominence :renowned
+  setting "Forests along northeastern China and the Amur"
+  primary_work "Surveying compartments and cutting changed forest ahead of settlements"
+  principal_hazard "Fungal and machine readings can agree on the same false result"
 
   prose <<~PROSE
     Northeastern China and the Russian Far East, where a #{ref :the_breach, "Breach"} ecology advances through forest at something under a kilometre a year. Line crews can walk out ahead of it, survey a stand of trees, and come back the following season to survey the same stand again.
@@ -26,6 +29,9 @@ geographic_location :the_mediterranean_chain do
   subkind :frontier
   tags :catastrophe, :military, :water, :trade
   prominence :renowned
+  setting "Coastal enclaves and islands around the Mediterranean"
+  primary_work "Maintaining reefs, barriers, gates and short sea crossings"
+  principal_hazard "Altered marine life establishing new coastal ecologies"
 
   prose <<~PROSE
     Most of Europe and North Africa is gone. A chain of coastal enclaves survives around parts of the Mediterranean, kept alive by defensive ecosystems: artificial reefs, fungal barriers, autonomous naval drones and human fishing fleets working inside all three.
@@ -53,6 +59,9 @@ geographic_location :the_himalayan_holds do
   subkind :frontier
   tags :water, :catastrophe, :ecology, :religion
   prominence :renowned
+  setting "High-altitude enclaves across Nepal, Bhutan, Tibet and northern India"
+  primary_work "Protecting and filtering the headwaters of major Asian rivers"
+  principal_hazard "Introduced organisms surviving beyond their designed limits"
 
   prose <<~PROSE
     The Himalayan Holds are isolated high-altitude enclaves across Nepal, Bhutan, Tibet and northern India. Altitude excludes many organisms released by #{ref :the_breach, "the Breach"}, but enough survive to keep the Holds defensible rather than safe.

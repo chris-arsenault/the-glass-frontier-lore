@@ -222,6 +222,12 @@ schema do
       field :function, type: :text, expected: false
       relation_field :requires, relation: :depends_on, cardinality: :many,
                                 label: "Requires", expected: false
+      relation_field :required_by, relation: :depends_on, direction: :incoming,
+                                   cardinality: :many, label: "Required By", expected: false
+      relation_field :derived_from, relation: :derived_from, cardinality: :many,
+                                    label: "Derived From", expected: false
+      relation_field :part_of, relation: :part_of, cardinality: :many,
+                              label: "Part Of", expected: false
       relation_field :carried_by, relation: :carries, direction: :incoming,
                                   cardinality: :many, label: "Carried By", expected: false
       relation_field :examples, relation: :embodies, direction: :incoming,
@@ -332,6 +338,8 @@ schema do
     subkind :star_system do
       relation_field :within, relation: :part_of, cardinality: :many,
                               label: "Within", expected: false
+      relation_field :contains, relation: :part_of, direction: :incoming,
+                                cardinality: :many, label: "Contains", expected: false
     end
     subkind :celestial_body do
       relation_field :within, relation: :part_of, cardinality: :many,
@@ -358,11 +366,23 @@ schema do
       relation_field :active_here, relation: :operates_in, direction: :incoming,
                                    cardinality: :many, label: "Active Here", expected: false
     end
-    subkind :hazardous_zone
+    subkind :hazardous_zone do
+      relation_field :formed_by, relation: :caused, direction: :incoming,
+                                 cardinality: :many, label: "Formed By", expected: false
+      relation_field :contained_by, relation: :maintains, direction: :incoming,
+                                     cardinality: :many, label: "Contained By", expected: false
+      relation_field :active_here, relation: :operates_in, direction: :incoming,
+                                   cardinality: :many, label: "Active Here", expected: false
+    end
   end
 
   extend_kind :incident do
-    subkind :disaster
+    subkind :disaster do
+      field :duration, type: :text, expected: false
+      field :cause_status, type: :text, label: "Cause", expected: false
+      relation_field :consequences, relation: :caused, cardinality: :many,
+                                    label: "Led To", expected: false
+    end
     subkind :campaign do
       field :date, type: :year, label: "Date", expected: false
       relation_field :period, relation: :active_during, cardinality: :one,
@@ -373,7 +393,13 @@ schema do
     subkind :dispute
     subkind :discovery
     subkind :founding
-    subkind :migration
+    subkind :migration do
+      field :scale, type: :text, expected: false
+      relation_field :caused_by, relation: :caused_by, cardinality: :many,
+                                  label: "Caused By", expected: false
+      relation_field :led_to, relation: :caused, cardinality: :many,
+                               label: "Led To", expected: false
+    end
   end
 
   extend_kind :installation do
@@ -419,7 +445,14 @@ schema do
   end
 
   extend_kind :phenomenon do
-    subkind :physical_phenomenon
+    subkind :physical_phenomenon do
+      relation_field :caused_by, relation: :caused, direction: :incoming,
+                                  cardinality: :many, label: "Caused By", expected: false
+      relation_field :locations, relation: :located_in, cardinality: :many,
+                                 label: "Locations", expected: false
+      relation_field :carries, relation: :carries, cardinality: :many,
+                               label: "Carries", expected: false
+    end
     subkind :ecological_phenomenon do
       relation_field :caused_by, relation: :caused, direction: :incoming,
                                   cardinality: :many, label: "Caused By", expected: false
@@ -443,6 +476,9 @@ schema do
 
   extend_kind :resource do
     subkind :material do
+      field :function, type: :text, expected: false
+      relation_field :sources, relation: :sourced_from, cardinality: :many,
+                               label: "Sources", expected: false
       relation_field :required_by, relation: :depends_on, direction: :incoming,
                                    cardinality: :many, label: "Required By", expected: false
       relation_field :supplied_by, relation: :supplies, direction: :incoming,
@@ -459,6 +495,8 @@ schema do
     end
     subkind :device do
       field :function, type: :text, expected: true
+      relation_field :requires, relation: :depends_on, cardinality: :many,
+                                label: "Requires", expected: false
       relation_field :required_by, relation: :depends_on, direction: :incoming,
                                    cardinality: :many, label: "Required By", expected: false
       relation_field :derived_from, relation: :derived_from, cardinality: :many,
@@ -483,8 +521,22 @@ schema do
   end
 
   extend_kind :species do
-    subkind :sapient_species
-    subkind :overview
+    subkind :sapient_species do
+      field :origin, type: :text, expected: false
+      field :biology, type: :text, expected: false
+      field :lifespan, type: :text, expected: false
+      relation_field :homelands, relation: :inhabits, cardinality: :many,
+                                  label: "Homelands", expected: false
+      relation_field :depends_on, relation: :depends_on, cardinality: :many,
+                                  label: "Depends On", expected: false
+      relation_field :created_by, relation: :created, direction: :incoming,
+                                  cardinality: :many, label: "Created By", expected: false
+    end
+    subkind :overview do
+      field :documented_species, type: :integer, label: "Documented Species", expected: false
+      field :common_form, type: :text, label: "Common Form", expected: false
+      field :origin_theories, type: :text, label: "Origin Theories", expected: false
+    end
   end
 
   extend_kind :transport do

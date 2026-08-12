@@ -47,7 +47,8 @@ module Lorecraft
     ].freeze
 
     attr_reader :kinds, :relations, :effects, :tags, :section_headings,
-                :static_attrs, :prominence_levels, :fact_cards_required_from
+                :static_attrs, :prominence_levels, :fact_cards_required_from,
+                :fact_cards_required_minimum
 
     def initialize
       @kinds = {}            # kind(sym) => KindDef; wiki=false means DM-structural
@@ -60,6 +61,7 @@ module Lorecraft
       @prominence_levels = PROMINENCE_LEVELS.dup
       @require_explicit_subkinds = false
       @fact_cards_required_from = nil
+      @fact_cards_required_minimum = 1
     end
 
     # Declare one or more entity kinds. `wiki: false` marks a kind as structural
@@ -88,13 +90,17 @@ module Lorecraft
     def require_explicit_subkinds! = @require_explicit_subkinds = true
     def explicit_subkinds_required? = @require_explicit_subkinds
 
-    def require_fact_cards!(from: :renowned)
+    def require_fact_cards!(from: :renowned, minimum: 1)
       from = from.to_sym
       unless prominence?(from)
         raise DefinitionError, "fact-card requirement uses unknown prominence #{from}"
       end
+      unless minimum.is_a?(Integer) && minimum.positive?
+        raise DefinitionError, "fact-card minimum must be a positive integer"
+      end
 
       @fact_cards_required_from = from
+      @fact_cards_required_minimum = minimum
     end
 
     def extend_kind(name, &block)
@@ -102,6 +108,17 @@ module Lorecraft
       raise DefinitionError, "cannot extend unknown entity kind #{name}" unless kind?(name)
 
       KindBuilder.new(self, name).instance_eval(&block) if block
+    end
+
+    def extend_subkind(kind, name, &block)
+      kind = kind.to_sym
+      name = name.to_sym
+      raise DefinitionError, "cannot extend unknown entity kind #{kind}" unless kind?(kind)
+      unless subkind?(kind, name)
+        raise DefinitionError, "cannot extend unknown subkind #{name} on entity kind #{kind}"
+      end
+
+      KindBuilder.new(self, kind, subkind: name).instance_eval(&block) if block
     end
 
     def subkind?(kind, name) = @kinds[kind&.to_sym]&.subkinds&.key?(name&.to_sym) == true

@@ -7,6 +7,10 @@ geographic_location :kaleidos_system do
   tags :orbital
   prominence :mythic
   registry true
+  planet_count 8
+  inner_to_outer_transit "About one week by fast ship"
+  custom_fact :population_centres, "Planets, moons, ring habitats and orbital stations",
+              label: "Population Centres"
 
   prose <<~PROSE
     Eight planets orbiting a star the elves named in their own language. Everyone else just calls it the sun. The system is compact by cosmic standards — the outermost planet's orbit would fit inside the inner reaches of a larger star's domain — which makes interplanetary travel practical. One planet to the next is a day's transit at minimum, a week for the farther runs. Fast scout ships cut that. Cargo haulers add to it.

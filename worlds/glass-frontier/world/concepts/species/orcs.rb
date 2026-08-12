@@ -7,6 +7,10 @@ species :orcs do
   tags :species
   prominence :mythic
   registry true
+  origin "Alien arrivals during the ring era"
+  biology "Dense bones, heavy musculature, high endurance and muted pain response"
+  lifespan "Comparable to humans, with an earlier peak and steeper decline"
+  resonance_relation "Strong material sense; best suited to structural and kinetic work"
 
   prose <<~PROSE
     Alien origin, arriving in the Kaleidos system independently — not engineered, not native. The second alien species after humans, though the order of arrival is debated and ultimately doesn't matter much. They are here. They have been here for a long time. They are not going anywhere.

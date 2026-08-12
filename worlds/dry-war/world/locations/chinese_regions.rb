@@ -24,6 +24,9 @@ geographic_location :the_hexi_corridor do
   subkind :frontier
   tags :trade, :symbiosis, :medicine
   prominence :renowned
+  setting "The Gansu passage between dense fungal growth and the dry interior"
+  primary_work "Quarantine and trade in medicine, machines and human passage"
+  principal_hazard "Uncontrolled fungal connection crossing into dry settlements"
 
   prose <<~PROSE
     The Hexi Corridor is the narrow road through Gansu that carried traffic between the Chinese heartland and Central Asia for two thousand years. It now lies on the boundary between dense fungal growth and the dry interior.
@@ -37,6 +40,8 @@ geographic_location :sichuan do
   subkind :region
   tags :locality, :agriculture, :symbiosis
   prominence :renowned
+  landscape "Wet basins where fungal networks cannot be excluded"
+  defining_system "Garden Courts raise distinct local mycelium over generations"
 
   prose <<~PROSE
     Sichuan is too wet to keep the network out. The #{ref :the_garden_courts, "Garden Courts"} raise local mycelium over generations on local plants, opera, archives and argument.
@@ -50,6 +55,8 @@ geographic_location :the_pearl_river_delta do
   subkind :region
   tags :trade, :biotech, :legitimacy
   prominence :renowned
+  landscape "Guangzhou, Shenzhen and Hong Kong facing external trade routes"
+  defining_system "Broker houses move machine models, medicine and memory ceramics"
 
   prose <<~PROSE
     Guangzhou, Shenzhen and Hong Kong face the unconnected world. The #{ref :the_brokers, "Brokers"} grow signal-carrying membranes here and move machine models, medical fungi and memory ceramics through trading houses three generations old.
@@ -63,6 +70,8 @@ geographic_location :yunnan do
   subkind :region
   tags :locality, :ecology, :religion
   prominence :renowned
+  landscape "Biologically varied forests, mountains and villages"
+  defining_system "Hundreds of local fungal minds with separate habits and loyalties"
 
   prose <<~PROSE
     In Yunnan, the #{ref :the_great_root, "Great Root"} met the most biologically varied country on the continent and divided into hundreds of local minds.

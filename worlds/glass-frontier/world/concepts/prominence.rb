@@ -7,6 +7,10 @@ concept :prominence do
   tags :governance
   prominence :mythic
   prominence_xrefs ["fermata-station", "vantara"]
+  measures "How widely an entity is known across the system"
+  scale "Forgotten, marginal, recognized, renowned and mythic"
+  excludes "Power, importance, prestige and quality"
+  custom_fact :applies_to, "People, places, organizations, events and concepts"
 
   prose <<~PROSE
     Prominence measures how widely known an entity or concept is across the Kaleidos system. It is not a measure of power, prestige, importance, or quality — only of awareness. A forgotten relic might be the most powerful artifact in the system. It's still forgotten.

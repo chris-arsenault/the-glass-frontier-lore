@@ -8,6 +8,7 @@ schema do
   # who wrote it was written by a machine. `make provenance` reports against
   # this; a block a person writes declares `drafted_by: :human`.
   drafted_by_default :ai
+  require_fact_cards! from: :renowned, minimum: 4
 
   # Resonance is a physical force here, so attunement and sympathy are real
   # edges rather than metaphors.
@@ -17,6 +18,116 @@ schema do
   # DM-only. Where the False Form reaches through, and who is avoiding whom.
   relation :hiding_from, category: :dm, temporal: false
   relation :seeping_through, category: :dm, temporal: false
+
+  extend_subkind :concept, :physical_system do
+    field :nature, type: :text, expected: false
+    field :known_forms, type: :text, label: "Known Forms", expected: false
+    field :operating_limit, type: :text, label: "Known Limit", expected: false
+  end
+
+  extend_subkind :concept, :reference_concept do
+    field :measures, type: :text, expected: false
+    field :scale, type: :text, expected: false
+    field :excludes, type: :text, expected: false
+  end
+
+  extend_subkind :concept, :social_system do
+    field :scope, type: :text, expected: false
+    field :daily_infrastructure, type: :text, label: "Daily Infrastructure", expected: false
+    field :routine_travel, type: :text, label: "Routine Travel", expected: false
+    relation_field :depends_on, relation: :depends_on, cardinality: :many,
+                                label: "Depends On", expected: false
+  end
+
+  extend_subkind :culture, :overview do
+    field :organizing_basis, type: :text, label: "Organizing Basis", expected: false
+    field :primary_signals, type: :text, label: "Primary Signals", expected: false
+    field :major_cultures, type: :entities, label: "Major Cultures", expected: false
+  end
+
+  extend_subkind :culture, :naming_practice do
+    field :organizing_basis, type: :text, label: "Organizing Basis", expected: false
+    field :documented_traditions, type: :integer, label: "Documented Traditions", expected: false
+    field :used_by, type: :entities, label: "Used By", expected: false
+  end
+
+  extend_subkind :culture, :regional_culture do
+    field :homeland, type: :entity, expected: false
+    field :formal_register, type: :text, label: "Formal Register", expected: false
+    field :aesthetic, type: :text, expected: false
+    relation_field :present_at, relation: :manifests_at, cardinality: :many,
+                                label: "Present At", expected: false
+  end
+
+  extend_subkind :culture, :way_of_life do
+    relation_field :origin, relation: :originated_in, cardinality: :one,
+                            label: "Origin", expected: false
+    relation_field :present_at, relation: :manifests_at, cardinality: :many,
+                                label: "Present At", expected: false
+  end
+
+  extend_subkind :faction, :government do
+    field :mandate, type: :text, expected: false
+    field :authority, type: :text, expected: false
+  end
+
+  extend_subkind :faction, :civic_body do
+    field :mandate, type: :text, expected: false
+    field :dissolved, type: :year, expected: false
+    field :successors, type: :entities, expected: false
+  end
+
+  extend_subkind :geographic_location, :star_system do
+    field :planet_count, type: :integer, label: "Planets", expected: false
+    field :inner_to_outer_transit, type: :text, label: "Inner-to-Outer Transit", expected: false
+  end
+
+  extend_subkind :geographic_location, :world_region do
+    field :form, type: :text, expected: false
+    field :population_pattern, type: :text, label: "Population", expected: false
+    field :principal_hazards, type: :text, label: "Principal Hazards", expected: false
+  end
+
+  extend_subkind :geographic_location, :hazardous_zone do
+    field :nature, type: :text, expected: false
+    field :first_recorded, type: :year, label: "First Recorded", expected: false
+    field :containment_status, type: :text, label: "Containment", expected: false
+  end
+
+  extend_subkind :geographic_location, :frontier do
+    field :setting, type: :text, expected: false
+    field :extent, type: :text, expected: false
+    field :main_industry, type: :text, label: "Main Industry", expected: false
+    field :principal_hazards, type: :text, label: "Principal Hazards", expected: false
+  end
+
+  extend_subkind :installation, :settlement do
+    field :population_band, type: :text, label: "Population", expected: false
+    field :role, type: :text, expected: false
+    field :setting, type: :text, expected: false
+    field :access, type: :text, expected: false
+  end
+
+  extend_subkind :phenomenon, :physical_phenomenon do
+    field :medium, type: :text, expected: false
+    field :content, type: :text, expected: false
+    field :hazard, type: :text, expected: false
+  end
+
+  extend_subkind :resource, :material do
+    field :grades, type: :text, expected: false
+    field :availability, type: :text, expected: false
+  end
+
+  extend_subkind :resource, :device do
+    field :classes, type: :text, expected: false
+    field :operating_environments, type: :text, label: "Operating Environments", expected: false
+    field :operating_limit, type: :text, label: "Operating Limit", expected: false
+  end
+
+  extend_subkind :species, :sapient_species do
+    field :resonance_relation, type: :text, label: "Resonance", expected: false
+  end
 
   tag :AI, "Artificial intelligence, custodian systems"
   tag :activism, "Political resistance, reform movements"

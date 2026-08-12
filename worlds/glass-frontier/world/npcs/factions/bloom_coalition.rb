@@ -5,6 +5,10 @@ faction :bloom_coalition do
   tags :governance, :diplomacy, :resonance, :danger, :rebuilding
   prominence :renowned
   era "2378–2396"
+  founded 2380
+  mandate "Coordinate cross-faction containment of the Silent Bloom"
+  dissolved 2396
+  successors %i[displacement_council tempered_accord]
   log "2026-08-08 — Legacy said veterans were alive in 2438; present day is 2435. Stale from before the timeline was extended; the year is a #{'#{year :now}'} marker now."
   log "2026-08-09 — dropped `status \"dissolved\"`. `status` is the authoring state (complete/draft/shell/needs_refinement); the Coalition's in-world standing is set by its dissolution moment, which the validator now enforces."
   log "2026-08-08 — prominence :renowned confirmed. Every faction in the system staffed the Coalition, so the entry cannot avoid naming recognized ones; the reach warnings it used to raise were the check's shape, not this entry's."

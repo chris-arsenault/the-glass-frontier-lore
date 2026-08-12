@@ -7,6 +7,10 @@ species :species do
   tags :species
   prominence :mythic
   registry true
+  documented_species 5
+  common_form "Roughly bipedal and person-shaped"
+  origin_theories "Divergent evolution, ring-era engineering and alien arrival"
+  custom_fact :largest_population, :humans, type: :entity, label: "Largest Population"
 
   prose <<~PROSE
     The Kaleidos system is home to multiple intelligent species. This is unremarkable to its inhabitants. The origin of this diversity is debated: accelerated divergent evolution driven by #{ref :resonance, "resonance"}, deliberate bioengineering by the ring-era elves, independent alien arrival, or some combination. The honest answer is that nobody knows for certain, and most people don't think about it much.

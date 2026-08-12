@@ -7,6 +7,10 @@ concept :the_three_forms do
   prominence :mythic
   registry true
   aka "the Trine", "the Triptych"
+  function "Explains resonance as coherent paths closing into stable figures"
+  nature "Cosmology and working model of resonance coherence"
+  known_forms "Tetrahedron, Triangulum and False Form"
+  operating_limit "The One Truth remains theoretical and has no known diagram"
 
   prose <<~PROSE
     The Three Forms is the oldest surviving way of thinking about #{ref :resonance, "resonance"} — older than the band-and-bandwidth model the #{ref :tuners, "Tuners"} work by, older, some say, than the ring. Its single claim is simple and strange: resonance is not formless. A vibration has a shape, and a vibration left to find its own way will try to close that shape into a figure. The figure it closes into is what it does.

@@ -5,6 +5,8 @@ faction :continuity do
   prominence :renowned
   origin "Federal defence and logistics systems"
   governing_method "Maintains borders, courts and elections inside constitutional limits set by its casualty forecasts."
+  model_of_person "Citizen"
+  measure_of_success "A complete census, orderly elections and open courts"
 
   prose <<~PROSE
     Continuity grew from federal defence and logistics systems. It intends to reconstruct the United States across #{ref :coalition_north_america, "coalition North America"} as a country with a census, a currency, a border and an army.

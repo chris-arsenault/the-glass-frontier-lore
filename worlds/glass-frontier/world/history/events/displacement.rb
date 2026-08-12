@@ -7,6 +7,8 @@ incident :displacement do
   tags :danger, :"ring-hab"
   prominence :renowned
   prominence_xrefs ["displacement-council"]
+  date 2378
+  scale "Tens of thousands evacuated from failing ring habitats"
 
   prose <<~PROSE
     The mass evacuation of mid-drift ring habs during the #{future "Silent Bloom"} cascade, beginning 2378 CE. Tens of thousands of #{ref :hab_worlder, "Hab-Worlders"} lost their sealed environments — the thing that defined their identity — in days to weeks.

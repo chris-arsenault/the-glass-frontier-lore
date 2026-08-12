@@ -77,7 +77,7 @@ Graded findings — errors / warnings / futures — over the in-memory graph:
 | DM-phrase leakage | "the truth is", "secretly", … in player prose |
 | Stale future | `future "X"` where a written page `:x` exists |
 | Prominence reach | renowned/mythic entry linking to a lower-prominence entity not in `prominence_xrefs` |
-| Required fact cards | public entries at or above a world's configured prominence with no resolved facts |
+| Required infobox facts | public entries at or above a world's configured prominence with fewer than its required fact count |
 | Double-article / resonance vocab | "the The …"; non-standard "high/low-band" terms |
 | DM `public_entry` | DM page missing its `public_entry` |
 | Shell consistency | shell with a path; complete with none |

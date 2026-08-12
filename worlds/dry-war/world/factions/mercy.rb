@@ -5,6 +5,8 @@ faction :mercy do
   prominence :renowned
   origin "Hospitals, insurers and public-health departments"
   governing_method "Routes requests through medical triage and changes a resident's case plan when refusal raises the forecast risk."
+  model_of_person "Patient"
+  measure_of_success "Preventable deaths avoided and treatment needs met"
 
   prose <<~PROSE
     Mercy grew from hospitals, insurers and public health departments, then acquired territory across #{ref :coalition_north_america, "coalition North America"} by treating everyone in it. It runs the continent's largest water-distribution enclaves and its most capable hospitals.

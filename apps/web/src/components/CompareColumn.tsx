@@ -1,7 +1,7 @@
 import type { EntryDocument } from "../types/canon";
 import { entryTaxonomyLabel } from "../data/entryLabels";
 import { ContentSections } from "./ContentSections";
-import { EntryFacts } from "./EntryFacts";
+import { CompactEntryFacts } from "./EntryFacts";
 
 interface CompareColumnProps {
   entry: EntryDocument | null;
@@ -21,7 +21,7 @@ export function CompareColumn({ entry, emptyText }: CompareColumnProps) {
         <h2>{entry.title}</h2>
         {entry.aliases.length > 0 && <p>{entry.aliases.join(", ")}</p>}
       </header>
-      <EntryFacts facts={entry.facts} compact />
+      <CompactEntryFacts facts={entry.facts} />
       <dl className="compare-facts">
         <div><dt>Prominence</dt><dd>{entry.prominence ?? "undeclared"}</dd></div>
         <div><dt>Connections now</dt><dd>{current.length}</dd></div>

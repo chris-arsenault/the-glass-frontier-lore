@@ -7,6 +7,8 @@ incident :the_glassfall do
   tags :catastrophe, :origin
   prominence :mythic
   date 2140
+  fact :duration, "Hours"
+  cause_status "Unknown; deliberate sabotage is the prevailing theory"
   prominence_xrefs ["lattice-proxy-synod"]
 
   prose <<~PROSE

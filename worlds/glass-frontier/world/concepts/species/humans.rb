@@ -7,6 +7,9 @@ species :humans do
   tags :species
   prominence :mythic
   registry true
+  origin "Alien arrivals around 2050 CE"
+  biology "Medium build; no unusual system-specific physiology"
+  resonance_relation "No natural affinity; attunement requires training and instruments"
 
   prose <<~PROSE
     Alien arrivals. Humans reached the Kaleidos system around 2050 CE, during the height of the ring era, and were integrated into the existing multi-species civilization built by the #{ref :elves, "elves"} and others. They were not the first non-native species to arrive, and their integration was unremarkable by the standards of the time — the ring-era civilization was already multi-species and accustomed to new additions.

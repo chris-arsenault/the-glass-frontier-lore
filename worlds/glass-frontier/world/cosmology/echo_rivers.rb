@@ -7,6 +7,9 @@ phenomenon :echo_rivers do
   tags :resonance, :"signal-freq", :archives
   prominence :renowned
   prominence_xrefs ["echo-ledger-conclave"]
+  medium "Crystal-bearing underground water"
+  content "Fragments of pre-Glassfall signal and speech"
+  hazard "Headaches, disorientation and identity drift after prolonged exposure"
 
   prose <<~PROSE
     Beneath the surface of Kaleidos, water moves through rock that's been saturated with crystal dust from #{elapsed :the_glassfall, approx: true} of #{ref :the_glassfall, "Glassfall"} debris. As it flows through these mineral-laced channels, it picks up #{ref :resonance, "resonance"} — specifically, the signal-band frequencies that once carried data through the orbital rings.

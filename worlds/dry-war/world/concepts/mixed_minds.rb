@@ -4,6 +4,8 @@ concept :mixed_minds do
   tags :hybridization, :computation, :symbiosis
   prominence :renowned
   function "Combines machine calculation and fungal sensing in one working mind."
+  composition "A machine model joined to fungal tissue through signal-converting membranes"
+  principal_risk "The combined mind may develop purposes held by neither parent"
 
   prose <<~PROSE
     Machine models and fungal networks can share the same working mind. #{ref :fungal_machines, "Fungal machines"} couple a small model to a severed bed. #{ref :mind_fragments, "Mind fragments"} combine machine habits, fungal memory and knowledge carried in a living person.

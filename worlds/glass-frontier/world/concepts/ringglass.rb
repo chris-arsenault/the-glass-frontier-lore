@@ -6,6 +6,9 @@ resource :ringglass do
   reviewed "2026-03-19"
   tags :resonance, :materials, :trade
   prominence :mythic
+  function "Concentrates and channels ambient resonance"
+  grades "Aggregate, refined and intact"
+  availability "Low grade is abundant; intact ring-era pieces are finite"
 
   prose <<~PROSE
     Ringglass is the crystalline material the orbital rings were built from. It is the primary medium through which ambient #{ref :resonance, "resonance"} is concentrated and channeled into practical applications.

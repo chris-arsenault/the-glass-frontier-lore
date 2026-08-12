@@ -10,6 +10,9 @@ resource :kite_sail do
   prominence :renowned
   aka "Kinetic Inverse Transport Engine"
   prominence_xrefs ["tuners", "vantara", "keel"]
+  classes "Flitters, personal craft, haulers, Shear vessels, warships and capital craft"
+  operating_environments "Atmosphere, vacuum and the Shear"
+  operating_limit "Requires continuous resonance input; cannot move a ring habitat"
 
   prose <<~PROSE
     The Kinetic Inverse Transport Engine — universally called a kite — is the general-purpose motive engine of the Kaleidos system. Kites use kinetic-band #{ref :resonance, "resonance"} to redirect opposing forces into a frequency null space, producing effectively unopposed momentum. A kite doesn't fight drag, friction, or gravity in the conventional sense — it makes the opposition happen somewhere else.

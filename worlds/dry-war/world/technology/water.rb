@@ -3,6 +3,9 @@ resource :water do
   subkind :material
   tags :water, :energy, :ecology, :governance
   prominence :mythic
+  function "Carries fungal habitat, human supply and machine cooling"
+  civilizational_uses "Habitat for the Great Root; coolant for fusion and computation"
+  allocation "Guaranteed and priced by coalitions; treated as living territory in China"
 
   prose <<~PROSE
     The surviving rivers carry two civilizations: habitat for the Great Root and coolant for the coalitions.

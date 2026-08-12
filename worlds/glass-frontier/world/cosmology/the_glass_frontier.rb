@@ -6,6 +6,9 @@ geographic_location :the_glass_frontier do
   reviewed "2026-03-19"
   tags :orbital, :"ring-hab", :salvage
   prominence :mythic
+  form "Shattered orbital ring of inhabited fragments"
+  population_pattern "Hundreds of sealed habitats with distinct communities"
+  principal_hazards "Debris, resonance distortion, structural collapse and Bloom Zones"
 
   prose <<~PROSE
     The Glass Frontier is what's left of the orbital ring that once encircled Kaleidos — a vast, shattered halo of crystalline megastructures, still habitable, still inhabited, and still very much the center of everything.

@@ -7,6 +7,10 @@ installation :sithari do
   tags :surface, :governance, :trade, :"ring-era"
   prominence :mythic
   registry true
+  population_band "A few million in the city proper"
+  role "De facto capital, financial centre and seat of the Tempered Accord"
+  setting "Equatorial surface city built in layers above a ring-era campus"
+  access "Orbital shuttles and the surface terminus of the Keel"
 
   prose <<~PROSE
     The largest city in the Kaleidos system by a wide margin. Population a few million in the city proper, more in the sprawl beyond the old walls. Equatorial, vertical, built on top of itself in layers that go down further than most residents realize. The de facto capital of everything — seat of the Tempered Accord, cultural and financial center of the system, and the place everyone has an opinion about whether they've been there or not.

@@ -63,6 +63,8 @@ module Lorecraft
       end
       empty = rows.select { |_entity, names| names.empty? }
       thin = rows.select { |_entity, names| names.size == 1 }
+      minimum = @world.schema.fact_cards_required_minimum
+      incomplete = rows.select { |_entity, names| names.size < minimum }
 
       out << "=== Prominent Entry Cards ==="
       out << "renowned+: #{rows.size - empty.size}/#{rows.size} cards present"
@@ -70,6 +72,12 @@ module Lorecraft
       empty.each { |entity, _names| out << "    #{entity.id}" }
       out << "  one fact: #{thin.size}"
       thin.each { |entity, names| out << "    #{entity.id}: #{names.first}" }
+      if minimum > 1
+        out << "  under #{minimum} facts: #{incomplete.size}"
+        incomplete.each do |entity, names|
+          out << "    #{entity.id}: #{names.size}"
+        end
+      end
     end
   end
 end

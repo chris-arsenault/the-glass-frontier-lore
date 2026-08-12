@@ -208,9 +208,12 @@ module Lorecraft
       pages.each do |entity|
         next if entity.dm? || !@world.schema.wiki_kind?(entity.kind)
         next if rank(entity) < PROMINENCE_RANK.fetch(threshold)
-        next unless facts.present(entity, audience: :player).empty?
+        count = facts.present(entity, audience: :player).size
+        minimum = @world.schema.fact_cards_required_minimum
+        next if count >= minimum
 
-        err("#{label(entity)}: #{entity.prominence} entry has no public facts for its card")
+        err("#{label(entity)}: #{entity.prominence} entry has #{count} public facts; " \
+            "its infobox requires at least #{minimum}")
       end
     end
 

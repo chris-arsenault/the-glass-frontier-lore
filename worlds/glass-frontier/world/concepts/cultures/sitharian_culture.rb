@@ -6,6 +6,9 @@ culture :sitharian_culture do
   reviewed "2026-03-19"
   tags :"social-structure", :governance, :trade
   prominence :renowned
+  homeland :sithari
+  formal_register "The default language of diplomacy, law and system-wide trade"
+  aesthetic "Clean lines, muted natural tones and precise accents"
 
   prose <<~PROSE
     The culture that grew from #{ref :sithari, "Sithari"}, the system's de facto capital, and radiated outward. Sitharian identity is the system's prestige culture: cosmopolitan, multilingual, politically connected, and acutely aware of its own significance. Being Sitharian means carrying the weight of the old world — the planet the ring was built around, the city where civilization was first re-established after the Signal Famine, the center that still considers itself the center even as the system outgrows it.

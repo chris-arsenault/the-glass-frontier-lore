@@ -8,6 +8,7 @@ backend/target/
 backend/target-cov/
 backend/target-lambda/
 backend/coverage/
+.sulion-paste/
 infrastructure/terraform/.terraform/
 infrastructure/terraform/.terraform.lock.hcl
 *.tfstate

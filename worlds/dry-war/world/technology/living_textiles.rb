@@ -4,6 +4,8 @@ resource :living_textiles do
   tags :biotech, :symbiosis, :medicine
   prominence :mythic
   function "Regulates heat, filters air, monitors physiology, delivers medicine and connects the wearer to the Great Root."
+  form "Living garments that partially colonize the wearer"
+  adoption "Subsidized through municipal health systems, then integrated into hospitals and logistics"
 
   prose <<~PROSE
     The original breakthrough, and still the thing most people mean when they talk about the network. Clothing that regulates heat, filters what the air is carrying, monitors physiology, administers compounds, closes wounds, and connects its wearer to the #{ref :the_great_root, "Great Root"}.

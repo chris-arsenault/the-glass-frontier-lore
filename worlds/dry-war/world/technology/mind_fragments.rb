@@ -4,6 +4,8 @@ concept :mind_fragments do
   tags :hybridization, :identity, :medicine, :resistance
   prominence :renowned
   function "Preserves parts of a dead person's habits, sensory memory or learned movements in machine, fungal or human carriers."
+  form "Machine models, fungal memory cultures and imprinted human students"
+  operating_limit "Each carrier preserves a different portion and may answer differently"
 
   prose <<~PROSE
     Machine models, fungal memory cultures and imprinted students can each carry part of a dead person's mind. Coalition neural devices copy habits of thought into a model. Chinese biology keeps sensory and emotional memory alive in fungus, and can impress learned movements and work habits into another person's nervous system.

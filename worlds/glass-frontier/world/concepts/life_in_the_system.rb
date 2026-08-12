@@ -6,6 +6,9 @@ concept :life_in_the_system do
   reviewed "2026-03-19"
   tags :"social-structure", :resonance
   prominence :mythic
+  scope "Ordinary life across the inhabited Kaleidos system"
+  daily_infrastructure "Resonance lighting, heating, communication and reinforced construction"
+  routine_travel "A day between adjacent planets; about a week to the outer system"
 
   prose <<~PROSE
     What it feels like to live here. Not the politics, not the factions, not the history — the texture of ordinary days in a system where the fundamental physics are slightly negotiable.

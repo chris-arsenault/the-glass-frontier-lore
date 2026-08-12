@@ -6,6 +6,7 @@ culture :hab_worlder do
   reviewed "2026-03-18"
   tags :"social-structure", :"ring-hab"
   prominence :renowned
+  integration "Raised in sealed habitats where atmosphere and structure are communal work"
 
   prose <<~PROSE
     The shared identity of people raised in ring habs. Not a single culture so much as a cultural family — Hab-Worlders from different habs can be as different from each other as any two surface settlements. What they share is the experience of growing up in sealed environments: an intuitive understanding of pressure, atmosphere, structural integrity, and the constant low-level awareness that everything outside the walls will kill you.

@@ -9,7 +9,7 @@ schema do
   # This world was drafted in assisted sessions from a worldbuilding
   # conversation, so blocks inherit machine-drafted status until they name a drafter.
   drafted_by_default :ai_human
-  require_fact_cards! from: :renowned
+  require_fact_cards! from: :renowned, minimum: 4
 
   # Symbiosis is a physical relationship here, not a metaphor, and legibility is
   # a form of power — both need edges the base taxonomy has no reason to carry.
@@ -44,6 +44,77 @@ schema do
   extend_kind :culture do
     relation_field :joined_with, relation: :symbiotic_with, cardinality: :many,
                                  label: "Joined With", expected: false
+  end
+
+  extend_subkind :concept, :physical_system do
+    field :composition, type: :text, expected: false
+    field :principal_risk, type: :text, label: "Principal Risk", expected: false
+  end
+
+  extend_subkind :concept, :doctrine do
+    field :claim, type: :text, expected: false
+    field :visible_expression, type: :text, label: "Visible Expression", expected: false
+  end
+
+  extend_subkind :concept, :technology do
+    field :form, type: :text, expected: false
+    field :operating_limit, type: :text, label: "Operating Limit", expected: false
+  end
+
+  extend_subkind :culture, :way_of_life do
+    field :population, type: :text, expected: false
+    field :governing_interface, type: :text, label: "Governing Interface", expected: false
+  end
+
+  extend_subkind :era, :historical_period do
+    field :defining_change, type: :text, label: "Defining Change", expected: false
+    field :governing_order, type: :text, label: "Governing Order", expected: false
+  end
+
+  extend_subkind :faction, :governing_intelligence do
+    field :model_of_person, type: :text, label: "Model of a Person", expected: false
+    field :measure_of_success, type: :text, label: "Measure of Success", expected: false
+  end
+
+  extend_subkind :geographic_location, :region do
+    field :landscape, type: :text, expected: false
+    field :defining_system, type: :text, label: "Defining System", expected: false
+  end
+
+  extend_subkind :geographic_location, :frontier do
+    field :setting, type: :text, expected: false
+    field :primary_work, type: :text, label: "Primary Work", expected: false
+    field :principal_hazard, type: :text, label: "Principal Hazard", expected: false
+  end
+
+  extend_subkind :geographic_location, :world_region do
+    field :form, type: :text, expected: false
+    field :population_pattern, type: :text, label: "Population", expected: false
+  end
+
+  extend_subkind :phenomenon, :catastrophe do
+    field :extent, type: :text, expected: false
+    field :ended, type: :year, expected: false
+  end
+
+  extend_subkind :phenomenon, :ecological_phenomenon do
+    field :extent, type: :text, expected: false
+    field :human_effect, type: :text, label: "Human Effect", expected: false
+  end
+
+  extend_subkind :resource, :biological_material do
+    field :form, type: :text, expected: false
+    field :adoption, type: :text, expected: false
+  end
+
+  extend_subkind :resource, :device do
+    field :interface, type: :text, expected: false
+    field :removal_cost, type: :text, label: "Removal Cost", expected: false
+  end
+
+  extend_subkind :resource, :material do
+    field :civilizational_uses, type: :text, label: "Civilizational Uses", expected: false
+    field :allocation, type: :text, expected: false
   end
 
   # Sections the base vocabulary has no reason to carry. Both gods produced

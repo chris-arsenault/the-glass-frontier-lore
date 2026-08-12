@@ -4,6 +4,8 @@ culture :the_joined do
   tags :symbiosis, :medicine, :identity, :dependency
   prominence :mythic
   integration "Fungal tissue in clothing, bodies, homes and public infrastructure"
+  population "Most residents of connected China; several hundred million people"
+  governing_interface "Inclinations carried through living tissue and local surroundings"
 
   prose <<~PROSE
     The Joined are most of the people in #{ref :connected_china, "connected China"}, the largest surviving human civilization. The #{ref :the_great_root, "Great Root"} grows through their clothing and bodies. There was never a moment when they agreed to join; the connection spread through ordinary life over #{elapsed :the_quiet_conquest, approx: true}, and nearly all of them were born after it.

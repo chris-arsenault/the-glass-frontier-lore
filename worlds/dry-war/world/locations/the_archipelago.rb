@@ -4,6 +4,8 @@ geographic_location :the_habitable_archipelago do
   aka "the Stable", "what's left"
   tags :catastrophe, :ecology, :water
   prominence :mythic
+  form "Two large territories, smaller enclaves and defended corridors"
+  population_pattern "Most people live in connected China or coalition North America"
 
   prose <<~PROSE
     Most of Earth can no longer support permanent human settlement. The regions that can form an archipelago: two large continuous territories, smaller enclaves and a few defended corridors between them.

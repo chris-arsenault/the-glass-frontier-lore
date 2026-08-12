@@ -6,6 +6,10 @@ geographic_location :the_shear do
   reviewed "2026-03-19"
   tags :orbital, :salvage, :danger, :resonance
   prominence :renowned
+  setting "Interstitial debris fields in Kaleidos orbit"
+  extent "Roughly half of the orbital volume between surviving ring habitats"
+  main_industry "Ringglass salvage"
+  principal_hazards "Orbital debris, resonance spikes, collapse, predators and piracy"
 
   question "The Coremark reference makes sense here, but it shouldn't be the only corporation or group named throughout the article — severe overuse. Add a few future stubs.", raised: "2026-03-20", on: "built its empire on the industrial end. The independents work the margins"
   question "Coremark overuse.", raised: "2026-03-20", on: "black-market operations — exist in pockets of the Shear that nobody official has charted."

@@ -7,6 +7,10 @@ species :gnomes do
   tags :species, :resonance, :"ring-era"
   prominence :mythic
   registry true
+  origin "Bioengineered during the ring era"
+  biology "Ringglass lattice threaded through bone and nervous tissue"
+  lifespan "About 50–150 years, depending on lattice care and exposure"
+  resonance_relation "Direct sensory attunement to local resonance"
 
   prose <<~PROSE
     Bioengineered by the #{ref :elves, "elves"} during the ring era. Gnomes were designed — there is no polite way around the word — to interface with the orbital ring's #{ref :resonance, "resonance"} systems. Their biology incorporates #{ref :ringglass, "ringglass"} at a fundamental level: crystalline structures threaded through their skeletal system and nervous tissue, grown in place rather than implanted. A gnome is, in a very literal sense, part crystal.

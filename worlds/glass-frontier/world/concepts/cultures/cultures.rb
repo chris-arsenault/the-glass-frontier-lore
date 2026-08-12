@@ -7,6 +7,11 @@ culture :cultures do
   tags :"social-structure"
   prominence :mythic
   registry true
+  organizing_basis "Place, upbringing and shared practice rather than species"
+  primary_signals "Language, names, clothing and manners"
+  major_cultures %i[sitharian_culture hab_worlder]
+  custom_fact :political_scope, "Cultures contain many governments and ideologies",
+              label: "Political Scope"
 
   prose <<~PROSE
     Cultures in the Kaleidos system are orthogonal to species. A Sitharian orc and a Sitharian human share more cultural identity — language patterns, naming conventions, visual aesthetics, clothing — than a Sitharian human and a Hab-Worlder human. Species determines biology. Culture determines how you introduce yourself.

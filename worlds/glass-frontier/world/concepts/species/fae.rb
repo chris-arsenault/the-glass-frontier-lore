@@ -7,6 +7,11 @@ species :fae do
   tags :species, :resonance
   prominence :mythic
   registry true
+  origin "Engineered or extensively modified during the ring era"
+  biology "Spatially diffuse at rest; coherent form requires sustained effort"
+  resonance_relation "Coherence aids use resonance as a prosthetic"
+  custom_fact :principal_accommodation, "Coherence-supporting devices and architecture",
+              label: "Principal Accommodation"
 
   prose <<~PROSE
     Engineered origin, created or modified during the ring era. The details of who made them and why are debated — the #{ref :elves, "elves"} are the obvious candidates, but the fae predate some ring-era records in ways that don't track with a clean "the elves made them" narrative. Some scholars believe fae are a modification of a pre-existing species rather than a ground-up creation. The fae themselves consider the question irrelevant to their present circumstances, which are complicated enough without worrying about origins.

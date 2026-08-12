@@ -7,6 +7,11 @@ culture :naming_conventions do
   tags :"social-structure"
   prominence :mythic
   registry true
+  organizing_basis "Culture first; species influence is secondary"
+  documented_traditions 6
+  used_by %i[sitharian_culture hab_worlder orcs gnomes fae elves]
+  custom_fact :species_influence, "Ceremonial, inherited or deliberately asserted",
+              label: "Species Influence"
 
   prose <<~PROSE
     Names in the Kaleidos system are primarily cultural, not species-based. Culture determines naming pattern. Species occasionally influences names as a secondary layer — traditional species-rooted names used as throwbacks, ceremonial names, or by people making a deliberate statement.

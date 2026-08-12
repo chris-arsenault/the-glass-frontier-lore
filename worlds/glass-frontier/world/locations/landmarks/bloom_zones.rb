@@ -7,6 +7,9 @@ geographic_location :bloom_zones do
   tags :orbital, :danger, :resonance
   prominence :renowned
   prominence_xrefs ["coremark", "displacement-council", "pyre", "tuners"]
+  nature "Expanding tears where physical rules and distance become inconsistent"
+  first_recorded 2378
+  containment_status "Permanent cordons maintained around active zones"
 
   log "Reality doesn't work right here — dimensional instability, warped physics. New relic-magnitude artifacts are generated in the zones: genuinely new powers, not pre-collapse tech. The Adversary seeps through the tears, and the elves have increased their hidden presence [DM]."
 

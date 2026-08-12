@@ -7,6 +7,9 @@ concept :the_false_form do
   prominence :renowned
   registry true
   aka "the Rhomboid", "the Outside Figure", "the Open Thing"
+  function "Marks a path that returns to its start without closing"
+  nature "The impossible third figure in the Three Forms"
+  known_forms "An open rhombus drawn with contradictory edges"
 
   prose <<~PROSE
     The False Form is the third figure of the #{ref :the_three_forms, "Three Forms"} — the impossible rhombus that the triptych draws between the lawful Tetrahedron and the lawful Triangulum and labels, in every honest copy, *false, outside.* It is the figure whose edges meet in ways no real edge can: a path that comes back to where it began and still refuses to close. The old caption beneath it is the one no apprentice forgets — *it is, and is not, all at once.*
