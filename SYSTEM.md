@@ -196,7 +196,8 @@ lint also includes counts by severity. A diagnostic records `severity`, `code`,
 `World#validation_diagnostics` and `World#lint_diagnostics` add this typed API
 without changing the legacy `validate` or `lint` return values. Findings exit
 1; source parse and load failures exit 2 with the same envelope when JSON was
-requested.
+requested. Ruby callers may supply `root:` to control source-path relativity;
+the CLI supplies the repository root regardless of its launch directory.
 
 ## Render targets
 

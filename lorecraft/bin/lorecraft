@@ -131,7 +131,8 @@ end
 
 case cmd
 when "validate"
-  diagnostics = load_world(format: format).validation_diagnostics
+  world = load_world(format: format)
+  diagnostics = world.validation_diagnostics(root: Lorecraft::Worlds.repo_root)
   if format == :json
     puts JSON.pretty_generate(
       schema_version: 1,
@@ -149,7 +150,11 @@ when "validate"
   end
 when "lint"
   world = load_world(format: format)
-  results = format == :json ? world.lint_diagnostics : world.lint
+  results = if format == :json
+              world.lint_diagnostics(root: Lorecraft::Worlds.repo_root)
+            else
+              world.lint
+            end
   by = results.group_by(&:level)
   e = (by[:error] || []).size
   w = (by[:warn] || []).size

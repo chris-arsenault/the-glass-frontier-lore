@@ -374,7 +374,7 @@ queue file, or comments file keyed by source path.
 
 ### Review app:
 
-`cd tools/review-app && npm run dev` — inline review tool on `:3456`, with a loopback-only API on `:3457`, serving `WORLD` (default `glass-frontier`). It addresses entries by stable id rather than by source file, so files containing several entities remain safe. Every write supplies the source revision, reparses the exact entity declaration, reloads and validates the staged world, and atomically installs the candidate. Highlighting a passage inserts a `question`; resolving deletes that exact question token; the two buttons set the desired `reviewed` and `status :complete` state. Run `make review-check` after app changes and `make check WORLD=<id>` after a review session.
+`cd tools/review-app && npm run dev` — inline review tool on `:3456`, with a loopback-only API on `:3457`, serving `WORLD` (default `glass-frontier`). It addresses entries by stable id rather than by source file, so files containing several entities remain safe. Every write supplies the source revision, reparses the exact entity declaration, reloads and validates the staged world, and atomically installs the candidate. Highlighting a passage inserts a `question`; resolving deletes that exact question token; the two buttons set the desired `reviewed` and `status :complete` state. From the repository root, run `make review-check` after app changes and `make check WORLD=<id>` after a review session.
 
 ## Source Material
 

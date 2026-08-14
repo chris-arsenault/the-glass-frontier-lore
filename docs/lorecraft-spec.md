@@ -483,6 +483,8 @@ the same envelope when JSON was requested.
 The Ruby APIs `World#validation_diagnostics` and `World#lint_diagnostics` return
 immutable records. `World#validate` continues to return strings, and
 `World#lint` continues to return `Finding` values with `level` and `message`.
+The diagnostic APIs accept `root:` and make source paths relative to it when
+possible. The CLI always supplies the repository root.
 
 ## 13. Render targets
 

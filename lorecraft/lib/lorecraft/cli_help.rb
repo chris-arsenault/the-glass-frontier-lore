@@ -471,6 +471,10 @@ module Lorecraft
         who drafted each owned block and expires a read when its prose changes.
         Never set reviewed on a person's behalf. status :complete states that the
         entry is finished; it does not imply a human review.
+
+        For source-backed interactive review, see tools/review-app/README.md.
+        The app is a trusted loopback tool whose writes require a stable entity
+        id and the current whole-file source revision.
       TEXT
     end
   end

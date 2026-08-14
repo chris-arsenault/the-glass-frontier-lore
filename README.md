@@ -86,6 +86,8 @@ See [the Lorecraft guide](lorecraft/README.md) for authoring and every command,
 [the architecture](SYSTEM.md) for loading, rendering, and deployment. The
 [composition and editorial metadata guide](docs/canonical-composition.md)
 describes transclusion, computed time, questions, logs, and provenance.
+Use the [local review app](tools/review-app/README.md) for revision-checked
+source updates during interactive review.
 
 ## Repository boundaries
 
@@ -96,7 +98,7 @@ craft/                 rules and schema shared by every world
 lorecraft/             loader, query model, validators, help, and renderers
 tools/review-app/      trusted loopback editor for review declarations
 apps/web/              public multi-world reader
-backend/editorial-api/ authenticated questions, logs, and review records
+backend/editorial-api/ read-only authenticated access to generated editorial records
 ```
 
 The DSL under `worlds/<id>/world/` is the only canonical lore. Public reader

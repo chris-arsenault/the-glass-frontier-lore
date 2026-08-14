@@ -32,6 +32,9 @@ The Ruby bridge permits four changes:
 - set or remove one literal `reviewed` date;
 - set or remove literal `status :complete`.
 
+Setting `reviewed` asserts that the current human operator read the rendered
+entry. `complete` records authoring state and does not imply human review.
+
 `Lorecraft::SourceEdit` uses Prism to find one literal entity declaration and
 refuses computed identities, computed review values, duplicates, and ambiguous
 question sources. `Lorecraft::ReviewEditor` applies the candidate in memory,
@@ -50,8 +53,8 @@ numbers and do not write partial source.
 After a review session, check the selected world and the local app boundary:
 
 ```sh
-make check WORLD=dry-war
-make test review-check
+make -C ../.. check WORLD=dry-war
+make -C ../.. test review-check
 ```
 
 `make review-check` runs the Express boundary tests and builds the Vite client.

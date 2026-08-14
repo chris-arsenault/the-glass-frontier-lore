@@ -2164,6 +2164,14 @@ class CLIHelpTest < Minitest::Test
     assert_includes help, "does not prove that free prose is true"
   end
 
+  def test_review_topic_routes_to_the_source_backed_local_tool
+    help = Lorecraft::CLIHelp.render("review")
+
+    assert_includes help, "tools/review-app/README.md"
+    assert_includes help, "trusted loopback"
+    assert_includes help, "whole-file source revision"
+  end
+
   def test_every_advertised_command_has_help
     Lorecraft::CLIHelp::COMMANDS.each_key do |command|
       assert_includes Lorecraft::CLIHelp.render(command), "Usage:"
@@ -2465,6 +2473,23 @@ class FeaturePortContractTest < Minitest::Test
       assert_empty text_err
       assert_includes text_out, "FUTURE"
     end
+  end
+
+  def test_cli_diagnostic_sources_remain_repo_relative_from_a_nested_directory
+    root = File.expand_path("../..", __dir__)
+    cli = File.join(root, "lorecraft/bin/lorecraft")
+    nested = File.join(root, "worlds/dry-war")
+    stdout, stderr, status = Open3.capture3(
+      RbConfig.ruby, cli, "lint", "--world", "dry-war", "--format", "json",
+      chdir: nested
+    )
+    payload = JSON.parse(stdout)
+    sources = payload.fetch("diagnostics").filter_map { |item| item["source_file"] }
+
+    assert_predicate status, :success?, "#{stdout}\n#{stderr}"
+    assert_empty stderr
+    refute_empty sources
+    assert sources.all? { |source| source.start_with?("worlds/dry-war/") }, sources.inspect
   end
 end
 

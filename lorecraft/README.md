@@ -126,7 +126,9 @@ Validation findings and error-level lint findings exit 1. A Ruby parse or world
 load failure exits 2 and still returns the diagnostic envelope when JSON was
 requested. The Ruby APIs are additive: `validation_diagnostics` and
 `lint_diagnostics` provide typed records, while `validate` and `lint` retain
-their established string and finding results.
+their established string and finding results. Ruby callers may pass `root:`;
+`source_file` is relative to that root when possible. The CLI always uses the
+repository root.
 
 ## Loading and querying
 
@@ -277,6 +279,10 @@ An entity can declare `reviewed "YYYY-MM-DD"`; a prose or card block can declare
 `drafted_by_default`. `provenance` compares those declarations with git history,
 so a review stops covering prose changed afterward. Never write a human review
 date on that person's behalf.
+
+For source-backed interactive review, follow the
+[local review app guide](../tools/review-app/README.md). It documents the
+trusted-loopback boundary, revision checks, and permitted declarations.
 
 ## Generated targets
 
