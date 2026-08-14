@@ -45,14 +45,16 @@ module Lorecraft
     # every world in the repository builds on) are evaluated first, then the
     # world's own schema and timeline, then the remainder in sorted path order
     # so the fold tie-break (declaration order) is identical on every machine.
-    def self.load(glob, prelude: [])
+    def self.load(glob, prelude: [], overrides: {})
       world = new
       files = Dir.glob(glob).select { |f| File.file?(f) }.sort
       ordered = Array(prelude).select { |f| File.file?(f) } + pin_first(files)
+      staged = overrides.to_h.transform_keys { |file| File.expand_path(file.to_s) }
       ctx = DefinitionContext.new(world)
       ordered.each do |file|
         world.instance_variable_set(:@current_file, file)
-        ctx.instance_eval(File.read(file, encoding: "UTF-8"), file)
+        source = staged.fetch(File.expand_path(file)) { File.read(file, encoding: "UTF-8") }
+        ctx.instance_eval(source, file)
       end
       world.finalize!
       world

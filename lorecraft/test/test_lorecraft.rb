@@ -4,6 +4,7 @@ $LOAD_PATH.unshift File.expand_path("../lib", __dir__)
 Encoding.default_external = Encoding::UTF_8
 Encoding.default_internal = Encoding::UTF_8
 require "minitest/autorun"
+require "fileutils"
 require "open3"
 require "tmpdir"
 require "lorecraft"
@@ -2336,5 +2337,176 @@ class FeaturePortContractTest < Minitest::Test
     assert_operator problems.size, :>=, 2
     assert(problems.all? { |problem| problem.is_a?(String) })
     assert(findings.all? { |finding| finding.respond_to?(:level) && finding.respond_to?(:message) })
+  end
+end
+
+class ReviewEditorTest < Minitest::Test
+  def test_world_load_can_validate_staged_source_without_touching_disk
+    with_editor do |editor, file, target|
+      original = File.binread(file)
+      staged = original.sub('name "Alpha"', 'name "Staged Alpha"')
+      world = Lorecraft.load(target.glob, prelude: target.prelude, overrides: { file => staged })
+
+      assert_equal "Staged Alpha", world.entity(:alpha).title
+      assert_equal original, File.binread(file)
+    end
+  end
+
+  def test_entity_addressing_keeps_siblings_independent
+    with_editor do |editor, file, _target|
+      alpha = editor.entry(:alpha)
+      refute_includes alpha.fetch(:content), "concept :beta"
+      result = editor.add_question(
+        :alpha, revision: alpha.fetch(:revision), text: "Check alpha.", on: "Alpha prose."
+      )
+      source = File.binread(file)
+
+      assert result.fetch(:written)
+      assert_equal 1, result.dig(:entry, :question_count)
+      assert_match(/concept :alpha do.*question "Check alpha\.".*end/m, source)
+      refute_match(/concept :beta do.*question "Check alpha\.".*end/m, source)
+
+      beta = editor.entry(:beta)
+      editor.set_complete(:beta, revision: beta.fetch(:revision), value: true)
+      source = File.binread(file)
+      refute_match(/concept :alpha do.*status :complete.*concept :beta/m, source)
+      assert_match(/concept :beta do.*status :complete.*end/m, source)
+    end
+  end
+
+  def test_question_tokens_survive_line_movement_and_resolve_exactly
+    with_editor do |editor, file, _target|
+      File.chmod(0o640, file)
+      alpha = editor.entry(:alpha)
+      added = editor.add_question(
+        :alpha, revision: alpha.fetch(:revision),
+        text: %(Quotes " slash \\ marker \#{ref :beta} café\nremain safe.)
+      )
+      question = added.dig(:entry, :questions).fetch(0)
+      after_add = editor.entry(:alpha)
+      moved = editor.set_reviewed(
+        :alpha, revision: after_add.fetch(:revision), value: true
+      ).fetch(:entry)
+
+      assert_equal %(Quotes " slash \\ marker \#{ref :beta} café remain safe.), question.fetch(:text)
+      assert_equal question.fetch(:token), moved.fetch(:questions).first.fetch(:token)
+      resolved = editor.resolve_question(
+        :alpha, revision: moved.fetch(:revision), token: question.fetch(:token)
+      )
+
+      assert_empty resolved.dig(:entry, :questions)
+      assert_equal 0o640, File.stat(file).mode & 0o777
+    end
+  end
+
+  def test_dry_run_returns_a_diff_and_writes_nothing
+    with_editor do |editor, file, _target|
+      before = File.binread(file)
+      alpha = editor.entry(:alpha)
+      result = editor.set_reviewed(
+        :alpha, revision: alpha.fetch(:revision), value: true, dry_run: true
+      )
+
+      refute result.fetch(:written)
+      assert result.fetch(:dry_run)
+      assert_includes result.fetch(:diff), "+  reviewed"
+      assert_equal before, File.binread(file)
+    end
+  end
+
+  def test_stale_and_invalid_candidates_write_nothing
+    with_editor do |editor, file, _target|
+      alpha = editor.entry(:alpha)
+      changed = "#{File.binread(file)}# concurrent edit\n"
+      File.binwrite(file, changed)
+
+      assert_raises(Lorecraft::StaleSourceError) do
+        editor.set_complete(:alpha, revision: alpha.fetch(:revision), value: true)
+      end
+      assert_equal changed, File.binread(file)
+
+      fresh = editor.entry(:alpha)
+      assert_raises(Lorecraft::SourceMutationError) do
+        editor.set_reviewed(
+          :alpha, revision: fresh.fetch(:revision), value: true, date: "yesterday"
+        )
+      end
+      assert_equal changed, File.binread(file)
+    end
+  end
+
+  def test_computed_entity_identity_is_refused
+    with_editor(source: <<~RUBY) do |editor, _file, _target|
+      entity_id = :alpha
+      concept entity_id do
+        name "Alpha"
+        prose "Alpha prose."
+      end
+    RUBY
+      error = assert_raises(Lorecraft::SourceMutationError) { editor.entry(:alpha) }
+
+      assert_equal "ambiguous_entity_source", error.code
+    end
+  end
+
+  def test_computed_review_declarations_are_refused_without_writing
+    with_editor(source: <<~RUBY) do |editor, file, _target|
+      concept :alpha do
+        name "Alpha"
+        path "player/concepts/alpha.md"
+        state = :draft
+        status state
+        prose "Alpha prose."
+      end
+    RUBY
+      before = File.binread(file)
+      alpha = editor.entry(:alpha)
+      error = assert_raises(Lorecraft::SourceMutationError) do
+        editor.set_complete(:alpha, revision: alpha.fetch(:revision), value: true)
+      end
+
+      assert_equal "computed_declaration", error.code
+      assert_equal before, File.binread(file)
+    end
+  end
+
+  private
+
+  def with_editor(source: nil)
+    Dir.mktmpdir do |directory|
+      world_dir = File.join(directory, "world")
+      FileUtils.mkdir_p(world_dir)
+      File.write(File.join(world_dir, "schema.rb"), <<~RUBY)
+        schema do
+          entity_type :concept
+        end
+      RUBY
+      File.write(File.join(world_dir, "timeline.rb"), <<~RUBY)
+        timeline do
+          era :present, starts: 0, length: 10
+          now year: 1
+        end
+      RUBY
+      source ||= <<~RUBY
+        concept :alpha do
+          name "Alpha"
+          path "player/concepts/alpha.md"
+          prose "Alpha prose."
+        end
+
+        concept :beta do
+          name "Beta"
+          path "player/concepts/beta.md"
+          prose "Beta prose."
+        end
+      RUBY
+      file = File.join(world_dir, "entries.rb")
+      File.write(file, source)
+      target = Lorecraft::Worlds::Entry.new(
+        id: "test", title: "Test", status: "active", root: directory, prelude: []
+      )
+
+      yield Lorecraft::ReviewEditor.new(target: target), file, target
+    end
   end
 end

@@ -17,8 +17,8 @@ module Lorecraft
   VERSION = "0.1.0"
 
   # Load a world from content files (prelude, then schema/timeline, then sorted).
-  def self.load(glob, prelude: [])
-    World.load(glob, prelude: prelude)
+  def self.load(glob, prelude: [], overrides: {})
+    World.load(glob, prelude: prelude, overrides: overrides)
   end
 
   # Define a world inline.
@@ -40,3 +40,4 @@ require_relative "lorecraft/connections"
 require_relative "lorecraft/schema_inspection"
 require_relative "lorecraft/guide"
 require_relative "lorecraft/path_query"
+require_relative "lorecraft/review_editor"

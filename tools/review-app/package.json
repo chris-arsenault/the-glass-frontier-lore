@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "concurrently -k \"node server/index.js\" \"vite\"",
     "server": "node server/index.js",
-    "client": "vite"
+    "client": "vite",
+    "test": "node --test server/*.test.js",
+    "build": "vite build"
   },
   "keywords": [],
   "author": "",

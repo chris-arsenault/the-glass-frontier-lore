@@ -1,4 +1,4 @@
-.PHONY: validate lint check check-all wiki site-data graph stats topology worlds test provenance facts queue web reader-dev reader-build backend-check app-check clean
+.PHONY: validate lint check check-all wiki site-data graph stats topology worlds test provenance facts queue web reader-dev reader-build review-check backend-check app-check clean
 
 # Content targets run against one world unless their name says otherwise.
 # Override with WORLD=<id>; `make worlds` lists what is available. The default
@@ -45,7 +45,10 @@ reader-build:
 backend-check:
 	@cd backend && cargo fmt --all --check && cargo clippy --workspace --all-targets -- -D warnings && cargo test --workspace
 
-app-check: test check-all site-data backend-check
+review-check:
+	@cd tools/review-app && npm test && npm run build
+
+app-check: test check-all site-data review-check backend-check
 	@cd apps/web && pnpm exec eslint . && pnpm exec tsc --noEmit && pnpm exec vitest run --coverage && pnpm run build
 	@terraform fmt -check -recursive infrastructure/terraform
 

@@ -12,19 +12,17 @@ const escapeHtml = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace
 // The engine emits front matter; a reviewer reading prose does not need it.
 const stripFrontMatter = (md) => md.replace(/^---\n[\s\S]*?\n---\n/, '')
 
-function buildTree(files) {
+function buildTree(entries) {
   const root = { __files: [], __dirs: {} }
-  for (const f of files) {
-    const parts = f.split('/')
+  for (const entry of entries) {
+    const parts = entry.source_file.split('/')
+    parts.pop()
     let node = root
-    for (let i = 0; i < parts.length; i++) {
-      if (i === parts.length - 1) {
-        node.__files.push({ name: parts[i], path: f })
-      } else {
-        if (!node.__dirs[parts[i]]) node.__dirs[parts[i]] = { __files: [], __dirs: {} }
-        node = node.__dirs[parts[i]]
-      }
+    for (const part of parts) {
+      if (!node.__dirs[part]) node.__dirs[part] = { __files: [], __dirs: {} }
+      node = node.__dirs[part]
     }
+    node.__files.push({ name: entry.title, path: entry.id, source: entry.source_file })
   }
   return root
 }
@@ -133,13 +131,13 @@ function TreeNode({ node, path, depth, currentFile, onSelect, collapsed, onToggl
                 return null
               })()}
               <span style={{ flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                {f.name.replace(/\.rb$/, '')}
+                {f.name}
               </span>
-              {index[f.path]?.questions > 0 && (
+              {index[f.path]?.question_count > 0 && (
                 <span style={{
                   background: '#f59e0b', color: '#000', borderRadius: '8px',
                   padding: '0 5px', fontSize: '9px', fontWeight: 700, flexShrink: 0,
-                }}>{index[f.path].questions}</span>
+                }}>{index[f.path].question_count}</span>
               )}
             </div>
           ))}
@@ -152,9 +150,11 @@ function TreeNode({ node, path, depth, currentFile, onSelect, collapsed, onToggl
 function App() {
   const [files, setFiles] = useState([])
   const [currentFile, setCurrentFile] = useState(null)
+  const [currentSource, setCurrentSource] = useState(null)
+  const [revision, setRevision] = useState(null)
   const [content, setContent] = useState('')
-  // Questions come from the file being viewed — they are declarations in it, not
-  // rows in a store, so there is no cross-file index to hold.
+  // Questions are declarations owned by the selected entity, not rows in a
+  // separate review store.
   const [reviews, setReviews] = useState([])
   const [filter, setFilter] = useState('')
   const [collapsed, setCollapsed] = useState(new Set())
@@ -174,8 +174,7 @@ function App() {
   const textareaRef = useRef(null)
 
   useEffect(() => {
-    fetch(`${API}/files`).then(r => r.json()).then(setFiles)
-    fetch(`${API}/index`).then(r => r.json()).then(setIndex)
+    refreshIndex()
   }, [])
 
   useEffect(() => {
@@ -240,7 +239,7 @@ function App() {
     // A question anchors to a passage via its `on:`; one without an anchor is
     // about the entry as a whole.
     for (const q of reviews.filter(q => q.on)) {
-      applyHighlight(contentRef.current, q.on, q.line)
+      applyHighlight(contentRef.current, q.on, q.token)
     }
 
     requestAnimationFrame(() => {
@@ -272,42 +271,44 @@ function App() {
     return () => el.removeEventListener('click', handler)
   }, [content, currentFile])
 
-  // Everything about an entry comes from the entry: its source, the questions
-  // declared in it, and its review flags.
-  const loadFile = async (filePath) => {
-    const [file, questions, flagState, rendered] = await Promise.all([
-      fetch(`${API}/file/${filePath}`).then(r => r.json()),
-      fetch(`${API}/questions?file=${encodeURIComponent(filePath)}`).then(r => r.json()),
-      fetch(`${API}/review-status?file=${encodeURIComponent(filePath)}`).then(r => r.json()),
-      fetch(`${API}/prose?file=${encodeURIComponent(filePath)}`).then(r => r.json()),
-    ])
-    setCurrentFile(file.path)
-    setContent(file.content)
-    setProse(rendered.markdown ? stripFrontMatter(rendered.markdown) : '')
-    setReviews(questions)
-    setFlags(flagState)
+  // One entity response carries its source, rendered prose, questions, flags,
+  // and the revision required by every write.
+  const loadFile = async (entityId) => {
+    const response = await fetch(`${API}/entries/${encodeURIComponent(entityId)}`)
+    const data = await response.json()
+    if (!response.ok) return setError(data.message || 'entry load failed')
+    const entry = data.entry
+    setCurrentFile(entry.id)
+    setCurrentSource(entry.source_file)
+    setRevision(entry.revision)
+    setContent(entry.content)
+    setProse(entry.markdown ? stripFrontMatter(entry.markdown) : '')
+    setReviews(entry.questions)
+    setFlags({ reviewed: entry.reviewed, complete: entry.complete })
     setPendingSelection(null)
     setNewComment(null)
     setActiveComment(null)
     setError(null)
   }
 
-  // The file changed under us, so line numbers moved — take the server's list.
+  // A successful write returns the new revision and exact question tokens.
   const applyWrite = async (res) => {
     const data = await res.json()
-    if (!res.ok) return setError(data.detail || data.error || 'write failed')
-    setReviews(data.questions || [])
-    const [file, rendered] = await Promise.all([
-      fetch(`${API}/file/${currentFile}`).then(r => r.json()),
-      fetch(`${API}/prose?file=${encodeURIComponent(currentFile)}`).then(r => r.json()),
-    ])
-    setContent(file.content)
-    setProse(rendered.markdown ? stripFrontMatter(rendered.markdown) : '')
+    if (!res.ok) return setError(data.message || 'write failed')
+    const entry = data.entry
+    setRevision(entry.revision)
+    setContent(entry.content)
+    setProse(entry.markdown ? stripFrontMatter(entry.markdown) : '')
+    setReviews(entry.questions || [])
+    setFlags({ reviewed: entry.reviewed, complete: entry.complete })
     refreshIndex()
     setError(null)
   }
 
-  const refreshIndex = () => fetch(`${API}/index`).then(r => r.json()).then(setIndex)
+  const refreshIndex = () => fetch(`${API}/entries`).then(r => r.json()).then(data => {
+    setFiles(data.entries || [])
+    setIndex(Object.fromEntries((data.entries || []).map(entry => [entry.id, entry])))
+  })
 
   const handleMouseUp = useCallback(() => {
     const sel = window.getSelection()
@@ -332,10 +333,10 @@ function App() {
 
   const submitComment = async () => {
     if (!commentText.trim() || !currentFile || !newComment) return
-    const res = await fetch(`${API}/questions`, {
+    const res = await fetch(`${API}/entries/${encodeURIComponent(currentFile)}/questions`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ file: currentFile, text: commentText.trim(), on: newComment.text }),
+      body: JSON.stringify({ revision, text: commentText.trim(), on: newComment.text }),
     })
     setNewComment(null)
     setCommentText('')
@@ -344,30 +345,32 @@ function App() {
   }
 
   // Resolving is deleting: the declaration exists while the question is open.
-  const resolveQuestion = async (line) => {
-    const res = await fetch(`${API}/questions?file=${encodeURIComponent(currentFile)}&line=${line}`,
-                            { method: 'DELETE' })
+  const resolveQuestion = async (token) => {
+    const res = await fetch(
+      `${API}/entries/${encodeURIComponent(currentFile)}/questions/${encodeURIComponent(token)}`,
+      {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ revision }),
+      }
+    )
     setActiveComment(null)
     await applyWrite(res)
   }
 
   const toggleFlag = async (field) => {
     if (!currentFile) return
-    const res = await fetch(`${API}/review-status`, {
-      method: 'POST',
+    const res = await fetch(`${API}/entries/${encodeURIComponent(currentFile)}/review-status/${field}`, {
+      method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ file: currentFile, field }),
+      body: JSON.stringify({ revision, value: !flags[field] }),
     })
-    const data = await res.json()
-    if (!res.ok) return setError(data.detail || data.error || 'write failed')
-    setFlags(data)
-    const file = await fetch(`${API}/file/${currentFile}`).then(r => r.json())
-    setContent(file.content)
-    refreshIndex()
+    await applyWrite(res)
   }
 
   const filteredFiles = filter
-    ? files.filter(f => f.toLowerCase().includes(filter.toLowerCase()))
+    ? files.filter(entry => [entry.id, entry.title, entry.source_file]
+      .some(value => value.toLowerCase().includes(filter.toLowerCase())))
     : files
   const tree = useMemo(() => buildTree(filteredFiles), [filteredFiles])
 
@@ -377,7 +380,7 @@ function App() {
   // Vertical overlaps between gutter cards, resolved by pushing later ones down.
   const resolvedPositions = useMemo(() => {
     const items = reviews
-      .map(q => ({ id: q.line, y: commentPositions[q.line] ?? -1 }))
+      .map(q => ({ id: q.token, y: commentPositions[q.token] ?? -1 }))
       .filter(it => it.y >= 0)
       .sort((a, b) => a.y - b.y)
     const GAP = 90
@@ -391,7 +394,7 @@ function App() {
 
   // A question with no anchor, or one whose anchor no longer appears in the
   // source — the case `make check` warns about.
-  const orphanedReviews = reviews.filter(q => !(q.line in commentPositions))
+  const orphanedReviews = reviews.filter(q => !(q.token in commentPositions))
   const renderedHtml = useMemo(() => {
     if (view === 'source') return content ? `<pre class="src">${escapeHtml(content)}</pre>` : ''
     return prose ? marked.parse(prose) : ''
@@ -426,7 +429,7 @@ function App() {
         </div>
         <div style={{ borderTop: '1px solid #2a2a4a', padding: '6px 10px', fontSize: '10px' }}>
           <div style={{ color: '#555' }}>
-            {Object.values(index).reduce((n, e) => n + e.questions, 0)} open question(s) ·{' '}
+            {Object.values(index).reduce((n, e) => n + e.question_count, 0)} open question(s) ·{' '}
             {Object.values(index).filter(e => e.reviewed).length}/{Object.keys(index).length} read
           </div>
         </div>
@@ -436,7 +439,7 @@ function App() {
       {currentFile ? (
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
           <div style={{ padding: '8px 20px', borderBottom: '1px solid #2a2a4a', display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: '#14142a', flexShrink: 0, gap: 8 }}>
-            <span style={{ fontSize: '13px', color: '#9090b0', flex: 1 }}>{currentFile}</span>
+            <span style={{ fontSize: '13px', color: '#9090b0', flex: 1 }}>{currentSource}</span>
             {error && (
               <span style={{ fontSize: '10px', color: '#f87171' }}>{error}</span>
             )}
@@ -489,12 +492,12 @@ function App() {
                 style={{ width: '280px', flexShrink: 0, position: 'relative', borderLeft: '1px solid #222240', background: '#131328', minHeight: maxY + 200 + 'px' }}>
 
                 {/* Questions anchored to a passage in the source */}
-                {reviews.filter(q => q.line in resolvedPositions).map(q => (
-                  <div key={q.line} id={`gc-${q.line}`}
-                    className={`gutter-card${activeComment === q.line ? ' active' : ''}`}
+                {reviews.filter(q => q.token in resolvedPositions).map(q => (
+                  <div key={q.token} id={`gc-${q.token}`}
+                    className={`gutter-card${activeComment === q.token ? ' active' : ''}`}
                     onClick={() => {
-                      setActiveComment(q.line)
-                      const mark = contentRef.current?.querySelector(`mark[data-review-id="${q.line}"]`)
+                      setActiveComment(q.token)
+                      const mark = contentRef.current?.querySelector(`mark[data-review-id="${q.token}"]`)
                       if (mark) {
                         mark.scrollIntoView({ behavior: 'smooth', block: 'center' })
                         mark.classList.add('active')
@@ -502,7 +505,7 @@ function App() {
                       }
                     }}
                     style={{
-                      position: 'absolute', top: resolvedPositions[q.line], left: 10, right: 10,
+                      position: 'absolute', top: resolvedPositions[q.token], left: 10, right: 10,
                       background: '#1a1a30', border: '1px solid #262648', borderRadius: '4px',
                       padding: '8px 10px', fontSize: '12px', cursor: 'pointer',
                     }}>
@@ -514,7 +517,7 @@ function App() {
                     <div style={{ color: '#c8c8e0', lineHeight: 1.4 }}>{q.text}</div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '6px' }}>
                       <span style={{ fontSize: '10px', color: '#444' }}>{q.raised || ''}</span>
-                      <button className="btn-sm" onClick={e => { e.stopPropagation(); resolveQuestion(q.line) }}
+                      <button className="btn-sm" onClick={e => { e.stopPropagation(); resolveQuestion(q.token) }}
                         style={{ color: '#4ade80', border: '1px solid #1a3a1a' }}
                         title="deletes the question line from the entity">resolve</button>
                     </div>
@@ -526,7 +529,7 @@ function App() {
                   <div style={{ position: 'absolute', top: (allPositionValues.length > 0 ? maxY + 110 : 16), left: 10, right: 10 }}>
                     <div style={{ fontSize: '9px', color: '#444', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '4px' }}>About the entry</div>
                     {orphanedReviews.map(q => (
-                      <div key={q.line} style={{ background: '#1a1a2e', border: '1px solid #222240', borderRadius: '4px', padding: '8px 10px', fontSize: '12px', marginBottom: '6px', opacity: 0.8 }}>
+                      <div key={q.token} style={{ background: '#1a1a2e', border: '1px solid #222240', borderRadius: '4px', padding: '8px 10px', fontSize: '12px', marginBottom: '6px', opacity: 0.8 }}>
                         {q.on && (
                           <div style={{ color: '#886600', fontStyle: 'italic', fontSize: '11px', marginBottom: '3px', textDecoration: 'line-through' }}
                             title="anchor no longer in the prose">&ldquo;{q.on.slice(0, 60)}&rdquo;</div>
@@ -534,7 +537,7 @@ function App() {
                         <div style={{ color: '#b0b0c8', lineHeight: 1.4 }}>{q.text}</div>
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 4 }}>
                           <span style={{ fontSize: '10px', color: '#444' }}>{q.raised || ''}</span>
-                          <button className="btn-sm" onClick={() => resolveQuestion(q.line)} style={{ color: '#4ade80', border: '1px solid #1a3a1a' }}>resolve</button>
+                          <button className="btn-sm" onClick={() => resolveQuestion(q.token)} style={{ color: '#4ade80', border: '1px solid #1a3a1a' }}>resolve</button>
                         </div>
                       </div>
                     ))}

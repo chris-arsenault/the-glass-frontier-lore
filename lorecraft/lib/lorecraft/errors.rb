@@ -31,4 +31,26 @@ module Lorecraft
   # Raised during the temporal fold when an effect references an entity outside
   # its existence interval (used before create / after destroy).
   class CausalityError < Error; end
+
+  # A requested source edit could not be addressed or would not produce a
+  # valid world. The code is stable so adapters do not classify English text.
+  class SourceMutationError < Error
+    attr_reader :code, :details
+
+    def initialize(code, message, details: {})
+      @code = code.to_s
+      @details = details.freeze
+      super(message)
+    end
+
+    def to_h
+      { status: "error", code: code, message: message, details: details }
+    end
+  end
+
+  class StaleSourceError < SourceMutationError
+    def initialize(message = "source changed after it was read", details: {})
+      super("stale_source", message, details: details)
+    end
+  end
 end
