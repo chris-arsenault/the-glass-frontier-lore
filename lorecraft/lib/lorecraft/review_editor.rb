@@ -54,7 +54,7 @@ module Lorecraft
       world = load_world
       entity = editable_entity(world, id)
       file = canonical_source(entity)
-      original = File.binread(file)
+      original = read_source(file)
       check_revision!(revision, original)
       edit = SourceEdit.new(source: original, file:, entity_id: entity.id, kind: entity.kind)
       candidate = yield(edit)
@@ -70,7 +70,7 @@ module Lorecraft
       }
       return result if dry_run
 
-      check_revision!(revision, File.binread(file))
+      check_revision!(revision, read_source(file))
       atomic_replace(file, candidate)
       result
     end
@@ -119,7 +119,7 @@ module Lorecraft
 
     def entry_snapshot(world, entity, source: nil, include_content: true)
       file = canonical_source(entity)
-      source ||= File.binread(file)
+      source ||= read_source(file)
       edit = SourceEdit.new(source:, file:, entity_id: entity.id, kind: entity.kind)
       if edit.questions.size != entity.questions.size
         raise SourceMutationError.new(
@@ -165,6 +165,15 @@ module Lorecraft
     end
 
     def revision(source) = "sha256:#{Digest::SHA256.hexdigest(source)}"
+
+    def read_source(file)
+      source = File.binread(file).force_encoding(Encoding::UTF_8)
+      return source if source.valid_encoding?
+
+      raise SourceMutationError.new(
+        "invalid_source_encoding", "#{relative_source(file)} is not valid UTF-8"
+      )
+    end
 
     def required_text(value)
       text = value.to_s.gsub(/\s+/, " ").strip

@@ -94,6 +94,7 @@ worlds/<id>/world/     canonical entities, prose, moments, and relationships
 worlds/<id>/guidance/  setting-specific vocabulary and writing constraints
 craft/                 rules and schema shared by every world
 lorecraft/             loader, query model, validators, help, and renderers
+tools/review-app/      trusted loopback editor for review declarations
 apps/web/              public multi-world reader
 backend/editorial-api/ authenticated questions, logs, and review records
 ```
@@ -109,19 +110,23 @@ make worlds                        # list active and scaffold worlds
 make check WORLD=glass-frontier    # validate and lint one world
 make check-all                     # validate and lint every active world
 make test                          # Lorecraft unit tests
+make review-check                  # local review server tests and client build
 make site-data                     # public reader and private editorial JSON
 make reader-build                  # production React build
 make wiki WORLD=glass-frontier     # optional GitHub wiki export
 make app-check                     # content, Rust, TypeScript, and Terraform checks
 ```
 
-The reader requires Ruby 3.x, Node 24, and pnpm 10. The editorial API requires a
-current Rust toolchain. `pnpm --dir apps/web dev` rebuilds lore data and starts
-the reader at `http://localhost:5173`.
+Lorecraft and the review writer require Ruby 3.3+; the web tools require Node 24
+and pnpm 10. The editorial API requires a current Rust toolchain. Run
+`npm ci` under `tools/review-app/` before `make review-check` or local review.
+`pnpm --dir apps/web dev` rebuilds lore data and starts the reader at
+`http://localhost:5173`.
 
-CI runs the Lorecraft tests, checks every active world, builds reader data, and
-then delegates application build and deployment to the Ahara workflow. The
-production reader is `canon.tsonu.com`; the wiki renderer remains an optional
+CI runs the Lorecraft and local review-app tests, checks every active world,
+builds the review client and reader data, and then delegates application build
+and deployment to the Ahara workflow. The production reader is `canon.tsonu.com`;
+the local review writer is not deployed. The wiki renderer remains an optional
 export and is not deployed by this repository.
 
 ## License

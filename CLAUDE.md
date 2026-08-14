@@ -233,7 +233,7 @@ Many entries touch several kinds. A habitat might involve governance, physics, s
 
 Indexes are **generated** by the reader and wiki renders — artifacts, not sources. The authoritative registry is the world's `world/` directory: every entity is a node, so browse views and per-type indexes fall out of the model.
 
-**Shells** — entities referenced but not yet written — are real nodes with `status :shell` and no `path`. They can be edge endpoints and appear in broad graph projections; the public reader and wiki skip them. Use `#{future "Name"}` for a thing that has no entity at all yet. To flesh out a shell: drop `status :shell`, give it a `path`, write its prose.
+**Shells** — entities referenced but not yet written — are real nodes with `status :shell` and no `path`. They can be edge endpoints and appear in broad graph projections; the public reader and wiki skip them. Use `#{future "Name"}` for a thing that has no entity at all yet. To flesh out a shell: drop `status :shell` and write its prose. Fresh entries receive a route from kind and id; retain `path` only when preserving an established legacy route.
 
 ## Meta Files
 
@@ -318,7 +318,7 @@ Every content/query command runs against one world. Use `WORLD=<id>` on make,
 or `--world <id>` (or `LORECRAFT_WORLD`) on the CLI. The default comes from
 `worlds.yml`; `help` loads no world and `worlds` lists the manifest.
 Commands whose help lists `--format` emit either human-readable text or native
-JSON from the same query model.
+JSON from the same typed result; validation and lint use diagnostic records.
 
 | Command | Use |
 |---------|-----|

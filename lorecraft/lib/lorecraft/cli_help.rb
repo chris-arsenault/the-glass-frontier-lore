@@ -151,7 +151,9 @@ module Lorecraft
         body: <<~TEXT,
           Validation checks ids, typed relations, domains and ranges, temporal
           causality, cardinality, controlled vocabularies, fact types, subkinds,
-          provenance shapes, and public-to-DM leaks. It exits nonzero on a problem.
+          provenance shapes, and public-to-DM leaks. JSON returns schema_version,
+          status, and immutable diagnostics with semantic object and source identity.
+          Findings exit 1; source-load failures exit 2 with the same JSON boundary.
         TEXT
       },
       "lint" => {
@@ -160,8 +162,10 @@ module Lorecraft
         body: <<~TEXT,
           Lint checks rules that need the assembled graph or rendered prose. Errors
           exit nonzero; warnings, future names, and conversion inventory remain
-          visible without failing the command. Use make check to run validation
-          and lint together.
+          visible without failing the command. JSON adds counts plus diagnostics;
+          each record has severity, code, message, object_path, source_file,
+          source_line, repair_instruction, help_topic, and details. Use make check
+          to run validation and lint together.
         TEXT
       },
       "render" => {

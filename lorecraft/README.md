@@ -99,8 +99,8 @@ Every content/query command selects one world through `--world ID`,
 
 Run `ruby lorecraft/bin/lorecraft help COMMAND` for exact arguments and
 audience behavior. Bounded queries that list `--format` can emit `text` for a
-person or native `json` for another tool; the JSON comes from the query model,
-not from parsing the text report. The normal repository gate is:
+person or native `json` for another tool; the JSON comes from the same typed
+result, not from parsing the text report. The normal repository gate is:
 
 ```sh
 make check WORLD=glass-frontier
@@ -111,6 +111,22 @@ which rows are live at the selected year. `path` traverses only live rows in
 either direction while preserving each edge's authored direction. It excludes
 `active_during`, `emerged_during`, `created_during`, `disappeared_during`, and
 `mentions`, whose shared structural nodes would create misleading shortcuts.
+
+### Structured diagnostics
+
+`validate --format json` and `lint --format json` emit schema version 1. Both
+return `status` and `diagnostics`; lint also returns counts for `error`, `warn`,
+`future`, and `info`. Every immutable diagnostic has `severity`, `code`,
+`message`, `object_path`, `source_file`, `source_line`, `repair_instruction`,
+`help_topic`, and `details`. Source paths are repository-relative when the
+source belongs to the repository, and source lines identify the owning DSL
+declaration.
+
+Validation findings and error-level lint findings exit 1. A Ruby parse or world
+load failure exits 2 and still returns the diagnostic envelope when JSON was
+requested. The Ruby APIs are additive: `validation_diagnostics` and
+`lint_diagnostics` provide typed records, while `validate` and `lint` retain
+their established string and finding results.
 
 ## Loading and querying
 
@@ -281,11 +297,15 @@ Generated output under `build/` is gitignored and never canonical.
 ```text
 lorecraft/bin/lorecraft             command dispatcher
 lorecraft/lib/lorecraft/            model, queries, checks, help, renderers
+lorecraft/lib/lorecraft/review_editor.rb  safe editorial mutation coordinator
+lorecraft/lib/lorecraft/source_edit.rb    narrow Prism source edits
 lorecraft/test/                      Minitest suite and smoke world
 lorecraft/tools/build_site.rb        multi-world public/private data build
 lorecraft/tools/each_world.rb        active-world Make target runner
+lorecraft/tools/review_api.rb        JSON bridge for the local review app
 lorecraft/tools/import.rb            retained one-shot migration utility
 lorecraft/tools/parity.rb            retained migration parity utility
+tools/review-app/                     loopback-only local review client and server
 craft/schema/base.rb                 shared kinds, fields, effects, relations
 worlds.yml                           world manifest and default
 worlds/<id>/world/                   canonical world DSL

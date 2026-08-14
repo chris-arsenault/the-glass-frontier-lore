@@ -2426,6 +2426,46 @@ class FeaturePortContractTest < Minitest::Test
       assert_equal "invalid_ruby_source", payload.dig("diagnostics", 0, "code")
     end
   end
+
+  def test_healthy_cli_json_diagnostics_keep_the_text_boundary
+    Dir.mktmpdir do |dir|
+      source = File.join(dir, "world.rb")
+      File.write(source, <<~RUBY)
+        timeline { era :present, starts: 0, length: 2; now year: 1 }
+        concept :alpha do
+          name "Alpha"
+          subkind :concept
+          prose "See \#{future "Missing"}."
+        end
+      RUBY
+      cli = File.expand_path("../bin/lorecraft", __dir__)
+      env = { "LORECRAFT_GLOB" => source }
+      root = File.expand_path("../..", __dir__)
+
+      validate_out, validate_err, validate_status = Open3.capture3(
+        env, RbConfig.ruby, cli, "validate", "--format", "json", chdir: root
+      )
+      lint_out, lint_err, lint_status = Open3.capture3(
+        env, RbConfig.ruby, cli, "lint", "--format", "json", chdir: root
+      )
+      text_out, text_err, text_status = Open3.capture3(
+        env, RbConfig.ruby, cli, "lint", chdir: root
+      )
+      validate = JSON.parse(validate_out)
+      lint = JSON.parse(lint_out)
+
+      assert_predicate validate_status, :success?, "#{validate_out}\n#{validate_err}"
+      assert_empty validate_err
+      assert_equal({ "schema_version" => 1, "status" => "ok", "diagnostics" => [] }, validate)
+      assert_predicate lint_status, :success?, "#{lint_out}\n#{lint_err}"
+      assert_empty lint_err
+      assert_equal 1, lint.dig("counts", "future")
+      assert_equal Lorecraft::Diagnostic::FIELDS.map(&:to_s), lint.fetch("diagnostics").first.keys
+      assert_predicate text_status, :success?
+      assert_empty text_err
+      assert_includes text_out, "FUTURE"
+    end
+  end
 end
 
 class ReviewEditorTest < Minitest::Test
@@ -2498,6 +2538,46 @@ class ReviewEditorTest < Minitest::Test
       refute result.fetch(:written)
       assert result.fetch(:dry_run)
       assert_includes result.fetch(:diff), "+  reviewed"
+      assert_equal before, File.binread(file)
+    end
+  end
+
+  def test_utf8_entry_and_dry_run_are_json_safe_and_write_nothing
+    with_editor(source: <<~RUBY) do |editor, file, _target|
+      concept :alpha do
+        name "Café Alpha"
+        prose "An em dash — stays readable."
+      end
+    RUBY
+      before = File.binread(file)
+      alpha = editor.entry(:alpha)
+      result = editor.add_question(
+        :alpha, revision: alpha.fetch(:revision), text: "Check café wording.", dry_run: true
+      )
+
+      assert_equal Encoding::UTF_8, alpha.fetch(:content).encoding
+      assert_predicate alpha.fetch(:content), :valid_encoding?
+      JSON.generate(alpha)
+      JSON.generate(result)
+      assert_equal before, File.binread(file)
+    end
+  end
+
+  def test_complete_accepts_an_entity_with_a_generated_render_path
+    with_editor(source: <<~RUBY) do |editor, file, _target|
+      concept :alpha do
+        name "Alpha"
+        prose "Alpha prose."
+      end
+    RUBY
+      before = File.binread(file)
+      alpha = editor.entry(:alpha)
+      result = editor.set_complete(
+        :alpha, revision: alpha.fetch(:revision), value: true, dry_run: true
+      )
+
+      assert result.dig(:entry, :complete)
+      assert_includes result.fetch(:diff), "+  status :complete"
       assert_equal before, File.binread(file)
     end
   end

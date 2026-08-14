@@ -160,9 +160,10 @@ needs whole-world structure. A normal edit should not begin with the widest
 projection simply because it exists.
 
 Bounded queries expose `--format text|json` when another tool needs typed data.
-Their JSON is serialized from the query model rather than recovered from the
-human-readable report. `graph` is already a JSON projection and does not use
-that selector.
+Their JSON is serialized from the same typed result rather than recovered from
+the human-readable report. Validation and lint serialize `Diagnostic` records;
+other bounded queries serialize their query model. `graph` is already a JSON
+projection and does not use that selector.
 
 ## Validation and lint
 
@@ -188,6 +189,15 @@ hand-typed spans that may need timeline markers.
 `make check WORLD=<id>` runs both. `make check-all` runs both for every active
 world.
 
+The JSON forms use schema version 1. Both include `status` and `diagnostics`;
+lint also includes counts by severity. A diagnostic records `severity`, `code`,
+`message`, semantic `object_path`, repository-relative `source_file`,
+`source_line`, `repair_instruction`, `help_topic`, and structured `details`.
+`World#validation_diagnostics` and `World#lint_diagnostics` add this typed API
+without changing the legacy `validate` or `lint` return values. Findings exit
+1; source parse and load failures exit 2 with the same envelope when JSON was
+requested.
+
 ## Render targets
 
 Generated output is disposable and gitignored.
@@ -209,7 +219,24 @@ The public React reader and wiki exclude DM entities, DM blocks, DM edges,
 non-reader kinds, and shells. Graph and raw Markdown projections have their own
 audience behavior documented by `help graph` and `help render`.
 
-## Editorial boundary
+## Local review mutation boundary
+
+`tools/review-app/` is a trusted local source editor, not part of the deployed
+reader. Its Express server binds to `127.0.0.1` and accepts browser requests
+only from the declared local development origins. The browser addresses an
+entity id and carries the SHA-256 revision of its whole source file on every
+write.
+
+The Ruby `ReviewEditor` locates that exact literal entity with Prism and permits
+only direct `question`, `reviewed`, and `status :complete` declarations. It
+refuses computed or ambiguous declarations. A candidate is loaded with every
+other world file, validated and checked for error-level lint, then atomically
+replaces the source while preserving its mode. Stale revisions, invalid UTF-8,
+invalid candidates, or filesystem failures leave the original bytes in place.
+Question resolution uses a digest token for the exact declaration rather than
+display text or a line number. See `tools/review-app/README.md`.
+
+## Deployed editorial boundary
 
 CloudFront serves the React application and public bundle from S3. Private
 editorial JSON lives in a separate S3 bucket. The browser uses Cognito
@@ -225,10 +252,10 @@ no access to editorial data.
 ## CI and deployment
 
 `.github/workflows/ci.yml` runs the Lorecraft tests, checks every active world,
-and builds public and private site data. The application job then delegates to
-the shared Ahara workflow, which builds and deploys the repository stack. The
-GitHub wiki export is available locally but is not the deployed publication
-path.
+checks and builds the local review app, and builds public and private site data.
+The application job then delegates to the shared Ahara workflow, which builds
+and deploys the repository stack. The GitHub wiki export is available locally
+but is not the deployed publication path.
 
 ## Layout
 
@@ -248,9 +275,10 @@ craft/
   *.md                        shared writing craft
 lorecraft/
   bin/lorecraft               CLI and help dispatcher
-  lib/lorecraft/              model, queries, checks, and renderers
-  tools/                      site build and retained migration utilities
+  lib/lorecraft/              model, queries, checks, renderers, safe source edits
+  tools/                      site build, review bridge, migration utilities
   test/                       unit and smoke tests
+tools/review-app/             loopback-only local review writer
 apps/web/                     public reader
 backend/editorial-api/        authenticated editorial API
 infrastructure/terraform/     site, identity, storage, and API deployment

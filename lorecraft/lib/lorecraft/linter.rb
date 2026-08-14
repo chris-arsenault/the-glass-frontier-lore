@@ -371,8 +371,6 @@ module Lorecraft
     def check_shell_consistency
       entities.each do |e|
         warn("#{label(e)}: marked shell but has a path", owner: e) if shell?(e) && e[:path]
-        err("#{label(e)}: status '#{e[:status]}' but no path/render target", owner: e) \
-          if %w[complete draft].include?(e[:status].to_s) && e[:path].nil?
       end
     end
 

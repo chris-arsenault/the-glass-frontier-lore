@@ -39,8 +39,6 @@ Glass Frontier files.
 
 ## Review app navigation
 
-`tools/review-app/` reads and writes DSL review declarations through stable
-entity ids and revision-checked source transactions. It shows rendered prose or
-source, adds and resolves exact `question` declarations, and sets `reviewed` and
-`status :complete`. Rendered `ref` links still do not navigate to another entry
-inside the review app.
+Rendered `ref` links still do not navigate to another entry inside the review
+app. Current write behavior is documented in `tools/review-app/README.md` and
+`SYSTEM.md`.

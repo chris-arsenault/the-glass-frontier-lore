@@ -212,8 +212,9 @@ a static type system for every Ruby expression in an entity body.
 Allowed authoring statuses are `complete`, `draft`, `shell`, and
 `needs_refinement`. Status describes the entry, not the entity's standing in
 the world. A shell is a graph node with no rendered page. A complete or draft
-entry needs a render path; fresh entries may omit status until their path and
-review state are settled.
+entry receives a render path from its kind and id when `path` is absent. An
+explicit `path` preserves an established legacy route; it is not required for a
+fresh entry.
 
 `derive(:name) { |state| ... }` stores an advanced calculation hook on the
 entity. Callers invoke the proc explicitly; fact cards use declared
@@ -439,7 +440,8 @@ present reader view. `timeline` returns every effect touching the entity rather
 than a snapshot at one year.
 
 Commands whose exact help lists `--format text|json` serialize JSON from the
-same query objects that produce their text reports. Other commands reject JSON.
+same typed result used by their text form. Validation and lint use diagnostic
+records; other bounded commands use query objects. Other commands reject JSON.
 `graph` is always JSON, either on stdout or in its optional output file. Run
 `help COMMAND` before using a selector; the CLI rejects `--world`, `--at`,
 `--audience`, or `--format` when that command's help does not list it.
@@ -469,6 +471,18 @@ location hierarchy.
 
 `make check WORLD=<id>` runs both. `make check-all` applies that gate to every
 active world.
+
+The JSON command boundary uses schema version 1. `validate` returns `status` and
+`diagnostics`; `lint` adds counts for `error`, `warn`, `future`, and `info`.
+Each diagnostic contains `severity`, `code`, `message`, `object_path`,
+`source_file`, `source_line`, `repair_instruction`, `help_topic`, and `details`.
+Repository sources use repository-relative paths, and line numbers identify the
+owning declaration. Findings exit 1; source parse and load failures exit 2 with
+the same envelope when JSON was requested.
+
+The Ruby APIs `World#validation_diagnostics` and `World#lint_diagnostics` return
+immutable records. `World#validate` continues to return strings, and
+`World#lint` continues to return `Finding` values with `level` and `message`.
 
 ## 13. Render targets
 

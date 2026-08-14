@@ -113,5 +113,6 @@ encyclopedia prose while keeping it attached to stable entity ids and versioned
 source.
 
 Queries whose help lists `--audience player` apply the same public boundary.
-Queries whose help lists `--format json` serialize their typed result directly;
-the text report is not an interchange format.
+Queries whose help lists `--format json` serialize the same typed result
+directly, including diagnostic records for validation and lint; the text report
+is not an interchange format.
