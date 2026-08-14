@@ -2293,3 +2293,48 @@ class GuideTest < Minitest::Test
     end
   end
 end
+
+class FeaturePortContractTest < Minitest::Test
+  def test_bounded_queries_return_native_records_with_stable_identity
+    search = Lorecraft::Search.new(sample_world, query: "concord", root: Dir.pwd).data
+    connections = Lorecraft::Connections.new(
+      sample_world, entity: :concord, root: Dir.pwd
+    ).data
+    path = Lorecraft::PathQuery.new(
+      sample_world, from: :concord, to: :quarter
+    ).data
+
+    assert_equal :concord, search.fetch(:results).first.fetch(:id)
+    assert search.fetch(:results).first.key?(:source_file)
+    assert_equal :concord, connections.dig(:entity, :id)
+    assert(connections.fetch(:connections).all? { |row| row.key?(:relation) })
+    assert_equal :concord, path.dig(:from, :id)
+    assert_equal :quarter, path.dig(:to, :id)
+    assert(path.fetch(:steps).all? { |step| step.key?(:canonical_subject) })
+  end
+
+  def test_help_metadata_keeps_the_fields_needed_for_runtime_discovery
+    Lorecraft::CLIHelp::COMMANDS.each do |name, command|
+      assert_empty %i[summary usage body] - command.keys, name
+      %i[summary usage body].each { |key| refute_empty command.fetch(key), name }
+    end
+  end
+
+  def test_validation_and_lint_collect_findings_without_printing_them
+    world = Lorecraft.define do
+      schema { entity_type :concept; tag :known }
+      timeline { era :t, starts: 0, length: 2; now year: 1 }
+      concept :broken do
+        tags :unknown
+        prose "See #{ref :missing}."
+      end
+    end
+
+    problems = world.validate
+    findings = world.lint(root: Dir.mktmpdir)
+
+    assert_operator problems.size, :>=, 2
+    assert(problems.all? { |problem| problem.is_a?(String) })
+    assert(findings.all? { |finding| finding.respond_to?(:level) && finding.respond_to?(:message) })
+  end
+end
