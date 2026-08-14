@@ -9,6 +9,7 @@
 # not load a world.
 Encoding.default_external = Encoding::UTF_8
 Encoding.default_internal = Encoding::UTF_8
+require "json"
 $LOAD_PATH.unshift File.expand_path("../lib", __dir__)
 require "lorecraft"
 
@@ -84,10 +85,22 @@ end
 # LORECRAFT_GLOB still overrides the manifest, for one-off runs over a subset.
 GLOB = ENV.fetch("LORECRAFT_GLOB", WORLD.glob)
 
-def load_world
+def load_world(format: :text)
   Lorecraft.load(GLOB, prelude: WORLD.prelude)
-rescue => e
-  warn "load error: #{e.message}"
+rescue StandardError, SyntaxError => e
+  if format == :json
+    diagnostic = Lorecraft::Diagnostic.new(
+      severity: :error,
+      code: e.is_a?(SyntaxError) ? "invalid_ruby_source" : "world_load_error",
+      message: e.message,
+      repair_instruction: "Correct the world source or selector and rerun the command.",
+      help_topic: "workflow",
+      details: { error_class: e.class.name }
+    )
+    puts JSON.pretty_generate(schema_version: 1, status: "error", diagnostics: [diagnostic.to_h])
+  else
+    warn "load error: #{e.message}"
+  end
   exit 2
 end
 
@@ -118,25 +131,43 @@ end
 
 case cmd
 when "validate"
-  problems = load_world.validate
-  if problems.empty?
+  diagnostics = load_world(format: format).validation_diagnostics
+  if format == :json
+    puts JSON.pretty_generate(
+      schema_version: 1,
+      status: diagnostics.empty? ? "ok" : "error",
+      diagnostics: diagnostics.map(&:to_h)
+    )
+  elsif diagnostics.empty?
     puts "✓ world is valid"
   else
-    puts "✗ #{problems.size} problem(s):"
-    problems.each { |p| puts "  - #{p}" }
+    puts "✗ #{diagnostics.size} problem(s):"
+    diagnostics.each { |diagnostic| puts "  - #{diagnostic.message}" }
+  end
+  unless diagnostics.empty?
     exit 1
   end
 when "lint"
-  findings = load_world.lint
-  by = findings.group_by(&:level)
-  %i[info future warn error].each do |lvl|
-    (by[lvl] || []).each { |f| puts "#{lvl.to_s.upcase.ljust(7)} #{f.message}" }
-  end
+  world = load_world(format: format)
+  results = format == :json ? world.lint_diagnostics : world.lint
+  by = results.group_by(&:level)
   e = (by[:error] || []).size
   w = (by[:warn] || []).size
   fu = (by[:future] || []).size
   i = (by[:info] || []).size
-  puts "\n#{'─' * 40}\n  #{e} error(s), #{w} warning(s), #{fu} future(s), #{i} to convert"
+  if format == :json
+    puts JSON.pretty_generate(
+      schema_version: 1,
+      status: e.positive? ? "error" : "ok",
+      counts: { error: e, warn: w, future: fu, info: i },
+      diagnostics: results.map(&:to_h)
+    )
+  else
+    %i[info future warn error].each do |lvl|
+      (by[lvl] || []).each { |f| puts "#{lvl.to_s.upcase.ljust(7)} #{f.message}" }
+    end
+    puts "\n#{'─' * 40}\n  #{e} error(s), #{w} warning(s), #{fu} future(s), #{i} to convert"
+  end
   exit(e.positive? ? 1 : 0)
 when "wiki"
   out = ARGV.shift or abort("usage: #{Lorecraft::CLIHelp::EXE} wiki OUT_DIR")

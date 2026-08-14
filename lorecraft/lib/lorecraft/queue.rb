@@ -32,11 +32,15 @@ module Lorecraft
     end
 
     def findings
-      found = @findings || @world.lint
+      found = @findings || @world.lint_diagnostics
       return found unless @entity
 
       id = Regexp.escape(@entity.id.to_s)
-      found.select { |finding| finding.message.match?(/(?<![a-z0-9_])#{id}(?![a-z0-9_])/) }
+      found.select do |finding|
+        path = finding.respond_to?(:object_path) && finding.object_path
+        path == @entity.id.to_s ||
+          (!path && finding.message.match?(/(?<![a-z0-9_])#{id}(?![a-z0-9_])/))
+      end
     end
 
     def report
@@ -60,7 +64,13 @@ module Lorecraft
             on: question.on,
           }.compact
         end,
-        findings: findings.map { |finding| { level: finding.level, message: finding.message } },
+        findings: findings.map do |finding|
+          if finding.respond_to?(:severity)
+            finding.to_h.merge(level: finding.level)
+          else
+            { level: finding.level, message: finding.message }
+          end
+        end,
       }.compact
     end
 

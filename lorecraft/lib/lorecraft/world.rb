@@ -65,42 +65,51 @@ module Lorecraft
       first.sort_by { |f| File.basename(f) } + (files - first)
     end
 
-    def define_entity(kind:, id:, **_opts, &block)
+    def define_entity(kind:, id:, source_line: nil, **_opts, &block)
       id = id.to_sym
       raise DefinitionError, "duplicate entity id #{id}" if @entities.key?(id) || @moments.key?(id)
 
-      entity = Entity.new(id: id, kind: kind, source_file: @current_file)
+      entity = Entity.new(
+        id: id, kind: kind, source_file: @current_file, source_line: source_line
+      )
       entity.build(self, &block)
       @entities[id] = entity
     end
 
-    def define_moment(id:, at: nil, span: nil, of: nil, kind: :incident, genesis: false, dm: false, seq: nil, &block)
+    def define_moment(id:, at: nil, span: nil, of: nil, kind: :incident,
+                      genesis: false, dm: false, seq: nil, source_line: nil, &block)
       id = id.to_sym
       raise DefinitionError, "duplicate id #{id}" if @entities.key?(id) || @moments.key?(id)
 
       moment = Moment.new(
         id: id, timeline: @timeline, kind: kind, at: at, span: span, of: of,
         genesis: genesis, dm: dm, seq: seq, source_file: @current_file,
+        source_line: source_line,
         load_index: (@load_index += 1)
       )
       MomentBuilder.new(moment, self).instance_eval(&block) if block
       @moments[id] = moment
     end
 
-    def define_page(id:, title: nil, wiki: nil, audience: :all, &block)
+    def define_page(id:, title: nil, wiki: nil, audience: :all, source_line: nil, &block)
       id = id.to_sym
       raise DefinitionError, "duplicate page id #{id}" if @authored_pages.key?(id)
 
-      @authored_pages[id] = Page.new(id: id, title: title, wiki: wiki, audience: audience).build(&block)
+      @authored_pages[id] = Page.new(
+        id: id, title: title, wiki: wiki, audience: audience,
+        source_file: @current_file, source_line: source_line
+      ).build(&block)
     end
 
-    def define_relation_instance(id:, verb:, source:, target:, since: nil, till: nil, dm: false, &block)
+    def define_relation_instance(id:, verb:, source:, target:, since: nil, till: nil,
+                                 dm: false, source_line: nil, &block)
       id = id.to_sym
       raise DefinitionError, "duplicate id #{id}" if @relation_instances.key?(id)
 
       inst = RelationInstance.new(
         id: id, verb: verb, source: source, target: target,
-        timeline: @timeline, since: since, till: till, dm: dm
+        timeline: @timeline, since: since, till: till, dm: dm,
+        source_file: @current_file, source_line: source_line
       )
       inst.build(self, &block)
       @relation_instances[id] = inst
@@ -278,8 +287,16 @@ module Lorecraft
       Validator.new(self).validate
     end
 
+    def validation_diagnostics(root: Dir.pwd)
+      Validator.new(self, root: root).diagnostics
+    end
+
     def lint(root: Dir.pwd)
       Linter.new(self, root: root).run
+    end
+
+    def lint_diagnostics(root: Dir.pwd)
+      Linter.new(self, root: root).diagnostics
     end
 
     def validate!

@@ -147,7 +147,7 @@ module Lorecraft
       },
       "validate" => {
         summary: "Check hard structural and audience invariants.",
-        usage: "validate [--world ID]",
+        usage: "validate [--format text|json] [--world ID]",
         body: <<~TEXT,
           Validation checks ids, typed relations, domains and ranges, temporal
           causality, cardinality, controlled vocabularies, fact types, subkinds,
@@ -156,7 +156,7 @@ module Lorecraft
       },
       "lint" => {
         summary: "Report lore-quality errors, warnings, futures, and span inventory.",
-        usage: "lint [--world ID]",
+        usage: "lint [--format text|json] [--world ID]",
         body: <<~TEXT,
           Lint checks rules that need the assembled graph or rendered prose. Errors
           exit nonzero; warnings, future names, and conversion inventory remain

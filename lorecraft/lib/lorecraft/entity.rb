@@ -13,13 +13,14 @@ module Lorecraft
   # holds what is constant: who it is, not what has happened to it.
   class Entity
     attr_reader :id, :kind, :static_attrs, :fact_values, :custom_fact_defs,
-                :content_blocks, :derives, :source_file, :log_entries, :questions
+                :content_blocks, :derives, :source_file, :source_line, :log_entries, :questions
     attr_accessor :visibility, :public_entry, :index_note
 
-    def initialize(id:, kind:, source_file: nil)
+    def initialize(id:, kind:, source_file: nil, source_line: nil)
       @id = id.to_sym
       @kind = kind.to_sym
       @source_file = source_file
+      @source_line = source_line
       @static_attrs = {}
       @fact_values = {}
       @custom_fact_defs = []

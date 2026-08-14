@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require "set"
+require "pathname"
+require_relative "diagnostic"
 require_relative "markers"
 
 module Lorecraft
@@ -8,30 +10,47 @@ module Lorecraft
   # dying on the first) and reports them together. Covers the spec §8 rules plus
   # the repository's controlled-vocabulary and DM-leakage rules.
   class Validator
-    def initialize(world)
+    CHECKS = {
+      check_references: ["invalid_reference", "entry", "Replace the unresolved or hidden reference with an allowed target."],
+      check_cards: ["invalid_card", "entry", "Correct the card target or card block declaration."],
+      check_relation_types: ["invalid_relation", "schema-authoring", "Use a declared relation with compatible endpoints."],
+      check_dm_edges: ["dm_relation_leak", "audience", "Mark the relation as DM-only or use public endpoints."],
+      check_static_dynamic: ["static_attribute_effect", "schema-authoring", "Move the changing value to a dynamic attribute or relation."],
+      check_causality: ["temporal_causality", "time", "Correct the entity lifetime or the effect date."],
+      check_cardinality: ["relation_cardinality", "schema-authoring", "Remove the overlapping target or change the declared cardinality."],
+      check_exclusivity: ["relation_exclusivity", "schema-authoring", "Remove one of the mutually exclusive live relations."],
+      check_tags: ["unknown_tag", "entry", "Declare the tag in the world schema or remove it from the entry."],
+      check_prominence: ["invalid_prominence", "entry", "Use a prominence level declared by the schema."],
+      check_narrative_roles: ["invalid_narrative_role", "entry", "Use an allowed narrative role on an NPC."],
+      check_subkinds: ["invalid_subkind", "schema-authoring", "Declare and select an allowed subkind."],
+      check_facts: ["invalid_fact", "schema-authoring", "Correct the fact declaration or its value."],
+      check_sections: ["unknown_section", "entry", "Use a section declared by the world schema."],
+      check_statuses: ["invalid_status", "entry", "Use a supported authoring status."],
+      check_provenance: ["invalid_provenance", "audience", "Correct the provenance value or review date."],
+    }.freeze
+
+    def initialize(world, root: Dir.pwd)
       @world = world
       @schema = world.schema
-      @problems = []
+      @root = Pathname.new(root).expand_path
+      @diagnostics = []
     end
 
-    def validate
-      check_references
-      check_cards
-      check_relation_types
-      check_dm_edges
-      check_static_dynamic
-      check_causality
-      check_cardinality
-      check_exclusivity
-      check_tags
-      check_prominence
-      check_narrative_roles
-      check_subkinds
-      check_facts
-      check_sections
-      check_statuses
-      check_provenance
-      @problems
+    def validate = diagnostics.map(&:message)
+
+    def diagnostics
+      @diagnostics = []
+      CHECKS.each do |method, (code, help_topic, repair_instruction)|
+        @diagnostic_owner = nil
+        @owner = nil
+        @diagnostic_context = {
+          code: code, help_topic: help_topic, repair_instruction: repair_instruction,
+          details: { check: method }
+        }
+        send(method)
+      end
+      @diagnostic_context = nil
+      @diagnostics.freeze
     end
 
     def validate!
@@ -42,7 +61,38 @@ module Lorecraft
 
     private
 
-    def err(msg) = @problems << msg
+    def err(msg, owner: @diagnostic_owner || @owner, object_path: nil, details: {})
+      @diagnostics << Diagnostic.new(
+        severity: :error,
+        message: msg,
+        object_path: object_path || diagnostic_path(owner),
+        source_file: relative_source(owner),
+        source_line: owner&.respond_to?(:source_line) ? owner.source_line : nil,
+        **@diagnostic_context.merge(details: @diagnostic_context[:details].merge(details))
+      )
+    end
+
+    def diagnostic_path(owner)
+      case owner
+      when Entity then owner.id.to_s
+      when Moment then "moment:#{owner.id}"
+      when RelationInstance then "relation:#{owner.id}"
+      when Page then "page:#{owner.id}"
+      end
+    end
+
+    def relative_source(owner)
+      return unless owner&.respond_to?(:source_file) && owner.source_file
+
+      Pathname.new(owner.source_file).expand_path.relative_path_from(@root).to_s
+    rescue ArgumentError
+      owner.source_file.to_s
+    end
+
+    def source_owner(source)
+      id = source.to_sym
+      @world.moments[id] || @world.relation_instances[id]
+    end
 
     def known?(id) = @world.known_id?(id)
 
@@ -61,6 +111,7 @@ module Lorecraft
       end
 
       @world.authored_pages.each_value do |page|
+        @diagnostic_owner = page
         @owner = page
         @dm_context = !%i[all player].include?(page.audience)
         page.prose_blocks.each do |block|
@@ -69,6 +120,7 @@ module Lorecraft
       end
 
       @world.moments.each_value do |ev|
+        @diagnostic_owner = ev
         if (a = ev.static_attrs[:actor]) && !known?(a)
           err("moment #{ev.id}: actor → unknown id #{a}")
         end
@@ -83,6 +135,7 @@ module Lorecraft
       end
 
       @world.relation_instances.each_value do |ri|
+        @diagnostic_owner = ri
         err("relation #{ri.id}: source → unknown id #{ri.source}") unless known?(ri.source)
         err("relation #{ri.id}: target → unknown id #{ri.target}") unless known?(ri.target)
       end
@@ -93,6 +146,7 @@ module Lorecraft
     # visibility and basic block integrity.
     def check_cards
       @world.prose_owners.each do |owner|
+        @diagnostic_owner = owner
         owner.authored_blocks.select(&:cards?).each do |block|
           if block.heading.to_s.strip.empty?
             err("#{label(owner)}: card block has no heading")
@@ -231,6 +285,7 @@ module Lorecraft
       end
 
       @world.relation_instances.each_value do |ri|
+        @diagnostic_owner = ri
         unless @schema.relation?(ri.verb)
           err("relation #{ri.id}: unknown relation type #{ri.verb}")
           next
@@ -257,6 +312,7 @@ module Lorecraft
 
     def check_dm_edges
       @world.all_effects.each do |entry|
+        @diagnostic_owner = source_owner(entry[:source])
         effect = entry[:effect]
         next unless effect.verb == :set && effect.relation
         next if entry[:dm]
@@ -297,6 +353,7 @@ module Lorecraft
     def check_cardinality
       intervals = edge_intervals
       intervals.each do |(subject, verb), edges|
+        @diagnostic_owner = @world.entity(subject)
         rd = @schema.relation_def(verb)
         next unless rd && rd.cardinality == :one
 
@@ -316,6 +373,7 @@ module Lorecraft
         edges.each { |e| live[[subject, e[:target]]] << verb }
       end
       live.each do |(subject, target), verbs|
+        @diagnostic_owner = @world.entity(subject)
         verbs.uniq.each do |verb|
           rd = @schema.relation_def(verb)
           next unless rd&.exclusive_with
@@ -332,6 +390,7 @@ module Lorecraft
       return if @schema.tags.empty?
 
       @world.entities.each_value do |e|
+        @diagnostic_owner = e
         e.tags.each do |t|
           err("#{label(e)}: tag '#{t}' not in vocabulary") unless @schema.tag?(t)
         end
@@ -340,6 +399,7 @@ module Lorecraft
 
     def check_prominence
       @world.entities.each_value do |e|
+        @diagnostic_owner = e
         p = e.prominence
         next if p.nil?
 
@@ -349,6 +409,7 @@ module Lorecraft
 
     def check_narrative_roles
       @world.entities.each_value do |entity|
+        @diagnostic_owner = entity
         role = entity[:narrative_role]
         next if role.nil?
 
@@ -361,6 +422,7 @@ module Lorecraft
 
     def check_facts
       @world.pages.each do |node|
+        @diagnostic_owner = node
         authored_fact_values(node).each do |name, value|
           definition = @schema.fact_def(
             node.kind, name, subkind: node.subkind, custom: custom_fact_defs(node)
@@ -408,6 +470,7 @@ module Lorecraft
 
     def check_subkinds
       @world.pages.each do |node|
+        @diagnostic_owner = node
         next unless @schema.kind?(node.kind)
 
         if @schema.explicit_subkinds_required? && node.is_a?(Entity) && node[:subkind].nil?
@@ -470,6 +533,7 @@ module Lorecraft
 
     def check_statuses
       @world.entities.each_value do |e|
+        @diagnostic_owner = e
         value = e[:status]
         next if value.nil? || STATUSES.include?(value.to_s)
 
@@ -483,6 +547,7 @@ module Lorecraft
     # date nobody can compare against is not a record of anything.
     def check_provenance
       @world.entities.each_value do |e|
+        @diagnostic_owner = e
         next if e[:reviewed].nil? || e[:reviewed].to_s.match?(/\A\d{4}-\d{2}-\d{2}\z/)
 
         err("#{label(e)}: reviewed #{e[:reviewed].inspect} is not a YYYY-MM-DD date")
@@ -505,12 +570,16 @@ module Lorecraft
 
     def each_authored_owner
       @world.prose_owners.each do |owner|
+        @diagnostic_owner = owner
         owner.authored_blocks.each { |block| yield owner, block }
       end
     end
 
     def each_effect
-      @world.all_effects.each { |entry| yield entry[:effect], entry[:source] }
+      @world.all_effects.each do |entry|
+        @diagnostic_owner = source_owner(entry[:source])
+        yield entry[:effect], entry[:source]
+      end
     end
 
     # Pair set/clear effects into [from,to) intervals per (subject,verb).

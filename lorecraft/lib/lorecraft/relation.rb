@@ -7,15 +7,19 @@ module Lorecraft
   # its own prose. The world lowers it to ordinary set/clear effects so the
   # temporal fold treats every edge uniformly.
   class RelationInstance
-    attr_reader :id, :verb, :source, :target, :from_year, :to_year, :prose_blocks
+    attr_reader :id, :verb, :source, :target, :from_year, :to_year, :prose_blocks,
+                :source_file, :source_line
     attr_accessor :dm
 
-    def initialize(id:, verb:, source:, target:, timeline:, since: nil, till: nil, dm: false)
+    def initialize(id:, verb:, source:, target:, timeline:, since: nil, till: nil,
+                   dm: false, source_file: nil, source_line: nil)
       @id = id.to_sym
       @verb = verb.to_sym
       @source = source.to_sym
       @target = target.to_sym
       @dm = dm
+      @source_file = source_file
+      @source_line = source_line
       @from_year = since ? timeline.year_for(since) : timeline.total_span.first
       @to_year = till ? timeline.year_for(till) : nil
       @prose_blocks = []

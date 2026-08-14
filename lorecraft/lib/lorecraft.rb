@@ -27,6 +27,7 @@ module Lorecraft
   end
 end
 
+require_relative "lorecraft/diagnostic"
 require_relative "lorecraft/world"
 require_relative "lorecraft/worlds"
 require_relative "lorecraft/cli_help"

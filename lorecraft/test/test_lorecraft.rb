@@ -2338,6 +2338,94 @@ class FeaturePortContractTest < Minitest::Test
     assert(problems.all? { |problem| problem.is_a?(String) })
     assert(findings.all? { |finding| finding.respond_to?(:level) && finding.respond_to?(:message) })
   end
+
+  def test_structured_diagnostics_preserve_legacy_validation_messages
+    world = Lorecraft.define do
+      schema { entity_type :concept; tag :known }
+      timeline { era :t, starts: 0, length: 2; now year: 1 }
+      concept :broken do
+        tags :unknown
+        prose "Body."
+      end
+    end
+
+    diagnostics = world.validation_diagnostics
+
+    assert_equal world.validate, diagnostics.map(&:message)
+    diagnostic = diagnostics.find { |item| item.code == "unknown_tag" }
+    assert_equal :error, diagnostic.severity
+    assert_equal "broken", diagnostic.object_path
+    assert_equal "entry", diagnostic.help_topic
+    assert_equal Lorecraft::Diagnostic::FIELDS, diagnostic.to_h.keys
+    assert_predicate diagnostic, :frozen?
+  end
+
+  def test_lint_findings_are_structured_and_keep_level_compatibility
+    world = Lorecraft.define do
+      schema { entity_type :concept }
+      timeline { era :t, starts: 0, length: 2; now year: 1 }
+      concept :broken do
+        prose "See #{future "Missing"}."
+      end
+    end
+
+    finding = world.lint(root: Dir.mktmpdir).find { |item| item.level == :future }
+    diagnostic = world.lint_diagnostics(root: Dir.mktmpdir).find { |item| item.level == :future }
+
+    assert_instance_of Lorecraft::Linter::Finding, finding
+    assert_equal %i[level message], Lorecraft::Linter::Finding.members
+    assert_equal "broken", diagnostic.object_path
+    assert_equal "markers", diagnostic.code
+  end
+
+  def test_diagnostic_identity_comes_from_the_owner_not_display_text
+    Dir.mktmpdir do |dir|
+      file = File.join(dir, "world.rb")
+      File.write(file, <<~RUBY)
+        schema do
+          entity_type :concept
+          relation :links, temporal: false
+          effect :set
+          tag :known
+        end
+        timeline { era :t, starts: 0, length: 2; now year: 1 }
+        concept :same do
+          tags :unknown
+          prose "Body."
+        end
+        relate :same, :links, :same, :missing
+      RUBY
+      world = Lorecraft.load(file)
+
+      diagnostics = world.validation_diagnostics(root: dir)
+      entity = diagnostics.find { |item| item.code == "unknown_tag" }
+      relation = diagnostics.find { |item| item.message.include?("target → unknown") }
+
+      assert_equal "same", entity.object_path
+      assert_equal "relation:same", relation.object_path
+      assert_equal "world.rb", relation.source_file
+      assert_equal 12, relation.source_line
+    end
+  end
+
+  def test_json_load_failures_return_the_diagnostic_envelope
+    Dir.mktmpdir do |dir|
+      malformed = File.join(dir, "broken.rb")
+      File.write(malformed, "concept :broken do\n")
+      cli = File.expand_path("../bin/lorecraft", __dir__)
+      stdout, _stderr, status = Open3.capture3(
+        { "LORECRAFT_GLOB" => malformed },
+        RbConfig.ruby, cli, "validate", "--format", "json",
+        chdir: File.expand_path("../..", __dir__)
+      )
+
+      payload = JSON.parse(stdout)
+      refute status.success?
+      assert_equal 2, status.exitstatus
+      assert_equal 1, payload.fetch("schema_version")
+      assert_equal "invalid_ruby_source", payload.dig("diagnostics", 0, "code")
+    end
+  end
 end
 
 class ReviewEditorTest < Minitest::Test

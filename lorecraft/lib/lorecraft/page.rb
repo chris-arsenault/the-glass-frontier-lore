@@ -13,14 +13,16 @@ module Lorecraft
   #     prose <<~MD ... MD
   #   end
   class Page
-    attr_reader :id, :prose_blocks
+    attr_reader :id, :prose_blocks, :source_file, :source_line
     attr_accessor :title, :wiki_name, :audience
 
-    def initialize(id:, title: nil, wiki: nil, audience: :all)
+    def initialize(id:, title: nil, wiki: nil, audience: :all, source_file: nil, source_line: nil)
       @id = id.to_sym
       @title = title || id.to_s.split("_").map(&:capitalize).join(" ")
       @wiki_name = wiki || @title.gsub(" ", "-")
       @audience = audience
+      @source_file = source_file
+      @source_line = source_line
       @prose_blocks = []
       @order = 0
     end

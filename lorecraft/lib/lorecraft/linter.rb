@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require "set"
+require "pathname"
+require_relative "diagnostic"
 require_relative "markers"
 
 module Lorecraft
@@ -14,6 +16,7 @@ module Lorecraft
   # has no embedding index, so Lorecraft does not claim to prove prose meaning.
   class Linter
     Finding = Struct.new(:level, :message)
+    Issue = Data.define(:finding, :owner, :code, :details)
 
     # Phrases that usually mean hidden truth has leaked into a player page.
     DM_LEAK_PHRASES = [
@@ -48,42 +51,80 @@ module Lorecraft
 
     def initialize(world, root: Dir.pwd)
       @world = world
-      @root = Pathname.new(root)
-      @findings = []
+      @root = Pathname.new(root).expand_path
     end
 
-    def run
-      check_titles
-      check_dm_phrase_leakage
-      check_markers
-      check_prominence_reach
-      check_fact_cards
-      check_typed_spans
-      check_question_anchors
-      check_double_article
-      check_banned_phrases
-      check_resonance_vocab
-      check_dm_public_entry
-      check_shell_consistency
-      check_causal_cycles
-      check_antisymmetry
-      check_partof_cycles
-      check_embed_cycles
-      check_orphans
-      check_location_spatial
-      @findings
+    def run = collect.map(&:finding)
+
+    def diagnostics
+      collect.map do |issue|
+        owner = issue.owner
+        Diagnostic.new(
+          severity: issue.finding.level,
+          code: issue.code,
+          message: issue.finding.message,
+          object_path: diagnostic_path(owner),
+          source_file: relative_source(owner),
+          source_line: owner&.respond_to?(:source_line) ? owner.source_line : nil,
+          repair_instruction: "Review the named source object and correct the reported condition.",
+          help_topic: "workflow",
+          details: issue.details
+        )
+      end.freeze
     end
 
     private
 
-    def err(m) = @findings << Finding.new(:error, m)
-    def warn(m) = @findings << Finding.new(:warn, m)
-    def future(m) = @findings << Finding.new(:future, m)
+    def collect
+      @issues = []
+      %i[
+        check_titles check_dm_phrase_leakage check_markers check_prominence_reach
+        check_fact_cards check_typed_spans check_question_anchors check_double_article
+        check_banned_phrases check_resonance_vocab check_dm_public_entry
+        check_shell_consistency check_causal_cycles check_antisymmetry
+        check_partof_cycles check_embed_cycles check_orphans check_location_spatial
+      ].each do |check|
+        @current_check = check
+        send(check)
+      end
+      @current_check = nil
+      @issues.freeze
+    end
+
+    def err(message, owner: @owner, details: {}) = add_finding(:error, message, owner, details)
+    def warn(message, owner: @owner, details: {}) = add_finding(:warn, message, owner, details)
+    def future(message, owner: @owner, details: {}) = add_finding(:future, message, owner, details)
 
     # An inventory, not a defect claim: something worth converting when the file
     # is next open. Kept out of the warning count so a long list cannot drown
     # the findings that are actually wrong.
-    def info(m) = @findings << Finding.new(:info, m)
+    def info(message, owner: @owner, details: {}) = add_finding(:info, message, owner, details)
+
+    def add_finding(level, message, owner, details)
+      @issues << Issue.new(
+        finding: Finding.new(level, message),
+        owner: owner,
+        code: @current_check ? @current_check.to_s.delete_prefix("check_") : "lint_finding",
+        details: { check: @current_check }.merge(details)
+      )
+    end
+
+    def diagnostic_path(owner)
+      case owner
+      when Entity then owner.id.to_s
+      when Moment then "moment:#{owner.id}"
+      when RelationInstance then "relation:#{owner.id}"
+      when Page then "page:#{owner.id}"
+      end
+    end
+
+    def relative_source(owner)
+      return unless owner&.respond_to?(:source_file) && owner.source_file
+
+      Pathname.new(owner.source_file).expand_path.relative_path_from(@root).to_s
+    rescue ArgumentError
+      owner.source_file.to_s
+    end
 
     def entities = @world.entities.values
     def pages = entities.reject { |e| shell?(e) }
@@ -96,7 +137,7 @@ module Lorecraft
     end
 
     def check_titles
-      pages.each { |e| err("#{label(e)}: missing title") unless e[:title] }
+      pages.each { |e| err("#{label(e)}: missing title", owner: e) unless e[:title] }
     end
 
     def check_dm_phrase_leakage
@@ -105,7 +146,7 @@ module Lorecraft
 
         text = prose_text(e).downcase
         DM_LEAK_PHRASES.each do |phrase|
-          err("#{label(e)}: possible DM leakage — contains phrase '#{phrase}'") if text.include?(phrase)
+          err("#{label(e)}: possible DM leakage — contains phrase '#{phrase}'", owner: e) if text.include?(phrase)
         end
       end
     end
@@ -185,7 +226,7 @@ module Lorecraft
           rule = tgt && REACH[tgt.prominence&.to_sym]
           next if rule.nil? || reaches?(rule, src, tgt)
 
-          warn("#{label(src)}: #{tgt.prominence} #{target_id} #{UNMET[rule]}")
+          warn("#{label(src)}: #{tgt.prominence} #{target_id} #{UNMET[rule]}", owner: src)
         end
       end
     end
@@ -213,7 +254,7 @@ module Lorecraft
         next if count >= minimum
 
         err("#{label(entity)}: #{entity.prominence} entry has #{count} public facts; " \
-            "its infobox requires at least #{minimum}")
+            "its infobox requires at least #{minimum}", owner: entity)
       end
     end
 
@@ -259,7 +300,7 @@ module Lorecraft
         text = prose_text(owner)
         text.scan(TYPED_SPAN) do
           info("#{owner.id}: span typed by hand ('#{Regexp.last_match[0].strip}') — " \
-               "if it is anchored to an event, use #{'#{elapsed :anchor}'}")
+               "if it is anchored to an event, use #{'#{elapsed :anchor}'}", owner: owner)
         end
       end
     end
@@ -281,14 +322,14 @@ module Lorecraft
         e.questions.each do |q|
           next if q.on.nil? || rendered.include?(q.on)
 
-          warn("#{label(e)}: question anchor not found in prose — '#{q.on[0, 50]}'")
+          warn("#{label(e)}: question anchor not found in prose — '#{q.on[0, 50]}'", owner: e)
         end
       end
     end
 
     def check_double_article
       pages.each do |e|
-        warn("#{label(e)}: double article ('the The …')") if prose_text(e).match?(/\b[Tt]he\s+The\s+/)
+        warn("#{label(e)}: double article ('the The …')", owner: e) if prose_text(e).match?(/\b[Tt]he\s+The\s+/)
       end
     end
 
@@ -305,7 +346,7 @@ module Lorecraft
         bans.each do |phrase, reason|
           next unless text.include?(phrase)
 
-          err("#{owner.id}: banned phrase '#{phrase}' — #{reason}")
+          err("#{owner.id}: banned phrase '#{phrase}' — #{reason}", owner: owner)
         end
       end
     end
@@ -314,7 +355,7 @@ module Lorecraft
       pages.each do |e|
         text = prose_text(e).downcase
         if text.match?(/(?:high|low)-band\s+(?:frequenc|resonance)/)
-          err("#{label(e)}: non-standard resonance term — use structural/kinetic/signal + broad/mid/narrow")
+          err("#{label(e)}: non-standard resonance term — use structural/kinetic/signal + broad/mid/narrow", owner: e)
         end
       end
     end
@@ -323,32 +364,32 @@ module Lorecraft
       entities.each do |e|
         next unless e.dm? && !shell?(e)
 
-        err("#{label(e)}: DM entry missing public_entry") if e.public_entry.nil?
+        err("#{label(e)}: DM entry missing public_entry", owner: e) if e.public_entry.nil?
       end
     end
 
     def check_shell_consistency
       entities.each do |e|
-        warn("#{label(e)}: marked shell but has a path") if shell?(e) && e[:path]
-        err("#{label(e)}: status '#{e[:status]}' but no path/render target") \
+        warn("#{label(e)}: marked shell but has a path", owner: e) if shell?(e) && e[:path]
+        err("#{label(e)}: status '#{e[:status]}' but no path/render target", owner: e) \
           if %w[complete draft].include?(e[:status].to_s) && e[:path].nil?
       end
     end
 
     def check_causal_cycles
       cyc = find_cycle(edges_of(%i[causes caused]))
-      err("causal cycle: #{cyc.join(' → ')}") if cyc
+      err("causal cycle: #{cyc.join(' → ')}", owner: @world.entity(cyc&.first)) if cyc
     end
 
     def check_partof_cycles
       cyc = find_cycle(edges_of(%i[part_of]))
-      err("spatial PART_OF cycle: #{cyc.join(' → ')}") if cyc
+      err("spatial PART_OF cycle: #{cyc.join(' → ')}", owner: @world.entity(cyc&.first)) if cyc
     end
 
     # Two entries that embed each other would each need the other rendered first.
     def check_embed_cycles
       cyc = find_cycle(edges_of(%i[embeds]))
-      err("embed cycle: #{cyc.join(' → ')}") if cyc
+      err("embed cycle: #{cyc.join(' → ')}", owner: @world.entity(cyc&.first)) if cyc
     end
 
     def check_antisymmetry
@@ -356,7 +397,8 @@ module Lorecraft
       @world.relationships.each do |s, v, t|
         next unless ANTISYMMETRIC.include?(v)
 
-        warn("antisymmetry: #{s} and #{t} both #{v} each other") if seen.include?([v, t, s]) && s.to_s < t.to_s
+        warn("antisymmetry: #{s} and #{t} both #{v} each other", owner: @world.entity(s)) \
+          if seen.include?([v, t, s]) && s.to_s < t.to_s
       end
     end
 
@@ -366,7 +408,7 @@ module Lorecraft
       pages.each do |e|
         next if shell?(e)
 
-        warn("orphan: #{label(e)} has no relationships") if degree[e.id].zero?
+        warn("orphan: #{label(e)} has no relationships", owner: e) if degree[e.id].zero?
       end
     end
 
@@ -381,7 +423,7 @@ module Lorecraft
         next unless LOCATION_KINDS.include?(e.kind)
         next if inside.include?(e.id) || contains.include?(e.id)
 
-        warn("location #{e.id} has no spatial hierarchy relationship (where is it?)")
+        warn("location #{e.id} has no spatial hierarchy relationship (where is it?)", owner: e)
       end
     end
 

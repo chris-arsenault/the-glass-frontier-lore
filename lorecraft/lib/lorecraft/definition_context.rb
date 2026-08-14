@@ -31,19 +31,28 @@ module Lorecraft
 
     # `genesis :id, year: N` (or `at:`) — bootstrap standing facts.
     def genesis(id, year: nil, at: nil, dm: false, &block)
-      @world.define_moment(id: id, at: (at || year), genesis: true, dm: dm, &block)
+      @world.define_moment(
+        id: id, at: (at || year), genesis: true, dm: dm,
+        source_line: caller_locations(1, 1).first.lineno, &block
+      )
     end
 
     # `moment :id, year: N, of: :entity do prose; effects end` — a thing that
     # happens to an entity in a given year. `of:` is the entity whose page the
     # prose renders on; `span:` for things that run over a range of years.
     def moment(id, year: nil, at: nil, span: nil, of: nil, type: :incident, dm: false, seq: nil, &block)
-      @world.define_moment(id: id, at: (at || year), span: span, of: of, kind: type, dm: dm, seq: seq, &block)
+      @world.define_moment(
+        id: id, at: (at || year), span: span, of: of, kind: type, dm: dm, seq: seq,
+        source_line: caller_locations(1, 1).first.lineno, &block
+      )
     end
 
     # `page :id, title:, wiki:` — an authored standalone wiki page (not an entity).
     def page(id, title: nil, wiki: nil, audience: :all, &block)
-      @world.define_page(id: id, title: title, wiki: wiki, audience: audience, &block)
+      @world.define_page(
+        id: id, title: title, wiki: wiki, audience: audience,
+        source_line: caller_locations(1, 1).first.lineno, &block
+      )
     end
 
     # `relate :id, :rival_of, :a, :b, since: {...}` — promote an edge to a
@@ -51,7 +60,8 @@ module Lorecraft
     def relate(id, verb, source, target, since: nil, till: nil, dm: false, &block)
       @world.define_relation_instance(
         id: id, verb: verb, source: source, target: target,
-        since: since, till: till, dm: dm, &block
+        since: since, till: till, dm: dm,
+        source_line: caller_locations(1, 1).first.lineno, &block
       )
     end
 
@@ -59,7 +69,10 @@ module Lorecraft
     # any kind declared in `schema do … end` becomes a usable top-level method.
     def method_missing(name, id = nil, **opts, &block)
       if @world.schema.kind?(name)
-        @world.define_entity(kind: name, id: id, **opts, &block)
+        @world.define_entity(
+          kind: name, id: id, source_line: caller_locations(1, 1).first.lineno,
+          **opts, &block
+        )
       else
         super
       end

@@ -21,11 +21,12 @@ module Lorecraft
   # provenance; they are otherwise ordinary moments.
   class Moment
     attr_reader :id, :kind, :year, :from_year, :to_year, :seq, :effects,
-                :prose_blocks, :static_attrs, :source_file, :load_index, :of
+                :prose_blocks, :static_attrs, :source_file, :source_line, :load_index, :of
     attr_accessor :dm, :genesis
 
     def initialize(id:, timeline:, kind: :incident, at: nil, span: nil, of: nil,
-                   genesis: false, dm: false, seq: nil, source_file: nil, load_index: 0)
+                   genesis: false, dm: false, seq: nil, source_file: nil,
+                   source_line: nil, load_index: 0)
       @id = id.to_sym
       @kind = kind.to_sym
       @timeline = timeline
@@ -34,6 +35,7 @@ module Lorecraft
       @dm = dm
       @seq = seq
       @source_file = source_file
+      @source_line = source_line
       @load_index = load_index
       @effects = []
       @prose_blocks = []
