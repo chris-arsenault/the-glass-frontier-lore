@@ -6,6 +6,7 @@ resource :kite_sail do
   status :complete
   reviewed "2026-03-19"
   log "2026-08-09 — the null space's \"two centuries of use\" is anchored to a future, Kite-sail development, with 200 years standing in. Nothing in canon dates the invention; a kite runs on ambient resonance, which this entry says came from ringglass the shattering scattered, so it cannot predate the Glassfall (295 years). Write that event with a year and the span computes itself."
+  log "2026-08-21 — Dated the first repeatable kite record to 2235, within the Signal Famine and two centuries before the present."
   tags :transport, :resonance, :"kinetic-freq", :trade
   prominence :renowned
   aka "Kinetic Inverse Transport Engine"
@@ -48,6 +49,10 @@ resource :kite_sail do
   PROSE
 end
 
+moment :kite_sail_development, year: 2235, of: :kite_sail do
+  prose "A freight crew crossed a dry basin on Kaleidos in 2235 with a kinetic array fixed to three cloth spars. The surviving maintenance record includes the first repeatable tuning pattern for a kite; workshops across the surface copied it within the year."
+end
+
 relate :rel_kite_depends_on_resonance, :depends_on, :kite_sail, :resonance do
   prose "A kite is nothing without #{ref :resonance, "resonance"}: the kinetic-band field that nullifies opposing force is the whole of how it moves."
 end
@@ -56,4 +61,7 @@ relate :rel_kite_depends_on_ringglass, :depends_on, :kite_sail, :ringglass do
 end
 relate :rel_kite_depends_on_microcavities, :depends_on, :kite_sail, :microcavities do
   prose "For high-energy work it burns #{ref :microcavities, "microcavities"} — stored resonance charge — when ambient fields aren't rich enough to sustain the drive."
+end
+relate :rel_kite_created_during_signal_famine, :created_during, :kite_sail, :signal_famine do
+  prose "The first repeatable kite tuning was recorded in 2235, while surface crews were rebuilding trade during the #{ref :signal_famine, "Signal Famine"}."
 end

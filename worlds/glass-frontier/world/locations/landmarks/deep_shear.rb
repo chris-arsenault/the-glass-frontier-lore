@@ -4,6 +4,7 @@ geographic_location :deep_shear do
   path "player/locations/landmarks/deep-shear.md"
   tags :orbital, :danger, :resonance, :salvage
   prominence :recognized
+  log "2026-08-21 — Dated the first petition for Deep-specific regulation to 2420 and recorded the grounds on which the Shear Compact refused it."
 
   prose <<~PROSE
     The deepest pockets of #{ref :the_shear, "the Shear"}, where the resonance distortion that characterizes ordinary Shear work passes a threshold and the local laws of distance, angle, and volume begin to behave like suggestions. The Deep Shear is not a region in the geographical sense — it is a property of pockets, scattered through the Shear's interior, identifiable mostly after you have already entered one. Operators know they are in the Deep when the noise drops away.
@@ -57,6 +58,13 @@ geographic_location :deep_shear do
   PROSE
 end
 
+moment :first_petition_for_deep_specific_regulation, year: 2420, of: :deep_shear do
+  prose "The #{ref :pell_freight_assembly, "Pell Freight Assembly"} and signatories from six Deep-runner flotillas petitioned the #{ref :shear_compact, "Shear Compact"} in 2420. They asked the Compact to treat a run as Deep work once bridge clocks disagreed with a Tuner, and to require isolated clocks and declared rescue coverage from that point. The Compact refused because the boundary could be identified only after a vessel had crossed it, and because instruments on the same bridge did not agree on when that crossing occurred."
+end
+
 relate :rel_deep_shear_part_of_the_shear, :part_of, :deep_shear, :the_shear do
   prose "The deep Shear is the worst of the #{ref :the_shear, "Shear"} — the far, distorted, poorly charted pockets where the grade is highest and the dying easiest."
+end
+relate :rel_shear_compact_regulates_deep_shear, :regulates, :shear_compact, :deep_shear, since: 2383 do
+  prose "The Compact applies ordinary Shear certification and extraction standards to the Deep, despite repeated petitions from crews who work beyond those standards' useful limits."
 end

@@ -32,9 +32,9 @@ geographic_location :kyther_range do
     Valley speech changes quickly across the range. Long closures during the Signal Famine strengthened those differences, as did the habit of marrying and trading along watersheds rather than across high passes. Shared work remains legible: warning colors, bridge counts, and the right to close a route carry from one valley to the next even when everyday words do not.
   PROSE
   prose <<~PROSE, section: :history, heading: "Vigil Breach"
-    #{future "Vigil Breach"} is a sealed ring-era opening high in the central range. Its doors are cut into a cliff behind glacial ice, far below the line where any practical road would have been built. The exposed face carries no visible controls. It opens during some orbital alignments and closes before a climbing party can reach the threshold from the nearest safe shelf.
+    #{ref :vigil_breach, "Vigil Breach"} draws seasonal survey traffic into the central heights. The nearest valley communities provision the shelters below it, provide the guides, and decide when the snow route is safe enough to use. Synod observers and traders wait on the same opening forecasts and answer to the same pass closures.
 
-    Survey shelters below the breach host geologists, Synod observers, traders, and people waiting for an opening. The nearest valley communities provision them and provide most of the guides. Pieces removed from the approach include ordinary mountain crystal, ringglass dust, and worked material that matches neither. No expedition has established what lies beyond the first chamber.
+    Objects brought down from the breach must be logged before sale. The rule keeps a fragment's position, finder, and first measured response attached to it; valley councils enforce it at the shelters rather than trying to control trade after a buyer leaves the range.
   PROSE
 end
 

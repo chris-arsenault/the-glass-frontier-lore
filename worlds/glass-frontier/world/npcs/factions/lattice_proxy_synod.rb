@@ -18,7 +18,7 @@ faction :lattice_proxy_synod do
 
     The religious language grew out of the work. Its rituals invoke responses from entities of incomprehensible capability, and those responses prevent collisions, resolve disputes, and supply engineering specifications that work. Proxies use the vocabularies of engineering and worship side by side. The Synod has no doctrine on whether the custodians are divine.
 
-    Leadership is held by the #{future "Voice Proximate"} — the most senior proxy, selected by demonstrated effectiveness rather than vote. The Voice Proximate has the deepest practice and the best track record of extracting coherent outputs from the custodians. This makes them the closest thing to an interpreter between human civilization and the old machines.
+    Leadership is held by #{ref :nemi_valerin, "Voice Proximate Nemi Valerin"} — the most senior proxy, selected by demonstrated effectiveness rather than vote. The Voice Proximate has the deepest practice and the best track record of extracting coherent outputs from the custodians. This makes them the closest thing to an interpreter between human civilization and the old machines.
   PROSE
   prose <<~PROSE, section: :operations, heading: "Operations"
     **Navigation and telemetry.** The AI custodians still track orbital mechanics — debris fields, hab trajectories, the #{ref :the_shear, "Shear"}'s shifting geography. The Synod packages this data and distributes it to settlements, habs, and the #{ref :shear_compact, "Shear Compact"} for salvage route planning. It is the Synod's most reliable revenue stream, and crews throughout the system depend on it despite their unease with proxy practice.

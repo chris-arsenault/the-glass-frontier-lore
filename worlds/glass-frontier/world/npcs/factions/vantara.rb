@@ -16,7 +16,7 @@ faction :vantara do
   prose <<~PROSE, section: :structure, heading: "Structure"
     Vantara operates under conventional corporate structures. Two details set it apart:
 
-    The CEO carries the title **Chief Experience Officer**, because the current one — #{future "Davan Koralis"} — believes that Vantara's core product is the experience of travel, not the logistics of it. The institutional priority is genuine — Vantara invests in waystation quality, crew training, and passenger comfort.
+    The CEO carries the title **Chief Experience Officer**, because the current one — #{ref :davan_koralis, "Davan Koralis"} — believes that Vantara's core product is the experience of travel, not the logistics of it. The institutional priority is genuine — Vantara invests in waystation quality, crew training, and passenger comfort.
 
     Vantara is publicly traded, politically neutral, and genuinely multinational — operations span surface settlements, ring habs, outer-system stations, and #{ref :keel, "the Keel"} trade lane. Their neutrality is economic, not ideological. They don't take sides because taking sides is bad for business. This makes them useful to the #{ref :tempered_accord, "Tempered Accord"} as a logistics backbone that everyone can work with.
   PROSE

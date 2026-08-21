@@ -16,7 +16,7 @@ faction :echo_ledger_conclave do
 
     Satellite offices exist in #{ref :sithari, "Sithari"} (for political and legal access), several ring habs (for hab-specific archive consultation), and at least two #{ref :bloom_zones, "Bloom Zone"} cordon stations (for containment support). The satellites are small — a few archivists with portable playback equipment and a secure connection to Thornvault's central records.
 
-    Leadership is academic. The head of the Conclave holds the title #{future "Chief Ledgrist"} and is selected by internal vote among senior archivists. The position is respected externally and envied internally, which is exactly how the Conclave likes it.
+    Leadership is academic. The head of the Conclave is #{ref :sora_meralis, "Chief Ledgrist Sora Meralis"}, selected by internal vote among senior archivists. The position is respected externally and envied internally, which is exactly how the Conclave likes it.
   PROSE
   prose <<~PROSE, section: :operations, heading: "Operations"
     What the Conclave actually does, day to day:

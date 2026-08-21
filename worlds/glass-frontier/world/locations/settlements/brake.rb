@@ -35,6 +35,8 @@ installation :brake do
     Cutter families often live in former ships whose sister hulls they dismantled. Their homes carry fittings from several wrecks and doors whose old labels point to rooms elsewhere in the yard.
   PROSE
 
+  prose "#{embed :shardfall, :aftermath}", section: :history, heading: "Shardfall"
+
   prose "#{embed :hospital_hull_recovery}", section: :present_day, heading: "Hospital Hull Recovery"
 end
 

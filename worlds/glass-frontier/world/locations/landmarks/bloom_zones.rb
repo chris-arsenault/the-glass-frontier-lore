@@ -31,7 +31,7 @@ geographic_location :bloom_zones do
   prose <<~PROSE, section: :mechanics, heading: "Growth"
     Bloom Zones grow organically. Frontier researchers have proposed several explanations for where new zones appear: a clear line of resonance sight between two zones, constructive interference patterns, or links through frequency dimensions that conventional maps cannot represent. Each hypothesis fits some appearances and fails to predict others.
 
-    One zone appeared beside the stable ring hab #{future "Xyloathax"} in otherwise clean orbital space. The Council now treats every inhabited orbit as a possible containment site.
+    One zone appeared beside the stable ring hab #{ref :xyloathax, "Xyloathax"} in otherwise clean orbital space in 2431. The Council now treats every inhabited orbit as a possible containment site.
 
     #{ref :karet_three, "Karet-3"} opened around an inhabited freight hab in the outer Shear in 2426, long after the first cascade. Its permanent station at #{ref :outside, "Outside"} is evidence that new zones can become towns as well as emergencies: contractors rotate through the cordon while evacuated families build their lives beside it.
   PROSE

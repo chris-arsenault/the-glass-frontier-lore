@@ -6,34 +6,47 @@ incident :shardfall do
   reviewed "2026-03-19"
   tags :salvage, :military, :danger
   prominence :recognized
+  date 2348
+  cause_status "Drossmark continued linked extraction after Brake's arrestors began answering the rigs"
+  log "2026-08-21 — Fixed Shardfall in 2348 at Brake, named all three armed parties, and based the casualty and regulatory record on the hab's surviving instruments and drive logs."
 
   prose <<~PROSE
-    A salvage battle in the mid-drift #{ref :the_shear, "Shear"} during the Contested Reach, roughly 2340s CE. Three parties — #{future "Drossmark Industries"}, a hab mining collective, and a pirate group — fought over a high-value ringglass debris field near a ring hab. The engagement killed dozens, including civilians, and was the incident that turned public opinion decisively against unregulated Shear salvage.
+    Shardfall was a four-day salvage battle beside #{ref :brake, "Brake"} in 2348. #{ref :drossmark_industries, "Drossmark Industries"}, the #{ref :brake_free_cutters, "Brake Free Cutters"}, and #{ref :split_wake, "Split Wake"} fought over an intact-grade ringglass field close to the hab's capture lanes. Linked extraction arrays carried the field's resonance into Brake and killed forty-seven people, including eleven residents inside the hab.
+
+    Brake's observation galleries, claim channel, and arrestor instruments recorded the battle. Copies travelled with departing carriers. Shardfall became the evidence cited whenever an operator claimed that a private salvage risk ended at the edge of its own vessel.
   PROSE
   prose <<~PROSE, section: :cause, heading: "Cause"
-    A ringglass debris field of unusual quality appeared in mid-drift space — not deep Shear, but close to an inhabited ring hab. The field contained intact-grade material, the kind that commands extreme prices. Three groups moved on it simultaneously:
+    Two debris masses ground past each other and exposed intact-grade material inside the field. The Brake Free Cutters placed claim buoys, made assay cuts, and notified the hab before moving their transfer barges into position.
 
-    #{future "Drossmark Industries"}, a mid-drift extraction company that had expanded aggressively during the Reach, deployed heavy equipment designed for volume rather than precision. A hab-based mining collective — not a corporation, a community operation — had already staked a claim. And a pirate group saw an opportunity in the confusion.
+    Drossmark arrived with three heavy arrays and rejected the local claim. Its crews fixed the exposed mass, the neighboring debris, and their carrier into one cutting field. Brake's arrestor instruments began answering the extraction tone before the first full load left the rigs. The hab ordered both parties to stop work. The Cutters powered down. Drossmark continued cutting while contesting Brake's authority over open Shear.
 
-    The problem wasn't just the three-way dispute. Drossmark's extraction methods — high-energy, high-throughput, optimized for speed over safety — destabilized the resonance ecology of the surrounding area. In open Shear, that's a calculated risk. Near a hab, it threatened structural integrity.
+    Split Wake approached during the standoff. Its target was the ringglass already loaded into Cutters' barges and Drossmark skiffs, not the raw field.
   PROSE
   prose <<~PROSE, section: :course, heading: "Course"
-    The engagement was messy and asymmetric. Drossmark had the best ships and equipment. The hab miners had local knowledge and the moral authority of a prior claim. The pirates had neither and just wanted to grab material in the chaos. What they all had was weapons, and the situation escalated from standoff to firefight over the course of days.
+    Split Wake fired on a Drossmark transfer skiff. Drossmark escorts returned fire across the Cutters' marked work line. The Cutters moved their barges toward Brake and fired when an escort tried to hold one in the field. The three groups fought among active arrays, tethered debris, and damaged vessels while Brake kept the claim channel open.
 
-    The hab was watching. The engagement was visible from the hab's observation decks. Communications channels carried the dispute in real time. When Drossmark's extraction operations triggered a localized resonance cascade that damaged hab infrastructure — not catastrophically, but enough to require emergency response — the dispute stopped being a salvage conflict and became a public safety crisis with an audience.
+    On the fourth day, the linked arrays settled onto the same structural response as Brake's kinetic arrestors. The extraction tone crossed the field into the hab. One capture frame snapped inward, pressure doors closed through occupied corridors, and an observation gallery lost its outer wall. Local crews cut the arrestor feeds and the Cutters severed the nearest array tether. The response stopped after it had crossed three inhabited wards.
   PROSE
   prose <<~PROSE, section: :aftermath, heading: "Aftermath"
-    Dozens dead — Drossmark operators, hab miners, pirates, and hab civilians killed by the resonance cascade's effects on their home. The casualty count was significant but not unprecedented for the Contested Reach. What made Shardfall different was visibility. A hab had watched it happen. Recordings circulated system-wide.
+    Brake's final ledger records forty-seven dead: eighteen Drossmark workers, nine Free Cutters, nine members of Split Wake, and eleven hab residents. Rescue crews recovered everyone whose route into the field remained on an isolated clock. The others were identified from suit records, drive logs, and the observation gallery roll.
 
-    The political impact was immediate. Shardfall became the argument for regulation. Every subsequent proposal for Shear oversight referenced it. The momentum that eventually produced the #{ref :shear_compact, "Shear Compact"} started here — not from the casualties alone, but from the undeniable footage of a corporation's methods being applied near someone's home.
+    Brake expelled Drossmark and held the surviving Split Wake crews. The Free Cutters stabilized the field through single-vessel cuts and completed extraction in 2351. The last load paid for pressure repairs, household shares for the dead, and permanent rescue stores at the capture lanes.
+
+    Ports began refusing Drossmark cargo within days of receiving Brake's recordings. Proposals for common Shear rules cited the open claim channel, the arrestor traces, and Drossmark's linked controls. Those records later became part of the founding case for the #{ref :shear_compact, "Shear Compact"}.
   PROSE
   prose <<~PROSE, section: :legacy, heading: "Legacy"
-    "Shardfall" entered common usage as shorthand for reckless salvage operations. In the Accord era, citing Shardfall in a policy debate is the equivalent of invoking a well-known industrial disaster — everyone knows what you mean. The debris field itself was eventually extracted by the hab mining collective after Drossmark was expelled under political pressure. The site is unremarkable now. The name survived the place.
+    "Another Shardfall" means a salvage risk has crossed into someone else's air, route, or structure. Compact inspectors use the phrase when an operator treats a linked field as separate machines. Brake uses the event's drive sequence in claim hearings because it fixes who moved, who fired, and which arrays remained active.
 
-    Drossmark Industries did not survive the Contested Reach. The political fallout from Shardfall, combined with escalating Reach-era conflicts, broke the company. Its assets were absorbed by competitors, its personnel scattered across smaller operations. The name is remembered only in connection with the event that killed it.
+    Forty-seven cut marks remain along the replacement rail of Brake's observation gallery. The two unpowered Drossmark frames in the cutting yards are used as sorting tables. Split Wake's ships were dismantled there. The field itself is empty of intact-grade material and carries ordinary local traffic.
   PROSE
 end
 
 relate :rel_shardfall_caused_shear_compact, :caused, :shardfall, :shear_compact do
   prose "The deaths at Shardfall turned public opinion against unregulated salvage and produced the #{ref :shear_compact, "Shear Compact"} — regulation written in the aftermath of a disaster."
+end
+relate :rel_shardfall_located_in_shear, :located_in, :shardfall, :the_shear do
+  prose "The battle took place in a mid-drift field beside Brake's capture lanes."
+end
+relate :rel_brake_participated_shardfall, :participated_in, :brake, :shardfall do
+  prose "Brake ordered the extraction stopped, kept the public claim channel open, and suffered the cascade across three inhabited wards."
 end

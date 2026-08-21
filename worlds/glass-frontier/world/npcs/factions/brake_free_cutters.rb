@@ -1,0 +1,38 @@
+faction :brake_free_cutters do
+  name "Brake Free Cutters"
+  subkind :mutual_aid
+  founded 2336
+  tags :salvage, :trade, :"ring-hab", :materials
+  prominence :marginal
+  status :complete
+  omit_facts :leaders, :predecessors
+
+  prose <<~PROSE
+    The Brake Free Cutters are family mining crews that pool tugs, claim watches, rescue stores, and cutting time around #{ref :brake, "Brake"}. Each crew owns its vessel and tools. A common board records claims and assigns the shared equipment needed to hold them safely.
+
+    The Cutters marked the intact-grade debris field before #{ref :shardfall, "Shardfall"}. Their claim buoys, assay cuts, and notice to Brake all predated the arrival of #{ref :drossmark_industries, "Drossmark Industries"}. They lacked the ships to force the company out and refused to abandon a field close enough to threaten their home.
+  PROSE
+
+  prose <<~PROSE, section: :history, heading: "After Shardfall"
+    Nine Cutters died in the battle and cascade. Surviving crews spent the next three years stabilizing the field with single-vessel cuts. The last intact-grade load paid for Brake's pressure repairs, the dead crews' household shares, and permanent rescue stores at the capture lanes.
+
+    The common board kept the Shardfall claim record open after extraction ended. New members read its warnings before receiving a shared tug: no linked cut inside an inhabited field, no weapon discharge across a marked work line, and no claim worth closing a route home.
+  PROSE
+
+  prose <<~PROSE, section: :present_day, heading: "Present Day"
+    The Cutters now work smaller claims and bring difficult hulls into Brake's cutting lots. Their oldest tugs carry mismatched plates from the Drossmark rigs they helped seize. Each plate is drilled through the control channels before installation.
+  PROSE
+end
+
+relate :rel_brake_free_cutters_headquartered_brake, :headquartered_in, :brake_free_cutters, :brake, since: 2336 do
+  prose "The common claim board and rescue stores occupy rooms beside Brake's capture lanes."
+end
+relate :rel_brake_free_cutters_operate_shear, :operates_in, :brake_free_cutters, :the_shear, since: 2336 do
+  prose "Member crews work local claims and tow dangerous salvage back to Brake."
+end
+relate :rel_brake_free_cutters_supply_brake, :supplies, :brake_free_cutters, :brake, since: 2336 do
+  prose "Their graded salvage feeds Brake's repair yards and cutting lots."
+end
+relate :rel_brake_free_cutters_participated_shardfall, :participated_in, :brake_free_cutters, :shardfall do
+  prose "The Cutters defended their prior claim, pulled damaged vessels toward Brake, and later stabilized the field."
+end
