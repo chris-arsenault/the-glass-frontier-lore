@@ -245,11 +245,6 @@ module Lorecraft
         sectioned = blocks.reject { |b| b.section == :main }
 
         parts = main.map { |b| render_authored_block(b, from_path, year, audience) }
-        sectioned.each do |b|
-          heading = b.heading || humanize(b.section)
-          parts << "## #{heading} <!-- #{humanize(b.section)} -->\n\n" +
-                   render_authored_block(b, from_path, year, audience)
-        end
         player = !audience.equal?(:all)
         (moments_for(node.id) + relationships_for(node.id)).each do |owner|
           next if player && owner.respond_to?(:dm?) && owner.dm?
@@ -259,6 +254,11 @@ module Lorecraft
 
             parts << resolve_prose(b.text, from_path: from_path, year: year).strip
           end
+        end
+        sectioned.each do |b|
+          heading = b.heading || humanize(b.section)
+          parts << "## #{heading} <!-- #{humanize(b.section)} -->\n\n" +
+                   render_authored_block(b, from_path, year, audience)
         end
         # Everything about the ENTRY rather than the world goes last, and only on
         # the internal tree. A reader gets prose; a reviewer gets prose plus the

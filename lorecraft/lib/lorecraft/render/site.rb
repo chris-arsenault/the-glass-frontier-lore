@@ -222,7 +222,8 @@ module Lorecraft
         blocks = node.authored_blocks.select do |block|
           block.visible_at?(@year, audience: audience == :player ? :player : :all)
         end
-        sections = blocks.sort_by(&:order).map do |block|
+        main, sectioned = blocks.sort_by(&:order).partition { |block| block.section == :main }
+        sections = main.map do |block|
           block_document(block, node.id, audience, owner: node)
         end
 
@@ -235,6 +236,9 @@ module Lorecraft
             sections << block_document(block, node.id, audience, owner: owner)
           end
         end
+        sections.concat(sectioned.map do |block|
+          block_document(block, node.id, audience, owner: node)
+        end)
         sections
       end
 

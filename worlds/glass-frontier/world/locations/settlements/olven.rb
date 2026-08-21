@@ -1,0 +1,40 @@
+installation :olven do
+  name "Olven"
+  aka "Olven-Terath"
+  subkind :settlement
+  status :complete
+  tags :"ring-hab", :"ring-era", :ecology, :trade, :materials
+  prominence :recognized
+  population 5400
+  population_band "About fifty-four hundred residents"
+  role "Cultivation of foods, dyes, medicines, and industrial fungi"
+  setting "A chain of climate chambers wrapped around a warm ring conduit"
+  access "Scheduled clean-stock carriers from Seren at three freight docks, each opening into a separate climate band"
+  omit_facts :maintained_by
+
+  prose <<~PROSE
+    Each band has its own weather and work day. Warm chambers grow vat fungi, climbing fruit, dyes, and medicinal cultures. Cool chambers hold roots, slow grains, binding moss, and food kept for long voyages. Doors between bands open through transfer rooms where people change clothing, tools, and resident microbes.
+
+    Olven households often work in several climates. A family may tend one food room, lease shelves in a dye chamber, and hold shares in a medicinal culture maintained by another band. Meals on the conduit walk combine produce from hot, cool, wet, and dry rooms.
+
+    Hundreds of chambers surround the warm conduit and can hold different air, moisture, light, soil, and gravity. Rekindling growers restored them one band at a time and turned the conduit walk into a market street.
+  PROSE
+
+  prose <<~PROSE, section: :operations, heading: "Chamber Lineages"
+    A chamber keeps a lineage book for its air, soil, water, tools, resident organisms, and operating tone. Growers record each transfer across a climate boundary and carry a sample back to the source room. Neighboring chambers compare those samples before renewing a shared crop. Climate-control plates retain the Ring-era name Olven-Terath; market speech shortened it with the first restored band.
+
+    The practice lets Olven cultivate organisms that change quickly under resonance. A useful change receives its own room, workers, and market mark. #{ref :velin, "Velin"}, a pale tissue culture used for nerve grafts, occupies six humid chambers whose walls carry a gentle kinetic pulse.
+  PROSE
+
+  prose <<~PROSE, section: :trade, heading: "Velin Across the Door"
+    A fast-growing velin form has appeared in the cool root chambers beyond its transfer room. It follows condensation lines along walls and binds cleanly to the roots stored there. The affected plants remain healthy and carry sensation when growers touch their outer bark.
+
+    Olven has opened a separate market stall for the bound roots and assigned one empty chamber to their cultivation. Buyers from surface clinics and ship gardens have placed orders before the first harvest.
+
+    The first test cut made every bound root in the chamber contract at once and silenced sensation in three control grafts across the transfer room. Growers closed the stall with the orders still posted. Root keepers want the cool stock separated intact; clinic buyers have offered to fund a destructive harvest if Olven releases the complete lineage record with it.
+  PROSE
+end
+
+relate :rel_olven_located_in_frontier, :located_in, :olven, :the_glass_frontier, since: 2305 do
+  prose "Olven cultivates many climates around a warm conduit in the broken ring."
+end

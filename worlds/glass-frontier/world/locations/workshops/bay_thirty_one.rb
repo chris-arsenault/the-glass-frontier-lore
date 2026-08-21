@@ -1,0 +1,24 @@
+installation :bay_thirty_one do
+  name "Thirty-One"
+  aka "Bay Thirty-One"
+  subkind :workshop
+  function "Maps, washes, and preserves resonant traces carried by textiles"
+  status :complete
+  tags :household, :archives, :"signal-freq", :trade
+  prominence :marginal
+  omit_facts :maintained_by
+
+  prose <<~PROSE
+    Thirty-One is a sealed textile room on Wash Four's dirty route. The bay number remains over its pressure door, while daily work drops the first word. Its central table rests on ceramic feet and drains into six sampling jars. Wall frames hold garments at full extension while directional lamps expose residue, repairs, and stressed fibers.
+
+    Every job begins dry. Workers map a garment with tuned wooden paddles, chalk the strongest traces, and remove loose findings into labeled trays. Wash water enters only after the map is copied onto a fired ceramic sheet.
+
+    Twenty-seven garments carrying the repeated voice now hang from the ceiling frames. Floor lanes remain open beneath them so workers can play the traces in order while walking the route they describe.
+  PROSE
+
+  log "2026-08-21 — Made the workers' shorthand Thirty-One primary while retaining Bay Thirty-One as the formal designation."
+end
+
+relate :rel_bay_thirty_one_located_in_wash_four, :located_in, :bay_thirty_one, :wash_four, since: 2435 do
+  prose "Thirty-One handles disputed and trace-bearing textiles at Wash Four."
+end

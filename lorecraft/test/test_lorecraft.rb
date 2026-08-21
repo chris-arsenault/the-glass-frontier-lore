@@ -731,6 +731,29 @@ class MarkdownRenderTest < Minitest::Test
     page = Lorecraft::Render::Markdown.new(w).page_markdown(w.entity(:a))
     assert_includes page, "[future:Unwritten Thing]"
   end
+
+  def test_relationship_prose_precedes_authored_sections
+    world = Lorecraft.define do
+      schema do
+        entity_type :place
+        relation :supplies, temporal: true
+        section_heading :present_day
+      end
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
+      place :a do
+        name "A"
+        prose "Opening fact."
+        prose "Final situation.", section: :present_day, heading: "Today"
+      end
+      place :b do name "B" end
+      relate :a_supplies_b, :supplies, :a, :b do
+        prose "Connection fact."
+      end
+    end
+
+    page = Lorecraft::Render::Markdown.new(world).page_markdown(world.entity(:a))
+    assert_operator page.index("Connection fact."), :<, page.index("## Today")
+  end
 end
 
 class SearchTest < Minitest::Test
@@ -1125,6 +1148,34 @@ class SiteRenderTest < Minitest::Test
       assert_equal "The Destination", cards.dig("cards", 0, "title")
       assert_equal "/sample-world/entry/destination", cards.dig("cards", 0, "route")
       assert_equal "The place reached by the old road.", cards.dig("cards", 0, "description")
+    end
+  end
+
+  def test_relationship_prose_precedes_authored_sections
+    world = Lorecraft.define do
+      schema do
+        entity_type :place
+        relation :supplies, temporal: true
+        section_heading :present_day
+      end
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
+      place :a do
+        name "A"
+        prose "Opening fact."
+        prose "Final situation.", section: :present_day, heading: "Today"
+      end
+      place :b do name "B" end
+      relate :a_supplies_b, :supplies, :a, :b do
+        prose "Connection fact."
+      end
+    end
+
+    Dir.mktmpdir do |dir|
+      render(world, dir)
+      entry = JSON.parse(File.read(File.join(dir, "public", "worlds", "sample-world", "entries", "a.json")))
+      markdown = entry["sections"].map { |section| section["markdown"] }
+
+      assert_operator markdown.index("Connection fact."), :<, markdown.index("Final situation.")
     end
   end
 
