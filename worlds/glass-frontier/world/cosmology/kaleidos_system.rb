@@ -18,9 +18,9 @@ geographic_location :kaleidos_system do
     Population centers are not exclusively planet-bound. Ring habs, orbital stations, deep-space facilities, and #{ref :span_nine, "Threshold Station"} at the Kaleidos-sun Lagrange point all host significant communities. But the big population centers are planetary or lunar.
   PROSE
   prose <<~PROSE, section: :description, heading: "The Planets"
-    ### 1. #{future "Crucible"}
+    ### 1. #{ref :crucible, "Crucible"}
 
-    The inner world. Too hot for comfort, habitable with effort. Close enough to the sun that surface operations require heat management gear, but not so close that it's uninhabitable. Mining is the primary industry — the proximity to the star produces mineral formations that don't occur further out, including dense crystalline deposits that some geologists believe are unrefined #{ref :ringglass, "ringglass"} in its raw mineral state. Small population, practical culture, the kind of place where people go to make money and leave.
+    The hot inner world. Mines and shielded settlements work its metal-bearing uplands under short surface windows.
 
     ### 2. Kaleidos
 
@@ -32,41 +32,25 @@ geographic_location :kaleidos_system do
 
     A comfortable rocky world, larger than Kaleidos. #{ref :coremark, "Coremark"}'s headquarters — close enough to Kaleidos nearspace that deep #{ref :the_shear, "Shear"} operations are logistically viable, far enough to be out from under Sithari's political shadow. The planet itself supports a moderate population with its own settlements and economy. Coremark's presence — first as a legitimate corporation, now as a criminal syndicate — casts a long shadow over local politics, though Korvath's own settlements and institutions hold their own.
 
-    ### 4. #{future "Vitrael"}
+    ### 4. #{ref :vitrael, "Vitrael"}
 
-    Exotic. A crushing, superheated atmosphere whose chemistry produces metal rain, crystallized mineral storms, and surface conditions that are beautiful from orbit and lethal at ground level. Habitation is entirely station-based — orbital platforms and high-atmosphere installations that harvest exotic materials from the planet's weather systems. Small, specialized population. The kind of place that attracts researchers, thrill-seekers, and people who find conventional planets boring.
+    A dense-atmosphere world worked from orbital stations and high aerostats. Its harvest crews collect metal condensates and crystal-bearing storm material without descending to the lower atmosphere.
 
-    ### 5. #{future "Ashenmaw"}
+    ### 5. #{ref :ashenmaw, "Ashenmaw"}
 
-    A gas giant. The planet itself is not habitable, but its thermal output bleeds onto its moons, creating environments that run hot. #{ref :ashvane, "Ashvane"} — the #{ref :keel, "Keel"}'s far terminus — is a moon of Ashenmaw. Its surface towns use heat-management clothing, shaded streets, and linked cooling systems as ordinary infrastructure. Life on Ashvane is shaped by heat the way life in the #{ref :sable_crescent, "Sable Crescent"} is shaped by rivers.
-
-    Ashvane's towns are distinct from anything in the inner system. Their shade schedules, public cooling duties, and heat-road trade developed far from Kaleidos while the moon anchored a major trade lane.
+    A banded gas giant whose gravity heats several moons through tidal flexing. Its inhabited moon #{ref :ashvane, "Ashvane"} holds the outer terminus of #{ref :keel, "the Keel"}.
 
     ### 6. #{ref :the_fracture, "The Fracture"}
 
-    A shattered planet. What remains is an asteroid belt — but not an ancient one. The destruction is cosmically recent, geologically obvious. The fragments are too large, too jagged, too clearly the remains of a world that was whole not long ago. There is no debate about what this was. The question is what broke it.
+    The remains of a shattered planet form a broad belt. Bloom Zones, space fauna, raiders, and salvage claims occupy separate reaches of the debris.
 
-    The similarity to the Kaleidos ring is noted and debated. People hypothesize connections — but it's more "glass shatters in similar patterns" than a proven link. The Fracture is far older than the ring's destruction. The timescales don't match. Most people file it under "the universe is strange" and move on.
+    ### 7. #{ref :vastine, "Vastine"}
 
-    **The Bloom is here.** Reality tears — unmistakably similar to #{ref :bloom_zones, "Bloom Zones"} in Kaleidos orbit — have manifested in the Fracture's asteroid field. This is public knowledge, but most people either don't believe it or don't care. Those who look closely are deeply concerned: the Bloom near Kaleidos has known causes (Coremark's overload, the Span replication experiment). Why is it in the Fracture? Why not anywhere else? Nobody has a good answer.
+    A deep water giant with inhabited moons. #{ref :pelhari, "Pelhari"} is the largest center of learning and trade among them.
 
-    The Fracture is also home to #{ref :farborn, "Farborn"} of a different character than those in the #{ref :the_shear, "Shear"} — primarily natural space fauna rather than resonance-distortion creatures. Pirates operate freely in the belt. Between the beasts, the pirates, and the reality tears, the Fracture is one of the most dangerous regions in the system.
+    ### 8. #{ref :lithren, "Lithren"}
 
-    #{ref :coremark, "Coremark"} has operations here. The lawlessness suits them.
-
-    ### 7. #{future "Vastine"}
-
-    A water giant. Enormous, deep-ocean planet with no solid surface. The planet itself hosts ginormous unintelligent creatures that live in the depths — vast, slow-moving things that some people hunt for sport and others worship as gods. They are not gods. They are very large and very dumb. The worship says more about the worshippers than the creatures.
-
-    The inhabited spaces are the moons. Several are colonized, each with its own character. #{ref :pelhari, "Pelhari"} — the #{ref :clarisant, "Clarisant"} guild's headquarters — is the most prominent. The moons share a lunar culture shaped by the gas giant's visual dominance in their sky and the practical reality of living in a system of co-orbiting worlds.
-
-    ### 8. #{future "Lithren"}
-
-    The outermost planet. Cold. Too cold to support life as we know it — and yet something lived here once, in the open. Ancient ruins — non-elven, predating anything in the system's recorded history — dot the surface. A civilization thrived here, somehow, in conditions that should make that impossible. The ruins are architecturally distinct from anything the elves built.
-
-    Theories abound. A species with radically different biology. Technology that made the cold irrelevant. A warmer past that cooled. Nobody knows. The ruins are studied, debated, and remain unexplained.
-
-    Research stations operate on and around Lithren. The population is tiny — scientists, archaeologists, and the support infrastructure they need. Getting there takes nearly a week. The isolation is the point for some and the deterrent for others.
+    The cold outermost world. Research stations study open-air ruins built before the oldest surviving system records by people unrelated to the elves.
   PROSE
   prose <<~PROSE, section: :mechanics, heading: "Deep Space"
     The spaces between planets are not empty. Deep-space stations, military outposts, research facilities, and less legitimate operations dot the interplanetary void. A space casino here. A military listening post there. A smuggler's cache. A #{ref :clarisant, "Clarisant"} retreat for advanced resonance training far from any planetary resonance field.

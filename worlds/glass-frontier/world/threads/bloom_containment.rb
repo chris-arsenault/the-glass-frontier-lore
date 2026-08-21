@@ -123,7 +123,7 @@ thread :bloom_containment do
     ---
 
     ### Beat 9: The Fracture
-    **Era:** 2384–2407 | **Filled by:** #{ref :the_bitter_reach, "The Bitter Reach"}
+    **Era:** 2396–2423 | **Filled by:** #{ref :the_bitter_reach, "The Bitter Reach"}
 
     The Bloom stabilizes. The existential pressure eases. Old disputes resurface, sharpened by debts from the cooperation. The Lumenshard gets it worst: "You didn't show up until it was at your door." Coremark goes underground — their infrastructure and personnel become a criminal network. The same "move fast" culture that caused the Bloom now drives a black market in Bloom Zone artifacts and duskgrain.
 
@@ -134,7 +134,7 @@ thread :bloom_containment do
     ---
 
     ### Beat 10: The Ongoing
-    **Era:** 2407–present | **Filled by:** #{ref :displacement_council, "Displacement Council"}, #{ref :bloom_zones, "Bloom Zones"}, #{ref :dern_talish, "Dern Talish"}
+    **Era:** 2423–present | **Filled by:** #{ref :displacement_council, "Displacement Council"}, #{ref :bloom_zones, "Bloom Zones"}, #{ref :dern_talish, "Dern Talish"}
 
     Containment holds but the Bloom Zones are expanding slowly. The Displacement Council is stretched thin. Dern Talish leads containment and secretly cooperates with elven operatives. [DM] Coremark smuggles Bloom Zone relics — including duskgrain — through the black market.
 

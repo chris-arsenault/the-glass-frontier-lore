@@ -50,3 +50,13 @@ geographic_location :kaleidos do
     The orbital ring dominates accounts written elsewhere in the system. On Kaleidos, weather services track its debris, towns collect its dust, and builders work the fallen material into walls, roads, fields, and drainage beds.
   PROSE
 end
+
+relate :rel_kaleidos_orbits_the_sun, :orbits, :kaleidos, :the_sun do
+  prose "Kaleidos holds the system's inhabited middle distance from #{ref :the_sun, "the sun"}."
+end
+relate :rel_kaleidos_inner_of_korvath, :inner_of, :kaleidos, :korvath do
+  prose "Kaleidos follows an orbit inside #{ref :korvath, "Korvath"}."
+end
+relate :rel_kaleidos_part_of_system, :part_of, :kaleidos, :kaleidos_system do
+  prose "Kaleidos is the second world of #{ref :kaleidos_system, "the Kaleidos system"}."
+end

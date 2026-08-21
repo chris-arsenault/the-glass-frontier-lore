@@ -9,7 +9,7 @@ timeline do
         integrated into a functioning multi-species society. The details are hazy.
       MD
 
-  era :the_glassfall, length: 165, title: "The Glassfall & Signal Famine (2140–2305 CE)",
+  era :signal_famine, length: 165, title: "The Glassfall & Signal Famine (2140–2305 CE)",
       description: <<~MD
         The catastrophe and its long silence. The ring shatters, communications
         collapse, and the system fractures into hundreds of isolated communities.
@@ -25,10 +25,9 @@ timeline do
 
   era :the_contested_reach, length: 38, title: "The Contested Reach (2340–2378 CE)",
       description: <<~MD
-        The cost of reconnection. When hundreds of communities that spent a hundred
-        and sixty years developing independently try to share resources, routes, and
-        authority, some of those negotiations fail — a generation of overlapping
-        disputes that erupt as the system knits itself back together.
+        The cost of reconnection. After generations apart, hundreds of communities
+        try to share resources, routes, and authority. Some negotiations fail, and
+        overlapping disputes erupt as the system knits itself back together.
       MD
 
   era :the_silent_bloom, length: 29, title: "The Silent Bloom (2378–2407 CE)",

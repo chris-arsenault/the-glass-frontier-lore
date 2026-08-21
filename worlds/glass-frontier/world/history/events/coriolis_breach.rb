@@ -30,7 +30,7 @@ incident :coriolis_breach do
   prose <<~PROSE, section: :legacy, heading: "Legacy"
     Hab Coriolis remains shuttered. The breach was sealed from outside after the surviving team member escaped. Nobody has attempted contact since. Whether the inhabitants are aware that the outside world exists, or whether the breach has been incorporated into their cosmology as a confirmed demonic incursion, is unknown.
 
-    The survivor — #{future "Venn Talis"} — is a recognized figure in the present day. Not active — a recluse who gave testimony, refused further public engagement, and withdrew from the faction that mounted the expedition. Their account is studied in diplomatic training programs. "Coriolis" is shorthand in Accord politics for the consequences of assuming your values are universal.
+    The survivor, #{ref :venn_talis, "Venn Talis"}, gave testimony, withdrew from the faction that mounted the expedition, and refused later public office. Accord mediators still study the testimony before working with a community that limits contact.
   PROSE
 end
 

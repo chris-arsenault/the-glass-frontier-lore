@@ -63,12 +63,12 @@ npc :dern_talish do
   prose <<~PROSE, section: :truth, heading: "The Collection", dm: true
     The objects she keeps from the Bloom Zone perimeters are real and meaningful to her, but not for the sentimental reasons people assume. Several of them are resonance-anomalous — they behave in ways that shouldn't be possible according to standard ringglass theory. She studies them privately. They are her personal evidence that the zones are changing, that reality is degrading faster than the official reports suggest. She shares this analysis with the elves. She does not share it with the Council.
   PROSE
-  prose <<~PROSE, section: :usage_notes, heading: "DM Usage Notes", dm: true
-    - Talish is a potential patron, quest-giver, or reluctant ally. She will not reveal the elven secret to PCs unless extreme circumstances force it — and even then, she'll agonize.
-    - Her tremor and the collection are tells. An observant PC might notice the tremor is inconsistent, or that her "keepsakes" behave strangely.
-    - The communication shard is a plot device. If it's stolen or compromised, the elven contact channel goes dark. The elves would consider this a catastrophic breach.
-    - Her frustration with the elves' refusal to explain the Adversary is a potential wedge. A PC who can offer answers — or claims to — would have her attention immediately.
-    - She is fundamentally good, deeply tired, and holding together through discipline rather than hope. She does the right thing when she can't see why it will work, and she has been doing it long enough that the persistence itself has become her defining trait.
+  prose <<~PROSE, section: :truth, heading: "The Breach Risk", dm: true
+    The #{ref :communication_shard, "communication shard"} is Talish's only working channel to the hidden elves. She keeps it on her body or inside the sealed command room at #{ref :gray_line, "Gray Line"}. If another person opened the channel, the elves would cut contact and abandon the frequency.
+
+    Her tremor is least visible when she handles the shard or sorts the anomalous objects in her private collection. Council staff have noticed the inconsistency and attribute it to concentration. Talish has not corrected them.
+
+    The elves answer operational questions and refuse every request for a full account of the Adversary. Talish records each refusal. A verifiable source outside their channel would receive her attention because it could test what her contacts omit.
   PROSE
 end
 

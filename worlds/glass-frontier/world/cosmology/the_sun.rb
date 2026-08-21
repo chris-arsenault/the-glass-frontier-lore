@@ -1,0 +1,35 @@
+geographic_location :the_sun do
+  name "The Sun"
+  subkind :celestial_body
+  status :complete
+  tags :cosmology, :resonance, :navigation, :danger
+  prominence :mythic
+  custom_fact :classification, "Single star at the center of the Kaleidos system",
+              label: "Classification"
+  custom_fact :system_role, "Primary source of light, heat, and orbital reference",
+              label: "System Role"
+  custom_fact :principal_hazard, "Particle storms that disturb signal and kinetic resonance",
+              label: "Principal Hazard"
+
+  prose <<~PROSE
+    The sun is the central star of the #{ref :kaleidos_system, "Kaleidos system"}. Seven intact planets and the remains of an eighth world follow it. Pilots, surveyors, and clock keepers use its position as the common reference from the mines of Crucible to the stations above Lithren.
+
+    On Kaleidos, the Glass Frontier crosses its face as arcs, broken lines, and isolated fragments. Fine ring debris catches direct light beyond the planet's atmosphere and gives the daytime sky its shifting colors.
+  PROSE
+
+  prose <<~PROSE, section: :resonance, heading: "Solar Weather"
+    Solar particle storms disturb signal-band reception first and kinetic fields later. Long-range relays lose clarity; kite sails draw unevenly; exposed ringglass can answer with tones absent from its ordinary profile. Forecast offices compare stellar observations with measurements from outer beacons before issuing closures.
+
+    A strong front reaches the inner worlds earlier and with greater force. Crucible's settlements maintain shield rooms and suspend surface lift work. Around Kaleidos, route keepers shift traffic away from dense ring debris where many small responses can couple.
+  PROSE
+
+  prose <<~PROSE, section: :operations, heading: "The Inner Reference"
+    #{ref :span_nine, "Span Nine"} passes through Threshold Station at a stable point between the sun and Kaleidos. The filament's alignment remains exact even when conventional relays drift. No present workshop can reproduce its material or explain every correction it makes under solar load.
+
+    Deep-system charts record distance outward from the sun and travel time from Kaleidos. The two measures keep routes comparable without treating the inhabited planet as the physical center of the system.
+  PROSE
+end
+
+relate :rel_sun_part_of_kaleidos_system, :part_of, :the_sun, :kaleidos_system do
+  prose "The sun is the central star of the Kaleidos system."
+end

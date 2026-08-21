@@ -1,0 +1,37 @@
+artifact :communication_shard do
+  name "Communication Shard"
+  subkind :machine
+  status :complete
+  tags :resonance, :"signal-freq", :"ring-era", :mystery
+  prominence :forgotten
+  function "Open a private signal channel to a hidden elven relay"
+  dm!(public_entry: :dern_talish)
+
+  prose <<~PROSE
+    The Communication Shard is a thumb-length sliver of clear ringglass held by #{ref :dern_talish, "Dern Talish"}. A dark line runs through its center without touching either cut face. When she presses the shard against bare skin and sounds its opening interval, the line divides into three and an elven operator answers.
+
+    No receiver in the room detects the exchange. Talish hears the reply through her jaw and throat. She can answer in speech, but the shard carries only the signal shaped inside her body. Written messages, recordings, and repeated tones do nothing.
+  PROSE
+
+  prose <<~PROSE, section: :operations, heading: "The Contact Channel"
+    The elves answer warnings about Bloom movement, requests for a known countermeasure, and reports concerning the #{ref :the_false_form, "False Form"}. They do not identify their station, name the operator, or answer questions about their wider disposition. The voice can change between calls while the opening interval remains constant.
+
+    The shard recognizes Talish rather than her office. #{ref :oram_sells, "Oram Sells"} transferred it by placing both hands around hers while the former operator altered the opening sequence. Talish has no procedure for repeating that transfer without an elf on the channel.
+  PROSE
+
+  prose <<~PROSE, section: :limits, heading: "An Irreplaceable Frequency"
+    The shard opens only near an active Bloom cordon or a pre-Glassfall signal lattice. Away from either field, the central line remains single and cold. Strong damping can prevent contact; ordinary jamming cannot.
+
+    Its frequency lies outside every closure used in current resonance notation. A Tuner can observe the first interval and cannot follow it to a repeatable tone. The elves built that controlled discontinuity into the glass. A fractured shard would leave Talish without a channel and expose a piece of their signal practice to whoever recovered it.
+  PROSE
+end
+
+relate :rel_elves_created_communication_shard, :created, :elves, :communication_shard, dm: true do
+  prose "The hidden elves made the shard as a single controlled channel between their Bloom operations and the First Threshold."
+end
+relate :rel_oram_sells_possessed_communication_shard, :possesses, :oram_sells, :communication_shard, since: 2421, till: 2432, dm: true do
+  prose "Oram Sells held the shard as First Threshold and transferred its contact sequence to Dern Talish before his death."
+end
+relate :rel_communication_shard_resonates_false_form, :resonates_with, :communication_shard, :the_false_form, dm: true do
+  prose "Its opening interval uses the same failure of closure by which the False Form presses into ordinary geometry."
+end

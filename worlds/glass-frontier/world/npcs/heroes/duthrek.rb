@@ -1,0 +1,30 @@
+npc :duthrek do
+  name "Duthrek"
+  subkind :leader
+  status :complete
+  tags :salvage, :trade, :danger, :governance
+  prominence :recognized
+  occupation "Head of Coremark"
+
+  prose <<~PROSE
+    Duthrek has directed #{ref :coremark, "Coremark"} from #{ref :korvath, "Korvath"} since 2409. Extraction captains bring him tonnage, losses, and routes. Convoy officers bring him buyers and exposed waystations. He settles conflicts between the two by protecting the route that will still earn money after the present cargo is gone.
+
+    He inherited a disgraced company whose crews still expected corporate pay, rescue coverage, and competent equipment. Duthrek kept those obligations. A cell that loses people through an avoidable shortcut can lose its charter; one that abandons cargo to save its crew usually receives another ship. Coremark's violence falls hardest on outsiders and on officers who conceal a failure from their own crews.
+  PROSE
+
+  prose <<~PROSE, section: :operations, heading: "The Korvath Office"
+    Duthrek works from a former freight-accounting floor in Korvath's northern industrial belt. The public desks handle legal salvage purchases, storage leases, and claims inherited from the old corporation. The closed rooms assign extraction zones and convoy times through clerks who never receive a complete route.
+
+    Captains meet him in pairs from different units. Each can challenge the other's account, and neither can identify every person who carried the order onward. The arrangement slows decisions and makes a captured officer less useful. Duthrek accepts both costs.
+  PROSE
+
+  prose <<~PROSE, section: :present_day, heading: "Present Demands"
+    Demand for Bloom relics now comes from settlements that need one impossible repair as well as collectors and armed crews. Duthrek requires a town to name the system the relic will support and the person who will hold it. That record lets Coremark price later access and identify the first suspect if the object disappears.
+
+    Deep-Shear cells are also reporting more drift around familiar extraction sites. Duthrek has reduced quotas in three zones and raised them in two others. He has not explained whether the changes follow Compact surveys, private losses, or information bought from a cordon crew.
+  PROSE
+end
+
+relate :rel_duthrek_located_on_korvath, :located_in, :duthrek, :korvath, since: 2409 do
+  prose "Duthrek runs Coremark from the northern industrial belt on Korvath."
+end

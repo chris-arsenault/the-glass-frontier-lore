@@ -60,9 +60,6 @@ end
 relate :rel_keel_in_orbit_of_kaleidos, :in_orbit_of, :keel, :kaleidos do
   prose "The Keel runs through #{ref :kaleidos, "Kaleidos"} orbit — the main trade lane threading the inhabited ring fragments end to end."
 end
-relate :rel_keel_in_orbit_of_ashenmaw, :in_orbit_of, :keel, :ashenmaw do
-  prose "Its far arc swings out past #{ref :ashenmaw, "Ashenmaw"}, the lonely outer anchor of the lane."
-end
 relate :rel_keel_terminus_keelward, :terminus_of, :keel, :keelward do
   prose "At the surface end the Keel grounds at #{ref :keelward, "Keelward"}, the transfer district of its largest market."
 end

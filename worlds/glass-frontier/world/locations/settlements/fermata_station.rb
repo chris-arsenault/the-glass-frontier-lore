@@ -49,8 +49,8 @@ installation :fermata_station do
   prose <<~PROSE, section: :people, heading: "Notable Figures"
     | Name | Species | Role | Notes |
     |------|---------|------|-------|
-    | Shei Lush | Fae | The Chair | Has held the chair for #{elapsed future: "Shei Lush takes the Chair", about: 11, approx: true}. A pianist whose style is so spare it barely registers as playing, which is precisely how she controls every session. The discipline required to maintain coherence — to stay *here*, fully present, for hours of Session — is the same discipline she brings to governance. Nobody challenges her because she makes the job look thankless, which it is — she just happens to be very good at a thankless job. |
-    | Ol'dent | Gnome | Drone lead | Baritone sax. Runs the Drone rotation with military precision and quiet fury. Knows more about the station's structural resonance than anyone alive — he can feel it in his bones, literally, the way only a gnome can. Has never attended a Session, not because he can't arrange coverage, but because he refuses to participate in a system that excludes the people keeping it standing. His absence is the most noted absence on the station. |
+    | #{ref :shei_lush, "Shei Lush"} | Fae | The Chair | Has held the chair since #{year :shei_lush_takes_chair} CE. Her sparse piano lines leave room for competing proposals and make the point of resolution audible to the whole Session. |
+    | #{ref :ol_dent, "Ol'dent"} | Gnome | Drone lead | Runs the Drone rotation and reads structural drift through the station's low tones. He refuses to attend Sessions while Drone players remain outside full citizenship. |
     | #{ref :sable_korr, "Sable Korr"} | Human | Standard scholar | Keeps the Session archive and advises Players despite remaining a member of the Audience after her failed Sit-In. |
     | #{ref :goruth, "Goruth"} | Orc | Comp player | Shapes the harmonic ground beneath proposals and reads their structural load through the hall floor. |
     | #{ref :dez_morrn, "Dez Morrn"} | Human | Free Jazz leader | Organizes players who reject inherited changes and has twice faced Sessions that could not resolve her arrest. |

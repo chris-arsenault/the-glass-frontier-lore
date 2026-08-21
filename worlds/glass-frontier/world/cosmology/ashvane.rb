@@ -46,3 +46,7 @@ geographic_location :ashvane do
     This practice also makes Ashvane a market for repair knowledge. Engineers arrive to test equipment under sustained heat and leave with local modifications in their plans. Ashvane makers object when those modifications return under an off-world mark and charge more than the original repair.
   PROSE
 end
+
+relate :rel_ashvane_orbits_ashenmaw, :orbits, :ashvane, :ashenmaw do
+  prose "#{ref :ashvane, "Ashvane"} orbits #{ref :ashenmaw, "Ashenmaw"}; tidal flexing from that orbit heats its crust."
+end

@@ -43,14 +43,14 @@ faction :bloom_coalition do
 
     In 2384 the Council formalized as a standing containment order. The architects of the move — Sithari diplomats, Vesh Marrow himself, the senior Council leadership — had decided that the cordon mission needed a permanent institutional home rather than an indefinite emergency body. The Coalition's field commands handed off cordon operations to the Council across a sixteen-month transition. Personnel moved with the work; the first generation of Council Thresholds was drawn primarily from the Coalition's field-command leads. The Coalition retained the broader cross-faction coordination role — supply, logistics, political mediation among member factions during the long containment — while the Council ran the physical cordons.
 
-    This division of labor held for #{elapsed 2384, 2396}. The Council managed the cordons. The Coalition managed the politics of keeping cooperation alive between factions that had returned, by the late 2380s, to fighting each other on every issue that wasn't directly Bloom-related. The Bitter Reach was beginning. The Coalition's continued existence kept the cordon mission insulated from the deteriorating political environment.
+    This division of labor held for #{elapsed 2384, 2396}. The Council managed the cordons. The Coalition managed the politics of keeping cooperation alive between factions that had returned, by the late 2380s, to fighting each other on every issue that wasn't directly Bloom-related. Those disputes widened after the Coalition dissolved and became the Bitter Reach in 2407. While it remained active, the Coalition kept the cordon mission outside them.
   PROSE
   prose <<~PROSE, section: :tensions, heading: "Dissolution"
     The Coalition dissolved formally in 2396. The dissolution was not bitter. It was not contested. It had been on the calendar, in one form or another, since the charter.
 
-    By 2396 the Council had absorbed the operational functions the Coalition was still nominally coordinating. Supply chains had stabilized. Cordon logistics had become routine. The cross-faction political coordination work, which had been the Coalition's primary remaining function, had decayed into formalities that nobody was paying attention to and that the deteriorating political environment of the late Bitter Reach was rendering pointless anyway. The Coalition's executive recommended dissolution. The council ratified it. The infrastructure was distributed among member factions or absorbed by the Council. The Hand of the Coalition title was retired.
+    By 2396 the Council had absorbed the operational functions the Coalition was still nominally coordinating. Supply chains had stabilized. Cordon logistics had become routine. The cross-faction political work had decayed into meetings whose decisions the member factions increasingly ignored. The Coalition's executive recommended dissolution. The council ratified it. The infrastructure was distributed among member factions or absorbed by the Council. The Hand of the Coalition title was retired.
 
-    There were ceremonies. They were small and largely internal. Most of the people who attended had served in the Coalition for at least a decade. Several of them have said, on the record, that the dissolution felt like the end of something important and the beginning of nothing in particular. The institutional follow-up — the #{ref :tempered_accord, "Tempered Accord"}, ratified twenty-seven years later in 2423 — would borrow the Coalition's protocols extensively. At the time of the dissolution, this future was not visible.
+    There were ceremonies. They were small and largely internal. Most of the people who attended had served in the Coalition for at least #{duration 10}. Several of them have said, on the record, that the dissolution felt like the end of something important and the beginning of nothing in particular. The institutional follow-up — the #{ref :tempered_accord, "Tempered Accord"}, ratified #{elapsed 2396, 2423} later in 2423 — would borrow the Coalition's protocols extensively. At the time of the dissolution, this future was not visible.
   PROSE
   prose <<~PROSE, section: :present_day, heading: "Legacy"
     The Coalition's institutional inheritance is split.
@@ -66,7 +66,7 @@ faction :bloom_coalition do
 end
 
 relate :rel_bloom_coalition_caused_the_bitter_reach, :caused, :bloom_coalition, :the_bitter_reach do
-  prose "When the Coalition finally dissolved, the disputes it had frozen came back sharper than before — the #{ref :the_bitter_reach, "Bitter Reach"}, the betrayal of a cooperation people had briefly believed in."
+  prose "The Coalition's dissolution removed the last common forum used by several hostile factions. Their disputes widened for #{elapsed 2396, 2407} and became the #{ref :the_bitter_reach, "Bitter Reach"} in 2407."
 end
 
 # --- lifecycle (queryable `standing`; the detailed account is in the sections above) ---
@@ -78,6 +78,6 @@ moment :bloom_coalition_hands_off_cordons, year: 2384, of: :bloom_coalition do
   prose "In 2384 it handed the physical cordons to the new #{ref :displacement_council, "Displacement Council"}, keeping only the cross-faction coordination — the politics of holding cooperation together while the system drifted back toward fighting."
 end
 moment :bloom_coalition_dissolved, year: 2396, of: :bloom_coalition do
-  prose "It dissolved on schedule in 2396 — not bitterly, just spent. The Council had absorbed the work; the coordination role had decayed into formalities. The Hand of the Coalition title was retired, and the protocols waited twenty-seven years for the #{ref :tempered_accord, "Tempered Accord"} to borrow them."
+  prose "It dissolved on schedule in 2396 — not bitterly, just spent. The Council had absorbed the work; the coordination role had decayed into formalities. The Hand of the Coalition title was retired, and the protocols waited #{elapsed 2396, 2423} for the #{ref :tempered_accord, "Tempered Accord"} to borrow them."
   effects { set :bloom_coalition, standing: :dissolved }
 end

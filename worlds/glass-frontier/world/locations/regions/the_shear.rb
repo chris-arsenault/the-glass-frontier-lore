@@ -72,8 +72,8 @@ end
 relate :rel_shear_in_orbit_of_kaleidos, :in_orbit_of, :the_shear, :kaleidos do
   prose "The Shear hangs in #{ref :kaleidos, "Kaleidos"}'s orbit, a turbulent band of wreckage and distorted resonance riding the same lanes the ring once occupied."
 end
-relate :rel_shear_part_of_kaleidos_orbit, :part_of, :the_shear, :kaleidos_orbit do
-  prose "It is the most dangerous stretch of #{ref :kaleidos_orbit, "Kaleidos orbit"} — the churning debris field where atmosphere gives way to open space."
+relate :rel_shear_part_of_glass_frontier, :part_of, :the_shear, :the_glass_frontier do
+  prose "The Shear fills the debris-laden reaches between the inhabited fragments of #{ref :the_glass_frontier, "the Glass Frontier"}."
 end
 relate :rel_shear_caused_coremark, :caused, :the_shear, :coremark do
   prose "The Shear's lethal, ringglass-rich deep pockets are what made #{ref :coremark, "Coremark"} possible — a company built entirely on going where the salvage was richest and the dying easiest."

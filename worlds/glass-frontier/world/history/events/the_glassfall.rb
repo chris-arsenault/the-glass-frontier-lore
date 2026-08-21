@@ -31,6 +31,10 @@ incident :the_glassfall do
   PROSE
 end
 
+moment :the_glassfall_begins, year: 2140, of: :the_glassfall do
+  prose "The orbital ring shattered in 2140, beginning the Glassfall and the Signal Famine."
+end
+
 # --- what the Glassfall caused (the consequences that define modern Kaleidos) ---
 relate :rel_the_glassfall_destroyed_the_glass_frontier, :destroyed, :the_glassfall, :the_glass_frontier do
   prose <<~PROSE
@@ -40,7 +44,7 @@ end
 
 relate :rel_the_glassfall_caused_signal_famine, :caused, :the_glassfall, :signal_famine do
   prose <<~PROSE
-    What followed was worse than the event itself. Communication infrastructure collapsed, plunging settlements — surface and ring habs alike — into roughly sixty years of fragmented, disconnected survival: the Signal Famine. Communities that had been one interconnected colony became separate cultures. Surface settlements diverged from each other; sealed ring habs evolved in ways nobody could have predicted — some keeping the old technology with eerie fidelity, others reinventing themselves entirely — and the other worlds in the #{ref :kaleidos_system, "system"} carried on alone. When contact was finally re-established, those differences had to be negotiated rather than erased, a negotiation that — through the #{ref :tempered_accord, "Tempered Accord"} — is in many ways still ongoing.
+    Communication infrastructure collapsed, leaving surface settlements and ring habitats in #{elapsed :the_glassfall, :the_rekindling} of fragmented survival: the Signal Famine. Communities that had belonged to one connected civilization developed separate laws, practices, and repair traditions. When sustained contact returned, those differences had to be negotiated rather than erased; the #{ref :tempered_accord, "Tempered Accord"} now carries part of that work.
   PROSE
 end
 

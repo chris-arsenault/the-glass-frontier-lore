@@ -38,7 +38,7 @@ culture :hab_worlder do
 end
 
 relate :rel_hab_worlder_originated_in_tgf, :originated_in, :hab_worlder, :the_glass_frontier do
-  prose "Hab-worlder culture was born in the #{ref :the_glass_frontier, "Glass Frontier"} — sixty years of sealed, self-sufficient habs each becoming its own small world."
+  prose "Hab-worlder culture formed across the #{ref :the_glass_frontier, "Glass Frontier"} during #{elapsed :the_glassfall, :the_rekindling} of sealed, self-sufficient habitats becoming distinct societies."
 end
 relate :rel_hab_worlder_manifests_at_tgf, :manifests_at, :hab_worlder, :the_glass_frontier do
   prose "It is still strongest there, in the ring fragments where being from a hab means something specific about who you trust and how you live."

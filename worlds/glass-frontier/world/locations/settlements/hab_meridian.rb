@@ -64,8 +64,8 @@ installation :hab_meridian do
   PROSE
 end
 
-relate :rel_hab_meridian_part_of_kaleidos_orbit, :part_of, :hab_meridian, :kaleidos_orbit do
-  prose "Hab Meridian rides #{ref :kaleidos_orbit, "Kaleidos orbit"}, one of the larger surviving fragments and an early, deliberate experiment in reconnection."
+relate :rel_hab_meridian_part_of_glass_frontier, :part_of, :hab_meridian, :the_glass_frontier do
+  prose "Hab Meridian is one of the larger inhabited fragments of #{ref :the_glass_frontier, "the Glass Frontier"} and an early, deliberate experiment in reconnection."
 end
 relate :rel_hab_meridian_cooperates_glasswake, :cooperates_with, :hab_meridian, :glasswake, since: 2305 do
   prose "Its first formal tie was to #{ref :glasswake, "Glasswake"} — the embassy exchange that became a model for how a ring hab and a surface settlement could deal as equals."
@@ -73,6 +73,6 @@ end
 
 # --- history (moment) ---
 moment :meridian_answered_first_signal, year: 2305, of: :hab_meridian do
-  prose "Hab Meridian's standing watch — a single technician, **Aless Vorrith**, on a long shift at an old receiver kept active despite decades without expected traffic — heard the carrier wave come in from #{ref :glasswake, "Glasswake"}, recognized it, and answered. The first cross-channel conversation in sixty years lasted forty-three minutes and was largely about whether the signal was real. Meridian has banked its entire civic identity on that moment ever since."
+  prose "Hab Meridian's standing watch — a single technician, **Aless Vorrith**, on a long shift at an old receiver kept active despite decades without expected traffic — heard the carrier wave come in from #{ref :glasswake, "Glasswake"}, recognized it, and answered. The first cross-channel conversation in #{elapsed :the_glassfall, :the_rekindling} lasted forty-three minutes and was largely about whether the signal was real. Meridian has banked its entire civic identity on that moment ever since."
   effects { set :hab_meridian, standing: :reconnected }
 end

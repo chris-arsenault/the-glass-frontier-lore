@@ -85,8 +85,8 @@ transport :heavy_hauler do
   PROSE
 end
 
-relate :rel_heavy_hauler_operates_the_keel, :operates_in, :heavy_hauler, :the_keel, since: 2335 do
-  prose "The heavy haulers work #{ref :the_keel, "the Keel"} — slow, enormous, and the backbone of bulk freight along the main orbital lane."
+relate :rel_heavy_hauler_operates_keel, :operates_in, :heavy_hauler, :keel, since: 2335 do
+  prose "Heavy haulers work #{ref :keel, "the Keel"}, carrying bulk freight between its orbital and surface terminals."
 end
 relate :rel_heavy_hauler_carries_ringglass, :carries, :heavy_hauler, :ringglass, since: 2335 do
   prose "Most outbound haulers carry bulk #{ref :ringglass, "ringglass"} in resonance-separated bays."

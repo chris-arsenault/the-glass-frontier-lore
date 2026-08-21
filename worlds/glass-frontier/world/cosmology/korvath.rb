@@ -44,3 +44,13 @@ geographic_location :korvath do
     A campaign by several port insurers has begun refusing coverage to freight houses that will not disclose their full ownership. Legitimate carriers are complying unevenly. Coremark fronts are dividing contracts among smaller firms to stay below the reporting threshold, spreading the same business through more of the economy it already burdens.
   PROSE
 end
+
+relate :rel_korvath_orbits_the_sun, :orbits, :korvath, :the_sun do
+  prose "Korvath follows Kaleidos around #{ref :the_sun, "the sun"} as the system's third world."
+end
+relate :rel_korvath_inner_of_vitrael, :inner_of, :korvath, :vitrael do
+  prose "Korvath's orbit lies inside #{ref :vitrael, "Vitrael"}."
+end
+relate :rel_korvath_part_of_system, :part_of, :korvath, :kaleidos_system do
+  prose "Korvath is the third world of #{ref :kaleidos_system, "the Kaleidos system"}."
+end
