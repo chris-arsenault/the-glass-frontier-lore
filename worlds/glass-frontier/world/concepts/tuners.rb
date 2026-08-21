@@ -8,9 +8,9 @@ concept :tuners do
   prominence :recognized
 
   prose <<~PROSE
-    People who can feel #{ref :resonance, "resonance"}. Not "use resonance technology" — anyone can flip a switch on a #{ref :ringglass, "ringglass"}-powered lantern. Tuners have trained a specific perceptual sense: the ability to feel the local resonance landscape directly, the way a musician with perfect pitch hears intervals without thinking. The crystal hums, the ground vibrates, the air carries harmonics that most people walk through without noticing. Tuners notice.
+    People who practise #{ref :attunement, "attunement"} as a trade. Anyone can operate a #{ref :ringglass, "ringglass"}-powered lantern. Tuners have trained themselves to separate the local resonance field from the pressure, vibration, heat, and sound that carry it, then turn what they perceive into decisions other people can use. The crystal hums, the ground vibrates, the air carries harmonics that most people walk through without noticing. Tuners notice.
 
-    The profession is older than the name. During the #{ref :signal_famine, "Signal Famine"}, people in isolated settlements independently figured out that they could learn to feel what the ring-era systems had once automated. Some reverse-engineered salvaged equipment. Some stumbled into it by accident — a #{future "Renn Duvasi"}-style moment of noticing something nobody else did. Some had artifacts that responded to their attention in ways they didn't expect. The learning was slow, dangerous, and entirely without theory. The elves had understood resonance as a science. The first Tuners understood it as a craft — or didn't understand it at all, and did it anyway.
+    The profession is older than the name. During the #{ref :signal_famine, "Signal Famine"}, people in isolated settlements independently figured out that they could learn to feel what the ring-era systems had once automated. Some reverse-engineered salvaged equipment. Some began with the kind of repeated mismatch that #{ref :renn_duvasi, "Renn Duvasi"} later found throughout Famine-era casebooks. Others had artifacts that responded to their attention in ways they did not expect. The learning was slow, dangerous, and carried little shared theory. The elves had understood resonance as a science. The first Tuners approached it as a craft and acted on what repeated experience taught them.
 
     They weren't called Tuners then. They weren't called anything. They were just the person in the settlement who could tell you whether the ringglass in the wall was about to crack, or the one on the hab who knew which corridors were safe when the resonance shifted. The profession came later. The name came later still.
   PROSE
@@ -81,4 +81,7 @@ relate :rel_tuners_emerged_during_signal_famine, :emerged_during, :tuners, :sign
 end
 relate :rel_tuners_practiced_with_resonant_instruments, :practiced_by, :tuners, :resonant_instruments, since: 2260 do
   prose "Much of the craft is carried in #{ref :resonant_instruments, "resonant instruments"} — the tuned tools through which a Tuner learns to feel and shape resonance."
+end
+relate :rel_tuners_study_rind, :studies, :tuners, :rind, since: 2435 do
+  prose "Tuners at Outside are mapping the counter-tones that redirect the #{ref :rind, "rind"} without scattering its filaments."
 end

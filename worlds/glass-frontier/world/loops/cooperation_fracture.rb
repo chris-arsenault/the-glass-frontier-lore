@@ -44,12 +44,12 @@ loop :cooperation_fracture do
 
     | Stage | Entity | Notes |
     |-------|--------|-------|
-    | Crisis | #{future "The Silent Bloom"} | Resonance cascade tears reality across mid-drift habs |
+    | Crisis | #{ref :the_silent_bloom, "The Silent Bloom"} | Resonance cascade tears reality across mid-drift habs |
     | Cooperation | #{ref :bloom_coalition, "Bloom Coalition"} | Emergency coalition draws from Vantara, Synod, Conclave, independent salvagers |
     | Residue | #{ref :shear_compact, "Shear Compact"} | Emergency salvage regulation becomes permanent regulatory body |
     | Residue | #{ref :displacement_council, "Displacement Council"} | Refugee advocacy becomes neutral containment order |
     | Residue | #{ref :liras_wall, "Lira's Wall"} | First containment device, proof that cooperation produces real capability |
-    | Fracture | #{future "The Bitter Reach"} | Coalition fractures, second wave of sharper conflicts |
+    | Fracture | #{ref :the_bitter_reach, "The Bitter Reach"} | Coalition fractures, second wave of sharper conflicts |
 
     **Status:** Complete cycle. The Tempered Accord emerges from the fracture's exhaustion — seeding the next cycle's residue.
 
@@ -58,7 +58,7 @@ loop :cooperation_fracture do
     | Stage | Entity | Notes |
     |-------|--------|-------|
     | Crisis | #{ref :fermata_station, "Fermata Station"} | The Standards calcify, governance becomes ritual, the system drifts from improvisation toward tradition |
-    | Cooperation | #{future "The Fermata Open"} | Outside musicians arrive, disrupt entrenched dynamics, inject unfamiliar voices |
+    | Cooperation | #{ref :the_fermata_open, "The Fermata Open"} | Outside musicians arrive, disrupt entrenched dynamics, inject unfamiliar voices |
     | Residue | *(internal)* | New compositions enter the repertoire, new Standards are established, political landscape shifts |
     | Fracture | *(internal)* | The new Standards begin calcifying, the system drifts again |
 
@@ -71,7 +71,7 @@ loop :cooperation_fracture do
     | Crisis | Signal Famine (era) | #{elapsed :the_glassfall, :the_rekindling} of isolation, communities facing resource crisis or cultural drift |
     | Cooperation | *(The Reconnection itself)* | Glasswake reconnects, trade networks form, Span Nine links Sithari to off-world |
     | Residue | #{ref :vantara, "Vantara"}, #{ref :keel, "The Keel"} | Trade infrastructure, communication networks, economic interdependence |
-    | Fracture | #{future "The Contested Reach"} | Resource disputes, corridor conflicts, ring hab standoffs |
+    | Fracture | #{ref :the_contested_reach, "The Contested Reach"} | Resource disputes, corridor conflicts, ring hab standoffs |
 
     **Status:** Complete cycle. This is the same loop at a slower timescale — the Rekindling's cooperation produces the trade infrastructure whose disruption during the Contested Reach triggers the faster Bloom cycle.
 

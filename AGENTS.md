@@ -57,7 +57,7 @@ declared structural mistakes; it does not prove free prose true or complete.
 - **No technobabble.** If a term doesn't evoke something concrete and visual, rewrite it. "Switchline Flux Quota" is bad. "Wind-trade route" is better.
 - **Day-forward focus.** Lore defines a world as it exists NOW. History informs the present but doesn't dominate. Players create the story going forward.
 - **Show, don't specify.** Describe what a place feels like, what a faction cares about, what an artifact does — not its entity ID or moderation hook.
-- **Keep entries concise.** A few paragraphs is ideal. Long entries should be split.
+- **Give entries the space their subjects require.** A major entry may need many substantial sections. Split a passage only when it is chiefly about a distinct entity that should own those facts, not because the article has reached a word or section count.
 - **Play it straight.** Even the strangest elements are presented matter-of-factly. The absurdity comes from the fiction being taken seriously, not from the author nudging the reader.
 - **Name entities, don't describe them.** When prose references something that could be its own entity — a faction, a location, a person, an artifact — use a `#{future "Name"}` marker rather than describing the concept inline without naming it. `The #{future "Continuity"} governs Sithari`, not "the ruling party governs Sithari." Every named thing should be discoverable.
 

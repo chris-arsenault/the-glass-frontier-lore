@@ -19,6 +19,13 @@ concept :ratters do
 
     A typical Ratter ship runs three to six crew. The largest carry ten or twelve and are essentially small industrial operations on a hull. The smallest are two-person skiffs that do quick-grab runs on the Shear's accessible edges and never go deeper than their fuel allows. Ratters call their ships **skiffs** regardless of size, which non-Ratters find ridiculous and the Ratters find correct.
   PROSE
+  prose <<~PROSE, section: :operations, heading: "Claims and Remote Cuts"
+    Independent does not mean unlicensed. A working Ratter keeps a claim ledger, cutter inspection records, cargo grades, rescue coverage, and the chain of brokers who will take the haul. Long-rats know which forms keep a crew flying and which exist to make a disputed claim expensive. A clean ledger gives a crew room to refuse a bad buyer because the next one can verify its work.
+
+    Ratters developed #{ref :remote_cutting, "remote cutting"} for Deep Shear claims that could not be boarded safely. An expendable cutter works the seam while the crew operates a #{ref :claim_rig, "claim rig"} at stand-off range. The cutter can be lost. A process room can be sealed and replaced. The crew has a route home.
+
+    The work produced its own boards and brokers. The #{ref :pell_freight_assembly, "Pell Freight Assembly"} finances shared receiving yards and hauler access for member crews without taking ownership of their claims. Some flotillas joined. Others sell through the Assembly when the terms suit them and leave before anyone mistakes coordination for command.
+  PROSE
   prose <<~PROSE, section: :culture, heading: "The Code"
     There is no written Ratter code. There are two unwritten obligations that hold the subculture together across every disagreement about everything else.
 
@@ -61,9 +68,21 @@ relate :rel_ratters_operates_the_shear, :operates_in, :ratters, :the_shear, sinc
   prose "Ratters work the #{ref :the_shear, "Shear"} — independent salvage crews, no corporation behind them, taking the risks for the whole take."
 end
 relate :rel_ratters_operates_deep_shear, :operates_in, :ratters, :deep_shear, since: 2320 do
-  prose "The boldest push into the #{ref :deep_shear, "deep Shear"}, where the grade is highest, the charts run out, and #{ref :coremark, "Coremark"} territory is best avoided."
+  prose "The boldest push into the #{ref :deep_shear, "deep Shear"}, where the grade is highest, the charts run out, and a remote cut can keep a crew away from a failing claim."
 end
 
 relate :rel_ratters_operate_in_glasswake, :operates_in, :ratters, :glasswake do
   prose "#{ref :glasswake, "Glasswake"}'s dock fringe is the most common public-facing Ratter port — where flotillas put in to sell salvage, hire on, and settle debts."
+end
+relate :rel_ratters_designed_remote_cutting, :designed, :ratters, :remote_cutting, since: 2419 do
+  prose "Deep-runners assembled the first remote cutters from claim anchors, sacrificial receiving bays, and narrow-band arrays."
+end
+relate :rel_ratters_cooperate_pell_assembly, :cooperates_with, :ratters, :pell_freight_assembly, since: 2416 do
+  prose "Ratter crews use the Assembly's shared receiving yards while retaining their ships and claims."
+end
+relate :rel_ratters_study_farborn, :studies, :ratters, :farborn, since: 2320 do
+  prose "Ratter field names sort #{ref :farborn, "Farborn"} by the danger they pose during a live job."
+end
+relate :rel_ratters_maintain_choir_fragment, :maintains, :ratters, :the_choir_fragment, since: 2421 do
+  prose "Two flotillas share the quarterly inspection route through #{ref :the_choir_fragment, "the Choir Fragment"}."
 end

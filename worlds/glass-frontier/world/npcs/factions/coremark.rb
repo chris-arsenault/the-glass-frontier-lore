@@ -8,7 +8,7 @@ faction :coremark do
 
   log "Settled: a criminal syndicate in the present day. Publicly discredited after the Bloom, went underground, now smuggles Bloom Zone artifacts through black-market channels."
 
-  question "Who buys Bloom Zone artifacts, and what are the downstream effects of relic-magnitude items reaching the black market?"
+  log "2026-08-21 — Expanded the Bloom-relic market beyond collectors and Conclave intermediaries to settlement councils and armed route crews, including the dependencies and violence created by one-off infrastructure fixes."
 
   # --- static identity (what Coremark IS; time-varying facts live in moments) ---
   prose <<~PROSE
@@ -43,6 +43,11 @@ faction :coremark do
     The convoy units fight when they have to and avoid fights when they can. Their operational doctrine prioritizes route continuity over individual cargo defense — a lost cargo is a financial setback, a lost route is a structural injury. Convoys will abandon a contested cargo and re-route the next traffic before they will commit to a fight that risks exposing the route's structure.
 
     Convoy units and extraction cells are not on the same payroll and are not personally close. They cooperate professionally. They eat at different tables.
+  PROSE
+  prose <<~PROSE, section: :trade, heading: "Relic Buyers"
+    Private collectors and Conclave intermediaries pay for rarity and evidence. Settlement councils buy for a harsher reason: a single relic may keep an air return open, stabilize a broken freight lift, or carry a signal through local distortion when no repairable machine will work. Armed route crews buy devices that can hide a convoy, pin a pursuing ship, or preserve one passage through a changing field.
+
+    A successful purchase can leave a town dependent on an object nobody can reproduce or service. Theft then disables public infrastructure, and replacement demand sends recovery crews back across cordons. Route crews test poorly understood effects in live confrontations. Coremark profits once from the sale and again when the buyer needs access, concealment, or another relic to replace the first.
   PROSE
 end
 

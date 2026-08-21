@@ -23,6 +23,13 @@ transport :heavy_hauler do
 
     A working hauler usually carries mixed cargo, broken into bays, with the bays bulkheaded against each other for both physical and resonance separation. A hauler running a single cargo type for a single buyer is a chartered run and is rare enough to attract notice.
   PROSE
+  prose <<~PROSE, section: :operations, heading: "Coupled Freight"
+    Cargo from #{ref :remote_cutting, "remote cutting"} receives a separate loading plan. Material recovered on different cutter clocks cannot share a resonance bus, a structural brace, or a water tank. The bays travel dark, with their monitoring instruments isolated from the vessel's main cadence.
+
+    The rule followed #{ref :pell_four, "Pell Four"}, when four separated claims remained related through a shared processing clock. The #{ref :pell_freight_assembly, "Pell Freight Assembly"} wrote the first loading standard for its own member fleet. The #{ref :shear_compact, "Shear Compact"} adopted it for every hauler taking a remote-cut cargo through a public lane.
+
+    Crews dislike the lost capacity. Empty bulkheads and separate instrument runs consume space that would otherwise earn freight. Masters enforce the rule because a coupled load can turn an ordinary brace or coolant line into a path between bays.
+  PROSE
   prose <<~PROSE, section: :mechanics, heading: "Construction"
     A heavy hauler is built around its #{ref :kite_sail, "kite"} arrays and its cargo capacity, in that order. Everything else — crew quarters, sensors, hull configuration — is laid out around the two structural priorities.
 
@@ -54,7 +61,7 @@ transport :heavy_hauler do
     The crew shape varies. The numbers do not vary much.
   PROSE
   prose <<~PROSE, section: :tensions, heading: "Escort"
-    Heavy haulers do not, in general, fly alone through dangerous space. The Keel's pirated stretches, the outer-system routes past the #{future "Fracture"}(../../cosmology/kaleidos-system.md), and any run that passes near known #{ref :coremark, "Coremark"} operating zones are flown with armed escort.
+    Heavy haulers do not, in general, fly alone through dangerous space. The Keel's pirated stretches, the outer-system routes past #{ref :the_fracture, "the Fracture"}, and any run that passes near known #{ref :coremark, "Coremark"} operating zones are flown with armed escort.
 
     Vantara operates the largest escort fleet — purpose-built armed kites that fly in formation with chartered haulers — and offers escort as a service to independents at standard rates. Independent escort operators exist and compete. The market is structured enough that a hauler captain planning a run knows roughly what escort the run will require and roughly what it will cost.
 
@@ -80,4 +87,7 @@ end
 
 relate :rel_heavy_hauler_operates_the_keel, :operates_in, :heavy_hauler, :the_keel, since: 2335 do
   prose "The heavy haulers work #{ref :the_keel, "the Keel"} — slow, enormous, and the backbone of bulk freight along the main orbital lane."
+end
+relate :rel_heavy_hauler_carries_ringglass, :carries, :heavy_hauler, :ringglass, since: 2335 do
+  prose "Most outbound haulers carry bulk #{ref :ringglass, "ringglass"} in resonance-separated bays."
 end

@@ -37,7 +37,7 @@ faction :clarisant do
 
     The Academy controls accreditation standards. The chapters control who actually gets dispatched. Neither side can win outright. The arrangement has held for #{elapsed 2310, approx: true}.
 
-    **Bloom Hawks and Containment Skeptics.** Since the #{future "Silent Bloom"}, a significant minority of Tuners — the Hawks — have argued that the guild should embed deeply in containment work. Bloom Zones are the most demanding environment Tuning has ever been asked to address, and the Hawks believe the guild's future relevance depends on being the institution that owns that work. The Skeptics argue that Bloom containment is a meatgrinder that consumes the guild's best practitioners for someone else's emergency. The #{ref :displacement_council, "Displacement Council"} pays well and the burnout rate is, by any honest accounting, catastrophic.
+    **Bloom Hawks and Containment Skeptics.** Since the #{ref :the_silent_bloom, "Silent Bloom"}, a significant minority of Tuners — the Hawks — have argued that the guild should embed deeply in containment work. Bloom Zones are the most demanding environment Tuning has ever been asked to address, and the Hawks believe the guild's future relevance depends on being the institution that owns that work. The Skeptics argue that Bloom containment is a meatgrinder that consumes the guild's best practitioners for someone else's emergency. The #{ref :displacement_council, "Displacement Council"} pays well and the burnout rate is, by any honest accounting, catastrophic.
 
     The argument has not resolved. The Hawks have won most of the procedural votes. The Skeptics have won most of the resignations.
   PROSE

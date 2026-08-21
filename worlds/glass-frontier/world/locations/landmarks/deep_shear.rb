@@ -35,7 +35,7 @@ geographic_location :deep_shear do
 
     **Resonance-distorted matter.** Material that has spent decades soaking in Deep Shear distortion comes out altered in useful ways. #{ref :ringglass, "Ringglass"} recovered from the Deep holds its tune across larger distances than ordinary stock. Certain metals conduct resonance where they ordinarily would not. Some substances have no analogue elsewhere in the system and have only recently begun to acquire names. The materials trade in Deep-shifted matter is small, expensive, and supports a research economy that the #{ref :echo_ledger_conclave, "Echo Ledger Conclave"} takes a quiet interest in.
 
-    **Cthonic biology.** The #{ref :cthonic_beasts, "Cthonic beasts"} of the Deep Shear are not the same population as those of the ordinary Shear. They are stranger, larger, and harder to find. Their tissue, shells, fluids, and shed parts are valuable for instruments, medicine, and weapons. The harvesting is its own dangerous craft. The biology does not always remain biology after removal from the distortion that produced it, which has surprised more than one buyer.
+    **Farborn biology.** The #{ref :farborn, "Farborn"} of the Deep Shear are not the same population as those of the ordinary Shear. They are stranger, larger, and harder to find. Their tissue, shells, fluids, and shed parts are valuable for instruments, medicine, and weapons. The harvesting is its own dangerous craft. The biology does not always remain biology after removal from the distortion that produced it, which has surprised more than one buyer.
 
     The economics of the Deep run on these three categories. A successful Deep run can fund a flotilla for a year. An unsuccessful Deep run can end the flotilla. Most crews who work the Deep make their living on the outer band and trade in stories about the middle band.
   PROSE
@@ -44,6 +44,8 @@ geographic_location :deep_shear do
 
     #{ref :coremark, "Coremark"} operates industrial Deep extraction with the resources to absorb the failure rate. Their crews use heavy purpose-built ships, redundant Tuner crews, and procedures that prioritize survival of the rig over survival of any individual run. They lose ships at rates that no independent operator could absorb and accept the losses as a cost of business. They are the Deep's largest single operator by tonnage.
 
+    The #{ref :pell_freight_assembly, "Pell Freight Assembly"} occupies the space between corporate rigs and single-crew claims. Its members share receiving yards, rescue coverage, and hauler capacity while retaining their vessels and claims. The pooled loss fund lets them work at industrial scale, but a failure is still charged to people who vote in the same yard where the damaged ship returns.
+
     The **Deep-runners** — senior #{ref :ratters, "Ratter"} flotillas who specialize in the Deep — operate at the other end of the spectrum. Small crews, careful ships, decades of accumulated knowledge of specific Deep pockets, and an informal cross-flotilla society that shares charts and warnings. The Deep-runners are not an organization. They are a recognizable population. Outsiders call them by the name and the name has stuck. The senior Deep-runners are some of the most experienced operators in the system and are treated as such by everyone who has reason to know them.
 
     Beyond Coremark and the Deep-runners, the Deep sees a steady trickle of small specialized crews — beast-hunters, researchers on Conclave contracts, the occasional Clarisant survey, the desperate, the curious, and the people who have run out of other options. The death rate is high. The economics work just often enough to keep the trickle flowing.
@@ -51,7 +53,7 @@ geographic_location :deep_shear do
     The #{ref :shear_compact, "Shear Compact"} has no special restrictions on Deep work. The Compact's position is that the Deep is part of the Shear and the Shear's standards apply. The crews working the Deep know that the standards do not, in practice, address what kills them. The Compact knows this too. The conversation about Deep-specific regulation has been ongoing for #{elapsed future: "First petition for Deep-specific regulation", about: 15, approx: true} and has produced no regulation.
   PROSE
   prose <<~PROSE, section: :present_day, heading: "Present Day"
-    The Deep Shear is one of the most reliably dangerous places in the system. It is also the source of the most valuable salvage anyone trades. The two facts are inseparable. The hush continues. The pockets shift. The Deep-runners pass charts to apprentices. Coremark loses ships and replaces them. The Conclave waits for the next interesting fragment. Somewhere in the inner Deep, things that nobody has charted continue to be there.
+    The Deep Shear is one of the most reliably dangerous places in the system. It is also the source of the most valuable salvage anyone trades. The two facts are inseparable. The hush continues. The pockets shift. The Deep-runners pass charts to apprentices. Coremark replaces lost rigs. Pell crews isolate their cutter clocks. The Conclave waits for the next interesting fragment. Somewhere in the inner Deep, things that nobody has charted continue to be there.
   PROSE
 end
 

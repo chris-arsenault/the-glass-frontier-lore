@@ -11,7 +11,7 @@ incident :displacement do
   scale "Tens of thousands evacuated from failing ring habitats"
 
   prose <<~PROSE
-    The mass evacuation of mid-drift ring habs during the #{future "Silent Bloom"} cascade, beginning 2378 CE. Tens of thousands of #{ref :hab_worlder, "Hab-Worlders"} lost their sealed environments — the thing that defined their identity — in days to weeks.
+    The mass evacuation of mid-drift ring habs during the #{ref :the_silent_bloom, "Silent Bloom"} cascade, beginning 2378 CE. Tens of thousands of #{ref :hab_worlder, "Hab-Worlders"} lost their sealed environments — the thing that defined their identity — in days to weeks.
   PROSE
   prose <<~PROSE, section: :course, heading: "Course"
     The evacuation was mostly chaotic. Some habs handled it with discipline — organized departures, resource triage, designated reception points. Others fell apart. The Bloom cascade didn't give consistent warning: some habs had hours between the first resonance distortion and structural failure, others had days. The variance made coordinated response impossible.

@@ -28,14 +28,25 @@ Encyclopedia entries can acknowledge gaps in knowledge — "the cause remains un
 ### 3. Author's notes leaked into prose
 Content that was clearly a note from the author to themselves (or to a collaborator) that ended up in the published text. Things like explaining what a concept is *for* in the setting rather than what it *is* in the world. Descriptions of narrative function rather than in-world reality.
 
+### 4. Coy uncertainty
+Claims such as “nobody knows,” “nobody understands,” or rhetorical questions that announce mystery without identifying the evidence boundary. The replacement should preserve the unknown while stating what records omit, what instruments show, what witnesses disagree about, or where an accepted model fails.
+
+### 5. Narrator's verdict
+A quip, moral, interpretation, or forecast added after the facts: “neither sees the irony,” “that is what makes it dangerous,” “the argument will continue,” or “whether it holds remains to be seen.” Attribute a judgment to people in the world, replace it with an observable consequence, or remove it when it adds no information.
+
+### 6. Reveal scaffolding
+Repeated “not X, but Y,” “it does not merely,” and parallel negations that make the narrator perform a correction or reveal. State the positive claim first. Retain the contrast only when the rejected interpretation is an established in-world belief.
+
 ### Output format
 
 For each violation found, output:
 ```
 LINE: [approximate line or quote]
-TYPE: domain-leakage | wrong-register | author-note
+TYPE: domain-leakage | wrong-register | author-note | coy-uncertainty | narrator-verdict | reveal-scaffolding
 QUOTE: "[the offending text]"
-FIX: [suggested replacement or "remove"]
+FIX: [suggested replacement; use "remove" only when the passage contains no distinct fact, uncertainty, image, viewpoint, causal link, or useful atmosphere]
 ```
+
+Every fix must preserve the entry's lore. A style review does not shorten an article merely because it is long or divide it merely because it has many sections.
 
 If the entry is clean, say so.

@@ -44,7 +44,7 @@ concept :resonance do
 
     **Narrow bandwidth** — tightly focused, poorly understood. Narrow-band resonance produces effects that don't have clear theoretical explanations. Structural narrow can locally alter physical laws. Kinetic narrow has been observed to produce translocation effects. Signal narrow borders on consciousness interface — direct information transfer without a medium.
 
-    The narrow end is where the #{ref :elves, "elves"} operated routinely and where nobody else goes without extreme caution. #{future "Bloom Zone"} relics, pre-Glassfall artifacts, and the deepest #{ref :the_shear, "Shear"} anomalies all exhibit narrow-bandwidth characteristics. The #{ref :lattice_proxy_synod, "Lattice Proxy Synod"}'s AI custodians appear to process information at narrow signal bandwidth, which is part of why communication with them is so difficult.
+    The narrow end is where the #{ref :elves, "elves"} operated routinely and where nobody else goes without extreme caution. #{ref :bloom_zones, "Bloom Zone"} relics, pre-Glassfall artifacts, and the deepest #{ref :the_shear, "Shear"} anomalies all exhibit narrow-bandwidth characteristics. The #{ref :lattice_proxy_synod, "Lattice Proxy Synod"}'s AI custodians appear to process information at narrow signal bandwidth, which is part of why communication with them is so difficult.
 
     Most people interact with mid-bandwidth resonance through manufactured devices — kites, communication arrays, industrial equipment — without understanding the tuning. Working professionals operate at mid *deliberately*. The difference is control, not exposure. Narrow is the domain of relics, accidents, and things nobody fully controls.
 
@@ -61,7 +61,7 @@ concept :resonance do
 
     Settlements can amplify the local field using resonance concentrators — large ringglass arrays that collect and focus ambient energy into a denser local field. These aren't power plants. They're more like signal boosters. A settlement with a good concentrator has a richer resonance environment, which means household devices work better, mid-bandwidth applications are more reliable, and #{ref :tuners, "Tuners"} find the working conditions more comfortable.
 
-    Depletion is a real concern. Draw too much from a local field too quickly and the ringglass goes quiet until ambient energy replenishes. Settlements manage this through usage norms and, in larger cities, through #{ref :tempered_accord, "Tempered Accord"} resonance allocation frameworks that nobody enjoys dealing with.
+    Drawdown is a real concern. Draw too much from a local field too quickly and the ringglass goes quiet until ambient energy replenishes. Settlements manage this through usage norms and, in larger cities, through #{ref :tempered_accord, "Tempered Accord"} resonance allocation frameworks that nobody enjoys dealing with.
   PROSE
   prose <<~PROSE, section: :limits, heading: "Limits"
     Resonance is not free energy. The ambient hum is real, but it's finite and local. Draw too much resonance from an area and the local field depletes — the ringglass goes quiet until the ambient energy replenishes, which can take hours, days, or weeks depending on how much crystal is in the local geology.

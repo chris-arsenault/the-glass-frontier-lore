@@ -11,12 +11,10 @@ geographic_location :the_shear do
   main_industry "Ringglass salvage"
   principal_hazards "Orbital debris, resonance spikes, collapse, predators and piracy"
 
-  question "The Coremark reference makes sense here, but it shouldn't be the only corporation or group named throughout the article — severe overuse. Add a few future stubs.", raised: "2026-03-20", on: "built its empire on the industrial end. The independents work the margins"
-  question "Coremark overuse.", raised: "2026-03-20", on: "black-market operations — exist in pockets of the Shear that nobody official has charted."
-  question "'Cthonic' is an internal descriptor and can't be used — the creature needs an in-world name that isn't real-world anchored.", raised: "2026-03-20", on: "Cthonic beasts"
-  question "The Shear didn't exist before the Glassfall; it was caused by it.", raised: "2026-03-20", on: "The Shear is chronic — it has existed since the Glassfall"
-  question "Duplicate of Bloom Zone content, and it has no business in the Shear entry.", raised: "2026-03-20", on: "A Bloom Zone appearing next to a stable ring hab in clean space is the nightmare scenario"
   registry true
+
+  log "2026-08-20 — Added the Pell Freight Assembly as a member-owned industrial operator and removed repeated Coremark name checks from general hazards and hidden stations."
+  log "2026-08-21 — Renamed the Shear creatures Farborn, stated that the Glassfall created the Shear, and reduced the Bloom comparison to the local distinction needed by crews."
 
   prose <<~PROSE
     When the #{ref :the_glass_frontier, "orbital ring"} shattered, it didn't break cleanly. The habitable fragments — the #{ref :the_glass_frontier, "ring habs"} — drifted into stable or semi-stable orbits. Everything else became the Shear: the pockets and layers of debris, dust, and resonance distortion that fill the spaces between and around the surviving habs. Roughly half the volume of Kaleidos orbit is Shear.
@@ -33,7 +31,7 @@ geographic_location :the_shear do
   prose <<~PROSE, section: :economy, heading: "Salvage"
     The Shear is the system's richest source of #{ref :ringglass, "ringglass"}. Fragments of the original ring — some still carrying their pre-Glassfall tuning — are scattered through it. Salvage is the Shear's primary industry and has been since the #{ref :ratters, "Ratters"} pioneered it in the 2320s.
 
-    Operations range from one-crew skiffs running quick grabs on the Shear's edges to industrial rigs anchored to large debris masses for long-term extraction. #{ref :coremark, "Coremark"} built its empire on the industrial end. The independents work the margins. The #{ref :shear_compact, "Shear Compact"} regulates both, imperfectly.
+    Operations range from one-crew skiffs running quick grabs on the Shear's edges to industrial rigs anchored to large debris masses for long-term extraction. #{ref :coremark, "Coremark"} built its empire on the industrial end. The #{ref :pell_freight_assembly, "Pell Freight Assembly"} pools yards, haulers, and loss coverage for member crews. Other independents work the margins. The #{ref :shear_compact, "Shear Compact"} regulates all of them, imperfectly.
 
     The easy salvage was picked over decades ago. High-grade material now requires going deeper, staying longer, and accepting more risk. This is the economic engine that drives most Shear traffic — and most Shear conflict.
   PROSE
@@ -46,30 +44,28 @@ geographic_location :the_shear do
 
     **Structural collapse.** Debris masses that seem stable can shift, fragment, or cascade without warning. An anchored mining rig can lose its mooring. A corridor through the Shear can close.
 
-    **#{ref :cthonic_beasts, "Cthonic beasts"}.** Things live in the Shear that have no known counterparts anywhere else in the system. They are adapted to the distorted environment in ways that suggest either long evolution within it or an origin nobody has identified. They range from nuisances to existential threats. Crews in the deep Shear carry weapons and know how to use them. The beasts are rare enough that most salvage runs don't encounter them and common enough that nobody goes in unarmed.
+    **#{ref :farborn, "Farborn"}.** Things live in the Shear that have no known counterparts anywhere else in the system. They are adapted to the distorted environment in ways that suggest either long evolution within it or an origin nobody has identified. They range from nuisances to existential threats. Crews in the deep Shear carry weapons and know how to use them. The beasts are rare enough that most salvage runs don't encounter them and common enough that nobody goes in unarmed.
 
-    **Other people.** #{ref :coremark, "Coremark"} remnants, pirates operating from hidden stations, rival salvage crews willing to cut lines or jam signals. The Shear is vast and the Compact's enforcement is thin. Out past the patrolled routes, the only law is what you bring with you.
+    **Other people.** Pirates operating from hidden stations, unlicensed claim crews, and rivals willing to cut lines or jam signals. The Shear is vast and the Compact's enforcement is thin. Out past the patrolled routes, the only law is what you bring with you.
   PROSE
   prose <<~PROSE, section: :dangers, heading: "Weather"
-    The Shear has patterns, though calling them "weather" stretches the term. #{future "Glassfall showers"} — periodic cascades of fine debris that increase collision risk across wide areas. Resonance tides — cyclical shifts in the ambient distortion that make some regions navigable on some days and lethal on others. Drift events — large debris masses changing orbit, reshaping the Shear's geography over weeks or months.
+    The Shear has patterns, though calling them "weather" stretches the term. #{ref :glassfall_showers, "Glassfall showers"} are periodic cascades of fine debris that increase collision risk across wide areas. Resonance tides are cyclical shifts in the ambient distortion that make some regions navigable on some days and lethal on others. Drift events are large debris masses changing orbit, reshaping the Shear's geography over weeks or months.
 
     Crews track these the way surface settlers track storms. The #{ref :shear_compact, "Shear Compact"} maintains a forecasting service. It is frequently wrong, which everyone knows, and indispensable, which everyone also knows.
   PROSE
   prose <<~PROSE, section: :people, heading: "Permanent Presence"
     Most people who enter the Shear leave the same day. But some stay.
 
-    Mining rigs with rotating crews operate on weeks-long cycles. Research outposts studying the Shear's resonance environment or the #{ref :cthonic_beasts, "Cthonic beasts"} maintain small permanent populations. And hidden stations — pirate havens, smuggler caches, #{ref :coremark, "Coremark"} black-market operations — exist in pockets of the Shear that nobody official has charted.
+    Mining rigs with rotating crews operate on weeks-long cycles. Research outposts studying the Shear's resonance environment or the #{ref :farborn, "Farborn"} maintain small permanent populations. Member-run receiving yards serve the Pell routes. Pirate havens, smuggler caches, and private claim stations occupy pockets that nobody official has charted.
 
     These stations are hard to find, easy to lose, and dependent on the Shear's instability for their continued obscurity. A drift event that moves a debris mass can expose a hidden station to open space — or bury it deeper.
   PROSE
   prose <<~PROSE, section: :tensions, heading: "Relationship to Bloom Zones"
     The Shear and the #{ref :bloom_zones, "Bloom Zones"} are distinct phenomena that occupy the same orbital space.
 
-    The Shear is chronic — it has existed since the Glassfall, it is broadly understood, and it is mostly stabilized. Dangerous, but navigable. An environment that people have learned to work in.
+    The Glassfall created the Shear from the ring's wreckage. Its debris and resonance patterns are now broadly understood and mostly stabilized: dangerous, but navigable by crews equipped for them.
 
-    #{ref :bloom_zones, "Bloom Zones"} are acute — man-made reality tears caused by the #{future "Silent Bloom"} cascade of 2378. They can occur anywhere in Kaleidos orbit: in the Shear, adjacent to ring habs, or in otherwise clean orbital space. Where the Shear distorts resonance, Bloom Zones break reality. They are orders of magnitude more dangerous, actively expanding, and require constant containment by the #{ref :displacement_council, "Displacement Council"}.
-
-    A Bloom Zone appearing next to a stable ring hab in clean space is the nightmare scenario — and it has happened. The Shear is where you expect problems. Bloom Zones are where problems show up uninvited.
+    #{ref :bloom_zones, "Bloom Zones"} are reality tears caused by the #{ref :the_silent_bloom, "Silent Bloom"}. Where the Shear distorts resonance, a Bloom Zone breaks spatial relationships and requires active containment. Shear crews use the distinction to decide whether a bad reading calls for a route change or a Council alert.
   PROSE
 end
 

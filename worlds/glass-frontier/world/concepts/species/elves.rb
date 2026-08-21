@@ -26,20 +26,8 @@ species :elves do
 
     The elves didn't just build the ring. They understood it. And then they were gone, and that understanding went with them.
   PROSE
-  prose <<~PROSE, section: :history, heading: "The Disappearance"
-    Sixty years is a long time for most species. For elves, with their centuries-long lifespans, it's barely a generation. Whatever happened, it wasn't that they simply died out during the Famine. The timeline doesn't support it.
-
-    What the timeline does support is something more deliberate. The Famine provided cover — communications were already down, records were already fragmenting, entire communities were already losing track of each other. If you wanted to vanish from a civilization, the Famine was the moment to do it.
-  PROSE
-  prose <<~PROSE, section: :history, heading: "The Redaction"
-    The disappearance alone would be a mystery. What makes it unsettling is the Redaction.
-
-    Across the system — in archives on Kaleidos's surface, in ring habs that had no contact with each other during the Famine, in outer-system colonies — the historical record shows systematic gaps that follow a pattern. Technical documents with authorship stripped. Administrative records with entire departments excised. Historical accounts where named participants have been replaced with generic descriptions.
-
-    The pattern is consistent enough that it's hard to attribute to accident. Someone went through the records. Not everywhere, and not perfectly — the elves are still in the history books, still credited with the ring, still remembered. But the personal details are gone. Individual names, family lineages, community records, cultural specifics — scraped away, leaving the broad strokes and removing the texture.
-
-    The #{ref :echo_rivers, "Echo Rivers"} tell the same story. Pre-Glassfall transmissions embedded in the planet's crystal geology show evidence of tampering — conversations that cut to silence mid-sentence, voice signatures replaced with flat harmonic hum. The rivers are hard to edit (you're working with resonance imprints distributed through kilometers of rock), and the results are imperfect. Fragments of elven speech survive in deep deposits. The #{ref :echo_ledger_conclave, "Echo Ledger Conclave"} treats these fragments as sensitive material. Some archivists have spent careers cataloguing what was erased and what slipped through.
-  PROSE
+  prose "#{embed :disappearance_of_the_elves, :history}", section: :history, heading: "The Disappearance"
+  prose "#{embed :disappearance_of_the_elves, :perception}", section: :history, heading: "The Redaction"
   prose <<~PROSE, section: :perception, heading: "What People Think"
     Everyone has heard of the elves. They built the ring. That's basic history — taught in schools, referenced in everyday conversation. "Elven engineering" is a common shorthand for technology that works better than anyone can explain.
 
@@ -47,7 +35,7 @@ species :elves do
 
     The Redaction is where opinion diverges:
 
-    - **The mainstream position** is that the record gaps are a natural consequence of the Famine's chaos. Sixty years of fragmented communication degraded a lot of records. The elves were prominent, so their absence from degraded records is noticeable, but not evidence of conspiracy.
+    - **The mainstream position** is that the record gaps are a natural consequence of the Famine's chaos. #{elapsed :the_glassfall, :the_rekindling} of fragmented communication degraded a lot of records. The elves were prominent, so their absence from degraded records is noticeable, but not evidence of conspiracy.
 
     - **The Redaction theorists** argue the pattern is too systematic to be coincidence. Someone deliberately cleaned the record — and the Echo River evidence suggests it was the elves themselves. Why a civilization would erase its own detailed history while remaining in the broad strokes is the central question these scholars can't answer.
 
@@ -57,7 +45,7 @@ species :elves do
     The elves' existence is historical fact. Their contributions are documented. Their disappearance is acknowledged.
 
     What nobody can explain:
-    - Where did an entire species go during a sixty-year window?
+    - Where did an entire species go during the #{elapsed :the_glassfall, :the_rekindling} Signal Famine?
     - Why does the historical record show signs of deliberate tampering?
     - If the elves cleaned their own records, what were they hiding — or hiding from?
     - Are there still elves in the system, somewhere, and if so — what have they been doing for #{elapsed :elves_vanish, approx: true}?
@@ -66,31 +54,8 @@ species :elves do
   PROSE
 
   # ---- Hidden (DM) truth ----
-  prose <<~PROSE, section: :truth, heading: "The Hidden Truth", dm: true
-    The folk tradition is right. The Redaction theorists are right. The elves left deliberately, cleaned the record behind them, and are still out there.
-  PROSE
-  prose <<~PROSE, section: :truth, heading: "Why They Left", dm: true
-    The #{ref :the_glassfall, "Glassfall"} was not an accident and not a simple act of sabotage. The ring was destroyed by an external force — the Adversary.
-
-    The elves know what the Adversary is. Nobody else does, and the elves intend to keep it that way.
-
-    The elven leadership determined that the Adversary would return. When it does, the war will be existential — not a political conflict or a territorial dispute, but a fight for the survival of everything in the system. The elves' assessment is that this war cannot be won by conventional means and cannot be won quickly. It requires preparation on a scale of centuries, and that preparation cannot be visible to the Adversary.
-
-    The decision to disappear was deliberate, collective, and agonizing. They judged that if the Adversary could find them, it could find and destroy whatever they were building. So they made themselves unfindable.
-  PROSE
-  prose <<~PROSE, section: :truth, heading: "The Scrubbing", dm: true
-    The Redaction was executed during the Signal Famine, which provided natural cover.
-
-    The elves didn't erase their existence — that would have been both impossible and counterproductive. The ring is obviously somebody's work. What they erased was the *texture*: individual names, family lines, community locations, cultural specifics, anything that could be used to trace or find living elves. They left the broad strokes ("the elves built the ring") and removed everything that could serve as a trail.
-
-    The operation's methods:
-
-    - **Written records** were the easiest. Agents visited archives, edited documents, removed pages. They had access from their pre-disappearance positions and decades to work.
-
-    - **Echo Rivers** were the hardest. Elven resonance specialists developed techniques to overwrite specific frequency patterns in the crystal substrate, replacing voice signatures with harmonic noise. Slow, imprecise, couldn't reach deep deposits. This is why fragments survive — the deeper the river, the more likely something slipped through.
-
-    - **Living memory** was handled through time. The Famine lasted #{elapsed :the_glassfall, :the_rekindling}. Elves who had been public figures simply didn't reappear when communications resumed. One generation without them, and they were history. Two, and the personal details were fading. The long elven lifespan meant individuals who made the decision were still alive to manage the transition — they watched themselves become legend.
-  PROSE
+  prose "#{embed :disappearance_of_the_elves, :truth}", section: :truth, heading: "The Hidden Truth", dm: true
+  prose "#{embed :disappearance_of_the_elves, :implications}", section: :truth, heading: "The Scrubbing", dm: true
   prose <<~PROSE, section: :truth, heading: "Where They Are Now", dm: true
     Most elves live in hidden habs — ring fragments running dark, resonance signatures masked, not on any chart. These habs are where the war preparation happens: weapons development, strategic planning, training, and the slow accumulation of resources that #{elapsed :elves_vanish, approx: true} of work by the system's most advanced species can produce.
 
@@ -155,7 +120,7 @@ relate :rel_elves_created_gnomes, :created, :elves, :gnomes do
   prose "The #{ref :gnomes, "gnomes"} are an elven creation — engineered, part ringglass, born to attune to resonance in ways no other species manages naturally."
 end
 relate :rel_elves_disappeared_during_signal_famine, :disappeared_during, :elves, :signal_famine do
-  prose "They vanished across the Signal Famine, the sixty-year silence that gave a deliberate disappearance the cover of a natural one."
+  prose "They vanished across the #{elapsed :the_glassfall, :the_rekindling} Signal Famine, whose broken communications gave a deliberate disappearance the cover of a natural one."
 end
 relate :rel_elves_cooperates_with_displacement_council, :cooperates_with, :elves, :displacement_council, since: 2384, dm: true do
   prose "Through the Bloom era the hidden elves have run a quiet, deniable cooperation with the #{ref :displacement_council, "Displacement Council"} — the one human institution read in on the truth."
@@ -166,10 +131,4 @@ end
 
 relate :rel_elves_operate_in_bloom_zones, :operates_in, :elves, :bloom_zones, since: 2378, dm: true do
   prose "Since the Bloom opened, the hidden elves have concentrated their presence in and around the #{ref :bloom_zones, "Bloom Zones"} — monitoring the incursion, studying the tears, and preparing countermeasures. It is their primary operational focus."
-end
-
-# --- history (moment) ---
-moment :elves_vanish, year: 2305, of: :elves do
-  prose "When communications resumed after #{elapsed :the_glassfall, :the_rekindling} of #{ref :signal_famine, "Signal Famine"}, the elves were not among the voices that came back online. No settlement reported elven populations; no ring hab contained an elven community; no individuals came forward. Their centuries-long lifespans rule out simple die-off — whatever happened, it was not attrition."
-  effects { set :elves, standing: :vanished }
 end

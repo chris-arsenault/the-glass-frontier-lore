@@ -5,9 +5,9 @@ npc :dern_talish do
   reviewed "2026-03-18"
   tags :governance, :resonance, :diplomacy
   prominence :recognized
-
-  question "Degree 6, and no personal cloud: the cordon section she patrolled for twenty years, her hab of origin, a colleague from cordon operations, the convoys she turned away and who sent them. A viewpoint needs forgotten/marginal shells only she connects to."
-  question "Oram Sells is a future marker in three entries — the second First Threshold who read her in before dying of Bloom exposure. He needs an entity, and his eleven-year tenure has to land inside the Council's real dates (formed 2380, took the cordons 2384, Dern is the fourth)."
+  born 2374
+  occupation "Fourth First Threshold of the Displacement Council"
+  log "2026-08-21 — Named Dern's lost hab, long-term cordon station, field colleague, and the three organizations whose convoys she turned away. Oram Sells is the third First Threshold, serving from 2421 to 2432."
   narrative_role "viewpoint"
   species "human"
   culture "hab-worlder"
@@ -75,11 +75,17 @@ end
 relate :rel_dern_talish_leads_displacement_council, :leads, :dern_talish, :displacement_council, since: 2432 do
   prose "As First Threshold she leads the #{ref :displacement_council, "Displacement Council"} — responsible for every containment cordon around every Bloom Zone in the system."
 end
-relate :rel_dern_talish_born_in_the_glass_frontier, :born_in, :dern_talish, :the_glass_frontier do
-  prose "She was born in the mid-drift habs of the #{ref :the_glass_frontier, "Glass Frontier"} and evacuated as a child during the displacement — a Bloom refugee who grew up to run the cordons."
+relate :rel_dern_talish_born_in_latch, :born_in, :dern_talish, :latch do
+  prose "She was born on #{ref :latch, "Latch"} and evacuated at four, a Bloom refugee who grew up to run the cordons."
 end
 relate :rel_dern_talish_operates_in_bloom_zones, :operates_in, :dern_talish, :bloom_zones, since: 2412 do
   prose "Twenty years of cordon work put her inside more #{ref :bloom_zones, "Bloom Zones"} than almost anyone alive — and left her with the tremor to prove it."
+end
+relate :rel_dern_talish_located_in_gray_line, :located_in, :dern_talish, :gray_line, since: 2412 do
+  prose "She spent twenty years assigned to #{ref :gray_line, "Gray Line"}, from perimeter patrol through regional command, and keeps her permanent quarters there as First Threshold."
+end
+relate :rel_dern_talish_cooperates_iro_senn, :cooperates_with, :dern_talish, :iro_senn, since: 2412 do
+  prose "#{ref :iro_senn, "Iro Senn"} is her oldest cordon colleague and still sends her Gray Line's unsoftened reports."
 end
 relate :rel_dern_talish_cooperates_with_elves, :cooperates_with, :dern_talish, :elves, since: 2432, dm: true do
   prose "She is the single human point of contact with the hidden #{ref :elves, "elves"} — the loneliest cooperation in the system, conducted through a shard she never lets out of her reach."
@@ -90,20 +96,20 @@ end
 
 # --- history (moments) ---
 moment :dern_talish_evacuated, year: 2378, of: :dern_talish do
-  prose "Four years old when the #{ref :the_silent_bloom, "Silent Bloom"} took her mid-drift home, Talish was carried out in the displacement and given the registration tattoo every Bloom evacuee wore. She has no memory of the hab she lost. She has never had the tattoo removed."
+  prose "Four years old when the #{ref :the_silent_bloom, "Silent Bloom"} took #{ref :latch, "Latch"}, Talish was carried out in the displacement and given the registration tattoo every Bloom evacuee wore. She has no memory of the hab she lost. She has never had the tattoo removed."
   effects { set :dern_talish, standing: :bloom_evacuee }
 end
 moment :dern_talish_cordon_career, year: 2412, of: :dern_talish do
-  prose "She gave twenty years to the Council's cordon operations, rising from perimeter patrol to zone-incursion specialist to regional operations lead — inside more #{ref :bloom_zones, "Bloom Zones"} than almost anyone alive. The work left her with a tremor in her right hand and an unshakeable conviction that the cordons must hold."
+  prose "She gave twenty years to the Council's #{ref :gray_line, "Gray Line"} cordon, rising from perimeter patrol beside #{ref :iro_senn, "Iro Senn"} to zone-incursion specialist and regional operations lead. The work left her with a tremor in her right hand and an unshakeable conviction that the cordons must hold."
   effects { set :dern_talish, standing: :regional_operations_lead }
 end
 moment :dern_talish_turns_back_convoys, year: 2415, of: :dern_talish do
-  prose "During the #{ref :the_bitter_reach, "Bitter Reach"}, a regional operations lead, Talish personally turned away armed convoys from three factions trying to use cordon stations as staging points. She was shot at twice. She did not return fire — she closed the cordon gates and waited. All three convoys eventually left. That neutrality became the foundation of her authority."
+  prose "During the #{ref :the_bitter_reach, "Bitter Reach"}, Talish turned away a Continuity relief convoy, a Vantara security column, and ships of #{ref :third_arc_defense, "Third Arc Defense"} when each tried to use Gray Line as a staging point. She was shot at twice. She did not return fire; she closed the cordon gates and waited. All three convoys eventually left. That neutrality became the foundation of her authority."
 end
 moment :dern_talish_becomes_first_threshold, year: 2432, of: :dern_talish do
   prose "After twenty years on the cordons she was named the fourth First Threshold of the #{ref :displacement_council, "Displacement Council"} — the person who stands at the boundary of every Bloom Zone and decides what crosses it. She did not want the job."
   effects { set :dern_talish, standing: :first_threshold }
 end
 moment :dern_talish_read_in, year: 2432, of: :dern_talish, dm: true do
-  prose "Three months before he died of Bloom-exposure complications, her predecessor Oram Sells read her in — the #{ref :elves, "elves"}, the Adversary, the reality tears, the hidden war — in a single conversation in a sealed room at Cordon Station Nine. She did not believe him until he showed her the #{ref :communication_shard, "contact protocol"} and she activated it, and an elf answered. She has not slept a full night since."
+  prose "Three months before he died of Bloom-exposure complications, her predecessor #{ref :oram_sells, "Oram Sells"} read her in — the #{ref :elves, "elves"}, the Adversary, the reality tears, the hidden war — in a single conversation in a sealed room at #{ref :gray_line, "Cordon Station Nine"}. She did not believe him until he showed her the #{ref :communication_shard, "contact protocol"} and she activated it, and an elf answered. She has not slept a full night since."
 end

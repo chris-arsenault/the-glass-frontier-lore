@@ -7,16 +7,14 @@ installation :fermata_station do
   tags :governance, :resonance, :"ring-hab", :"fluid-reality", :music, :"social-structure"
   prominence :recognized
   log "2026-08-09 — raised from :marginal. Hab Meridian names its jazz governance as one of three exemplars of a distinctive local culture, alongside the Sithari ringglass aesthetic and the Pelhari instrument-wrights; a station whose governance is a byword elsewhere is not marginally known."
-
-  question "Tongue in cheek — reword or remove.", raised: "2026-03-20", on: "The system works better than it has any right to, and worse than its inhabitants believe."
-  question "Prominence :marginal looks understated for an entry with a full write-up that hosts the Accord's mediation work. Either raise it or give Hab Meridian the relationship its reference to this station implies."
+  log "2026-08-21 — Removed the narrator's joke from the opening. Fermata remains recognized because its Sessions and mediation work are known beyond the station."
   region "glass-frontier"
   aka "The Jazzocracy"
 
   prose <<~PROSE
     *Known colloquially — and almost universally outside the station — as the Jazzocracy.*
 
-    A ring hab governed by jazz. Not jazz-themed, not jazz-inspired — governed by the actual practice of playing jazz, through structured improvisation sessions where policy is proposed, contested, and resolved in real time by musicians playing together. The system works better than it has any right to, and worse than its inhabitants believe.
+    A ring hab governed through the practice of playing jazz. Structured improvisation Sessions propose, contest, and resolve policy in real time. Their decisions are enforceable, but the station has no test for whether a musically satisfying resolution is a fair one.
 
     The inhabitants call it Fermata. The name predates the Glassfall — it was the ring-era module designation, and the station kept it out of a stubbornness that passes for tradition. Everyone else calls it the Jazzocracy, a term Fermata's residents consider reductive but have stopped correcting.
   PROSE
@@ -53,9 +51,9 @@ installation :fermata_station do
     |------|---------|------|-------|
     | Shei Lush | Fae | The Chair | Has held the chair for #{elapsed future: "Shei Lush takes the Chair", about: 11, approx: true}. A pianist whose style is so spare it barely registers as playing, which is precisely how she controls every session. The discipline required to maintain coherence — to stay *here*, fully present, for hours of Session — is the same discipline she brings to governance. Nobody challenges her because she makes the job look thankless, which it is — she just happens to be very good at a thankless job. |
     | Ol'dent | Gnome | Drone lead | Baritone sax. Runs the Drone rotation with military precision and quiet fury. Knows more about the station's structural resonance than anyone alive — he can feel it in his bones, literally, the way only a gnome can. Has never attended a Session, not because he can't arrange coverage, but because he refuses to participate in a system that excludes the people keeping it standing. His absence is the most noted absence on the station. |
-    | Sable Korr | Human | Standard scholar | Maintains the informal archive of Session recordings and their political context. Can tell you what every performance of "Blue in Green" has meant for the last #{duration 80}. Widely consulted before major Sessions. Technically Audience — she failed her Sit-In #{elapsed future: "Sable Korr's failed Sit-In", about: 30, approx: true, ago: true} and has been shaping governance from the outside ever since, which says something about the system. |
-    | Goruth | Orc | Comp player | Guitarist. The most politically effective person on the station who will never be accused of it. An orc who never solos, never draws attention, never leverages the directness his species is known for — his voicings during Sessions have a way of making certain resolutions feel natural and others feel forced. He describes himself as a servant of the music. He is not wrong, exactly. |
-    | Dez Morrn | Human | Free Jazz leader | Trumpeter, organizer, and the reason the station's emergency repair crews stay busy. Genuinely believes the Standards have ossified into instruments of control. Also genuinely talented, which makes her harder to dismiss. Has been arrested — a concept the station barely has a framework for — twice. Both times, the Session called to resolve her case couldn't reach resolution, which she considers proof of her thesis. |
+    | #{ref :sable_korr, "Sable Korr"} | Human | Standard scholar | Keeps the Session archive and advises Players despite remaining a member of the Audience after her failed Sit-In. |
+    | #{ref :goruth, "Goruth"} | Orc | Comp player | Shapes the harmonic ground beneath proposals and reads their structural load through the hall floor. |
+    | #{ref :dez_morrn, "Dez Morrn"} | Human | Free Jazz leader | Organizes players who reject inherited changes and has twice faced Sessions that could not resolve her arrest. |
   PROSE
   prose <<~PROSE, section: :governance, heading: "The Sit-In"
     The citizenship test. You perform with the house ensemble. The evaluation isn't technical skill — it's whether you can listen, respond, hold space, and know when to stop. People train their entire lives for it. Some freeze. Some play beautifully and fail because they never once responded to what anyone else was doing. The word for someone who fails their Sit-In is said with genuine compassion, which somehow makes it worse.
@@ -70,17 +68,7 @@ installation :fermata_station do
     New compositions are the equivalent of proposing new legislation. Most fail. The ones that enter the repertoire reshape the political landscape.
   PROSE
   prose <<~PROSE, section: :economy, heading: "The Fermata Open"
-    Once a year, Fermata Station holds the Open — a week-long festival that is simultaneously the station's biggest cultural event, its most important political season, and its primary source of trade revenue.
-
-    **What it looks like:** Musicians from across the #{ref :the_glass_frontier, "ring"} and the wider #{ref :kaleidos_system, "Kaleidos system"} travel to Fermata to play. The station's docking capacity triples with temporary moorings. The bars fill. The corridors fill. The sound fills every compartment, which has structural consequences the Drone spends months preparing for.
-
-    **What it means politically:** The Open is the one week where outsiders can sit in on Sessions. Not vote — but play. Visiting musicians bring unfamiliar idioms, unfamiliar standards, unfamiliar ears. The regular Players lose their home-court advantage. Power dynamics that have been stable all year get disrupted by someone who doesn't know the local rules and doesn't care.
-
-    This is by design. The founders understood — or stumbled into understanding — that a closed musical system calcifies. The Open is Fermata's immune response to its own worst tendency: the drift from improvisation toward ritual. Every major political shift in the station's history has happened during or immediately after an Open, when the influx of outside voices made the entrenched resolutions sound stale.
-
-    **What it means economically:** The Open is when Fermata trades. The station produces very little of material value — some #{ref :ringglass, "ringglass"} artisan work, sound-tuned structural components that only Fermata's Drone technicians know how to make, and recordings of historically significant Sessions that Standard scholars across the system will pay real money for. The Open is when these goods change hands, when supply contracts are negotiated (usually during a Session, naturally), and when Fermata secures the material imports it needs for the coming year.
-
-    **The Closing Session:** The last night of the Open is the Closing Session — the single most watched, most attended, most consequential performance of the year. Every unresolved political question that's been deferred gets called. The Chair picks the setlist. The room is standing-only. By tradition, the final tune is always a new composition — proposed legislation for the year ahead. Most of the station's landmark policies trace back to a Closing Session. So do most of its worst mistakes.
+    #{embed :the_fermata_open}
   PROSE
   prose <<~PROSE, section: :tensions, heading: "The Free Jazz Problem"
     A philosophical movement, an activist tradition, and occasionally a terrorist cell, often in the same room at the same time.

@@ -11,6 +11,7 @@ make check WORLD=glass-frontier      # validate + lint
 make queue WORLD=glass-frontier      # what needs doing: open questions + findings
 make wiki  WORLD=glass-frontier      # render to build/glass-frontier/wiki
 make topology WORLD=glass-frontier   # graph health
+make web WORLD=glass-frontier        # connections that survive without mythic hubs
 ```
 
 Read the repo-root `CLAUDE.md` first — it carries the DSL conventions, the entry format, and the workflow that apply to every world. Then `craft/` for the writing rules. This directory carries only what is true of the Kaleidos system specifically.
@@ -21,6 +22,7 @@ Read the repo-root `CLAUDE.md` first — it carries the DSL conventions, the ent
 |---|---|
 | `world/` | the canon — Lorecraft DSL, the single source of truth |
 | `guidance/tone.md` | hopecore, the references, the anti-references |
+| `guidance/authoring-method.md` | connected-set drafting and the mythic-removed web target |
 | `guidance/voice-referents.md` | banned real-world referents and their in-world substitutions |
 | `guidance/naming-conventions.md` | culture naming patterns, place and era naming |
 | `guidance/canon-checklist.md` | fixed dates and systems vocabulary a review checks against |
@@ -35,3 +37,11 @@ Read the repo-root `CLAUDE.md` first — it carries the DSL conventions, the ent
 **Attribution.** Coremark and Vantara are each the only named entity in a category that should hold several. Prose that needs a smuggler or a freight carrier should reach for a `future` marker, not for them. See `guidance/archetype-slots.md`.
 
 **Dates.** The Silent Bloom begins in 2378. Check `guidance/canon-checklist.md` before writing any year.
+
+## Prose For This World
+
+Build an entry around the practical question its subject raises for people in Kaleidos. Choose who can observe it, state what their records or instruments establish, and mark the point where explanations fail. Mystery comes from that evidence boundary, not from rhetorical questions or claims that “nobody understands.”
+
+Glass Frontier entries may be long. Use substantial sections for different facets of one place, institution, or concept. Move a section only when its facts belong to another entity; do not thin an entry to meet a word count.
+
+Read `guidance/authoring-method.md` before expanding the world. Work on related sets selected from the mythic-removed `make web` result. Let resonance appear through physical conditions, ordinary work, dependencies, and failures; do not explain its importance through counterfactual commentary.

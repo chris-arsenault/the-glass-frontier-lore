@@ -1,0 +1,49 @@
+geographic_location :kyther_range do
+  name "Kyther Range"
+  subkind :region
+  status :complete
+  tags :surface, :resonance, :navigation, :materials, :danger
+  prominence :recognized
+
+  prose <<~PROSE
+    The Kyther Range is a long mountain chain of dark peaks, high valleys, and snowfields east of #{ref :avar, "Avar"}. Its western slopes feed #{ref :miraeth, "Miraeth"}; water leaving its southern valleys eventually reaches the #{ref :sable_crescent, "Sable Crescent"}. The highest passes hold snow through the year. The lower valleys support towns, pasture, quarrying, and narrow belts of terrace agriculture.
+
+    Pale mineral glass runs through the range in thin native seams. Most is ordinary crystal rather than ringglass, but centuries of shower dust have entered cracks and glacial ice. Where the two meet, a whole face can carry a faint structural answer. Climbers hear the mountain before they see it move.
+  PROSE
+  prose <<~PROSE, section: :geography, heading: "Peaks and Valleys"
+    Kyther's western wall rises in steps above the grassland. Roads use river cuts and old landslide benches to reach the interior valleys. The eastern side descends more gradually through forest and grove country. Northward, the range becomes colder and more broken until permanent settlements give way to seasonal mines and survey shelters.
+
+    Glaciers occupy the central heights. Fine ringglass darkens some bands of ice and leaves others almost clear. Meltwater follows those bands, appearing from cliff faces in places no surface contour predicts. A spring may change valleys after a warm season because the active crystal seam has shifted the path of least resistance through the ice.
+
+    Sheltered valleys are fertile and crowded. Houses gather on fans of old stone above rivers, with fields below and pasture higher on the slope. Each valley has at least two routes out where the terrain permits it. Communities with only one pass maintain food stores sized for a full closure and treat bridge inspection as public office.
+  PROSE
+  prose <<~PROSE, section: :dangers, heading: "Reading the Snow"
+    Snow settles differently above active seams. A low structural hum can bind a slab across a slope, allowing it to grow far larger than its visible supports suggest. A passing shower, a quarry blast, or a warm-water channel can break the shared response. The resulting release takes rock, road, and buildings with the snow.
+
+    Pass keepers place sounding posts through the snow into stone. The posts carry colored vanes and hollow heads that answer in wind. A clean series of notes means the slab and slope are still moving together. A missing note closes the pass. Teams then cut the dangerous section from a safe ridge or wait for it to fall.
+
+    The posts also guide travelers in white weather. Every maintained pass has its own interval pattern, repeated often enough that a person can follow it without seeing the next marker. Moving or retuning a post is a serious crime. Old posts remain stacked beside pass houses with their last recorded fault carved into the shaft.
+  PROSE
+  prose <<~PROSE, section: :people, heading: "Valley Communities"
+    Kyther people farm, herd, quarry, guide, carry, and maintain waterworks. The same household may keep animals in summer, cut stone in autumn, and provide a pass worker during winter. Highland towns trade wool, hard cheese, preserved fruit, building stone, and instrument crystal for steppe grain and manufactured parts.
+
+    Local Tuners train first on water and snow. They learn which spring has moved, whether a retaining wall has taken the field from the slope behind it, and how far a quarry strike will carry through a seam. Clarisant methods are respected for unfamiliar instruments. A new graduate still follows the pass keeper who has sounded the same ridge since childhood.
+
+    Valley speech changes quickly across the range. Long closures during the Signal Famine strengthened those differences, as did the habit of marrying and trading along watersheds rather than across high passes. Shared work remains legible: warning colors, bridge counts, and the right to close a route carry from one valley to the next even when everyday words do not.
+  PROSE
+  prose <<~PROSE, section: :history, heading: "Vigil Breach"
+    #{future "Vigil Breach"} is a sealed ring-era opening high in the central range. Its doors are cut into a cliff behind glacial ice, far below the line where any practical road would have been built. The exposed face carries no visible controls. It opens during some orbital alignments and closes before a climbing party can reach the threshold from the nearest safe shelf.
+
+    Survey shelters below the breach host geologists, Synod observers, traders, and people waiting for an opening. The nearest valley communities provision them and provide most of the guides. Pieces removed from the approach include ordinary mountain crystal, ringglass dust, and worked material that matches neither. No expedition has established what lies beyond the first chamber.
+  PROSE
+end
+
+relate :rel_kyther_range_on_kaleidos, :on_surface_of, :kyther_range, :kaleidos do
+  prose "The Kyther Range forms the high watershed between Kaleidos's western steppe and its rain-fed basin country."
+end
+relate :rel_kyther_supplies_miraeth, :supplies, :kyther_range, :miraeth do
+  prose "Kyther rain and meltwater feed the channels and root mats of #{ref :miraeth, "Miraeth"}."
+end
+relate :rel_kyther_supplies_sable_crescent, :supplies, :kyther_range, :sable_crescent do
+  prose "The range's southern rivers carry water and mineral sediment toward the #{ref :sable_crescent, "Sable Crescent"}."
+end

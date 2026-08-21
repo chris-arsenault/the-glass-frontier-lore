@@ -1,0 +1,60 @@
+transport :rainline do
+  name "Rainline"
+  subkind :vessel
+  status :complete
+  capacity "Seven crew, two observers, a marker rack, and one folded shower-catch frame"
+  tags :transport, :navigation, :ringglass, :orbital, :danger, :resonance
+  prominence :recognized
+
+  prose <<~PROSE
+    *Rainline* is a narrow Prismwell survey kite built to enter the leading edge of a #{ref :glassfall_showers, "Glassfall shower"}. Its job is to discover where a forecast stops being true. The ship carries field sounders along both flanks, disposable marker lamps under the keel, and a folded catch frame behind the cabin for taking a physical sample of the dust it has measured.
+
+    The #{ref :prismwell_kite_guild, "Prismwell Kite Guild"} keeps faster craft and larger collectors. *Rainline* is the vessel pilots ask about because its readings have opened routes through several difficult fronts and because its repaired port spar is visible in every Glasswake yard. A pale brace crosses the darker original frame like a bone set under the skin.
+  PROSE
+
+  prose <<~PROSE, section: :structure, heading: "A Ship Built Sideways"
+    Survey kites usually turn away from a shower while they still have a clear retreat. *Rainline* can continue sideways across the front. Its cabin, drive, and sample lock sit inside three separate rings joined by flexible spars. Each ring corrects its own motion, allowing the hull to yield when debris pushes one section harder than another.
+
+    The arrangement gives the crew a poor sense of level. Seats, lockers, and instrument faces follow different frames. Colored bands show which ring carries each fitting. A loose object can appear to roll uphill when two frames correct in opposite directions. New observers clip in before the first turn and learn to look at the band around a doorway before stepping through it.
+
+    The marker rack carries simple lamps with broad, deliberately weak field signatures. A lamp records local drift and relays it until impact, exhaustion, or recovery. Rainline crews name only the first and last marker in a string. Everything between them is a number spoken once and written twice.
+  PROSE
+
+  prose <<~PROSE, section: :operations, heading: "Reading a Shower"
+    The ship enters below the forecast path and climbs until fine grains begin striking the forward cloth. One pilot holds the kite, another watches the debris, and two observers compare the field sounders with what the hull is physically taking. A forecast changes when those accounts diverge, even if the instruments still agree with one another.
+
+    Marker lamps go out behind the ship at each useful change: a bend in the stream, a clean interval, the edge of a large fragment's wake. Later vessels use the string as a temporary lane. The lights describe where *Rainline* passed. They do not promise the shower remained there.
+
+    The sample frame opens only on the retreat leg. Catch cloth gathers grains from the portion of the front the ship has already crossed, giving Glasswake sorters a way to compare instrument response with actual material. A valuable catch can pay for the flight. The crew still abandons it if closing the frame would delay withdrawal.
+  PROSE
+
+  prose <<~PROSE, section: :history, heading: "The Broken Spar"
+    The port spar failed during a collection flight above Miraeth when a rigid catch panel took a fragment broadside. The other rings carried the cabin clear while the damaged frame rotated around them. Grove watchers tracked the falling panel and guided it into an unplanted basin. No one aboard died, and the panel did not cut a clear-veined stand.
+
+    Prismwell rebuilt the spar with a laminated brace made in #{ref :lumenshard, "Lumenshard"}. The repair bends further under load than the original frame and returns a low creak through the cabin during hard corrections. Yard crews have replaced the brace twice with pieces cut to the same pattern. Pilots refuse proposals to make the port and starboard sides match.
+
+    The accident changed guild practice. Survey vessels now fold their catches before crossing a registered grove, and ground watchers receive the ship's retreat line before the first sample opens.
+  PROSE
+
+  prose <<~PROSE, section: :present_day, heading: "The Spreading Front"
+    *Rainline* is charting the shower stream that has moved traffic from Keelward's inner fields. Its markers show a passable lane during the cool part of the surface cycle, followed by a sudden lateral spread as the upper atmosphere warms. Prismwell publishes both observations and has shortened the lane's open mark.
+
+    One lamp from the latest string has returned to Glasswake ahead of the ship that dropped it. Its casing is intact, its clock agrees with the yard, and its record shows an ordinary deployment followed by a second release from a point inside the mid-drift. *Rainline* carries the replacement marker on its next survey.
+  PROSE
+end
+
+relate :rel_prismwell_maintains_rainline, :maintains, :prismwell_kite_guild, :rainline do
+  prose "Prismwell's Glasswake yards maintain *Rainline* and issue its shower forecasts."
+end
+relate :rel_rainline_operates_glassfall_showers, :operates_in, :rainline, :glassfall_showers do
+  prose "*Rainline* enters moving shower fronts to lay temporary marker strings and collect samples."
+end
+relate :rel_rainline_operates_glasswake, :operates_in, :rainline, :glasswake do
+  prose "The survey kite flies from the old collection wells at #{ref :glasswake, "Glasswake"}."
+end
+relate :rel_rainline_depends_kite, :depends_on, :rainline, :kite_sail do
+  prose "Three flexibly joined kite frames let the survey vessel correct across a debris stream."
+end
+relate :rel_rainline_resonates_miraeth, :resonates_with, :rainline, :miraeth do
+  prose "Its rebuilt port spar carries living-crystal laminate made after a failed panel fell near Miraeth."
+end

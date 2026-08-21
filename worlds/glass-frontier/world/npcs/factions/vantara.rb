@@ -21,7 +21,7 @@ faction :vantara do
     Vantara is publicly traded, politically neutral, and genuinely multinational — operations span surface settlements, ring habs, outer-system stations, and #{ref :keel, "the Keel"} trade lane. Their neutrality is economic, not ideological. They don't take sides because taking sides is bad for business. This makes them useful to the #{ref :tempered_accord, "Tempered Accord"} as a logistics backbone that everyone can work with.
   PROSE
   prose <<~PROSE, section: :operations, heading: "Operations"
-    **Transport.** Vantara operates the largest civilian kite fleet in the system. Cargo haulers, passenger vessels, fast couriers, and the #{future "flitters"} — autonomous local kites that function as public transit in major settlements. If you've ridden a kite and didn't own it, there's a decent chance Vantara operated it.
+    **Transport.** Vantara operates the largest civilian kite fleet in the system: cargo haulers, passenger vessels, fast couriers, and #{ref :flitter, "flitters"} assigned to public routes in major settlements. Municipal fleets, cooperatives, employers, guild carriers, and independent pilots operate alongside it.
 
     **Hospitality.** Waystations along major routes, hotels in settlements, crew rest facilities at ring hab docking ports. The quality is consistent and consistently average — not bad, not memorable, reliably clean and functional. Some people find this comforting. Others call it soulless. Vantara's branding team considers both reactions acceptable.
 
@@ -43,8 +43,8 @@ faction :vantara do
   PROSE
 end
 
-relate :rel_vantara_operates_sithari, :operates_in, :vantara, :sithari, since: 2330 do
-  prose "Vantara runs its aerial trade logistics out of #{ref :sithari, "Sithari"}, the surface hub where the system's freight is brokered."
+relate :rel_vantara_operates_keelward, :operates_in, :vantara, :keelward, since: 2330 do
+  prose "Vantara keeps its largest surface operation at #{ref :keelward, "Keelward"}, alongside the independent carriers and freight houses serving Sithari."
 end
 relate :rel_vantara_operates_keel, :operates_in, :vantara, :keel, since: 2330 do
   prose "Its convoys work #{ref :keel, "the Keel"} — the main orbital lane — which is also where its armed escorts earn their keep."

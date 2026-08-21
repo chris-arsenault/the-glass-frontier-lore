@@ -8,7 +8,7 @@ How to identify and fix AI-generated writing patterns ("slop") in lore entries. 
 
 ## Core Principle
 
-Slop is not bad writing in the traditional sense. It's writing that is competent, coherent, and completely devoid of a specific human sensibility. It reads like "a good answer" rather than "something someone thought." The goal is not to make writing worse — it's to make it specific.
+Slop is competent prose assembled from familiar rhetorical patterns instead of the subject's particular facts. It reads like a generic answer. Specific observations, attributed judgments, and concrete consequences give the prose its own character.
 
 ## Detection
 
@@ -22,11 +22,15 @@ Read three entries in a row. If they feel like they were written by the same per
 
 ### Specific Tells
 
-**Sentence rhythm monotony.** AI defaults to medium-length sentences with similar cadence. Look for: long runs without a short punchy sentence, or vice versa. Fix by varying deliberately — a one-word sentence after a long one, a fragment, an aside in dashes.
+**Sentence rhythm monotony.** AI defaults to medium-length sentences with similar cadence. Look for long runs of clauses with the same shape or emphasis. Let the content determine the rhythm: a short sentence should carry a short, forceful fact; a fragment or aside should reflect the speaker's register rather than perform variety.
 
 **The "which is" construction.** AI loves trailing relative clauses: "X, which is Y" or "X, which means Y." One per entry is fine. Three means the writing is explaining itself instead of trusting the reader.
 
-**Balance hedging.** "Both X and Y." "Not just X, but also Y." "While X, also Y." AI instinctively avoids committing to a position. Lore should commit. If something is good, say it's good. If it's bad, say it's bad. Hedging is for entries where genuine ambiguity is the point.
+**Balance hedging.** "Both X and Y." "Not just X, but also Y." "While X, also Y." These constructions often postpone the actual claim. State each relevant fact directly. When the evidence is genuinely ambiguous, identify who disagrees or what remains unmeasured.
+
+**Parallel negation.** Repeated “not X, but Y,” “it does not merely,” and “neither X nor Y” structures make the narrator sound as though it is correcting an argument no one made. Start with the positive claim. Keep a contrast only when the rejected interpretation exists in the world and matters to the subject.
+
+**Coy uncertainty.** “Nobody knows,” “nobody understands,” and a string of rhetorical questions can create mystery without giving the reader anything to inspect. State what witnesses observed, what the records lack, and where current explanations fail. Preserve the unknown; make its boundary concrete.
 
 **Conceptual language where physical language belongs.** "The resonance landscape shifts" vs "the crystal goes quiet and stays quiet for three days." Prefer the physical, concrete version. The reader should see/hear/feel what's described.
 
@@ -42,7 +46,7 @@ Patterns that only become visible across multiple entries:
 
 **Phrase recycling.** The same 3-5 word phrases appearing in unrelated entries. Grep the repo periodically for repeated phrases.
 
-**Structural cloning.** Every entry follows the same implicit template: intro paragraph, "## What It Is", "## How It Works", "## Significance." Break the template. Some entries should be a single narrative paragraph. Some should be a table. Some should start in the middle.
+**Structural cloning.** Unrelated entries should not follow the same implicit template: introduction, operation, significance, summary. Use sections that fit the subject. A long entry with several distinct, substantial sections is healthy when the material belongs together.
 
 **Emotional monotone.** Every entry hits the same wistful-but-hopeful note. The world should contain entries that are dry, angry, bored, amused, clinical, or confused.
 
@@ -61,15 +65,15 @@ For any name or phrase, ask: "Who in this world came up with this, and when?" If
 
 ### The Deletion Test
 
-Read the entry. Delete any sentence you can remove without losing information the reader needs. If the entry is 30% shorter, the deleted material was slop.
+Read the entry sentence by sentence. Delete a sentence only when it carries no unique fact, image, viewpoint, causal link, or useful atmosphere. If it contains substance behind a bad construction, rewrite it. Compression is not the aim.
 
 ## Positive Framing for Generation
 
 When prompting for new content, use positive directives:
-- "Write as a tired archivist compiling notes at the end of a shift" (specific voice)
-- "Include one detail that doesn't fit the pattern" (breaks monotony)
-- "Name this the way a salvage crew would — functional, maybe profane, definitely not poetic" (cultural grounding)
-- "Make the first sentence something that would make a reader pause" (engagement)
+- "Choose an in-world observer and state what evidence they can access" (knowledge boundary)
+- "Ground the account in a recorded incident, measured effect, or disputed report" (specific evidence)
+- "Name this the way a salvage crew would: use the crew's work and vocabulary" (cultural grounding)
+- "Give every section a distinct subject and enough detail to establish it" (substance)
 
 Avoid negative directives — they activate the pattern you're trying to avoid:
 - NOT "don't use AI-sounding language"

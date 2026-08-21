@@ -28,3 +28,11 @@ Universal physical concepts — gravity, pressure, crystalline structure, resona
 ## The Test That Actually Works
 
 Read the comparison aloud as a Shear salvager would say it. If they would have to have visited a world they have never heard of to understand it, rewrite it.
+
+## Knowledge And Framing
+
+Keep an unknown, but identify its boundary. “No surviving record names the builders” preserves a historical gap. “Surveys agree on the dimensions and disagree on whether they are artificial” preserves a scientific dispute. “Current instruments measure the effect but supply no mechanism” preserves a technical mystery. “Nobody knows” or “nobody understands” supplies none of that evidence.
+
+Use questions only when a named person or institution is asking them. The narrator states the observed facts and the competing explanations. It does not end an entry with a verdict, warning, ironic aside, or prediction about what will happen next.
+
+State the positive fact before reaching for a contrast. Repeated “not X, but Y” and parallel negations make the prose sound like a reveal. Keep such a contrast when people in Kaleidos actually hold the rejected view and the disagreement matters.

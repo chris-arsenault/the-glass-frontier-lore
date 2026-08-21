@@ -59,7 +59,7 @@ thread :reconnection do
     ### Beat 4: The Span
     **Era:** ~2305 CE (rediscovered) | **Filled by:** #{ref :span_nine, "Span Nine"}
 
-    Pre-Glassfall hardline infrastructure — a luminous filament connecting Sithari to Pelhari and Threshold Station. It had been glowing in the sky for #{elapsed :the_glassfall, :the_rekindling}. Nobody understood what it was until the reconnection effort started looking up.
+    Pre-Glassfall hardline infrastructure — a luminous filament connecting #{ref :whitefoot, "Whitefoot"} to Pelhari and Threshold Station. It had been glowing in the sky for #{elapsed :the_glassfall, :the_rekindling}. Nobody understood what it was until the reconnection effort started looking up.
 
     **Effect:** Sithari gains real-time high-bandwidth communication with the #{ref :clarisant, "Clarisant"} and #{ref :lattice_proxy_synod, "Lattice Proxy Synod"}. A structural advantage nobody else can replicate.
     **Consequence:** Two-tier communication system emerges — Sithari has broadband, everyone else has improvised relays.
@@ -68,11 +68,11 @@ thread :reconnection do
     ---
 
     ### Beat 5: The Shock of Difference
-    **Era:** ~2310s–2330s | **Partially filled by:** #{ref :shuttered_habs, "Shuttered habs"}
+    **Era:** ~2310s–2330s | **Filled by:** #{ref :verathi_exchange, "Verathi Exchange"}, #{ref :shuttered_habs, "Shuttered habs"}
 
     Surface communities reach ring habs. The cultural divergence is staggering. Communities that evolved in isolation for #{elapsed :the_glassfall, :the_rekindling} are unrecognizable. Some welcome contact — the resource-starved celebrate. Some refuse — the shuttered habs.
 
-    #{future "First Contact Story"} — a named community, a named moment, something that went wrong or right in a way that became a story people tell.
+    Verathi answered willingly. The dispute began when Sithari's commission treated the hab as a returning district while Verathi received the visitors as foreign representatives. Reciprocal missions replaced inherited jurisdiction without closing the dock.
 
     **Effect:** The system discovers it is no longer one civilization.
     **Consequence:** The naive assumption that reconnection = reunion dies. What follows is negotiation between strangers, not homecoming.
@@ -81,11 +81,11 @@ thread :reconnection do
     ---
 
     ### Beat 6: Trade Resumes
-    **Era:** ~2320s–2330s | **Filled by:** #{ref :ratters, "Ratters"}, #{ref :coremark, "Coremark"}, #{ref :vantara, "Vantara"}, #{ref :keel, "The Keel"}
+    **Era:** ~2310s–2330s | **Filled by:** #{ref :meridian_crop_failure, "Meridian Crop Failure"}, #{ref :ratters, "Ratters"}, #{ref :coremark, "Coremark"}, #{ref :vantara, "Vantara"}, #{ref :keel, "The Keel"}
 
     Salvage begins. Trade networks form. Vantara is founded to handle the boring essential work of logistics. The Keel is established as the primary orbital trade lane.
 
-    #{future "First Trade Crisis"} — the specific scarcity that drove the first trades, the named settlement that needed what only another community could provide.
+    Meridian's crop failure made the first restored signal materially useful. Glasswake sent living soil and varied root stock; Meridian returned tuned components. Their improvised environmental manifests became the basis for later living-cargo runs.
 
     **Effect:** Economic interdependence. Communities that were self-sufficient during the Famine become dependent on trade.
     **Consequence:** Disconnection would now hurt MORE than during the Famine — communities have forgotten how to do without.
@@ -94,7 +94,7 @@ thread :reconnection do
     ---
 
     ### Beat 7: The Constrained Conflict
-    **Era:** 2340–2378 | **Filled by:** The Contested Reach (era), #{ref :shardfall, "Shardfall"}, #{ref :coriolis_breach, "Coriolis breach"}
+    **Era:** 2340–2378 | **Filled by:** The Contested Reach (era), #{ref :shardfall, "Shardfall"}, #{ref :coriolis_breach, "Coriolis breach"}, #{ref :hinge_six_occupation, "Hinge Six Occupation"}
 
     Disputes over routes, resources, hab sovereignty. But the violence is always limited by the **fear of disconnection:**
 
@@ -102,7 +102,7 @@ thread :reconnection do
     - Remote mining rigs are fair game — they're already disconnected
     - Vantara's trade infrastructure is treated as off-limits by unspoken agreement
 
-    #{future "Comm Hub Incident"} — a faction storms and holds a civilian communication hub to control information flow. This becomes the defining line that nobody crosses.
+    Third Arc Defense occupied Hinge Six and filtered traffic during an embargo. The station keepers shut the relay, and carriers boycotted the branch until the occupiers withdrew. Later forces could fight around a relay but did not seize its civilian message room.
 
     **Span downstream:** Communication inequality (from Beat 4) becomes a Contested Reach grievance. The demand for Span-quality access feeds into the Span replication attempt.
 
@@ -157,10 +157,13 @@ relate :rel_rc_fills_glasswake, :fills_beat, :reconnection, :glasswake do prose 
 relate :rel_rc_fills_hab_meridian, :fills_beat, :reconnection, :hab_meridian do prose "#{ref :hab_meridian, "Hab Meridian"} fills the First Signal beat: the hab that answered." end
 relate :rel_rc_fills_span_nine, :fills_beat, :reconnection, :span_nine do prose "#{ref :span_nine, "Span Nine"} fills the Span beat: pre-Glassfall hardline that handed Sithari a broadband advantage." end
 relate :rel_rc_fills_shuttered_habs, :fills_beat, :reconnection, :shuttered_habs do prose "The #{ref :shuttered_habs, "shuttered habs"} fill the Shock-of-Difference beat: communities that refused contact when it came." end
+relate :rel_rc_fills_verathi_exchange, :fills_beat, :reconnection, :verathi_exchange do prose "The #{ref :verathi_exchange, "Verathi Exchange"} fills the willing-contact dispute: reciprocal recognition replaced Sithari's claim of inherited jurisdiction." end
 relate :rel_rc_fills_ratters, :fills_beat, :reconnection, :ratters do prose "The #{ref :ratters, "ratters"} fill the Trade-Resumes beat: salvage crews reopening the networks." end
 relate :rel_rc_fills_coremark, :fills_beat, :reconnection, :coremark do prose "#{ref :coremark, "Coremark"} fills the Trade-Resumes beat: an early extraction operator in the reconnection boom." end
 relate :rel_rc_fills_vantara, :fills_beat, :reconnection, :vantara do prose "#{ref :vantara, "Vantara"} fills the Trade-Resumes beat: founded to handle the logistics of the reopening networks." end
 relate :rel_rc_fills_keel, :fills_beat, :reconnection, :keel do prose "#{ref :keel, "the Keel"} fills the Trade-Resumes beat: established as the primary orbital trade lane." end
+relate :rel_rc_fills_meridian_crop_failure, :fills_beat, :reconnection, :meridian_crop_failure do prose "The #{ref :meridian_crop_failure, "Meridian Crop Failure"} fills the first trade crisis: living cargo moved from Glasswake while tuned components returned from Meridian." end
 relate :rel_rc_fills_shardfall, :fills_beat, :reconnection, :shardfall do prose "#{ref :shardfall, "Shardfall"} fills the Constrained-Conflict beat: a Contested Reach flashpoint bounded by the fear of disconnection." end
 relate :rel_rc_fills_coriolis, :fills_beat, :reconnection, :coriolis_breach do prose "The #{ref :coriolis_breach, "Coriolis Breach"} fills the Constrained-Conflict beat: a forced-entry incident that became a sovereignty rallying point." end
+relate :rel_rc_fills_hinge_six_occupation, :fills_beat, :reconnection, :hinge_six_occupation do prose "The #{ref :hinge_six_occupation, "Hinge Six Occupation"} established that armed factions could not filter civilian relay traffic without losing the route itself." end
 relate :rel_rc_fills_tempered_accord, :fills_beat, :reconnection, :tempered_accord do prose "The #{ref :tempered_accord, "Tempered Accord"} fills the Framework beat: the mediation structure born of Bloom cooperation and Famine memory." end

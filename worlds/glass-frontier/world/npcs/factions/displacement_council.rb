@@ -8,7 +8,7 @@ faction :displacement_council do
 
   log "Settled: a neutral containment order, focused on maintaining Bloom Zone cordons. Trusted by all factions because it stayed out of the Bitter Reach, and stretched thin as a result."
 
-  question "Internal tensions: the containment mission against members who want to reclaim their original homes. How thin can the Council stretch before something breaks?"
+  log "2026-08-21 — The Karet families' supervised-entry request now begins a remote-recovery compromise. One new major zone forces closures and longer rotations; a second simultaneous opening forces the Council to choose which boundary receives full coverage."
 
   prose <<~PROSE
     A neutral containment order born from the #{ref :displacement, "Displacement"} refugee crisis. The Council maintains #{ref :bloom_zones, "Bloom Zone"} containment cordons, provides humanitarian support to displaced communities, and serves as a trusted mediator precisely because they refused to take sides during the Bitter Reach.
@@ -20,13 +20,25 @@ faction :displacement_council do
 
     **Recruitment.** The Council draws from Bloom survivors, #{ref :tuners, "Tuners"} willing to work in extreme resonance conditions, and #{ref :fae, "fae"} whose spatial dislocation management skills translate directly to Bloom Zone operations. #{ref :gnomes, "Gnomes"} are valuable for calibration but strictly exposure-limited.
   PROSE
+  prose <<~PROSE, section: :operations, heading: "Remote Reach"
+    Since #{ref :pell_four, "Pell Four"}, the Council has adapted #{ref :remote_cutting, "remote cutters"} for containment work. A cutter can place an instrument, move damping mass, or recover a damaged buoy from a boundary that would be lethal to an EVA team.
+
+    Council cutters work one boundary section at a time. Each has an isolated clock, a named field operator, and a stop condition agreed before launch. The recovery route is planned with the same care as the outward cut. If a remote tool cannot be brought home, the crew must know what signal and material it leaves inside the zone.
+
+    The method extends the Council's reach and adds another system that a thin cordon team must maintain. #{ref :outside, "Outside"} now keeps two modified cutters beside its buoy stores. They remain idle during ordinary wall work and deploy when a mount cannot be reached from the boundary walk.
+  PROSE
+  prose <<~PROSE, section: :tensions, heading: "Return Requests"
+    The Karet families have asked for supervised entry to recover household records, remains, and tools from #{ref :karet_three, "Karet-3"}. The Council still refuses a physical crossing. It now permits remote recovery from a stable boundary: families rank the requested objects, a cutter reaches the site, and the #{ref :karet_spool, "Karet Spool"} holds a return route for equipment that can be brought out without a person entering. The compromise recovers little and does not authorize resettlement, but it gives other displaced communities a procedure they can demand.
+
+    Existing cordons already consume the Council's trained wall crews and stillwater allotment. One new major zone would close humanitarian offices, lengthen rotations, and leave smaller stations on remote watch. A second opening before those crews returned would force the First Threshold to choose between a failing established cordon and the new boundary. Neutrality cannot supply a team that does not exist.
+  PROSE
   prose <<~PROSE, section: :tensions, heading: "Tensions"
-    The Council is stretched thin. The zones are expanding slowly. The stillwater supply for damping buoys depends on the Conclave's willingness to provide it — a willingness that is real but grudging. New zones appear in unpredictable locations. The #{future "Fracture"}'s Bloom manifestations are outside the Council's operational range.
+    The Council is stretched thin. The zones are expanding slowly. The stillwater supply for damping buoys depends on the Conclave's willingness to provide it — a willingness that is real but grudging. New zones appear in unpredictable locations. #{ref :the_fracture, "The Fracture"}'s Bloom manifestations are outside the Council's operational range.
 
     The Council's neutrality is its greatest asset and its greatest constraint. Trusted by everyone, controlled by no one, funded by voluntary contributions from factions that could stop contributing at any time. The Accord's humanitarian provisions support the Council formally, but "formal support" means budgets subject to political negotiation.
   PROSE
   prose <<~PROSE, section: :present_day, heading: "Present Day"
-    #{ref :dern_talish, "Dern Talish"} leads. Containment holds. The zones have not contracted.
+    #{ref :dern_talish, "Dern Talish"} leads. Containment holds. The zones have not contracted. Outside keeps Karet-3 stable, and the closed boundary at Pell remains under observation because its array records still contain fragments of #{ref :pell_answer, "the Pell Answer"}.
   PROSE
 end
 
@@ -36,12 +48,30 @@ end
 relate :rel_dc_maintains_liras_wall, :maintains, :displacement_council, :liras_wall, since: 2384 do
   prose "It maintains #{ref :liras_wall, "Lira's Wall"} — the containment system the cordons are built around — as its single most important piece of infrastructure."
 end
+relate :rel_dc_maintains_outside, :maintains, :displacement_council, :outside, since: 2427 do
+  prose "The Council staffs and maintains #{ref :outside, "Outside"}, the permanent cordon station at Karet-3."
+end
+relate :rel_dc_maintains_karet_three, :maintains, :displacement_council, :karet_three, since: 2426 do
+  prose "Its cordon keeps #{ref :karet_three, "Karet-3"} inside a stable boundary."
+end
+relate :rel_dc_maintains_remote_cutting, :maintains, :displacement_council, :remote_cutting, since: 2434 do
+  prose "The Council maintains modified remote cutters for work beyond unsafe cordon boundaries."
+end
+relate :rel_dc_studies_pell_answer, :studies, :displacement_council, :pell_answer, since: 2434 do
+  prose "Pell's sealed array records remain under Council study, with each fragment of the Answer stored and played separately."
+end
+relate :rel_dc_participated_pell_four, :participated_in, :displacement_council, :pell_four do
+  prose "Council teams raised the Pell cordon, separated its four receivers, and closed the new boundary."
+end
+relate :rel_dc_cooperates_pell_assembly, :cooperates_with, :displacement_council, :pell_freight_assembly, since: 2434 do
+  prose "The Assembly supplies crews, haulers, and site access for continued Council work at Pell Cut."
+end
 
 # --- history (moments) ---
 moment :displacement_council_formed, year: 2380, of: :displacement_council do
-  prose "Born from the #{ref :displacement, "Displacement"} — Bloom refugees who first organized for advocacy (settlement rights, resource access, recognition) and turned out to be the people best equipped to contain the thing that had displaced them. Neutrality was written into the founding charter from day one: the founders had just watched the #{ref :bloom_coalition, "Bloom Coalition"} strain as factions used the crisis for leverage, and they prohibited the Council from ever taking sides. You cannot hold cordons if half the system won't talk to you."
+  prose "Born from the #{ref :displacement, "Displacement"} — Bloom refugees who first organized for advocacy (settlement rights, resource access, recognition) and turned out to be the people best equipped to contain the thing that had displaced them. Neutrality was written into the founding charter from day one: the founders had just watched the #{ref :bloom_coalition, "Bloom Coalition"} strain as factions pressed their own interests through the crisis, and they prohibited the Council from ever taking sides. You cannot hold cordons if half the system won't talk to you."
   effects { set :displacement_council, standing: :active }
 end
 moment :displacement_council_takes_cordons, year: 2384, of: :displacement_council do
-  prose "It formalized as a standing containment order and took the physical Bloom cordons over from the #{ref :bloom_coalition, "Bloom Coalition"}. The first generation of Thresholds came straight from the Coalition's field-command leads. The first burned out fast — the job was impossible at that scale — and #{future "Oram Sells"} became the second First Threshold, held it eleven years, and built the Council into its modern form. #{ref :dern_talish, "Dern Talish"} is the fourth."
+  prose "It formalized as a standing containment order and took the physical Bloom cordons over from the #{ref :bloom_coalition, "Bloom Coalition"}. The first First Threshold burned out quickly under the scale of the job. A second held the office through the Council's early expansion. #{ref :oram_sells, "Oram Sells"} became the third in 2421 and served until 2432; #{ref :dern_talish, "Dern Talish"} is the fourth."
 end

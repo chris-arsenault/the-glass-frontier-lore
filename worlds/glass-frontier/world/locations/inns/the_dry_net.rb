@@ -1,0 +1,56 @@
+installation :the_dry_net do
+  name "The Dry Net"
+  subkind :installation
+  status :complete
+  tags :trade, :salvage, :transport, :household, :surface
+  prominence :marginal
+
+  prose <<~PROSE
+    The Dry Net is a lodging house and hiring room on #{ref :glasswake, "Glasswake"}'s dock fringe. It occupies a former net loft between the harbor wash yard and the road climbing toward the mineral offices. Ratter crews sleep upstairs, steppe carriers take the broad ground rooms, and cargo hands come through the front hall to read work slips nailed beneath the tide and mine-shift boards.
+
+    The name refers to the old drying floor under the rafters. The nets are gone. Their ceiling rails now carry curtains, spare bedding, and the numbered bags issued to crews waiting for a berth.
+  PROSE
+
+  prose <<~PROSE, section: :structure, heading: "Three Working Floors"
+    The ground floor is stone, drained, and meant for wet boots. A long room faces the hiring wall. Behind it, the kitchen opens before the first mine lift and remains active until the harbor tide turns. Two side rooms hold cargo samples, contract witnesses, and arguments that should not occupy the meal benches.
+
+    Sleeping rooms fill the upper floor. Most contain four narrow bunks and one lockable chest fixed through the wall. Larger crews rent a curtained bay beneath the old roof rails. Every bed comes with wash water, a blanket, and the right to leave one sealed equipment case in the dry store below.
+
+    The cellar is divided by dead ceramic walls. Energized tools, ringglass samples, and remote-cut goods stay there until a yard has sounded them. The building's owners added the divisions after a salvager carried an active seam into an upstairs room and every bed frame on the floor began pulling east.
+  PROSE
+
+  prose <<~PROSE, section: :operations, heading: "The Hiring Wall"
+    Work slips name the vessel or yard, the expected watch, the cargo class, the person who can close the job, and whether the pay is cash, work credit, or a share of recovery. A blank in any position draws a red slash from the house clerk. Slashed slips remain on the wall so nobody can post the same offer again without answering the omission.
+
+    Pell work occupies one board. Independent harbor work occupies another. A narrow third board carries return passages: captains offering bunks to anyone willing to load at the next stop, herd drivers seeking another pair of hands, and stranded workers trading labor for a route inland.
+
+    Hiring happens in the open room. A private promise may still be valid, but it receives no help from the house when pay, injury, or cargo changes the bargain. Crews value that boundary enough to tolerate the clerk's interruptions.
+  PROSE
+
+  prose <<~PROSE, section: :people, heading: "Between Ship and Road"
+    The kitchen serves harbor stew, steppe bread, fried river grain, and whatever fish arrived too late for the morning market. Long tables mix people whose work rarely shares a workplace. A claim Tuner may sit beside a wool grader, a shower pilot beside a channel-boat family waiting on freight.
+
+    Equipment stays below, so the room has little of the instrument noise common in a yard canteen. Hiring terms, route closures, and ore prices carry across it instead. The staff keeps chalk behind the counter for drawing a seam, load path, or disputed cargo frame on the tabletops. The tables are scrubbed after the late meal and seldom return to bare wood.
+
+    People who remain after their job ends can pay by taking a kitchen, laundry, or night-desk shift. The arrangement catches injured workers and crews whose ship left without them. It also gives the Dry Net a staff that recognizes most kinds of trouble before they reach the front door.
+  PROSE
+
+  prose <<~PROSE, section: :present_day, heading: "The Plate Rush"
+    The glasswurm colony at Pell Cut has filled the hiring wall with shoring, survey, and loose-plate work. Licensed jobs prohibit powered sounding inside the stockpile. Several unslashed slips omit that condition in smaller writing elsewhere on the page.
+
+    Traders are offering “Pell plates” from locked cases in the side rooms. The Dry Net allows the meetings and refuses the cases space in its dry store. Two crews have hired guards for material that no Glasswake toolmaker has agreed to grade.
+  PROSE
+end
+
+relate :rel_dry_net_located_glasswake, :located_in, :the_dry_net, :glasswake do
+  prose "The Dry Net stands on Glasswake's dock fringe between the harbor wash yard and the road to the mineral offices."
+end
+relate :rel_pell_assembly_maintains_dry_net, :maintains, :pell_freight_assembly, :the_dry_net do
+  prose "The Assembly maintains the hiring boards, equipment store, and work-credit desk while resident tenants run the lodging rooms and kitchen."
+end
+relate :rel_dry_net_resonates_ratters, :resonates_with, :the_dry_net, :ratters do
+  prose "Ratter crews use its hiring wall, sealed equipment store, and cheap bays between claims."
+end
+relate :rel_dry_net_resonates_glasswurm, :resonates_with, :the_dry_net, :glasswurm do
+  prose "Pell's glasswurm colony has brought shoring crews, plate buyers, and questionable harvest offers into the house."
+end

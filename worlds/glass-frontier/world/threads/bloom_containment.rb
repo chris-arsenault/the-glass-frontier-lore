@@ -38,7 +38,7 @@ thread :bloom_containment do
     ---
 
     ### Beat 2: The Span Demand
-    **Era:** 2340s–2350s | **Partially filled by:** #{ref :span_nine, "Span Nine"}
+    **Era:** 2340s–2350s | **Filled by:** #{ref :span_nine, "Span Nine"}, #{ref :second_span_trial, "Second Span Trial"}, #{ref :teren_voss, "Teren Voss"}
 
     #{ref :span_nine, "Span Nine"} gives Sithari communication capabilities nobody else can replicate. The political demand for equal access grows during the Contested Reach. Coremark, flush with cheap ringglass and engineering ambition, backs a Span replication project.
 
@@ -46,21 +46,21 @@ thread :bloom_containment do
 
     **Downstream → post-Bloom:** "Trying to build another Span" becomes shorthand for overreach. But the underlying inequality persists — Sithari still has the Span, nobody else does. The political demand doesn't disappear; it becomes unspeakable. This suppressed demand is a future pressure point.
 
-    **Unfilled beat:** #{future "Span Replication Lead"} — the named engineer who led the project. Survives the cascade. Carries the guilt.
+    #{ref :teren_voss, "Teren Voss"} led the trial, survived, and preserved the readings that proved its abandoned guide chain carried the later cascade.
 
     ---
 
     ### Beat 3: The Overload
     **Era:** ~2378 | **Filled by:** #{ref :pyre, "Pyre"}, #{ref :coremark, "Coremark"}
 
-    Pyre refinery cascades. Not a single ignored warning — a general environment where nobody was looking at the right data. Like Chernobyl: a culture of complacency, safety procedures treated as bureaucratic obstacles, operators who'd seen similar readings dozens of times and nothing happened. The resonance ecology was stressed by decades of extraction, the Span replication experiment had fractured local space nearby, and Pyre's overload was the nudge that tipped a system already past its limits.
+    Pyre refinery cascades. No single warning carried the whole failure. Safety margins had become production obstacles, operators had seen similar readings pass without consequence, and the abandoned guide chain lay outside the refinery's own hazard model. The overload entered that prepared route and propagated through the mid-drift.
 
     **Callback ← Knowledge Decay:** Nobody had the theoretical framework to distinguish normal fluctuation from cascade precursor. The elves would have recognized it instantly. The knowledge gap made this invisible until it was lethal.
 
     ---
 
     ### Beat 4: The Cascade
-    **Era:** 2378 | **Filled by:** #{future "The Silent Bloom"}, #{ref :bloom_zones, "Bloom Zones"}
+    **Era:** 2378 | **Filled by:** #{ref :the_silent_bloom, "The Silent Bloom"}, #{ref :bloom_zones, "Bloom Zones"}
 
     What the cascade produces is what a zone is like, so the beat borrows the description rather than restating it:
 
@@ -79,7 +79,7 @@ thread :bloom_containment do
 
     **Downstream → Displacement Council:** The Council recruits from Bloom diaspora communities. They have expertise in the resonance environment that broke, and personal motivation to contain it.
 
-    **Unfilled beat:** A specific lost hab — named, with enough character that losing it means something. A craft, a tradition, a food that now only exists in diaspora form.
+    #{ref :latch, "Latch"} is one such hab: a freight-transfer community whose surviving registry now sits at Gray Line. Dern Talish left it at four years old.
 
     ---
 
@@ -88,7 +88,7 @@ thread :bloom_containment do
 
     The response takes days to a week. The people who push for it: faction leaders fed up with the Contested Reach who see an opportunity to unify, neutrals who recognize the danger's scale, and — invisibly — elven operatives leaking the right message transcript to the right desk, a trader (elf in disguise) offering free transport to the Bloom zones, small nudges that put the right people in the right places. [DM]
 
-    The #{future "Lumenshard Conservatory"} is the last major faction to join. They initially argue that containment is impossible and the resonance ecology should be allowed to find its own balance. They join when the Bloom reaches their territory and they realize there is no "natural balance" when reality is coming apart.
+    The #{ref :lumenshard_conservatory, "Lumenshard Conservatory"} is the last major faction to join. They initially argue that containment is impossible and the resonance ecology should be allowed to find its own balance. They join when the Bloom reaches their territory and they realize there is no "natural balance" when reality is coming apart.
 
     **Callback ← Reconnection:** The Coalition can coordinate because the communication infrastructure survived the Contested Reach (Reconnection Beat 7).
 
@@ -99,9 +99,9 @@ thread :bloom_containment do
     ---
 
     ### Beat 7: The Turning Point
-    **Era:** ~2357 | **Partially filled by:** #{ref :lira_vashtenri, "Lira Vashtenri"}, #{ref :liras_wall, "Lira's Wall"}
+    **Era:** 2380 | **Filled by:** #{ref :lira_vashtenri, "Lira Vashtenri"}, #{ref :liras_wall, "Lira's Wall"}, #{ref :cinder_gap, "Cinder Gap"}
 
-    Lira Vashtenri is a Shear mechanic. Coremark-employed. Blue collar. She works at a refinery — not Pyre, a different one — and somebody notices that her installation has almost none of the maintenance issues that plague other Shear refineries. They trace it to her. She's been making adjustments to the ringglass arrays by feel — small modifications not in any manual that keep the resonance ecology around her installation stable.
+    Lira Vashtenri is a former Coremark mechanic from #{ref :crowncut_refinery, "Crowncut Refinery"}. Its service books show years of small array corrections that kept the local resonance stable. Foreman #{ref :pera_soll, "Pera Soll"} preserved those records.
 
     When the Coalition needs containment expertise, someone remembers the mechanic whose refinery didn't break. Lira is pulled from her regular work, given resources she's never had, and asked to scale what she was doing instinctively to the Bloom Zone boundary.
 
@@ -112,7 +112,7 @@ thread :bloom_containment do
     ---
 
     ### Beat 8: The Institutions
-    **Era:** 2358–2362 | **Filled by:** #{ref :shear_compact, "Shear Compact"}, #{ref :displacement_council, "Displacement Council"}
+    **Era:** 2380–2384 | **Filled by:** #{ref :shear_compact, "Shear Compact"}, #{ref :displacement_council, "Displacement Council"}
 
     Emergency measures become permanent. The Shear Compact formalizes salvage regulation — its founding charter includes a neutrality provision and a structured mediation process that everyone hates and everyone uses because it's better than fighting. This becomes the legal template the Accord architects adapt.
 
@@ -123,7 +123,7 @@ thread :bloom_containment do
     ---
 
     ### Beat 9: The Fracture
-    **Era:** 2362–2365 | **Filled by:** #{future "The Bitter Reach"}
+    **Era:** 2384–2407 | **Filled by:** #{ref :the_bitter_reach, "The Bitter Reach"}
 
     The Bloom stabilizes. The existential pressure eases. Old disputes resurface, sharpened by debts from the cooperation. The Lumenshard gets it worst: "You didn't show up until it was at your door." Coremark goes underground — their infrastructure and personnel become a criminal network. The same "move fast" culture that caused the Bloom now drives a black market in Bloom Zone artifacts and duskgrain.
 
@@ -134,7 +134,7 @@ thread :bloom_containment do
     ---
 
     ### Beat 10: The Ongoing
-    **Era:** 2365–present | **Filled by:** #{ref :displacement_council, "Displacement Council"}, #{ref :bloom_zones, "Bloom Zones"}, #{ref :dern_talish, "Dern Talish"}
+    **Era:** 2407–present | **Filled by:** #{ref :displacement_council, "Displacement Council"}, #{ref :bloom_zones, "Bloom Zones"}, #{ref :dern_talish, "Dern Talish"}
 
     Containment holds but the Bloom Zones are expanding slowly. The Displacement Council is stretched thin. Dern Talish leads containment and secretly cooperates with elven operatives. [DM] Coremark smuggles Bloom Zone relics — including duskgrain — through the black market.
 
@@ -163,9 +163,12 @@ relate :rel_bc_fills_coremark, :fills_beat, :bloom_containment, :coremark do pro
 relate :rel_bc_fills_vantara, :fills_beat, :bloom_containment, :vantara do prose "#{ref :vantara, "Vantara"} fills the Environment beat: its safety-margin culture is a reaction to the permissive Rekindling era." end
 relate :rel_bc_fills_keel, :fills_beat, :bloom_containment, :keel do prose "#{ref :keel, "the Keel"} fills the Environment beat: the lane that carried the cheap-ringglass boom." end
 relate :rel_bc_fills_span_nine, :fills_beat, :bloom_containment, :span_nine do prose "#{ref :span_nine, "Span Nine"} fills the Span Demand beat: the inimitable infrastructure whose inequality drove the replication project." end
+relate :rel_bc_fills_second_span_trial, :fills_beat, :bloom_containment, :second_span_trial do prose "The #{ref :second_span_trial, "Second Span Trial"} fills the failed response to that demand and leaves the guide used by the cascade." end
+relate :rel_bc_fills_teren_voss, :fills_beat, :bloom_containment, :teren_voss do prose "#{ref :teren_voss, "Teren Voss"} led the trial and preserved its rejected telemetry." end
 relate :rel_bc_fills_pyre, :fills_beat, :bloom_containment, :pyre do prose "#{ref :pyre, "Pyre"} fills the Overload beat: the refinery cascade that tipped a stressed resonance ecology over." end
 relate :rel_bc_fills_bloom_zones, :fills_beat, :bloom_containment, :bloom_zones do prose "The #{ref :bloom_zones, "Bloom Zones"} fill the Cascade and Ongoing beats: the distorted reality the cascade produced." end
 relate :rel_bc_fills_displacement, :fills_beat, :bloom_containment, :displacement do prose "The #{ref :displacement, "Displacement"} fills the Refugees beat: the evacuation that stripped Hab-Worlders of their defining environment." end
+relate :rel_bc_fills_latch, :fills_beat, :bloom_containment, :latch do prose "#{ref :latch, "Latch"} gives the Displacement beat a particular lost community and surviving registry." end
 relate :rel_bc_fills_bloom_coalition, :fills_beat, :bloom_containment, :bloom_coalition do prose "The #{ref :bloom_coalition, "Bloom Coalition"} fills the Coalition beat: the multi-faction response to the cascade." end
 relate :rel_bc_fills_lira, :fills_beat, :bloom_containment, :lira_vashtenri do prose "#{ref :lira_vashtenri, "Lira Vashtenri"} fills the Turning Point beat: the Shear mechanic whose instinct became the containment principle." end
 relate :rel_bc_fills_liras_wall, :fills_beat, :bloom_containment, :liras_wall do prose "#{ref :liras_wall, "Lira's Wall"} fills the Turning Point beat: the damping array that first held a Bloom boundary." end

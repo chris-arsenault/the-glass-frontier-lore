@@ -50,7 +50,7 @@ waiting on unwritten entities. Targets are in `graph-topology.md`.
 
 ## F) Prose Quality
 
-**Check:** repeated phrasing across entries (corpus-level slop); entries long enough to split; prominence cross-reference violations.
+**Check:** repeated phrasing across entries (corpus-level slop); repeated passages that should be embedded; sections chiefly about a distinct entity that should own those facts; prominence cross-reference violations. Long articles and many substantial sections are not defects by themselves.
 
 **Automated:** the linter catches tag-taxonomy violations, prominence reach, orphans, and double articles.
 

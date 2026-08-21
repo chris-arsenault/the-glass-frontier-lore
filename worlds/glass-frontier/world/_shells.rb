@@ -6,29 +6,11 @@ geographic_location :ashenmaw do
   status :shell
   prominence :recognized
 end
-installation :ashvane do
-  name "Ashvane"
-  subkind :settlement
-  status :shell
-  prominence :recognized
-end
-ability :attunement do
-  name "Attunement"
-  subkind :innate_ability
-  status :shell
-  prominence :recognized
-end
 resource :communication_shard do
   name "Communication Shard"
   subkind :data
   status :shell
   dm!
-end
-incident :compact_charter do
-  name "Compact Charter"
-  subkind :founding
-  status :shell
-  prominence :recognized
 end
 geographic_location :crucible do
   name "Crucible"
@@ -42,41 +24,11 @@ resource :crystal_core_lantern do
   status :shell
   prominence :mythic
 end
-npc :dez_morrn do
-  name "Dez Morrn"
-  subkind :npc
-  status :shell
-  prominence :forgotten
-end
-incident :disappearance_of_the_elves do
-  name "Disappearance of the Elves"
-  subkind :migration
-  status :shell
-  prominence :recognized
-end
 npc :duthrek do
   name "Duthrek"
   subkind :leader
   status :shell
   prominence :recognized
-end
-phenomenon :glassfall_showers do
-  name "Glassfall showers"
-  subkind :physical_phenomenon
-  status :shell
-  prominence :recognized
-end
-npc :goruth do
-  name "Goruth"
-  subkind :npc
-  status :shell
-  prominence :forgotten
-end
-geographic_location :kaleidos do
-  name "Kaleidos"
-  subkind :celestial_body
-  status :shell
-  prominence :mythic
 end
 geographic_location :kaleidos_orbit do
   name "Kaleidos Orbit"
@@ -84,64 +36,17 @@ geographic_location :kaleidos_orbit do
   status :shell
   prominence :mythic
 end
-geographic_location :korvath do
-  name "Korvath"
-  subkind :celestial_body
-  status :shell
-  prominence :recognized
-end
-installation :ledgerfall do
-  name "Ledgerfall"
-  subkind :settlement
-  status :shell
-  prominence :marginal
-end
-faction :lumenshard_conservatory do
-  name "Lumenshard Conservatory"
-  subkind :research_body
-  status :shell
-  prominence :recognized
-end
 npc :ol_dent do
   name "Ol'dent"
   subkind :specialist
   status :shell
   prominence :forgotten
 end
-resource :pre_glassfall_transmissions do
-  name "Pre-Glassfall Transmissions"
-  subkind :data
-  status :shell
-end
-faction :prismwell_kite_guild do
-  name "Prismwell Kite Guild"
-  subkind :company
-  status :shell
-  prominence :recognized
-end
-npc :renn_duvasi do
-  name "Renn Duvasi"
-  subkind :specialist
-  status :shell
-  prominence :recognized
-end
-phenomenon :resonance_depletion do
-  name "Resonance Depletion"
-  subkind :physical_phenomenon
-  status :shell
-  prominence :recognized
-end
 faction :ring_collective do
   name "Ring Collective"
   subkind :government
   status :shell
   prominence :recognized
-end
-npc :sable_korr do
-  name "Sable Korr"
-  subkind :dissident
-  status :shell
-  prominence :forgotten
 end
 npc :shei_lush do
   name "Shei Lush"
@@ -153,12 +58,6 @@ era :signal_famine do
   name "Signal Famine"
   subkind :historical_period
   status :shell
-end
-npc :span_replication_lead do
-  name "Span Replication Lead"
-  subkind :specialist
-  status :shell
-  prominence :recognized
 end
 era :the_accord do
   name "The Accord"
@@ -178,41 +77,17 @@ conflict :the_bloom do
   status :shell
   prominence :renowned
 end
-installation :the_choir_fragment do
-  name "The Choir Fragment"
-  subkind :landmark
-  status :shell
-  prominence :recognized
-end
 era :the_contested_reach do
   name "The Contested Reach"
   subkind :historical_period
   status :shell
   prominence :renowned
 end
-faction :the_continuity do
-  name "The Continuity"
-  subkind :government
-  status :shell
-  prominence :recognized
-end
-conflict :the_corridor_disputes do
-  name "The Corridor Disputes"
-  subkind :dispute
-  status :shell
-  prominence :recognized
-end
 npc :the_dissident do
   name "The Dissident"
   subkind :dissident
   status :shell
   dm!
-end
-incident :the_fermata_open do
-  name "The Fermata Open"
-  subkind :dispute
-  status :shell
-  prominence :recognized
 end
 geographic_location :the_fracture do
   name "The Fracture"
@@ -243,35 +118,11 @@ era :the_ring_age do
   status :shell
   prominence :mythic
 end
-incident :the_silent_bloom do
-  name "The Silent Bloom"
-  subkind :disaster
-  status :shell
-  prominence :renowned
-end
 geographic_location :the_sun do
   name "The Sun"
   subkind :celestial_body
   status :shell
   prominence :mythic
-end
-resource :tuning_compass do
-  name "Tuning compass"
-  subkind :device
-  status :shell
-  prominence :renowned
-end
-installation :underlayers do
-  name "Underlayers"
-  subkind :settlement
-  status :shell
-  prominence :recognized
-end
-incident :vashtenri_thesis do
-  name "Vashtenri Thesis"
-  subkind :discovery
-  status :shell
-  prominence :marginal
 end
 geographic_location :vastine do
   name "Vastine"
@@ -284,12 +135,6 @@ npc :venn_talis do
   subkind :npc
   status :shell
   prominence :recognized
-end
-installation :verathi do
-  name "Verathi"
-  subkind :settlement
-  status :shell
-  prominence :marginal
 end
 geographic_location :vitrael do
   name "Vitrael"
@@ -315,7 +160,7 @@ relate :rel_crucible_inner_of_kaleidos, :inner_of, :crucible, :kaleidos do
   prose "It is the world inside #{ref :kaleidos, "Kaleidos"}, first of the system's order."
 end
 relate :rel_korvath_orbits_the_sun, :orbits, :korvath, :the_sun do
-  prose "#{ref :korvath, "Korvath"} orbits beyond Kaleidos — a hard, surface-world home to #{ref :coremark, "Coremark"} and the fences that move its goods."
+  prose "#{ref :korvath, "Korvath"} orbits beyond Kaleidos, a temperate surface world of old ports, river settlements, and the northern industrial belt where #{ref :coremark, "Coremark"} began."
 end
 relate :rel_korvath_inner_of_vitrael, :inner_of, :korvath, :vitrael do
   prose "It sits just inside #{ref :vitrael, "Vitrael"}."
@@ -333,7 +178,7 @@ relate :rel_ashenmaw_inner_of_the_fracture, :inner_of, :ashenmaw, :the_fracture 
   prose "It sits inside #{ref :the_fracture, "the Fracture"}."
 end
 relate :rel_ashvane_orbits_ashenmaw, :orbits, :ashvane, :ashenmaw do
-  prose "#{ref :ashvane, "Ashvane"} is a settlement-world of #{ref :ashenmaw, "Ashenmaw"}, dependent on the lane for nearly everything it can't make."
+  prose "#{ref :ashvane, "Ashvane"} orbits #{ref :ashenmaw, "Ashenmaw"}; its Shadewell port receives the Keel while surface towns maintain their own water, food, cooling, and repair systems."
 end
 relate :rel_the_fracture_orbits_the_sun, :orbits, :the_fracture, :the_sun do
   prose "#{ref :the_fracture, "the Fracture"} runs a far, cold orbit — and the Bloom Zones' worst edge reaches toward it."
@@ -343,20 +188,6 @@ relate :rel_the_fracture_inner_of_vastine, :inner_of, :the_fracture, :vastine do
 end
 relate :rel_vastine_orbits_the_sun, :orbits, :vastine, :the_sun do
   prose "#{ref :vastine, "Vastine"} holds the system's outermost orbit, with #{ref :pelhari, "Pelhari"} among its moons."
-end
-
-# The Silent Bloom — the era-defining industrial catastrophe (shell)
-relate :rel_silent_bloom_caused_bloom_zones, :caused, :the_silent_bloom, :bloom_zones do
-  prose "The Bloom is what made the #{ref :bloom_zones, "Bloom Zones"}: uncontrolled resonance amplification that warped the crystal substrate of whole habs and left reality unstable where it passed."
-end
-relate :rel_silent_bloom_caused_displacement, :caused, :the_silent_bloom, :displacement do
-  prose "It forced the #{ref :displacement, "Displacement"} — the mass evacuation of the mid-drift habs, refugees scattered across a system that hadn't planned for them."
-end
-relate :rel_silent_bloom_caused_bloom_coalition, :caused, :the_silent_bloom, :bloom_coalition do
-  prose "And it forced cooperation: the #{ref :bloom_coalition, "Bloom Coalition"}, an alliance of communities that had been at each other's throats days before containment became the only thing that mattered."
-end
-relate :rel_silent_bloom_caused_shear_compact, :caused, :the_silent_bloom, :shear_compact do
-  prose "Its lesson about unchecked ringglass work hardened the #{ref :shear_compact, "Shear Compact"}'s hand, regulation written in the certainty that negligence at scale could break reality itself."
 end
 
 # The Bitter Reach — the second war (shell)
@@ -371,17 +202,8 @@ end
 relate :rel_signal_famine_caused_fermata_station, :caused, :signal_famine, :fermata_station do
   prose "It made #{ref :fermata_station, "Fermata Station"} what it is — sixty years sealed alone, long enough for a hab to calcify into something no outside designer would have chosen."
 end
-relate :rel_signal_famine_caused_disappearance, :caused, :signal_famine, :disappearance_of_the_elves, dm: true do
-  prose "And it gave the #{ref :elves, "elves"} their cover: a silence already swallowing names and records was the one moment a whole people could vanish without being seen to leave."
-end
 
 # Shell NPCs and their ties
-relate :rel_prismwell_operates_sithari, :operates_in, :prismwell_kite_guild, :sithari, since: 2330 do
-  prose "The #{ref :prismwell_kite_guild, "Prismwell Kite Guild"} works out of #{ref :sithari, "Sithari"}, where the kite trade is richest and most regulated."
-end
-relate :rel_continuity_governs_sithari, :governs, :the_continuity, :sithari, since: 2245 do
-  prose "The #{ref :the_continuity, "Continuity"} has governed #{ref :sithari, "Sithari"} for generations — the long-ruling party whose name is its whole political promise."
-end
 relate :rel_shei_lush_chairs_fermata, :chairs, :shei_lush, :fermata_station, since: 2427 do
   prose "#{ref :shei_lush, "Shei Lush"} chairs #{ref :fermata_station, "Fermata Station"}'s governing ensemble — such as chairing means on a hab run by jazz."
 end

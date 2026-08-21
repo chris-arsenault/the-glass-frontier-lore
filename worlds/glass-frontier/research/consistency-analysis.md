@@ -222,7 +222,7 @@ Minor wording variation: resonance.md says "frequency null space" while kite-sai
 
 **Echo Rivers Mechanism:** echo-rivers.md describes signal-carrying water. resonance.md's signal band definition (line 29) says "signal-frequency ringglass picks up and retransmits whatever data it encounters, which is why Echo Rivers carry fragments." These are consistent.
 
-**Depletion/Limits:** Consistently described:
+**Drawdown/Limits:** Consistently described:
 - `resonance.md:53` — local field depletes, takes hours/days/weeks to replenish
 - `practical-resonance.md:18` — "Draw too much from a local field too quickly and the ringglass goes quiet"
 - `kite-sail.md:38` — momentum nullification field "requires continuous resonance input"

@@ -14,7 +14,7 @@ faction :echo_ledger_conclave do
   prose <<~PROSE, section: :structure, heading: "Structure"
     Mid-tier faction — larger than a guild, smaller than a government. The Conclave operates from #{ref :thornvault, "Thornvault"}, their headquarters in the Sable Crescent: a castle-like complex built on a natural bridge spanning a canyon, positioned to face the glasslight at dusk. The architecture is deliberately imposing — soaring crystal-laced buttresses, open galleries that channel ambient river sound through the halls. The building is a statement: we are serious people doing serious work.
 
-    Satellite offices exist in #{ref :sithari, "Sithari"} (for political and legal access), several ring habs (for hab-specific archive consultation), and at least two #{future "Bloom Zone"} cordon stations (for containment support). The satellites are small — a few archivists with portable playback equipment and a secure connection to Thornvault's central records.
+    Satellite offices exist in #{ref :sithari, "Sithari"} (for political and legal access), several ring habs (for hab-specific archive consultation), and at least two #{ref :bloom_zones, "Bloom Zone"} cordon stations (for containment support). The satellites are small — a few archivists with portable playback equipment and a secure connection to Thornvault's central records.
 
     Leadership is academic. The head of the Conclave holds the title #{future "Chief Ledgrist"} and is selected by internal vote among senior archivists. The position is respected externally and envied internally, which is exactly how the Conclave likes it.
   PROSE
@@ -25,7 +25,7 @@ faction :echo_ledger_conclave do
 
     **Authentication.** When someone claims an artifact is pre-Glassfall, when a legal dispute hinges on historical precedent, when a faction needs to verify a claim about the Ring Age — they come to the Conclave. The archivists cross-reference Echo River fragments, surviving written records, and their own accumulated knowledge to assess whether a claim holds up. This service is not free, and the Conclave's assessment carries legal weight under the #{ref :tempered_accord, "Tempered Accord"}.
 
-    **Containment support.** The #{ref :displacement_council, "Displacement Council"} employs Conclave archivists for #{future "Bloom Zone"} work. The theory — partially validated — is that understanding the resonance history of an affected region helps predict how containment cordons should be configured. The Conclave provides historical resonance analysis. The Council provides the muscle. Neither fully trusts the other's methods, and the partnership works anyway.
+    **Containment support.** The #{ref :displacement_council, "Displacement Council"} employs Conclave archivists for #{ref :bloom_zones, "Bloom Zone"} work. The theory — partially validated — is that understanding the resonance history of an affected region helps predict how containment cordons should be configured. The Conclave provides historical resonance analysis. The Council provides the muscle. Neither fully trusts the other's methods, and the partnership works anyway.
 
     **Relic validation.** Even #{ref :coremark, "Coremark"}'s black-market buyers need provenance. A Bloom Zone relic of uncertain origin has more value if a Conclave archivist can attest to its resonance signature. The Conclave officially does not authenticate goods of questionable provenance. Individual archivists, on their own time, occasionally do. The Conclave officially does not know about this.
   PROSE
@@ -67,7 +67,7 @@ faction :echo_ledger_conclave do
 
     This philosophy makes them valuable and infuriating in roughly equal measure. The #{ref :tempered_accord, "Tempered Accord"} has attempted to mandate broader access to Conclave archives three times. Three times the Conclave has complied with the letter and ignored the spirit, releasing material so carefully redacted that it was technically public and practically useless.
 
-    Their relationship with #{ref :sithari, "Sithari"} and the #{future "Continuity"} is grudgingly positive. Both factions value knowledge, but for different reasons — the Continuity wants knowledge that serves governance, the Conclave wants knowledge that serves knowledge. They share when the interests align and politely obstruct when they don't. The Conclave recognizes that their institutional independence could be worse. The Continuity recognizes that forcibly opening the archives would cost more politically than it's worth.
+    Their relationship with #{ref :sithari, "Sithari"} and #{ref :the_continuity, "the Continuity"} rests on negotiated access. The Continuity requests records for courts, infrastructure claims, and public histories. The Conclave releases material under its own review rules and refuses demands that would expose private testimony or unstable Echo River sites. Each institution needs records held by the other, so most disputes end in a narrower request and a delayed transfer.
 
     Within the Conclave, the Redaction theorists — archivists who believe the #{ref :elves, "elven"} historical gaps are evidence of deliberate tampering — are a respected fringe. Not mainstream, not suppressed. The kind of position that gets you invited to interesting dinners and passed over for administrative promotion. The eccentric professor, not the ideological dissident.
   PROSE
@@ -82,6 +82,12 @@ end
 
 relate :rel_elc_studies_echo_rivers, :studies, :echo_ledger_conclave, :echo_rivers, since: 2310 do
   prose "The Conclave exists to read the #{ref :echo_rivers, "Echo Rivers"} — cataloguing the pre-Glassfall fragments that surface in deep crystal, and the conspicuous gaps where something was scrubbed out."
+end
+relate :rel_elc_studies_pre_glassfall_transmissions, :studies, :echo_ledger_conclave, :pre_glassfall_transmissions, since: 2310 do
+  prose "Its listeners compare river voices, ringglass shards, and active transmitters to authenticate #{ref :pre_glassfall_transmissions, "pre-Glassfall transmissions"}."
+end
+relate :rel_elc_studies_choir_fragment, :studies, :echo_ledger_conclave, :the_choir_fragment, since: 2421 do
+  prose "The Conclave holds fourteen years of recordings from #{ref :the_choir_fragment, "the Choir Fragment"}, including every change in its weekly message."
 end
 relate :rel_elc_hq_sable_crescent, :headquartered_in, :echo_ledger_conclave, :sable_crescent, since: 2310 do
   prose "Its principal seat is in #{ref :sable_crescent, "Sable Crescent"}, where the largest river surfacing points are."

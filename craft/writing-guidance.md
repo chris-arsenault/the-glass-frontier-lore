@@ -71,6 +71,8 @@ Lore prose does not acknowledge the wiki, a game, an author, or an outside reade
 
 Use `voice-review-prompt.md` with the world's `guidance/voice-referents.md` for setting-specific checks.
 
+State uncertainty through its evidence boundary. Name what records omit, what surveys can measure, where witnesses disagree, or which models fail. Phrases such as “nobody understands” and rhetorical questions often conceal the useful fact: what people have tried and where their knowledge ends.
+
 ## 7. Give Named Artifacts A Reason To Be Named
 
 A named artifact is one particular object, known for its history or effects. State who has it, who wants or fears it, and what can happen when someone uses it.
@@ -82,3 +84,9 @@ Give any unusual power a cost, limit, or danger. If the object appears to prefer
 Keep an ordinary example of a technology in the entry that owns that technology. Create an artifact entry only when this particular object matters apart from its kind.
 
 When prose mentions a technology, unusual effect, or mysterious object, ask whether a player could want to find one particular example. If so, name that object and decide whether it warrants an artifact entry.
+
+## 8. Preserve Substance During Revision
+
+An entry should be as long as its subject requires. Major places, institutions, and concepts may need several substantial sections. Split material only when another entity should own it; length alone is not a defect.
+
+When correcting prose, preserve every fact, image, uncertainty, viewpoint, causal link, and useful piece of atmosphere. Rewrite a bad sentence around its substantive claim. Delete only commentary or repetition that adds nothing of its own. A shorter revision is not inherently better, and a style pass is not permission to thin the world.

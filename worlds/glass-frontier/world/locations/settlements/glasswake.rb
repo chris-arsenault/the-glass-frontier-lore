@@ -8,22 +8,40 @@ installation :glasswake do
   prominence :recognized
 
   prose <<~PROSE
-    A mining town on Kaleidos's surface, built around the ruins of a ring hab fragment that fell during the #{ref :the_glassfall, "Glassfall"}. The fragment's inter-hab communication equipment — buried in the wreckage for #{elapsed :the_glassfall, :the_rekindling} — turned out to need only minor repair to function. Glasswake didn't set out to reconnect the world; a salvage crew poking through old wreckage found a transmitter that still had power, and one of them knew enough to make it talk.
+    Glasswake is a coastal mining town built around the ruins of a ring hab fragment that fell during the #{ref :the_glassfall, "Glassfall"}. The wreck forms a fused ridge along the eastern edge of town. Homes, workshops, mines, and warehouses occupy the sheltered ground between it and the sea.
+
+    The fragment's inter-hab communication equipment lay buried in the wreckage for #{elapsed :the_glassfall, :the_rekindling} and needed only minor repair to function. A salvage crew found a transmitter that still had power, and one of them knew enough to make it talk. The signal reached #{ref :hab_meridian, "Hab Meridian"} and began the #{ref :the_rekindling, "Rekindling"}.
+  PROSE
+  prose <<~PROSE, section: :geography, heading: "Wreck Ridge and Coast"
+    The ridge runs for several kilometers and rises high enough to break the prevailing wind. From the seaward side it resembles dark stone threaded with pale glass. The inland face exposes rooms, conduits, pressure doors, and structural ribs from the fallen hab. Some openings lead into worked mines. Others remain sealed because the surrounding material carries load in ways surveyors have not mapped.
+
+    Older streets follow the base of the ridge. The harbor and lower yards spread west toward the coast, while newer housing climbs the gentler slopes north and south. Mine roads enter the ridge at several levels and emerge at sorting terraces above town. Dust screens and wash stations stand wherever those roads cross public streets.
+
+    The coast is rocky near the harbor and broadens into beaches farther north. Storms throw ordinary sand against ringglass debris and leave thin bright lines after the water retreats. Children collect the visible pieces; mine crews warn them away from any patch that answers a tool strike.
   PROSE
   prose <<~PROSE, section: :origin, heading: "Origin"
-    What it was before the Famine — what the original ring hab was, who lived in it, what it was called — nobody knows, and nobody particularly cares. The fragment is a resource, not a heritage site. Miners work the ringglass deposits in the impact debris. The old hab structures serve as foundations, warehouses, and — in one case — a pub.
+    No surviving record identifies the original ring hab, its name, or its residents. Glasswake's town records and mining practice treat the fragment as a working resource rather than a heritage site. Miners work the ringglass deposits in the impact debris. Old hab structures serve as foundations and warehouses, and one intact service room houses a pub.
   PROSE
   prose <<~PROSE, section: :economy, heading: "Economy"
-    Mining. The impact debris field is rich with #{ref :ringglass, "ringglass"} aggregate — not high-grade material, but consistent volume. The mines have been producing for decades and aren't close to exhaustion. It's steady, unglamorous work that supports a stable community.
+    Mining remains the town's largest industry. The impact debris field holds a consistent volume of low-grade #{ref :ringglass, "ringglass"} aggregate, and current surveys project decades of accessible material. The work supports sorting yards, repair shops, freight crews, and the households around them.
 
-    The reconnection history adds a secondary economy: tourism. Glasswake is the Plymouth Rock of the Rekindling — historically significant, practically unremarkable, visited by people who care about that sort of thing. The tourist trade supports a few inns, a museum in the old transmitter building, and a gift shop that sells overpriced ringglass trinkets stamped with "First Signal." The miners find this mildly embarrassing and entirely welcome.
+    The town also sorts shower glass brought down by the #{ref :prismwell_kite_guild, "Prismwell Kite Guild"} and handles freight for western #{ref :avar, "Avar"}. Repair yards build mine fittings, kite catch frames, pumps, and road gear; #{ref :three_arms_yard, "Three Arms Yard"} handles the flexible frames used by shower scouts. The #{ref :pell_freight_assembly, "Pell Freight Assembly"} pools cargo work among independent crews based here.
+
+    Reconnection history brings visitors. The old transmitter building is a museum, and the first-signal trail leads from town to #{ref :span_nine, "Span Nine"}. Inns, guides, food stalls, and shops selling stamped ringglass support a modest tourist trade. Museum fees pay for preservation of the transmitter rooms and the public path through the upper wreck.
+  PROSE
+  prose <<~PROSE, section: :people, heading: "Mine Town and Port"
+    Glasswake shifts follow mine lifts, harbor tides, and kite arrivals. Sorting terraces begin early to use the cooler part of the day. Harbor crews work the water. Repair yards and shops bridge both schedules. Schools post their calendar beside the mine closure board because a major survey or shower front changes which adults are available for pickup.
+
+    Mine crews include cutters, surveyors, haulers, washers, and structural readers. A cutter follows the grade. A structural reader decides whether removing it will wake another seam or transfer load into an occupied part of the wreck. Apprentices begin in the wash yards, where material can be sounded without standing under it.
+
+    The dock fringe receives #{ref :ratters, "Ratter"} crews, steppe carriers, and independent kites that avoid the larger fees at Sithari. Lodging houses, chandlers, and late markets face the harbor. #{ref :the_dry_net, "The Dry Net"} combines cheap beds, sealed equipment storage, and an open hiring wall. Uptown offices handle #{ref :shear_compact, "Shear Compact"} inspections and mineral contracts. A load unloaded on the fringe may enter uptown as a certified mineral lot after washing, grading, and inspection.
   PROSE
   prose <<~PROSE, section: :atmosphere, heading: "Atmosphere"
-    A working town that happens to be famous. The streets are dusty from the mines. The buildings are practical — ringglass-reinforced stone, functional architecture, no pretension. The fallen hab fragment dominates the skyline as a ridge of fused crystal along the town's eastern edge, weathered into something that looks almost natural if you don't know what you're looking at.
+    Mine dust reaches every street near the ridge. Buildings use ringglass-reinforced stone, deep awnings, and grated entries where workers can leave boots and outer clothes. The fallen hab dominates the skyline, weathered into a dark slope until an old room or structural rib emerges from it.
 
     #{ref :span_nine, "Span Nine"} — the relay that carried the first signal — is a landmark on the ridge between Glasswake and #{ref :sithari, "Sithari"}. Tourists hike to it. Locals use it as a reference point for directions. "Past Span Nine, take the left fork."
 
-    A surface-access spur connects Glasswake to #{ref :keel, "the Keel"}, the system's primary orbital trade lane. This makes the town a minor waypoint — not a hub, but a place where kites descending from the Keel stop and crews resupply.
+    A surface-access spur connects Glasswake to #{ref :keel, "the Keel"}, the system's primary orbital trade lane. Kites descending from the Keel use the town as a minor waypoint and resupply stop.
   PROSE
 end
 
@@ -36,7 +54,7 @@ end
 
 # --- history (moments) ---
 moment :glasswake_founded, year: 2160, of: :glasswake do
-  prose "A ring fragment fell during the #{ref :the_glassfall, "Glassfall"} and half-buried itself, leaving a ridge of fused crystal and stone. The first settlers built against it for shelter during the Famine, and the town grew around the wreckage the way a town grows around a crossroads — not by plan, but because people kept showing up."
+  prose "A ring fragment fell during the #{ref :the_glassfall, "Glassfall"} and half-buried itself, leaving a ridge of fused crystal and stone. The first settlers built against it for shelter during the Famine. Repeated arrivals added homes, mines, and workshops around the wreckage without a central plan."
 end
 moment :glasswake_first_signal, year: 2305, of: :glasswake do
   prose "A salvage crew found a pre-Glassfall transmitter that still had power, and one of them knew enough to make it talk. The first long-range signal after the #{ref :signal_famine, "Signal Famine"} went from Glasswake to #{ref :hab_meridian, "Hab Meridian"}, whose receiver happened to still be listening. The reconnection of the system began with two communities that stumbled into it."

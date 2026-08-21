@@ -29,6 +29,8 @@ Locations are named by the people who found or settled them, in the era they did
 - **Accord-era** names are more deliberate, sometimes committee-made, sometimes commemorative.
 - **Ring-era** names, where they survive, are elven and usually mangled by three centuries of use.
 
+Old countries, watersheds, and mountain systems usually retain proper names even when their meanings no longer travel with them. Reserve transparent working names for facilities, routes, businesses, and settlements whose founders named a job, accident, or visible landmark. A mapmaker's description is not automatically the name used by residents.
+
 Many locations carry an official name and the name everyone actually uses. Record both where the gap says something.
 
 ## Era and Occurrence Names

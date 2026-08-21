@@ -12,34 +12,33 @@ geographic_location :bloom_zones do
   containment_status "Permanent cordons maintained around active zones"
 
   log "Reality doesn't work right here — dimensional instability, warped physics. New relic-magnitude artifacts are generated in the zones: genuinely new powers, not pre-collapse tech. The Adversary seeps through the tears, and the elves have increased their hidden presence [DM]."
+  log "2026-08-20 — Reframed public uncertainty around recorded causes, observed effects, and frontier research; removed an erroneous crystal-substrate claim and named Xyloathax as the stable hab beside which a zone appeared."
 
-  question "Bloom Zone relic mechanics: what makes these artifacts different from pre-collapse tech? How does the reality distortion create them, and is it random or patterned?"
-  question "Remove 'nobody understands' — tic.", raised: "2026-03-20", on: "artifacts nobody understands."
-  question "No crystal substrate; these are in space. Needs a corpus-wide search for the term.", raised: "2026-03-20", on: "the crystal substrate,"
-  question "Frame this as 'frontier research hypothesises these connections'.", raised: "2026-03-20", on: ", but the connections follow non-spatial or higher-dimensional logi"
-  question "Create a future: Xyloathax — the hab a Bloom Zone appeared next to.", raised: "2026-03-20", on: "and it has happened."
+  log "2026-08-21 — Bloom relics now form when a moving boundary pins an existing physical relationship into an exposed object. Formation is conditioned by structure, load, and the local boundary rather than by repetition."
 
   prose <<~PROSE
-    Man-made reality tears. Places where the #{ref :resonance, "resonance"} environment has broken so thoroughly that physics stops behaving consistently. They exist in Kaleidos orbit — in the #{ref :the_shear, "Shear"}, adjacent to ring habs, in otherwise clean orbital space — and, for reasons nobody can explain, in the #{future "Fracture"}'s asteroid belt.
+    Man-made reality tears. Places where the #{ref :resonance, "resonance"} environment has broken so thoroughly that physics stops behaving consistently. They exist in Kaleidos orbit — in the #{ref :the_shear, "Shear"}, adjacent to ring habs, and in otherwise clean orbital space — as well as in #{ref :the_fracture, "the Fracture"}'s asteroid belt. No accepted model accounts for the full distribution.
 
-    They are expanding slowly. They require constant containment by the #{ref :displacement_council, "Displacement Council"}. They are the system's most dangerous ongoing crisis and its most productive source of artifacts nobody understands.
+    They are expanding slowly and require constant containment by the #{ref :displacement_council, "Displacement Council"}. They are the system's most dangerous ongoing crisis and its most productive source of new artifacts. Each artifact's properties and risks have to be established separately because no general theory predicts what a zone will produce.
   PROSE
   prose <<~PROSE, section: :atmosphere, heading: "What They're Like"
-    No two zones manifest the same way. The distortion depends on the local resonance environment, the crystal substrate, the specific frequencies involved.
+    No two zones manifest the same way. The distortion varies with the local resonance state and the frequencies active within it.
 
-    In some zones, walls develop a translucency that isn't transparency — not see-through, but not committed to being solid. In others, sound arrives from directions it shouldn't. In others, spatial relationships stop being reliable — a corridor that was ten meters long is now thirty, or three. In the worst zones, the concept of "direction" softens.
+    In some zones, walls admit light while remaining impossible to see through, and their surfaces lose a reliable boundary. In others, sound arrives from the wrong direction. Elsewhere, spatial relationships fail: a corridor that was ten meters long becomes thirty, or three. In the worst zones, even "direction" loses a stable meaning.
 
     #{ref :tuners, "Tuners"} describe the resonance landscape inside a zone as saturated — so dense with information that signal-to-noise collapses. #{ref :gnomes, "Gnomes"} are hit worst — their crystal-laced nervous systems pick up the distortion directly. #{ref :fae, "Fae"} have an unexpected advantage — the spatial dislocation they manage daily is exactly the skill set the zones demand.
   PROSE
   prose <<~PROSE, section: :mechanics, heading: "Growth"
-    Bloom Zones grow organically. New zones appear at what seems like random, but the connections follow non-spatial or higher-dimensional logic — a clear line of resonance sight between two zones, constructive interference patterns, links through frequency dimensions that conventional mapping can't represent. Not entirely random, but not easy to predict.
+    Bloom Zones grow organically. Frontier researchers have proposed several explanations for where new zones appear: a clear line of resonance sight between two zones, constructive interference patterns, or links through frequency dimensions that conventional maps cannot represent. Each hypothesis fits some appearances and fails to predict others.
 
-    A zone can appear next to a stable ring hab in clean orbital space. This is the nightmare scenario, and it has happened.
+    One zone appeared beside the stable ring hab #{future "Xyloathax"} in otherwise clean orbital space. The Council now treats every inhabited orbit as a possible containment site.
+
+    #{ref :karet_three, "Karet-3"} opened around an inhabited freight hab in the outer Shear in 2426, long after the first cascade. Its permanent station at #{ref :outside, "Outside"} is evidence that new zones can become towns as well as emergencies: contractors rotate through the cordon while evacuated families build their lives beside it.
   PROSE
   prose <<~PROSE, section: :significance, heading: "Why the Fracture"
-    The Bloom Zones near Kaleidos have known causes — #{ref :coremark, "Coremark"}'s overload at #{ref :pyre, "Pyre"}, the #{future "Span replication experiment"}. But Bloom-identical reality tears have manifested in the #{future "Fracture"}'s asteroid belt, thousands of kilometers from Kaleidos. The Fracture has its own ancient history of destruction — a shattered planet, cosmically older than the ring's collapse.
+    The Bloom Zones near Kaleidos have known causes — #{ref :coremark, "Coremark"}'s overload at #{ref :pyre, "Pyre"} and the conductive guide left by the #{ref :second_span_trial, "Second Span trial"}. But Bloom-identical reality tears have manifested in #{ref :the_fracture, "the Fracture"}'s asteroid belt, thousands of kilometers from Kaleidos. The Fracture has its own ancient history of destruction — a shattered planet, cosmically older than the ring's collapse.
 
-    Why is the Bloom there? Why not anywhere else? Those who look closely are deeply concerned. Most people either don't believe it or don't care. The connection is one of the system's open questions with no satisfying answer.
+    Frontier researchers have found no shared cause that explains both groups of tears. Some argue that the two sites are connected through resonance geometry; others treat their apparent similarity as incomplete evidence. The dispute has drawn sustained concern within containment and research circles and little attention outside them.
   PROSE
 end
 

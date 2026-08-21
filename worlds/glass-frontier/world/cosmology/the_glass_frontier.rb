@@ -33,7 +33,7 @@ geographic_location :the_glass_frontier do
 
     **#{ref :the_shear, "The Shear"}** fills the pockets and layers between habitable fragments — roughly half the orbital volume. Debris, resonance distortion, and the #{ref :ringglass, "ringglass"} salvage industry that depends on both. The Shear has existed since the Glassfall and is, by now, broadly understood. Dangerous, but navigable. An environment people have learned to work in.
 
-    **#{ref :bloom_zones, "Bloom Zones"}** are the exception to "understood." Man-made reality tears caused by the #{future "Silent Bloom"} cascade of 2378, they can appear anywhere in orbit — in the Shear, adjacent to ring habs, or in otherwise clean space. Where the Shear distorts resonance, Bloom Zones break reality. They are actively expanding and require constant containment.
+    **#{ref :bloom_zones, "Bloom Zones"}** are the exception to "understood." Man-made reality tears caused by the #{ref :the_silent_bloom, "Silent Bloom"} cascade of 2378, they can appear anywhere in orbit — in the Shear, adjacent to ring habs, or in otherwise clean space. Where the Shear distorts resonance, Bloom Zones break reality. They are actively expanding and require constant containment.
 
     The boundary between ring and Shear is not sharp. A hab that was stable for decades can lose structural integrity and become Shear — just another piece of debris. A section of Shear can be stabilized, sealed, and colonized into a new hab. And a Bloom Zone can erupt next to either. The frontier is, in this sense, always moving.
   PROSE

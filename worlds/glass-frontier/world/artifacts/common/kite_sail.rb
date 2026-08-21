@@ -27,7 +27,7 @@ resource :kite_sail do
     The result is a vehicle that performs in atmosphere, vacuum, and the distorted environment of #{ref :the_shear, "The Shear"}. The same engine that runs a surface route can lift to orbit, dock at a ring hab, and push into a debris field.
   PROSE
   prose <<~PROSE, section: :applications, heading: "Classes"
-    **#{future "Flitters"}.** Autonomous local kites. Short-range, single-passenger or small-cargo, operating within and between settlements. Ubiquitous — standard-issue infrastructure, the way breathable air is standard on a pressurized hab. Every settlement with a landing pad has flitters cycling through it.
+    **#{ref :flitter, "Flitters"}.** Short-range local kites carrying passengers and light cargo within and between settlements. Public fleets, cooperatives, employers, and commercial carriers cycle them through any settlement with a working pad.
 
     **Personal craft.** Sub-orbital or space-capable kites owned by individuals. Comfortable enough for extended trips, not built for deep Shear or interplanetary hauls. A mark of moderate prosperity — common enough that no one stares, uncommon enough that most people still book passage on a commercial vessel instead.
 

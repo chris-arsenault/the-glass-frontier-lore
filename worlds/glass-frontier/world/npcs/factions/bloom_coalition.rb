@@ -14,7 +14,7 @@ faction :bloom_coalition do
   log "2026-08-08 — prominence :renowned confirmed. Every faction in the system staffed the Coalition, so the entry cannot avoid naming recognized ones; the reach warnings it used to raise were the check's shape, not this entry's."
 
   prose <<~PROSE
-    The unified operational command that contained the #{future "Silent Bloom"} during the first #{elapsed 2378, 2396} of its expansion. Not a political body and not a treaty organization — the Coalition was an operational structure that drew personnel directly from every faction with a stake in containment and answered to a single chain of command. It existed for one purpose: keep the #{ref :bloom_zones, "Bloom Zones"} from spreading. It did the job. It dissolved on schedule.
+    The unified operational command that contained the #{ref :the_silent_bloom, "Silent Bloom"} during the first #{elapsed 2378, 2396} of its expansion. Not a political body and not a treaty organization — the Coalition was an operational structure that drew personnel directly from every faction with a stake in containment and answered to a single chain of command. It existed for one purpose: keep the #{ref :bloom_zones, "Bloom Zones"} from spreading. It did the job. It dissolved on schedule.
 
     The Coalition is not active in the present day. Its successor for cordon operations is the #{ref :displacement_council, "Displacement Council"}. Its successor for cross-faction emergency coordination is, in spirit if not in name, the #{ref :tempered_accord, "Tempered Accord"}.
   PROSE

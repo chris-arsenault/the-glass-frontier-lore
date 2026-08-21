@@ -11,16 +11,16 @@ faction :tempered_accord do
   authority "Reputation, trade access and member enforcement"
 
   prose <<~PROSE
-    The system's governance framework. Not a government — a mediation structure. A set of shared norms that most settlements have agreed to honor most of the time. It holds because the alternative is the Bitter Reach again, and nobody wants that.
+    The system's governance framework is a mediation structure and a set of shared norms that most settlements have agreed to honor most of the time. The memory of the Bitter Reach gives its members a common reason to preserve it.
 
     The Accord is barely a decade old, and it has never been tested by a crisis as bad as the ones that made it.
   PROSE
   prose <<~PROSE, section: :structure, heading: "Structure"
-    The Accord operates from a district in #{ref :sithari, "Sithari"} — a complex deliberately separated from the Continuity's government buildings. Tranquil. An artificial lake. Ducks. The architectural statement is intentional: this is not a seat of power, it's a place where disputes come to be resolved.
+    #{embed :accord_shore, :governance}
 
-    The Accord is an international body in a national capital — technically independent, practically shaped by proximity. Other settlements wanted it seated somewhere neutral. Sithari argued they had the infrastructure, the security and the institutional capacity. They were right, and everyone resented them for it.
+    Each member appoints a standing delegation and can send additional specialists for a particular dispute. Delegations choose a presiding mediator from a roster accepted by both parties. The permanent secretariat maintains records, schedules hearings, and publishes the standards adopted by member vote. It cannot order a member government to act.
 
-    The Accord's operations rely on member organizations for actual enforcement. It carries weight because people say it does. The sanctions for violating an Accord provision are reputational and economic — expulsion from the framework means losing access to the Compact's mediation, Vantara's trade infrastructure, and the legal recognition that makes inter-settlement commerce possible.
+    The Accord relies on member organizations for enforcement. Its sanctions are reputational and economic: expulsion from the framework means losing access to the Compact's mediation, Vantara's trade infrastructure, and the legal recognition that makes inter-settlement commerce possible.
   PROSE
   prose <<~PROSE, section: :operations, heading: "Operations"
     **Mediation.** The Accord's core function. When settlements, fabs, or factions have disputes that can't be resolved bilaterally, they bring them to the Accord's mediation process. The process is derived from the Shear Compact's model and is universally considered slow, bureaucratic, and better than the alternative.
@@ -30,17 +30,17 @@ faction :tempered_accord do
     **Humanitarian.** The Accord's humanitarian provisions, drafted by the Displacement Council, cover refugee rights, containment support, and sovereignty protections — including the hard-won provision that habs can legally refuse contact.
   PROSE
   prose <<~PROSE, section: :tensions, heading: "Tensions"
-    The Accord is young, fragile, and untested. A decade of relative stability doesn't prove the framework works — it proves that nothing has broken it yet. Legitimate questions exist about what happens when it is genuinely tested: a faction that defies an Accord ruling and faces no real consequences, a crisis that requires action faster than the mediation process allows, a dispute where the stakes are too high for reputation damage to matter.
+    The Accord is young, fragile, and untested. Its first decade contains no faction that defied a ruling without consequence, no crisis that required action faster than its mediation process allowed, and no dispute whose stakes made reputational sanctions irrelevant. Its records therefore offer no evidence for how the framework would handle those cases.
 
-    #{ref :sithari, "Sithari"}'s influence is structural and resented. The Accord sits in Sithari, uses Sitharian legal language, and was partly designed by Sitharian political thinkers. The #{ref :sithari, "Continuity"} was a combatant during the Contested Reach and Bitter Reach while the city claimed neutrality. This distinction — the city is neutral, the government is a participant — was technically valid and practically meaningless. The resentment is still live.
+    #{ref :sithari, "Sithari"}'s influence is structural and resented. The Accord sits in Sithari, uses Sitharian legal language, and was partly designed by Sitharian political thinkers. #{ref :the_continuity, "The Continuity"} supported combatants during the Contested Reach and Bitter Reach while the city retained its formal neutrality. Other governments remember the credit restrictions, freight delays, and institutional pressure that distinction allowed.
   PROSE
   prose <<~PROSE, section: :present_day, heading: "Present Day"
-    The Accord holds. The ducks are fine. Whether either condition is permanent remains to be seen.
+    The Accord's offices remain active, its member provisions remain in force, and no crisis has yet tested the limits identified by its critics. The district staff still maintain the lake and its ducks.
   PROSE
 end
 
-relate :rel_tempered_accord_hq_sithari, :headquartered_in, :tempered_accord, :sithari, since: 2423 do
-  prose "The Accord keeps its standing offices at #{ref :sithari, "Sithari"} — convenient, central, and a constant low irritation to a city that would rather not host anyone's authority but its own."
+relate :rel_tempered_accord_hq_accord_shore, :headquartered_in, :tempered_accord, :accord_shore, since: 2423 do
+  prose "The Accord keeps its standing offices at #{ref :accord_shore, "Accord Shore"}, in a compound separate from the Continuity's executive buildings."
 end
 
 # --- history (moments) ---

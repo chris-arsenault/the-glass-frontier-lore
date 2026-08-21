@@ -8,7 +8,7 @@ installation :pyre do
   prominence :recognized
 
   prose <<~PROSE
-    The ruin of a #{ref :coremark, "Coremark"} ringglass refinery in the mid-drift #{ref :the_shear, "Shear"}, and the origin point of the #{future "Silent Bloom"} resonance cascade. Pyre sits inside a #{future "Bloom Zone"} now — one of the worst ones. Space is badly warped. The refinery's structure is still recognizable from outside the containment cordon, but what's inside doesn't follow consistent geometry anymore.
+    The ruin of a #{ref :coremark, "Coremark"} ringglass refinery in the mid-drift #{ref :the_shear, "Shear"}, and the origin point of the #{ref :the_silent_bloom, "Silent Bloom"} resonance cascade. Pyre sits inside a #{ref :bloom_zones, "Bloom Zone"} now — one of the worst ones. Space is badly warped. The refinery's structure is still recognizable from outside the containment cordon, but what's inside doesn't follow consistent geometry anymore.
   PROSE
   prose <<~PROSE, section: :present_day, heading: "Present Day"
     Pyre is one of the most dangerous and valuable sites in the system. The Bloom Zone that formed around it contains some of the most severe reality distortion anywhere in Kaleidos orbit — spatial relationships are unreliable, resonance frequencies stack in unpredictable ways, and the boundary between the zone and normal space requires constant #{ref :displacement_council, "Displacement Council"} containment.
@@ -28,6 +28,6 @@ end
 
 # --- history (moment) ---
 moment :pyre_overload, year: 2378, of: :pyre do
-  prose "Pyre was a mid-drift refinery — part of #{ref :coremark, "Coremark"}'s expansion beyond its deep-Shear niche in the 2340s–2350s, at peak one of the highest-throughput plants in the Shear. It ran in an environment already past its limits: decades of unrestrained harvesting had depleted the ambient resonance ecology, and the nearby #{future "Span replication experiment"} had fractured local space. The overload was not one dramatic failure but a cascade of small negligences — safety margins treated as obstacles, precursor readings dismissed as noise by operators who lacked the #{ref :elves, "elven"} knowledge to recognize them. The refinery burned with pale resonance fire visible across the mid-drift, and the #{ref :the_silent_bloom, "Silent Bloom"} began."
+  prose "Pyre was a mid-drift refinery — part of #{ref :coremark, "Coremark"}'s expansion beyond its deep-Shear niche in the 2340s–2350s, at peak one of the highest-throughput plants in the Shear. It ran in an environment already past its limits: decades of unrestrained harvesting had depleted the ambient resonance ecology, and the nearby #{ref :second_span_trial, "Second Span trial"} had left an aligned guide through local space. The overload was not one dramatic failure but a cascade of small negligences — safety margins treated as obstacles, precursor readings dismissed as noise by operators who lacked the #{ref :elves, "elven"} knowledge to recognize them. The refinery burned with pale resonance fire visible across the mid-drift, and the #{ref :the_silent_bloom, "Silent Bloom"} began."
   effects { set :pyre, standing: :destroyed }
 end

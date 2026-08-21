@@ -8,11 +8,8 @@ installation :keel do
   tags :trade, :orbital, :salvage, :danger, :navigation
   prominence :recognized
 
-  question "Expand to the safe travel, accommodation and waystops that have grown along many portions of the Keel — and don't make it all Vantara. They are large and well known, not a monopoly; overuse makes the world feel small.", raised: "2026-03-20", on: "The route is well-charted and well-serviced — Vantara maintains navigation beacons, refueling stations, and waystations along its length."
-  question "Vantara is a travel and logistics company; this is another overuse.", raised: "2026-03-20", on: "doesn't claim sovereignty."
-
   prose <<~PROSE
-    The system's primary trade lane — an orbital route connecting #{ref :ringglass, "ringglass"} production zones in #{ref :the_shear, "The Shear"}, major refinement facilities, #{ref :sithari, "Sithari"}, and #{future "Ashvane"} at the far end. It remains the single most important corridor for bulk commerce in the Kaleidos system.
+    The system's primary trade lane — an orbital route connecting #{ref :ringglass, "ringglass"} production zones in #{ref :the_shear, "The Shear"}, major refinement facilities, #{ref :sithari, "Sithari"}, and #{ref :ashvane, "Ashvane"} at the far end. It remains the single most important corridor for bulk commerce in the Kaleidos system.
 
     The name comes from its shape on a navigation chart — a long central spine with subsidiary routes branching off like ribs. A ship on the Keel is following the spine. A ship heading to a secondary destination peels off at one of the branch points.
   PROSE
@@ -22,10 +19,12 @@ installation :keel do
     Key nodes along the Keel:
     - **Shear production zones** — where #{ref :ratters, "Ratters"} and industrial operations harvest raw ringglass from the debris field
     - **Refinement habs** — ring habs that specialize in cutting, tuning, and processing ringglass from aggregate to refined grade
-    - **#{ref :sithari, "Sithari"}** — the financial and regulatory hub where contracts are settled and certifications issued
-    - **#{future "Ashvane"}** — the far terminus; a major settlement that anchors the route's other end
+    - **#{ref :keelward, "Keelward"}** — Sithari's surface terminal, where freight enters the financial and regulatory center
+    - **#{ref :ashvane, "Ashvane"}** — the far terminus; an inhabited moon whose Shadewell port anchors the route's other end
 
-    Transit time end-to-end depends on the vessel. A fast courier makes it in days. A heavy cargo hauler takes weeks. The route is well-charted and well-serviced — #{ref :vantara, "Vantara"} maintains navigation beacons, refueling stations, and waystations along its length.
+    Transit time end-to-end depends on the vessel. A fast courier makes it in days. A heavy cargo hauler takes weeks. Navigation, shelter, rescue, and fuel are maintained in sections by carriers, ports, guilds, cooperatives, and public route services. No organization keeps the whole corridor.
+
+    #{ref :hinge_six, "Hinge Six"} joins the inner and outer route records where traffic turns toward Korvath and Ashvane. The #{ref :pell_freight_assembly, "Pell Freight Assembly"} keeps #{ref :cold_lantern, "Cold Lantern"} on its claim approaches. At the surface terminals, #{ref :fourth_bell_house, "Fourth Bell House"} receives stranded passengers in Keelward and #{ref :south_shade, "South Shade"} fits road crews into Shadewell's port schedule. Other waystops belong to hab councils, family carriers, rescue pools, and settlements whose names matter chiefly on the branch they keep.
   PROSE
   prose <<~PROSE, section: :economy, heading: "Economy"
     What moves on the Keel:
@@ -36,7 +35,7 @@ installation :keel do
 
     **Microcavities.** Sealed ringglass fuel cells flowing from processing facilities to consumption points. A steady, unglamorous trade that underpins everything else.
 
-    **People.** Passenger traffic on the Keel is substantial. Workers, merchants, migrants, tourists. #{ref :vantara, "Vantara"} runs scheduled passenger service along the full route.
+    **People.** Passenger traffic on the Keel is substantial. Workers, merchants, migrants, tourists. #{ref :vantara, "Vantara"} runs scheduled service along the full route. Hab carriers, port cooperatives, independent vessels, and local lines carry shorter legs and feed the main departures.
   PROSE
   prose <<~PROSE, section: :dangers, heading: "Dangers"
     The Keel is contested and portions are dangerous.
@@ -52,8 +51,10 @@ installation :keel do
   prose <<~PROSE, section: :tensions, heading: "Tensions"
     Control of the Keel has been contested since it was established. During the Contested Reach, route segments changed hands three times. The Bitter Reach added new grievances. The Accord era has stabilized most of the route, but "most" is not "all."
 
-    The fundamental tension is economic: the Keel is too valuable for anyone to control exclusively and too important for anyone to ignore. #{ref :vantara, "Vantara"} maintains the infrastructure but doesn't claim sovereignty. #{ref :sithari, "Sithari"} regulates the financial layer but can't police the corridor. The #{ref :shear_compact, "Shear Compact"} has jurisdiction over Shear segments but not the open-space portions. The result is a patchwork of overlapping authorities, gaps between them, and people who make their living in those gaps.
+    The fundamental tension is economic: the Keel is too valuable for anyone to control exclusively and too important for anyone to ignore. Vantara maintains a large beacon and station network without controlling the municipal terminals, guild markers, cooperative rescue posts, or independent receiving ports around it. #{ref :sithari, "Sithari"} regulates the financial layer but can't police the corridor. The #{ref :shear_compact, "Shear Compact"} has jurisdiction over Shear segments but not the open-space portions. The result is a patchwork of overlapping authorities, gaps between them, and people who make their living in those gaps.
   PROSE
+
+  log "2026-08-20 — Replaced the single-carrier account of Keel services with named municipal, cooperative, guild, and carrier facilities. Vantara keeps a large network but does not own the route's accommodation, rescue, or receiving infrastructure."
 end
 
 relate :rel_keel_in_orbit_of_kaleidos, :in_orbit_of, :keel, :kaleidos do
@@ -62,8 +63,8 @@ end
 relate :rel_keel_in_orbit_of_ashenmaw, :in_orbit_of, :keel, :ashenmaw do
   prose "Its far arc swings out past #{ref :ashenmaw, "Ashenmaw"}, the lonely outer anchor of the lane."
 end
-relate :rel_keel_terminus_sithari, :terminus_of, :keel, :sithari do
-  prose "At the surface end the Keel grounds at #{ref :sithari, "Sithari"}, the largest market it serves."
+relate :rel_keel_terminus_keelward, :terminus_of, :keel, :keelward do
+  prose "At the surface end the Keel grounds at #{ref :keelward, "Keelward"}, the transfer district of its largest market."
 end
 relate :rel_keel_terminus_glasswake, :terminus_of, :keel, :glasswake do
   prose "#{ref :glasswake, "Glasswake"} is its other principal terminus, the first surface settlement the lane reconnected."

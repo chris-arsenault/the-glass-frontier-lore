@@ -18,6 +18,13 @@ artifact :liras_wall do
 
     The technology is mid-bandwidth kinetic and signal work — within the range of trained #{ref :tuners, "Tuners"}, deployable at industrial scale. It doesn't reverse the Bloom. It doesn't heal the reality tears. It stops them from getting bigger. Containment, not cure.
   PROSE
+  prose <<~PROSE, section: :operations, heading: "At a Cordon Station"
+    A permanent cordon adds a ringglass monitoring array behind the buoys. The array reads the boundary's local gradient and updates each buoy as the zone changes. Mounts are distributed through the station frame so crews can isolate one section without dropping the whole wall.
+
+    #{ref :outside, "Outside"} carries eighteen primary mounts and four secondary mounts around #{ref :karet_three, "Karet-3"}. Its oldest buoy came from the emergency cordon and remains in service beside newer models. Long-serving buoys give the #{ref :displacement_council, "Council"} a record of how a boundary's resonance has changed, but their stillwater also contains years of absorbed cascade frequencies and is handled accordingly.
+
+    Wall arrays attract things that follow stable resonance. The #{ref :rind, "rind"} beyond Outside is passive, yet one filament touching a tuned mount can disrupt its calibration. Cordon maintenance includes keeping the local ecology away from the machinery holding the zone shut.
+  PROSE
   prose <<~PROSE, section: :significance, heading: "Significance"
     Lira's Wall proved that the Bloom could be stopped. The prevailing assumption had been that the zones would expand until they ran out of ringglass-dense space to distort — which, in a system built on ringglass, meant everywhere. The Wall turned "unstoppable catastrophe" into "difficult but manageable problem."
 
