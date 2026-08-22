@@ -1,5 +1,6 @@
 geographic_location :lithren do
   name "Lithren"
+  playable_as :chronicle_location
   subkind :celestial_body
   status :complete
   tags :cosmology, :"outer-system", :archives, :mystery, :danger

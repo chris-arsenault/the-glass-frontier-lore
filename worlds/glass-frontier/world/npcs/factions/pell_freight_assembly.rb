@@ -1,5 +1,7 @@
 faction :pell_freight_assembly do
   name "Pell Freight Assembly"
+  playable_as :allegiance
+  origin_blurb "Independent carriers pool bulk cargo, equipment, and risk across the outer Pell routes."
   subkind :trade_network
   founded 2416
   tags :trade, :transport, :salvage, :resonance, :"social-structure"

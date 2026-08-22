@@ -1,5 +1,6 @@
 installation :ravel do
   name "Ravel"
+  playable_as :chronicle_location
   subkind :settlement
   status :complete
   tags :"ring-hab", :orbital, :materials, :transport, :resonance

@@ -33,6 +33,11 @@ export interface EntrySummary {
   status: Optional<string>;
   region: Optional<string>;
   narrative_role: Optional<string>;
+  is_article: boolean;
+  playable_as: string[];
+  origin_blurb: Optional<string>;
+  veiled: boolean;
+  veil_tagline: Optional<string>;
   summary: string;
   route: string;
 }
@@ -170,6 +175,10 @@ export interface GraphNode {
   title: string;
   prominence: Optional<string>;
   tags: string[];
+  playable_as: Optional<string[]>;
+  origin_blurb: Optional<string>;
+  veiled: Optional<boolean>;
+  veil_tagline: Optional<string>;
   dm: boolean;
   path: string;
 }

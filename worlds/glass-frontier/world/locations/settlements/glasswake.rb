@@ -1,5 +1,7 @@
 installation :glasswake do
   name "Glasswake"
+  playable_as :chronicle_location, :homeland
+  origin_blurb "A coastal mining town built against a fallen hab whose repaired transmitter began the Rekindling."
   subkind :settlement
   path "player/locations/settlements/glasswake.md"
   status :complete

@@ -1,5 +1,6 @@
 installation :hinge_six do
   name "Hinge Six"
+  playable_as :chronicle_location
   subkind :station
   status :complete
   tags :orbital, :transport, :trade, :navigation, :resonance

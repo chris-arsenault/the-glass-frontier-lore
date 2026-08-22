@@ -1,5 +1,7 @@
 installation :sithari do
   name "Sithari"
+  playable_as :chronicle_location, :homeland
+  origin_blurb "A surface capital where law, trade, and old institutions shape daily life."
   subkind :settlement
   path "player/locations/settlements/sithari.md"
   status :complete

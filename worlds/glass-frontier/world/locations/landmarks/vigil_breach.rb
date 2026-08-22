@@ -1,5 +1,6 @@
 installation :vigil_breach do
   name "Vigil Breach"
+  playable_as :chronicle_location
   subkind :landmark
   tags :surface, :"ring-era", :resonance, :danger, :archives
   prominence :recognized

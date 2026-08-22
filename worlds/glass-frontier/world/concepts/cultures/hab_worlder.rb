@@ -1,5 +1,7 @@
 culture :hab_worlder do
   name "Hab-Worlder"
+  playable_as :culture
+  origin_blurb "Raised in sealed habs, Hab-Worlders read air, exits, maintenance, and mutual obligation instinctively."
   subkind :way_of_life
   path "player/concepts/cultures/hab-worlder.md"
   status :complete

@@ -1,5 +1,6 @@
 installation :underlayers do
   name "Underlayers"
+  playable_as :chronicle_location
   subkind :settlement
   population 180_000
   population_band "About one hundred eighty thousand permanent residents"

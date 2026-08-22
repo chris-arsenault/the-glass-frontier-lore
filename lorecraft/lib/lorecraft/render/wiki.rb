@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "fileutils"
+require "set"
 require_relative "../markers"
 
 module Lorecraft
@@ -43,6 +44,7 @@ module Lorecraft
         write.call("Tags.md", tags_page)
         write.call("Timeline.md", timeline_page)
         write.call("Causality.md", causality_page)
+        write.call("Reference-Articles.md", reference_articles_page) unless reference_articles.empty?
         index_pages.each { |name, body| write.call(name, body) }
         write.call("_Sidebar.md", sidebar)
         written
@@ -52,6 +54,16 @@ module Lorecraft
 
       def public_entities
         @world.pages.reject { |n| !wiki_visible?(n) }
+      end
+
+      def reference_articles
+        @reference_articles ||= public_entities.select do |node|
+          node.respond_to?(:article?) && node.article?
+        end
+      end
+
+      def world_entities
+        @world_entities ||= public_entities - reference_articles
       end
 
       def shell?(n) = n.respond_to?(:[]) && n[:status].to_s == "shell"
@@ -123,6 +135,7 @@ module Lorecraft
 
       def content_page(node, year)
         body = +""
+        body << node.veil_tagline << "\n\n" if node.respond_to?(:veiled?) && node.veiled?
         node.authored_blocks.each do |b|
           next if b.dm? || !b.visible_at?(year, audience: :player)
 
@@ -166,6 +179,10 @@ module Lorecraft
 
       def metadata_box(node, year)
         parts = ["**Type:** #{node.kind}", "**Subkind:** #{node.subkind}"]
+        parts << "**Reference Article:** yes" if node.respond_to?(:article?) && node.article?
+        if node.respond_to?(:playable_as) && !node.playable_as.empty?
+          parts << "**Playable As:** #{node.playable_as.join(', ')}"
+        end
         parts << "**Tags:** #{node.tags.join(', ')}" unless node.tags.empty?
         parts << "**Region:** #{node[:region]}" if node[:region]
         parts << "**Alias:** #{Array(node[:alias]).join(', ')}" if node[:alias] && !Array(node[:alias]).empty?
@@ -207,6 +224,11 @@ module Lorecraft
         out
       end
 
+      def reference_articles_page
+        rows = reference_articles.sort_by(&:title).map { |node| "- [[#{node.title}]]" }
+        "# Reference Articles\n\n#{rows.join("\n")}\n"
+      end
+
       # Causal DAG, generated from the world's causal edges (DM edges excluded).
       def causality_page
         edges = causal_edges
@@ -227,9 +249,11 @@ module Lorecraft
 
       # [cause, effect] pairs from non-DM causal edges (caused_by reversed).
       def causal_edges
+        game_ids = @world.game_world_nodes.map(&:id).to_set
         @world.all_effects.reject { |e| e[:dm] }.filter_map do |e|
           eff = e[:effect]
           next unless eff.verb == :set && CAUSAL_VERBS.include?(eff.relation)
+          next unless game_ids.include?(eff.subject) && game_ids.include?(eff.target)
 
           eff.relation == :caused_by ? [eff.target, eff.subject] : [eff.subject, eff.target]
         end.uniq
@@ -237,7 +261,7 @@ module Lorecraft
 
       def index_pages
         by_section = Hash.new { |h, k| h[k] = [] }
-        public_entities.each do |n|
+        world_entities.each do |n|
           section = page_path(n).split("/")[1] # player/<section>/...
           by_section[section] << n if SECTION_LABELS.key?(section)
         end
@@ -252,9 +276,11 @@ module Lorecraft
       end
 
       def sidebar
-        out = +"**[[Home]]**\n\n[[Timeline]] | [[Tags]] | [[Causality]]\n\n---\n\n"
+        meta = ["[[Timeline]]", "[[Tags]]", "[[Causality]]"]
+        meta << "[[Reference Articles]]" unless reference_articles.empty?
+        out = +"**[[Home]]**\n\n#{meta.join(' | ')}\n\n---\n\n"
         by_section = Hash.new { |h, k| h[k] = [] }
-        public_entities.each do |n|
+        world_entities.each do |n|
           section = page_path(n).split("/")[1]
           by_section[section] << n.title if SECTION_LABELS.key?(section)
         end

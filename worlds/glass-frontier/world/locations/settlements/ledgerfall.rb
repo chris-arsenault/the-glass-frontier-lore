@@ -1,5 +1,6 @@
 installation :ledgerfall do
   name "Ledgerfall"
+  playable_as :chronicle_location
   subkind :settlement
   status :complete
   population 81_000

@@ -1,5 +1,6 @@
 installation :third_latch do
   name "Latchhouse"
+  playable_as :chronicle_location
   aka "Third Latch"
   subkind :station
   status :complete

@@ -1,5 +1,7 @@
 installation :brake do
   name "Brake"
+  playable_as :chronicle_location, :homeland
+  origin_blurb "A free-cutting hab built around derelict recovery, shared claims, and hard rescue rules."
   subkind :settlement
   status :complete
   tags :"ring-hab", :salvage, :transport, :trade, :materials

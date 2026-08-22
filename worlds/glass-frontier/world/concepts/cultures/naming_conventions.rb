@@ -1,5 +1,7 @@
 culture :naming_conventions do
   name "Naming Conventions"
+  article!
+  log "2026-08-22 — Classified as a reference article because it compares naming practices across cultures rather than naming one practice."
   subkind :naming_practice
   path "player/concepts/cultures/naming-conventions.md"
   status :complete

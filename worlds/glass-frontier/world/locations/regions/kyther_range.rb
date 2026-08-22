@@ -1,5 +1,6 @@
 geographic_location :kyther_range do
   name "Kyther Range"
+  playable_as :chronicle_location
   subkind :region
   status :complete
   tags :surface, :resonance, :navigation, :materials, :danger

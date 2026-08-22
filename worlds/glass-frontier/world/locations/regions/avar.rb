@@ -1,5 +1,6 @@
 geographic_location :avar do
   name "Avar"
+  playable_as :chronicle_location
   subkind :region
   status :complete
   tags :surface, :resonance, :navigation, :trade, :ecology

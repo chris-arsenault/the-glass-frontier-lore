@@ -1,5 +1,6 @@
 species :elves do
   name "Elves"
+  log "2026-08-22 — Excluded from present-day character origins because the known elven population vanished during the Signal Famine."
   subkind :sapient_species
   path "player/concepts/species/elves.md"
   status :complete

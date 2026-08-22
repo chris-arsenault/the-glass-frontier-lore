@@ -1,5 +1,6 @@
 installation :crowncut_refinery do
   name "Crowncut Refinery"
+  playable_as :chronicle_location
   subkind :installation
   tags :salvage, :resonance, :ringglass, :orbital
   prominence :marginal

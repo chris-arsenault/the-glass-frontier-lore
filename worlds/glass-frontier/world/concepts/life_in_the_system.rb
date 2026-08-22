@@ -1,5 +1,7 @@
 concept :life_in_the_system do
   name "Life in the System"
+  article!
+  log "2026-08-22 — Classified as a reference article because it surveys ordinary life across the system rather than naming one thing in the world."
   subkind :social_system
   path "player/concepts/life-in-the-system.md"
   status :complete

@@ -1,5 +1,6 @@
 installation :rib do
   name "Rib"
+  playable_as :chronicle_location
   subkind :settlement
   status :complete
   tags :"ring-hab", :ecology, :resonance, :"structural-freq", :materials

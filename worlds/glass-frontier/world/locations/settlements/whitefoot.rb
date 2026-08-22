@@ -1,5 +1,6 @@
 installation :whitefoot do
   name "Whitefoot"
+  playable_as :chronicle_location
   subkind :station
   tags :surface, :"ring-era", :"signal-freq", :resonance
   prominence :recognized

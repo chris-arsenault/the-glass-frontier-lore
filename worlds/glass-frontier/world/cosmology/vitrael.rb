@@ -1,5 +1,6 @@
 geographic_location :vitrael do
   name "Vitrael"
+  playable_as :chronicle_location
   subkind :celestial_body
   status :complete
   tags :cosmology, :materials, :trade, :danger, :"outer-system"

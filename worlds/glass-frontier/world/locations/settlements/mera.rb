@@ -1,5 +1,6 @@
 installation :mera do
   name "Mera"
+  playable_as :chronicle_location
   subkind :settlement
   status :complete
   tags :"ring-hab", :ecology, :household, :materials, :resonance

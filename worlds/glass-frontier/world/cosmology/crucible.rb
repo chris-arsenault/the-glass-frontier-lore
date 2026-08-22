@@ -1,5 +1,6 @@
 geographic_location :crucible do
   name "Crucible"
+  playable_as :chronicle_location
   subkind :celestial_body
   status :complete
   tags :cosmology, :materials, :trade, :danger

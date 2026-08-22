@@ -1,5 +1,6 @@
 installation :pelhari do
   name "Pelhari"
+  playable_as :chronicle_location
   subkind :settlement
   path "player/locations/settlements/pelhari.md"
   tags :"outer-system", :training, :resonance, :trade, :"ring-era"

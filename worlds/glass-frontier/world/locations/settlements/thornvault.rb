@@ -1,5 +1,6 @@
 installation :thornvault do
   name "Thornvault"
+  playable_as :chronicle_location
   subkind :settlement
   path "player/locations/settlements/thornvault.md"
   tags :surface, :archives, :resonance, :"signal-freq", :governance

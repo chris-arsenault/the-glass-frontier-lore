@@ -1,5 +1,6 @@
 installation :keel do
   name "The Keel"
+  playable_as :chronicle_location
   subkind :infrastructure
   function "Connects the system's major ringglass, trade and settlement nodes"
   path "player/locations/landmarks/keel.md"

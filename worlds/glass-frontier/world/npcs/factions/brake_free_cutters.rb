@@ -1,5 +1,7 @@
 faction :brake_free_cutters do
   name "Brake Free Cutters"
+  playable_as :allegiance
+  origin_blurb "Independent cutters pool claims, rescue stores, tools, and hard-won authority around Brake."
   subkind :mutual_aid
   founded 2336
   tags :salvage, :trade, :"ring-hab", :materials

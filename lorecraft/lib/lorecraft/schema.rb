@@ -8,6 +8,14 @@ module Lorecraft
   # this.
   class Schema
     KindDef = Struct.new(:name, :wiki, :facts, :subkinds, keyword_init: true)
+    PlayableRoleDef = Struct.new(:name, :description, keyword_init: true)
+    PlayableCoverageRequirement = Struct.new(:role, :kinds, :exceptions, :exclusive, keyword_init: true)
+    PlayableCountRequirement = Struct.new(:role, :minimum, :maximum, keyword_init: true)
+    FocusChoiceRequirement = Struct.new(
+      :role, :minimum, :veiled_minimum_locations, :veiled_maximum_locations,
+      :veiled_majority_location_count, :veiled_cross_location_minimum,
+      keyword_init: true
+    )
     SubkindDef = Struct.new(:name, :label, :facts, :omitted_facts, keyword_init: true)
     FactDef = Struct.new(
       :name, :label, :source, :type, :expected, :relation, :direction,
@@ -36,6 +44,7 @@ module Lorecraft
     DEFAULT_STATIC_ATTRS = %i[
       title tags prominence alias region narrative_role status reviewed
       species culture era date founded registry prominence_xrefs structural subkind
+      article playable_as origin_blurb veiled
     ].freeze
 
     PROMINENCE_LEVELS = %i[forgotten marginal recognized renowned mythic].freeze
@@ -49,7 +58,9 @@ module Lorecraft
 
     attr_reader :kinds, :relations, :effects, :tags, :section_headings,
                 :static_attrs, :prominence_levels, :fact_cards_required_from,
-                :fact_cards_required_minimum
+                :fact_cards_required_minimum, :playable_roles, :location_kinds,
+                :playable_coverage_requirements, :playable_count_requirements,
+                :focus_choice_requirements
 
     def initialize
       @kinds = {}            # kind(sym) => KindDef; wiki=false means non-reader
@@ -57,6 +68,11 @@ module Lorecraft
       @effects = {}          # verb(sym) => description
       @tags = {}             # tag(sym) => description
       @section_headings = {} # heading(sym) => description (canonical prose sections)
+      @playable_roles = {}   # role(sym) => selection purpose
+      @location_kinds = []   # entity kinds that require chronicle-location judgment
+      @playable_coverage_requirements = []
+      @playable_count_requirements = []
+      @focus_choice_requirements = []
       @banned_phrases = {}   # phrase(downcased) => why this world refuses it
       @static_attrs = DEFAULT_STATIC_ATTRS.dup
       @prominence_levels = PROMINENCE_LEVELS.dup
@@ -90,6 +106,110 @@ module Lorecraft
 
     def kind?(name) = @kinds.key?(name&.to_sym)
     def wiki_kind?(name) = @kinds[name&.to_sym]&.wiki == true
+
+    # A role exposed by a game-facing selection flow. Entries opt into or out
+    # of roles explicitly; kind alone never makes an entry playable.
+    def playable_role(name, description = nil)
+      name = name.to_sym
+      raise DefinitionError, "duplicate playable role #{name}" if @playable_roles.key?(name)
+
+      @playable_roles[name] = PlayableRoleDef.new(name: name, description: description)
+    end
+
+    def playable_role?(name) = @playable_roles.key?(name&.to_sym)
+
+    # Declare which kinds represent physical places. This supports complete
+    # editorial decisions without forcing every place into a playable role.
+    def location_kind(*names)
+      names.flatten.each do |name|
+        name = name.to_sym
+        raise DefinitionError, "unknown location kind #{name}" unless kind?(name)
+
+        @location_kinds << name unless @location_kinds.include?(name)
+      end
+    end
+    def location_kind?(name) = @location_kinds.include?(name&.to_sym)
+
+    # Require every entity of the listed kinds to accept the role except for a
+    # small named set. `exclusive: true` also prevents other kinds from
+    # accepting the role.
+    def require_playable_coverage!(role, kinds:, except: [], exclusive: false)
+      role = checked_playable_role(role)
+      kinds = Array(kinds).map(&:to_sym).uniq
+      exceptions = Array(except).map(&:to_sym).uniq
+      raise DefinitionError, "playable coverage requirement needs at least one kind" if kinds.empty?
+
+      unknown = kinds.reject { |kind| kind?(kind) }
+      unless unknown.empty?
+        raise DefinitionError, "playable coverage requirement uses unknown kinds #{unknown.join(', ')}"
+      end
+      if @playable_coverage_requirements.any? { |requirement| requirement.role == role }
+        raise DefinitionError, "duplicate playable coverage requirement for #{role}"
+      end
+
+      @playable_coverage_requirements << PlayableCoverageRequirement.new(
+        role: role,
+        kinds: kinds.freeze,
+        exceptions: exceptions.freeze,
+        exclusive: exclusive == true
+      )
+    end
+
+    # Keep a player-facing choice set within the range this world considers
+    # readable and meaningful.
+    def require_playable_count!(role, minimum:, maximum: nil)
+      role = checked_playable_role(role)
+      unless minimum.is_a?(Integer) && minimum.positive?
+        raise DefinitionError, "playable count minimum must be a positive integer"
+      end
+      if maximum && (!maximum.is_a?(Integer) || maximum < minimum)
+        raise DefinitionError, "playable count maximum must be an integer at least as large as the minimum"
+      end
+      if @playable_count_requirements.any? { |requirement| requirement.role == role }
+        raise DefinitionError, "duplicate playable count requirement for #{role}"
+      end
+
+      @playable_count_requirements << PlayableCountRequirement.new(
+        role: role, minimum: minimum, maximum: maximum
+      )
+    end
+
+    # Require enough one-hop non-location choices around each location accepted
+    # for a role. The veiled settings constrain how widely each thin entry may
+    # travel and can require a strict majority at one exact membership count.
+    def require_focus_choices!(role:, minimum:, veiled_minimum_locations: nil,
+                               veiled_maximum_locations: nil,
+                               veiled_majority_location_count: nil,
+                               veiled_cross_location_minimum: nil)
+      role = checked_playable_role(role)
+      positive_integer!(minimum, "focus choice minimum")
+      positive_integer!(veiled_minimum_locations, "veiled location minimum", optional: true)
+      positive_integer!(veiled_maximum_locations, "veiled location maximum", optional: true)
+      positive_integer!(veiled_majority_location_count, "veiled majority location count", optional: true)
+      nonnegative_integer!(veiled_cross_location_minimum, "veiled cross-location minimum", optional: true)
+      if veiled_minimum_locations && veiled_maximum_locations &&
+         veiled_maximum_locations < veiled_minimum_locations
+        raise DefinitionError, "veiled location maximum must be at least as large as the minimum"
+      end
+      if veiled_majority_location_count &&
+         ((veiled_minimum_locations && veiled_majority_location_count < veiled_minimum_locations) ||
+          (veiled_maximum_locations && veiled_majority_location_count > veiled_maximum_locations))
+        raise DefinitionError, "veiled majority location count must fall within the allowed range"
+      end
+      if @focus_choice_requirements.any? { |requirement| requirement.role == role }
+        raise DefinitionError, "duplicate focus choice requirement for #{role}"
+      end
+
+      @focus_choice_requirements << FocusChoiceRequirement.new(
+        role: role,
+        minimum: minimum,
+        veiled_minimum_locations: veiled_minimum_locations,
+        veiled_maximum_locations: veiled_maximum_locations,
+        veiled_majority_location_count: veiled_majority_location_count,
+        veiled_cross_location_minimum: veiled_cross_location_minimum
+      )
+    end
+
     def require_explicit_subkinds! = @require_explicit_subkinds = true
     def explicit_subkinds_required? = @require_explicit_subkinds
 
@@ -238,6 +358,27 @@ module Lorecraft
     def prominence?(level) = @prominence_levels.include?(level&.to_sym)
 
     private
+
+    def checked_playable_role(role)
+      role = role.to_sym
+      raise DefinitionError, "unknown playable role #{role}" unless playable_role?(role)
+
+      role
+    end
+
+    def positive_integer!(value, label, optional: false)
+      return if optional && value.nil?
+      return if value.is_a?(Integer) && value.positive?
+
+      raise DefinitionError, "#{label} must be a positive integer"
+    end
+
+    def nonnegative_integer!(value, label, optional: false)
+      return if optional && value.nil?
+      return if value.is_a?(Integer) && value >= 0
+
+      raise DefinitionError, "#{label} must be a nonnegative integer"
+    end
 
     def compose_facts(definitions)
       definitions.each_with_object([]) do |definition, composed|

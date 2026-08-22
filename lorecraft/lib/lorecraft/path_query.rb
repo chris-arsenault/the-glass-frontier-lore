@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "set"
+
 module Lorecraft
   # A bounded shortest path over relationship intervals live at one year.
   # Traversal is undirected for discovery, while every step retains the edge's
@@ -104,8 +106,10 @@ module Lorecraft
     end
 
     def live_edges
+      game_ids = @world.game_world_nodes.map(&:id).to_set
       @edges.rows.select(&:live).reject do |edge|
-        Edges::BOOKKEEPING_RELATIONS.include?(edge.relation)
+        Edges::BOOKKEEPING_RELATIONS.include?(edge.relation) ||
+          !game_ids.include?(edge.subject) || !game_ids.include?(edge.target)
       end
     end
 
@@ -134,7 +138,8 @@ module Lorecraft
       normalized = id.to_s.tr("-", "_").to_sym
       entity = @world.entity(normalized)
       hidden = audience.to_sym == :player && entity&.dm?
-      raise Error, "unknown entity: #{id}" if entity.nil? || hidden
+      article = entity&.article?
+      raise Error, "unknown game-world entity: #{id}" if entity.nil? || hidden || article
 
       entity
     end

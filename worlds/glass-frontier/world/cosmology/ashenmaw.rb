@@ -1,5 +1,6 @@
 geographic_location :ashenmaw do
   name "Ashenmaw"
+  playable_as :chronicle_location
   subkind :celestial_body
   status :complete
   tags :cosmology, :"outer-system", :navigation, :danger

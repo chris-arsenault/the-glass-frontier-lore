@@ -1,5 +1,6 @@
 installation :old_campus do
   name "Old Campus"
+  playable_as :chronicle_location
   subkind :settlement
   population 110_000
   population_band "About one hundred ten thousand residents within the central wards"

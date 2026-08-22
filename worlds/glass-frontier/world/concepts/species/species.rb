@@ -1,5 +1,7 @@
 species :species do
   name "Species"
+  article!
+  log "2026-08-22 — Classified as a reference article because it is the species registry, not a species in the world."
   subkind :overview
   path "player/concepts/species/species.md"
   status :complete
@@ -7,7 +9,7 @@ species :species do
   tags :species
   prominence :mythic
   registry true
-  documented_species 5
+  documented_species 6
   common_form "Roughly bipedal and person-shaped"
   origin_theories "Divergent evolution, ring-era engineering and alien arrival"
   custom_fact :largest_population, :humans, type: :entity, label: "Largest Population"
@@ -18,18 +20,14 @@ species :species do
     All known species are roughly bipedal and person-shaped.
   PROSE
   prose <<~PROSE, section: :sources, heading: "Species Registry"
-    | Species | Origin | Resonance Relationship | Status | Entry |
-    |---------|--------|----------------------|--------|-------|
-    | #{ref :elves, "Elves"} | Native | Deeply attuned; primary resonance scientists | defined | #{ref :elves, "Elves"} |
-    | #{ref :humans, "Humans"} | Alien | Neutral; trainable but no natural affinity | defined | #{ref :humans, "Humans"} |
-    | #{ref :orcs, "Orcs"} | Alien | Physical/material affinity; feel crystal-metal relationships | defined | #{ref :orcs, "Orcs"} |
-    | #{ref :gnomes, "Gnomes"} | Engineered (by elves) | Naturally attuned; part ringglass biology | defined | #{ref :gnomes, "Gnomes"} |
-    | #{ref :fae, "Fae"} | Engineered | Dependent; resonance aids maintain coherence | defined | #{ref :fae, "Fae"} |
-    | *Merchant species* | Alien | TBD | slot | — |
-    | *Resonance-harmed species* | TBD | Harmed by resonance exposure | slot | — |
-    | *Native species 2* | Native | TBD | slot | — |
-    | *Open* | — | — | slot | — |
-    | *Open* | — | — | slot | — |
+    | Species | Origin | Resonance Relationship |
+    |---------|--------|------------------------|
+    | #{ref :elves, "Elves"} | Native | Deeply attuned; primary ring-era resonance scientists |
+    | #{ref :humans, "Humans"} | Alien | Learned through training and instruments |
+    | #{ref :orcs, "Orcs"} | Alien | Read most readily through material stress |
+    | #{ref :gnomes, "Gnomes"} | Engineered | Directly sensed through ringglass-threaded biology |
+    | #{ref :fae, "Fae"} | Engineered or extensively modified | Coherence aids help maintain bodily form |
+    | #{ref :dwarves, "Dwarves"} | Alien | Fine signal vibration is legible through touch |
   PROSE
 end
 
@@ -38,4 +36,7 @@ relate :rel_species_extends_humans, :extends, :species, :humans do
 end
 relate :rel_species_extends_elves, :extends, :species, :elves do
   prose "The #{ref :elves, "elves"} are another — the founding species, vanished, and still the largest gap in the record."
+end
+relate :rel_species_extends_dwarves, :extends, :species, :dwarves do
+  prose "#{ref :dwarves, "Dwarves"} are catalogued here for their tactile reading of fine signal traces in worked material."
 end

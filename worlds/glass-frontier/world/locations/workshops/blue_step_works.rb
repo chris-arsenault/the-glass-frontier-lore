@@ -1,5 +1,6 @@
 installation :blue_step_works do
   name "Blue Step Works"
+  playable_as :chronicle_location
   subkind :workshop
   function "Builds and tests portable structural clamps, pump frames, and road-moving gear"
   status :complete

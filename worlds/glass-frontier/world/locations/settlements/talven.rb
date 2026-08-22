@@ -1,5 +1,7 @@
 installation :talven do
   name "Talven"
+  playable_as :chronicle_location, :homeland
+  origin_blurb "A ringglass quarry town whose layered galleries preserve voices, tools, and music in the walls."
   aka "Tal-Venari"
   subkind :settlement
   status :complete

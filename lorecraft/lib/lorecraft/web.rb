@@ -25,13 +25,13 @@ module Lorecraft
       @world = world
     end
 
-    def entities = @world.entities.values
+    def entities = @world.game_world_entities
 
     def prominence = @prominence ||= entities.to_h { |n| [n.id, n.prominence] }
 
     def adjacency
       @adjacency ||= Hash.new { |h, k| h[k] = Set.new }.tap do |adj|
-        @world.relationships.each { |s, _v, t| adj[s] << t; adj[t] << s }
+        @world.game_world_relationships.each { |s, _v, t| adj[s] << t; adj[t] << s }
       end
     end
 
@@ -52,7 +52,7 @@ module Lorecraft
 
     def report
       out = ["=== Web ===",
-             "  entities: #{entities.size}   edges: #{@world.relationships.size}",
+             "  game-world entities: #{entities.size}   edges: #{@world.game_world_relationships.size}",
              "",
              "  most connected:",]
       hubs.each { |id, d| out << format("    %3d  %-30s %s", d, id, prominence[id]) }

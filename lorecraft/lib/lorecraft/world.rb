@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "set"
 require_relative "errors"
 require_relative "schema"
 require_relative "timeline"
@@ -137,6 +138,37 @@ module Lorecraft
     # own pages). Genesis moments are pure bootstrap — they carry effects but no
     # page — so they are excluded here while still contributing to all_effects.
     def pages = @entities.values + @moments.values.reject(&:genesis?)
+
+    # Canonical page-bearing nodes include both world entities and reference
+    # articles. Shells remain addressable graph endpoints but have no page.
+    def canonical_nodes(include_shells: false)
+      pages.reject { |node| !include_shells && shell?(node) }
+    end
+
+    # The game-world graph excludes reference articles and every relationship
+    # incident to one. Veiled entities remain in this raw scope because they are
+    # canonical people, factions, artifacts, and other things in the world.
+    def game_world_nodes(include_shells: false, include_veiled: true)
+      canonical_nodes(include_shells: include_shells).reject do |node|
+        (node.respond_to?(:article?) && node.article?) ||
+          (!include_veiled && node.respond_to?(:veiled?) && node.veiled?)
+      end
+    end
+
+    def game_world_entities(include_shells: false, include_veiled: true)
+      game_world_nodes(include_shells: include_shells, include_veiled: include_veiled)
+        .select { |node| node.is_a?(Entity) }
+    end
+
+    # Induce the graph from the selected game-world nodes. This prevents an
+    # article from continuing to affect degree or reachability through its
+    # incident edges after the article node itself has been removed.
+    def game_world_relationships(include_shells: false, include_veiled: true)
+      ids = game_world_nodes(
+        include_shells: include_shells, include_veiled: include_veiled
+      ).map(&:id).to_set
+      relationships.select { |subject, _verb, target| ids.include?(subject) && ids.include?(target) }
+    end
 
     # --- effects & temporal state -----------------------------------------
 
@@ -301,6 +333,12 @@ module Lorecraft
 
     def validate!
       Validator.new(self).validate!
+    end
+
+    private
+
+    def shell?(node)
+      node.respond_to?(:[]) && node[:status].to_s == "shell"
     end
   end
 end

@@ -1,5 +1,7 @@
 species :fae do
   name "Fae"
+  playable_as :species
+  origin_blurb "Spatially diffuse people use coherence aids and practiced attention to hold a stable bodily form."
   subkind :sapient_species
   path "player/concepts/species/fae.md"
   status :complete
@@ -53,4 +55,7 @@ relate :rel_fae_depends_on_gnomes, :depends_on, :fae, :gnomes do
 end
 relate :rel_fae_depends_on_resonance, :depends_on, :fae, :resonance do
   prose "More fundamentally they depend on #{ref :resonance, "resonance"} itself: the fields in their coherence aids are the prosthetic that makes a coherent life possible."
+end
+relate :rel_fae_inhabit_fermata, :inhabits, :fae, :fermata_station, since: 2305 do
+  prose "Fermata's continuously tuned rooms support a settled fae population, including the station's current Chair."
 end

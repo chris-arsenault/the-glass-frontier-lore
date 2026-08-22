@@ -1,5 +1,6 @@
 geographic_location :the_glass_frontier do
   name "The Glass Frontier"
+  log "2026-08-22 — Excluded as a chronicle location because the entire field of separated habs is too broad for one starting focus."
   subkind :world_region
   path "player/cosmology/the-glass-frontier.md"
   status :complete

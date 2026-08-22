@@ -1,5 +1,7 @@
 installation :carom do
   name "Carom"
+  playable_as :chronicle_location, :homeland
+  origin_blurb "Three rotating segments trade parcels, meals, and messages through transfer drums that never align for long."
   subkind :settlement
   status :complete
   tags :"ring-hab", :transport, :trade, :household, :resonance

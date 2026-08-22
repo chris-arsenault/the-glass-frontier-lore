@@ -1,5 +1,6 @@
 installation :xyloathax do
   name "Xyloathax"
+  playable_as :chronicle_location
   subkind :settlement
   population 6400
   population_band "About sixty-four hundred residents inside the occupied arc"

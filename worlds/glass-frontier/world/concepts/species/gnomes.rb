@@ -1,5 +1,7 @@
 species :gnomes do
   name "Gnomes"
+  playable_as :species
+  origin_blurb "Ringglass threads their bones and nerves, making resonance a direct sense that demands lifelong care."
   subkind :sapient_species
   path "player/concepts/species/gnomes.md"
   status :complete

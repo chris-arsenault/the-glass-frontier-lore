@@ -28,3 +28,6 @@ end
 relate :rel_duthrek_located_on_korvath, :located_in, :duthrek, :korvath, since: 2409 do
   prose "Duthrek runs Coremark from the northern industrial belt on Korvath."
 end
+relate :rel_duthrek_operates_in_deep_shear, :operates_in, :duthrek, :deep_shear, since: 2409 do
+  prose "Duthrek assigns, reduces, and closes Coremark extraction zones in the Deep Shear from his Korvath office."
+end

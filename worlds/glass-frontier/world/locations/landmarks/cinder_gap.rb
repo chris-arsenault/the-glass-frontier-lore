@@ -1,5 +1,6 @@
 installation :cinder_gap do
   name "Cinder Gap"
+  playable_as :chronicle_location
   subkind :border_post
   tags :orbital, :danger, :resonance
   prominence :marginal

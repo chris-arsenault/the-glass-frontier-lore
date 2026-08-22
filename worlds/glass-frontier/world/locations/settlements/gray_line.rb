@@ -1,5 +1,6 @@
 installation :gray_line do
   name "Gray Line"
+  playable_as :chronicle_location
   aka "Cordon Station Nine"
   subkind :border_post
   tags :orbital, :danger, :resonance, :"ring-hab"

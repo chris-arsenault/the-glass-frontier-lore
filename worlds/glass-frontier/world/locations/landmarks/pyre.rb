@@ -1,5 +1,6 @@
 installation :pyre do
   name "Pyre"
+  playable_as :chronicle_location
   subkind :landmark
   path "player/locations/landmarks/pyre.md"
   status :complete

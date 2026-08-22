@@ -1,5 +1,7 @@
 installation :wash_four do
   name "Wash Four"
+  playable_as :chronicle_location, :homeland
+  origin_blurb "A sealed hab where textile traces, missing routes, and careful washing preserve old signals."
   aka "Decontamination Habitat Four"
   subkind :settlement
   status :complete

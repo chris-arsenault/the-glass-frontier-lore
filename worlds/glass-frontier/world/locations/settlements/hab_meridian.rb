@@ -1,5 +1,6 @@
 installation :hab_meridian do
   name "Hab Meridian"
+  playable_as :chronicle_location
   subkind :settlement
   path "player/locations/settlements/hab-meridian.md"
   tags :"ring-hab", :archives, :trade, :rebuilding, :"social-structure"

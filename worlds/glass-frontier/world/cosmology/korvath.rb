@@ -1,5 +1,6 @@
 geographic_location :korvath do
   name "Korvath"
+  playable_as :chronicle_location
   subkind :celestial_body
   status :complete
   tags :"outer-system", :resonance, :trade, :governance, :ecology

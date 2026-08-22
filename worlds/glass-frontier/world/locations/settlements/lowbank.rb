@@ -1,5 +1,6 @@
 installation :lowbank do
   name "Lowbank"
+  playable_as :chronicle_location
   subkind :settlement
   status :complete
   population 190_000

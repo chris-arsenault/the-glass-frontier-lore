@@ -1,5 +1,6 @@
 installation :lot_forty do
   name "Forty"
+  playable_as :chronicle_location
   aka "Lot Forty"
   subkind :workshop
   function "Enclosed cutting, quarantine, and live-system access for captured vessels"

@@ -1,5 +1,6 @@
 installation :marker_house_twelve do
   name "Marker House Twelve"
+  playable_as :chronicle_location
   subkind :station
   status :complete
   tags :surface, :transport, :trade, :resonance, :household

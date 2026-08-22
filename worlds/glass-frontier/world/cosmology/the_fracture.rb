@@ -1,5 +1,6 @@
 geographic_location :the_fracture do
   name "The Fracture"
+  playable_as :chronicle_location
   subkind :celestial_body
   status :complete
   tags :cosmology, :"outer-system", :danger, :salvage, :mystery, :"fluid-reality"

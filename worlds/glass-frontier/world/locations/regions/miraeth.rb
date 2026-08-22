@@ -1,5 +1,6 @@
 geographic_location :miraeth do
   name "Miraeth"
+  playable_as :chronicle_location
   subkind :region
   status :complete
   tags :surface, :ecology, :resonance, :ringglass, :trade

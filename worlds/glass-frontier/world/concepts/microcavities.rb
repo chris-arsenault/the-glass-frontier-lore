@@ -21,3 +21,6 @@ end
 relate :rel_microcavities_sourced_from_the_shear, :sourced_from, :microcavities, :the_shear do
   prose "The grade that holds charge best comes out of the #{ref :the_shear, "Shear"}, which keeps the supply expensive and the salvage crews busy."
 end
+relate :rel_heavy_haulers_carry_microcavities, :carries, :heavy_hauler, :microcavities do
+  prose "Heavy haulers carry standardized racks of microcavities as valuable industrial cargo and reserve fuel."
+end

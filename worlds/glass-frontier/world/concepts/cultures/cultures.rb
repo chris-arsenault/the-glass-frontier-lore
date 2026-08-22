@@ -1,5 +1,7 @@
 culture :cultures do
   name "Cultures"
+  article!
+  log "2026-08-22 — Classified as a reference article because it is the culture registry, not a culture in the world."
   subkind :overview
   path "player/concepts/cultures/cultures.md"
   status :complete
@@ -9,7 +11,7 @@ culture :cultures do
   registry true
   organizing_basis "Place, upbringing and shared practice rather than species"
   primary_signals "Language, names, clothing and manners"
-  major_cultures %i[sitharian_culture hab_worlder]
+  major_cultures %i[sitharian_culture hab_worlder shearfolk sable_riverfolk]
   custom_fact :political_scope, "Cultures contain many governments and ideologies",
               label: "Political Scope"
 
@@ -21,18 +23,12 @@ culture :cultures do
     Each culture defines distinct naming patterns — the primary species-agnostic cultural signal. Name generation follows patterns defined in `../the-canonry` name-forge for lexographic consistency.
   PROSE
   prose <<~PROSE, section: :sources, heading: "Culture Registry"
-    | Culture | Base | Population | Status | Entry |
-    |---------|------|------------|--------|-------|
-    | #{ref :sitharian_culture, "Sithari"} | Sithari (de facto capital) | Large | defined | #{ref :sitharian_culture, "Sithari"} |
-    | #{ref :hab_worlder, "Hab-Worlder"} | Ring habs (general) | Large | defined | #{ref :hab_worlder, "Hab-Worlder"} |
-    | *7th-planet moon culture* | Colonized moon of the water giant | Medium | slot | — |
-    | *Spiritual/druid culture* | Distributed | Medium | slot | — |
-    | *Hyper-religious culture* | TBD | TBD | slot | — |
-    | *Syndicate culture* | Distributed (criminal networks) | Medium | slot | — |
-    | Independent | Everywhere | Small (per community) | bucket | Catch-all for procedural generation |
-    | *Open* | — | — | slot | — |
-    | *Open* | — | — | slot | — |
-    | *Open* | — | — | slot | — |
+    | Culture | Home and movement | Shared practice |
+    |---------|-------------------|-----------------|
+    | #{ref :sitharian_culture, "Sitharian"} | Sithari and its institutions | Formal register, procedure and precise public presentation |
+    | #{ref :hab_worlder, "Hab-Worlder"} | Ring habs | Air sense, exit awareness and maintenance reciprocity |
+    | #{ref :shearfolk, "Shearfolk"} | Salvage routes and claim stations | Current charts, visible work and rescue debt |
+    | #{ref :sable_riverfolk, "Sable Riverfolk"} | Sable Crescent rivers and roads | Witnessed accounts, household names and route marks |
   PROSE
 end
 
@@ -41,4 +37,10 @@ relate :rel_cultures_extends_hab_worlder, :extends, :cultures, :hab_worlder do
 end
 relate :rel_cultures_extends_sitharian, :extends, :cultures, :sitharian_culture do
   prose "So is #{ref :sitharian_culture, "Sitharian"} culture, the system's prestige register."
+end
+relate :rel_cultures_extends_shearfolk, :extends, :cultures, :shearfolk do
+  prose "#{ref :shearfolk, "Shearfolk"} culture carries route knowledge and rescue obligations between salvage crews."
+end
+relate :rel_cultures_extends_sable_riverfolk, :extends, :cultures, :sable_riverfolk do
+  prose "#{ref :sable_riverfolk, "Sable Riverfolk"} culture follows witnessed accounts and joined households along the Crescent's routes."
 end

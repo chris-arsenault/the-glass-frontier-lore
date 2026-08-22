@@ -1,5 +1,6 @@
 installation :holl do
   name "Holl"
+  playable_as :chronicle_location
   subkind :settlement
   status :complete
   tags :"ring-hab", :transport, :governance, :"structural-freq", :household

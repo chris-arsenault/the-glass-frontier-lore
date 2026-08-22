@@ -1,5 +1,7 @@
 faction :coremark do
   name "Coremark"
+  playable_as :allegiance
+  origin_blurb "A disciplined outlaw salvage company pays well, protects its crews, and extracts where the Compact forbids."
   subkind :company
   path "player/npcs/factions/coremark.md"
   reviewed "2026-03-19"

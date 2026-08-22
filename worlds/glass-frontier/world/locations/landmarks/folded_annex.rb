@@ -1,5 +1,6 @@
 installation :folded_annex do
   name "The Folded Annex"
+  playable_as :chronicle_location
   subkind :archive
   holdings "Ring-era spatial calibration records, test rooms and sealed instrument stores"
   tags :surface, :resonance, :"ring-era", :archives, :danger, :"fluid-reality"

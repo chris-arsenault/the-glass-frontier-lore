@@ -1,5 +1,6 @@
 installation :orra do
   name "Orra"
+  playable_as :chronicle_location
   subkind :settlement
   status :complete
   tags :"ring-hab", :ecology, :salvage, :resonance, :"ring-era"

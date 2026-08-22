@@ -1,5 +1,7 @@
 species :orcs do
   name "Orcs"
+  playable_as :species
+  origin_blurb "Dense-boned and enduring, orcs read resonance most readily through stressed metal, stone, and glass."
   subkind :sapient_species
   path "player/concepts/species/orcs.md"
   status :complete
@@ -52,4 +54,7 @@ relate :rel_orcs_inhabit_tgf, :inhabits, :orcs, :the_glass_frontier, since: 2080
 end
 relate :rel_orcs_attuned_ringglass, :practiced_by, :orcs, :ringglass, since: 2080 do
   prose "They carry a marked affinity for #{ref :ringglass, "ringglass"} — a material resonance sense that makes good orc salvagers and better orc smiths."
+end
+relate :rel_orcs_inhabit_kesh, :inhabits, :orcs, :kesh, since: 2305 do
+  prose "Kesh retains Orcish formation calls and a substantial orc population among its rescue and load crews."
 end

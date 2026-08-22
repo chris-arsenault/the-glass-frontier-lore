@@ -1,5 +1,7 @@
 species :humans do
   name "Humans"
+  playable_as :species
+  origin_blurb "Numerous and adaptable, humans rely on learned skill and instruments rather than an innate resonance sense."
   subkind :sapient_species
   path "player/concepts/species/humans.md"
   status :complete
@@ -34,4 +36,7 @@ relate :rel_humans_inhabit_sithari, :inhabits, :humans, :sithari, since: 2050 do
 end
 relate :rel_humans_inhabit_tgf, :inhabits, :humans, :the_glass_frontier, since: 2050 do
   prose "They are spread thickly through the #{ref :the_glass_frontier, "Glass Frontier"} too — arrivals who were integrated into ring society and outlasted the ring."
+end
+relate :rel_humans_inhabit_glasswake, :inhabits, :humans, :glasswake, since: 2050 do
+  prose "Human households form much of Glasswake's mining, repair, and harbor population."
 end

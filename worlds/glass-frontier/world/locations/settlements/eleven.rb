@@ -1,5 +1,6 @@
 installation :eleven do
   name "Eleven"
+  playable_as :chronicle_location
   aka "Service Habitat Eleven"
   subkind :settlement
   status :complete

@@ -1,5 +1,6 @@
 geographic_location :the_shear do
   name "The Shear"
+  playable_as :chronicle_location
   subkind :frontier
   path "player/locations/regions/the-shear.md"
   status :complete

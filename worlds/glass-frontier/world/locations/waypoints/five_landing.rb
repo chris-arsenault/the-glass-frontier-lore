@@ -1,5 +1,6 @@
 installation :five_landing do
   name "Five Landing"
+  playable_as :chronicle_location
   subkind :station
   status :complete
   tags :"ring-hab", :transport, :trade, :household

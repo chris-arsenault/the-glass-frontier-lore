@@ -1,5 +1,6 @@
 installation :vey do
   name "Vey"
+  playable_as :chronicle_location
   subkind :settlement
   status :complete
   tags :"ring-hab", :"structural-freq", :household, :resonance, :governance

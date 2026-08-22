@@ -1,5 +1,6 @@
 geographic_location :bloom_zones do
   name "Bloom Zones"
+  playable_as :chronicle_location
   subkind :hazardous_zone
   path "player/locations/landmarks/bloom-zones.md"
   status :complete

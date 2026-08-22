@@ -1,5 +1,6 @@
 installation :three_arms_yard do
   name "Three Arms Yard"
+  playable_as :chronicle_location
   subkind :workshop
   function "Repairs flexible-frame survey kites and shower-catch equipment"
   status :complete

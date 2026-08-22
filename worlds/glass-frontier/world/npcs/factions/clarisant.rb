@@ -1,5 +1,7 @@
 faction :clarisant do
   name "Clarisant"
+  playable_as :allegiance
+  origin_blurb "A dispersed guild of trained Tuners whose credential carries trust across most of the system."
   subkind :religious_order
   path "player/npcs/factions/clarisant.md"
   tags :resonance, :training, :governance, :"social-structure"

@@ -153,6 +153,9 @@ unknown word.
 - `drafted_by_default :ai`, `:human`, or `:ai_human` supplies block provenance
   when a block has no override.
 - `require_explicit_subkinds!` rejects entities that omit `subkind`.
+- `location_kind :geographic_location, :installation` identifies the kinds that
+  need an explicit chronicle-location decision.
+- `playable_role :species, "meaning"` declares one controlled selection role.
 - `declare_static_attr :name` adds an attribute that effects may not mutate.
 
 ## 3. Timeline
@@ -203,6 +206,50 @@ end
 Common explicit methods are `name`/`title`, `tags`, `prominence`, `aka`,
 `status`, `region`, `narrative_role`, `subkind`, `reviewed`, `dm!`, `prose`,
 `cards`, `fact`, `custom_fact`, `question`, `log`, and `derive`.
+
+`article!` marks a reader reference page. It stays in search and page renders
+but is absent from the induced game-world graph. `playable_as :role` accepts a
+schema-declared selection role; its absence means the entity is not a selection.
+Accepted origin roles require `origin_blurb`, one line no longer than 140
+characters.
+
+`veiled "Sentence."` defines a thin public story hook with a stable id and its
+real kind. Its affirmative declarative sentence is its complete description;
+it cannot also carry prose, facts, DM visibility, a location kind, an article
+flag, or a playable role.
+
+World schemas can enforce complete player-facing sets:
+
+```ruby
+require_playable_coverage! :chronicle_location,
+                           kinds: location_kinds,
+                           except: %i[kaleidos kaleidos_system the_glass_frontier the_sun],
+                           exclusive: true
+require_playable_count! :homeland, minimum: 8, maximum: 12
+require_focus_choices! role: :chronicle_location,
+                       minimum: 10,
+                       veiled_minimum_locations: 2,
+                       veiled_maximum_locations: 4,
+                       veiled_majority_location_count: 2,
+                       veiled_cross_location_minimum: 1
+```
+
+`require_playable_coverage!` requires `playable_as` on every non-shell,
+non-article entity of the listed kinds except the named entries. With
+`exclusive: true`, no other kind may accept the role. The exception list records
+the small boundary of a broad rule without adding inverse metadata to each
+entity. `require_playable_count!` sets the allowed number of accepted entries.
+`require_focus_choices!` checks direct public, non-bookkeeping, non-location
+neighbors for every location accepted for the role. Its optional veiled
+settings set the allowed location membership, require a strict majority at one
+membership count, and require entries whose locations have no direct
+location-to-location edge.
+
+`veiled` is replaceable metadata on a real entity, not a separate entity kind
+or an authoring status. Expanding one preserves the entity id and kind, removes
+the `veiled` declaration, and adds normal facts and prose. Existing consumers
+can keep referring to the same id, which leaves room for a later play-to-canon
+workflow without requiring one now.
 
 A call matching an attribute-backed schema fact sets that typed fact. Other
 unknown calls with arguments become extensible static attributes. This is why
@@ -379,6 +426,8 @@ world.at(2080).in(:cairo, :located_in)
 world.at(2080).attr(:inez_bell, :standing)
 world.moments_of(:inez_bell)
 world.relationships
+world.game_world_nodes
+world.game_world_relationships
 world.pending_edges
 world.year_of(:cairo_retreat)
 world.elapsed(:cairo_retreat, :now)
@@ -388,6 +437,11 @@ world.elapsed(:cairo_retreat, :now)
 audience filters DM edges. `World#relationships` is the distinct all-time graph,
 including derived embed edges. `pending_edges` lists future names by owning
 entity and does not invent nodes for them.
+
+`game_world_nodes` removes entities marked `article!`; its relationship query
+induces the remaining graph so article-incident edges also disappear. Veiled
+entries remain world nodes. Pass `include_veiled: false` when measuring only
+fully developed entries.
 
 ## 11. Command query surface
 
@@ -406,6 +460,7 @@ wiki or the whole graph:
 | connect two known entries | `path FROM TO` |
 | inspect all changes to one entry | `timeline ID` |
 | inspect structured facts | `facts [ID]` |
+| measure direct chronicle focus choices | `focus` |
 | choose or narrow editorial work | `queue [ID]` |
 | inspect drafting and review | `provenance [ID]` |
 | recover settled entry history | `log [ID]` |

@@ -1,5 +1,6 @@
 installation :latch do
   name "Latch"
+  playable_as :chronicle_location
   subkind :settlement
   tags :"ring-hab", :catastrophe, :resonance
   prominence :forgotten

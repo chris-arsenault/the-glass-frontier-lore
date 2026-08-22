@@ -1,5 +1,6 @@
 installation :span_nine do
   name "Span Nine"
+  playable_as :chronicle_location
   subkind :landmark
   path "player/locations/landmarks/span-nine.md"
   status :complete

@@ -1,5 +1,6 @@
 installation :noll do
   name "Noll"
+  playable_as :chronicle_location
   aka "Nol-Avaren"
   subkind :settlement
   status :complete

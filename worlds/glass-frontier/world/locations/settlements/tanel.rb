@@ -1,5 +1,6 @@
 installation :tanel do
   name "Tanel"
+  playable_as :chronicle_location
   subkind :settlement
   status :complete
   tags :"ring-hab", :transport, :archives, :"signal-freq", :"ring-era"

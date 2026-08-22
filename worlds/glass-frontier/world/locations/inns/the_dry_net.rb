@@ -1,5 +1,6 @@
 installation :the_dry_net do
   name "The Dry Net"
+  playable_as :chronicle_location
   subkind :installation
   status :complete
   tags :trade, :salvage, :transport, :household, :surface

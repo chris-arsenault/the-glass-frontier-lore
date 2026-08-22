@@ -1,5 +1,6 @@
 geographic_location :dovra do
   name "Dovra"
+  playable_as :chronicle_location
   subkind :region
   status :complete
   tags :"outer-system", :ecology, :trade, :resonance, :transport

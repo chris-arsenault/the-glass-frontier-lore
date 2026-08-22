@@ -1,4 +1,4 @@
-.PHONY: validate lint check check-all wiki site-data graph stats topology worlds test provenance facts queue web reader-dev reader-build review-check backend-check app-check clean
+.PHONY: validate lint check check-all wiki site-data graph stats topology focus worlds test provenance facts queue web reader-dev reader-build review-check backend-check app-check clean
 
 # Content targets run against one world unless their name says otherwise.
 # Override with WORLD=<id>; `make worlds` lists what is available. The default
@@ -59,6 +59,9 @@ stats:
 	@$(LC) stats
 topology:
 	@$(LC) topology
+# Direct non-location focus choices for each canon-approved chronicle location.
+focus:
+	@$(LC) focus
 # Who drafted the prose and who has read it, per block.
 provenance:
 	@$(LC) provenance

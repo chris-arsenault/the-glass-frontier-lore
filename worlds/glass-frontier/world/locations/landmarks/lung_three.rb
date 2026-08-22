@@ -1,5 +1,6 @@
 installation :lung_three do
   name "Lung Three"
+  playable_as :chronicle_location
   subkind :infrastructure
   function "Divides Vey's main thermal airflow among four residential wards"
   status :complete

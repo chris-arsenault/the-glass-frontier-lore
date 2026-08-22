@@ -1,5 +1,6 @@
 installation :the_reed_door do
   name "The Reed Door"
+  playable_as :chronicle_location
   subkind :installation
   status :complete
   tags :"outer-system", :trade, :transport, :household, :ecology

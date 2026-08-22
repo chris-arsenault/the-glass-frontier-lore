@@ -1,5 +1,6 @@
 installation :olven do
   name "Olven"
+  playable_as :chronicle_location
   aka "Olven-Terath"
   subkind :settlement
   status :complete

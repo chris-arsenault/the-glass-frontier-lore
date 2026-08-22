@@ -1,5 +1,7 @@
 faction :counterweight do
   name "The Counterweight"
+  playable_as :allegiance
+  origin_blurb "Mobile riggers help settlements move structures that local hands cannot shift safely alone."
   subkind :mutual_aid
   status :complete
   founded 2429

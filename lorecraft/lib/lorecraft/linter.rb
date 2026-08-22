@@ -4,6 +4,7 @@ require "set"
 require "pathname"
 require_relative "diagnostic"
 require_relative "markers"
+require_relative "focus_coverage"
 
 module Lorecraft
   # The lore quality gate — the in-memory successor to lint.py. Where the
@@ -79,7 +80,7 @@ module Lorecraft
       @issues = []
       %i[
         check_titles check_dm_phrase_leakage check_markers check_prominence_reach
-        check_fact_cards check_typed_spans check_question_anchors check_double_article
+        check_fact_cards check_focus_requirements check_typed_spans check_question_anchors check_double_article
         check_banned_phrases check_resonance_vocab check_dm_public_entry
         check_shell_consistency check_causal_cycles check_antisymmetry
         check_partof_cycles check_embed_cycles check_orphans check_location_spatial
@@ -258,11 +259,56 @@ module Lorecraft
       end
     end
 
+    def check_focus_requirements
+      @world.schema.focus_choice_requirements.each do |requirement|
+        result = FocusCoverage.new(
+          @world, role: requirement.role, minimum: requirement.minimum
+        ).data
+
+        result[:locations].each do |location|
+          next if location[:deficit].zero?
+
+          owner = @world.entity(location[:id])
+          err("#{label(owner)}: playable role #{requirement.role.inspect} has " \
+              "#{location[:total]} one-hop focus choices; requires #{requirement.minimum}", owner: owner)
+        end
+
+        result[:veiled_memberships].each do |membership|
+          owner = @world.entity(membership[:id])
+          count = membership[:location_count]
+          if requirement.veiled_minimum_locations && count < requirement.veiled_minimum_locations
+            err("#{label(owner)}: veiled entry reaches #{count} playable locations; requires at least " \
+                "#{requirement.veiled_minimum_locations}", owner: owner)
+          end
+          if requirement.veiled_maximum_locations && count > requirement.veiled_maximum_locations
+            err("#{label(owner)}: veiled entry reaches #{count} playable locations; allows at most " \
+                "#{requirement.veiled_maximum_locations}", owner: owner)
+          end
+        end
+
+        majority_count = requirement.veiled_majority_location_count
+        if majority_count
+          memberships = result[:veiled_memberships]
+          matching = memberships.count { |membership| membership[:location_count] == majority_count }
+          unless matching > memberships.size / 2
+            err("veiled entries linked to exactly #{majority_count} playable locations are not a strict " \
+                "majority (#{matching}/#{memberships.size})", owner: @world.entity(memberships.first&.dig(:id)))
+          end
+        end
+
+        cross_minimum = requirement.veiled_cross_location_minimum
+        next unless cross_minimum && result[:cross_location_veiled_entries] < cross_minimum
+
+        err("#{result[:cross_location_veiled_entries]} veiled entries span playable locations with no direct " \
+            "location edge; requires at least #{cross_minimum}")
+      end
+    end
+
     # Typed edges, either direction — the graph's own answer to "are these two
     # things connected?", independent of what the prose asserts.
     def neighbours
       @neighbours ||= Hash.new { |h, k| h[k] = Set.new }.tap do |adj|
-        @world.relationships.each { |s, _v, t| adj[s] << t; adj[t] << s }
+        @world.game_world_relationships.each { |s, _v, t| adj[s] << t; adj[t] << s }
       end
     end
 
@@ -402,10 +448,8 @@ module Lorecraft
 
     def check_orphans
       degree = Hash.new(0)
-      @world.relationships.each { |s, _v, t| degree[s] += 1; degree[t] += 1 }
-      pages.each do |e|
-        next if shell?(e)
-
+      @world.game_world_relationships.each { |s, _v, t| degree[s] += 1; degree[t] += 1 }
+      @world.game_world_entities(include_veiled: false).each do |e|
         warn("orphan: #{label(e)} has no relationships", owner: e) if degree[e.id].zero?
       end
     end

@@ -1,5 +1,6 @@
 installation :seren do
   name "Seren"
+  playable_as :chronicle_location
   aka "Seren-ith"
   subkind :settlement
   status :complete

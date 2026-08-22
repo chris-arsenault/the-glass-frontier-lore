@@ -39,6 +39,12 @@ module Lorecraft
     def tags = Array(@static_attrs[:tags]).map(&:to_sym)
     def prominence = @static_attrs[:prominence]
     def subkind = (@static_attrs[:subkind] || @kind).to_sym
+    def article? = @static_attrs[:article] == true
+    def playable_as = Array(@static_attrs[:playable_as]).map(&:to_sym)
+    def playable_as?(role) = playable_as.include?(role.to_sym)
+    def origin_blurb = @static_attrs[:origin_blurb]
+    def veiled? = @static_attrs[:veiled].is_a?(String)
+    def veil_tagline = @static_attrs[:veiled]
     def authored_blocks = @content_blocks
     def prose_blocks = @content_blocks.select(&:prose?)
     def card_blocks = @content_blocks.select(&:cards?)
@@ -88,6 +94,18 @@ module Lorecraft
       def region(value)    = set(:region, value)
       def narrative_role(value) = set(:narrative_role, value.to_sym)
       def subkind(value) = set(:subkind, value.to_sym)
+
+      # Reference articles remain reader-visible but are not part of the world
+      # entity graph used for play and graph-health measurements.
+      def article! = set(:article, true)
+
+      # Controlled game-facing selection roles.
+      def playable_as(*roles) = add_values(:playable_as, roles)
+      def origin_blurb(text) = set(:origin_blurb, text)
+
+      # A thin but canonical story hook. The value is the complete public
+      # description until later play supplies enough facts for full prose.
+      def veiled(tagline) = set(:veiled, tagline)
 
       # Mark this entity DM-only. `public_entry:` names the player-facing entity
       # this hidden truth extends.
@@ -221,6 +239,11 @@ module Lorecraft
         when Array then :entities
         else :text
         end
+      end
+
+      def add_values(key, values)
+        combined = Array(@entity.static_attrs[key]) + values.flatten.map(&:to_sym)
+        set(key, combined.uniq)
       end
 
       def set(key, value)

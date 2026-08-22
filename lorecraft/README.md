@@ -88,6 +88,7 @@ Every content/query command selects one world through `--world ID`,
 | recover settled editorial reasoning | `log ID` | non-reader entry history |
 | find missing structured facts | `facts [ID]` | global coverage or one entry's values |
 | measure local graph coverage | `topology` | typed degree and thin entries |
+| measure chronicle focus choices | `focus` | direct public choices for each playable location |
 | test dependence on famous hubs | `web` | components after prominence cuts |
 | audit drafting and review | `provenance [ID]` | global or entry-owned block provenance |
 | enforce hard invariants | `validate` | structural errors, nonzero on failure |
@@ -111,6 +112,8 @@ which rows are live at the selected year. `path` traverses only live rows in
 either direction while preserving each edge's authored direction. It excludes
 `active_during`, `emerged_during`, `created_during`, `disappeared_during`, and
 `mentions`, whose shared structural nodes would create misleading shortcuts.
+Reference articles and their incident edges do not participate in `path`,
+`topology`, `web`, `focus`, or graph JSON.
 
 ### Structured diagnostics
 
@@ -183,6 +186,61 @@ Production worlds require a declared subkind. Common facts come from the shared
 kind and subkind schema; a world can extend them, and a single entity can append
 an exceptional `custom_fact`. Do not fill a missing expected fact with a guess
 or an `unknown` placeholder. `facts` reports the absence outside reader prose.
+
+### Reader and play metadata
+
+```ruby
+concept :species do
+  name "Species"
+  article!
+end
+
+species :humans do
+  playable_as :species
+  origin_blurb "Adaptable communities live throughout the inhabited system."
+end
+
+npc :blue_courier do
+  name "The Blue Courier"
+  veiled "A blue-clad courier carries sealed maps between separated habs."
+end
+```
+
+`article!` keeps a reference page in search, the reader, and wiki while removing
+it and its incident edges from the game-world graph. `playable_as` selects one
+or more schema-declared roles; absence means the entry is not a selection.
+Origins need a one-line `origin_blurb` of at most 140 characters. A `veiled`
+entry is a public non-location entity whose one affirmative sentence is its
+complete description until it is expanded. It has no authored prose or facts.
+
+A world can make its picker expectations part of the schema:
+
+```ruby
+require_playable_coverage! :chronicle_location,
+                           kinds: location_kinds,
+                           except: %i[kaleidos kaleidos_system the_glass_frontier the_sun],
+                           exclusive: true
+require_playable_count! :species, minimum: 5, maximum: 8
+require_focus_choices! role: :chronicle_location,
+                       minimum: 10,
+                       veiled_minimum_locations: 2,
+                       veiled_maximum_locations: 4,
+                       veiled_majority_location_count: 2,
+                       veiled_cross_location_minimum: 1
+```
+
+The first declaration requires every physical place outside its short exception
+list to use `playable_as`, and prevents another kind from accepting the role.
+Count requirements keep each picker within its authored range. The focus
+requirement counts direct public non-location neighbors and constrains how many
+playable places share each veiled entry. These are canon checks, so `make check`
+fails before any render or importer can consume an incomplete selection set.
+
+To expand a veiled entry, keep its id and real kind, remove `veiled`, and add
+the ordinary facts and prose for that entity. Keep any location relationships
+that remain true. A game or other consumer can therefore retain the stable id
+when later work replaces the one-sentence entry; no parallel placeholder or
+identifier migration is needed.
 
 ## Facts and schema
 
@@ -291,8 +349,9 @@ trusted-loopback boundary, revision checks, and permitted declarations.
   entry logs, provenance, missing expected facts, or DM entries.
 - `make wiki WORLD=<id>` builds a flat, player-only Markdown export with
   authored pages, entry pages, indexes, tags, timeline, causality, and sidebar.
-- `graph` emits node and relationship intervals as JSON. `live_at_render` marks
-  state at the requested year.
+- `graph` emits game-world node and relationship intervals as JSON.
+  `live_at_render` marks state at the requested year; reference articles are
+  excluded.
 - `render` emits a directory-shaped Markdown compatibility view. Its default
   audience is `all`; pass `--audience player` before sharing it.
 

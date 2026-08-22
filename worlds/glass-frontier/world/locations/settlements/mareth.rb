@@ -1,5 +1,6 @@
 installation :mareth do
   name "Mareth"
+  playable_as :chronicle_location
   aka "Mareth-Avelin"
   subkind :settlement
   status :complete

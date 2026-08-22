@@ -1,5 +1,6 @@
 installation :south_shade do
   name "South Shade"
+  playable_as :chronicle_location
   subkind :installation
   status :complete
   tags :"outer-system", :trade, :transport, :household, :resonance

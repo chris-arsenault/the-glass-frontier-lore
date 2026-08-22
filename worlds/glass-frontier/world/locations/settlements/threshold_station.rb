@@ -1,5 +1,6 @@
 installation :threshold_station do
   name "Threshold Station"
+  playable_as :chronicle_location
   subkind :settlement
   path "player/locations/settlements/threshold-station.md"
   tags :orbital, :"ring-era", :AI, :governance, :resonance

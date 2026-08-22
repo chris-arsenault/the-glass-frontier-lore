@@ -11,7 +11,7 @@ module Lorecraft
     # player knowledge. Questions, entry logs and drafting records go into a
     # separate document intended for the authenticated editorial API.
     class Site < Base
-      SCHEMA_VERSION = 5
+      SCHEMA_VERSION = 6
       CAUSAL_RELATIONS = %w[causes caused caused_by].freeze
 
       def initialize(world, root: Dir.pwd)
@@ -177,7 +177,12 @@ module Lorecraft
           status: node.respond_to?(:[]) && node[:status]&.to_s,
           region: node.respond_to?(:[]) && node[:region]&.to_s,
           narrative_role: node.respond_to?(:[]) && node[:narrative_role]&.to_s,
-          summary: summarize(prose_markdown(sections)),
+          is_article: node.respond_to?(:article?) && node.article?,
+          playable_as: node.respond_to?(:playable_as) ? node.playable_as.map(&:to_s) : [],
+          origin_blurb: node.respond_to?(:origin_blurb) && node.origin_blurb,
+          veiled: node.respond_to?(:veiled?) && node.veiled?,
+          veil_tagline: node.respond_to?(:veiled?) && node.veiled? ? node.veil_tagline : nil,
+          summary: summary_for(node, sections),
           route: entry_route(node.id),
         }.compact
       end
@@ -213,7 +218,12 @@ module Lorecraft
           status: node.respond_to?(:[]) && node[:status]&.to_s,
           region: node.respond_to?(:[]) && node[:region]&.to_s,
           dm: node.respond_to?(:dm?) && node.dm?,
-          summary: summarize(prose_markdown(sections)),
+          is_article: node.respond_to?(:article?) && node.article?,
+          playable_as: node.respond_to?(:playable_as) ? node.playable_as.map(&:to_s) : [],
+          origin_blurb: node.respond_to?(:origin_blurb) && node.origin_blurb,
+          veiled: node.respond_to?(:veiled?) && node.veiled?,
+          veil_tagline: node.respond_to?(:veiled?) && node.veiled? ? node.veil_tagline : nil,
+          summary: summary_for(node, sections),
           route: entry_route(node.id),
         }.compact
       end
@@ -223,9 +233,20 @@ module Lorecraft
           block.visible_at?(@year, audience: audience == :player ? :player : :all)
         end
         main, sectioned = blocks.sort_by(&:order).partition { |block| block.section == :main }
-        sections = main.map do |block|
-          block_document(block, node.id, audience, owner: node)
+        sections = []
+        if node.respond_to?(:veiled?) && node.veiled?
+          sections << {
+            id: "#{node.id}:veil",
+            format: "prose",
+            section: "main",
+            markdown: node.veil_tagline,
+            owner_id: node.id.to_s,
+            owner_kind: node.kind.to_s,
+          }
         end
+        sections.concat(main.map do |block|
+          block_document(block, node.id, audience, owner: node)
+        end)
 
         (moments_for(node.id) + relationships_for(node.id)).each do |owner|
           next if audience == :player && owner.dm?
@@ -569,6 +590,12 @@ module Lorecraft
 
       def prose_markdown(sections)
         sections.filter_map { |section| section[:markdown] }.join("\n\n")
+      end
+
+      def summary_for(node, sections)
+        text = prose_markdown(sections)
+        text = node.veil_tagline if text.empty? && node.respond_to?(:veiled?) && node.veiled?
+        summarize(text)
       end
 
       def entry_route(id) = "/#{@world_id}/entry/#{slug(id)}"

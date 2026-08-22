@@ -1,5 +1,7 @@
 faction :tessellan_communion do
   name "Tessellan Communion"
+  playable_as :allegiance
+  origin_blurb "Keepers preserve the Three Forms through handwork, sound, open study, and complete public copies."
   subkind :religious_order
   founded 2216
   tags :religion, :resonance, :cosmology, :training

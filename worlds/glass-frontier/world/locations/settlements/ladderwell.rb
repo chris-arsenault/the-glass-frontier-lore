@@ -1,5 +1,6 @@
 installation :ladderwell do
   name "Ladderwell"
+  playable_as :chronicle_location
   subkind :settlement
   status :complete
   population 28_000

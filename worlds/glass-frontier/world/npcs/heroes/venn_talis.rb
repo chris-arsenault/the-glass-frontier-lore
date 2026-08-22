@@ -20,8 +20,16 @@ npc :venn_talis do
   PROSE
 
   prose <<~PROSE, section: :present_day, heading: "Limited Correspondence"
-    Venn answers written questions from mediators and closed-community delegates through an archive office. The replies distinguish observation from inference and leave questions unanswered when the record does not support an answer.
+    Venn answers written questions from mediators and closed-community delegates through the Echo Ledger Conclave's Sithari archive office. The replies distinguish observation from inference and leave questions unanswered when the record does not support an answer.
 
     Requests to identify the faction that mounted the entry receive the same response: its later name matters less than the authority it claimed at the hatch. Venn has not joined the effort to remove the name from sealed inquiry records.
   PROSE
+end
+
+relate :rel_venn_talis_cooperates_with_conclave, :cooperates_with, :venn_talis, :echo_ledger_conclave do
+  prose "The Conclave's Sithari office carries Venn's complete replies to mediators and preserves their supporting record."
+end
+
+relate :rel_venn_talis_taught_accord, :taught, :venn_talis, :tempered_accord do
+  prose "Venn's testimony taught the Accord's early mediators to treat a closed community's own law as the first fact of contact."
 end

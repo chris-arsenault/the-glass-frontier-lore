@@ -1,5 +1,6 @@
 installation :coldside_bench do
   name "Coldside Bench"
+  playable_as :chronicle_location
   subkind :workshop
   function "Rebuilds heat-rated pumps, radiator controls, and road-hauler running gear"
   status :complete

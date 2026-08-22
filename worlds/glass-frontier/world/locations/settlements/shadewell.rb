@@ -1,5 +1,6 @@
 installation :shadewell do
   name "Shadewell"
+  playable_as :chronicle_location
   subkind :settlement
   status :complete
   population 240_000

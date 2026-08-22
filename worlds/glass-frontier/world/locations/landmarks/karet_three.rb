@@ -1,5 +1,6 @@
 geographic_location :karet_three do
   name "Karet-3"
+  playable_as :chronicle_location
   subkind :hazardous_zone
   tags :orbital, :danger, :resonance, :isolation
   prominence :recognized

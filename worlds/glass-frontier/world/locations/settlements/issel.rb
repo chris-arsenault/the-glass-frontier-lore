@@ -1,5 +1,6 @@
 installation :issel do
   name "Issel"
+  playable_as :chronicle_location
   aka "Issen-Lareth"
   subkind :settlement
   status :complete

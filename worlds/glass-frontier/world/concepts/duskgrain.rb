@@ -43,6 +43,9 @@ end
 relate :rel_duskgrain_derived_from_resonance, :derived_from, :duskgrain, :resonance do
   prose "It is, in the plainest reading, #{ref :resonance, "resonance"} that has solidified — narrow-band energy held in one place long enough to become a thing you can hold."
 end
+relate :rel_coremark_supplies_duskgrain, :supplies, :coremark, :duskgrain, since: 2378 do
+  prose "Coremark moves duskgrain from cordoned Bloom deposits and deep-Shear pockets into black-market trade."
+end
 relate :rel_duskgrain_derived_from_the_false_form, :derived_from, :duskgrain, :the_false_form, dm: true do
   prose "The truer reading: it is frozen #{ref :the_false_form, "False Form"} — fragments of a geometry that cannot close, crystallized into matter that nonetheless persists."
 end

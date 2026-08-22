@@ -39,3 +39,6 @@ end
 relate :rel_dez_participates_in_open, :participated_in, :dez_morrn, :the_fermata_open do
   prose "Dez uses the #{ref :the_fermata_open, "Fermata Open"} to bring unfamiliar players into arguments the resident Session has learned to contain."
 end
+relate :rel_dez_cooperates_with_goruth, :cooperates_with, :dez_morrn, :goruth, since: 2435 do
+  prose "Goruth has joined Dez's proposed Closing Session work and will hold the central hall if its separated parts lose contact."
+end

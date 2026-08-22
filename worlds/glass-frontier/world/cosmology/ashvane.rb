@@ -1,5 +1,6 @@
 geographic_location :ashvane do
   name "Ashvane"
+  playable_as :chronicle_location
   subkind :celestial_body
   status :complete
   tags :"outer-system", :resonance, :trade, :danger, :ecology

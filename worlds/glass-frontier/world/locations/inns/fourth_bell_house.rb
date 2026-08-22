@@ -1,5 +1,6 @@
 installation :fourth_bell_house do
   name "Fourth Bell House"
+  playable_as :chronicle_location
   subkind :installation
   status :complete
   tags :transport, :trade, :household, :surface, :governance

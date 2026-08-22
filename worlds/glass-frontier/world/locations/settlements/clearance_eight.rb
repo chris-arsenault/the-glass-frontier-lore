@@ -1,5 +1,7 @@
 installation :clearance_eight do
   name "Clearance Eight"
+  playable_as :chronicle_location, :homeland
+  origin_blurb "A debris-capture settlement where eight public desks decide what may pass, be claimed, or be cut."
   subkind :settlement
   status :complete
   tags :"ring-hab", :transport, :navigation, :salvage, :governance, :"kinetic-freq"

@@ -22,6 +22,8 @@ module Lorecraft
       check_tags: ["unknown_tag", "entry", "Declare the tag in the world schema or remove it from the entry."],
       check_prominence: ["invalid_prominence", "entry", "Use a prominence level declared by the schema."],
       check_narrative_roles: ["invalid_narrative_role", "entry", "Use an allowed narrative role on an NPC."],
+      check_canonical_metadata: ["invalid_canonical_metadata", "entry", "Correct the article, playability, origin, or veiled declaration."],
+      check_playability_requirements: ["unsatisfied_playability_requirement", "schema-authoring", "Restore the declared playable coverage or choice range."],
       check_subkinds: ["invalid_subkind", "schema-authoring", "Declare and select an allowed subkind."],
       check_facts: ["invalid_fact", "schema-authoring", "Correct the fact declaration or its value."],
       check_sections: ["unknown_section", "entry", "Use a section declared by the world schema."],
@@ -417,6 +419,152 @@ module Lorecraft
         unless %i[viewpoint titan].include?(role.to_sym)
           err("#{label(entity)}: unknown narrative role #{role.inspect} (allowed: viewpoint, titan)")
         end
+      end
+    end
+
+    VEILED_DISALLOWED_PHRASES = [
+      /\bnobody knows\b/i,
+      /\bno one knows\b/i,
+      /\bnobody admits\b/i,
+      /\bno one admits\b/i,
+      /\bnot what (?:it|they|he|she) seems?\b/i,
+      /\brefuses? to say\b/i,
+      /\b(?:will not|won't) say\b/i,
+      /\bunknown\b/i,
+    ].freeze
+    VEILED_ALLOWED_STATIC_ATTRS = %i[title tags prominence status subkind veiled].freeze
+    ORIGIN_ROLES = %i[species culture homeland allegiance].freeze
+
+    def check_canonical_metadata
+      @world.entities.each_value do |entity|
+        @diagnostic_owner = entity
+        accepted = entity.playable_as
+
+        accepted.uniq.each do |role|
+          err("#{label(entity)}: unknown playable role #{role.inspect}") unless @schema.playable_role?(role)
+        end
+
+        check_origin_blurb(entity, accepted)
+        check_article_metadata(entity, accepted)
+        check_veiled_metadata(entity, accepted) if entity.veiled?
+        check_playable_entry_visibility(entity, accepted)
+      end
+    end
+
+    def check_playable_entry_visibility(entity, accepted)
+      return if accepted.empty?
+
+      err("#{label(entity)}: a DM-only entry cannot declare playable roles") if entity.dm?
+      err("#{label(entity)}: a structural entry cannot declare playable roles") if entity.structural?
+      err("#{label(entity)}: a shell cannot declare playable roles") if entity[:status] == :shell
+      unless @schema.wiki_kind?(entity.kind)
+        err("#{label(entity)}: a non-reader entry cannot declare playable roles")
+      end
+    end
+
+    def check_origin_blurb(entity, accepted)
+      blurb = entity.origin_blurb
+      if (accepted & ORIGIN_ROLES).any? && blurb.nil?
+        err("#{label(entity)}: playable origin needs an origin_blurb")
+        return
+      end
+      return if blurb.nil?
+
+      unless blurb.is_a?(String) && !blurb.strip.empty?
+        err("#{label(entity)}: origin_blurb must be non-empty text")
+        return
+      end
+      err("#{label(entity)}: origin_blurb exceeds 140 characters") if blurb.length > 140
+      err("#{label(entity)}: origin_blurb must fit on one line") if blurb.match?(/[\r\n]/)
+      if (accepted & ORIGIN_ROLES).empty?
+        err("#{label(entity)}: origin_blurb requires a playable origin role")
+      end
+    end
+
+    def check_article_metadata(entity, accepted)
+      return unless entity.article?
+
+      err("#{label(entity)}: an article cannot be structural") if entity.structural?
+      err("#{label(entity)}: an article cannot be veiled") if entity.veiled?
+      err("#{label(entity)}: an article cannot declare playable roles") unless accepted.empty?
+      err("#{label(entity)}: a shell cannot be an article") if entity[:status] == :shell
+    end
+
+    def check_veiled_metadata(entity, accepted)
+      tagline = entity.veil_tagline
+      unless tagline == tagline.strip && tagline.end_with?(".") && tagline.scan(/[.!?]/).size == 1
+        err("#{label(entity)}: veiled tagline must be one trimmed declarative sentence ending in a period")
+      end
+      err("#{label(entity)}: veiled tagline exceeds 180 characters") if tagline.length > 180
+      if VEILED_DISALLOWED_PHRASES.any? { |pattern| tagline.match?(pattern) }
+        err("#{label(entity)}: veiled tagline must state an affirmative concrete fact")
+      end
+      err("#{label(entity)}: a veiled entry cannot be DM-only") if entity.dm?
+      err("#{label(entity)}: a veiled entry cannot be structural") if entity.structural?
+      err("#{label(entity)}: a veiled entry cannot be a location") if @schema.location_kind?(entity.kind)
+      err("#{label(entity)}: a shell cannot be veiled") if entity[:status] == :shell
+      err("#{label(entity)}: a veiled entry cannot declare playable roles") unless accepted.empty?
+      unless entity.content_blocks.empty? && entity.fact_values.empty? && entity.custom_fact_defs.empty?
+        err("#{label(entity)}: a veiled entry may contain only its name, tagline, and indexing metadata")
+      end
+      extra = entity.static_attrs.keys - VEILED_ALLOWED_STATIC_ATTRS
+      unless extra.empty?
+        err("#{label(entity)}: veiled entry has unsupported metadata #{extra.map(&:inspect).join(', ')}")
+      end
+    end
+
+    def check_playability_requirements
+      @schema.playable_coverage_requirements.each do |requirement|
+        exception_ids = requirement.exceptions.to_set
+        exception_ids.each do |id|
+          entity = @world.entity(id)
+          @diagnostic_owner = entity
+          if entity.nil?
+            err("playable coverage for #{requirement.role.inspect} names unknown exception #{id}")
+            next
+          end
+          unless requirement.kinds.include?(entity.kind)
+            err("#{label(entity)}: playable coverage exception #{id} is not one of " \
+                "#{requirement.kinds.join(', ')}")
+          end
+          if entity.playable_as?(requirement.role)
+            err("#{label(entity)}: cannot both accept playable role #{requirement.role.inspect} " \
+                "and be its coverage exception")
+          end
+        end
+
+        candidates = @world.entities.values.select do |entity|
+          requirement.kinds.include?(entity.kind) && entity[:status] != :shell && !entity.article?
+        end
+        candidates.each do |entity|
+          @diagnostic_owner = entity
+          next if entity.playable_as?(requirement.role) || exception_ids.include?(entity.id)
+
+          err("#{label(entity)}: must declare playable_as #{requirement.role.inspect} or be named " \
+              "in the world's coverage exceptions")
+        end
+
+        next unless requirement.exclusive
+
+        @world.entities.each_value do |entity|
+          next unless entity.playable_as?(requirement.role)
+          next if requirement.kinds.include?(entity.kind)
+
+          @diagnostic_owner = entity
+          err("#{label(entity)}: playable role #{requirement.role.inspect} is limited to " \
+              "#{requirement.kinds.join(', ')}")
+        end
+      end
+
+      @schema.playable_count_requirements.each do |requirement|
+        selected = @world.entities.values.count { |entity| entity.playable_as?(requirement.role) }
+        within_minimum = selected >= requirement.minimum
+        within_maximum = requirement.maximum.nil? || selected <= requirement.maximum
+        next if within_minimum && within_maximum
+
+        @diagnostic_owner = nil
+        range = requirement.maximum ? "#{requirement.minimum}..#{requirement.maximum}" : "at least #{requirement.minimum}"
+        err("playable role #{requirement.role.inspect} has #{selected} entries; requires #{range}")
       end
     end
 

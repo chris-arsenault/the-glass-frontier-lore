@@ -1,5 +1,7 @@
 faction :prismwell_kite_guild do
   name "Prismwell Kite Guild"
+  playable_as :allegiance
+  origin_blurb "Pilots, repair wells, and carriers share forecasts and rescue duties along Glassfall shower routes."
   subkind :company
   founded 2312
   tags :transport, :trade, :ringglass, :resonance

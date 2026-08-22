@@ -1,5 +1,7 @@
 installation :perch do
   name "Perch"
+  playable_as :chronicle_location, :homeland
+  origin_blurb "A seasonal hab that expands around the sarn passage, comb harvest, and returning vessel wards."
   subkind :settlement
   status :complete
   tags :"ring-hab", :ecology, :trade, :transport, :"kinetic-freq"

@@ -7,6 +7,7 @@ targets. Live measurements come from the DSL:
 ```sh
 make topology WORLD=<id>
 make web WORLD=<id>
+make focus WORLD=<id>
 ```
 
 Record a gap that will remain open as a `question` on the entity it concerns.
@@ -16,7 +17,7 @@ Do not copy live counts into guidance.
 
 | Metric | Target |
 |---|---|
-| Non-structural entries with fewer than 3 world edges | 0 |
+| Established non-structural entries with fewer than 3 world edges | 0 |
 | Minimum and median degree by prominence | generally rise with prominence |
 | Components after mythic entries are removed | 1 |
 | Components after mythic and renowned entries are removed | 1 |
@@ -28,11 +29,13 @@ should connect only to its immediate context. One average hides that shape.
 
 ## What the commands count
 
-`topology` reads `World#relationships`, the distinct all-time graph. It includes
-historical edges and derived `embeds` edges. The per-entry degree excludes
+`topology` reads the induced game-world graph. Reference articles and every edge
+incident to them are absent. It includes historical edges and derived `embeds`
+edges. The per-entry degree excludes
 bookkeeping relations such as `active_during`, `emerged_during`,
 `created_during`, `disappeared_during`, and `mentions`. Structural entries are
-reported separately from prominence tiers.
+reported separately from prominence tiers. Veiled entries appear in raw totals
+but do not count against the established-entry three-edge floor.
 
 An entry below the three-edge floor appears in one of two lists:
 
@@ -46,6 +49,18 @@ entries. A remaining island depends on a famous hub for every route to the rest
 of the world.
 
 Neither command judges prose quality or whether an edge is a good fact.
+
+`focus` uses the present public graph rather than the all-time graph. For every
+entry explicitly playable as a chronicle location, it counts non-location
+neighbors reached through one live, non-bookkeeping relationship. It separates
+established and veiled choices, reports deficits below ten, and shows how many
+playable locations share each veiled entry.
+
+A world may declare `require_focus_choices!` in its schema. When it does,
+`make check` fails if a playable location falls below the declared minimum or a
+veiled entry falls outside the declared number of playable locations. The same
+declaration can require most veiled entries to have one exact membership count
+and require some to connect places that lack a direct location edge.
 
 ## 1. Give every entry local relationships
 

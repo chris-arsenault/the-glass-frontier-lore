@@ -17,6 +17,13 @@ schema do
               :rumor, :species, :transport, :edict
   entity_type :loop, :theme, :thread, wiki: false
 
+  location_kind :geographic_location, :installation
+  playable_role :species, "Player ancestry or bodily inheritance"
+  playable_role :culture, "Player upbringing and learned customs"
+  playable_role :homeland, "Player place of origin"
+  playable_role :allegiance, "Player institutional or communal tie"
+  playable_role :chronicle_location, "Starting place for a chronicle"
+
   effect :set ; effect :clear ; effect :create ; effect :destroy ; effect :transfer
 
   # Causal — what brought what about.

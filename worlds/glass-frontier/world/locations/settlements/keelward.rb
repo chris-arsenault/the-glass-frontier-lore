@@ -1,5 +1,7 @@
 installation :keelward do
   name "Keelward"
+  playable_as :chronicle_location, :homeland
+  origin_blurb "Sithari's crowded arrival district of shuttle fields, freight rail, port hostels, and old neighborhoods."
   subkind :settlement
   population 460_000
   population_band "About four hundred sixty thousand residents across the eastern wards"

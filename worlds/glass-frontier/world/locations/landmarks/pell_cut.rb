@@ -1,5 +1,6 @@
 installation :pell_cut do
   name "Pell Cut"
+  playable_as :chronicle_location
   subkind :infrastructure
   tags :salvage, :trade, :transport, :resonance, :orbital, :danger
   prominence :recognized

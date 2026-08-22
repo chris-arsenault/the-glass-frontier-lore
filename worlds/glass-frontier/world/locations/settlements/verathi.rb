@@ -1,5 +1,6 @@
 installation :verathi do
   name "Verathi"
+  playable_as :chronicle_location
   subkind :settlement
   tags :"ring-hab", :governance, :divergence, :diplomacy
   prominence :recognized

@@ -1,5 +1,7 @@
 concept :prominence do
   name "Prominence"
+  article!
+  log "2026-08-22 — Classified as a reference article because it explains an editorial awareness scale rather than a world concept."
   subkind :reference_concept
   path "player/concepts/prominence.md"
   status :complete

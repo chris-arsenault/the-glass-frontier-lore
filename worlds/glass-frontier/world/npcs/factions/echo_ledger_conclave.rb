@@ -1,5 +1,7 @@
 faction :echo_ledger_conclave do
   name "Echo Ledger Conclave"
+  playable_as :allegiance
+  origin_blurb "Archivists catalogue voices from Echo Rivers and govern access to recordings whose context still matters."
   subkind :religious_order
   path "player/npcs/factions/echo-ledger-conclave.md"
   reviewed "2026-03-18"

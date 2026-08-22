@@ -1,5 +1,6 @@
 installation :bay_thirty_one do
   name "Thirty-One"
+  playable_as :chronicle_location
   aka "Bay Thirty-One"
   subkind :workshop
   function "Maps, washes, and preserves resonant traces carried by textiles"

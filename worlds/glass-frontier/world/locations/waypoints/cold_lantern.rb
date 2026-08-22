@@ -1,5 +1,6 @@
 installation :cold_lantern do
   name "Cold Lantern"
+  playable_as :chronicle_location
   subkind :station
   status :complete
   tags :orbital, :transport, :salvage, :navigation, :danger

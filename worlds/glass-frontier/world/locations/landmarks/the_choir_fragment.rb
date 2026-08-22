@@ -1,5 +1,6 @@
 installation :the_choir_fragment do
   name "The Choir Fragment"
+  playable_as :chronicle_location
   subkind :landmark
   tags :orbital, :"ring-era", :resonance, :archives, :mystery, :salvage
   prominence :recognized

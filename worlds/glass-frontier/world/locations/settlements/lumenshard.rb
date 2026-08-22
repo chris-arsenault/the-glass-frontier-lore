@@ -1,5 +1,6 @@
 installation :lumenshard do
   name "Lumenshard"
+  playable_as :chronicle_location
   subkind :settlement
   status :complete
   population 63_000

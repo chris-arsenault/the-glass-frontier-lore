@@ -1,5 +1,7 @@
 faction :lower_routes_cooperative do
   name "Lower Routes Cooperative"
+  playable_as :allegiance
+  origin_blurb "Resident survey crews keep Sithari's shifting underlayers connected through repeated readings and public route boards."
   subkind :mutual_aid
   founded 2227
   tags :surface, :resonance, :navigation, :"social-structure", :danger

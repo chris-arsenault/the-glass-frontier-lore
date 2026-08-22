@@ -1,5 +1,6 @@
 installation :far_bell do
   name "Far Bell"
+  playable_as :chronicle_location
   subkind :station
   status :complete
   tags :orbital, :transport, :navigation, :danger, :resonance

@@ -1,5 +1,6 @@
 installation :accord_shore do
   name "Accord Shore"
+  playable_as :chronicle_location
   subkind :settlement
   population 32_000
   population_band "About thirty-two thousand residents, with several thousand visiting delegates and staff"

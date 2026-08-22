@@ -2,6 +2,7 @@
 
 require "json"
 require "pathname"
+require "set"
 require_relative "markers"
 
 module Lorecraft
@@ -177,7 +178,8 @@ module Lorecraft
     class Markdown < Base
       FRONTMATTER_ORDER = %i[
         title type subkind alias tags prominence region status narrative_role
-        species culture era date registry prominence_xrefs public_entry dm
+        article playable_as origin_blurb veiled species culture
+        era date registry prominence_xrefs public_entry dm
       ].freeze
 
       SKIP_ATTRS = %i[path].freeze
@@ -334,20 +336,32 @@ module Lorecraft
     class Graph < Base
       def render(at: :now, audience: :all, pretty: true)
         year = @world.timeline.year_for(at)
-        data = { generated_at_year: year, nodes: nodes(audience), edges: edges(year, audience) }
+        graph_nodes = nodes(audience)
+        ids = graph_nodes.map { |node| node[:id] }.to_set
+        data = {
+          generated_at_year: year,
+          nodes: graph_nodes,
+          edges: edges(year, audience).select do |edge|
+            ids.include?(edge[:src]) && ids.include?(edge[:tgt])
+          end,
+        }
         pretty ? JSON.pretty_generate(data) : JSON.generate(data)
       end
 
       private
 
       def nodes(audience)
-        @world.pages.filter_map do |n|
+        @world.game_world_nodes.filter_map do |n|
           next if audience == :player && n.respond_to?(:dm?) && n.dm?
 
           {
             id: n.id, kind: n.kind, subkind: n.subkind, title: n.title,
             prominence: (n.prominence if n.respond_to?(:prominence)),
             tags: (n.tags if n.respond_to?(:tags)),
+            playable_as: (n.playable_as if n.respond_to?(:playable_as) && !n.playable_as.empty?),
+            origin_blurb: (n.origin_blurb if n.respond_to?(:origin_blurb)),
+            veiled: (n.veiled? if n.respond_to?(:veiled?)),
+            veil_tagline: (n.veil_tagline if n.respond_to?(:veiled?) && n.veiled?),
             dm: (n.respond_to?(:dm?) && n.dm?),
             path: page_path(n)
           }.compact

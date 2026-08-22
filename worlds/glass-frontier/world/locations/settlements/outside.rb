@@ -1,5 +1,7 @@
 installation :outside do
   name "Outside"
+  playable_as :chronicle_location, :homeland
+  origin_blurb "A permanent cordon station where Karet families and rotating crews maintain the wall around Karet-3."
   subkind :settlement
   population 300
   population_band "About three hundred, half on rotating contracts"

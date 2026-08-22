@@ -1,5 +1,6 @@
 installation :exchange_c do
   name "Rattle"
+  playable_as :chronicle_location
   aka "Exchange C"
   subkind :station
   status :complete

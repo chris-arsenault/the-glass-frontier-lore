@@ -1,5 +1,7 @@
 culture :sitharian_culture do
   name "Sitharian Culture"
+  playable_as :culture
+  origin_blurb "Sitharian upbringing prizes measured speech, institutional memory, and confidence in formal procedure."
   subkind :regional_culture
   path "player/concepts/cultures/sitharian-culture.md"
   status :complete

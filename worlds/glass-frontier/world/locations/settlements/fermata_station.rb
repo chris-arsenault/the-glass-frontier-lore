@@ -1,5 +1,7 @@
 installation :fermata_station do
   name "Fermata Station"
+  playable_as :chronicle_location, :homeland
+  origin_blurb "A ring hab where public Sessions turn musical improvisation into binding civic decisions."
   subkind :settlement
   path "player/locations/settlements/fermata-station.md"
   status :complete

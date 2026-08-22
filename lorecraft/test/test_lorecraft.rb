@@ -367,6 +367,238 @@ class ValidatorTest < Minitest::Test
   end
 end
 
+class CanonicalMetadataTest < Minitest::Test
+  def metadata_world(&entries)
+    Lorecraft.define do
+      schema do
+        entity_type :concept, :npc, :place
+        location_kind :place
+        playable_role :species
+        playable_role :chronicle_location
+      end
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
+      instance_eval(&entries)
+    end
+  end
+
+  def test_valid_metadata_is_typed_and_queryable
+    world = metadata_world do
+      concept :reference do
+        name "Reference"
+        article!
+      end
+      concept :ancestry do
+        name "Ancestry"
+        playable_as :species
+        origin_blurb "Lives by patient craft and close family ties."
+      end
+      place :reach do
+        name "Reach"
+      end
+      npc :courier do
+        name "The Blue Courier"
+        status :complete
+        veiled "A blue-clad courier carries sealed maps between separated habs."
+      end
+    end
+
+    assert world.validate!
+    assert world[:reference].article?
+    assert world[:ancestry].playable_as?(:species)
+    refute world[:reach].playable_as?(:chronicle_location)
+    assert world[:courier].veiled?
+    assert_equal "A blue-clad courier carries sealed maps between separated habs.",
+                 world[:courier].veil_tagline
+  end
+
+  def test_roles_are_controlled
+    world = metadata_world do
+      concept :entry do
+        name "Entry"
+        playable_as :missing, :species
+        origin_blurb "A concise origin."
+      end
+    end
+
+    problems = world.validate
+    assert(problems.any? { |problem| problem.include?("unknown playable role :missing") })
+  end
+
+  def test_playable_origins_require_short_single_line_blurbs
+    missing = metadata_world do
+      concept :entry do
+        name "Entry"
+        playable_as :species
+      end
+    end
+    long = metadata_world do
+      concept :entry do
+        name "Entry"
+        playable_as :species
+        origin_blurb "x" * 141
+      end
+    end
+
+    assert(missing.validate.any? { |problem| problem.include?("needs an origin_blurb") })
+    assert(long.validate.any? { |problem| problem.include?("exceeds 140 characters") })
+  end
+
+  def test_articles_cannot_enter_playability_or_veiled_roles
+    world = metadata_world do
+      concept :entry do
+        name "Entry"
+        article!
+        playable_as :species
+        origin_blurb "A concise origin."
+        veiled "A cataloguer exchanges marked folios at every port."
+      end
+    end
+
+    problems = world.validate
+    assert(problems.any? { |problem| problem.include?("article cannot be veiled") })
+    assert(problems.any? { |problem| problem.include?("article cannot declare playable roles") })
+  end
+
+  def test_veiled_entries_reject_coy_taglines_and_authored_content
+    world = metadata_world do
+      npc :entry do
+        name "Entry"
+        veiled "Nobody knows what the courier carries."
+        prose "A second description."
+      end
+    end
+
+    problems = world.validate
+    assert(problems.any? { |problem| problem.include?("affirmative concrete fact") })
+    assert(problems.any? { |problem| problem.include?("only its name, tagline, and indexing metadata") })
+  end
+
+  def test_veiled_entries_cannot_be_locations
+    world = metadata_world do
+      place :entry do
+        name "Entry"
+        veiled "A bronze door opens onto the hab's oldest freight stair."
+      end
+    end
+
+    assert(world.validate.any? { |problem| problem.include?("veiled entry cannot be a location") })
+  end
+
+  def test_game_world_scope_excludes_articles_and_their_incident_edges
+    world = Lorecraft.define do
+      schema do
+        entity_type :concept, :npc
+        relation :knows, temporal: false
+      end
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
+      concept :article do name "Article"; article! end
+      concept :world_a do name "World A" end
+      npc :veiled do name "Veiled"; veiled "A courier carries maps between two settlements." end
+      relate :article_edge, :knows, :article, :world_a
+      relate :world_edge, :knows, :world_a, :veiled
+    end
+
+    assert_equal %i[veiled world_a], world.game_world_nodes.map(&:id).sort
+    assert_equal [:world_a], world.game_world_nodes(include_veiled: false).map(&:id)
+    assert_equal [[:world_a, :knows, :veiled]], world.game_world_relationships
+  end
+
+  def test_world_can_require_playable_coverage_with_named_exceptions
+    world = Lorecraft.define do
+      schema do
+        entity_type :npc, :place
+        location_kind :place
+        playable_role :chronicle_location
+        require_playable_coverage! :chronicle_location,
+                                   kinds: location_kinds,
+                                   except: :excluded,
+                                   exclusive: true
+      end
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
+      place :excluded do name "Excluded" end
+      place :missing do name "Missing" end
+      npc :misplaced do name "Misplaced"; playable_as :chronicle_location end
+    end
+
+    problems = world.validate
+    assert(problems.any? { |problem| problem.include?("place missing: must declare playable_as") })
+    assert(problems.any? { |problem| problem.include?("limited to place") })
+    refute(problems.any? { |problem| problem.include?("place excluded") })
+  end
+
+  def test_world_can_require_a_playable_choice_range
+    world = Lorecraft.define do
+      schema do
+        entity_type :concept
+        playable_role :species
+        require_playable_count! :species, minimum: 2, maximum: 3
+      end
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
+      concept :only do
+        name "Only"
+        playable_as :species
+        origin_blurb "A concise origin."
+      end
+    end
+
+    assert(world.validate.any? { |problem| problem.include?("role :species has 1 entries; requires 2..3") })
+  end
+end
+
+class GameWorldMeasurementsTest < Minitest::Test
+  def measured_world
+    Lorecraft.define do
+      schema do
+        entity_type :concept, :npc, :place, :era
+        location_kind :place
+        playable_role :chronicle_location
+        relation :features, temporal: false
+        relation :located_in, temporal: false
+        relation :active_during, temporal: false
+      end
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
+      place :first do name "First"; playable_as :chronicle_location end
+      place :second do name "Second"; playable_as :chronicle_location end
+      place :nested do name "Nested" end
+      concept :established do name "Established" end
+      concept :article do name "Article"; article! end
+      npc :courier do name "Courier"; veiled "A courier carries sealed charts between two settlements." end
+      era :period do name "Period"; structural true end
+      relate :first_established, :features, :first, :established
+      relate :first_courier, :features, :first, :courier
+      relate :second_courier, :features, :second, :courier
+      relate :first_nested, :located_in, :nested, :first
+      relate :first_article, :features, :first, :article
+      relate :first_period, :active_during, :first, :period
+    end
+  end
+
+  def test_topology_uses_the_article_free_scope_and_exempts_veiled_entries_from_the_floor
+    result = Lorecraft::Topology.new(measured_world).data
+    thin_ids = result[:thin_entries].map { |entry| entry[:id] }
+
+    assert_equal "game_world", result[:scope]
+    assert_equal 1, result[:articles_excluded]
+    assert_equal 1, result[:veiled_entities]
+    refute_includes thin_ids, :article
+    refute_includes thin_ids, :courier
+  end
+
+  def test_focus_coverage_is_one_hop_and_excludes_locations_articles_and_bookkeeping
+    result = Lorecraft::FocusCoverage.new(measured_world, minimum: 3).data
+    first = result[:locations].find { |location| location[:id] == :first }
+    second = result[:locations].find { |location| location[:id] == :second }
+
+    assert_equal %i[courier established], first[:candidate_ids]
+    assert_equal :chronicle_location, result[:role]
+    assert_equal 2, first[:total]
+    assert_equal 1, first[:deficit]
+    assert_equal [:courier], second[:candidate_ids]
+    assert_equal({ 2 => 1 }, result[:veiled_membership_distribution])
+    assert_equal %i[first second], result.dig(:shared_location_pairs, 0, :location_ids)
+  end
+end
+
 class EntityFactsTest < Minitest::Test
   def world
     Lorecraft.define do
@@ -976,6 +1208,20 @@ class PathQueryTest < Minitest::Test
     assert_equal :concord, data[:steps].first[:canonical_subject]
     assert_equal :quarter, data[:steps].first[:canonical_target]
   end
+
+  def test_path_rejects_reference_articles_as_game_world_nodes
+    world = Lorecraft.define do
+      schema { entity_type :concept }
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
+      concept :article do name "Article"; article! end
+      concept :entry do name "Entry" end
+    end
+
+    error = assert_raises(Lorecraft::Error) do
+      Lorecraft::PathQuery.new(world, from: :article, to: :entry)
+    end
+    assert_equal "unknown game-world entity: article", error.message
+  end
 end
 
 class SchemaInspectionTest < Minitest::Test
@@ -1187,7 +1433,7 @@ class SiteRenderTest < Minitest::Test
       index = JSON.parse(File.read(File.join(public_root, "index.json")))
       editorial = JSON.parse(File.read(File.join(dir, "internal", "worlds", "sample-world.json")))
 
-      assert_equal 5, ada["schema_version"]
+      assert_equal 6, ada["schema_version"]
       assert_equal "cartographer", ada["subkind"]
       assert(index["subkinds"].any? { |item| item["kind"] == "person" && item["id"] == "cartographer" })
       assert_equal ["born", "age", "occupation", "home", "chart_room", "working_language"], ada["facts"].map { |fact| fact["id"] }
@@ -1199,6 +1445,41 @@ class SiteRenderTest < Minitest::Test
       assert_equal "Cartographer", ada["facts"][2]["value"]
       assert_equal "/sample-world/entry/harbour", ada.dig("facts", 3, "links", 0, "route")
       assert_equal %w[born occupation home], editorial.dig("entries", "unwritten", "missing_facts").map { |fact| fact["id"] }
+    end
+  end
+
+
+  def test_site_keeps_articles_as_entries_but_excludes_them_from_the_graph
+    world = Lorecraft.define do
+      schema do
+        entity_type :concept, :npc
+        relation :knows, temporal: false
+      end
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
+      concept :article do name "Reference"; article!; prose "A reader guide." end
+      concept :place do name "Place"; playable_as :chronicle_location end
+      npc :courier do name "Courier"; veiled "A courier carries sealed charts between two settlements." end
+      relate :article_knows_place, :knows, :article, :place
+      relate :place_knows_courier, :knows, :place, :courier
+    end
+
+    Dir.mktmpdir do |dir|
+      render(world, dir)
+      root = File.join(dir, "public", "worlds", "sample-world")
+      index = JSON.parse(File.read(File.join(root, "index.json")))
+      graph = JSON.parse(File.read(File.join(root, "graph.json")))
+      article = index["entries"].find { |entry| entry["id"] == "article" }
+      place = index["entries"].find { |entry| entry["id"] == "place" }
+      courier = JSON.parse(File.read(File.join(root, "entries", "courier.json")))
+
+      assert article["is_article"]
+      assert_equal ["chronicle_location"], place["playable_as"]
+      assert File.exist?(File.join(root, "entries", "article.json"))
+      refute_includes graph["nodes"].map { |node| node["id"] }, "article"
+      refute(graph["edges"].any? { |edge| edge["src"] == "article" || edge["tgt"] == "article" })
+      assert courier["veiled"]
+      assert_equal "A courier carries sealed charts between two settlements.", courier["summary"]
+      assert_equal courier["veil_tagline"], courier.dig("sections", 0, "markdown")
     end
   end
 end
@@ -1308,6 +1589,34 @@ class LinterTest < Minitest::Test
     assert_equal :recognized, cards[:threshold]
     assert_equal %i[widely_known locally_known], cards[:entries].map { |entry| entry[:id] }
     assert_includes Lorecraft::FactAudit.new(world).report, "recognized+: 2/2 cards present"
+  end
+
+  def test_world_can_require_focus_coverage_and_veiled_membership_shape
+    findings = lint do
+      schema do
+        entity_type :npc, :place
+        location_kind :place
+        playable_role :chronicle_location
+        relation :features, temporal: false
+        require_focus_choices! role: :chronicle_location,
+                               minimum: 2,
+                               veiled_minimum_locations: 2,
+                               veiled_maximum_locations: 4,
+                               veiled_majority_location_count: 2,
+                               veiled_cross_location_minimum: 1
+      end
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
+      place :first do name "First"; playable_as :chronicle_location end
+      place :second do name "Second"; playable_as :chronicle_location end
+      npc :courier do name "Courier"; veiled "A courier carries sealed charts to First." end
+      relate :first_courier, :features, :first, :courier
+    end
+
+    messages = findings.select { |finding| finding.level == :error }.map(&:message)
+    assert(messages.any? { |message| message.include?("one-hop focus choices; requires 2") })
+    assert(messages.any? { |message| message.include?("reaches 1 playable locations; requires at least 2") })
+    assert(messages.any? { |message| message.include?("are not a strict majority") })
+    assert(messages.any? { |message| message.include?("requires at least 1") })
   end
 
   def test_double_article
@@ -1437,6 +1746,28 @@ class WikiRenderTest < Minitest::Test
       assert_includes page, "Soon<!-- stub: no entry yet -->"
       refute_match(/\*\(stub\)\*/, page)
       refute(files.any? { |f| f.include?("Hidden") }, "DM page leaked into wiki")
+    end
+  end
+
+  def test_articles_have_a_separate_index_and_veiled_taglines_render
+    Dir.mktmpdir do |dir|
+      world = Lorecraft.define do
+        schema { entity_type :concept, :npc }
+        timeline { era :t, starts: 0, length: 10; now year: 1 }
+        concept :reference do name "Reference"; article!; prose "Reader guidance." end
+        concept :world_entry do name "World Entry"; prose "A world fact." end
+        npc :courier do name "Courier"; veiled "A courier carries sealed charts between two settlements." end
+      end
+
+      Lorecraft::Render::Wiki.new(world, root: dir).render(out: File.join(dir, "wiki"))
+      reference_index = File.read(File.join(dir, "wiki", "Reference-Articles.md"))
+      concept_index = File.read(File.join(dir, "wiki", "Concepts-Index.md"))
+      courier = File.read(File.join(dir, "wiki", "Courier.md"))
+
+      assert_includes reference_index, "[[Reference]]"
+      refute_includes concept_index, "[[Reference]]"
+      assert_includes concept_index, "[[World Entry]]"
+      assert_includes courier, "A courier carries sealed charts between two settlements."
     end
   end
 

@@ -9,6 +9,20 @@ schema do
   # this; a block a person writes declares `drafted_by: :human`.
   drafted_by_default :ai
   require_fact_cards! from: :renowned, minimum: 4
+  require_playable_coverage! :chronicle_location,
+                             kinds: location_kinds,
+                             except: %i[kaleidos kaleidos_system the_glass_frontier the_sun],
+                             exclusive: true
+  require_playable_count! :species, minimum: 5, maximum: 8
+  require_playable_count! :culture, minimum: 4, maximum: 8
+  require_playable_count! :homeland, minimum: 8, maximum: 12
+  require_playable_count! :allegiance, minimum: 6, maximum: 10
+  require_focus_choices! role: :chronicle_location,
+                         minimum: 10,
+                         veiled_minimum_locations: 2,
+                         veiled_maximum_locations: 4,
+                         veiled_majority_location_count: 2,
+                         veiled_cross_location_minimum: 1
 
   # Resonance is a physical force here, so attunement and sympathy are real
   # edges rather than metaphors.

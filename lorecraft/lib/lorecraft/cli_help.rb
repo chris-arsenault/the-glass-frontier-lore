@@ -120,11 +120,24 @@ module Lorecraft
       },
       "topology" => {
         summary: "Measure typed-edge coverage and list thin entries.",
-        usage: "topology [--world ID]",
+        usage: "topology [--format text|json] [--world ID]",
         body: <<~TEXT,
-          Use this for local graph health. It separates structural nodes from
-          prominence tiers and distinguishes disconnected entries from entries
-          waiting on future entities. It considers relationships across all time.
+          Use this for local graph health. Reference articles and their incident
+          edges are excluded. Veiled entries remain in raw totals but do not fail
+          the established-entry degree floor. The report separates structural
+          nodes and considers relationships across all time.
+        TEXT
+      },
+      "focus" => {
+        summary: "Measure one-hop focus choices for playable chronicle locations.",
+        usage: "focus [--at now|YEAR] [--format text|json] [--world ID]",
+        body: <<~TEXT,
+          For every entry explicitly playable as a chronicle location, count
+          public non-location neighbors reached by one live, non-bookkeeping
+          relationship. Established and veiled choices are shown separately.
+          The report also shows how many playable locations share each veiled
+          entry and lists shared location pairs. A world can enforce the same
+          counts with require_focus_choices! in its schema.
         TEXT
       },
       "web" => {
@@ -372,6 +385,10 @@ module Lorecraft
         sections, fields, and setting-specific relations. Validation rejects
         unknown ids, invalid typed facts, unknown subkinds and tags, relation
         domain or range errors, and explicitly banned generic relations.
+
+        A world can use require_playable_coverage!, require_playable_count!,
+        and require_focus_choices! to make player-facing selection completeness
+        part of make check rather than an importer convention.
 
         Free prose and undeclared auxiliary static attributes remain flexible;
         do not describe the entire Ruby DSL as statically typed.
