@@ -226,18 +226,25 @@ require_playable_coverage! :chronicle_location,
 require_playable_count! :species, minimum: 5, maximum: 8
 require_focus_choices! role: :chronicle_location,
                        minimum: 10,
-                       veiled_minimum_locations: 2,
+                       veiled_minimum_locations: 1,
                        veiled_maximum_locations: 4,
                        veiled_majority_location_count: 2,
-                       veiled_cross_location_minimum: 1
+                       veiled_cross_location_minimum: 1,
+                       veiled_required_kinds: %i[npc artifact creature transport ability],
+                       veiled_require_all_subkinds: true,
+                       veiled_kind_minimum: 2,
+                       veiled_kind_maximum: 8
 ```
 
 The first declaration requires every physical place outside its short exception
 list to use `playable_as`, and prevents another kind from accepting the role.
 Count requirements keep each picker within its authored range. The focus
 requirement counts direct public non-location neighbors and constrains how many
-playable places share each veiled entry. These are canon checks, so `make check`
-fails before any render or importer can consume an incomplete selection set.
+playable places share each veiled entry. It can also require a set of real
+entity kinds, require every declared subkind within that set, and keep each
+kind's count inside a world-owned range. `focus --format json` exposes the kind
+and subkind distributions. These are canon checks, so `make check` fails before
+any render or importer can consume an incomplete or single-kind selection set.
 
 To expand a veiled entry, keep its id and real kind, remove `veiled`, and add
 the ordinary facts and prose for that entity. Keep any location relationships

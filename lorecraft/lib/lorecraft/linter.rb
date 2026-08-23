@@ -301,10 +301,38 @@ module Lorecraft
         end
 
         cross_minimum = requirement.veiled_cross_location_minimum
-        next unless cross_minimum && result[:cross_location_veiled_entries] < cross_minimum
+        if cross_minimum && result[:cross_location_veiled_entries] < cross_minimum
+          err("#{result[:cross_location_veiled_entries]} veiled entries span playable locations with no direct " \
+              "location edge; requires at least #{cross_minimum}")
+        end
 
-        err("#{result[:cross_location_veiled_entries]} veiled entries span playable locations with no direct " \
-            "location edge; requires at least #{cross_minimum}")
+        check_veiled_kind_distribution(requirement, result)
+      end
+    end
+
+    def check_veiled_kind_distribution(requirement, result)
+      memberships = result[:veiled_memberships]
+      counts = result[:veiled_kind_distribution]
+      requirement.veiled_required_kinds.each do |kind|
+        count = counts.fetch(kind, 0)
+        owner = @world.entity(memberships.find { |membership| membership[:kind] == kind }&.dig(:id))
+        if requirement.veiled_kind_minimum && count < requirement.veiled_kind_minimum
+          err("veiled kind #{kind} has #{count} entries; requires at least #{requirement.veiled_kind_minimum}",
+              owner: owner)
+        end
+        if requirement.veiled_kind_maximum && count > requirement.veiled_kind_maximum
+          err("veiled kind #{kind} has #{count} entries; allows at most #{requirement.veiled_kind_maximum}",
+              owner: owner)
+        end
+        next unless requirement.veiled_require_all_subkinds
+
+        present = memberships.filter_map do |membership|
+          membership[:subkind] if membership[:kind] == kind
+        end.to_set
+        missing = @world.schema.subkinds_for(kind).keys.to_set - present
+        next if missing.empty?
+
+        err("veiled kind #{kind} is missing subkinds #{missing.to_a.sort.join(', ')}", owner: owner)
       end
     end
 

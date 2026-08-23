@@ -1,0 +1,10 @@
+edict :fracture_lamp_order do
+  name "The Fracture-Lamp Order"
+  subkind :edict
+  status :complete
+  prominence :marginal
+  veiled "The Fracture-Lamp Order requires every claim vessel to leave one beacon burning on abandoned debris."
+end
+
+relate :rel_fracture_lamp_order_at_the_fracture, :manifests_at, :fracture_lamp_order, :the_fracture
+relate :rel_fracture_lamp_order_at_ashenmaw, :manifests_at, :fracture_lamp_order, :ashenmaw

@@ -1961,7 +1961,10 @@ class LinterTest < Minitest::Test
   def test_world_can_require_focus_coverage_and_veiled_membership_shape
     findings = lint do
       schema do
-        entity_type :npc, :place
+        entity_type :npc do
+          subkind :worker
+        end
+        entity_type :place
         location_kind :place
         playable_role :chronicle_location
         relation :features, temporal: false
@@ -1970,12 +1973,16 @@ class LinterTest < Minitest::Test
                                veiled_minimum_locations: 2,
                                veiled_maximum_locations: 4,
                                veiled_majority_location_count: 2,
-                               veiled_cross_location_minimum: 1
+                               veiled_cross_location_minimum: 1,
+                               veiled_required_kinds: %i[npc],
+                               veiled_require_all_subkinds: true,
+                               veiled_kind_minimum: 2,
+                               veiled_kind_maximum: 4
       end
       timeline { era :t, starts: 0, length: 10; now year: 1 }
       place :first do name "First"; playable_as :chronicle_location end
       place :second do name "Second"; playable_as :chronicle_location end
-      npc :courier do name "Courier"; veiled "A courier carries sealed charts to First." end
+      npc :courier do name "Courier"; subkind :npc; veiled "A courier carries sealed charts to First." end
       relate :first_courier, :features, :first, :courier
     end
 
@@ -1984,6 +1991,32 @@ class LinterTest < Minitest::Test
     assert(messages.any? { |message| message.include?("reaches 1 playable locations; requires at least 2") })
     assert(messages.any? { |message| message.include?("are not a strict majority") })
     assert(messages.any? { |message| message.include?("requires at least 1") })
+    assert(messages.any? { |message| message.include?("veiled kind npc has 1 entries; requires at least 2") })
+    assert(messages.any? { |message| message.include?("veiled kind npc is missing subkinds worker") })
+  end
+
+  def test_world_can_cap_veiled_kind_counts
+    findings = lint do
+      schema do
+        entity_type :npc, :place
+        location_kind :place
+        playable_role :chronicle_location
+        relation :features, temporal: false
+        require_focus_choices! role: :chronicle_location,
+                               minimum: 1,
+                               veiled_required_kinds: %i[npc],
+                               veiled_kind_maximum: 1
+      end
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
+      place :first do name "First"; playable_as :chronicle_location end
+      npc :first_hook do name "First Hook"; veiled "First Hook keeps a copper key." end
+      npc :second_hook do name "Second Hook"; veiled "Second Hook carries a black seal." end
+      relate :first_hook_at_first, :features, :first, :first_hook
+      relate :second_hook_at_first, :features, :first, :second_hook
+    end
+
+    messages = findings.select { |finding| finding.level == :error }.map(&:message)
+    assert(messages.any? { |message| message.include?("veiled kind npc has 2 entries; allows at most 1") })
   end
 
   def test_double_article

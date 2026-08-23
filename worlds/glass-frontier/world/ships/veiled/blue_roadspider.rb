@@ -1,0 +1,11 @@
+transport :blue_roadspider do
+  name "Blue Roadspider"
+  subkind :transport
+  status :complete
+  prominence :marginal
+  veiled "The Blue Roadspider walks freight over broken Avar paving on six independently weighted legs."
+end
+
+relate :rel_blue_roadspider_at_avar, :operates_in, :blue_roadspider, :avar
+relate :rel_blue_roadspider_at_blue_step_works, :operates_in, :blue_roadspider, :blue_step_works
+relate :rel_blue_roadspider_at_marker_house_twelve, :operates_in, :blue_roadspider, :marker_house_twelve

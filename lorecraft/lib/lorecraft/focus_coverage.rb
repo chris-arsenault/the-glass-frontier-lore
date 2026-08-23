@@ -34,6 +34,11 @@ module Lorecraft
           locations: coverage,
           veiled_membership_distribution: memberships.group_by { |row| row[:location_count] }
                                                     .transform_values(&:size).sort.to_h,
+          veiled_kind_distribution: memberships.group_by { |row| row[:kind] }
+                                               .transform_values(&:size).sort.to_h,
+          veiled_subkind_distribution: memberships.group_by { |row| row[:kind] }.sort.to_h.transform_values do |rows|
+            rows.group_by { |row| row[:subkind] }.transform_values(&:size).sort.to_h
+          end,
           veiled_memberships: memberships,
           cross_location_veiled_entries: memberships.count { |row| row[:spans_unlinked_locations] },
           shared_location_pairs: shared_location_pairs(memberships),
@@ -61,6 +66,12 @@ module Lorecraft
       distribution = result[:veiled_membership_distribution]
       out << "  veiled links to playable locations: " +
              (distribution.empty? ? "none" : distribution.map { |count, entries| "#{count}=#{entries}" }.join(", "))
+      kinds = result[:veiled_kind_distribution]
+      out << "  veiled kinds: " +
+             (kinds.empty? ? "none" : kinds.map { |kind, entries| "#{kind}=#{entries}" }.join(", "))
+      result[:veiled_subkind_distribution].each do |kind, subkinds|
+        out << "    #{kind} subkinds: #{subkinds.map { |subkind, entries| "#{subkind}=#{entries}" }.join(', ')}"
+      end
       overshared = result[:veiled_memberships].select { |row| row[:location_count] > 4 }
       unless overshared.empty?
         out << "  veiled entries above four locations: #{overshared.map { |row| row[:id] }.join(', ')}"
@@ -131,6 +142,8 @@ module Lorecraft
         {
           id: id,
           title: @world[id].title,
+          kind: @world[id].kind,
+          subkind: @world[id].subkind || @world[id].kind,
           location_count: locations.size,
           location_ids: locations.sort,
           spans_unlinked_locations: spans_unlinked_locations?(locations),

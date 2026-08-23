@@ -248,10 +248,14 @@ require_playable_coverage! :chronicle_location,
 require_playable_count! :homeland, minimum: 8, maximum: 12
 require_focus_choices! role: :chronicle_location,
                        minimum: 10,
-                       veiled_minimum_locations: 2,
+                       veiled_minimum_locations: 1,
                        veiled_maximum_locations: 4,
                        veiled_majority_location_count: 2,
-                       veiled_cross_location_minimum: 1
+                       veiled_cross_location_minimum: 1,
+                       veiled_required_kinds: %i[npc artifact creature transport ability],
+                       veiled_require_all_subkinds: true,
+                       veiled_kind_minimum: 2,
+                       veiled_kind_maximum: 8
 ```
 
 `require_playable_coverage!` requires `playable_as` on every non-shell,
@@ -263,7 +267,9 @@ entity. `require_playable_count!` sets the allowed number of accepted entries.
 neighbors for every location accepted for the role. Its optional veiled
 settings set the allowed location membership, require a strict majority at one
 membership count, and require entries whose locations have no direct
-location-to-location edge.
+location-to-location edge. A world can also require specific real kinds, cover
+every declared subkind within them, and set a minimum and maximum count per
+kind. The `focus` query reports both distributions in text and JSON.
 
 `veiled` is replaceable metadata on a real entity, not a separate entity kind
 or an authoring status. Expanding one preserves the entity id and kind, removes

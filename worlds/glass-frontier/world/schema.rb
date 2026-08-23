@@ -19,10 +19,17 @@ schema do
   require_playable_count! :allegiance, minimum: 6, maximum: 10
   require_focus_choices! role: :chronicle_location,
                          minimum: 10,
-                         veiled_minimum_locations: 2,
+                         veiled_minimum_locations: 1,
                          veiled_maximum_locations: 4,
                          veiled_majority_location_count: 2,
-                         veiled_cross_location_minimum: 1
+                         veiled_cross_location_minimum: 1,
+                         veiled_required_kinds: %i[
+                           ability artifact concept conflict creature culture edict era faction incident
+                           npc phenomenon resource rumor species transport
+                         ],
+                         veiled_require_all_subkinds: true,
+                         veiled_kind_minimum: 8,
+                         veiled_kind_maximum: 24
 
   # Resonance is a physical force here, so attunement and sympathy are real
   # edges rather than metaphors.

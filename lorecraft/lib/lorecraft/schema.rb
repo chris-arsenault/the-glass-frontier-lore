@@ -14,6 +14,8 @@ module Lorecraft
     FocusChoiceRequirement = Struct.new(
       :role, :minimum, :veiled_minimum_locations, :veiled_maximum_locations,
       :veiled_majority_location_count, :veiled_cross_location_minimum,
+      :veiled_required_kinds, :veiled_require_all_subkinds,
+      :veiled_kind_minimum, :veiled_kind_maximum,
       keyword_init: true
     )
     SubkindDef = Struct.new(:name, :label, :facts, :omitted_facts, keyword_init: true)
@@ -188,16 +190,38 @@ module Lorecraft
     def require_focus_choices!(role:, minimum:, veiled_minimum_locations: nil,
                                veiled_maximum_locations: nil,
                                veiled_majority_location_count: nil,
-                               veiled_cross_location_minimum: nil)
+                               veiled_cross_location_minimum: nil,
+                               veiled_required_kinds: [],
+                               veiled_require_all_subkinds: false,
+                               veiled_kind_minimum: nil,
+                               veiled_kind_maximum: nil)
       role = checked_playable_role(role)
+      required_kinds = Array(veiled_required_kinds).map(&:to_sym).uniq
       positive_integer!(minimum, "focus choice minimum")
       positive_integer!(veiled_minimum_locations, "veiled location minimum", optional: true)
       positive_integer!(veiled_maximum_locations, "veiled location maximum", optional: true)
       positive_integer!(veiled_majority_location_count, "veiled majority location count", optional: true)
       nonnegative_integer!(veiled_cross_location_minimum, "veiled cross-location minimum", optional: true)
+      positive_integer!(veiled_kind_minimum, "veiled kind minimum", optional: true)
+      positive_integer!(veiled_kind_maximum, "veiled kind maximum", optional: true)
+      unknown_kinds = required_kinds.reject { |kind| kind?(kind) }
+      unless unknown_kinds.empty?
+        raise DefinitionError, "focus choice requirement uses unknown veiled kinds #{unknown_kinds.join(', ')}"
+      end
+      invalid_kinds = required_kinds.reject { |kind| wiki_kind?(kind) && !location_kind?(kind) }
+      unless invalid_kinds.empty?
+        raise DefinitionError,
+              "focus choice requirement uses non-reader or location veiled kinds #{invalid_kinds.join(', ')}"
+      end
       if veiled_minimum_locations && veiled_maximum_locations &&
          veiled_maximum_locations < veiled_minimum_locations
         raise DefinitionError, "veiled location maximum must be at least as large as the minimum"
+      end
+      if veiled_kind_minimum && veiled_kind_maximum && veiled_kind_maximum < veiled_kind_minimum
+        raise DefinitionError, "veiled kind maximum must be at least as large as the minimum"
+      end
+      if (veiled_require_all_subkinds || veiled_kind_minimum || veiled_kind_maximum) && required_kinds.empty?
+        raise DefinitionError, "veiled kind distribution constraints require veiled_required_kinds"
       end
       if veiled_majority_location_count &&
          ((veiled_minimum_locations && veiled_majority_location_count < veiled_minimum_locations) ||
@@ -214,7 +238,11 @@ module Lorecraft
         veiled_minimum_locations: veiled_minimum_locations,
         veiled_maximum_locations: veiled_maximum_locations,
         veiled_majority_location_count: veiled_majority_location_count,
-        veiled_cross_location_minimum: veiled_cross_location_minimum
+        veiled_cross_location_minimum: veiled_cross_location_minimum,
+        veiled_required_kinds: required_kinds.freeze,
+        veiled_require_all_subkinds: veiled_require_all_subkinds == true,
+        veiled_kind_minimum: veiled_kind_minimum,
+        veiled_kind_maximum: veiled_kind_maximum
       )
     end
 

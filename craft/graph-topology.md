@@ -60,7 +60,11 @@ A world may declare `require_focus_choices!` in its schema. When it does,
 `make check` fails if a playable location falls below the declared minimum or a
 veiled entry falls outside the declared number of playable locations. The same
 declaration can require most veiled entries to have one exact membership count
-and require some to connect places that lack a direct location edge.
+and require some to connect places that lack a direct location edge. A world
+can also list the kinds veiled entries must cover, require every subkind within
+that list, and set a minimum and maximum count per kind. The `focus` report
+shows both kind and subkind distributions so a numerically complete choice set
+cannot hide a single-kind content pass.
 
 ## 1. Give every entry local relationships
 
