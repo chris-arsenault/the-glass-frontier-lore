@@ -16,8 +16,15 @@ export function loadManifest(): Promise<CanonManifest> {
   return apiGet<CanonManifest>("/manifest.json");
 }
 
+type WorldIndexPayload = Omit<WorldIndex, "chronicles" | "era_narratives"> &
+  Partial<Pick<WorldIndex, "chronicles" | "era_narratives">>;
+
 export function loadWorld(worldId: string): Promise<WorldIndex> {
-  return apiGet<WorldIndex>(`/worlds/${worldId}/index.json`);
+  return apiGet<WorldIndexPayload>(`/worlds/${worldId}/index.json`).then((world) => ({
+    ...world,
+    chronicles: world.chronicles ?? [],
+    era_narratives: world.era_narratives ?? [],
+  }));
 }
 
 export function loadEntry(worldId: string, slug: string): Promise<EntryDocument> {
