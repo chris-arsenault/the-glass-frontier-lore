@@ -7,7 +7,7 @@ module Lorecraft
   #   create  :sable_concord                             # begin existence
   #   destroy :glasswright_quarter                       # end existence
   #   transfer:controls, from: :a, to: :b, subject: :x   # clear+set sugar
-  Effect = Struct.new(:verb, :subject, :relation, :target, :attr, :value, keyword_init: true)
+  Effect = Struct.new(:verb, :subject, :relation, :target, :attr, :value, :props, keyword_init: true)
 
   # A moment is a thing that HAPPENS TO an entity in a given year (or span): it
   # owns prose (the narrative of what happened) and carries effects that mutate

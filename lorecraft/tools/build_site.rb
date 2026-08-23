@@ -262,6 +262,7 @@ public_out = Pathname.new(ARGV.shift || root.join("build", "site"))
 internal_out = Pathname.new(ARGV.shift || root.join("build", "site-internal"))
 revision = ENV["SOURCE_REVISION"]
 revision = Open3.capture2("git", "-C", root.to_s, "rev-parse", "HEAD").first.strip if revision.to_s.empty?
+selected_world = ENV["SITE_WORLD"].to_s.strip
 
 FileUtils.rm_rf(public_out)
 FileUtils.rm_rf(internal_out)
@@ -271,7 +272,12 @@ internal_out.mkpath
 FileUtils.cp_r(root.join("apps", "web", "public").children, public_out)
 write_brand_icons(public_out)
 
-worlds = Lorecraft::Worlds.all(root).reject(&:scaffold?).map do |entry|
+world_entries = if selected_world.empty?
+                  Lorecraft::Worlds.all(root).reject(&:scaffold?)
+                else
+                  [Lorecraft::Worlds.find(selected_world, root)]
+                end
+worlds = world_entries.map do |entry|
   world = Lorecraft.load(entry.glob, prelude: entry.prelude)
   world.validate!
   Lorecraft::Render::Site.new(world, root: root).render(
@@ -287,7 +293,7 @@ manifest = {
   schema_version: Lorecraft::Render::Site::SCHEMA_VERSION,
   title: "Tsonu Canon",
   revision: revision,
-  default_world: Lorecraft::Worlds.default_id(root),
+  default_world: selected_world.empty? ? Lorecraft::Worlds.default_id(root) : selected_world,
   worlds: worlds,
 }
 public_out.join("manifest.json").write(JSON.pretty_generate(manifest) + "\n")
@@ -323,6 +329,15 @@ worlds.each do |world|
       world_id: world[:id],
       entry_id: entry.fetch("id"),
       image: "/og/tsonu-canon.png",
+      og_type: "article",
+    }
+  end
+  (index.fetch("chronicles") + index.fetch("era_narratives")).each do |document|
+    routes[document.fetch("route")] = {
+      title: "#{document.fetch('title')} · #{world[:title]}",
+      description: document.fetch("summary", world[:description]),
+      world_id: world[:id],
+      image: document.dig("cover", "url") || "/og/tsonu-canon.png",
       og_type: "article",
     }
   end

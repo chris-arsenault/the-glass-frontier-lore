@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require_relative "markers"
+require_relative "narrative_document"
+require_relative "spatial"
 
 module Lorecraft
   # One unresolved judgment about an entry. `on:` optionally names the passage it
@@ -12,9 +14,12 @@ module Lorecraft
   # here — it is the fold of moments, computed by the Resolver. The entity only
   # holds what is constant: who it is, not what has happened to it.
   class Entity
+    include PublishedContext
+
     attr_reader :id, :kind, :static_attrs, :fact_values, :custom_fact_defs,
-                :content_blocks, :derives, :source_file, :source_line, :log_entries, :questions
-    attr_accessor :visibility, :public_entry, :index_note
+                :content_blocks, :derives, :source_file, :source_line, :log_entries, :questions,
+                :positions
+    attr_accessor :visibility, :public_entry, :index_note, :route_geometry
 
     def initialize(id:, kind:, source_file: nil, source_line: nil)
       @id = id.to_sym
@@ -27,15 +32,20 @@ module Lorecraft
       @content_blocks = []
       @log_entries = []
       @questions = []
+      @positions = []
+      @route_geometry = nil
       @derives = {}
       @visibility = :public
       @public_entry = nil
       @index_note = nil
+      initialize_published_context
     end
 
     def dm? = @visibility == :dm
 
     def title = @static_attrs[:title] || @id.to_s.split("_").map(&:capitalize).join(" ")
+    def summary = @static_attrs[:summary]
+    def source_id = @static_attrs[:source_id] || @id.to_s
     def tags = Array(@static_attrs[:tags]).map(&:to_sym)
     def prominence = @static_attrs[:prominence]
     def subkind = (@static_attrs[:subkind] || @kind).to_sym
@@ -67,10 +77,12 @@ module Lorecraft
     # without per-field methods.
     class Builder
       include Markers
+      include PublishedContextBuilder
 
       def initialize(entity, world)
         @entity = entity
         @world = world
+        @published_owner = entity
         @content_order = 0
       end
 
@@ -84,6 +96,8 @@ module Lorecraft
 
       def name(value)      = set(:title, value)
       def title(value)     = set(:title, value)
+      def summary(value)   = set(:summary, value.to_s)
+      def source_id(value) = set(:source_id, value.to_s)
       def tags(*values)    = set(:tags, values.flatten.map(&:to_sym))
       def prominence(value) = set(:prominence, value.to_sym)
       def aka(*values)
@@ -106,6 +120,35 @@ module Lorecraft
       # A thin but canonical story hook. The value is the complete public
       # description until later play supplies enough facts for full prose.
       def veiled(tagline) = set(:veiled, tagline)
+
+      # A fixed authored placement in one declared spatial frame. Absolute
+      # placements use that frame's coordinates; relative placements use
+      # offsets from another entity in the same frame.
+      def position(frame:, relative_to: nil, **coordinates)
+        @entity.positions << SpatialPosition.new(
+          entity_id: @entity.id,
+          frame: frame.to_sym,
+          relative_to: relative_to&.to_sym,
+          coordinates: coordinates.transform_keys(&:to_sym),
+          source_file: @entity.source_file,
+          source_line: caller_locations(1, 1).first.lineno
+        )
+      end
+
+      # A route owns its branching geometry. Anchors refer to positioned
+      # entities; points exist only inside this route.
+      def route_geometry(frame:, &block)
+        if @entity.route_geometry
+          raise DefinitionError, "duplicate route geometry on #{@entity.id}"
+        end
+
+        @entity.route_geometry = RouteGeometry.new(
+          entity_id: @entity.id,
+          frame: frame.to_sym,
+          source_file: @entity.source_file,
+          source_line: caller_locations(1, 1).first.lineno
+        ).build(&block)
+      end
 
       # Mark this entity DM-only. `public_entry:` names the player-facing entity
       # this hidden truth extends.

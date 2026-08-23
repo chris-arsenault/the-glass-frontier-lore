@@ -8,11 +8,11 @@ module Lorecraft
   # temporal fold treats every edge uniformly.
   class RelationInstance
     attr_reader :id, :verb, :source, :target, :from_year, :to_year, :prose_blocks,
-                :source_file, :source_line
-    attr_accessor :dm
+                :source_file, :source_line, :source_metadata, :props
+    attr_accessor :dm, :source_id
 
     def initialize(id:, verb:, source:, target:, timeline:, since: nil, till: nil,
-                   dm: false, source_file: nil, source_line: nil)
+                   dm: false, props: {}, source_file: nil, source_line: nil)
       @id = id.to_sym
       @verb = verb.to_sym
       @source = source.to_sym
@@ -20,6 +20,9 @@ module Lorecraft
       @dm = dm
       @source_file = source_file
       @source_line = source_line
+      @source_id = @id.to_s
+      @source_metadata = {}
+      @props = props.to_h.transform_keys(&:to_sym).freeze
       @from_year = since ? timeline.year_for(since) : timeline.total_span.first
       @to_year = till ? timeline.year_for(till) : nil
       @prose_blocks = []
@@ -41,6 +44,9 @@ module Lorecraft
         @instance = instance
         @world = world
       end
+
+      def source_id(value) = @instance.source_id = value.to_s
+      def source_metadata(value) = @instance.source_metadata.merge!(value.to_h)
 
       def prose(text, section: :main, heading: nil, at: nil, dm: false,
                 origin: nil, drafted_by: nil, reviewed: nil)

@@ -4,10 +4,11 @@ module Lorecraft
   # A live, bounded view of the schema assembled from the shared craft layer and
   # the selected world's extensions.
   class SchemaInspection
-    TOPICS = %w[kinds kind relations relation tags sections].freeze
+    TOPICS = %w[kinds kind relations relation frames frame tags sections].freeze
 
     def initialize(world, topic: "kinds", name: nil)
       @schema = world.schema
+      @world = world
       @topic = topic.to_s
       @name = name&.to_sym
       raise Error, "unknown schema query #{@topic.inspect}; use: #{TOPICS.join(', ')}" unless TOPICS.include?(@topic)
@@ -19,6 +20,8 @@ module Lorecraft
       when "kind" then { query: "kind", kind: kind_detail(required_name("kind")) }
       when "relations" then { query: "relations", relations: relation_list }
       when "relation" then { query: "relation", relation: relation_detail(required_name("relation")) }
+      when "frames" then { query: "frames", frames: frame_list }
+      when "frame" then { query: "frame", frame: frame_detail(required_name("frame")) }
       when "tags" then { query: "tags", tags: named_vocabulary(@schema.tags) }
       when "sections" then { query: "sections", sections: named_vocabulary(@schema.section_headings) }
       end
@@ -31,6 +34,8 @@ module Lorecraft
       when "kind" then report_kind(result[:kind])
       when "relations" then report_relations(result[:relations])
       when "relation" then report_relation(result[:relation])
+      when "frames" then report_frames(result[:frames])
+      when "frame" then report_frame(result[:frame])
       when "tags" then report_vocabulary("Tags", result[:tags])
       when "sections" then report_vocabulary("Sections", result[:sections])
       end
@@ -95,6 +100,48 @@ module Lorecraft
         cardinality: relation.cardinality,
         exclusive_with: relation.exclusive_with,
         description: relation.description,
+        properties: relation.properties.values.sort_by { |property| property.name.to_s }.map do |property|
+          property_data(property)
+        end,
+      }.compact
+    end
+
+    def property_data(property)
+      {
+        name: property.name,
+        type: property.type,
+        values: property.values.empty? ? nil : property.values,
+        required: property.required?,
+        minimum: property.minimum,
+        minimum_exclusive: property.minimum_exclusive,
+        maximum: property.maximum,
+        maximum_exclusive: property.maximum_exclusive,
+        requires: property.requires.empty? ? nil : property.requires,
+        exclusive_with: property.exclusive_with.empty? ? nil : property.exclusive_with,
+      }.compact
+    end
+
+    def frame_list
+      @world.spatial_frames.values.sort_by { |frame| frame.name.to_s }.map do |frame|
+        frame_data(frame)
+      end
+    end
+
+    def frame_detail(name)
+      frame = @world.spatial_frames[name]
+      raise Error, "unknown spatial frame: #{name}" unless frame
+
+      frame_data(frame)
+    end
+
+    def frame_data(frame)
+      {
+        name: frame.name,
+        coordinates: frame.coordinates,
+        origin: frame.origin,
+        parent: frame.parent,
+        radial_unit: frame.radial_unit,
+        prime_meridian: frame.prime_meridian,
       }.compact
     end
 
@@ -196,6 +243,41 @@ module Lorecraft
       exclusions = relation[:exclusive_with]
       lines << "  exclusive with: #{exclusions&.join(', ') || 'none'}"
       lines << "  description: #{relation[:description]}" if relation[:description]
+      unless relation[:properties].empty?
+        lines << "  properties:"
+        relation[:properties].each do |property|
+          details = [property[:type]]
+          details << "required" if property[:required]
+          details << "values=#{property[:values].join('|')}" if property[:values]
+          details << "minimum=#{property[:minimum]}" if property.key?(:minimum)
+          details << "minimum_exclusive=#{property[:minimum_exclusive]}" if property.key?(:minimum_exclusive)
+          details << "maximum=#{property[:maximum]}" if property.key?(:maximum)
+          details << "maximum_exclusive=#{property[:maximum_exclusive]}" if property.key?(:maximum_exclusive)
+          details << "requires=#{property[:requires].join('|')}" if property[:requires]
+          details << "exclusive_with=#{property[:exclusive_with].join('|')}" if property[:exclusive_with]
+          lines << "    #{property[:name]}: #{details.join(', ')}"
+        end
+      end
+      lines.join("\n")
+    end
+
+    def report_frames(frames)
+      lines = ["Spatial frames (#{frames.size}):"]
+      frames.each do |frame|
+        parent = frame[:parent] ? " parent=#{frame[:parent]}" : ""
+        unit = frame[:radial_unit] ? " radial_unit=#{frame[:radial_unit]}" : ""
+        lines << "  #{frame[:name]}: #{frame[:coordinates]} origin=#{frame[:origin]}#{parent}#{unit}"
+      end
+      lines.join("\n")
+    end
+
+    def report_frame(frame)
+      lines = ["Spatial frame — #{frame[:name]}"]
+      lines << "  coordinates: #{frame[:coordinates]}"
+      lines << "  origin: #{frame[:origin]}"
+      lines << "  parent: #{frame[:parent]}" if frame[:parent]
+      lines << "  radial unit: #{frame[:radial_unit]}" if frame[:radial_unit]
+      lines << "  prime meridian: #{frame[:prime_meridian]}" if frame[:prime_meridian]
       lines.join("\n")
     end
 

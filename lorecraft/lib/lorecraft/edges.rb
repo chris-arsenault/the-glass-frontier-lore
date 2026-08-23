@@ -10,7 +10,7 @@ module Lorecraft
     ].freeze
 
     Row = Struct.new(
-      :subject, :relation, :target, :from, :to, :dm, :origin, :live,
+      :subject, :relation, :target, :from, :to, :dm, :origin, :live, :props,
       keyword_init: true
     )
 
@@ -46,7 +46,9 @@ module Lorecraft
         key = [effect.subject, effect.relation, effect.target]
         case effect.verb
         when :set
-          open[key] ||= { year: entry[:year], dm: entry[:dm], origin: entry[:source] }
+          open[key] ||= {
+            year: entry[:year], dm: entry[:dm], origin: entry[:source], props: effect.props || {}
+          }
         when :clear
           if effect.target
             opened = open.delete(key)
@@ -64,15 +66,18 @@ module Lorecraft
 
     def embed_intervals
       @world.embed_edges(audience: @audience).map do |subject, relation, target|
-        row(subject, relation, target, @world.timeline.total_span.begin, nil, false, subject)
+        row(subject, relation, target, @world.timeline.total_span.begin, nil, false, subject, {})
       end
     end
 
     def close(key, opened, to_year)
-      row(key[0], key[1], key[2], opened[:year], to_year, opened[:dm], opened[:origin])
+      row(
+        key[0], key[1], key[2], opened[:year], to_year,
+        opened[:dm], opened[:origin], opened[:props]
+      )
     end
 
-    def row(subject, relation, target, from, to, dm, origin)
+    def row(subject, relation, target, from, to, dm, origin, props)
       Row.new(
         subject: subject,
         relation: relation,
@@ -82,6 +87,7 @@ module Lorecraft
         dm: dm == true,
         origin: origin,
         live: from <= @year && (to.nil? || @year < to),
+        props: props,
       )
     end
 

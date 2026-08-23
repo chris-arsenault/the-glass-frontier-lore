@@ -7,7 +7,7 @@ module Lorecraft
   # their dynamic attribute values, and which relation edges are live. Produced
   # by the Resolver; immutable once returned.
   class State
-    Edge = Struct.new(:subject, :relation, :target, :from_year, :dm, keyword_init: true) do
+    Edge = Struct.new(:subject, :relation, :target, :from_year, :dm, :props, keyword_init: true) do
       def dm? = dm == true
     end
 
@@ -79,7 +79,7 @@ module Lorecraft
       edges = open.map do |(s, r, t), opened|
         State::Edge.new(
           subject: s, relation: r, target: t,
-          from_year: opened[:year], dm: opened[:dm]
+          from_year: opened[:year], dm: opened[:dm], props: opened[:props]
         )
       end
       State.new(year: year, existence: ex, attrs: attrs, edges: edges)
@@ -115,7 +115,9 @@ module Lorecraft
         if eff.relation
           check_exists!(eff.subject, year, ex) if causality
           check_exists!(eff.target, year, ex) if causality
-          open[[eff.subject, eff.relation, eff.target]] ||= { year: year, dm: dm }
+          open[[eff.subject, eff.relation, eff.target]] ||= {
+            year: year, dm: dm, props: eff.props || {}
+          }
         else
           attrs[eff.subject][eff.attr] = eff.value
         end

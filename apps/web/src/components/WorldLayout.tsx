@@ -8,6 +8,21 @@ import { SearchButton } from "./SearchDialog";
 import { WorldContext } from "./worldContext";
 import "./WorldLayout.css";
 
+function WorldNavigation({ worldId, hasChronicles, hasLore }: {
+  worldId: string;
+  hasChronicles: boolean;
+  hasLore: boolean;
+}) {
+  return <nav className="site-nav" aria-label="World views">
+    <NavLink end to={`/${worldId}`}>Read</NavLink>
+    <NavLink to={`/${worldId}/browse`}>Browse</NavLink>
+    {hasLore && <NavLink to={`/${worldId}/lore`}>Lore</NavLink>}
+    {hasChronicles && <NavLink to={`/${worldId}/chronicles`}>Chronicles</NavLink>}
+    <NavLink to={`/${worldId}/graph`}>Web</NavLink>
+    <NavLink to={`/${worldId}/timeline`}>Time</NavLink>
+  </nav>;
+}
+
 export function WorldLayout() {
   const { worldId = "" } = useParams();
   const navigate = useNavigate();
@@ -46,14 +61,8 @@ export function WorldLayout() {
               ))}
             </select>
           </label>
-          <nav className="site-nav" aria-label="World views">
-            <NavLink end to={`/${worldId}`}>
-              Read
-            </NavLink>
-            <NavLink to={`/${worldId}/browse`}>Browse</NavLink>
-            <NavLink to={`/${worldId}/graph`}>Web</NavLink>
-            <NavLink to={`/${worldId}/timeline`}>Time</NavLink>
-          </nav>
+          <WorldNavigation worldId={worldId} hasChronicles={world.data.chronicles.length > 0}
+                           hasLore={world.data.pages.length > 0} />
           <SearchButton world={world.data} />
         </header>
         <div className="world-frame">
@@ -62,6 +71,12 @@ export function WorldLayout() {
             <Link className="browse-rail__all" to={`/${worldId}/browse`}>
               All entries <span>{world.data.entries.length}</span>
             </Link>
+            {world.data.pages.length > 0 && <Link className="browse-rail__all" to={`/${worldId}/lore`}>
+              Lore <span>{world.data.pages.length}</span>
+            </Link>}
+            {world.data.chronicles.length > 0 && <Link className="browse-rail__all" to={`/${worldId}/chronicles`}>
+              Chronicles <span>{world.data.chronicles.length}</span>
+            </Link>}
             <div className="browse-rail__group">
               <div className="browse-rail__label">By kind</div>
               {world.data.kinds.map((kind) => (

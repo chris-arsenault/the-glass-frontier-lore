@@ -41,6 +41,13 @@ schema do
   relation :participated_in, category: :causal, temporal: false
 
   # Spatial — where things sit relative to one another.
+  relation :adjacent_to, category: :spatial, temporal: false, symmetric: true,
+                         domain: %i[geographic_location installation],
+                         range: %i[geographic_location installation],
+                         description: "Two places share a local boundary or lie directly beside one another" do
+    property :bearing_deg, type: :number, minimum: 0, maximum_exclusive: 360
+    property :distance_km, type: :number, minimum_exclusive: 0
+  end
   relation :born_in, category: :social, temporal: false
   relation :founded_in, category: :spatial, temporal: false
   relation :headquartered_in, category: :spatial, temporal: true

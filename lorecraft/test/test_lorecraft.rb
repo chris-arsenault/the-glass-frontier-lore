@@ -77,6 +77,120 @@ def fact_world
   end
 end
 
+def spatial_world
+  Lorecraft.define do
+    schema do
+      entity_type :place
+      location_kind :place
+      relation :adjacent_to, category: :spatial, symmetric: true,
+                             domain: :place, range: :place do
+        property :bearing_deg, type: :number, minimum: 0, maximum_exclusive: 360
+        property :distance_km, type: :number, minimum_exclusive: 0
+      end
+    end
+    timeline { era :present, starts: 0, length: 10; now year: 5 }
+    spatial_frame :system_chart, origin: :sun, coordinates: :polar, radial_unit: :orbit_rank
+    spatial_frame :planet_surface, origin: :planet, parent: :system_chart,
+                                      coordinates: :surface, prime_meridian: :meridian
+    place :sun do name "Sun" end
+    place :planet do
+      name "Planet"
+      position frame: :system_chart, radius: 1, angle_deg: 35
+    end
+    place :meridian do
+      name "Meridian"
+      position frame: :planet_surface, latitude_deg: 0, longitude_deg: 0
+    end
+    place :port do
+      name "Port"
+      position frame: :planet_surface, latitude_deg: 12, longitude_deg: 25,
+               extent_radius_km: 18
+    end
+    place :relay do
+      name "Relay"
+      position frame: :system_chart, relative_to: :planet,
+               radial_offset: 0.04, angle_offset_deg: 3
+    end
+    place :trade_lane do
+      name "Trade Lane"
+      route_geometry frame: :system_chart do
+        anchor :planet
+        point :outer_turn, radius: 1.2, angle_deg: 48
+        anchor :port
+        path :surface_leg, through: %i[planet outer_turn port]
+      end
+    end
+    relate :meridian_beside_port, :adjacent_to, :meridian, :port,
+           props: { bearing_deg: 48, distance_km: 1_200 }
+    genesis :relay_near_planet, at: 1 do
+      effects do
+        set_relation :relay, :adjacent_to, :planet,
+                     props: { bearing_deg: 215, distance_km: 40_000 }
+      end
+    end
+  end
+end
+
+def narrative_world
+  Lorecraft.define do
+    schema do
+      entity_type :concept
+      relation :remembers, temporal: true
+    end
+    timeline do
+      unit :tick
+      era :thaw, starts: 0, length: 10, title: "The Thaw"
+      era :peace, length: 10, title: "The Peace"
+      now year: 19
+    end
+    concept :ice do
+      name "The Remembering Ice"
+      prose "The ice keeps every pressure-mark."
+      annotation :old_measure, anchor: "pressure-mark", source_anchor: "Pressure-mark",
+                               text: "Older ledgers call these deep signs."
+      image "entity-ice", role: :entity, url: "/images/entity-ice.webp"
+    end
+    event_record "event-1", tick: 4, era: :thaw, kind: :state_change,
+                 subject: :ice, action: "remembered", description: "The first mark held.",
+                 participant_effects: [{ "entity" => { "id" => "ice" }, "effects" => [] }]
+    relate :ice_memory, :remembers, :ice, :ice, since: 4 do
+      source_id "ice:ice:remembers"
+      source_metadata status: "active", strength: 0.8
+    end
+    chronicle :first_mark do
+      source_id "chronicle_first_mark"
+      title "The First Mark"
+      summary "The earliest accepted account of the ice's memory."
+      status :complete
+      format :story
+      focus :single
+      narrative_style :witness_account
+      focal_era :thaw
+      ticks from: 3, to: 6
+      touched_eras :thaw
+      entrypoint :ice
+      entities :ice
+      events "event-1"
+      relationships "ice:ice:remembers"
+      roles ice: :witness
+      prose "The ice remembers the first mark."
+      annotation :ledger_note, anchor: "first mark", text: "The oldest copy uses another hand."
+      image "chronicle-cover", role: :cover, url: "/images/chronicle-cover.webp"
+      image "mark-detail", role: :inline, anchor: "first mark", caption: "The mark under blue light."
+    end
+    era_narrative :thaw_record do
+      source_id "era_thaw"
+      title "The Thaw"
+      status :complete
+      era :thaw
+      thesis "Memory changed how the berg understood loss."
+      tone "Measured"
+      source_chronicles :first_mark
+      prose "The thaw began with a mark that did not leave."
+    end
+  end
+end
+
 class TimelineTest < Minitest::Test
   def setup = @w = sample_world
 
@@ -104,6 +218,170 @@ class TimelineTest < Minitest::Test
     assert_equal :controls, seizure[:relation]
     assert_equal :quarter, seizure[:target]
     assert_equal 105, seizure[:year]
+  end
+
+  def test_timeline_unit_defaults_to_year_and_can_be_ticks
+    assert_equal :year, @w.timeline.unit
+    assert_equal :tick, narrative_world.timeline.unit
+    assert_equal "ticks", narrative_world.timeline.unit_label
+  end
+end
+
+class NarrativeDocumentTest < Minitest::Test
+  def test_documents_and_event_records_are_first_class_without_entering_the_entity_graph
+    world = narrative_world
+
+    assert_equal :first_mark, world.chronicle(:first_mark).id
+    assert_equal :thaw_record, world.era_narrative(:thaw_record).id
+    assert_equal 4, world.event_record("event-1").tick
+    refute_includes world.pages.map(&:id), :first_mark
+    refute_includes world.canonical_nodes.map(&:id), :thaw_record
+    assert_empty world.validate
+  end
+
+  def test_validation_rejects_unresolved_sources_and_unanchored_public_context
+    world = Lorecraft.define do
+      schema { entity_type :concept }
+      timeline { unit :tick; era :thaw, starts: 0, length: 10; now year: 9 }
+      concept :ice do
+        name "Ice"
+        prose "One mark."
+        annotation :missing, anchor: "another mark", text: "A note."
+      end
+      chronicle :broken do
+        title "Broken"
+        status :complete
+        focal_era :thaw
+        ticks from: 2, to: 1
+        touched_eras :peace
+        entrypoint :missing
+        entities :missing
+        events "missing-event"
+        relationships "missing-relation"
+        prose "An account."
+        image "inline", role: :inline, anchor: "absent"
+      end
+      era_narrative :broken_era do
+        title "Broken Era"
+        status :complete
+        era :peace
+        source_chronicles :missing
+        prose "An account."
+      end
+    end
+
+    problems = world.validate.join("\n")
+    assert_includes problems, "annotation missing anchor does not occur"
+    assert_includes problems, "tick range is reversed"
+    assert_includes problems, "touched era peace is unknown"
+    assert_includes problems, "selected entity missing is unknown"
+    assert_includes problems, "source event missing-event is unknown"
+    assert_includes problems, "source relationship missing-relation is unknown"
+    assert_includes problems, "media inline anchor does not occur"
+    assert_includes problems, "era is missing or unknown"
+    assert_includes problems, "source chronicle missing is unknown"
+  end
+
+  def test_site_export_preserves_chronicle_text_sources_notes_media_and_backlinks
+    Dir.mktmpdir do |dir|
+      Lorecraft::Render::Site.new(narrative_world, root: dir).render(
+        out: File.join(dir, "public"),
+        internal_out: File.join(dir, "internal"),
+        world_id: "ice",
+        title: "Ice",
+        revision: "revision",
+      )
+      root = File.join(dir, "public", "worlds", "ice")
+      index = JSON.parse(File.read(File.join(root, "index.json")))
+      chronicle = JSON.parse(File.read(File.join(root, "chronicles", "first-mark.json")))
+      era = JSON.parse(File.read(File.join(root, "era-narratives", "thaw-record.json")))
+      entry = JSON.parse(File.read(File.join(root, "entries", "ice.json")))
+      timeline = JSON.parse(File.read(File.join(root, "timeline.json")))
+      editorial = JSON.parse(File.read(File.join(dir, "internal", "worlds", "ice.json")))
+
+      assert_equal 8, chronicle["schema_version"]
+      assert_equal "tick", index["time_unit"]
+      assert_equal "tick", timeline["unit"]
+      assert_equal "The ice remembers the first mark.", chronicle["content"]
+      assert_equal ["event-1"], chronicle["events"].map { |event| event["id"] }
+      assert_equal "ice", chronicle.dig("events", 0, "participant_effects", 0, "entity", "id")
+      assert_equal ["ice:ice:remembers"], chronicle["relationships"].map { |relation| relation["source_id"] }
+      assert_equal 0.8, chronicle.dig("relationships", 0, "source_metadata", "strength")
+      assert_equal "first mark", chronicle.dig("annotations", 0, "anchor")
+      assert_equal %w[cover inline], chronicle["media"].map { |reference| reference["role"] }
+      assert_equal ["first_mark"], era["source_chronicles"].map { |source| source["id"] }
+      assert_equal ["first_mark"], entry["chronicles"].map { |source| source["id"] }
+      assert_equal "old_measure", entry.dig("annotations", 0, "id")
+      assert_equal "Pressure-mark", entry.dig("annotations", 0, "source_anchor")
+      assert_equal "chronicle", editorial.dig("narratives", "first_mark", "type")
+      assert_equal "The ice remembers the first mark.",
+                   editorial.dig("narratives", "first_mark", "document", "content")
+    end
+  end
+
+  def test_narrative_query_returns_complete_text_and_source_ids
+    query = Lorecraft::NarrativeQuery.new(narrative_world, id: :first_mark)
+
+    assert_includes query.report, "The ice remembers the first mark."
+    assert_equal ["event-1"], query.data[:event_ids]
+    assert_equal ["ice:ice:remembers"], query.data[:relationship_ids]
+    assert_equal "first mark", query.data.dig(:annotations, 0, :anchor)
+  end
+
+  def test_entity_source_id_and_authored_summary_render_verbatim
+    world = narrative_world
+    world.define_entity(kind: :concept, id: :reader) do
+      title "Reader"
+      source_id "reader-source-id"
+      summary "The complete canonical summary, without renderer truncation."
+      status :complete
+      prose "Longer article text."
+    end
+
+    Dir.mktmpdir do |dir|
+      Lorecraft::Render::Site.new(world, root: dir).render(
+        out: File.join(dir, "public"), world_id: "test", title: "Test", revision: "revision"
+      )
+      document = JSON.parse(
+        File.read(File.join(dir, "public", "worlds", "test", "entries", "reader.json"))
+      )
+
+      assert_equal "reader-source-id", document["source_id"]
+      assert_equal "The complete canonical summary, without renderer truncation.", document["summary"]
+    end
+  end
+
+  def test_world_can_narrow_a_shared_relation
+    world = narrative_world
+    world.schema.instance_eval do
+      extend_relation :remembers, domain: :concept, range: :concept,
+                                      description: "The recorded period of activity."
+    end
+
+    relation = world.schema.relation_def(:remembers)
+    assert_equal [:concept], relation.domain
+    assert_equal [:concept], relation.range
+    assert_equal "The recorded period of activity.", relation.description
+  end
+
+  def test_chronicle_can_preserve_an_unrecorded_end_tick_and_empty_touched_eras
+    world = narrative_world
+    world.define_narrative_document(id: :open_record, document_type: :chronicle) do
+      title "Open Record"
+      status :complete
+      focal_era :thaw
+      ticks from: 0, to: nil
+      temporal_description "The end of the record was not assigned."
+      source_temporal_description "a brief moment (-Infinity ticks)"
+      prose "The record begins."
+    end
+
+    assert_empty world.validate
+    assert_equal [0, nil], world.chronicle(:open_record)[:tick_range]
+    assert_equal "The end of the record was not assigned.",
+                 world.chronicle(:open_record)[:temporal_description]
+    assert_equal "a brief moment (-Infinity ticks)",
+                 world.chronicle(:open_record)[:source_temporal_description]
   end
 end
 
@@ -1059,6 +1337,13 @@ class SearchTest < Minitest::Test
     assert_equal 1, data[:count]
     assert_kind_of Hash, data[:results].first
   end
+
+  def test_search_includes_chronicles_and_era_narratives
+    assert_equal :first_mark,
+                 Lorecraft::Search.new(narrative_world, query: "earliest accepted").results.first.id
+    assert_equal :thaw_record,
+                 Lorecraft::Search.new(narrative_world, query: "understood loss").results.first.id
+  end
 end
 
 class ConnectionsTest < Minitest::Test
@@ -1303,6 +1588,84 @@ class GraphRenderTest < Minitest::Test
   end
 end
 
+class SpatialMetadataTest < Minitest::Test
+  def test_frames_positions_routes_and_relation_properties_validate
+    world = spatial_world
+
+    assert_empty world.validate
+    assert_equal :planet, world.spatial_frames[:planet_surface].origin
+    assert_equal :planet, world.entity(:relay).positions.first.relative_to
+    assert_equal %i[planet outer_turn port],
+                 world.entity(:trade_lane).route_geometry.paths[:surface_leg].points
+    assert_equal(
+      { bearing_deg: 48, distance_km: 1_200 },
+      world.at(:now).edges.find do |edge|
+        edge.subject == :meridian && edge.relation == :adjacent_to
+      end.props,
+    )
+    assert_equal 40_000, world.at(:now).edges.find { |edge| edge.subject == :relay }.props[:distance_km]
+  end
+
+  def test_spatial_validation_rejects_broken_coordinates_and_paths
+    world = spatial_world
+    world.entity(:port).positions << Lorecraft::SpatialPosition.new(
+      entity_id: :port,
+      frame: :planet_surface,
+      coordinates: { latitude_deg: 95, longitude_deg: 0 },
+    )
+    world.entity(:trade_lane).route_geometry.paths[:broken] = Lorecraft::RoutePath.new(
+      id: :broken,
+      points: %i[planet absent],
+    )
+
+    problems = world.validate.join("\n")
+    assert_includes problems, "repeats position in frame planet_surface"
+    assert_includes problems, "latitude_deg must be between -90 and 90"
+    assert_includes problems, "route path broken names unknown point absent"
+  end
+
+  def test_schema_and_placement_queries_expose_authored_geometry
+    world = spatial_world
+    frames = Lorecraft::SchemaInspection.new(world, topic: "frames").data[:frames]
+    relation = Lorecraft::SchemaInspection.new(
+      world, topic: "relation", name: "adjacent_to"
+    ).data[:relation]
+    placement = Lorecraft::PlacementAudit.new(world, entity: :trade_lane).data
+
+    assert_equal %i[planet_surface system_chart], frames.map { |frame| frame[:name] }
+    assert_equal %i[bearing_deg distance_km], relation[:properties].map { |property| property[:name] }
+    assert_equal :system_chart, placement.dig(:route_geometry, :frame)
+  end
+
+  def test_graph_and_site_exports_include_geometry
+    world = spatial_world
+    graph = JSON.parse(Lorecraft::Render::Graph.new(world).render)
+    relay = graph["nodes"].find { |node| node["id"] == "relay" }
+    adjacency = graph["edges"].find { |edge| edge["rel"] == "adjacent_to" }
+
+    assert_equal "planet", relay.dig("positions", 0, "relative_to")
+    assert_equal 1_200, adjacency.dig("props", "distance_km")
+
+    Dir.mktmpdir do |dir|
+      Lorecraft::Render::Site.new(world, root: dir).render(
+        out: File.join(dir, "public"),
+        world_id: "spatial",
+        title: "Spatial",
+        revision: "revision",
+      )
+      root = File.join(dir, "public", "worlds", "spatial")
+      index = JSON.parse(File.read(File.join(root, "index.json")))
+      route = JSON.parse(File.read(File.join(root, "entries", "trade-lane.json")))
+      port = JSON.parse(File.read(File.join(root, "entries", "port.json")))
+
+      assert_equal 8, index["schema_version"]
+      assert_equal %w[planet_surface system_chart], index["spatial_frames"].map { |frame| frame["id"] }
+      assert_equal %w[planet outer_turn port], route.dig("route_geometry", "paths", 0, "through")
+      assert_equal 1_200, port.dig("connections", 0, "properties", "distance_km")
+    end
+  end
+end
+
 class SiteRenderTest < Minitest::Test
   def render(world, dir)
     Lorecraft::Render::Site.new(world, root: dir).render(
@@ -1433,7 +1796,7 @@ class SiteRenderTest < Minitest::Test
       index = JSON.parse(File.read(File.join(public_root, "index.json")))
       editorial = JSON.parse(File.read(File.join(dir, "internal", "worlds", "sample-world.json")))
 
-      assert_equal 6, ada["schema_version"]
+      assert_equal 8, ada["schema_version"]
       assert_equal "cartographer", ada["subkind"]
       assert(index["subkinds"].any? { |item| item["kind"] == "person" && item["id"] == "cartographer" })
       assert_equal ["born", "age", "occupation", "home", "chart_room", "working_language"], ada["facts"].map { |fact| fact["id"] }
@@ -1827,7 +2190,13 @@ class PageAndGeneratedPagesTest < Minitest::Test
         incident :b do name "The Fire" end
         genesis :g, at: { year: 2010 } do effects { set :a, caused: :b } end
         page :home, title: "Home", wiki: "Home" do
-          prose "See #{ref :resonance} to start."
+          source_id "published-home"
+          summary "A canonical introduction."
+          status :complete
+          category :world
+          source_status "published"
+          linked_entities :resonance
+          prose "See #{ref :resonance} to start.", origin: :published
         end
       end
       yield Lorecraft::Render::Wiki.new(w, root: dir), dir, w
@@ -1858,6 +2227,24 @@ class PageAndGeneratedPagesTest < Minitest::Test
     build do |_wiki, _dir, w|
       assert_nil w.entity(:home)
       assert w.authored_pages.key?(:home)
+    end
+  end
+
+
+  def test_page_metadata_is_searchable_and_rendered
+    build do |_wiki, dir, w|
+      result = Lorecraft::Search.new(w, query: "canonical introduction", root: dir).results.first
+      assert_equal :home, result.id
+      assert_equal :page, result.kind
+
+      Lorecraft::Render::Site.new(w, root: dir).render(
+        out: File.join(dir, "site"), world_id: "test", title: "Test", revision: "revision"
+      )
+      page = JSON.parse(File.read(File.join(dir, "site", "worlds", "test", "pages", "home.json")))
+      assert_equal "published-home", page["source_id"]
+      assert_equal "A canonical introduction.", page["summary"]
+      assert_equal "world", page["category"]
+      assert_equal ["resonance"], page["linked_entities"].map { |entry| entry["id"] }
     end
   end
 end

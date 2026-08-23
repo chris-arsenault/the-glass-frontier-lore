@@ -1,20 +1,43 @@
 # The Ice Remembers
 
-Aurora Berg: a continent-sized iceberg drifting through an endless frozen sea. Three peoples share it and none of them can leave — the Aurora Stack in their crystalline spire-cities on the surface, the Nightshelf in the tunnels beneath the permanent shelf, and the Wake-Singers in the water around it.
+Aurora Berg is the only known home in a frozen world. Aurora penguins live on
+its light-struck heights, Nightshelf penguins keep settlements and routes under
+the permanent shelf, and orca pods hold the surrounding waters. The ice records
+what happens on and within it. Readers can recover those impressions, but every
+reading still passes through a fallible observer.
 
-The setting originates in `../../../the-canonry-game` (its first world). Nothing has been ported here yet.
+The published world in the Canonry Viewer is this world's canonical record.
+Its complete accepted chronicles, era narratives, entities, public historian
+notes, and meaningful historical relationships remain canon during migration.
+Read `guidance/source-policy.md` before changing imported material.
 
-## Status: Scaffold
+Material in `../../../the-canonry-game` describes other possible worlds in the
+same universe. Its encyclopedia is useful when reviewing concrete themes and
+cultural portrayal, but it cannot add a historical fact to Aurora Berg or
+override the Viewer record.
 
-`world/` holds a schema and a placeholder timeline and no entities. `make check-all` skips this world until `worlds.yml` marks it `active`.
+## Peoples and powers
 
-Before writing canon:
+- Aurora Stack and Nightshelf are penguin cultures, not separate species.
+- Orca society is waterborne and has its own pod life, trade, religion, and
+  history. Orcas are people, including when a penguin source treats them only
+  as predators.
+- The Wake-Singers are an orca religious order. They are not a third penguin
+  culture or a separate people.
+- Aurora-light, captured fire, and pressure-depth are separate practices with
+  separate costs. Do not collapse them into one general magic system.
 
-1. Replace the placeholder era in `world/timeline.rb` with the berg's real sequence.
-2. Declare this world's tag vocabulary in `world/schema.rb`. The entity kinds, effect verbs and relation taxonomy come from `craft/schema/base.rb` — add only what the berg needs and the base does not carry.
-3. Write `guidance/tone.md`, `guidance/voice-referents.md` and `guidance/naming-conventions.md`. Until they exist, only the repo-root `CLAUDE.md` and `craft/` bind, which is enough to write well but not enough to write *this* world.
-4. Flip `status: scaffold` to `status: active` in `worlds.yml` so the gates start running.
+## Required guidance
 
-```
+Read the narrowest file that fits the task:
+
+- `guidance/source-policy.md` for source authority and migration mappings
+- `guidance/tone.md` for prose and cultural portrayal
+- `guidance/voice-referents.md` for in-world vocabulary
+- `guidance/naming-conventions.md` before naming or renaming anything
+
+Validate with:
+
+```sh
 make check WORLD=ice-remembers
 ```

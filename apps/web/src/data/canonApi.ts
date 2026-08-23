@@ -2,8 +2,10 @@ import { apiGet, authenticatedApiGet } from "./api";
 import { appConfig } from "../config";
 import type {
   CanonManifest,
+  ChronicleDocument,
   EditorialEntry,
   EntryDocument,
+  EraNarrativeDocument,
   GraphDocument,
   PageDocument,
   TimelineDocument,
@@ -24,6 +26,14 @@ export function loadEntry(worldId: string, slug: string): Promise<EntryDocument>
 
 export function loadPage(worldId: string, slug: string): Promise<PageDocument> {
   return apiGet<PageDocument>(`/worlds/${worldId}/pages/${slug}.json`);
+}
+
+export function loadChronicle(worldId: string, slug: string): Promise<ChronicleDocument> {
+  return apiGet<ChronicleDocument>(`/worlds/${worldId}/chronicles/${slug}.json`);
+}
+
+export function loadEraNarrative(worldId: string, slug: string): Promise<EraNarrativeDocument> {
+  return apiGet<EraNarrativeDocument>(`/worlds/${worldId}/era-narratives/${slug}.json`);
 }
 
 export function loadGraph(worldId: string): Promise<GraphDocument> {

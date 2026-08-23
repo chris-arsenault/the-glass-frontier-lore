@@ -1,5 +1,6 @@
 export type Optional<T> = T | undefined;
 export type Nullable<T> = T | null;
+export type TimeUnit = "year" | "tick";
 
 export interface CanonManifest {
   schema_version: number;
@@ -14,8 +15,11 @@ export interface WorldSummary {
   title: string;
   revision: string;
   generated_at_year: number;
+  time_unit: TimeUnit;
   entry_count: number;
   page_count: number;
+  chronicle_count: number;
+  era_narrative_count: number;
   home: Nullable<string>;
   description: string;
 }
@@ -44,10 +48,64 @@ export interface EntrySummary {
 
 export interface PageSummary {
   id: string;
+  source_id: string;
   slug: string;
   title: string;
   summary: string;
+  category: Optional<string>;
   route: string;
+}
+
+export interface PublicAnnotation {
+  id: string;
+  anchor: string;
+  source_anchor: Optional<string>;
+  anchor_index: Optional<number>;
+  text: string;
+  type: string;
+  display: string;
+}
+
+export interface MediaReference {
+  asset_id: string;
+  role: "entity" | "cover" | "inline";
+  url: Optional<string>;
+  anchor: Optional<string>;
+  anchor_index: Optional<number>;
+  caption: Optional<string>;
+  size: Optional<string>;
+  justification: Optional<string>;
+  source_entity_id: Optional<string>;
+  reference_id: Optional<string>;
+}
+
+export interface ChronicleSummary {
+  id: string;
+  source_id: string;
+  slug: string;
+  title: string;
+  summary: string;
+  format: Optional<string>;
+  focus: Optional<string>;
+  focal_era: string;
+  from: number;
+  to: Optional<number>;
+  temporal_description: Optional<string>;
+  route: string;
+  cover: Optional<MediaReference>;
+}
+
+export interface EraNarrativeSummary {
+  id: string;
+  source_id: string;
+  slug: string;
+  title: string;
+  summary: string;
+  era: string;
+  starts: number;
+  ends: number;
+  route: string;
+  cover: Optional<MediaReference>;
 }
 
 export interface KindSummary {
@@ -86,9 +144,12 @@ export interface WorldIndex {
   title: string;
   revision: string;
   generated_at_year: number;
+  time_unit: TimeUnit;
   home: Nullable<string>;
   entries: EntrySummary[];
   pages: PageSummary[];
+  chronicles: ChronicleSummary[];
+  era_narratives: EraNarrativeSummary[];
   kinds: KindSummary[];
   subkinds: SubkindSummary[];
   tags: TagDefinition[];
@@ -154,10 +215,14 @@ export interface EntryDocument extends EntrySummary {
   world_id: string;
   revision: string;
   generated_at_year: number;
+  time_unit: TimeUnit;
   sections: AuthoredSection[];
   facts: EntryFact[];
   connections: EntryConnection[];
   timeline_event_ids: string[];
+  chronicles: ChronicleSummary[];
+  annotations: PublicAnnotation[];
+  media: MediaReference[];
   dm: Optional<boolean>;
 }
 
@@ -165,6 +230,8 @@ export interface PageDocument extends PageSummary {
   schema_version: number;
   world_id: string;
   revision: string;
+  source_status: Optional<string>;
+  linked_entities: ChronicleEntity[];
   sections: AuthoredSection[];
 }
 
@@ -198,6 +265,7 @@ export interface GraphDocument {
   world_id: string;
   revision: string;
   generated_at_year: number;
+  time_unit: TimeUnit;
   nodes: GraphNode[];
   edges: GraphEdge[];
 }
@@ -227,8 +295,78 @@ export interface TimelineDocument {
   world_id: string;
   revision: string;
   now: number;
+  unit: TimeUnit;
   eras: EraDocument[];
   events: TimelineEvent[];
+}
+
+export interface ChronicleEntity {
+  id: string;
+  title: string;
+  route: string;
+}
+
+export interface ChronicleEvent {
+  id: string;
+  tick: number;
+  era: Optional<string>;
+  kind: string;
+  subject_id: Optional<string>;
+  action: Optional<string>;
+  description: Optional<string>;
+  significance: Optional<number>;
+  tags: string[];
+  participant_ids: string[];
+  participant_effects: unknown[];
+  caused_by: Optional<unknown>;
+}
+
+export interface ChronicleRelationshipEndpoint {
+  id: string;
+  title: string;
+  route: string;
+}
+
+export interface ChronicleRelationship {
+  source_id: string;
+  relation: string;
+  source: ChronicleRelationshipEndpoint;
+  target: ChronicleRelationshipEndpoint;
+  from: number;
+  to: Optional<number>;
+  source_metadata: Record<string, unknown>;
+}
+
+export interface ChronicleDocument extends ChronicleSummary {
+  schema_version: number;
+  world_id: string;
+  revision: string;
+  time_unit: TimeUnit;
+  narrative_style: Optional<string>;
+  touched_eras: string[];
+  entrypoint_id: Optional<string>;
+  entities: ChronicleEntity[];
+  events: ChronicleEvent[];
+  relationships: ChronicleRelationship[];
+  role_assignments: Record<string, string | { role: string; primary: boolean }>;
+  sections: AuthoredSection[];
+  content: string;
+  annotations: PublicAnnotation[];
+  media: MediaReference[];
+}
+
+export interface EraNarrativeDocument extends EraNarrativeSummary {
+  schema_version: number;
+  world_id: string;
+  revision: string;
+  time_unit: TimeUnit;
+  thesis: Optional<string>;
+  tone: Optional<string>;
+  source_chronicles: ChronicleSummary[];
+  sections: AuthoredSection[];
+  content: string;
+  annotations: PublicAnnotation[];
+  media: MediaReference[];
 }
 
 export interface EditorialQuestion {

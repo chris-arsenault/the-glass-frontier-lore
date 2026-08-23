@@ -2,8 +2,9 @@
 #
 #   id        directory name under worlds/
 #   title     display name
-#   status    active | scaffold — scaffold worlds have no canon yet and are
-#             skipped by `make check-all`, reader-data builds, and CI
+#   status    active | scaffold — scaffold worlds are not published and are
+#             skipped by `make check-all`, normal reader-data builds, and CI;
+#             they may contain migration work previewed with SITE_WORLD=<id>
 #
 # The engine reads this file to resolve `lorecraft --world <id>`.
 

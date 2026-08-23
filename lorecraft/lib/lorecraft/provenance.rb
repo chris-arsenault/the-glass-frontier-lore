@@ -12,7 +12,7 @@ module Lorecraft
   # from git: if the prose changed after the review date, the read no longer
   # covers what is there.
   class Provenance
-    Row = Struct.new(:owner, :section, :origin, :drafted_by, :drafter, :reviewed, :stale,
+    Row = Struct.new(:owner, :owner_type, :section, :origin, :drafted_by, :drafter, :reviewed, :stale,
                      keyword_init: true) do
       # The block itself said who wrote it, rather than falling back to the
       # world's default.
@@ -31,14 +31,14 @@ module Lorecraft
     end
 
     def rows
-      owners = @entity ? [@entity] : @world.prose_owners
+      owners = @entity ? [@entity] : @world.authored_owners
       @rows ||= owners.flat_map do |owner|
         # An entry-level `reviewed` date covers every block in it; a block that
         # was read separately says so itself.
         entry_reviewed = owner.respond_to?(:[]) ? owner[:reviewed] : nil
         owner.authored_blocks.map do |b|
           read_on = b.reviewed || entry_reviewed
-          Row.new(owner: owner.id, section: b.section, origin: b.origin,
+          Row.new(owner: owner.id, owner_type: owner_type(owner), section: b.section, origin: b.origin,
                   drafted_by: b.drafted_by, drafter: b.drafted_by || @default_drafter,
                   reviewed: read_on, stale: stale?(owner, read_on))
         end
@@ -106,6 +106,15 @@ module Lorecraft
     end
 
     private
+
+    def owner_type(owner)
+      return owner.document_type if owner.respond_to?(:document_type)
+      return :page if owner.is_a?(Page)
+      return :moment if owner.is_a?(Moment)
+      return :relationship if owner.is_a?(RelationInstance)
+
+      :entity
+    end
 
     # When each entry's prose last changed, from git. Moving a file is not a
     # change to it, so a commit where the file was only renamed (R100 — identical

@@ -23,7 +23,7 @@ loader ── schema ── timeline
 in-memory World
   │      │      │
   │      │      └── validate/lint feedback
-  │      └───────── search/page/facts/queue/timeline/log
+  │      └───────── search/page/chronicle/era-narrative/facts/queue/timeline/log
   └──────────────── schema/connections/path/topology/web/provenance
        │
        ▼
@@ -65,17 +65,22 @@ blocks compose into one `Schema`. The shared file owns setting-independent
 kinds, fact fields, effects, and relationship types; a world adds controlled
 tags, section names, fields, banned phrases, and setting-specific relations.
 
-A world marked `scaffold` has no canon. `make check-all` and `make site-data`
-skip it so an empty world cannot appear to have passed a content gate.
+A world marked `scaffold` is not published. It may contain only a schema and
+timeline or staged migration work. `make check-all` and a normal
+`make site-data` skip it so unfinished content cannot appear to have passed the
+publication gate. `SITE_WORLD=<id> make site-data` builds one named world,
+including a scaffold, for a local reader preview.
 
 ## Runtime model
 
 ```text
 World ── Schema              kinds, subkinds, facts, relations, vocabularies
-      ├─ Timeline            fixed era ranges and the present year
+      ├─ Timeline            fixed era ranges, unit, and present point
       ├─ Entity*             static facts, prose/cards, questions, logs
       ├─ Moment*             dated prose and state-changing effects
       ├─ RelationInstance*   named edges with optional intervals and prose
+      ├─ EventRecord*        compact canonical source events
+      ├─ NarrativeDocument*  chronicles and era narratives outside the graph
       └─ Page*               authored reader pages outside the entity graph
 ```
 
@@ -146,6 +151,8 @@ views are:
 | Which types and values will validation accept? | `schema kind <name>`, `schema relation <name>`, `schema tags`, or `schema sections` |
 | What needs attention? | `queue [ID]` |
 | What does one reader see? | `page <id>` |
+| What does an accepted chronicle say? | `chronicle <id>` |
+| How does an era account use its chronicles? | `era-narrative <id>` |
 | What directly touches this entry? | `connections <id>` |
 | How do two entries connect now? | `path <from> <to>` |
 | What changed this entity? | `timeline <id>` |
@@ -170,6 +177,8 @@ projection and does not use that selector.
 `make validate WORLD=<id>` enforces hard invariants:
 
 - ids used by prose, cards, facts, effects, pages, and named edges resolve;
+- chronicle entities, events, relationships, eras, annotations, and media anchors resolve;
+- era narratives name existing eras and source chronicles;
 - public entities and pages do not name or embed DM-only entities;
 - relationships with DM-only endpoints carry the DM flag;
 - relation types, banned categories, domain/range, cardinality, and exclusions;

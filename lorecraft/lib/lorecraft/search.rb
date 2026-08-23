@@ -3,9 +3,9 @@
 require "pathname"
 
 module Lorecraft
-  # Ranked, bounded discovery over canonical entities. Search is an entry point
-  # into the typed model, not a second index: every result points back to the
-  # stable entity id and its source file.
+  # Ranked, bounded discovery over canonical entities and narrative documents.
+  # Search is an entry point into the typed model, not a second index: every
+  # result points back to its stable id and source file.
   class Search
     Result = Struct.new(
       :id, :title, :kind, :subkind, :tags, :aliases, :prominence, :status,
@@ -52,7 +52,7 @@ module Lorecraft
 
     def report
       rows = results
-      return "No entities matched #{@query.inspect}." if rows.empty?
+      return "No records matched #{@query.inspect}." if rows.empty?
 
       lines = ["#{rows.size} result(s) for #{@query.inspect}:"]
       rows.each do |row|
@@ -70,12 +70,14 @@ module Lorecraft
     private
 
     def candidates
-      @world.entities.values.select do |entity|
+      (@world.entities.values + @world.narrative_documents + @world.authored_pages.values).select do |entity|
         next false if @kind && entity.kind != @kind
         next false if @tag && !entity.tags.include?(@tag)
         next true unless @audience == :player
 
-        !entity.dm? && entity[:status].to_s != "shell" && @world.schema.wiki_kind?(entity.kind)
+        next false if entity.dm? || entity[:status].to_s == "shell"
+
+        entity.is_a?(NarrativeDocument) || entity.is_a?(Page) || @world.schema.wiki_kind?(entity.kind)
       end
     end
 
@@ -142,7 +144,7 @@ module Lorecraft
       def render(entity, year:, audience:)
         @rel_subject_for = entity.id
         blocks = entity.authored_blocks.select { |block| block.visible_at?(year, audience: audience) }
-        markdown = blocks.sort_by(&:order).flat_map do |block|
+        content = blocks.sort_by(&:order).flat_map do |block|
           if block.cards?
             block.cards.map do |card|
               title = @world.entity(card.target)&.title || card.target.to_s.tr("_", " ")
@@ -151,7 +153,9 @@ module Lorecraft
           else
             resolve(block.text, entity, year, audience)
           end
-        end.join("\n\n")
+        end
+        content.unshift(entity.summary) if entity.respond_to?(:summary) && entity.summary
+        markdown = content.join("\n\n")
         summarize(markdown)
       end
 

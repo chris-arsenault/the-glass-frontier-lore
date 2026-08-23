@@ -50,12 +50,13 @@ module Lorecraft
       },
       "schema" => {
         summary: "Inspect the selected world's loaded schema.",
-        usage: "schema [kinds | kind NAME | relations | relation NAME | tags | sections] [--format text|json] [--world ID]",
+        usage: "schema [kinds | kind NAME | relations | relation NAME | frames | frame NAME | tags | sections] [--format text|json] [--world ID]",
         body: <<~TEXT,
           Query the ontology that validation will enforce after shared craft and
           world extensions are loaded. Kind detail includes subkinds and fact
           shapes. Relation detail includes category, domain, range, cardinality,
-          time behavior, inverse, symmetry, and exclusions when declared.
+          time behavior, inverse, symmetry, typed properties, and exclusions when
+          declared. Frame queries show fixed coordinate systems and their nesting.
         TEXT
       },
       "guide" => {
@@ -76,6 +77,23 @@ module Lorecraft
           Use this for the present-day reader text of one known entry. It resolves
           references, transclusions, relationship markers, and computed dates.
           The source DSL remains authoritative; read the entry file before editing.
+        TEXT
+      },
+      "chronicle" => {
+        summary: "Read one accepted chronicle and its public notes.",
+        usage: "chronicle ID [--format text|json] [--world ID]",
+        body: <<~TEXT,
+          Print the complete accepted text of a known chronicle. JSON also
+          includes its entity, event, relationship, annotation, and media links.
+          Use search when the stable id is unknown.
+        TEXT
+      },
+      "era-narrative" => {
+        summary: "Read one era narrative and its source-chronicle list.",
+        usage: "era-narrative ID [--format text|json] [--world ID]",
+        body: <<~TEXT,
+          Print the complete narrative for one era. JSON also includes the stable
+          ids of the accepted chronicles used as its sources.
         TEXT
       },
       "timeline" => {
@@ -138,6 +156,16 @@ module Lorecraft
           The report also shows how many playable locations share each veiled
           entry and lists shared location pairs. A world can enforce the same
           counts with require_focus_choices! in its schema.
+        TEXT
+      },
+      "placement" => {
+        summary: "Inspect fixed positions, spatial frames, and route paths.",
+        usage: "placement [ID] [--format text|json] [--world ID]",
+        body: <<~TEXT,
+          Without an id, list frame coverage and every unplaced game-world
+          location. With an id, show that entry's absolute or relative positions
+          and any named route paths. Placements are authored schematic facts, not
+          simulated orbital state.
         TEXT
       },
       "web" => {
@@ -248,7 +276,8 @@ module Lorecraft
 
         Read only the context the task needs:
           discover       worlds, guide, search, schema
-          inspect entry  page, connections, timeline, log, facts
+          inspect entry  page, connections, timeline, log, facts, placement
+          read history   chronicle, era-narrative
           inspect graph  path, topology, web, graph, stats
           editorial      queue, provenance
           verify         validate, lint
@@ -326,8 +355,9 @@ module Lorecraft
            craft or world guide relevant to the task.
         3. Run `queue --world ID` when choosing work. Use `search QUERY` when the
            subject's stable id is unknown.
-        4. Render the subject with `page ID`; use `timeline ID` and `log ID` only
-           when the task concerns history or prior decisions.
+        4. Render an entity with `page ID`. Read accepted long-form history with
+           `chronicle ID` or `era-narrative ID`; use `timeline ID` and `log ID`
+           only when the task concerns state changes or prior decisions.
         5. Use `schema kind NAME` or `schema relation NAME` when an edit depends
            on the loaded ontology. Use `connections ID` for the local graph and
            `path FROM TO` only when the route between two entries matters.

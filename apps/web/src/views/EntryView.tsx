@@ -5,6 +5,7 @@ import { ErrorState, LoadingState } from "../components/AsyncState";
 import { ContentSections } from "../components/ContentSections";
 import { EditorialPanel } from "../components/EditorialPanel";
 import { EntryInfobox } from "../components/EntryFacts";
+import { EntityImage, PublicAnnotations } from "../components/PublishedContext";
 import { ViewHeader } from "../components/ViewHeader";
 import { useWorld } from "../components/worldContext";
 import { entryTaxonomyLabel } from "../data/entryLabels";
@@ -21,7 +22,9 @@ function EntryArticle({ entry, worldId }: { entry: EntryDocument; worldId: strin
       actions={<Link className="quiet-link" to={`/${worldId}/compare?left=${entry.slug}`}>Compare</Link>} />
     <div className="entry-article__body">
       <EntryInfobox aliases={entry.aliases} facts={entry.facts} taxonomy={taxonomy} title={entry.title} />
+      <EntityImage media={entry.media} title={entry.title} />
       <ContentSections sections={entry.sections} headingLevel={2} sectionClassName="entry-section" />
+      <PublicAnnotations annotations={entry.annotations} />
     </div>
   </article>;
 }
@@ -39,6 +42,9 @@ function EntryContext({ entry, worldId }: { entry: EntryDocument; worldId: strin
   {entry.tags.length > 0 && <section><div className="context-panel__heading">Topics</div><div className="tag-list">
     {entry.tags.map((tag) => <Link key={tag} to={`/${worldId}/browse?tag=${tag}`}>{tag.replaceAll("_", " ")}</Link>)}
   </div></section>}
+  {entry.chronicles.length > 0 && <section><div className="context-panel__heading">Chronicles</div><ul className="document-links">
+    {entry.chronicles.map((chronicle) => <li key={chronicle.id}><Link to={chronicle.route}>{chronicle.title}</Link></li>)}
+  </ul></section>}
   <EditorialPanel worldId={worldId} entryId={entry.id} /></aside>;
 }
 

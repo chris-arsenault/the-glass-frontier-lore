@@ -19,7 +19,7 @@ module Lorecraft
       # on this context so they route through method_missing to define_entity.
       @world.schema.kinds.each_key do |kind|
         next unless self.class.method_defined?(kind) || self.class.private_method_defined?(kind)
-        next if %i[schema timeline genesis moment relate].include?(kind)
+        next if %i[schema timeline genesis moment relate chronicle era_narrative event_record].include?(kind)
 
         self.class.send(:undef_method, kind)
       end
@@ -55,13 +55,64 @@ module Lorecraft
       )
     end
 
+    def chronicle(id, &block)
+      @world.define_narrative_document(
+        id: id,
+        document_type: :chronicle,
+        source_line: caller_locations(1, 1).first.lineno,
+        &block
+      )
+    end
+
+    def era_narrative(id, &block)
+      @world.define_narrative_document(
+        id: id,
+        document_type: :era_narrative,
+        source_line: caller_locations(1, 1).first.lineno,
+        &block
+      )
+    end
+
+    def event_record(id, tick:, era:, kind:, subject: nil, action: nil,
+                     description: nil, significance: nil, tags: [], participants: [],
+                     participant_effects: [], caused_by: nil)
+      @world.define_event_record(
+        id: id,
+        tick: tick,
+        era: era,
+        event_kind: kind,
+        subject: subject,
+        action: action,
+        description: description,
+        significance: significance,
+        tags: tags,
+        participants: participants,
+        participant_effects: participant_effects,
+        caused_by: caused_by,
+        source_line: caller_locations(1, 1).first.lineno,
+      )
+    end
+
     # `relate :id, :rival_of, :a, :b, since: {...}` — promote an edge to a
     # named, addressable, prose-owning relation instance.
-    def relate(id, verb, source, target, since: nil, till: nil, dm: false, &block)
+    def relate(id, verb, source, target, since: nil, till: nil, dm: false, props: {}, &block)
       @world.define_relation_instance(
         id: id, verb: verb, source: source, target: target,
-        since: since, till: till, dm: dm,
+        since: since, till: till, dm: dm, props: props,
         source_line: caller_locations(1, 1).first.lineno, &block
+      )
+    end
+
+    def spatial_frame(name, origin:, coordinates:, parent: nil, radial_unit: nil,
+                      prime_meridian: nil)
+      @world.define_spatial_frame(
+        name: name,
+        origin: origin,
+        coordinates: coordinates,
+        parent: parent,
+        radial_unit: radial_unit,
+        prime_meridian: prime_meridian,
+        source_line: caller_locations(1, 1).first.lineno
       )
     end
 
@@ -141,13 +192,30 @@ module Lorecraft
       end
     end
 
+    # Explicit form for a relation effect that carries typed properties.
+    def set_relation(subject, relation, target, props: {})
+      add(
+        :set,
+        subject: subject.to_sym,
+        relation: relation.to_sym,
+        target: target.to_sym,
+        props: props.to_h.transform_keys(&:to_sym),
+      )
+    end
+
     def clear(subject, relation, target = nil)
       add(:clear, subject: subject.to_sym, relation: relation.to_sym, target: target&.to_sym)
     end
 
-    def transfer(relation, from:, to:, subject:)
+    def transfer(relation, from:, to:, subject:, props: {})
       add(:clear, subject: subject.to_sym, relation: relation.to_sym, target: from.to_sym)
-      add(:set, subject: subject.to_sym, relation: relation.to_sym, target: to.to_sym)
+      add(
+        :set,
+        subject: subject.to_sym,
+        relation: relation.to_sym,
+        target: to.to_sym,
+        props: props.to_h.transform_keys(&:to_sym),
+      )
     end
 
     private

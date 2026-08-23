@@ -24,6 +24,24 @@ module Lorecraft
       @eras = []
       @by_name = {}
       @now_year = nil
+      @unit = :year
+    end
+
+    # The public name of one absolute clock value. Existing worlds use years;
+    # simulations may use ticks without pretending that their steps are dates.
+    def unit(value = nil)
+      return @unit if value.nil?
+
+      value = value.to_sym
+      raise DefinitionError, "timeline unit must be :year or :tick" unless %i[year tick].include?(value)
+
+      @unit = value
+    end
+
+    def unit_label(count = nil)
+      return @unit.to_s if count == 1
+
+      "#{@unit}s"
     end
 
     # Declare the next era. `starts:` is optional — if omitted, the era begins

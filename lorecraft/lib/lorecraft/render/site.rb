@@ -11,7 +11,7 @@ module Lorecraft
     # player knowledge. Questions, entry logs and drafting records go into a
     # separate document intended for the authenticated editorial API.
     class Site < Base
-      SCHEMA_VERSION = 6
+      SCHEMA_VERSION = 8
       CAUSAL_RELATIONS = %w[causes caused caused_by].freeze
 
       def initialize(world, root: Dir.pwd)
@@ -34,7 +34,12 @@ module Lorecraft
 
         entries = @visible_nodes.map { |node| entry_summary(node) }
         pages = public_authored_pages.map { |page| page_summary(page) }
-        write_json(target.join("index.json"), world_document(entries, pages))
+        chronicles = @world.chronicles.values.map { |document| chronicle_summary(document) }
+        era_narratives = @world.era_narratives.values.map { |document| era_narrative_summary(document) }
+        write_json(
+          target.join("index.json"),
+          world_document(entries, pages, chronicles, era_narratives),
+        )
         write_json(target.join("graph.json"), @site_graph)
         write_json(target.join("timeline.json"), timeline_document)
 
@@ -44,6 +49,18 @@ module Lorecraft
         public_authored_pages.each do |page|
           write_json(target.join("pages", "#{slug(page.id)}.json"), authored_page_document(page))
         end
+        @world.chronicles.each_value do |document|
+          write_json(
+            target.join("chronicles", "#{slug(document.id)}.json"),
+            chronicle_document(document),
+          )
+        end
+        @world.era_narratives.each_value do |document|
+          write_json(
+            target.join("era-narratives", "#{slug(document.id)}.json"),
+            era_narrative_document(document),
+          )
+        end
 
         write_editorial(internal_out) if internal_out
 
@@ -52,8 +69,11 @@ module Lorecraft
           title: @world_title,
           revision: @revision,
           generated_at_year: @year,
+          time_unit: @world.timeline.unit.to_s,
           entry_count: entries.size,
           page_count: pages.size,
+          chronicle_count: chronicles.size,
+          era_narrative_count: era_narratives.size,
           home: public_authored_pages.any? { |page| page.id == :home } ? "home" : nil,
           description: world_description(entries),
         }
@@ -141,16 +161,19 @@ module Lorecraft
         end
       end
 
-      def world_document(entries, pages)
+      def world_document(entries, pages, chronicles, era_narratives)
         {
           schema_version: SCHEMA_VERSION,
           id: @world_id,
           title: @world_title,
           revision: @revision,
           generated_at_year: @year,
+          time_unit: @world.timeline.unit.to_s,
           home: pages.any? { |page| page[:id] == "home" } ? "home" : nil,
           entries: entries.sort_by { |entry| entry[:title] },
           pages: pages.sort_by { |page| page[:title] },
+          chronicles: chronicles.sort_by { |document| [document[:from], document[:title]] },
+          era_narratives: era_narratives.sort_by { |document| [document[:starts], document[:title]] },
           kinds: kind_index(entries),
           subkinds: subkind_index(entries),
           tags: @world.schema.tags.sort_by { |name, _| name.to_s }.map do |name, description|
@@ -159,6 +182,7 @@ module Lorecraft
           relations: @world.schema.relations.values.sort_by { |relation| relation.name.to_s }.map do |relation|
             relation_definition(relation)
           end,
+          spatial_frames: spatial_frame_documents,
         }
       end
 
@@ -166,6 +190,7 @@ module Lorecraft
         sections = sections_for(node, :player)
         {
           id: node.id.to_s,
+          source_id: node.respond_to?(:source_id) ? node.source_id : node.id.to_s,
           slug: slug(node.id),
           title: node.title,
           kind: node.kind.to_s,
@@ -182,6 +207,7 @@ module Lorecraft
           origin_blurb: node.respond_to?(:origin_blurb) && node.origin_blurb,
           veiled: node.respond_to?(:veiled?) && node.veiled?,
           veil_tagline: node.respond_to?(:veiled?) && node.veiled? ? node.veil_tagline : nil,
+          positions: position_documents(node),
           summary: summary_for(node, sections),
           route: entry_route(node.id),
         }.compact
@@ -195,10 +221,15 @@ module Lorecraft
           world_id: @world_id,
           revision: @revision,
           generated_at_year: @year,
+          time_unit: @world.timeline.unit.to_s,
           sections: sections_for(node, audience),
           facts: fact_documents(node, audience),
           connections: edges.map { |edge| connection_document(node.id, edge) },
           timeline_event_ids: event_ids_for(node.id),
+          chronicles: chronicles_for(node.id),
+          annotations: annotation_documents(node),
+          media: media_documents(node),
+          route_geometry: route_geometry_document(node),
         )
       end
 
@@ -208,6 +239,7 @@ module Lorecraft
         sections = sections_for(node, audience)
         {
           id: node.id.to_s,
+          source_id: node.respond_to?(:source_id) ? node.source_id : node.id.to_s,
           slug: slug(node.id),
           title: node.title,
           kind: node.kind.to_s,
@@ -223,6 +255,7 @@ module Lorecraft
           origin_blurb: node.respond_to?(:origin_blurb) && node.origin_blurb,
           veiled: node.respond_to?(:veiled?) && node.veiled?,
           veil_tagline: node.respond_to?(:veiled?) && node.veiled? ? node.veil_tagline : nil,
+          positions: position_documents(node),
           summary: summary_for(node, sections),
           route: entry_route(node.id),
         }.compact
@@ -305,9 +338,11 @@ module Lorecraft
         content = authored_page_sections(page)
         {
           id: page.id.to_s,
+          source_id: page.source_id,
           slug: slug(page.id),
           title: page.title,
-          summary: summarize(prose_markdown(content)),
+          summary: page.summary || summarize(prose_markdown(content)),
+          category: page[:category]&.to_s,
           route: page.id == :home ? "/#{@world_id}" : "/#{@world_id}/page/#{slug(page.id)}",
         }
       end
@@ -317,6 +352,13 @@ module Lorecraft
           schema_version: SCHEMA_VERSION,
           world_id: @world_id,
           revision: @revision,
+          source_status: page[:source_status],
+          linked_entities: Array(page[:linked_entity_ids]).filter_map do |id|
+            node = @world[id]
+            next unless site_visible?(node, :player)
+
+            { id: id.to_s, title: node.title, route: entry_route(id) }
+          end,
           sections: authored_page_sections(page),
         )
       end
@@ -331,6 +373,179 @@ module Lorecraft
             markdown: resolve_site_text(block[:text], subject: page.id, audience: :player).strip,
           }.compact
         end
+      end
+
+      def chronicle_summary(document)
+        from, to = document[:tick_range]
+        {
+          id: document.id.to_s,
+          source_id: document.source_id,
+          slug: slug(document.id),
+          title: document.title,
+          summary: document.summary || summarize(document.prose_blocks.map(&:text).join("\n\n")),
+          format: document[:format]&.to_s,
+          focus: document[:focus]&.to_s,
+          focal_era: document[:focal_era]&.to_s,
+          from: from,
+          to: to,
+          temporal_description: document[:temporal_description],
+          route: chronicle_route(document.id),
+          cover: media_documents(document).find { |reference| reference[:role] == "cover" },
+        }.compact
+      end
+
+      def chronicle_document(document)
+        chronicle_summary(document).merge(
+          schema_version: SCHEMA_VERSION,
+          world_id: @world_id,
+          revision: @revision,
+          time_unit: @world.timeline.unit.to_s,
+          narrative_style: document[:narrative_style]&.to_s,
+          touched_eras: Array(document[:touched_eras]).map(&:to_s),
+          entrypoint_id: document[:entrypoint]&.to_s,
+          entities: Array(document[:entity_ids]).filter_map do |id|
+            node = @world[id]
+            next unless site_visible?(node, :player)
+
+            { id: id.to_s, title: node.title, route: entry_route(id) }
+          end,
+          events: Array(document[:event_ids]).filter_map do |id|
+            record = @world.event_record(id)
+            event_record_document(record) if record
+          end,
+          relationships: Array(document[:relationship_ids]).filter_map do |id|
+            relation = @world.relationship_for_source(id)
+            relationship_source_document(relation) if relation
+          end,
+          role_assignments: document[:role_assignments].to_h.transform_keys(&:to_s),
+          sections: narrative_sections(document),
+          content: narrative_markdown(document),
+          annotations: annotation_documents(document),
+          media: media_documents(document),
+        )
+      end
+
+      def era_narrative_summary(document)
+        era = @world.timeline.era_named(document[:era])
+        {
+          id: document.id.to_s,
+          source_id: document.source_id,
+          slug: slug(document.id),
+          title: document.title,
+          summary: document.summary || document[:thesis] || summarize(document.prose_blocks.map(&:text).join("\n\n")),
+          era: document[:era]&.to_s,
+          starts: era&.start_year,
+          ends: era&.end_year,
+          route: era_narrative_route(document.id),
+          cover: media_documents(document).find { |reference| reference[:role] == "cover" },
+        }.compact
+      end
+
+      def era_narrative_document(document)
+        era_narrative_summary(document).merge(
+          schema_version: SCHEMA_VERSION,
+          world_id: @world_id,
+          revision: @revision,
+          time_unit: @world.timeline.unit.to_s,
+          thesis: document[:thesis],
+          tone: document[:tone],
+          source_chronicles: Array(document[:source_chronicle_ids]).filter_map do |id|
+            chronicle = @world.chronicle(id)
+            chronicle_summary(chronicle) if chronicle
+          end,
+          sections: narrative_sections(document),
+          content: narrative_markdown(document),
+          annotations: annotation_documents(document),
+          media: media_documents(document),
+        ).compact
+      end
+
+      def narrative_sections(document)
+        document.prose_blocks.sort_by(&:order).map do |block|
+          block_document(block, document.id, :player, owner: document)
+        end
+      end
+
+      def narrative_markdown(document)
+        narrative_sections(document).filter_map { |section| section[:markdown] }.join("\n\n")
+      end
+
+      def annotation_documents(owner)
+        return [] unless owner.respond_to?(:annotations)
+
+        owner.annotations.map do |annotation|
+          {
+            id: annotation.id,
+            anchor: annotation.anchor,
+            source_anchor: annotation.source_anchor,
+            anchor_index: annotation.anchor_index,
+            text: annotation.text,
+            type: annotation.kind.to_s,
+            display: annotation.display.to_s,
+          }.compact
+        end
+      end
+
+      def media_documents(owner)
+        return [] unless owner.respond_to?(:media_references)
+
+        owner.media_references.map do |reference|
+          {
+            asset_id: reference.asset_id,
+            role: reference.role.to_s,
+            url: reference.url,
+            anchor: reference.anchor,
+            anchor_index: reference.anchor_index,
+            caption: reference.caption,
+            size: reference.size&.to_s,
+            justification: reference.justification&.to_s,
+            source_entity_id: reference.source_entity&.to_s,
+            reference_id: reference.reference_id,
+          }.compact
+        end
+      end
+
+      def event_record_document(record)
+        {
+          id: record.id,
+          tick: record.tick,
+          era: record.era&.to_s,
+          kind: record.event_kind.to_s,
+          subject_id: record.subject&.to_s,
+          action: record.action,
+          description: record.description,
+          significance: record.significance,
+          tags: record.tags.map(&:to_s),
+          participant_ids: record.participants.map(&:to_s),
+          participant_effects: record.participant_effects,
+          caused_by: record.caused_by,
+        }.compact
+      end
+
+      def relationship_source_document(relation)
+        {
+          source_id: relation.source_id,
+          relation: relation.verb.to_s,
+          source: {
+            id: relation.source.to_s,
+            title: @world[relation.source]&.title || humanize(relation.source),
+            route: entry_route(relation.source),
+          },
+          target: {
+            id: relation.target.to_s,
+            title: @world[relation.target]&.title || humanize(relation.target),
+            route: entry_route(relation.target),
+          },
+          from: relation.from_year,
+          to: relation.to_year,
+          source_metadata: relation.source_metadata,
+        }.compact
+      end
+
+      def chronicles_for(entity_id)
+        @world.chronicles.values.select do |document|
+          Array(document[:entity_ids]).include?(entity_id.to_sym)
+        end.map { |document| chronicle_summary(document) }
       end
 
       def graph_document
@@ -359,6 +574,7 @@ module Lorecraft
           world_id: @world_id,
           revision: @revision,
           generated_at_year: @year,
+          time_unit: @world.timeline.unit.to_s,
           nodes: nodes,
           edges: edges.sort_by { |edge| [edge["src"], edge["rel"], edge["tgt"], edge["from"]] },
         }
@@ -395,7 +611,9 @@ module Lorecraft
 
       def format_fact_value(definition, value)
         case definition.type
-        when :year then "#{@world.year_of(value)} CE"
+        when :year
+          point = @world.year_of(value)
+          @world.timeline.unit == :year ? "#{point} CE" : "#{@world.timeline.unit} #{point}"
         when :integer then value
         else value.to_s
         end
@@ -407,6 +625,7 @@ module Lorecraft
           world_id: @world_id,
           revision: @revision,
           now: @year,
+          unit: @world.timeline.unit.to_s,
           eras: @world.timeline.eras.map do |era|
             {
               id: era.name.to_s,
@@ -470,6 +689,7 @@ module Lorecraft
           from: edge["from"],
           to: edge["to"],
           live: edge["live_at_render"],
+          properties: edge["props"],
         }.compact
       end
 
@@ -501,24 +721,119 @@ module Lorecraft
           inverse: relation.inverse&.to_s,
           description: relation.description,
           causal: CAUSAL_RELATIONS.include?(relation.name.to_s),
+          properties: relation.properties.values.sort_by { |property| property.name.to_s }.map do |property|
+            {
+              id: property.name.to_s,
+              type: property.type.to_s,
+              values: property.values.empty? ? nil : property.values.map(&:to_s),
+              required: property.required?,
+              minimum: property.minimum,
+              minimum_exclusive: property.minimum_exclusive,
+              maximum: property.maximum,
+              maximum_exclusive: property.maximum_exclusive,
+              requires: property.requires.empty? ? nil : property.requires.map(&:to_s),
+              exclusive_with: property.exclusive_with.empty? ? nil : property.exclusive_with.map(&:to_s),
+            }.compact
+          end,
         }.compact
+      end
+
+      def spatial_frame_documents
+        @world.spatial_frames.values.sort_by { |frame| frame.name.to_s }.map do |frame|
+          {
+            id: frame.name.to_s,
+            coordinates: frame.coordinates.to_s,
+            origin_id: frame.origin.to_s,
+            parent_id: frame.parent&.to_s,
+            radial_unit: frame.radial_unit&.to_s,
+            prime_meridian_id: frame.prime_meridian&.to_s,
+          }.compact
+        end
+      end
+
+      def position_documents(node)
+        return [] unless node.respond_to?(:positions)
+
+        node.positions.map do |position|
+          {
+            frame_id: position.frame.to_s,
+            relative_to_id: position.relative_to&.to_s,
+            coordinates: position.coordinates.transform_keys(&:to_s),
+          }.compact
+        end
+      end
+
+      def route_geometry_document(node)
+        return unless node.respond_to?(:route_geometry) && node.route_geometry
+
+        geometry = node.route_geometry
+        {
+          frame_id: geometry.frame.to_s,
+          points: geometry.points.values.map do |point|
+            {
+              id: point.id.to_s,
+              kind: point.kind.to_s,
+              entity_id: point.entity_id&.to_s,
+              coordinates: point.coordinates.empty? ? nil : point.coordinates.transform_keys(&:to_s),
+            }.compact
+          end,
+          paths: geometry.paths.values.map do |path|
+            { id: path.id.to_s, through: path.points.map(&:to_s) }
+          end,
+        }
       end
 
       def write_editorial(internal_out)
         dir = Pathname.new(internal_out).join("worlds")
         dir.mkpath
-        provenance = Provenance.new(@world, root: @root).rows.group_by(&:owner)
+        provenance = Provenance.new(@world, root: @root).rows.group_by do |row|
+          [row.owner_type, row.owner]
+        end
         entries = visible_nodes(:all).to_h do |node|
-          rows = provenance.fetch(node.id, [])
+          rows = provenance.fetch([provenance_owner_type(node), node.id], [])
           [node.id.to_s, editorial_entry(node, rows)]
+        end
+        narratives = @world.narrative_documents.to_h do |document|
+          rows = provenance.fetch([document.document_type, document.id], [])
+          [document.id.to_s, editorial_narrative(document, rows)]
         end
         write_json(dir.join("#{@world_id}.json"), {
           schema_version: SCHEMA_VERSION,
           id: @world_id,
           title: @world_title,
           revision: @revision,
+          spatial_frames: spatial_frame_documents,
           entries: entries,
+          narratives: narratives,
         })
+      end
+
+      def provenance_owner_type(owner)
+        return :moment if owner.is_a?(Moment)
+        return :relationship if owner.is_a?(RelationInstance)
+
+        :entity
+      end
+
+      def editorial_narrative(document, rows)
+        {
+          id: document.id.to_s,
+          type: document.document_type.to_s,
+          title: document.title,
+          status: document.status&.to_s,
+          reviewed: document[:reviewed],
+          source_file: relative_source(document),
+          questions: document.questions.sort_by(&:order).map do |question|
+            { text: question.text, raised: question.raised, on: question.on }.compact
+          end,
+          log: document.log_entries,
+          provenance: rows.map { |row| provenance_document(row) },
+          document: NarrativeQuery.new(
+            @world,
+            id: document.id,
+            type: document.document_type,
+          ).data,
+        }.compact
       end
 
       def editorial_entry(node, rows)
@@ -536,17 +851,19 @@ module Lorecraft
           missing_facts: Facts.new(@world).missing(node, at: @year).map do |row|
             { id: row.definition.name.to_s, label: row.definition.label }
           end,
-          provenance: rows.map do |row|
-            {
-              section: row.section.to_s,
-              origin: row.origin&.to_s,
-              drafted_by: row.drafter&.to_s,
-              declared: row.declared?,
-              reviewed: row.reviewed,
-              stale: row.stale?,
-            }.compact
-          end,
+          provenance: rows.map { |row| provenance_document(row) },
           entry: entry_document(node, audience: :all),
+        }.compact
+      end
+
+      def provenance_document(row)
+        {
+          section: row.section.to_s,
+          origin: row.origin&.to_s,
+          drafted_by: row.drafter&.to_s,
+          declared: row.declared?,
+          reviewed: row.reviewed,
+          stale: row.stale?,
         }.compact
       end
 
@@ -593,12 +910,16 @@ module Lorecraft
       end
 
       def summary_for(node, sections)
+        return node.summary if node.respond_to?(:summary) && !node.summary.to_s.strip.empty?
+
         text = prose_markdown(sections)
         text = node.veil_tagline if text.empty? && node.respond_to?(:veiled?) && node.veiled?
         summarize(text)
       end
 
       def entry_route(id) = "/#{@world_id}/entry/#{slug(id)}"
+      def chronicle_route(id) = "/#{@world_id}/chronicle/#{slug(id)}"
+      def era_narrative_route(id) = "/#{@world_id}/era-narrative/#{slug(id)}"
       def slug(value) = value.to_s.downcase.tr("_ ", "--").gsub(/[^a-z0-9-]/, "").gsub(/-+/, "-")
       def humanize(value) = value.to_s.split("_").map { |part| part == "dm" ? "DM" : part.capitalize }.join(" ")
 

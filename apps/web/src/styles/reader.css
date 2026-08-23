@@ -501,8 +501,151 @@
   margin: 0;
 }
 
+.chronicle-era {
+  margin-top: 64px;
+}
+
+.narrative-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 310px;
+  align-items: start;
+}
+
+.narrative-page {
+  max-width: 900px;
+}
+
+.narrative-content {
+  max-width: 720px;
+  margin: 48px auto 0;
+}
+
+.narrative-content .prose {
+  font-size: 1.1rem;
+}
+
+.narrative-content .prose img {
+  display: block;
+  width: 100%;
+  max-height: 680px;
+  margin: 36px 0;
+  object-fit: contain;
+}
+
+.published-cover {
+  margin: 42px auto;
+}
+
+.published-cover img {
+  display: block;
+  width: 100%;
+  max-height: 660px;
+  object-fit: cover;
+}
+
+.published-cover figcaption,
+.published-entity-image figcaption {
+  margin-top: 8px;
+  color: var(--ink-500);
+  font-size: 0.7rem;
+  text-align: center;
+}
+
+.published-entity-image {
+  float: right;
+  width: min(42%, 320px);
+  margin: 0 0 24px 28px;
+}
+
+.published-entity-image img {
+  display: block;
+  width: 100%;
+}
+
+.historian-notes {
+  max-width: 720px;
+  padding-top: 28px;
+  margin: 60px auto 0;
+  border-top: 1px solid var(--paper-300);
+}
+
+.historian-notes h2 {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+.historian-notes ol {
+  padding-left: 1.4rem;
+}
+
+.historian-notes li {
+  padding: 8px 0;
+}
+
+.historian-notes q {
+  color: var(--ink-500);
+  font-family: var(--serif);
+  font-size: 0.8rem;
+}
+
+.historian-notes p {
+  margin: 5px 0 0;
+  color: var(--ink-700);
+  font-family: var(--serif);
+  line-height: 1.6;
+}
+
+.narrative-context {
+  position: sticky;
+  top: 72px;
+  min-height: calc(100vh - 72px);
+}
+
+.document-links,
+.source-records {
+  display: grid;
+  gap: 9px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.document-links a {
+  color: var(--ink-800);
+  font-family: var(--serif);
+  font-size: 0.86rem;
+  text-decoration: none;
+}
+
+.document-links a:hover {
+  color: var(--world-accent);
+}
+
+.source-records li {
+  display: grid;
+  gap: 3px;
+}
+
+.source-records small {
+  color: var(--ink-500);
+  font-size: 0.62rem;
+  text-transform: uppercase;
+}
+
+.source-records span {
+  color: var(--ink-700);
+  font-family: var(--serif);
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
 @media (max-width: 1180px) {
   .entry-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .narrative-layout {
     grid-template-columns: 1fr;
   }
 
@@ -513,6 +656,11 @@
     border-top: 1px solid var(--paper-300);
     border-left: 0;
   }
+
+  .narrative-context {
+    position: static;
+    min-height: auto;
+  }
 }
 
 @media (max-width: 760px) {
@@ -522,6 +670,12 @@
   }
 
   .entry-infobox {
+    float: none;
+    width: 100%;
+    margin: 0 0 36px;
+  }
+
+  .published-entity-image {
     float: none;
     width: 100%;
     margin: 0 0 36px;

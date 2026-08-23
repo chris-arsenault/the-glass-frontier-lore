@@ -26,8 +26,10 @@ in sorted path order. This gives effects in the same year a deterministic final
 tie-break. Definitions may refer forward because validation runs after the
 whole world loads.
 
-A scaffold world has a schema and placeholder timeline but no canon.
-Repository-wide checks and site-data builds skip it.
+A scaffold world is not published. It may have only a schema and placeholder
+timeline or may hold staged migration work. Repository-wide checks and normal
+site-data builds skip it; `SITE_WORLD=<id> make site-data` builds it alone for a
+local reader preview.
 
 ## 2. Schema
 
@@ -162,6 +164,7 @@ unknown word.
 
 ```ruby
 timeline do
+  unit :year
   era :first_age, starts: 2000, length: 40, title: "The First Age"
   era :second_age, length: 60, title: "The Second Age"
   now year: 2085
@@ -170,7 +173,9 @@ end
 
 Eras are ordered half-open intervals. When `starts:` is omitted, the next era
 begins where the previous one ends. An era may carry a title and description for
-rendered chronology.
+rendered chronology. The unit defaults to `:year`; `unit :tick` keeps simulation
+steps correctly labeled in public output while retaining the same integer time
+model.
 
 Accepted time points are:
 
@@ -397,7 +402,45 @@ and carry no fact card or relationships. Their markers resolve through the same
 world and audience rules as entity prose; validation rejects unknown ids and
 public references to DM entities.
 
-## 9. Editorial state
+## 9. Narrative documents and source events
+
+```ruby
+event_record "event-17", tick: 11, era: :first_age, kind: :state_change,
+             subject: :inez_bell, description: "The seal changed hands."
+
+chronicle :the_seal do
+  title "The Seal"
+  summary "The accepted account."
+  status :complete
+  focal_era :first_age
+  ticks from: 10, to: 12
+  touched_eras :first_age
+  entities :inez_bell
+  events "event-17"
+  prose "The complete accepted text."
+  annotation :copyist, anchor: "accepted text", text: "The second copy omits this line."
+  image "seal-cover", role: :cover
+end
+
+era_narrative :first_age_record do
+  title "The First Age"
+  status :complete
+  era :first_age
+  source_chronicles :the_seal
+  prose "The complete era account."
+end
+```
+
+Chronicles and era narratives are public documents outside the entity graph.
+Chronicle entity, event, relationship, era, note-anchor, and media-anchor links
+must resolve. Era-narrative source chronicles must resolve. `event_record`
+retains a source event as a citable record without making it a page.
+
+Public annotations render for readers. Editorial logs do not. Media records
+preserve stable asset ids; a URL is optional because image bytes may be owned by
+another service.
+
+## 10. Editorial state
 
 ```ruby
 reviewed "2026-08-12"
@@ -414,11 +457,14 @@ warns when the anchor no longer appears. Delete an answered question and use
 `log` when the reason for the resulting decision will matter later. Logs and
 questions never enter public reader output.
 
-## 10. Query API
+## 11. Query API
 
 ```ruby
 world.entity(:inez_bell)
 world.moment(:cairo_retreat)
+world.chronicle(:the_seal)
+world.era_narrative(:first_age_record)
+world.event_record("event-17")
 world[:inez_bell]
 world.at(:now).exists?(:inez_bell)
 world.at(2080).out(:inez_bell, :located_in, audience: :player)
@@ -443,7 +489,7 @@ induces the remaining graph so article-incident edges also disappear. Veiled
 entries remain world nodes. Pass `include_veiled: false` when measuring only
 fully developed entries.
 
-## 11. Command query surface
+## 12. Command query surface
 
 `help` is repository-independent. Every content command selects one world with
 `--world ID`, `LORECRAFT_WORLD`, or the default in `worlds.yml`. The CLI exposes
@@ -456,6 +502,8 @@ wiki or the whole graph:
 | read current instructions | `guide list` / `guide NAME` |
 | inspect allowed types and values | `schema kinds` / `schema kind NAME` / `schema relations` / `schema relation NAME` / `schema tags` / `schema sections` |
 | read one reader-shaped entry | `page ID` |
+| read one accepted chronicle | `chronicle ID` |
+| read one era narrative | `era-narrative ID` |
 | inspect one entry's graph | `connections ID` |
 | connect two known entries | `path FROM TO` |
 | inspect all changes to one entry | `timeline ID` |
@@ -465,7 +513,8 @@ wiki or the whole graph:
 | inspect drafting and review | `provenance [ID]` |
 | recover settled entry history | `log [ID]` |
 
-`search` ranks titles, ids, aliases, tags, subkinds, and resolved summaries. It
+`search` ranks entities and narrative documents by titles, ids, aliases, tags,
+subkinds, and resolved summaries. It
 returns a bounded result with each stable id and canonical source. Player
 audience excludes DM entries, shells, and non-reader kinds. A result locates
 canon; it does not replace source inspection.
@@ -501,7 +550,7 @@ records; other bounded commands use query objects. Other commands reject JSON.
 `help COMMAND` before using a selector; the CLI rejects `--world`, `--at`,
 `--audience`, or `--format` when that command's help does not list it.
 
-## 12. Validation and lint
+## 13. Validation and lint
 
 `validate` checks hard invariants:
 
@@ -541,7 +590,7 @@ immutable records. `World#validate` continues to return strings, and
 The diagnostic APIs accept `root:` and make source paths relative to it when
 possible. The CLI always supplies the repository root.
 
-## 13. Render targets
+## 14. Render targets
 
 ```ruby
 world.render(:markdown, out: "build/tree", audience: :player, at: :now)
@@ -563,7 +612,7 @@ world.render(:site, out: "build/site", world_id: "dry-war",
 
 All targets are disposable. The DSL is the only source loaded on the next run.
 
-## 14. Deliberate boundaries
+## 15. Deliberate boundaries
 
 - Lorecraft is an internal Ruby DSL, not a sandbox for untrusted input.
 - It does not infer facts or relationships from prose.

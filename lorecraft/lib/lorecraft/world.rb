@@ -6,10 +6,12 @@ require_relative "schema"
 require_relative "timeline"
 require_relative "elapsed"
 require_relative "prose"
+require_relative "narrative_document"
 require_relative "facts"
 require_relative "entity"
 require_relative "moment"
 require_relative "relation"
+require_relative "spatial"
 require_relative "page"
 require_relative "definition_context"
 
@@ -19,7 +21,9 @@ module Lorecraft
   # Loading is a deterministic two pass over the content files; querying state
   # at a time is delegated to the Resolver (lazily built and memoised per year).
   class World
-    attr_reader :schema, :timeline, :entities, :moments, :relation_instances, :authored_pages
+    attr_reader :schema, :timeline, :entities, :moments, :relation_instances,
+                :authored_pages, :chronicles, :era_narratives, :event_records,
+                :spatial_frames
 
     def initialize
       @schema = Schema.new
@@ -28,6 +32,10 @@ module Lorecraft
       @moments = {}
       @relation_instances = {}
       @authored_pages = {}
+      @chronicles = {}
+      @era_narratives = {}
+      @event_records = {}
+      @spatial_frames = {}
       @load_index = 0
       @resolvers = {}
     end
@@ -102,18 +110,72 @@ module Lorecraft
       ).build(&block)
     end
 
+    def define_narrative_document(id:, document_type:, source_line: nil, &block)
+      id = id.to_sym
+      registry = document_type.to_sym == :chronicle ? @chronicles : @era_narratives
+      raise DefinitionError, "duplicate #{document_type} id #{id}" if registry.key?(id)
+
+      registry[id] = NarrativeDocument.new(
+        id: id,
+        document_type: document_type,
+        source_file: @current_file,
+        source_line: source_line,
+      ).build(self, &block)
+    end
+
+    def define_event_record(id:, tick:, era:, event_kind:, subject: nil, action: nil,
+                            description: nil, significance: nil, tags: [], participants: [],
+                            participant_effects: [], caused_by: nil, source_line: nil)
+      key = id.to_s
+      raise DefinitionError, "duplicate event record id #{key}" if @event_records.key?(key)
+
+      @event_records[key] = EventRecord.new(
+        id: key,
+        tick: tick,
+        era: era,
+        event_kind: event_kind,
+        subject: subject,
+        action: action,
+        description: description,
+        significance: significance,
+        tags: tags,
+        participants: participants,
+        participant_effects: participant_effects,
+        caused_by: caused_by,
+        source_file: @current_file,
+        source_line: source_line,
+      )
+    end
+
     def define_relation_instance(id:, verb:, source:, target:, since: nil, till: nil,
-                                 dm: false, source_line: nil, &block)
+                                 dm: false, props: {}, source_line: nil, &block)
       id = id.to_sym
       raise DefinitionError, "duplicate id #{id}" if @relation_instances.key?(id)
 
       inst = RelationInstance.new(
         id: id, verb: verb, source: source, target: target,
-        timeline: @timeline, since: since, till: till, dm: dm,
+        timeline: @timeline, since: since, till: till, dm: dm, props: props,
         source_file: @current_file, source_line: source_line
       )
       inst.build(self, &block)
       @relation_instances[id] = inst
+    end
+
+    def define_spatial_frame(name:, origin:, coordinates:, parent: nil, radial_unit: nil,
+                             prime_meridian: nil, source_line: nil)
+      name = name.to_sym
+      raise DefinitionError, "duplicate spatial frame #{name}" if @spatial_frames.key?(name)
+
+      @spatial_frames[name] = SpatialFrame.new(
+        name: name,
+        origin: origin.to_sym,
+        parent: parent&.to_sym,
+        coordinates: coordinates.to_sym,
+        radial_unit: radial_unit&.to_sym,
+        prime_meridian: prime_meridian&.to_sym,
+        source_file: @current_file,
+        source_line: source_line
+      )
     end
 
     # Called once loading is complete. Reserved for derived indexes; kept so the
@@ -132,6 +194,12 @@ module Lorecraft
 
     def entity(id) = @entities[id.to_sym]
     def moment(id) = @moments[id.to_sym]
+    def chronicle(id) = @chronicles[id.to_sym]
+    def era_narrative(id) = @era_narratives[id.to_sym]
+    def event_record(id) = @event_records[id.to_s]
+    def relationship_for_source(id)
+      @relation_instances.values.find { |relation| relation.source_id == id.to_s }
+    end
     def known_id?(id) = @entities.key?(id.to_sym) || @moments.key?(id.to_sym)
 
     # Every renderable page-bearing node: entities plus narrative moments (which
@@ -187,7 +255,9 @@ module Lorecraft
       end
       @relation_instances.values.each do |ri|
         list << {
-          effect: Effect.new(verb: :set, subject: ri.source, relation: ri.verb, target: ri.target),
+          effect: Effect.new(
+            verb: :set, subject: ri.source, relation: ri.verb, target: ri.target, props: ri.props
+          ),
           year: ri.from_year, key: [ri.from_year, 0, 0, ri.id.to_s], source: ri.id, dm: ri.dm?
         }
         if ri.to_year
@@ -231,6 +301,9 @@ module Lorecraft
     end
 
     def prose_owners = @entities.values + @moments.values + @relation_instances.values
+    def narrative_documents = @chronicles.values + @era_narratives.values
+    def authored_owners = prose_owners + narrative_documents + @authored_pages.values
+    def published_context_owners = @entities.values + narrative_documents
 
     # [entity_id, "Name"] for every `#{future "Name"}` in prose. A future names
     # something real in the world that has no entity yet, so an entry reaching

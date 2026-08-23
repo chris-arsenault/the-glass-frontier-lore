@@ -39,12 +39,13 @@ module Lorecraft
   #   reviewed    a "YYYY-MM-DD" date once a human has read this block against
   #               the writing rules. Never set it on a block's behalf.
   #   origin      :authored (written fresh), :adapted (recast from reference
-  #               material), or :structural (transclusion shells and scaffolding
-  #               that make no claim of their own)
+  #               material), :published (migrated unchanged from an already
+  #               public canonical source), or :structural (transclusion shells
+  #               and scaffolding that make no claim of their own)
   #
   # This lives on the block rather than in a file keyed by path, because path
   # keys do not survive a reorganisation and a file is too coarse to review.
-  ORIGINS = %i[authored adapted structural].freeze
+  ORIGINS = %i[authored adapted published structural].freeze
   DRAFTERS = %i[ai human ai_human].freeze
 
   ProseBlock = Struct.new(:text, :section, :heading, :at_year, :dm, :order,

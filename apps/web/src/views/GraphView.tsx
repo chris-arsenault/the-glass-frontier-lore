@@ -9,6 +9,7 @@ import { graphElements } from "../data/graphModel";
 import { graphQuery, timelineQuery } from "../data/queries";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import type { GraphDocument, TimelineDocument, WorldIndex } from "../types/canon";
+import { timeName } from "../data/time";
 import "./GraphView.css";
 
 interface GraphControlsProps {
@@ -18,10 +19,11 @@ interface GraphControlsProps {
   year: number;
   start: number;
   end: number;
+  unit: TimelineDocument["unit"];
   change: (key: string, value: string) => void;
 }
 
-function GraphControls({ world, focus, relation, year, start, end, change }: GraphControlsProps) {
+function GraphControls({ world, focus, relation, year, start, end, unit, change }: GraphControlsProps) {
   return <div className="graph-controls">
     <label><span>Focus</span><select value={focus} onChange={(event) => change("focus", event.target.value)}>
       <option value="">Whole world</option>{world.entries.map((entry) => <option key={entry.id} value={entry.id}>{entry.title}</option>)}
@@ -30,7 +32,7 @@ function GraphControls({ world, focus, relation, year, start, end, change }: Gra
       <option value="">All relations</option><option value="causal">Cause and effect</option>
       {world.relations.map((definition) => <option key={definition.id} value={definition.id}>{definition.title}</option>)}
     </select></label>
-    <label className="graph-controls__year"><span>Year {year}</span>
+    <label className="graph-controls__year"><span>{timeName(unit, 1)} {year}</span>
       <input type="range" min={start} max={end} value={year} onChange={(event) => change("year", event.target.value)} />
     </label>
   </div>;
@@ -90,10 +92,10 @@ function ReadyGraphView({ graph, timeline, world }: { graph: GraphDocument; time
       <ViewHeader
         eyebrow={`${nodeCount} entries · ${edgeCount} connections`}
         title="The web"
-        description="Choose a year, narrow the relation, or hold one entry at the center."
+        description={`Choose a ${timeName(timeline.unit, 1)}, narrow the relation, or hold one entry at the center.`}
         actions={null}
       />
-      <GraphControls world={world} focus={focus} relation={relation} year={year} start={start} end={end} change={change} />
+      <GraphControls world={world} focus={focus} relation={relation} year={year} start={start} end={end} unit={timeline.unit} change={change} />
       <GraphCanvas elements={elements} onOpenEntry={openEntry} />
       <GraphLegend />
     </main>

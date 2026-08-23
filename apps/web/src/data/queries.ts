@@ -1,6 +1,8 @@
 import { queryOptions } from "@tanstack/react-query";
 import {
   loadEditorialEntry,
+  loadChronicle,
+  loadEraNarrative,
   loadEntry,
   loadGraph,
   loadManifest,
@@ -35,6 +37,22 @@ export function pageQuery(worldId: string, slug: string) {
   return queryOptions({
     queryKey: ["page", worldId, slug],
     queryFn: () => loadPage(worldId, slug),
+    staleTime: Number.POSITIVE_INFINITY,
+  });
+}
+
+export function chronicleQuery(worldId: string, slug: string) {
+  return queryOptions({
+    queryKey: ["chronicle", worldId, slug],
+    queryFn: () => loadChronicle(worldId, slug),
+    staleTime: Number.POSITIVE_INFINITY,
+  });
+}
+
+export function eraNarrativeQuery(worldId: string, slug: string) {
+  return queryOptions({
+    queryKey: ["era-narrative", worldId, slug],
+    queryFn: () => loadEraNarrative(worldId, slug),
     staleTime: Number.POSITIVE_INFINITY,
   });
 }

@@ -82,11 +82,14 @@ Every content/query command selects one world through `--world ID`,
 | read authoritative guidance | `guide list` / `guide NAME` | one current craft or world Markdown source |
 | choose work | `queue [ID]` | global or entry-scoped questions and findings |
 | read one resolved entry | `page ID` | reader-shaped Markdown on stdout |
+| read one accepted chronicle | `chronicle ID` | complete text, notes, media, and source links |
+| read one era narrative | `era-narrative ID` | complete text and source chronicles |
 | inspect its local graph | `connections ID` | typed neighbors, intervals, and source paths |
 | connect two known entries | `path FROM TO` | bounded route over live typed edges |
 | inspect one entity's changes | `timeline ID` | chronological effect strip |
 | recover settled editorial reasoning | `log ID` | non-reader entry history |
 | find missing structured facts | `facts [ID]` | global coverage or one entry's values |
+| inspect fixed map data | `placement [ID]` | frame coverage or one entry's positions and route paths |
 | measure local graph coverage | `topology` | typed degree and thin entries |
 | measure chronicle focus choices | `focus` | direct public choices for each playable location |
 | test dependence on famous hubs | `web` | components after prominence cuts |
@@ -271,9 +274,68 @@ member of the narrower class. A missing value is not a reason to omit a field.
 
 Relations always have a declared name and category. They may also declare
 domain, range, cardinality, temporal metadata, symmetry, an inverse name, and
-mutual exclusions. The current validator enforces known types, banned types,
-declared domain/range, `:one` cardinality, and exclusions. Symmetry and inverse
-are exported metadata; authors still declare the stored direction explicitly.
+mutual exclusions. A relation block may declare typed properties with required
+values, numeric bounds, dependencies, and exclusions. The validator applies
+those constraints to each named relation. Symmetry and inverse are exported
+metadata; authors still declare the stored direction explicitly.
+
+## Fixed spatial data
+
+Spatial metadata describes an authored map. It does not calculate motion or
+claim physical measurement beyond the precision the writer supplies.
+
+```ruby
+spatial_frame :system_chart,
+              origin: :the_sun,
+              coordinates: :polar,
+              radial_unit: :orbit_rank
+
+spatial_frame :kaleidos_surface,
+              origin: :kaleidos,
+              parent: :system_chart,
+              coordinates: :surface,
+              prime_meridian: :sithari
+
+geographic_location :kaleidos do
+  position frame: :system_chart, radius: 2, angle_deg: 78
+end
+
+installation :threshold do
+  position frame: :system_chart, relative_to: :kaleidos,
+           radial_offset: 0.04, angle_offset_deg: 3
+end
+```
+
+A polar frame uses `radius` and `angle_deg`; its `radial_unit` explains the
+radius. A relative polar position uses `radial_offset` and `angle_offset_deg`
+from another entity positioned in the same frame. A surface frame uses
+`latitude_deg` and `longitude_deg`, plus either `extent_radius_km` or the coarse
+`size_class` value `site`, `district`, `region`, or `continent`.
+
+Routes keep their geometry on the route entry. An anchor names a positioned
+entity. A point names a bend or junction that has no independent lore. Each
+path lists at least two declared anchors or points, so one route can branch.
+
+```ruby
+route_geometry frame: :system_chart do
+  anchor :keelward
+  point :outer_turn, radius: 3.1, angle_deg: 118
+  anchor :ashvane
+  path :main, through: %i[keelward outer_turn ashvane]
+end
+```
+
+Use typed relationship properties for local measurements that belong to the
+connection rather than either endpoint:
+
+```ruby
+relate :avar_borders_kyther, :adjacent_to, :avar, :kyther_range,
+       props: { bearing_deg: 82, distance_km: 640 }
+```
+
+`bearing_deg` runs clockwise from the frame's north from the declared source
+toward the target. `placement [ID]`, `schema frames`, and `schema frame NAME`
+inspect the canonical values.
 
 ## Time and change
 
@@ -303,7 +365,71 @@ effect.
 
 Named `relate` declarations lower to the same set/clear model. `since:` and
 `till:` use half-open `[from, to)` intervals. A relation with no `since:` begins
-at the world's first timeline year.
+at the world's first timeline year. Inside a moment, `set_relation` supplies
+typed properties when an edge needs them; `transfer` accepts the same `props:`
+for the newly opened edge.
+
+A simulation clock names its unit explicitly:
+
+```ruby
+timeline do
+  unit :tick
+  era :great_thaw, starts: 0, length: 27
+  now year: 240
+end
+```
+
+The internal time arithmetic remains integer-based. Reader documents and labels
+use the declared unit, so a tick never appears as a calendar year.
+
+## Chronicles and era narratives
+
+Chronicles and era narratives are reader documents, not entities in the world
+graph. Their source links remain typed and validated.
+
+```ruby
+event_record "event-17", tick: 11, era: :great_thaw, kind: :state_change,
+             subject: :blue_archive, description: "The archive opened."
+
+chronicle :the_open_archive do
+  source_id "chronicle_the_open_archive"
+  title "The Open Archive"
+  summary "The accepted account of the archive's first winter."
+  status :complete
+  format :story
+  focus :ensemble
+  focal_era :great_thaw
+  ticks from: 9, to: 14
+  touched_eras :great_thaw
+  entrypoint :blue_archive
+  entities :blue_archive, :first_keeper
+  events "event-17"
+  relationships "first_keeper:blue_archive:guardian_of"
+  prose "The complete accepted text."
+  annotation :ledger_hand, anchor: "accepted text", text: "The oldest copy changes hands here."
+  image "chronicle-cover-17", role: :cover, url: "/media/chronicle-cover-17.webp"
+end
+
+era_narrative :great_thaw_record do
+  title "The Great Thaw"
+  status :complete
+  era :great_thaw
+  thesis "The thaw changed what the colonies could keep."
+  source_chronicles :the_open_archive
+  prose "The complete era narrative."
+end
+```
+
+An `event_record` retains a citable event without creating a reader page. A
+distinct historical incident may also have an entity or moment. A named
+relationship declares `source_id` when a chronicle cites the source bundle's
+relationship id.
+
+Public `annotation` records are anchored reader notes. They are not editorial
+`log` entries. `image` records retain a stable asset id and a semantic role;
+inline images also retain their text anchor and optional occurrence index. The
+reader displays a URL when one is available while keeping the stable asset id
+as the join to an external image store.
 
 ## Inline markers
 
@@ -347,11 +473,13 @@ trusted-loopback boundary, revision checks, and permitted declarations.
 - `make site-data` builds `build/site` for players and `build/site-internal` for
   authenticated editorial access. The public bundle never contains questions,
   entry logs, provenance, missing expected facts, or DM entries.
+- `SITE_WORLD=<id> make site-data` builds one named world, including a
+  scaffold, for a local reader preview without publishing it.
 - `make wiki WORLD=<id>` builds a flat, player-only Markdown export with
   authored pages, entry pages, indexes, tags, timeline, causality, and sidebar.
 - `graph` emits game-world node and relationship intervals as JSON.
-  `live_at_render` marks state at the requested year; reference articles are
-  excluded.
+  `live_at_render` marks state at the requested year; positions, route geometry,
+  and edge properties accompany their owners. Reference articles are excluded.
 - `render` emits a directory-shaped Markdown compatibility view. Its default
   audience is `all`; pass `--audience player` before sharing it.
 

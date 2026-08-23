@@ -362,6 +362,8 @@ module Lorecraft
             origin_blurb: (n.origin_blurb if n.respond_to?(:origin_blurb)),
             veiled: (n.veiled? if n.respond_to?(:veiled?)),
             veil_tagline: (n.veil_tagline if n.respond_to?(:veiled?) && n.veiled?),
+            positions: (position_documents(n) if n.respond_to?(:positions) && !n.positions.empty?),
+            route_geometry: (route_geometry_document(n.route_geometry) if n.respond_to?(:route_geometry) && n.route_geometry),
             dm: (n.respond_to?(:dm?) && n.dm?),
             path: page_path(n)
           }.compact
@@ -377,9 +379,35 @@ module Lorecraft
             from: edge.from,
             to: edge.to,
             dm: edge.dm,
+            props: (edge.props unless edge.props.nil? || edge.props.empty?),
             live_at_render: edge.live,
-          }
+          }.compact
         end
+      end
+
+      def position_documents(node)
+        node.positions.map do |position|
+          {
+            frame: position.frame,
+            relative_to: position.relative_to,
+            coordinates: position.coordinates,
+          }.compact
+        end
+      end
+
+      def route_geometry_document(geometry)
+        {
+          frame: geometry.frame,
+          points: geometry.points.values.map do |point|
+            {
+              id: point.id,
+              kind: point.kind,
+              entity_id: point.entity_id,
+              coordinates: (point.coordinates unless point.coordinates.empty?),
+            }.compact
+          end,
+          paths: geometry.paths.values.map { |path| { id: path.id, through: path.points } },
+        }
       end
     end
 

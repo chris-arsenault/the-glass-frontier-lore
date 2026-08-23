@@ -182,6 +182,20 @@ when "topology"
   emit(Lorecraft::Topology.new(load_world), format)
 when "focus"
   emit(Lorecraft::FocusCoverage.new(load_world, at: at), format)
+when "placement"
+  id = ARGV.shift
+  begin
+    emit(
+      Lorecraft::PlacementAudit.new(
+        load_world,
+        entity: id&.tr("-", "_")&.to_sym,
+        root: Lorecraft::Worlds.repo_root,
+      ),
+      format
+    )
+  rescue Lorecraft::Error => e
+    abort e.message
+  end
 when "worlds"
   Lorecraft::Worlds.all.each do |w|
     marks = w.status.to_s
@@ -205,8 +219,8 @@ when "search"
   query = ARGV.join(" ").strip
   abort("usage: #{Lorecraft::CLIHelp::EXE} search QUERY") if query.empty?
   w = load_world
-  if kind && !w.schema.kind?(kind)
-    abort "unknown entity kind: #{kind}"
+  if kind && !w.schema.kind?(kind) && !%w[chronicle era_narrative].include?(kind)
+    abort "unknown record kind: #{kind}"
   end
   if tag && !w.schema.tags.key?(tag.to_sym)
     abort "unknown tag: #{tag}"
@@ -327,6 +341,20 @@ when "page"
   node = w.entity(id.tr("-", "_").to_sym) or abort("unknown entity: #{id}")
   puts Lorecraft::Render::Markdown.new(w)
                                   .page_markdown(node, year: w.timeline.now_year, audience: audience)
+when "chronicle"
+  id = ARGV.shift or abort("usage: #{Lorecraft::CLIHelp::EXE} #{cmd} ID")
+  begin
+    emit(Lorecraft::NarrativeQuery.new(load_world, id: id.tr("-", "_"), type: :chronicle), format)
+  rescue Lorecraft::Error => e
+    abort e.message
+  end
+when "era-narrative"
+  id = ARGV.shift or abort("usage: #{Lorecraft::CLIHelp::EXE} #{cmd} ID")
+  begin
+    emit(Lorecraft::NarrativeQuery.new(load_world, id: id.tr("-", "_"), type: :era_narrative), format)
+  rescue Lorecraft::Error => e
+    abort e.message
+  end
 when "web"
   # Whether the graph holds together without its most prominent entities. The
   # work list for a tie-together pass — see craft/connecting-entities.md.
@@ -387,6 +415,9 @@ when "stats"
   puts "moments:   #{w.moments.size}"
   puts "relations: #{w.relation_instances.size}"
   puts "effects:   #{w.all_effects.size}"
+  puts "chronicles: #{w.chronicles.size}"
+  puts "era texts:  #{w.era_narratives.size}"
+  puts "event records: #{w.event_records.size}"
   kinds = w.entities.values.group_by(&:kind).transform_values(&:size).sort_by { |_, v| -v }
   puts "by kind:"
   kinds.each { |k, v| puts "  #{v.to_s.rjust(4)}  #{k}" }

@@ -27,9 +27,16 @@ module Lorecraft
 
     RelationDef = Struct.new(
       :name, :category, :temporal, :symmetric, :inverse,
-      :domain, :range, :cardinality, :exclusive_with, :description,
+      :domain, :range, :cardinality, :exclusive_with, :description, :properties,
       keyword_init: true
     )
+    RelationPropertyDef = Struct.new(
+      :name, :type, :values, :required, :minimum, :minimum_exclusive,
+      :maximum, :maximum_exclusive, :requires, :exclusive_with,
+      keyword_init: true
+    ) do
+      def required? = required == true
+    end
 
     # Static attributes are declared on an entity and never touched by moment
     # effects. Dynamic state is the opposite: only ever changed by effects.
@@ -42,13 +49,14 @@ module Lorecraft
     # makes the whole distribution unreadable. Topology reports these separately
     # and `web` drops them at every cut.
     DEFAULT_STATIC_ATTRS = %i[
-      title tags prominence alias region narrative_role status reviewed
+      title summary source_id tags prominence alias region narrative_role status reviewed
       species culture era date founded registry prominence_xrefs structural subkind
       article playable_as origin_blurb veiled
     ].freeze
 
     PROMINENCE_LEVELS = %i[forgotten marginal recognized renowned mythic].freeze
     FACT_TYPES = %i[text integer year entity entities].freeze
+    RELATION_PROPERTY_TYPES = %i[boolean entity enum integer number text].freeze
     FACT_DIRECTIONS = %i[outgoing incoming].freeze
     FACT_CARDINALITIES = %i[one many].freeze
     FACT_CALCULATIONS = %i[
@@ -309,7 +317,7 @@ module Lorecraft
     # when present so the repo's looser taxonomy still loads.
     def relation(name, category: :general, temporal: false, symmetric: false,
                  inverse: nil, domain: nil, range: nil, cardinality: :many,
-                 exclusive_with: nil, description: nil)
+                 exclusive_with: nil, description: nil, &block)
       name = name.to_sym
       raise DefinitionError, "duplicate relation #{name}" if @relations.key?(name)
 
@@ -317,12 +325,27 @@ module Lorecraft
         name: name, category: category, temporal: temporal, symmetric: symmetric,
         inverse: inverse&.to_sym, domain: arr(domain), range: arr(range),
         cardinality: cardinality, exclusive_with: arr(exclusive_with),
-        description: description
+        description: description, properties: {}
       )
+      RelationBuilder.new(@relations.fetch(name)).instance_eval(&block) if block
     end
 
     def relation?(name) = @relations.key?(name&.to_sym)
     def relation_def(name) = @relations[name&.to_sym]
+
+    # A world may narrow a shared relation to the kinds it actually uses and
+    # supply its setting-specific description. It cannot change the relation's
+    # category, temporality, symmetry, inverse, or cardinality.
+    def extend_relation(name, domain: nil, range: nil, description: nil, &block)
+      definition = relation_def(name) or
+        raise DefinitionError, "cannot extend unknown relation #{name}"
+
+      definition.domain = arr(domain) unless domain.nil?
+      definition.range = arr(range) unless range.nil?
+      definition.description = description unless description.nil?
+      RelationBuilder.new(definition).instance_eval(&block) if block
+      definition
+    end
 
     def effect(verb, description = nil) = @effects[verb.to_sym] = description
     def effect?(verb) = @effects.key?(verb&.to_sym)
@@ -475,6 +498,42 @@ module Lorecraft
           @kind,
           FactDef.new(name: name, label: label, **attributes),
           subkind: @subkind
+        )
+      end
+    end
+
+    class RelationBuilder
+      def initialize(relation)
+        @relation = relation
+      end
+
+      def property(name, type:, values: nil, required: false,
+                   minimum: nil, minimum_exclusive: nil,
+                   maximum: nil, maximum_exclusive: nil,
+                   requires: nil, exclusive_with: nil)
+        name = name.to_sym
+        type = type.to_sym
+        unless RELATION_PROPERTY_TYPES.include?(type)
+          raise DefinitionError, "property #{name} on #{@relation.name} has unknown type #{type}"
+        end
+        if @relation.properties.key?(name)
+          raise DefinitionError, "duplicate property #{name} on relation #{@relation.name}"
+        end
+        if type == :enum && Array(values).empty?
+          raise DefinitionError, "enum property #{name} on #{@relation.name} needs values"
+        end
+
+        @relation.properties[name] = RelationPropertyDef.new(
+          name: name,
+          type: type,
+          values: Array(values).map(&:to_sym),
+          required: required == true,
+          minimum: minimum,
+          minimum_exclusive: minimum_exclusive,
+          maximum: maximum,
+          maximum_exclusive: maximum_exclusive,
+          requires: Array(requires).map(&:to_sym),
+          exclusive_with: Array(exclusive_with).map(&:to_sym)
         )
       end
     end

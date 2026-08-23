@@ -7,6 +7,7 @@ const graph: GraphDocument = {
   world_id: "test",
   revision: "abc",
   generated_at_year: 10,
+  time_unit: "year",
   nodes: ["a", "b", "c", "d"].map((id) => ({
     id,
     title: id.toUpperCase(),

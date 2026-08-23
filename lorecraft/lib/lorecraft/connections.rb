@@ -8,6 +8,7 @@ module Lorecraft
     Connection = Struct.new(
       :direction, :relation, :neighbor_id, :neighbor_title, :neighbor_kind,
       :neighbor_source, :from, :to, :live, :dm, :origin_id, :origin_source,
+      :props,
       keyword_init: true
     )
 
@@ -58,6 +59,7 @@ module Lorecraft
           dm: edge.dm,
           origin_id: edge.origin,
           origin_source: relative_source(origin),
+          props: edge.props,
         )
       end.sort_by do |row|
         [row.direction == :outgoing ? 0 : 1, row.relation.to_s, row.neighbor_title.downcase, row.from]
@@ -92,6 +94,9 @@ module Lorecraft
           neighbor = [row.neighbor_title, row.neighbor_kind].compact.join("; ")
           lines << "  #{row.relation} #{arrow} #{row.neighbor_id} (#{neighbor}) " \
                    "#{interval} #{flags.join(', ')}"
+          unless row.props.nil? || row.props.empty?
+            lines << "    properties: #{row.props.map { |key, value| "#{key}=#{value}" }.join(', ')}"
+          end
           lines << "    neighbor: #{row.neighbor_source}" if row.neighbor_source
           if row.origin_id && row.origin_id != row.neighbor_id && row.origin_id != @entity.id
             origin = row.origin_source ? " — #{row.origin_source}" : ""

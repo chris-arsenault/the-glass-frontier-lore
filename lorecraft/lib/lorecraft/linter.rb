@@ -145,7 +145,11 @@ module Lorecraft
       pages.each do |e|
         next if e.dm? || e[:contains_dm].to_s == "true"
 
-        text = prose_text(e).downcase
+        # A published import was already reader-visible at its source. Keep the
+        # heuristic on any new or adapted blocks added beside it.
+        text = e.authored_blocks.reject { |block| block.origin == :published }
+                .flat_map(&:text_fragments).map { |value| Markers.strip(value) }
+                .join("\n\n").downcase
         DM_LEAK_PHRASES.each do |phrase|
           err("#{label(e)}: possible DM leakage — contains phrase '#{phrase}'", owner: e) if text.include?(phrase)
         end

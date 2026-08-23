@@ -5,6 +5,7 @@ import { MarkdownContent } from "../components/MarkdownContent";
 import { ViewHeader } from "../components/ViewHeader";
 import { useWorld } from "../components/worldContext";
 import { timelineQuery } from "../data/queries";
+import { timeName, timePoint } from "../data/time";
 import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import "./TimelineView.css";
 
@@ -27,9 +28,9 @@ export function TimelineView() {
   return (
     <main className="reader-page timeline-view">
       <ViewHeader
-        eyebrow={`Present year ${timeline.data.now}`}
+        eyebrow={`Present ${timePoint(timeline.data.unit, timeline.data.now)}`}
         title="Time"
-        description="The eras set the frame. Recorded events sit at the year they occurred."
+        description={`The eras set the frame. Recorded events sit at the ${timeName(timeline.data.unit, 1)} when they occurred.`}
         actions={null}
       />
       <div className="era-track">
