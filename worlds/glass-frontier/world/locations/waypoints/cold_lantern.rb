@@ -5,6 +5,8 @@ installation :cold_lantern do
   status :complete
   tags :orbital, :transport, :salvage, :navigation, :danger
   prominence :marginal
+  position frame: :kaleidos_system_chart, relative_to: :kaleidos,
+           radial_offset: 0.18, angle_offset_deg: -96
 
   prose <<~PROSE
     Cold Lantern is an emergency waypoint on the outer Pell approach. It has no permanent population. A pressure shelter, passive route recorder, line locker, and dark beacon occupy a frame anchored to an ordinary debris mass. Crews use it as the last common check before the claim routes divide toward Deep pockets.

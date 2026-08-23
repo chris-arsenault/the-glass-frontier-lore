@@ -10,6 +10,8 @@ installation :keelward do
   access "Orbital shuttles, kite fields, freight rail and city transit"
   tags :surface, :orbital, :transport, :trade, :resonance
   prominence :recognized
+  position frame: :kaleidos_surface, latitude_deg: 0, longitude_deg: 1,
+           size_class: :district
 
   prose <<~PROSE
     Keelward is the broad eastern district where #{ref :keel, "the Keel"} reaches #{ref :sithari, "Sithari"}. Orbital shuttles descend to its outer fields, kite traffic uses the shorter inner pads, and freight rail carries cleared loads west into the city. About four hundred sixty thousand people live among the terminals, yards, warehouses, older neighborhoods, and port hostels such as #{ref :fourth_bell_house, "Fourth Bell House"}.

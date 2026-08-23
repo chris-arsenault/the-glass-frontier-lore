@@ -45,7 +45,9 @@ schema do
                          domain: %i[geographic_location installation],
                          range: %i[geographic_location installation],
                          description: "Two places share a local boundary or lie directly beside one another" do
-    property :bearing_deg, type: :number, minimum: 0, maximum_exclusive: 360
+    property :frame, type: :frame
+    property :bearing_deg, type: :number, minimum: 0, maximum_exclusive: 360,
+                           requires: :frame
     property :distance_km, type: :number, minimum_exclusive: 0
   end
   relation :born_in, category: :social, temporal: false

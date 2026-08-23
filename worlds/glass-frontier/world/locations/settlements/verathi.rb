@@ -4,6 +4,8 @@ installation :verathi do
   subkind :settlement
   tags :"ring-hab", :governance, :divergence, :diplomacy
   prominence :recognized
+  position frame: :kaleidos_system_chart, relative_to: :kaleidos,
+           radial_offset: 0.1, angle_offset_deg: 104
   status :complete
   population 18000
   population_band "About eighteen thousand residents"

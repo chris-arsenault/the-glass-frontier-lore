@@ -5,6 +5,7 @@ geographic_location :crucible do
   status :complete
   tags :cosmology, :materials, :trade, :danger
   prominence :recognized
+  position frame: :kaleidos_system_chart, radius: 1, angle_deg: 18
 
   prose <<~PROSE
     Crucible is the innermost planet of the Kaleidos system, a hot rocky world mined from shielded settlements along its high latitudes. Surface crews work during short local windows, then withdraw beneath reflective roofs before heat and charged dust exceed suit limits.

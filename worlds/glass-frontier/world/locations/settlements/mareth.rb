@@ -6,6 +6,8 @@ installation :mareth do
   status :complete
   tags :"ring-hab", :"ring-era", :transport, :trade, :"structural-freq", :"kinetic-freq"
   prominence :recognized
+  position frame: :kaleidos_system_chart, relative_to: :kaleidos,
+           radial_offset: 0.1, angle_offset_deg: 150
   population 4100
   population_band "About forty-one hundred residents, with large gate-day crowds"
   role "Periodic passage through a surviving Ring-era freight barrier"
@@ -38,6 +40,6 @@ relate :rel_mareth_located_in_frontier, :located_in, :mareth, :the_glass_frontie
   prose "Mareth inhabits a surviving freight gate between two ring fragments."
 end
 
-relate :rel_keel_terminus_mareth, :terminus_of, :keel, :mareth do
+relate :rel_mareth_terminus_keel, :terminus_of, :mareth, :keel do
   prose "One managed branch of the Keel reaches Mareth's holding lanes and periodic aperture."
 end

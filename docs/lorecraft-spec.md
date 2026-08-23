@@ -125,6 +125,13 @@ relation :member_of,
   range: :faction,
   cardinality: :one,
   exclusive_with: :opposes
+
+relation :adjacent_to, category: :spatial, symmetric: true do
+  property :frame, type: :frame
+  property :bearing_deg, type: :number, minimum: 0, maximum_exclusive: 360,
+                         requires: :frame
+  property :distance_km, type: :number, minimum_exclusive: 0
+end
 ```
 
 Every relationship use must name a registered type. Definitions record:
@@ -135,12 +142,20 @@ Every relationship use must name a registered type. Definitions record:
 - `cardinality`, where `one` forbids overlapping live targets for a source;
 - `exclusive_with`, which forbids the listed relation on the same pair;
 - optional `symmetric` and `inverse` metadata;
+- typed properties with optional requirements, numeric bounds, dependencies,
+  and mutual exclusions;
 - an optional human description.
 
 The validator enforces known and non-banned relation names, domain, range,
 cardinality, and exclusions. `symmetric` and `inverse` describe the relation for
 rendered consumers; the resolver stores and queries the authored direction.
 Use `state.in` for reverse traversal.
+
+Property types are `boolean`, `entity`, `enum`, `frame`, `integer`, `number`,
+and `text`. Enum properties declare `values:`; frame values must name a declared
+spatial frame. `required: true` requires the value on every use of that relation;
+`requires:` makes one property depend on another; `exclusive_with:` prevents two
+properties from appearing on the same edge.
 
 The shared schema declares `related_to` with category `banned`, allowing the
 validator to issue a specific error for a generic edge instead of reporting an
@@ -261,6 +276,58 @@ unknown calls with arguments become extensible static attributes. This is why
 Lorecraft's schema is strong around declared facts and relationships but is not
 a static type system for every Ruby expression in an entity body.
 
+### Fixed spatial metadata
+
+Spatial frames define authored coordinate systems. They describe a stable map,
+not orbital motion.
+
+```ruby
+spatial_frame :system_chart,
+              origin: :the_sun,
+              coordinates: :polar,
+              radial_unit: :orbit_rank
+
+spatial_frame :kaleidos_surface,
+              origin: :kaleidos,
+              parent: :system_chart,
+              coordinates: :surface,
+              prime_meridian: :sithari
+```
+
+A child frame's origin must have a position in its parent. The entity named as
+a surface frame's prime meridian must have longitude zero in that frame.
+
+An absolute polar position uses `radius` and `angle_deg`. A relative polar
+position names another entity in the same frame and uses `radial_offset` and
+`angle_offset_deg`. Surface positions use `latitude_deg` and `longitude_deg`.
+They may add either a positive `extent_radius_km` or `size_class` with value
+`site`, `district`, `region`, or `continent`.
+
+```ruby
+geographic_location :kaleidos do
+  position frame: :system_chart, radius: 2, angle_deg: 78
+end
+
+installation :threshold do
+  position frame: :system_chart, relative_to: :kaleidos,
+           radial_offset: 0.04, angle_offset_deg: 3
+end
+```
+
+A route keeps its paths on the route entity. An `anchor` names an entity whose
+position resolves to the route's frame. A local `point` supplies coordinates in
+that frame without creating another lore entity. A named `path` contains two or
+more declared anchors or points, and several paths may share them.
+
+```ruby
+route_geometry frame: :system_chart do
+  anchor :keelward
+  point :outer_turn, radius: 3.1, angle_deg: 118
+  anchor :ashvane
+  path :main, through: %i[keelward outer_turn ashvane]
+end
+```
+
 Allowed authoring statuses are `complete`, `draft`, `shell`, and
 `needs_refinement`. Status describes the entry, not the entity's standing in
 the world. A shell is a graph node with no rendered page. A complete or draft
@@ -362,6 +429,7 @@ Effects:
 | `create :id` | entity begins existing at the moment year |
 | `destroy :id` | entity stops existing at the moment year |
 | `set :id, relation: :target` | opens one typed edge |
+| `set_relation :id, :relation, :target, props: { ... }` | opens an edge with typed properties |
 | `set :id, attribute: value` | sets dynamic state when the key is not a relation |
 | `clear :id, :relation, :target` | closes one edge |
 | `clear :id, :relation` | closes all matching outgoing edges |
@@ -387,7 +455,7 @@ entity's page. Named relationship instances are not entity pages and are not
 targets for `ref`.
 
 With no `since:`, the edge begins at the first timeline year. `till:` is
-exclusive.
+exclusive. `props:` values must match the relation's declared property schema.
 
 ## 8. Authored pages
 
@@ -500,7 +568,7 @@ wiki or the whole graph:
 |---|---|
 | find a stable id | `search QUERY` |
 | read current instructions | `guide list` / `guide NAME` |
-| inspect allowed types and values | `schema kinds` / `schema kind NAME` / `schema relations` / `schema relation NAME` / `schema tags` / `schema sections` |
+| inspect allowed types and values | `schema kinds` / `schema kind NAME` / `schema relations` / `schema relation NAME` / `schema frames` / `schema frame NAME` / `schema tags` / `schema sections` |
 | read one reader-shaped entry | `page ID` |
 | read one accepted chronicle | `chronicle ID` |
 | read one era narrative | `era-narrative ID` |
@@ -508,6 +576,7 @@ wiki or the whole graph:
 | connect two known entries | `path FROM TO` |
 | inspect all changes to one entry | `timeline ID` |
 | inspect structured facts | `facts [ID]` |
+| inspect fixed map data | `placement [ID]` |
 | measure direct chronicle focus choices | `focus` |
 | choose or narrow editorial work | `queue [ID]` |
 | inspect drafting and review | `provenance [ID]` |
@@ -557,8 +626,10 @@ records; other bounded commands use query objects. Other commands reject JSON.
 - reference, card, fact, effect, and relationship targets resolve;
 - public content does not reference or embed DM-only entities;
 - a relationship with a DM-only endpoint declares `dm: true`;
-- relationship type, banned category, optional domain/range, cardinality, and
-  exclusions;
+- relationship type, banned category, optional domain/range, cardinality,
+  exclusions, and typed properties;
+- spatial frame nesting, coordinates, relative anchors, route paths, and public
+  visibility;
 - effects do not change declared static attributes;
 - temporal existence and moment ordering are causal;
 - tags, prominence, subkinds, fact types, and sections use their schemas;
@@ -605,7 +676,8 @@ world.render(:site, out: "build/site", world_id: "dry-war",
 - `wiki` writes flat player-facing pages plus generated indexes, tags, timeline,
   causality, and sidebar.
 - `graph` returns JSON nodes and full relationship intervals, marking which are
-  live at the render year.
+  live at the render year and retaining positions, route geometry, and edge
+  properties.
 - `timeline` returns a Markdown effect strip for one entity.
 - `site` writes the public JSON used by the React reader and can write a
   separate private editorial bundle.

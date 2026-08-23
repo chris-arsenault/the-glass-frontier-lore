@@ -388,8 +388,8 @@ module Lorecraft
       def position_documents(node)
         node.positions.map do |position|
           {
-            frame: position.frame,
-            relative_to: position.relative_to,
+            frame_id: position.frame,
+            relative_to_id: position.relative_to,
             coordinates: position.coordinates,
           }.compact
         end
@@ -397,7 +397,7 @@ module Lorecraft
 
       def route_geometry_document(geometry)
         {
-          frame: geometry.frame,
+          frame_id: geometry.frame,
           points: geometry.points.values.map do |point|
             {
               id: point.id,
@@ -459,6 +459,7 @@ module Lorecraft
           target: effect.target,
           attribute: effect.attr,
           value: effect.value,
+          props: (effect.props unless effect.props.nil? || effect.props.empty?),
           dm: entry[:dm] == true,
         }.compact
       end
@@ -470,7 +471,12 @@ module Lorecraft
                else
                  "#{event[:verb]} #{event[:attribute] || event[:subject]}"
                end
-        "- **#{when_s}** (#{event[:source]}): #{verb}"
+        properties = if event[:props]
+                       " (#{event[:props].map { |key, value| "#{key}=#{value}" }.join(', ')})"
+                     else
+                       ""
+                     end
+        "- **#{when_s}** (#{event[:source]}): #{verb}#{properties}"
       end
     end
   end

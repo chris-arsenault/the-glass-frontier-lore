@@ -56,7 +56,7 @@ module Lorecraft
 
     PROMINENCE_LEVELS = %i[forgotten marginal recognized renowned mythic].freeze
     FACT_TYPES = %i[text integer year entity entities].freeze
-    RELATION_PROPERTY_TYPES = %i[boolean entity enum integer number text].freeze
+    RELATION_PROPERTY_TYPES = %i[boolean entity enum frame integer number text].freeze
     FACT_DIRECTIONS = %i[outgoing incoming].freeze
     FACT_CARDINALITIES = %i[one many].freeze
     FACT_CALCULATIONS = %i[

@@ -8,6 +8,8 @@ installation :glasswake do
   reviewed "2026-03-18"
   tags :surface, :trade, :"ring-era"
   prominence :recognized
+  position frame: :kaleidos_surface, latitude_deg: 11, longitude_deg: -75,
+           size_class: :site
 
   prose <<~PROSE
     Glasswake is a coastal mining town built around the ruins of a ring hab fragment that fell during the #{ref :the_glassfall, "Glassfall"}. The wreck forms a fused ridge along the eastern edge of town. Homes, workshops, mines, and warehouses occupy the sheltered ground between it and the sea.
@@ -52,6 +54,13 @@ relate :rel_glasswake_on_surface_kaleidos, :on_surface_of, :glasswake, :kaleidos
 end
 relate :rel_glasswake_located_in_kaleidos, :located_in, :glasswake, :kaleidos, since: 2160 do
   prose "It has held its stretch of coast since the early Famine, a surface town that kept its lights on through the worst of the isolation."
+end
+relate :rel_glasswake_adjacent_avar, :adjacent_to, :glasswake, :avar,
+       props: { frame: :kaleidos_surface, bearing_deg: 90 } do
+  prose "Avar begins inland of Glasswake's coastal hills."
+end
+relate :rel_glasswake_terminus_keel, :terminus_of, :glasswake, :keel do
+  prose "Glasswake's surface-access spur forms one of the Keel's principal termini."
 end
 
 # --- history (moments) ---

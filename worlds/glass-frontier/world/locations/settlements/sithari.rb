@@ -8,6 +8,8 @@ installation :sithari do
   reviewed "2026-03-19"
   tags :surface, :governance, :trade, :"ring-era"
   prominence :mythic
+  position frame: :kaleidos_surface, latitude_deg: 0, longitude_deg: 0,
+           size_class: :site
   registry true
   population_band "A few million in the city proper"
   role "De facto capital, financial centre and seat of the Tempered Accord"

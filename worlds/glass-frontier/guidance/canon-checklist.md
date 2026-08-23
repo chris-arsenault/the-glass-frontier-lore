@@ -46,6 +46,25 @@ Present day is 2435 CE. Any "roughly N years ago" in prose must land against tha
 - **Kites** — motive power by momentum nullification. Not thrust, not sails in the aerodynamic sense.
 - **Tuner abilities** — stated limits. No new tuner capability without a cost and a ceiling.
 
+## Fixed Chart Geometry
+
+- `kaleidos_system_chart` is a schematic polar frame. Its radius is orbital
+  rank, so the eight numbered radii must continue to agree with the `inner_of`
+  chain. Angles separate objects on the chart and do not describe motion.
+- `kaleidos_surface` uses Sithari as longitude zero. Sithari remains on the
+  equator. The western surface regions must continue to agree with their stated
+  order from Glasswake inland through Avar and the Kyther foothills.
+- `ashvane_surface` uses Shadewell as longitude zero. Add another Ashvane
+  position only when its direction from Shadewell is established in prose.
+- Space stations, moons, ring habs, and orbital regions use positions relative
+  to a placed body when their identity depends on that body. Do not add orbital
+  epochs or derive movement from the fixed chart.
+- A measured `adjacent_to` edge names the frame in `props:`. Its bearing runs
+  clockwise from frame north from the declared source toward the target. Leave
+  out distance when canon supports direction but not a measurement.
+- The Keel owns its named paths. Add a positioned anchor for a lore entity and
+  a route-local point for an unnamed bend or junction.
+
 ## Facts Entries Get Loose About
 
 - The elves are **known history**, not a mystery. The open question is where they went. See `tone.md`.

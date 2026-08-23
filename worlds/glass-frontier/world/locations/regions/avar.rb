@@ -5,6 +5,8 @@ geographic_location :avar do
   status :complete
   tags :surface, :resonance, :navigation, :trade, :ecology
   prominence :recognized
+  position frame: :kaleidos_surface, latitude_deg: 12, longitude_deg: -68,
+           size_class: :region
 
   prose <<~PROSE
     Avar begins behind the coastal hills above #{ref :glasswake, "Glasswake"} and runs inland to the first broken ridges of the #{ref :kyther_range, "Kyther Range"}. Old surface route books already write Avar beside the western wells. The spelling survived the Famine even as the mapped roads changed. Wind keeps most of the country in grass. Long shelves of pale stone rise through the soil at irregular intervals, their exposed faces filled with fine ringglass washed down from centuries of #{ref :glassfall_showers, "Glassfall showers"}. Near sunrise and late afternoon the ridges split the light into low gold bands.
@@ -44,4 +46,8 @@ relate :rel_avar_on_kaleidos, :on_surface_of, :avar, :kaleidos do
 end
 relate :rel_glasswake_in_avar, :located_in, :glasswake, :avar, since: 2160 do
   prose "#{ref :glasswake, "Glasswake"} stands on the western edge of Avar and handles much of its trade."
+end
+relate :rel_avar_adjacent_kyther, :adjacent_to, :avar, :kyther_range,
+       props: { frame: :kaleidos_surface, bearing_deg: 90 } do
+  prose "Avar's eastern steppe reaches the first ridges of the Kyther Range."
 end

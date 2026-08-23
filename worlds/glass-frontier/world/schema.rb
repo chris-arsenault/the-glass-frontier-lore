@@ -28,6 +28,10 @@ schema do
   # edges rather than metaphors.
   relation :attuned_to, category: :technical, temporal: false
   relation :resonates_with, category: :narrative, temporal: false
+  extend_relation :terminus_of,
+                  domain: location_kinds,
+                  range: :installation,
+                  description: "The source place is an endpoint of the target route"
 
   # DM-only. Where the False Form reaches through, and who is avoiding whom.
   relation :hiding_from, category: :dm, temporal: false
@@ -186,3 +190,23 @@ schema do
   section_heading :resonance
   section_heading :the_third_panel
 end
+
+# Fixed chart coordinates. The system frame uses orbital rank rather than a
+# physical distance; its angles separate bodies on a readable present-day map
+# and do not imply orbital mechanics. Surface frames use ordinary degrees.
+spatial_frame :kaleidos_system_chart,
+              origin: :the_sun,
+              coordinates: :polar,
+              radial_unit: :orbit_rank
+
+spatial_frame :kaleidos_surface,
+              origin: :kaleidos,
+              parent: :kaleidos_system_chart,
+              coordinates: :surface,
+              prime_meridian: :sithari
+
+spatial_frame :ashvane_surface,
+              origin: :ashvane,
+              parent: :kaleidos_system_chart,
+              coordinates: :surface,
+              prime_meridian: :shadewell

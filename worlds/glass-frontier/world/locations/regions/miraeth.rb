@@ -5,6 +5,8 @@ geographic_location :miraeth do
   status :complete
   tags :surface, :ecology, :resonance, :ringglass, :trade
   prominence :recognized
+  position frame: :kaleidos_surface, latitude_deg: 6, longitude_deg: -61,
+           size_class: :region
 
   prose <<~PROSE
     Miraeth is a chain of wooded basins along the wet foothills of the #{ref :kyther_range, "Kyther Range"}. Pre-Glassfall water records use the name for the whole chain. Basin speech kept it through the Famine while the watersheds developed separate rules and dialects. Each basin holds deep soil, steady water, and centuries of fine ringglass deposited by #{ref :glassfall_showers, "Glassfall showers"}. Plants incorporated the grains as they grew. Clear veins now run through old trunks and roots, linking whole stands through broad structural fields.

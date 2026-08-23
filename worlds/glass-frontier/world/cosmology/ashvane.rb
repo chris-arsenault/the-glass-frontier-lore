@@ -5,6 +5,8 @@ geographic_location :ashvane do
   status :complete
   tags :"outer-system", :resonance, :trade, :danger, :ecology
   prominence :recognized
+  position frame: :kaleidos_system_chart, relative_to: :ashenmaw,
+           radial_offset: 0.08, angle_offset_deg: 5
 
   prose <<~PROSE
     Ashvane is a hot inhabited moon of #{ref :ashenmaw, "Ashenmaw"} and the far terminus of #{ref :keel, "the Keel"}. Tidal flexing warms its crust from below while the gas giant fills the sky above. Dark volcanic plains, folded highlands, salt basins, and chains of old craters cover the surface. Towns occupy cooler crater walls, high plateaus, and the shadowed sides of ridges.

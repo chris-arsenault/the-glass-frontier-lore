@@ -7,6 +7,8 @@ geographic_location :the_shear do
   reviewed "2026-03-19"
   tags :orbital, :salvage, :danger, :resonance
   prominence :renowned
+  position frame: :kaleidos_system_chart, relative_to: :kaleidos,
+           radial_offset: 0.12, angle_offset_deg: 210
   setting "Interstitial debris fields in Kaleidos orbit"
   extent "Roughly half of the orbital volume between surviving ring habitats"
   main_industry "Ringglass salvage"

@@ -24,7 +24,7 @@ in-memory World
   │      │      │
   │      │      └── validate/lint feedback
   │      └───────── search/page/chronicle/era-narrative/facts/queue/timeline/log
-  └──────────────── schema/connections/path/topology/web/provenance
+  └──────────────── schema/connections/path/placement/topology/web/provenance
        │
        ▼
 graph/stats · public reader · private editorial data · Markdown exports
@@ -76,7 +76,8 @@ including a scaffold, for a local reader preview.
 ```text
 World ── Schema              kinds, subkinds, facts, relations, vocabularies
       ├─ Timeline            fixed era ranges, unit, and present point
-      ├─ Entity*             static facts, prose/cards, questions, logs
+      ├─ SpatialFrame*       fixed coordinate systems and their nesting
+      ├─ Entity*             static facts, positions, route paths, prose/cards
       ├─ Moment*             dated prose and state-changing effects
       ├─ RelationInstance*   named edges with optional intervals and prose
       ├─ EventRecord*        compact canonical source events
@@ -110,11 +111,18 @@ do not produce public placeholders; `make facts WORLD=<id>` and the private
 editorial bundle report them.
 
 Every relationship has a declared name and category. It may also constrain
-domain, range, cardinality, mutual exclusion, and temporal meaning. Validation
-rejects unknown types, types declared as banned, domain/range mismatches,
-overlapping `:one` targets, and exclusive relations held together. Symmetry and
-inverse names are exported metadata; stored traversal follows the declared edge
-direction.
+domain, range, cardinality, mutual exclusion, temporal meaning, and typed edge
+properties. Validation rejects unknown types, types declared as banned,
+domain/range mismatches, invalid property values, overlapping `:one` targets,
+and exclusive relations held together. Symmetry and inverse names are exported
+metadata; stored traversal follows the declared edge direction.
+
+Spatial frames define fixed schematic polar or surface coordinates. Entities
+may carry one position per frame, including polar offsets from another entity.
+A route entity may declare local bends and several named paths over positioned
+entity anchors. Validation checks frame nesting, coordinate bounds, anchor
+resolution, cycles, and public-to-DM references. No frame models time or derives
+orbital mechanics.
 
 The schema also controls tags, non-main prose sections, prominence levels,
 authoring statuses, provenance values, and per-world banned phrases. Auxiliary
@@ -148,7 +156,7 @@ views are:
 | What worlds can I work on? | `worlds` |
 | Which craft or world instructions apply? | `guide list`, then `guide <name>` |
 | What is this subject's stable id? | `search <query>` |
-| Which types and values will validation accept? | `schema kind <name>`, `schema relation <name>`, `schema tags`, or `schema sections` |
+| Which types and values will validation accept? | `schema kind <name>`, `schema relation <name>`, `schema frame <name>`, `schema tags`, or `schema sections` |
 | What needs attention? | `queue [ID]` |
 | What does one reader see? | `page <id>` |
 | What does an accepted chronicle say? | `chronicle <id>` |
@@ -158,6 +166,7 @@ views are:
 | What changed this entity? | `timeline <id>` |
 | Why did this entry change? | `log <id>` |
 | Which structured facts are absent? | `facts [ID]` |
+| Which places have fixed positions and paths? | `placement [ID]` |
 | Which entries lack local graph support? | `topology` |
 | Does the graph survive without famous hubs? | `web` |
 | Which machine-drafted prose lacks a current human read? | `provenance [ID]` |
@@ -181,7 +190,9 @@ projection and does not use that selector.
 - era narratives name existing eras and source chronicles;
 - public entities and pages do not name or embed DM-only entities;
 - relationships with DM-only endpoints carry the DM flag;
-- relation types, banned categories, domain/range, cardinality, and exclusions;
+- relation types, banned categories, domain/range, cardinality, exclusions, and
+  typed properties;
+- spatial frames, positions, relative anchors, and route paths;
 - static attributes are not changed by effects;
 - entity existence and effect use are temporally causal;
 - tags, prominence, subkinds, fact types, sections, statuses, and provenance
@@ -214,7 +225,8 @@ Generated output is disposable and gitignored.
 
 - `make site-data` writes `build/site` and `build/site-internal`. The public
   bundle contains reader-visible entries, pages, facts, graph, chronology,
-  search material, route metadata, and social assets. The internal bundle adds
+  search material, spatial frames, positions, route geometry, and social assets.
+  The internal bundle adds
   questions, entry logs, provenance, missing expected facts, and editorial
   records for DM entries.
 - `make reader-build` embeds the public bundle in the production Vite build at

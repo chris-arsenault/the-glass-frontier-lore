@@ -541,6 +541,7 @@ module Lorecraft
       when :boolean then value == true || value == false
       when :entity then value.respond_to?(:to_sym) && known?(value.to_sym)
       when :enum then value.respond_to?(:to_sym) && definition.values.include?(value.to_sym)
+      when :frame then value.respond_to?(:to_sym) && @world.spatial_frames.key?(value.to_sym)
       when :integer then value.is_a?(Integer)
       when :number then finite_number?(value)
       when :text then value.is_a?(String) && !value.strip.empty?

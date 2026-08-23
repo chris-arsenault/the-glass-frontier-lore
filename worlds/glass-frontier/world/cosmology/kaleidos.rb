@@ -5,6 +5,7 @@ geographic_location :kaleidos do
   status :complete
   tags :surface, :resonance, :ringglass, :cosmology
   prominence :mythic
+  position frame: :kaleidos_system_chart, radius: 2, angle_deg: 64
   registry true
   custom_fact :surface_character, "Oceans, continental stone, settled river plains, grassland, grove basins and high mountains",
               label: "Surface"

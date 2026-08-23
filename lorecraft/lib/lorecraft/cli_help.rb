@@ -410,11 +410,23 @@ module Lorecraft
           relation :located_in, category: :spatial, temporal: true,
                                 domain: :npc, range: :geographic_location
 
+          relation :adjacent_to, category: :spatial do
+            property :frame, type: :frame
+            property :bearing_deg, type: :number, minimum: 0,
+                                   maximum_exclusive: 360, requires: :frame
+          end
+
         The shared schema declares kinds, subkinds, reusable fact fields, effect
         verbs, and relation types. A world's schema adds its controlled tags,
-        sections, fields, and setting-specific relations. Validation rejects
-        unknown ids, invalid typed facts, unknown subkinds and tags, relation
+        sections, fields, and setting-specific relations. Relation blocks can
+        declare typed edge properties. Validation rejects unknown ids, invalid
+        typed facts or relation properties, unknown subkinds and tags, relation
         domain or range errors, and explicitly banned generic relations.
+
+        spatial_frame declares a fixed schematic coordinate system. Entries use
+        position for absolute or relative placement and route_geometry for named
+        paths through entity anchors and local points. Query schema frames and
+        placement before editing those values.
 
         A world can use require_playable_coverage!, require_playable_count!,
         and require_focus_choices! to make player-facing selection completeness
@@ -450,8 +462,8 @@ module Lorecraft
 
         Use search to find the stable id, page to inspect present-day resolved
         prose, and connections to inspect its typed neighborhood at a selected
-        year. facts, queue, provenance, timeline, and log all accept the same id
-        when that dimension matters.
+        year. facts, queue, provenance, timeline, log, and placement all accept
+        the same id when that dimension matters.
 
         The entity's Ruby file remains canonical. Read it before editing because
         rendered prose omits DSL fields, questions, logs, and source placement.

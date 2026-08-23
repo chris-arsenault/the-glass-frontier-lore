@@ -40,8 +40,8 @@ that answers the task:
 3. Use `search <query>` when the stable id is unknown. Then use `page <id>` for
    rendered prose, `timeline <id>` for change, `log <id>` for settled editorial
    reasoning, and `facts <id>` for local schema gaps.
-4. Query `schema kind <name>` or `schema relation <name>` when the edit depends
-   on the ontology. Use `connections <id>` for the local graph, then read the
+4. Query `schema kind <name>`, `schema relation <name>`, or `schema frame <name>`
+   when the edit depends on the ontology. Use `connections <id>` for the local graph, then read the
    canonical entity and the relevant neighbor sources before editing.
 5. Use `topology`, `web`, or `graph` only when the task concerns wider graph
    structure.
@@ -141,6 +141,13 @@ Restating instead of embedding is the most common way this corpus goes wrong: tw
 - `alias` — optional. Common alternative name(s).
 - `status` — `complete`, `draft`, `shell`, `needs_refinement`.
 - Additional fields as needed (`region`, `era`, …). Add only when they carry real information.
+- `position` — a fixed absolute or relative placement in a declared spatial frame.
+- `route_geometry` — named paths through positioned entity anchors and route-local points.
+
+Named relations may carry `props:` only when their relation schema declares
+those typed properties. Use this for measurements about the connection, such as
+a bearing or distance between adjacent places, rather than storing the value on
+either endpoint.
 
 Generic `related:` lists do not exist. Relationships are typed edges from the
 schema taxonomy (`leads`, `depends_on`, `located_in`, …); unknown and explicitly
@@ -339,6 +346,7 @@ JSON from the same typed result; validation and lint use diagnostic records.
 | `log [<id>]` | The entries' own history — why a fact changed, what a correction rests on. Not world content. |
 | `provenance [<id>]` | Global or entry-owned blocks: who drafted them, who read them, and whose read expired. |
 | `facts [<id>]` | Global expected-fact coverage or one entry's resolved and missing values. |
+| `placement [<id>]` | Spatial-frame coverage or one entry's positions and route paths. |
 | `queue [<id>]` | Global or entry-scoped `question` declarations plus computed findings. A render, not a file. |
 | `page <id>` | One entity's rendered page on stdout. What the review app shows as prose. |
 | `connections <id>` | Incoming and outgoing typed edges with intervals, titles, and source paths. |

@@ -5,6 +5,7 @@ geographic_location :vastine do
   status :complete
   tags :cosmology, :"outer-system", :ecology, :trade, :religion
   prominence :recognized
+  position frame: :kaleidos_system_chart, radius: 7, angle_deg: 46
 
   prose <<~PROSE
     Vastine is the seventh planet, a water giant whose atmosphere deepens into a global ocean without a known solid surface. Its inhabited moons include #{ref :pelhari, "Pelhari"}, the largest center of learning and trade in the outer system.

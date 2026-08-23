@@ -9,6 +9,8 @@ installation :xyloathax do
   access "Two controlled dock corridors on the hab's far arc"
   tags :"ring-hab", :orbital, :resonance, :danger, :governance
   prominence :recognized
+  position frame: :kaleidos_system_chart, relative_to: :kaleidos,
+           radial_offset: 0.1, angle_offset_deg: -118
   status :complete
   omit_facts :maintained_by
 

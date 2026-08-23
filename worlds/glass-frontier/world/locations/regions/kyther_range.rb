@@ -5,6 +5,8 @@ geographic_location :kyther_range do
   status :complete
   tags :surface, :resonance, :navigation, :materials, :danger
   prominence :recognized
+  position frame: :kaleidos_surface, latitude_deg: 10, longitude_deg: -58,
+           size_class: :region
 
   prose <<~PROSE
     The Kyther Range is a long mountain chain of dark peaks, high valleys, and snowfields east of #{ref :avar, "Avar"}. Its western slopes feed #{ref :miraeth, "Miraeth"}; water leaving its southern valleys eventually reaches the #{ref :sable_crescent, "Sable Crescent"}. The highest passes hold snow through the year. The lower valleys support towns, pasture, quarrying, and narrow belts of terrace agriculture.
@@ -47,4 +49,8 @@ relate :rel_kyther_supplies_miraeth, :supplies, :kyther_range, :miraeth do
 end
 relate :rel_kyther_supplies_sable_crescent, :supplies, :kyther_range, :sable_crescent do
   prose "The range's southern rivers carry water and mineral sediment toward the #{ref :sable_crescent, "Sable Crescent"}."
+end
+relate :rel_kyther_adjacent_miraeth, :adjacent_to, :kyther_range, :miraeth,
+       props: { frame: :kaleidos_surface, bearing_deg: 225 } do
+  prose "Miraeth's wooded basins lie along Kyther's wet foothills."
 end

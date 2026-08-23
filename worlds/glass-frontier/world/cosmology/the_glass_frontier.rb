@@ -7,6 +7,8 @@ geographic_location :the_glass_frontier do
   reviewed "2026-03-19"
   tags :orbital, :"ring-hab", :salvage
   prominence :mythic
+  position frame: :kaleidos_system_chart, relative_to: :kaleidos,
+           radial_offset: 0.1, angle_offset_deg: 0
   form "Shattered orbital ring of inhabited fragments"
   population_pattern "Hundreds of sealed habitats with distinct communities"
   principal_hazards "Debris, resonance distortion, structural collapse and Bloom Zones"

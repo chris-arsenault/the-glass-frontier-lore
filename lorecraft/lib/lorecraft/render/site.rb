@@ -538,6 +538,7 @@ module Lorecraft
           },
           from: relation.from_year,
           to: relation.to_year,
+          props: (relation.props unless relation.props.empty?),
           source_metadata: relation.source_metadata,
         }.compact
       end

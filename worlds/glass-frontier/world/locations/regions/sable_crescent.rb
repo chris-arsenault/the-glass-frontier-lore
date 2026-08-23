@@ -7,6 +7,8 @@ geographic_location :sable_crescent do
   reviewed "2026-03-20"
   tags :surface, :resonance, :archives, :"signal-freq"
   prominence :recognized
+  position frame: :kaleidos_surface, latitude_deg: -4, longitude_deg: -55,
+           size_class: :region
 
   prose <<~PROSE
     The Sable Crescent is a warm river basin on Kaleidos, shaped like a hooked arc around an ancient impact floor. Marshes and flooded plains occupy its center. High cliffs and deep canyons cut the rim, exposing crystal-bearing strata that glow faintly after sunset. The #{ref :echo_rivers, "Echo Rivers"} surface here in greater concentration than anywhere else in the system.

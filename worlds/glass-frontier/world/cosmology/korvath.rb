@@ -5,6 +5,7 @@ geographic_location :korvath do
   status :complete
   tags :"outer-system", :resonance, :trade, :governance, :ecology
   prominence :recognized
+  position frame: :kaleidos_system_chart, radius: 3, angle_deg: 126
 
   prose <<~PROSE
     Korvath is the next world beyond Kaleidos, larger in land and sea and home to settlements founded long before #{ref :coremark, "Coremark"}. Its temperate belts support broad river plains, old forests, upland pasture, and cities connected by coastal shipping. The planet receives less ring debris than Kaleidos. Its sky is usually clear of the bright broken band that hangs over the inner world.

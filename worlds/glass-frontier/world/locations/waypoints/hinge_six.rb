@@ -5,6 +5,8 @@ installation :hinge_six do
   status :complete
   tags :orbital, :transport, :trade, :navigation, :resonance
   prominence :marginal
+  position frame: :kaleidos_system_chart, relative_to: :kaleidos,
+           radial_offset: 0.55, angle_offset_deg: 18
 
   prose <<~PROSE
     Hinge Six is a small waystation on the branch of #{ref :keel, "the Keel"} where traffic from Kaleidos turns outward toward Korvath and Ashvane. It consists of a beacon house, one rotating habitation drum, four docking collars, and a freight frame that can hold six separated loads. Most vessels stop only long enough to exchange route records and confirm the next receiving port.

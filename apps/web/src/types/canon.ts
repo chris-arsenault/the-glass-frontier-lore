@@ -1,3 +1,19 @@
+import type {
+  RelationPropertyDefinition,
+  RouteGeometry,
+  SpatialFrameDefinition,
+  SpatialPosition,
+} from "./spatial";
+
+export type {
+  RelationPropertyDefinition,
+  RouteGeometry,
+  RouteGeometryPath,
+  RouteGeometryPoint,
+  SpatialFrameDefinition,
+  SpatialPosition,
+} from "./spatial";
+
 export type Optional<T> = T | undefined;
 export type Nullable<T> = T | null;
 export type TimeUnit = "year" | "tick";
@@ -42,6 +58,7 @@ export interface EntrySummary {
   origin_blurb: Optional<string>;
   veiled: boolean;
   veil_tagline: Optional<string>;
+  positions: SpatialPosition[];
   summary: string;
   route: string;
 }
@@ -136,6 +153,7 @@ export interface RelationDefinition {
   inverse: Optional<string>;
   description: Optional<string>;
   causal: boolean;
+  properties: RelationPropertyDefinition[];
 }
 
 export interface WorldIndex {
@@ -154,6 +172,7 @@ export interface WorldIndex {
   subkinds: SubkindSummary[];
   tags: TagDefinition[];
   relations: RelationDefinition[];
+  spatial_frames: SpatialFrameDefinition[];
 }
 
 interface AuthoredSectionBase {
@@ -194,6 +213,7 @@ export interface EntryConnection {
   from: number;
   to: Nullable<number>;
   live: boolean;
+  properties: Optional<Record<string, unknown>>;
 }
 
 export interface EntryFactLink {
@@ -223,6 +243,7 @@ export interface EntryDocument extends EntrySummary {
   chronicles: ChronicleSummary[];
   annotations: PublicAnnotation[];
   media: MediaReference[];
+  route_geometry: Nullable<RouteGeometry>;
   dm: Optional<boolean>;
 }
 
@@ -246,6 +267,8 @@ export interface GraphNode {
   origin_blurb: Optional<string>;
   veiled: Optional<boolean>;
   veil_tagline: Optional<string>;
+  positions: Optional<SpatialPosition[]>;
+  route_geometry: Optional<RouteGeometry>;
   dm: boolean;
   path: string;
 }
@@ -257,6 +280,7 @@ export interface GraphEdge {
   from: number;
   to: Nullable<number>;
   dm: boolean;
+  props: Optional<Record<string, unknown>>;
   live_at_render: boolean;
 }
 
@@ -334,6 +358,7 @@ export interface ChronicleRelationship {
   target: ChronicleRelationshipEndpoint;
   from: number;
   to: Optional<number>;
+  props: Optional<Record<string, unknown>>;
   source_metadata: Record<string, unknown>;
 }
 

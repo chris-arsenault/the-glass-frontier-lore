@@ -10,6 +10,8 @@ installation :shadewell do
   access "Keel port, regional kites, heat-road haulers, and crater lifts"
   tags :"outer-system", :resonance, :trade, :transport, :"kinetic-freq"
   prominence :recognized
+  position frame: :ashvane_surface, latitude_deg: 0, longitude_deg: 0,
+           size_class: :site
 
   prose <<~PROSE
     Shadewell descends the inner wall of a deep crater on #{ref :ashvane, "Ashvane"}. The inhabited terraces remain in shadow for most of the day. Reservoirs and cold stores occupy the lower rock above a buried ice lens. The freight port stands on the sunward rim, where clear approaches and firm basalt matter more than comfort.

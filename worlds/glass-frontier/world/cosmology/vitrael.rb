@@ -5,6 +5,7 @@ geographic_location :vitrael do
   status :complete
   tags :cosmology, :materials, :trade, :danger, :"outer-system"
   prominence :recognized
+  position frame: :kaleidos_system_chart, radius: 4, angle_deg: 202
 
   prose <<~PROSE
     Vitrael is the fourth planet, wrapped in a deep hot atmosphere whose upper clouds carry metal condensates and crystal-bearing dust. Permanent habitation occupies orbital stations and aerostats above the crushing lower layers. No crewed descent has returned from beneath the dark cloud deck.

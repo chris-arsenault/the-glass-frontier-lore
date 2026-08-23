@@ -84,7 +84,9 @@ def spatial_world
       location_kind :place
       relation :adjacent_to, category: :spatial, symmetric: true,
                              domain: :place, range: :place do
-        property :bearing_deg, type: :number, minimum: 0, maximum_exclusive: 360
+        property :frame, type: :frame
+        property :bearing_deg, type: :number, minimum: 0, maximum_exclusive: 360,
+                               requires: :frame
         property :distance_km, type: :number, minimum_exclusive: 0
       end
     end
@@ -121,11 +123,11 @@ def spatial_world
       end
     end
     relate :meridian_beside_port, :adjacent_to, :meridian, :port,
-           props: { bearing_deg: 48, distance_km: 1_200 }
+           props: { frame: :planet_surface, bearing_deg: 48, distance_km: 1_200 }
     genesis :relay_near_planet, at: 1 do
       effects do
         set_relation :relay, :adjacent_to, :planet,
-                     props: { bearing_deg: 215, distance_km: 40_000 }
+                     props: { frame: :system_chart, bearing_deg: 215, distance_km: 40_000 }
       end
     end
   end
@@ -1598,12 +1600,14 @@ class SpatialMetadataTest < Minitest::Test
     assert_equal %i[planet outer_turn port],
                  world.entity(:trade_lane).route_geometry.paths[:surface_leg].points
     assert_equal(
-      { bearing_deg: 48, distance_km: 1_200 },
+      { frame: :planet_surface, bearing_deg: 48, distance_km: 1_200 },
       world.at(:now).edges.find do |edge|
         edge.subject == :meridian && edge.relation == :adjacent_to
       end.props,
     )
     assert_equal 40_000, world.at(:now).edges.find { |edge| edge.subject == :relay }.props[:distance_km]
+    timeline = Lorecraft::Render::Timeline.new(world).data(entity: :relay)
+    assert_equal 40_000, timeline[:events].first.dig(:props, :distance_km)
   end
 
   def test_spatial_validation_rejects_broken_coordinates_and_paths
@@ -1633,7 +1637,7 @@ class SpatialMetadataTest < Minitest::Test
     placement = Lorecraft::PlacementAudit.new(world, entity: :trade_lane).data
 
     assert_equal %i[planet_surface system_chart], frames.map { |frame| frame[:name] }
-    assert_equal %i[bearing_deg distance_km], relation[:properties].map { |property| property[:name] }
+    assert_equal %i[bearing_deg distance_km frame], relation[:properties].map { |property| property[:name] }
     assert_equal :system_chart, placement.dig(:route_geometry, :frame)
   end
 
@@ -1643,7 +1647,7 @@ class SpatialMetadataTest < Minitest::Test
     relay = graph["nodes"].find { |node| node["id"] == "relay" }
     adjacency = graph["edges"].find { |edge| edge["rel"] == "adjacent_to" }
 
-    assert_equal "planet", relay.dig("positions", 0, "relative_to")
+    assert_equal "planet", relay.dig("positions", 0, "relative_to_id")
     assert_equal 1_200, adjacency.dig("props", "distance_km")
 
     Dir.mktmpdir do |dir|

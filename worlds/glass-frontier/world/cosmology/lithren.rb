@@ -5,6 +5,7 @@ geographic_location :lithren do
   status :complete
   tags :cosmology, :"outer-system", :archives, :mystery, :danger
   prominence :recognized
+  position frame: :kaleidos_system_chart, radius: 8, angle_deg: 158
 
   prose <<~PROSE
     Lithren is the eighth and outermost planet of the Kaleidos system. Nitrogen frost, dark stone, and shallow frozen basins cover its surface. Research stations occupy sealed cuts beside ruins built in the open before the oldest surviving system records.

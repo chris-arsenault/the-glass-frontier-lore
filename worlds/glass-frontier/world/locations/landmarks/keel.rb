@@ -9,6 +9,25 @@ installation :keel do
   tags :trade, :orbital, :salvage, :danger, :navigation
   prominence :recognized
 
+  route_geometry frame: :kaleidos_system_chart do
+    anchor :glasswake
+    anchor :keelward
+    anchor :the_shear
+    anchor :hinge_six
+    anchor :korvath
+    anchor :shadewell
+    anchor :mareth
+    anchor :cold_lantern
+    point :kaleidos_exchange, radius: 2.13, angle_deg: 70
+    point :outer_transfer, radius: 4.1, angle_deg: 208
+
+    path :glasswake_feeder, through: %i[glasswake kaleidos_exchange]
+    path :main_spine, through: %i[keelward kaleidos_exchange hinge_six outer_transfer shadewell]
+    path :korvath_branch, through: %i[hinge_six korvath]
+    path :mareth_branch, through: %i[kaleidos_exchange mareth]
+    path :pell_branch, through: %i[kaleidos_exchange the_shear cold_lantern]
+  end
+
   prose <<~PROSE
     The system's primary trade lane — an orbital route connecting #{ref :ringglass, "ringglass"} production zones in #{ref :the_shear, "The Shear"}, major refinement facilities, #{ref :sithari, "Sithari"}, and #{ref :ashvane, "Ashvane"} at the far end. It remains the single most important corridor for bulk commerce in the Kaleidos system.
 
@@ -56,21 +75,12 @@ installation :keel do
   PROSE
 
   log "2026-08-20 — Replaced the single-carrier account of Keel services with named municipal, cooperative, guild, and carrier facilities. Vantara keeps a large network but does not own the route's accommodation, rescue, or receiving infrastructure."
+  log "2026-08-23 — Added the fixed chart paths for the main spine and its Glasswake, Korvath, Mareth, and Pell branches; route termini now point toward the Keel consistently."
 end
 
 relate :rel_keel_in_orbit_of_kaleidos, :in_orbit_of, :keel, :kaleidos do
   prose "The Keel runs through #{ref :kaleidos, "Kaleidos"} orbit — the main trade lane threading the inhabited ring fragments end to end."
 end
-relate :rel_keel_terminus_keelward, :terminus_of, :keel, :keelward do
-  prose "At the surface end the Keel grounds at #{ref :keelward, "Keelward"}, the transfer district of its largest market."
-end
-relate :rel_keel_terminus_glasswake, :terminus_of, :keel, :glasswake do
-  prose "#{ref :glasswake, "Glasswake"} is its other principal terminus, the first surface settlement the lane reconnected."
-end
-relate :rel_keel_terminus_ashvane, :terminus_of, :keel, :ashvane do
-  prose "Outbound traffic terminates at #{ref :ashvane, "Ashvane"}, the far-end settlement that depends on the lane for nearly everything."
-end
-
 # --- history (moment) ---
 moment :keel_reestablished, year: 2305, of: :keel do
   prose "When the #{ref :signal_famine, "Signal Famine"} broke, the Keel was the first major trade route brought back into service — the spine along which bulk commerce reconnected, and the corridor every later route branched from."

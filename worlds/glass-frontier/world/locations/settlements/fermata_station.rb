@@ -8,6 +8,8 @@ installation :fermata_station do
   reviewed "2026-03-19"
   tags :governance, :resonance, :"ring-hab", :"fluid-reality", :music, :"social-structure"
   prominence :recognized
+  position frame: :kaleidos_system_chart, relative_to: :kaleidos,
+           radial_offset: 0.1, angle_offset_deg: 26
   log "2026-08-09 — raised from :marginal. Hab Meridian names its jazz governance as one of three exemplars of a distinctive local culture, alongside the Sithari ringglass aesthetic and the Pelhari instrument-wrights; a station whose governance is a byword elsewhere is not marginally known."
   log "2026-08-21 — Removed the narrator's joke from the opening. Fermata remains recognized because its Sessions and mediation work are known beyond the station."
   region "glass-frontier"

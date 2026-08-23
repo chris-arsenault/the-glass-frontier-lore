@@ -5,6 +5,8 @@ installation :threshold_station do
   path "player/locations/settlements/threshold-station.md"
   tags :orbital, :"ring-era", :AI, :governance, :resonance
   prominence :recognized
+  position frame: :kaleidos_system_chart, relative_to: :kaleidos,
+           radial_offset: -0.12, angle_offset_deg: 0
 
   prose <<~PROSE
     A pre-Glassfall station at the inner Lagrange point between #{ref :kaleidos_system, "Kaleidos"} and the system's sun. Threshold is a vast spindle aligned along the sun-line — kilometers long, narrow at the ends, broader through the middle — and has held station at the L1 point since before any living memory begins. The #{ref :lattice_proxy_synod, "Lattice Proxy Synod"} operates from the spindle's central band. #{ref :span_nine, "Span Nine"} terminates at the Kaleidos-facing end. The sun-facing end is sealed and has been for as long as the Synod has occupied the station.

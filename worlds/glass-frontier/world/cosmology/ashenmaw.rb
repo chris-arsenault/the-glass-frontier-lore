@@ -5,6 +5,7 @@ geographic_location :ashenmaw do
   status :complete
   tags :cosmology, :"outer-system", :navigation, :danger
   prominence :recognized
+  position frame: :kaleidos_system_chart, radius: 5, angle_deg: 278
 
   prose <<~PROSE
     Ashenmaw is the fifth planet, a banded gas giant with an inhabited system of moons. Its gravity flexes those moons and heats their interiors. On #{ref :ashvane, "Ashvane"}, that motion keeps volcanic fractures active and supplies much of the heat its towns must move away.

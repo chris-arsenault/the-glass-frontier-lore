@@ -330,12 +330,12 @@ connection rather than either endpoint:
 
 ```ruby
 relate :avar_borders_kyther, :adjacent_to, :avar, :kyther_range,
-       props: { bearing_deg: 82, distance_km: 640 }
+       props: { frame: :kaleidos_surface, bearing_deg: 82, distance_km: 640 }
 ```
 
-`bearing_deg` runs clockwise from the frame's north from the declared source
-toward the target. `placement [ID]`, `schema frames`, and `schema frame NAME`
-inspect the canonical values.
+`bearing_deg` runs clockwise from the named frame's north from the declared
+source toward the target. `placement [ID]`, `schema frames`, and `schema frame
+NAME` inspect the canonical values.
 
 ## Time and change
 
