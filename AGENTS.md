@@ -130,6 +130,18 @@ The owner is whichever entity the fact is *about* — the Accord's seat belongs 
 
 Restating instead of embedding is the most common way this corpus goes wrong: two copies of a sentence drift, and the reader meets both.
 
+### GM notes
+
+How the entry behaves when a game reaches it, published alongside its lore. One to three sentences each, at most three per entry, in three kinds:
+
+```ruby
+gm_note :appears,      "how it enters a scene nobody asked for"
+gm_note :triggered_by, "what players routinely say or do that changes what it does"
+gm_note :complicates,  "the pressure it puts on a scene it is already in"
+```
+
+Broad condition, specific consequence: the condition is something an ordinary scene meets, and the specificity goes into what happens next. These are the one authored surface that addresses the table rather than speaking from inside the world. `make gm-notes WORLD=<id>` reports coverage and the repetition that bulk writing produces. Full rules: `craft/gm-notes.md`.
+
 ### Entity fields
 
 - `title` — required. The entry's name.

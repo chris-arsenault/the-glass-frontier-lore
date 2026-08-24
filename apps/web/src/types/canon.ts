@@ -58,9 +58,20 @@ export interface EntrySummary {
   origin_blurb: Optional<string>;
   veiled: boolean;
   veil_tagline: Optional<string>;
+  gm_notes: Optional<GmNote[]>;
   positions: SpatialPosition[];
   summary: string;
   route: string;
+}
+
+/**
+ * How to run the entry, published with it. The kind says when the note
+ * applies: on the entity turning up unbidden, on something the players said,
+ * or on the scene it is already part of.
+ */
+export interface GmNote {
+  kind: "appears" | "triggered_by" | "complicates";
+  text: string;
 }
 
 export interface PageSummary {

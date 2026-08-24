@@ -108,6 +108,8 @@ supports `elapsed_years`, `first_moment_year`, `anchor_year`,
 `expected: true` makes absence visible in `facts`; it does not force an author
 to invent a value. `require_fact_cards! from: :renowned, minimum: 4` makes too
 few resolved public facts a lint error for entries at or above that prominence.
+`require_gm_notes! from: :recognized, minimum: 1` does the same for GM notes on
+the entries a running game can be offered.
 
 ### Relationships
 
@@ -225,7 +227,7 @@ end
 
 Common explicit methods are `name`/`title`, `tags`, `prominence`, `aka`,
 `status`, `region`, `narrative_role`, `subkind`, `reviewed`, `dm!`, `prose`,
-`cards`, `fact`, `custom_fact`, `question`, `log`, and `derive`.
+`cards`, `fact`, `custom_fact`, `question`, `log`, `gm_note`, and `derive`.
 
 `article!` marks a reader reference page. It stays in search and page renders
 but is absent from the induced game-world graph. `playable_as :role` accepts a
@@ -237,6 +239,14 @@ characters.
 real kind. Its affirmative declarative sentence is its complete description;
 it cannot also carry prose, facts, DM visibility, a location kind, an article
 flag, or a playable role.
+
+`gm_note :kind, "…"` declares how the entry behaves when a game reaches it. The
+kinds are `appears`, `triggered_by`, and `complicates`. A note is one to three
+complete sentences on one line, at most 320 characters, and an entity carries at
+most three. Notes resolve the same inline markers as prose and publish with the
+entry in every render. Validation rejects a note on a veiled entry or a shell,
+an unknown kind, and a note that closes on withheld material, delivers a verdict
+on its own content, states an authoring gap, or advises on running the table.
 
 World schemas can enforce complete player-facing sets:
 

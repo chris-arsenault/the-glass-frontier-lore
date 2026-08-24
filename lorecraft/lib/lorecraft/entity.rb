@@ -9,6 +9,10 @@ module Lorecraft
   # concerns, for a question about one part of a long entry.
   Question = Struct.new(:text, :raised, :on, :order, keyword_init: true)
 
+  # One instruction to whoever is running the game, published with the entry.
+  # `kind` is one of Schema::GM_NOTE_KINDS.
+  GmNote = Struct.new(:kind, :text, :order, keyword_init: true)
+
   # A node in the world: a stable symbol id, a kind, static attributes, owned
   # prose, and (resolved on demand) dynamic state. Dynamic state is never stored
   # here — it is the fold of moments, computed by the Resolver. The entity only
@@ -18,7 +22,7 @@ module Lorecraft
 
     attr_reader :id, :kind, :static_attrs, :fact_values, :custom_fact_defs,
                 :content_blocks, :derives, :source_file, :source_line, :log_entries, :questions,
-                :positions
+                :positions, :gm_notes
     attr_accessor :visibility, :public_entry, :index_note, :route_geometry
 
     def initialize(id:, kind:, source_file: nil, source_line: nil)
@@ -32,6 +36,7 @@ module Lorecraft
       @content_blocks = []
       @log_entries = []
       @questions = []
+      @gm_notes = []
       @positions = []
       @route_geometry = nil
       @derives = {}
@@ -258,6 +263,26 @@ module Lorecraft
       def question(text, raised: nil, on: nil)
         @entity.questions << Question.new(text: text.to_s, raised: raised, on: on,
                                           order: (@question_order = (@question_order || 0) + 1))
+      end
+
+      # How this entity behaves when a running game reaches it. `:appears` is
+      # how it enters a scene nobody asked for, `:triggered_by` is what players
+      # routinely say or do that changes what it does, and `:complicates` is the
+      # pressure it puts on a scene it is already in.
+      #
+      #   gm_note :appears, "Latch survivors turn up across the mid-drift habs.
+      #                      Asked where they are from, they answer with a deck
+      #                      number and a shift."
+      #
+      # This is the one authored surface that speaks to the table rather than
+      # from inside the world, and it publishes with the entry. A note states a
+      # condition an ordinary scene meets and then what happens; the validator
+      # rejects one that ends by gesturing at something it declines to say.
+      def gm_note(kind, text)
+        @entity.gm_notes << GmNote.new(
+          kind: kind&.to_sym, text: text.to_s,
+          order: (@gm_note_order = (@gm_note_order || 0) + 1)
+        )
       end
 
       # Any other bare call sets a static attribute of that name.

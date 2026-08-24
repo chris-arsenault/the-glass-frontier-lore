@@ -18,6 +18,7 @@ module Lorecraft
       "naming-craft" => ["craft/naming-craft.md", "World-agnostic naming craft."],
       "naming-by-kind" => ["craft/naming-by-kind.md", "Naming checks for each entity kind."],
       "roles" => ["craft/narrative-roles.md", "Viewpoint and titan narrative roles."],
+      "gm-notes" => ["craft/gm-notes.md", "Writing the instructions published with an entry."],
       "topology" => ["craft/graph-topology.md", "Graph health and relationship budgets."],
       "connecting" => ["craft/connecting-entities.md", "Repairing weak connections without filler."],
       "crosswalk" => ["craft/crosswalk-review.md", "Periodic consistency review."],

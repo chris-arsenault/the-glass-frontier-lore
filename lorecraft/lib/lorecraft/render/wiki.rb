@@ -145,7 +145,20 @@ module Lorecraft
         # An entity's history (moments, oldest first) and connections
         # (relationships) render as further plain paragraphs on its page.
         connection_paragraphs(node, year).each { |para| body << para << "\n\n" }
+        body << gm_notes_section(node, year)
         metadata_box(node, year) + body.strip + "\n"
+      end
+
+      # How to run the entity. Published with the entry, so the player export
+      # carries it too.
+      def gm_notes_section(node, year)
+        return "" unless node.respond_to?(:gm_notes) && !node.gm_notes.empty?
+
+        lines = node.gm_notes.sort_by(&:order).map do |note|
+          label = note.kind.to_s.split("_").map(&:capitalize).join(" ")
+          "- **#{label}:** #{wikitext(note.text, node.id, year).strip}"
+        end
+        "## GM Notes\n\n#{lines.join("\n")}\n\n"
       end
 
       # Prose paragraphs from this entity's moments + relationships (player

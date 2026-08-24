@@ -301,7 +301,7 @@ class NarrativeDocumentTest < Minitest::Test
       timeline = JSON.parse(File.read(File.join(root, "timeline.json")))
       editorial = JSON.parse(File.read(File.join(dir, "internal", "worlds", "ice.json")))
 
-      assert_equal 8, chronicle["schema_version"]
+      assert_equal 9, chronicle["schema_version"]
       assert_equal "tick", index["time_unit"]
       assert_equal "tick", timeline["unit"]
       assert_equal "The ice remembers the first mark.", chronicle["content"]
@@ -1662,7 +1662,7 @@ class SpatialMetadataTest < Minitest::Test
       route = JSON.parse(File.read(File.join(root, "entries", "trade-lane.json")))
       port = JSON.parse(File.read(File.join(root, "entries", "port.json")))
 
-      assert_equal 8, index["schema_version"]
+      assert_equal 9, index["schema_version"]
       assert_equal %w[planet_surface system_chart], index["spatial_frames"].map { |frame| frame["id"] }
       assert_equal %w[planet outer_turn port], route.dig("route_geometry", "paths", 0, "through")
       assert_equal 1_200, port.dig("connections", 0, "properties", "distance_km")
@@ -1800,7 +1800,7 @@ class SiteRenderTest < Minitest::Test
       index = JSON.parse(File.read(File.join(public_root, "index.json")))
       editorial = JSON.parse(File.read(File.join(dir, "internal", "worlds", "sample-world.json")))
 
-      assert_equal 8, ada["schema_version"]
+      assert_equal 9, ada["schema_version"]
       assert_equal "cartographer", ada["subkind"]
       assert(index["subkinds"].any? { |item| item["kind"] == "person" && item["id"] == "cartographer" })
       assert_equal ["born", "age", "occupation", "home", "chart_room", "working_language"], ada["facts"].map { |fact| fact["id"] }
@@ -3107,6 +3107,186 @@ class GuideTest < Minitest::Test
       assert_predicate repo.join(entry.path), :file?, entry.path
     end
   end
+end
+
+class GmNoteTest < Minitest::Test
+  def note_world(&block)
+    Lorecraft.define do
+      schema do
+        entity_type :concept
+        entity_type :note
+      end
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
+      instance_eval(&block)
+    end
+  end
+
+  def test_notes_are_declared_typed_and_ordered
+    world = note_world do
+      concept :a do
+        name "A"
+        gm_note :appears, "Runners carry the first word of it into the market. They price it before anyone asks."
+        gm_note :complicates, "The seal on the crate is older than the crate."
+      end
+    end
+
+    assert world.validate!
+    assert_equal %i[appears complicates], world.entity(:a).gm_notes.map(&:kind)
+    assert_equal [1, 2], world.entity(:a).gm_notes.map(&:order)
+  end
+
+  def test_unknown_kind_is_caught
+    world = note_world do
+      concept :a do name "A"; gm_note :vibes, "The seal is older than the crate." end
+    end
+
+    assert(world.validate.any? { |problem| problem.include?("unknown GM-note kind") })
+  end
+
+  def test_a_note_longer_than_three_sentences_is_caught
+    world = note_world do
+      concept :a do
+        name "A"
+        gm_note :appears, "One. Two. Three. Four."
+      end
+    end
+
+    assert(world.validate.any? { |problem| problem.include?("one to 3 complete sentences") })
+  end
+
+  def test_an_unfinished_note_is_caught
+    world = note_world do
+      concept :a do name "A"; gm_note :appears, "Runners carry the first word of it" end
+    end
+
+    assert(world.validate.any? { |problem| problem.include?("complete sentences") })
+  end
+
+  def test_a_withheld_closer_is_caught
+    world = note_world do
+      concept :a do
+        name "A"
+        gm_note :complicates, "She gives the tally and nothing more."
+      end
+    end
+
+    assert(world.validate.any? { |problem| problem.include?("withheld closer") })
+  end
+
+  def test_table_management_is_caught
+    world = note_world do
+      concept :a do
+        name "A"
+        gm_note :appears, "The GM decides how far the rot has spread."
+      end
+    end
+
+    assert(world.validate.any? { |problem| problem.include?("advice about running the table") })
+  end
+
+  def test_a_veiled_entry_cannot_carry_notes
+    world = note_world do
+      concept :a do
+        name "A"
+        veiled "A blue-clad courier carries sealed maps between separated habs."
+        gm_note :appears, "The courier waits at the lock until someone signs."
+      end
+    end
+
+    assert(world.validate.any? { |problem| problem.include?("veiled entry cannot declare GM notes") })
+  end
+
+  def test_more_than_three_notes_are_caught
+    world = note_world do
+      concept :a do
+        name "A"
+        gm_note :appears, "One sentence here."
+        gm_note :appears, "Another sentence here."
+        gm_note :appears, "A third sentence here."
+        gm_note :appears, "A fourth sentence here."
+      end
+    end
+
+    assert(world.validate.any? { |problem| problem.include?("at most 3") })
+  end
+
+  def test_the_requirement_names_entries_without_notes
+    world = note_world do
+      schema { require_gm_notes! from: :recognized, minimum: 1 }
+      concept :a do name "A"; prominence :recognized end
+      concept :b do name "B"; prominence :marginal end
+    end
+
+    problems = world.validate
+    assert(problems.any? { |problem| problem.include?("concept a: 0 GM notes") })
+    refute(problems.any? { |problem| problem.include?("concept b") })
+  end
+
+  def test_the_audit_finds_duplicates_shared_openings_and_summary_echoes
+    world = note_world do
+      concept :a do
+        name "A"
+        summary "Runners carry the first word of it into the market."
+        gm_note :appears, "Runners carry the first word of it into the market."
+      end
+      concept :b do
+        name "B"
+        gm_note :appears, "Anyone who asks after the seal is told to come back at shift change."
+      end
+      concept :c do
+        name "C"
+        gm_note :appears, "Anyone who asks after the seal is told to come back at shift end."
+      end
+      concept :d do
+        name "D"
+        gm_note :appears, "Anyone who asks after a berth is sent to the third window."
+      end
+      concept :e do
+        name "E"
+        gm_note :appears, "Anyone who asks after a crate is sent to the yard office."
+      end
+    end
+    audit = Lorecraft::GmNoteAudit.new(world).data
+
+    assert_equal 5, audit[:candidate_count]
+    assert_equal ["b#1", "c#1"], [audit[:duplicates].first[:left], audit[:duplicates].first[:right]]
+    assert_equal "anyone who asks", audit[:overused_openings].first[:opening]
+    assert_equal "a#1", audit[:echoes].first[:note]
+    refute audit_clean?(world)
+  end
+
+  def test_the_audit_is_clean_when_notes_differ
+    world = note_world do
+      concept :a do
+        name "A"
+        gm_note :appears, "Runners carry the first word of it into the market."
+      end
+      concept :b do
+        name "B"
+        gm_note :complicates, "The seal on the crate outdates the crate by two winters."
+      end
+    end
+
+    assert audit_clean?(world)
+    assert_equal 2, Lorecraft::GmNoteAudit.new(world).data[:covered_count]
+  end
+
+  def test_notes_publish_on_the_entry_page
+    world = note_world do
+      concept :a do
+        name "A"
+        path "player/concepts/a.md"
+        prose "A prose."
+        gm_note :triggered_by, "Ask after the seal and the yard clerk finds other work to do."
+      end
+    end
+    markdown = Lorecraft::Render::Markdown.new(world).page_markdown(world.entity(:a))
+
+    assert_includes markdown, "## GM Notes"
+    assert_includes markdown, "- **Triggered By:** Ask after the seal"
+  end
+
+  def audit_clean?(world) = Lorecraft::GmNoteAudit.new(world).clean?
 end
 
 class FeaturePortContractTest < Minitest::Test

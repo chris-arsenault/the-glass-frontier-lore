@@ -11,7 +11,7 @@ module Lorecraft
     # player knowledge. Questions, entry logs and drafting records go into a
     # separate document intended for the authenticated editorial API.
     class Site < Base
-      SCHEMA_VERSION = 8
+      SCHEMA_VERSION = 9
       CAUSAL_RELATIONS = %w[causes caused caused_by].freeze
 
       def initialize(world, root: Dir.pwd)
@@ -207,10 +207,24 @@ module Lorecraft
           origin_blurb: node.respond_to?(:origin_blurb) && node.origin_blurb,
           veiled: node.respond_to?(:veiled?) && node.veiled?,
           veil_tagline: node.respond_to?(:veiled?) && node.veiled? ? node.veil_tagline : nil,
+          gm_notes: gm_note_documents(node, :player),
           positions: position_documents(node),
           summary: summary_for(node, sections),
           route: entry_route(node.id),
         }.compact
+      end
+
+      # How to run the entity, for whoever is running the game. Published with
+      # the entry rather than held back, so both audiences carry it.
+      def gm_note_documents(node, audience)
+        return unless node.respond_to?(:gm_notes) && !node.gm_notes.empty?
+
+        node.gm_notes.sort_by(&:order).map do |note|
+          {
+            kind: note.kind.to_s,
+            text: resolve_site_text(note.text, subject: node.id, audience: audience).strip,
+          }
+        end
       end
 
       def entry_document(node, audience: :player)
@@ -255,6 +269,7 @@ module Lorecraft
           origin_blurb: node.respond_to?(:origin_blurb) && node.origin_blurb,
           veiled: node.respond_to?(:veiled?) && node.veiled?,
           veil_tagline: node.respond_to?(:veiled?) && node.veiled? ? node.veil_tagline : nil,
+          gm_notes: gm_note_documents(node, audience),
           positions: position_documents(node),
           summary: summary_for(node, sections),
           route: entry_route(node.id),

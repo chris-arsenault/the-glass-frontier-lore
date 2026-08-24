@@ -301,6 +301,33 @@
   margin-top: 46px;
 }
 
+.gm-notes {
+  clear: both;
+  padding: 18px 20px 20px;
+  border-left: 3px solid var(--world-accent);
+  background: rgb(251 250 246 / 92%);
+}
+
+.gm-notes__list {
+  margin: 0;
+}
+
+.gm-notes__item + .gm-notes__item {
+  margin-top: 14px;
+}
+
+.gm-notes__item dt {
+  color: var(--ink-600);
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.gm-notes__item dd {
+  margin: 4px 0 0;
+}
+
 .entry-infobox {
   float: right;
   width: min(320px, 46%);

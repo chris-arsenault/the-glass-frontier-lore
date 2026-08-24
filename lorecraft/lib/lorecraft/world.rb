@@ -228,6 +228,16 @@ module Lorecraft
         .select { |node| node.is_a?(Entity) }
     end
 
+    # The entries a running game can be offered, and so the ones GM notes are
+    # written for. A veiled entry is a tagline and nothing else, a structural
+    # entry is bookkeeping, and a DM entry reaches no table through the public
+    # slice.
+    def gm_note_entities
+      game_world_entities(include_veiled: false).reject do |entity|
+        entity.dm? || entity.structural? || !schema.wiki_kind?(entity.kind)
+      end
+    end
+
     # Induce the graph from the selected game-world nodes. This prevents an
     # article from continuing to affect degree or reachability through its
     # incident edges after the article node itself has been removed.

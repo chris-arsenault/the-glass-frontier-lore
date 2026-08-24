@@ -89,6 +89,7 @@ Every content/query command selects one world through `--world ID`,
 | inspect one entity's changes | `timeline ID` | chronological effect strip |
 | recover settled editorial reasoning | `log ID` | non-reader entry history |
 | find missing structured facts | `facts [ID]` | global coverage or one entry's values |
+| write instructions for running an entry | `gm-notes [ID]` | note coverage plus duplicate, opening, and echo findings |
 | inspect fixed map data | `placement [ID]` | frame coverage or one entry's positions and route paths |
 | measure local graph coverage | `topology` | typed degree and thin entries |
 | measure chronicle focus choices | `focus` | direct public choices for each playable location |
@@ -215,6 +216,24 @@ or more schema-declared roles; absence means the entry is not a selection.
 Origins need a one-line `origin_blurb` of at most 140 characters. A `veiled`
 entry is a public non-location entity whose one affirmative sentence is its
 complete description until it is expanded. It has no authored prose or facts.
+
+```ruby
+installation :cordon_nine do
+  gm_note :appears, "Cordon crews rotate through on eight-day shifts, and the
+                     outgoing shift sells what it could not use."
+  gm_note :complicates, "Every clearance runs through one desk, and the desk
+                        keeps its own copy."
+end
+```
+
+`gm_note` publishes how the entry behaves when a game reaches it: `appears`,
+`triggered_by`, or `complicates`, one to three sentences, at most three per
+entry. Notes carry the same markers as prose. Validation rejects a note on a
+veiled entry or a shell, one that runs past three sentences or 320 characters,
+and one that closes on withheld material, states an authoring gap, or gives
+advice about running the table. `require_gm_notes! from: :recognized` makes them
+mandatory at that prominence and above; `gm-notes` reports coverage and
+repetition.
 
 A world can make its picker expectations part of the schema:
 

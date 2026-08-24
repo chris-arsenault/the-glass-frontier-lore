@@ -136,6 +136,19 @@ module Lorecraft
           for that entry. Missing values should stay missing until known.
         TEXT
       },
+      "gm-notes" => {
+        summary: "Report GM-note coverage and repetition across the world.",
+        usage: "gm-notes [ID] [--format text|json] [--world ID]",
+        body: <<~TEXT,
+          Use this while writing GM notes. It lists the entries a running game
+          can be offered that still carry none, then measures the corpus for the
+          way bulk-written notes go wrong: pairs that share most of their
+          wording, an opening phrase several notes reuse, and notes that restate
+          the summary of their own entry. Each finding is a rewrite, and the
+          command exits nonzero while any remain. Give an entry id to read that
+          entry's notes instead.
+        TEXT
+      },
       "topology" => {
         summary: "Measure typed-edge coverage and list thin entries.",
         usage: "topology [--format text|json] [--world ID]",

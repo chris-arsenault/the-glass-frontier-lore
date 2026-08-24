@@ -26,6 +26,7 @@ module Lorecraft
       check_prominence: ["invalid_prominence", "entry", "Use a prominence level declared by the schema."],
       check_narrative_roles: ["invalid_narrative_role", "entry", "Use an allowed narrative role on an NPC."],
       check_canonical_metadata: ["invalid_canonical_metadata", "entry", "Correct the article, playability, origin, or veiled declaration."],
+      check_gm_notes: ["invalid_gm_note", "entry", "State a condition an ordinary scene meets and what then happens, in one to three sentences."],
       check_playability_requirements: ["unsatisfied_playability_requirement", "schema-authoring", "Restore the declared playable coverage or choice range."],
       check_subkinds: ["invalid_subkind", "schema-authoring", "Declare and select an allowed subkind."],
       check_facts: ["invalid_fact", "schema-authoring", "Correct the fact declaration or its value."],
@@ -1077,6 +1078,92 @@ module Lorecraft
       extra = entity.static_attrs.keys - VEILED_ALLOWED_STATIC_ATTRS
       unless extra.empty?
         err("#{label(entity)}: veiled entry has unsupported metadata #{extra.map(&:inspect).join(', ')}")
+      end
+    end
+
+    # Each pattern is a way of writing a note that says nothing a GM can run:
+    # a closer that gestures at withheld material, a verdict on the material
+    # the note just gave, an authoring state, or advice about managing the
+    # table instead of what the entity does.
+    GM_NOTE_DISALLOWED_PHRASES = {
+      /\band nothing (?:more|else|after that)\b/i => "withheld closer",
+      /\bleaves? it (?:at that|there)\b/i => "withheld closer",
+      /\bsays? no more\b/i => "withheld closer",
+      /\b(?:which|that) is the (?:whole )?point\b/i => "verdict on its own material",
+      /\bthe irony\b/i => "verdict on its own material",
+      /\bnot yet (?:written|defined|decided)\b/i => "authoring state",
+      /\b(?:tbd|to be determined)\b/i => "authoring state",
+      /\bthe (?:gm|dm)\b/i => "advice about running the table",
+      /\buntil you need (?:it|them|to)\b/i => "advice about running the table",
+    }.freeze
+
+    def check_gm_notes
+      @world.entities.each_value do |entity|
+        @diagnostic_owner = entity
+        notes = entity.gm_notes
+        next if notes.empty?
+
+        if entity.veiled?
+          err("#{label(entity)}: a veiled entry cannot declare GM notes")
+        end
+        if entity[:status] == :shell
+          err("#{label(entity)}: a shell cannot declare GM notes")
+        end
+        if notes.size > Schema::GM_NOTE_MAXIMUM
+          err("#{label(entity)}: #{notes.size} GM notes; at most #{Schema::GM_NOTE_MAXIMUM}")
+        end
+        notes.each { |note| check_gm_note(entity, note) }
+      end
+      check_gm_note_requirement
+    end
+
+    def check_gm_note(entity, note)
+      unless @schema.gm_note_kind?(note.kind)
+        err("#{label(entity)}: unknown GM-note kind #{note.kind.inspect}; " \
+            "use #{Schema::GM_NOTE_KINDS.join(', ')}")
+      end
+
+      text = note.text
+      if text.strip.empty?
+        err("#{label(entity)}: GM note #{note.order} is empty")
+        return
+      end
+      if text != text.strip || text.match?(/[\r\n]/)
+        err("#{label(entity)}: GM note #{note.order} must be one trimmed line")
+      end
+      # Length and sentence count are about what a GM reads, so they measure the
+      # display text. A marker sentinel is longer than the words it stands for,
+      # and charging an author for linking would push notes away from `ref`.
+      plain = Markers.strip(text)
+      sentences = plain.scan(/[.!?](?:\s|\z)/).size
+      unless plain.match?(/[.!?]\z/) && sentences.between?(1, Schema::GM_NOTE_SENTENCE_MAXIMUM)
+        err("#{label(entity)}: GM note #{note.order} must be one to " \
+            "#{Schema::GM_NOTE_SENTENCE_MAXIMUM} complete sentences")
+      end
+      if plain.length > Schema::GM_NOTE_LENGTH_MAXIMUM
+        err("#{label(entity)}: GM note #{note.order} exceeds " \
+            "#{Schema::GM_NOTE_LENGTH_MAXIMUM} characters")
+      end
+      GM_NOTE_DISALLOWED_PHRASES.each do |pattern, reason|
+        next unless plain.match?(pattern)
+
+        err("#{label(entity)}: GM note #{note.order} is a #{reason}")
+      end
+    end
+
+    def check_gm_note_requirement
+      threshold = @schema.gm_notes_required_from
+      return unless threshold
+
+      minimum = @schema.gm_notes_required_minimum
+      threshold_index = @schema.prominence_levels.index(threshold)
+      @world.gm_note_entities.each do |entity|
+        index = @schema.prominence_levels.index(entity.prominence&.to_sym)
+        next if index.nil? || threshold_index.nil? || index < threshold_index
+        next if entity.gm_notes.size >= minimum
+
+        @diagnostic_owner = entity
+        err("#{label(entity)}: #{entity.gm_notes.size} GM notes; #{threshold}+ entries need #{minimum}")
       end
     end
 

@@ -5,6 +5,7 @@ import { ErrorState, LoadingState } from "../components/AsyncState";
 import { ContentSections } from "../components/ContentSections";
 import { EditorialPanel } from "../components/EditorialPanel";
 import { EntryInfobox } from "../components/EntryFacts";
+import { GmNotes } from "../components/GmNotes";
 import { EntityImage, PublicAnnotations } from "../components/PublishedContext";
 import { ViewHeader } from "../components/ViewHeader";
 import { useWorld } from "../components/worldContext";
@@ -24,6 +25,7 @@ function EntryArticle({ entry, worldId }: { entry: EntryDocument; worldId: strin
       <EntryInfobox aliases={entry.aliases} facts={entry.facts} taxonomy={taxonomy} title={entry.title} />
       <EntityImage media={entry.media} title={entry.title} />
       <ContentSections sections={entry.sections} headingLevel={2} sectionClassName="entry-section" />
+      <GmNotes notes={entry.gm_notes ?? []} />
       <PublicAnnotations annotations={entry.annotations} />
     </div>
   </article>;

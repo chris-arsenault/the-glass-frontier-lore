@@ -399,6 +399,15 @@ when "facts"
   rescue Lorecraft::Error => e
     abort e.message
   end
+when "gm-notes"
+  id = ARGV.shift
+  begin
+    query = Lorecraft::GmNoteAudit.new(load_world, entity: id&.tr("-", "_")&.to_sym)
+    emit(query, format)
+    exit(1) if id.nil? && !query.clean?
+  rescue Lorecraft::Error => e
+    abort e.message
+  end
 when "log"
   # The entry's own history: why facts changed, what corrections rest on. Not
   # world content, so it appears on no reader-facing page.

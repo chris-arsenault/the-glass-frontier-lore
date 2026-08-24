@@ -262,11 +262,28 @@ module Lorecraft
           parts << "## #{heading} <!-- #{humanize(b.section)} -->\n\n" +
                    render_authored_block(b, from_path, year, audience)
         end
+        parts << gm_notes_markdown(node, from_path, year, audience)
         # Everything about the ENTRY rather than the world goes last, and only on
         # the internal tree. A reader gets prose; a reviewer gets prose plus the
         # lineage that says who wrote it, what is unresolved, and what changed.
         parts << entry_lineage(node) unless player
         parts.compact.join("\n\n") + "\n"
+      end
+
+      # How to run the thing, published with the entry. Unlike the lineage
+      # below, this is content: it addresses whoever is running the game, and
+      # both audiences receive it.
+      def gm_notes_markdown(node, from_path, year, audience)
+        return nil unless node.respond_to?(:gm_notes) && !node.gm_notes.empty?
+
+        lines = node.gm_notes.sort_by(&:order).map do |note|
+          text = resolve_prose(
+            note.text, from_path: from_path, year: year,
+            audience: audience.equal?(:all) ? :all : :player
+          ).strip
+          "- **#{humanize(note.kind)}:** #{text}"
+        end
+        "## GM Notes\n\n#{lines.join("\n")}"
       end
 
       def entry_lineage(node)

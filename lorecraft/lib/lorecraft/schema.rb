@@ -57,6 +57,17 @@ module Lorecraft
     ].freeze
 
     PROMINENCE_LEVELS = %i[forgotten marginal recognized renowned mythic].freeze
+
+    # What a GM note answers, and the only kinds `gm_note` accepts. A running
+    # game consults them at different moments, which is why they are typed
+    # rather than one list: `appears` decides whether the entity enters a scene
+    # nobody asked for, `triggered_by` fires on something the players said, and
+    # `complicates` applies once it is already present.
+    GM_NOTE_KINDS = %i[appears triggered_by complicates].freeze
+    GM_NOTE_MAXIMUM = 3
+    GM_NOTE_SENTENCE_MAXIMUM = 3
+    GM_NOTE_LENGTH_MAXIMUM = 320
+
     FACT_TYPES = %i[text integer year entity entities].freeze
     RELATION_PROPERTY_TYPES = %i[boolean entity enum frame integer number text].freeze
     FACT_DIRECTIONS = %i[outgoing incoming].freeze
@@ -70,7 +81,8 @@ module Lorecraft
                 :static_attrs, :prominence_levels, :fact_cards_required_from,
                 :fact_cards_required_minimum, :playable_roles, :location_kinds,
                 :playable_coverage_requirements, :playable_count_requirements,
-                :focus_choice_requirements
+                :focus_choice_requirements, :gm_notes_required_from,
+                :gm_notes_required_minimum
 
     def initialize
       @kinds = {}            # kind(sym) => KindDef; wiki=false means non-reader
@@ -89,6 +101,8 @@ module Lorecraft
       @require_explicit_subkinds = false
       @fact_cards_required_from = nil
       @fact_cards_required_minimum = 1
+      @gm_notes_required_from = nil
+      @gm_notes_required_minimum = 1
     end
 
     # Declare one or more entity kinds. `wiki: false` marks a kind as absent
@@ -260,6 +274,24 @@ module Lorecraft
 
       @fact_cards_required_from = from
       @fact_cards_required_minimum = minimum
+    end
+
+    def gm_note_kind?(name) = GM_NOTE_KINDS.include?(name&.to_sym)
+
+    # Require GM notes on every entry a running game can be offered at this
+    # prominence and above. Turn this on once a world has written them; before
+    # that it manufactures filler.
+    def require_gm_notes!(from: :forgotten, minimum: 1)
+      from = from.to_sym
+      unless prominence?(from)
+        raise DefinitionError, "GM-note requirement uses unknown prominence #{from}"
+      end
+      unless minimum.is_a?(Integer) && minimum.positive? && minimum <= GM_NOTE_MAXIMUM
+        raise DefinitionError, "GM-note minimum must be between 1 and #{GM_NOTE_MAXIMUM}"
+      end
+
+      @gm_notes_required_from = from
+      @gm_notes_required_minimum = minimum
     end
 
     def extend_kind(name, &block)
