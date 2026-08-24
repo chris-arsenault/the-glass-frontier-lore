@@ -43,6 +43,10 @@ artifact :karet_spool do
 
     The cable also weakens when exposed to several competing signal patterns. Radios, repeated alarms, and synchronized instrument pulses are kept off the route. Tests agree that the line records some aspect of the passage's resonance state. They have not established what the cable stores or why use makes it transparent.
   PROSE
+
+  gm_note :triggered_by, "Anything that takes a hand off the cable — a fall, a struggle, carrying somebody — drops that person into the corridor's present geometry, which is rarely the one the rest of the party is walking."
+  gm_note :complicates, "Fifty-nine serviceable meters set the size of any rescue. The route has to fit inside them, a hard walk turns outer sections clear, and the #{ref :displacement_council, "Council"} measures what came back before authorizing the next deployment."
+  gm_note :appears, "Cable that pays out or draws back while the brake is closed is the crews' withdrawal signal. It means a fixed end has moved, and the people at the far end of the line cannot see which one."
 end
 
 relate :rel_displacement_council_possesses_karet_spool, :possesses, :displacement_council, :karet_spool, since: 2426 do

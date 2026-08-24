@@ -11,6 +11,10 @@ artifact :alda_capsule do
 
     Tanel keeps the capsule beside the Tube Room Six rack while crews follow its recorded route. Its closure ring fits the newly opened Alda line and turns freely in a gate whose other moving parts remain fixed in place.
   PROSE
+
+  gm_note :appears, "The capsule sits beside the Tube Room Six rack with its trip card readable, so anyone passing through can see it asking for a pressure crew at a failing nursery seal and listing nine junctions past the end of Tanel's hull plan."
+  gm_note :triggered_by, "Its closure ring turns freely in a gate whose other moving parts are seized, so a party that meets a stuck junction will try the capsule on it, and the tube crews will lend it out for precisely that."
+  gm_note :complicates, "The clock inside reads forty-three minutes between a launch in 2305 and a delivery in 2434, and the ceramic dust on its abraded side is fresh; a theory that covers only one of those gets sent back down the line to be tested."
 end
 relate :rel_tanel_possesses_alda_capsule, :possesses, :tanel, :alda_capsule, since: 2434 do
   prose "Tanel holds Alda Capsule at Tube Room Six and uses its trip card to trace the reopened line."

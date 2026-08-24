@@ -14,6 +14,12 @@ faction :third_arc_defense do
 
     Third Arc Defense became known beyond its members after occupying #{ref :hinge_six, "Hinge Six"} and filtering embargo traffic through the station. Its own keepers shut the relay rather than let the occupation continue. The pact survived that defeat as a convoy organization, fought through the Bitter Reach, and dissolved when its remaining members transferred route guarantees into the Tempered Accord.
   PROSE
+
+  gm_note :appears, "A Third Arc escort guarantee still turns up in outer-hab paperwork; the pact's common records and stores sat at " \
+                    "#{ref :verathi, "Verathi"}, and what it had promised passed into the Tempered Accord when the last members " \
+                    "dissolved it in 2423."
+  gm_note :triggered_by, "Ask who gave an order and the answer depends on the season, because command rotated between three habs' " \
+                         "delegations and each supplied its own patrol craft, dispatchers, and stores."
 end
 
 relate :rel_third_arc_defense_headquartered_verathi, :headquartered_in, :third_arc_defense, :verathi, since: 2359, till: 2423 do

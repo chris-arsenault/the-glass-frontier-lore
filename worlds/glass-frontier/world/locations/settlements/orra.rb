@@ -39,6 +39,10 @@ installation :orra do
 
     Orra has cleared the overlying apartments and opened the old nursery service gallery for study. Growers want the warm tissue isolated for propagation. Cutters have found pressure marks indicating movement against the cradle. Deep readers are placing a fourth probe at the point where the signal enters the spine.
   PROSE
+
+  gm_note :appears, "An ordinary walk across Orra passes through dry hide, a warm wet fungal district, and a marrow gallery within a few streets. The galleries hold pockets of sweet gas that a kinetic spark will light, so tuned tools are carried dead through them or left at the boundary."
+  gm_note :triggered_by, "Removing anything from a chamber puts the cutters above and the growers below into the same argument: the plate has come free of a mapped fracture and is ready to lift, and the beds under it want another season of its shade."
+  gm_note :complicates, "Samples from beneath the sternum close shallow cuts within a day, and the apartments above that tissue are already empty. Anyone hurt near the nursery gallery gets offered a sample, and afterwards the growers and the deep readers both want to know what it did."
 end
 
 relate :rel_orra_located_in_frontier, :located_in, :orra, :the_glass_frontier, since: 2140 do

@@ -18,6 +18,10 @@ faction :split_wake do
 
     Split Wake did not operate again. Nine members died and fourteen entered Brake custody. The surviving ships were cut apart after the casualty hearings; their drive records supplied the sequence used in every later account of the battle.
   PROSE
+
+  gm_note :appears, "The name is a maneuver before it is a crew: two thrust lines diverging across a convoy's wake, striking whichever ship turns to meet one of them. Shear convoy pilots still call the pattern out by name when they see it forming behind them."
+  gm_note :triggered_by, "Any claim about the sequence of the #{ref :shardfall, "Shardfall"} battle can be checked against Split Wake's drive records, pulled before the ships were cut apart after the casualty hearings and used in every account written since."
+  gm_note :complicates, "Split Wake went for refined loads and ignored raw fields, so its victims were whoever had already done the work. At Shardfall that meant the local miners' transfer barges and a skiff drawing away from the field, not the corporate rigs still cutting."
 end
 
 relate :rel_split_wake_operated_shear, :operates_in, :split_wake, :the_shear, since: 2343, till: 2348 do

@@ -16,6 +16,10 @@ npc :pava_lorn do
 
     She closed the inner collection band after the second herd began circling Perch. Its oldest animals hold positions that usually belong to juveniles, while younger adults fly the strained outer edge.
   PROSE
+
+  gm_note :appears, "Nothing collects at Perch without a band off Lorn's board, so a crew that wants a particular stretch of the spiral is asking her for it, and she answers in spacing and comb angle rather than in permission."
+  gm_note :triggered_by, "Point at one animal's turn and Lorn will not read it; she sends the asker back to count the whole formation first, the same way she trains ward readers, so an urgent single observation buys a lesson before it buys an answer."
+  gm_note :complicates, "When the pylon record cannot resolve the inner formation she rides #{ref :molt} into the spiral herself, which puts the person who assigns every collection band inside the part of the herd she has closed to everyone else."
 end
 
 relate :rel_pava_lorn_located_in_perch, :located_in, :pava_lorn, :perch, since: 2435 do

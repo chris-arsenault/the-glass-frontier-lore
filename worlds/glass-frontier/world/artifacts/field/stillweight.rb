@@ -42,6 +42,12 @@ artifact :stillweight do
 
     #{ref :counterweight, "The Counterweight"} has published the lot marks and offered inspection at cost. Several machines with ground-off plates have appeared in independent yards. Until the batch is traced, experienced crews ask to see the open core before accepting a stillweight brought by someone else.
   PROSE
+
+  gm_note :triggered_by, "Players will try to pin something alive with one. Flesh yields around the feet, clothing tears, and the nearest clear tone belongs to the floor, so the clamp takes a Farborn's shell or a rigid limb only after the soft parts are off the contact."
+  gm_note :complicates, "The clamp seats on whatever mass is actually continuous, not on what the operator chose: a buried water line, the next crane's foundation, a seam crossing the whole yard. " \
+                        "The first pull moves or stresses that instead, in front of nobody who was watching for it."
+  gm_note :appears, "A stillweight offered secondhand anywhere around Kaleidos this year gets its core opened before the sale closes. " \
+                    "Blue-backed cores and ground-off lot plates end the conversation, and an owner who refuses the inspection is assumed to be moving recalled stock."
 end
 
 relate :rel_counterweight_possesses_stillweight, :possesses, :counterweight, :stillweight do

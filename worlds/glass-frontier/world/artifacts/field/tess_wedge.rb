@@ -15,6 +15,10 @@ artifact :tess_wedge do
   PROSE
 
   log "2026-08-21 — Renamed Tess Wedge to Var's Wedge after its maker's personal name changed."
+
+  gm_note :appears, "Whoever taps the ceramic heel feels the recording come back up through the wrapped grip, so the player holding the wedge hears the layer a moment before the crew at the listening points does."
+  gm_note :triggered_by, "Several workshops will cut a copy of the wedge within a day. The copy splits the glass just as cleanly and scatters the recording across both new faces, so what it lifts grades as instrument stock rather than as an archive plate."
+  gm_note :complicates, "Talven issues the original only for cuts whose surrounding layer has already been mapped, so a request to use it on a fresh face means paying for or working a mapping shift first."
 end
 relate :rel_talven_possesses_tess_wedge, :possesses, :talven, :tess_wedge, since: 2435 do
   prose "Talven's archive crews hold Var's Wedge and issue it for mapped recording cuts."

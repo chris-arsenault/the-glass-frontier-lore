@@ -41,6 +41,17 @@ installation :south_shade do
 
     South Shade has closed its hot return so the line does not add another gradient across the handlers' path. The kitchen is using stored fuel, the baths are cold, and hauler crews must clean warm machinery at the next road station.
   PROSE
+
+  gm_note :appears, "The court board posts hauler arrivals against Keel lift slots, and the house clerk writes " \
+                    "the interval between them as rest, repair, or impossible. Drivers who take an impossible " \
+                    "turn keep the cargo moving and lose their claim on the covered bays."
+  gm_note :triggered_by, "Starting a pump anywhere near the road turns the cargo-yard #{ref :cinderback, "cinderbacks"} " \
+                         "back toward the port, and the handlers camped in the two outer bays come looking for " \
+                         "whoever did it. The hot return is closed for the same reason, so warm machinery gets " \
+                         "washed at the next road station."
+  gm_note :complicates, "The deepest sleeping rooms have no exterior wall and go to children, heat injuries, and " \
+                        "workers arriving off the low roads in an emergency. A paying guest holding one through a " \
+                        "busy port cycle loses it the moment a casualty comes down the highland road."
 end
 
 relate :rel_south_shade_located_shadewell, :located_in, :south_shade, :shadewell do

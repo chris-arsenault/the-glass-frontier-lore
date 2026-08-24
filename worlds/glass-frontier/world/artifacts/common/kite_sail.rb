@@ -47,6 +47,11 @@ resource :kite_sail do
 
     Large-scale momentum nullification — moving a ring hab — is theoretically possible and practically beyond any existing array's capacity.
   PROSE
+
+  gm_note :appears, "Whoever the party travels with, nobody aboard is a specialist in the drive. Arrays are tuned at manufacture, and anyone who can read a resonance gauge keeps a kite flying from a surface road up to a hab dock without changing engines."
+  gm_note :triggered_by, "Someone will eventually turn the drive on a target. A kinetic field does work as a weapon, and it is broadly frowned on, so the consequence that lands first comes from the other crews who watched it happen."
+  gm_note :complicates, "Off the resonance-rich lanes — deep interplanetary space, a #{ref :the_shear, "Shear"} dead zone — the vessel is running on stored #{ref :microcavities, "microcavities"}. " \
+                        "When the charge is gone the ship does not slow or limp; it keeps whatever momentum it had and goes wherever that points."
 end
 
 moment :kite_sail_development, year: 2235, of: :kite_sail do

@@ -33,6 +33,10 @@ npc :lira_vashtenri do
 
     She is developing a retirement sequence that transfers the load through neighboring mounts before the old buoy leaves the wall. The first full attempt will happen on the same cordon section where her original field array held. A failed transfer would not create a portable barrier; it would open Cinder Gap at its oldest seam.
   PROSE
+
+  gm_note :appears, "Resonance trouble reaches Lira before it reaches the instruments: she names the drifting array while the gauges still read clean, and they catch up minutes later. A crew that waits for the instrument to agree spends that interval on the wrong repair."
+  gm_note :triggered_by, "Ask Lira why the containment holds and she walks the questioner to a mount and has them feel it through a load cycle. Players who want it written down get pointed at #{ref :vashtenri_thesis, "the thesis built from her refinery books"}, which she did not write."
+  gm_note :complicates, "Lira's time is mortgaged to the oldest damping buoys at #{ref :cinder_gap, "Cinder Gap"}, which have absorbed decades of uneven load and cannot be safely emptied. Any errand that takes her off that cordon gets weighed against a buoy saturating on its own schedule, and she will say so."
 end
 
 relate :rel_lira_designed_liras_wall, :designed, :lira_vashtenri, :liras_wall do

@@ -14,6 +14,10 @@ creature :sorel do
 
     Away from the reef, a sorel's plate loses alignment within a few hours. Transport cradles carry a living shell pad under each animal and one tuned brace against its belly. A failed pad leaves the animal disoriented and turns the cradle toward the strongest structural tone aboard the carrier.
   PROSE
+
+  gm_note :appears, "A feeding herd holds one tone line, then crosses to the next band together when the note shifts. Whatever door, rail, or person stands across that line takes the combined weight of every animal in the herd."
+  gm_note :triggered_by, "Watching where the herd feeds and where it will not gives a party the shell survey for nothing: cropped soft mineral marks new growth, untouched ridges are carrying load, and a herd that settles and stays has found warm water behind the wall."
+  gm_note :complicates, "Off the reef the belly plate loses alignment within a few hours, and a cradle whose living shell pad has failed swings the disoriented animal toward the strongest structural tone aboard, which on most carriers is its own arrays."
 end
 
 relate :rel_sorel_inhabits_rib, :inhabits, :sorel, :rib, since: 2435 do

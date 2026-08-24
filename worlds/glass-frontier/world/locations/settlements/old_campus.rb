@@ -47,6 +47,11 @@ installation :old_campus do
   prose <<~PROSE, section: :present_day, heading: "Present Day"
     A planned court expansion has stopped after excavation exposed a lit service passage below the old wall. The passage appears on a pre-Glassfall maintenance diagram held by the public archive but not on any modern structural survey. The city has closed one side of the square while #{ref :clarisant, "the Sithari Clarisant chapter"} tests whether the light belongs to the court's field or to a deeper connection.
   PROSE
+
+  gm_note :appears, "Wall panels along any route through the district sharpen before a load moves and dim once it settles. A panel " \
+                    "that lights out of sequence gives a party a true reading: a blocked path, an undocumented modern tie, or a ring-era room back in the field."
+  gm_note :triggered_by, "Cutting, drilling, or forcing an opening in old campus material is barred until a survey identifies every active path through it. Crews who skip the survey change a load several streets away and answer for the building it moved."
+  gm_note :complicates, "Assembly, courts, archives, and press offices sit within one square, so a grievance can become a filed case and a published copy the same afternoon. Anyone opposing the party covers that distance just as fast."
 end
 
 relate :rel_old_campus_located_in_sithari, :located_in, :old_campus, :sithari, since: 2140 do

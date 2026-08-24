@@ -73,6 +73,12 @@ concept :resonance do
   prose <<~PROSE, section: :trade, heading: "Who Controls It"
     Nobody controls resonance itself — it's ambient, like weather. But the supply chain for refined ringglass is a different matter. See #{ref :ringglass, "Ringglass"}.
   PROSE
+
+  gm_note :triggered_by, "Run something hard — a drive held at full field, a heater through a long night, an array pushed past its usual duty — and the local field goes quiet afterward. " \
+                         "Crystal-rich ground recovers in hours; thin rock can take weeks, and everything else drawing on that field waits with them."
+  gm_note :complicates, "A tuned piece does one thing. The structural array holding a wall will not warm the room, the kinetic drive will not carry a message, and retuning what the party has needs equipment they are not carrying and damages the crystal each time it is done."
+  gm_note :appears, "Inside any settlement the ambient field is already doing work — lamps, stoves, heaters and door compasses running with no fuel and no supply line behind them. " \
+                    "Carry the same devices onto ground with no crystal in it and they simply stop."
 end
 
 relate :rel_resonance_conducted_by_ringglass, :conducted_by, :resonance, :ringglass do

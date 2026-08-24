@@ -13,6 +13,9 @@ resource :stillwater do
 
     The #{ref :echo_ledger_conclave, "Echo Ledger Conclave"} is the largest consumer. The #{ref :lattice_proxy_synod, "Lattice Proxy Synod"} uses it to record AI custodian outputs that don't survive transfer to conventional media. Black market stillwater with pre-purification content — original Echo River voices still intact — commands extreme prices from collectors.
   PROSE
+
+  gm_note :triggered_by, "Carrying stillwater turns ordinary travel hazards into stakes. Heat, a resonance spike or a broken seal corrupts the contents, and nobody learns what was lost until a Tuner reads the vial back at the other end."
+  gm_note :complicates, "A vial offered outside #{ref :echo_ledger_conclave, "Conclave"} supply raises the question of whether it was ever purified, since stock with the original #{ref :echo_rivers, "Echo River"} voices still in it sells to collectors for far more than clean medium."
 end
 
 relate :rel_stillwater_derived_from_echo_rivers, :derived_from, :stillwater, :echo_rivers do

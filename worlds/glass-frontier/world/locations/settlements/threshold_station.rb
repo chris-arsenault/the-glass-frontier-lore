@@ -57,6 +57,10 @@ installation :threshold_station do
 
     Threshold is not a peaceful place. It is a calm one. The work is steady; the seals hold; the proxies keep talking to whatever they talk to; the corridors stay quiet in their particular way. The arrangement is older than the people running it. Most weeks, nothing happens that the station's residents would describe as interesting. They prefer it that way, and so does everyone else.
   PROSE
+
+  gm_note :appears, "There is no pilgrim trade and no scholar class here, so a visitor without stated business is conspicuous inside a shift. The terminus crew know each other by family and the envoys know each other by mission; there is nobody to be mistaken for."
+  gm_note :triggered_by, "Any request to pass a seal goes to the Wardens, who write the permits, patrol the seam, and are sworn to the station rather than to the proxies. Synod backing does not move them — the Synod has tried three times to simplify the process and failed each time."
+  gm_note :complicates, "Four permanent missions share the envoys' quarter, eat together more than they would like, and argue in front of each other by habit, so business a party does anywhere on the station reaches all four before it concludes. Hiring one acquires three interested rivals."
 end
 
 relate :rel_threshold_in_orbit_of_kaleidos, :in_orbit_of, :threshold_station, :kaleidos do

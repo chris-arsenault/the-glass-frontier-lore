@@ -30,6 +30,13 @@ resource :tuning_compass do
 
     #{ref :drawdown, "Drawdown"} produces the most familiar false bearing. As one band weakens, the compass turns toward whatever active source remains, sometimes pointing away from the failed equipment and toward a neighbor still carrying load. This movement is useful when mapped over time. A single reading can send a repair crew in exactly the wrong direction.
   PROSE
+
+  gm_note :appears, "A pocket compass hangs beside the concentrator in most homes and inside most workshop doors, so an indoor scene already has one in it. " \
+                    "A player who looks reads which band dominates, where its strength changes most sharply, and whether the reeds are holding steady or shivering wider."
+  gm_note :triggered_by, "When a character trusts what they feel through their hands over what the reeds show, or the reverse, neither reading wins. " \
+                         "Fatigue and overexposure distort a person, a case can be badly seated or caught in a reflection, and crews stop the work while the two disagree."
+  gm_note :complicates, "During a #{ref :drawdown, "drawdown"} the compass leans toward whatever is still carrying load, which is often the neighbor of the thing that failed. " \
+                        "A crew acting on one reading walks away from the fault; only readings taken from separate positions over time show the turn."
 end
 
 relate :rel_tuning_compass_depends_on_ringglass, :depends_on, :tuning_compass, :ringglass do

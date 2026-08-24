@@ -30,6 +30,10 @@ installation :clearance_eight do
   PROSE
 
   prose "#{embed :returning_pods}", section: :present_day, heading: "The Returning Pods"
+
+  gm_note :appears, "Ships reach the docks down an escorted centerline with kinetic arrays pulling loose material into the slots along the frame's outer edge, so anything unlisted riding on a player hull is taken off them before they tie up."
+  gm_note :triggered_by, "Show a resident any object and they read what motion did to it: a bent panel edge gives its last collision, dust in a sealed seam places it near a drive plume, a weak kinetic imprint names the ships that towed it and in what order."
+  gm_note :complicates, "A disputed machine stays powered in its cradle while the route and ownership impressions remain open, and any claimant may stand at the desk and answer the readers directly."
 end
 
 relate :rel_clearance_eight_located_in_frontier, :located_in, :clearance_eight, :the_glass_frontier, since: 2305 do

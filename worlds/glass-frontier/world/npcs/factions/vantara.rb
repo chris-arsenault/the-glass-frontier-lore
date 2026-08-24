@@ -43,6 +43,10 @@ faction :vantara do
 
     The company's bland competence is, in its way, a marker of civilization. Reliable infrastructure enables the system's more volatile pursuits.
   PROSE
+
+  gm_note :appears, "A Vantara beacon, refueling stop, waystation bunk or rescue call is reachable from almost anywhere on a major route, and every one of them books a usage fee against whoever used it. Independents pay it and complain about it in the same sentence."
+  gm_note :triggered_by, "Ask Vantara to take a side and receive a quote. Its neutrality is a commercial position, so a party with cargo and funds gets escorts, berths and scheduled space, and so does the faction chasing them."
+  gm_note :complicates, "Vantara's security division is the largest private armed force in civilian space and insists it is not a military. A crew that crosses one of its escorts is answering to a corporation sizing its response to the value of the cargo rather than to the offense."
 end
 
 relate :rel_vantara_operates_keelward, :operates_in, :vantara, :keelward, since: 2330 do

@@ -49,6 +49,11 @@ installation :accord_shore do
   prose <<~PROSE, section: :present_day, heading: "Present Day"
     One pair of quiet rooms has remained closed after clerks found matching edits on their control sheets during separate hearings. The submerged circuit tests within tolerance. Accord staff are now inventorying every object brought into the rooms while city crews inspect the old return channel beneath the north bank.
   PROSE
+
+  gm_note :triggered_by, "Carry a recorder or a personal instrument into a hearing room and the clerks' sheet test finds the coupling before " \
+                         "the session opens. Both rooms close until a Tuner traces the path, and the party's kit goes onto an Accord inventory."
+  gm_note :appears, "The district runs on hearing time, so an adjournment empties the south bank at once. Rooms, couriers, and a week of ordered food come cheap in the hours after a case collapses."
+  gm_note :complicates, "Accord marshals decide who enters a hearing room; city responders hold the fire doors and evacuation routes. A party that needs one of those doors opened needs staff from both authorities standing at the junction."
 end
 
 relate :rel_accord_shore_located_in_sithari, :located_in, :accord_shore, :sithari, since: 2423 do

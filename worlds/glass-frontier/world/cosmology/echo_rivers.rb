@@ -36,6 +36,10 @@ phenomenon :echo_rivers do
 
     Some people find comfort in them. Some find grief. The rivers are indifferent to human interpretation.
   PROSE
+
+  gm_note :appears, "A spring, a sinkhole or a wet cliff face on the party's route is a surfacing point, and the voices in it begin before anyone thinks to ask a question."
+  gm_note :triggered_by, "Players who try to make the rivers answer — repeating a name, waiting out the same voice, bringing a recording back to the water — get whatever surfaces next instead. Nothing replays on demand."
+  gm_note :complicates, "A character who stays at a surfacing point through a long scene collects the headaches and disorientation the #{ref :echo_ledger_conclave, "Conclave"} files as drift, and loses track of which remembered voice was theirs to begin with."
 end
 
 relate :rel_echo_conducted_by_resonance, :conducted_by, :echo_rivers, :resonance do

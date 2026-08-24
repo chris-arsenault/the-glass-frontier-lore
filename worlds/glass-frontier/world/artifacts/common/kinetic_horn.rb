@@ -41,6 +41,10 @@ artifact :kinetic_horn do
 
     Folk players learn through shipyards, quarry crews, and family workshops. Their instruments often have fewer collars and a body rebuilt around one familiar material. A horn that only answers a particular yard's cargo rail may be useless elsewhere and exceptionally safe in the hands that know it.
   PROSE
+
+  gm_note :appears, "A horn borrowed at a shipyard or quarry has fewer collars and a body rebuilt around one material, so it answers that yard's cargo rail and not what the players need moved. A full collar set comes from a wright shop or a #{ref :clarisant, "Clarisant"} chapter house."
+  gm_note :triggered_by, "A player who says they will hold something steady with the horn is committed to the note: the force lasts only while they play, and through the instrument and their own bones they will not hear anything shouted at them. Someone else has to watch the load."
+  gm_note :complicates, "In a crowded receiving bay several nearby objects answer the same note and the rear bell starts carrying more than one beat. A player who keeps going pushes whichever response stays strongest, which may be the wall, the wrong member of the frame, or their own brace."
 end
 
 relate :rel_kinetic_horn_derived_resonant_instruments, :derived_from, :kinetic_horn, :resonant_instruments do

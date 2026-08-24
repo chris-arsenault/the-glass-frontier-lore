@@ -28,6 +28,10 @@ installation :perch do
   PROSE
 
   prose "#{embed :circling_herd}", section: :present_day, heading: "The Circling Herd"
+
+  gm_note :appears, "A vessel that moors during the passage gives its name to a ward, or joins whichever ward still has open berths if it came in late; the players' ship acquires cooks, riggers and a band of collection lines whether or not they asked for any."
+  gm_note :triggered_by, "Returning an injured sarn to the spiral, clearing abandoned line, or leaving a deck ready to fold is what earns a ward a wider collection band next passage, so favors done at Perch are repaid in harvest width rather than in coin."
+  gm_note :complicates, "The closing market opens when the last healthy animal crosses the far fragment rather than on any date, so a party holding goods for a better price can find the whole hab folding its decks a week before they expected to sell."
 end
 
 relate :rel_perch_located_in_frontier, :located_in, :perch, :the_glass_frontier, since: 2305 do

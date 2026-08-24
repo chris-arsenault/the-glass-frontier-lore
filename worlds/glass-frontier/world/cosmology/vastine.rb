@@ -30,6 +30,13 @@ geographic_location :vastine do
 
     Travel between moons is routine when Vastine's radiation and storm fields are quiet. During a strong disturbance, a nearby moon can become harder to reach than Kaleidos because safe transfer windows close before a delayed ship can arrive.
   PROSE
+
+  gm_note :appears, "Each of Vastine's moons names its own band faces and sets civic dates by them; #{ref :pelhari, "Pelhari"} counts storm-face, hush-face, and dark-face, and its neighbors divide the cycle differently. " \
+                    "A date agreed across two moons has to be pinned to something else or the parties arrive apart."
+  gm_note :complicates, "A disturbance in Vastine's radiation and storm fields closes transfer windows before a delayed ship can cross. " \
+                        "The next moon over becomes harder to reach than Kaleidos, and help stays visible in the sky the whole time."
+  gm_note :triggered_by, "A sounding chain dropped into the deep ocean comes back cut, crushed, or carrying tissue from an animal nobody has seen whole. " \
+                         "Whoever it is shown to calls it either a specimen or an ancestor, and both readings arrive with a claim on the sample."
 end
 
 relate :rel_vastine_orbits_the_sun, :orbits, :vastine, :the_sun do

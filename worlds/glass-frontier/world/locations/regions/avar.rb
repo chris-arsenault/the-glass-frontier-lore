@@ -39,6 +39,10 @@ geographic_location :avar do
 
     The town is also remembered for moving that pump house uphill while it remained in service. The job made the methods of #{ref :counterweight, "the Counterweight"} known across the surface. Several steppe water boards now require temporary service lines and worker stop calls in plans for a failing foundation.
   PROSE
+
+  gm_note :appears, "Every town posts its well order at the pump house, so a party wanting water for animals, a wash, or a boiler finds their use ranked in a list somebody else wrote. During repairs the drinking line comes back first and the gardens last."
+  gm_note :triggered_by, "Moving, repainting, or pocketing a route stake to save a detour endangers everyone traveling behind, and steppe crews answer it as that. Color and tone are read together: a white head means firm road, green light traffic, red closed."
+  gm_note :complicates, "A credentialed Tuner arriving from off the steppe outranks nobody here, because daily trust follows the well reader or route keeper who has heard the same ground through twenty wet seasons. The certificate starts to matter when new machinery is signed for or a dispute reaches a board."
 end
 
 relate :rel_avar_on_kaleidos, :on_surface_of, :avar, :kaleidos do

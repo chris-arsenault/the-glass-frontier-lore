@@ -54,6 +54,10 @@ installation :pelhari do
 
     Current work follows the city's established divisions: examinations and observatory practice on the upper terraces, trade and craft below them, and ice extraction at the crater floor. The changing face of the parent planet sets the schedule across all three.
   PROSE
+
+  gm_note :appears, "Business here is vertical: the client sits on the upper rim, the affordable bed is halfway down the wall, the freight is at the crater floor, and every leg of the day is a public lift ride. Which terrace a visitor sleeps on is what Pelharin read them by, and nobody says so out loud."
+  gm_note :triggered_by, "Asking a Pelharin to fix a date gets an answer in storm-faces and hush-faces rather than days, because weddings, major commissions and Academy examinations are all set by the parent planet's banding. Pressing for a specific day usually buys the wrong face."
+  gm_note :complicates, "The upper terraces are quiet enough that a response which would vanish into background noise anywhere else reads plainly — a cracked array, a tuned pin, undeclared ringglass in a bag. Anyone attuned walking past picks it up without trying."
 end
 
 relate :rel_pelhari_orbits_vastine, :orbits, :pelhari, :vastine do

@@ -52,6 +52,10 @@ installation :keelward do
   prose <<~PROSE, section: :present_day, heading: "Present Day"
     A spreading shower front has moved several scheduled descents from the inner fields to the outer terminals. Repair yards are full, passenger halls are running on floor bedding, and independent carriers are taking freight that larger lines cannot clear. Inspectors have also recorded a new warm line across the elevator cap, directly above an anchor bed listed as disconnected.
   PROSE
+
+  gm_note :appears, "Passengers clear the halls well before their baggage does, which waits behind a marked line until the bay's field settles. Instrument shops by the inner fields keep loan counters for exactly this gap, and porters steer whoever is in a hurry away from the taut guide ropes."
+  gm_note :triggered_by, "Any ringglass a party brings through is graded and sounded before it reaches a warehouse. Two lots that answer the same reference tone are split into separate bays whatever the paperwork says they are for, which separates a shipment its owner needed kept together."
+  gm_note :complicates, "The shower front has pushed descents out to the heavy terminals, so repair yards are full, arrival halls are bedded on the floor, and independent carriers are clearing freight the scheduled lines cannot. Anything a party needs moved goes through whoever still holds a berth."
 end
 
 relate :rel_keelward_located_in_sithari, :located_in, :keelward, :sithari, since: 2305 do

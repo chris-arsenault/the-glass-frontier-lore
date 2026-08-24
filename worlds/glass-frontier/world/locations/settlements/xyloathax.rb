@@ -31,6 +31,10 @@ installation :xyloathax do
 
     The hab council will close both corridors if the wall clock disagrees with the vessel pair. The #{ref :ring_collective, "Ring Collective"} is holding emergency berths at #{ref :hab_meridian, "Hab Meridian"}, while Xyloathax's growers move the next harvest into sealed storage.
   PROSE
+
+  gm_note :appears, "Vessels stop at the outer buoy, surrender automatic docking control to a local pilot, and run the approach against paired clocks. A disagreement between the two closes that corridor until a Tuner and a pilot have surveyed it together."
+  gm_note :triggered_by, "Raising evacuation with the hab council gets the three independent surveys quoted back, none of which found displacement inside the main hull. Residents keep cases by their inner doors and go on tending the gardens below the truss."
+  gm_note :complicates, "The outer buoy reads early on the dock clocks and on time on its own mechanism, and the gap widens after every supply transfer, so each delivery makes the next approach worse while only one corridor is still open."
 end
 
 moment :xyloathax_zone_appears, year: 2431, of: :xyloathax do

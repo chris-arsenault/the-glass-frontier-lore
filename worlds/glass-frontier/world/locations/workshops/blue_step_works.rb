@@ -42,6 +42,13 @@ installation :blue_step_works do
 
     One core taken from a bridge repair answers the shop foundation and a buried line beyond the east wall. The mapped water pipes do not follow that route. The pad remains closed while Ladderwell opens the old utility records and sounds the bench from outside the building.
   PROSE
+
+  gm_note :triggered_by, "Hand the shop a bent or cracked machine and nothing is straightened that day. " \
+                         "Workers draw and measure the damage until they can say what load made it, and the customer leaves with that drawing attached to the repair, a copy filed with the town if the work is public."
+  gm_note :complicates, "Owners watch their own machine from the marked gallery and are kept off the test floor however expensive the wait becomes. " \
+                        "A bench right, held by a worker with no title, is enough to stop the test and hold the pad for as long as the witness marks stay outside the line."
+  gm_note :appears, "One pad is roped off and everything behind it waits: a recalled core there answers the shop foundation and a buried line the east-wall pipe maps do not show. " \
+                    "Crews are sounding the bench from outside the building while Ladderwell reads through old utility records."
 end
 
 relate :rel_blue_step_located_ladderwell, :located_in, :blue_step_works, :ladderwell do

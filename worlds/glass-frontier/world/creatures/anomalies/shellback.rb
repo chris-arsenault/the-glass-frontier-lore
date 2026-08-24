@@ -38,6 +38,13 @@ creature :shellback do
 
     Small shellbacks appear in remote cutter wakes, usually closed tight around a returned fragment. Process crews isolate the whole piece and wait for it to open. An animal given aggregate and a quiet surface can be walked toward an external hatch without weapons, provided no other machine in the room offers a stronger meal.
   PROSE
+
+  gm_note :appears, "Small ones ride home in a remote cutter return, shut tight around the fragment and indistinguishable from fused wreck until a process crew waits one out. " \
+                    "Given aggregate and a quiet surface it can be walked to an external hatch, provided no machine in the room offers a stronger meal."
+  gm_note :complicates, "Cutting near a settled adult makes it retract and draw the structural response of the surrounding debris into its shell, and the mass then reads sound while the animal is what holds it. " \
+                        "Getting the shellback off afterwards means bracing first and losing the shift."
+  gm_note :triggered_by, "Taking plate off a living animal yields fresher material and is legal under some claim rules; most flotilla practice rejects it, and the " \
+                         "#{ref :shear_compact, "Shear Compact"} counts repeated live cutting as damage to a managed claim. Enforcement needs a witness who finds the vessel later."
 end
 
 relate :rel_shellback_inhabits_shear, :inhabits, :shellback, :the_shear do

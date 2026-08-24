@@ -34,6 +34,10 @@ installation :noll do
 
     Two stands carry paired spars reserved by Three Arms Yard, and the inward turn has pulled both away from their templates. Opening the gallery could save the root stools and ruin the contracted shapes. Holding the shoots through another cutting cycle preserves the order while their pressure rises against a drainage wall shared by three household troughs.
   PROSE
+
+  gm_note :appears, "Reaching Noll takes a #{ref :three_arms_yard, "Three Arms Yard"} contract carrier to one of two shaded docks and then a narrow freight throat beside the root galleries, so a party arrives and leaves on the yard's timetable instead of its own."
+  gm_note :triggered_by, "Asking to buy timber gets an offer of a place in a queue. Stems are reserved while still growing and shaped to one named buyer's template, which leaves a visitor the dock-market offcuts or somebody else's reservation to buy out."
+  gm_note :complicates, "Every cut carries the stool, shade season, imposed load, and grower's hand, and the marks stay on the finished brace so a repairer can orient it as it grew. A salvaged or stolen #{ref :navren, "navren"} frame therefore names the stand it came out of."
 end
 
 relate :rel_noll_located_in_frontier, :located_in, :noll, :the_glass_frontier, since: 2305 do

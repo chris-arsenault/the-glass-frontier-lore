@@ -24,6 +24,13 @@ geographic_location :ashenmaw do
 
     Ashvane holds the largest permanent population. Smaller stations monitor tidal strain, harvest trace gases, and maintain warning beacons around the inner radiation bands.
   PROSE
+
+  gm_note :triggered_by, "A crew steering by a named storm face is using a mark that shears and reforms between circuits. " \
+                         "The bearing that worked last passage can point into open atmosphere, and only a beacon check catches it before the burn."
+  gm_note :appears, "Ships braking on Ashenmaw's magnetic field cross zones where charged particles disturb signal glass. " \
+                    "Recordings, tuned instruments, and pending messages come out of the approach scrambled, so arrivals at #{ref :ashvane, "Ashvane"} cannot show what they carried."
+  gm_note :complicates, "Freight bound past Ashvane leaves #{ref :keel, "the Keel"} here, and convoys hold above the moon while inner-system pilots trade places with outer-route charts. " \
+                        "Anyone in a hurry toward the Fracture waits on the convoy or goes out uncharted."
 end
 
 relate :rel_ashenmaw_orbits_the_sun, :orbits, :ashenmaw, :the_sun do

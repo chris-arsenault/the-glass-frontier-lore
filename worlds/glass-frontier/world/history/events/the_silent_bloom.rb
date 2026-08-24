@@ -22,6 +22,10 @@ incident :the_silent_bloom do
 
     The emergency produced the #{ref :bloom_coalition, "Bloom Coalition"}, the permanent cordons of the #{ref :displacement_council, "Displacement Council"}, and the extraction rules later enforced by the #{ref :shear_compact, "Shear Compact"}.
   PROSE
+
+  gm_note :triggered_by, "Players judge a site's safety by its distance from the nearest known zone, and the cascade never worked that way. It travelled ringglass-dense routes, so a hab beside a failing one can sit stable while one far along the old guide is already answering."
+  gm_note :appears, "Bloom activity speaks through whatever the local structure is made of: one site loses stable distance between two points, the next repeats a sound, a motion, or a load until ordinary controls cannot interrupt it. No two sites present the same symptom."
+  gm_note :complicates, "What stopped in 2378 was the uninterrupted spread from #{ref :pyre, "Pyre"}, not the condition, and new zones have opened since. Every cordon chart a crew is flying on carries a date, and the older that date, the more of the route the chart no longer describes."
 end
 
 relate :rel_coremark_participated_silent_bloom, :participated_in, :coremark, :the_silent_bloom do

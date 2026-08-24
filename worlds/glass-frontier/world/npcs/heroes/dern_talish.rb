@@ -32,6 +32,14 @@ npc :dern_talish do
     - Speaks three languages fluently and understands fragments of two more, including one that linguists cannot identify. She picked it up from Echo River exposure during a containment operation.
   PROSE
 
+  gm_note :appears, "A containment question anywhere in the mid-drift reaches Talish within a day. " \
+                    "She sends a deputy first and comes herself when the deputy's numbers look wrong."
+  gm_note :triggered_by, "Offer her a meal and she takes water instead. " \
+                         "Sharing a table is a closeness she does not extend to people " \
+                         "she may later have to rule against."
+  gm_note :complicates, "She answers with figures and gives them freely. Asked how a cordon " \
+                        "held, she credits Council procedure and moves on to the next zone."
+
   # ---- Hidden (DM) truth ----
   prose <<~PROSE, section: :truth, heading: "The Arrangement", dm: true
     Talish maintains direct communication with elven operations through the shard — a pre-Glassfall artifact that the elves provided to the first First Threshold during the early Bloom response, when it became clear they needed a human counterpart. The shard cannot be replicated. If it's lost, the contact channel is lost. Talish keeps it on her person at all times, disguised as a personal keepsake.

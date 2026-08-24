@@ -70,6 +70,10 @@ geographic_location :the_shear do
 
     #{ref :bloom_zones, "Bloom Zones"} are reality tears caused by the #{ref :the_silent_bloom, "Silent Bloom"}. Where the Shear distorts resonance, a Bloom Zone breaks spatial relationships and requires active containment. Shear crews use the distinction to decide whether a bad reading calls for a route change or a Council alert.
   PROSE
+
+  gm_note :appears, "Any crossing between habs threads gaps in the debris, and what tells a pilot whether this season's gap is still open is the #{ref :shear_compact} forecasting service, which everyone knows to be frequently wrong and carries anyway."
+  gm_note :triggered_by, "A bad reading makes a crew choose between a route change and a Council alert: spiking, canceling ambient frequencies are ordinary Shear, while spatial relationships that stop behaving mean a #{ref :bloom_zones, "Bloom Zone"}."
+  gm_note :complicates, "A spike that overwhelms a ship's filters destabilizes its ringglass-integrated components and can carry sympathetic failure into the vessel's own crystal systems, and gnome crew are the most vulnerable aboard."
 end
 
 relate :rel_shear_in_orbit_of_kaleidos, :in_orbit_of, :the_shear, :kaleidos do

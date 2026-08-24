@@ -29,12 +29,16 @@ resource :duskgrain do
 
     The Displacement Council's containment of Bloom Zones serves a dual purpose that the #{ref :dern_talish, "Dern Talish"} (First Threshold) understands: containing the resonance anomaly, and limiting the spread of duskgrain into the broader economy. The Council's official position on duskgrain — "dangerous but legal" — is a compromise that Talish privately considers inadequate and publicly defends because the alternative is explaining why it needs to be banned.
   PROSE
-  prose <<~PROSE, section: :usage_notes, heading: "DM Usage Notes", dm: true
-    - Duskgrain is the Adversary's footprint. Its presence in a location means the Adversary's influence has touched that place.
-    - The honey is a player-accessible hook. Someone using resonance-enhanced honey is being subtly corrupted without knowing it. The effects are pleasant until they aren't.
-    - An NPC with prolonged duskgrain exposure might exhibit: unusual resonance sensitivity, difficulty distinguishing between dimensions, speaking in patterns that echo the Lattice Proxy Synod's AI custodian outputs, or physical symptoms resembling fae dislocation.
-    - The elves' hidden presence in Bloom Zones is partly about containing duskgrain spread. Some of Dern Talish's "unexplained successes" in containment involve elven operatives destroying duskgrain deposits before they can be harvested.
-  PROSE
+  gm_note :appears, "Someone who has handled duskgrain for years hears narrow-band work nobody " \
+                    "else notices, mistakes which side of a bulkhead a sound came from, and " \
+                    "falls into the flat cadence of custodian output when tired."
+  gm_note :triggered_by, "Carrying grain past an inspection turns on where it was dug rather " \
+                         "than on the grain. The #{ref :tempered_accord, 'Accord'} permits the " \
+                         "substance and cordons the ground it comes out of."
+  gm_note :complicates, "The honey traded alongside it comes from hives near a deposit and " \
+                        "carries the contamination in trace. It stays pleasant for a long " \
+                        "while: sharper hearing, then vivid dreams, then losing track of which " \
+                        "room a voice arrived from."
 end
 
 relate :rel_duskgrain_manifests_at_bloom_zones, :manifests_at, :duskgrain, :bloom_zones do

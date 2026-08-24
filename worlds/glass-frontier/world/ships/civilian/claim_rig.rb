@@ -43,6 +43,10 @@ transport :claim_rig do
 
     Independent crews own many rigs outright or owe on them through a broker, yard, or flotilla debt. The #{ref :pell_freight_assembly, "Pell Freight Assembly"} maintains shared receivers and finances rebuilds for its members. A rig remains its crew's vessel under those arrangements. The Assembly can deny a berth to unsafe work; it does not take the helm.
   PROSE
+
+  gm_note :appears, "Buyers, hirers, and berth masters read a rig's history off its repairs. Scrape marks around a shutter, mismatched wall plates, and a breaker moved within easier reach carry more about what the vessel has survived than its sales record does."
+  gm_note :triggered_by, "Someone asks the bridge whether a closed receiving room is safe to open. The whole layout exists because a powered system once read safe when it was not, so the answer is a person standing at the opening with a deliberately slow hand wheel and the tally beside it."
+  gm_note :complicates, "Jobs overlap freely on a small rig until the first live return, and then pilot, cutter operator, Tuner, deck lead, and process hands are each fixed to one station. Anything needing a spare pair of hands while the tone runs costs whichever station is left empty."
 end
 
 relate :rel_claim_rig_depends_remote_cutting, :depends_on, :claim_rig, :remote_cutting do

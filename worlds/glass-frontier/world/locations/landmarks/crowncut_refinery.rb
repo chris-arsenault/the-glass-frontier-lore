@@ -20,6 +20,9 @@ installation :crowncut_refinery do
   prose <<~PROSE, section: :present_day, heading: "Present Day"
     Crowncut closed after Coremark's disgrace. The processing halls have been stripped, but the paired array beds remain because removing either one changes the load on the other. Compact survey teams visit to teach coupled-field inspection and leave both beds where they are.
   PROSE
+
+  gm_note :triggered_by, "Cut one of the paired array beds free and the whole load moves onto the other, and the split debris mass answers hundreds of meters from the cut. #{ref :shear_compact, "Compact"} survey teams leave both beds in place for that reason and teach inspection on them."
+  gm_note :appears, "Crowncut is stripped but not deserted: survey teams arrive on rotation with students and instruments to work the beds. A crew counting on an abandoned refinery has to plan around a class in session, and around what that class writes down about them."
 end
 
 relate :rel_crowncut_located_in_deep_shear, :located_in, :crowncut_refinery, :deep_shear do

@@ -26,6 +26,13 @@ resource :resonant_instruments do
   prose <<~PROSE, section: :significance, heading: "Significance"
     Resonant instruments are the closest thing the system has to pre-Glassfall resonance capability. The #{ref :elves, "elves"} worked resonance without ringglass as a matter of course — their entire civilization ran on direct resonance manipulation. Resonant players are rediscovering fragments of that capability through craft and practice rather than inherited knowledge. The instruments themselves are contemporary-made, imperfect, limited — but they prove that ringglass is a convenience, not a requirement. Resonance responds to anyone who can speak its language precisely enough.
   PROSE
+
+  gm_note :appears, "A capital ship or a large installation keeps a player on the payroll, usually one, usually expensive, usually already busy elsewhere on the hull. " \
+                    "They are why a failing bulkhead gets held before anyone finds a crystal cut for it."
+  gm_note :complicates, "The instrument sounds while it works, and the noise cannot be turned off because the vibration is the effect. " \
+                        "A player reinforcing a wall, jamming a channel, or correcting thrust is audible to everyone in the compartment for as long as the tone is held."
+  gm_note :triggered_by, "When the party wants an effect nothing on hand is cut for — an odd frequency, a band change mid-scene — an instrument can do it and a fixed array cannot. " \
+                         "What it costs is a person who can hold an arbitrary frequency steady while modulating it, which is where most who try wash out."
 end
 
 relate :rel_resonant_instruments_depends_on_resonance, :depends_on, :resonant_instruments, :resonance do

@@ -41,6 +41,10 @@ artifact :wurm_bit do
 
     Pell has authorized payment for loose plates found outside an active tunnel and forbidden powered extraction inside the stack. Unmarked bits advertised as “Pell plate” have already reached Glasswake. Most carry ordinary worked glass darkened at the root; several carry real plates taken from an unknown burrow.
   PROSE
+
+  gm_note :triggered_by, "Somebody always locks the yoke to get a straight, fast cut. The locked plate takes every change in the seam into itself and snaps, and its unvaried bite is the clearest call a working #{ref :glasswurm, "glasswurm"} can follow through a connected debris mass."
+  gm_note :complicates, "The plate folds flat against the yoke when the seam ends, divides, or turns harder than the mount allows, and it does not distinguish between the three. Pressing the feed anyway breaks the plate into pieces that then run off along different boundaries."
+  gm_note :appears, "Bits sold as Pell plate turn up in Glasswake without response marks cut into the yoke. Most carry ordinary worked glass darkened at the root and will not twist toward a seam at all; a few carry real plates taken from a burrow nobody has charted."
 end
 
 relate :rel_ratters_possess_wurm_bit, :possesses, :ratters, :wurm_bit do

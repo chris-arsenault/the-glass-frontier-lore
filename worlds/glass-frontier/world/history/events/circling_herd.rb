@@ -17,6 +17,10 @@ incident :circling_herd do
 
     Molt follows the oldest animals through the center with empty comb racks and observation frames. The vessel has recovered two exhausted juveniles whose flight combs carry the same new map as the shed material.
   PROSE
+
+  gm_note :appears, "Every ferry now reaches Perch around the far fragment for a full extra shift, so an errand that used to take a morning arrives late and any delivery promised against the old crossing time is already broken."
+  gm_note :triggered_by, "Put a fallen comb in front of anyone who can read structure and the map inside covers wards raised after the herd arrived; combs shed on later turns show decks that were not standing when the earlier ones fell."
+  gm_note :complicates, "The permanent kitchens are rationing water laid in for the closing market and the seasonal wards have started pooling food, so a party asking Perch for supplies, berths, or hired hands is bidding against several thousand stalled workers."
 end
 
 relate :rel_circling_herd_manifests_perch, :manifests_at, :circling_herd, :perch do

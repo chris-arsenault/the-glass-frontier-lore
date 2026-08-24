@@ -45,6 +45,10 @@ geographic_location :korvath do
 
     A campaign by several port insurers has begun refusing coverage to freight houses that will not disclose their full ownership. Legitimate carriers are complying unevenly. Coremark fronts are dividing contracts among smaller firms to stay below the reporting threshold, spreading the same business through more of the economy it already burdens.
   PROSE
+
+  gm_note :appears, "A cargo crossing Korvath meets a fresh set of weights, seals, and labor rules at every port league, river board, and road compact on the way. Crews who did not hire a Korvathi broker lose days learning which document actually stops the load and which one a clerk waves through."
+  gm_note :triggered_by, "Run a sizeable array straight off Korvathi ground, with no ceramic and loose aggregate under it, and the pulse travels kilometers through iron-bearing strata. The answer comes back from whatever else is tuned along that path: a quarry face, a port crane, a bridge with people on it."
+  gm_note :complicates, "Asking a Korvathi town to move against #{ref :coremark, "Coremark"} gets a local answer rather than a planetary one: the dock union refuses the cargo while the harbor office mislays the paperwork. Both offices are telling the truth about their own jurisdiction, and neither can finish it alone."
 end
 
 relate :rel_korvath_orbits_the_sun, :orbits, :korvath, :the_sun do

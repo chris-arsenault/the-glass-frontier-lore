@@ -41,6 +41,10 @@ installation :talven do
 
     Freight cutters need the same band opened to reach high-grade structural stock behind it. Archive readers are lifting the outer recordings with #{ref :tess_wedge, "Var's Wedge"}, one plate at a time. The first complete plate has drawn two independent translators to Talven, and both hear a different division between the words.
   PROSE
+
+  gm_note :triggered_by, "A blow against a gallery wall releases a few syllables of whoever worked that layer, so a brawl, a fall, or a dropped crate answers back in centuries-old voices and brings an archive reader asking exactly what was struck and where."
+  gm_note :complicates, "Dust locks stand between every level because clear fragments carry signal patterns down into other cuts; a party moving glass, an instrument, or a lifted plate between galleries is logged at each lock, and unprovenanced material is held there."
+  gm_note :appears, "Freight cutters want the Sixth Bench band opened for the structural stock behind it while the archive readers lift its recordings one plate at a time, and anyone arriving with a crew, a schedule, or a translation gets pulled onto one side of that."
 end
 
 relate :rel_talven_located_in_frontier, :located_in, :talven, :the_glass_frontier, since: 2140 do

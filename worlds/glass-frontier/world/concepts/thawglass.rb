@@ -17,6 +17,12 @@ resource :thawglass do
 
     A frame that freezes out of sequence develops clear fibers along one edge. Kiln crews crush it into household mesh, whose short fibers cannot steer a public column far enough to threaten its water schedule.
   PROSE
+
+  gm_note :triggered_by, "Any thawglass a crew buys or salvages carries a painted heat line showing which way it opens. " \
+                         "Set against that line, a column freezes out of sequence and melts through the wrong face."
+  gm_note :complicates, "#{ref :mera, "Mera"}'s kilns regrind every mis-frozen frame into household mesh. " \
+                        "Thawglass acquired secondhand is usually that mesh, which bends around a cistern and cannot carry a column's freezing sequence."
+  gm_note :appears, "Used pieces are owed back to Mera's kilns after each thaw, so thawglass carried off the fragment stays on a kiln crew's recovery list until it returns."
 end
 relate :rel_thawglass_sourced_from_mera, :sourced_from, :thawglass, :mera do
   prose "Mera's kilns make thawglass for the hab's seasonal ice structures."

@@ -21,6 +21,9 @@ incident :verathi_exchange do
 
     Verathi joined the wider system without rejoining the government that had preceded the Glassfall. The distinction shaped every successful contact that followed.
   PROSE
+
+  gm_note :appears, "First contact between two communities now opens with the questions this exchange settled: who can bind the community, whose law applies aboard a visiting vessel, and whether every privilege on offer runs both ways."
+  gm_note :triggered_by, "A document that assumes authority over a hab, a restoration order or a district appointment, is handed back for rewriting rather than refused. #{ref :verathi, "Verathi"} cleared the commission's vessel and received its officers as foreigners while the dock kept working."
 end
 
 relate :rel_verathi_participated_exchange, :participated_in, :verathi, :verathi_exchange do

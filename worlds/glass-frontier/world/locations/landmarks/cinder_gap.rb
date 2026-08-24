@@ -15,6 +15,9 @@ installation :cinder_gap do
 
     Lira now uses Cinder Gap to develop a retirement procedure for saturated buoys. The work begins with remote taps and isolated samples. Opening a casing remains prohibited until the crew can show where its stored frequencies will go.
   PROSE
+
+  gm_note :appears, "Instrument work anywhere near the old mounts picks up a second voice, because one of the three original casings returns a faint version of every test tone applied to it. Crews new to the section read that as a fault in their own equipment and lose an hour chasing it."
+  gm_note :triggered_by, "Proposing to open a saturated casing gets a condition rather than a refusal: #{ref :lira_vashtenri, "Lira Vashtenri"} requires the crew to show where the stored frequencies will go once the vessel is breached. Nobody has produced that answer, so the work stays at remote taps and isolated samples."
 end
 
 relate :rel_cinder_gap_located_in_bloom_zones, :located_in, :cinder_gap, :bloom_zones do

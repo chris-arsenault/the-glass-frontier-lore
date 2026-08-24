@@ -36,6 +36,10 @@ npc :tavi_soreth do
   prose <<~PROSE, section: :present_day, heading: "Present Day"
     Soreth is leading repeated surveys of a route beside the #{ref :folded_annex, "Folded Annex"}. Its reflections, echo decay, and compass pull have held through several changes in city load, but the approach passes beneath a housing block that has no deep-foundation survey. Soreth will not move equipment through until the residents' plans and the city's structural record agree on what lies between.
   PROSE
+
+  gm_note :appears, "Soreth's first question is what has to reach the far end — one person, a cart, an air bottle, a rescue litter, a hose that cannot turn a tight corner — and the answer decides which approach they will open. Walking crews get routes a stretcher party would be refused."
+  gm_note :triggered_by, "Offering an instrument reading first gets it recorded second. Soreth sights both edges of the frame and strikes the rail before consulting a Tuner, because a strong reading makes a surveyor read every ordinary flaw as evidence of a shift."
+  gm_note :complicates, "Soreth stops more surveys over an unrecorded bedroom, water line, or refuge room than over any resonance measurement, and will hold equipment at the shaft until the residents' hand-drawn plans and the city's structural record agree."
 end
 
 relate :rel_tavi_located_in_underlayers, :located_in, :tavi_soreth, :underlayers do

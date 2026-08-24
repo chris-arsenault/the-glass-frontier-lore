@@ -14,6 +14,10 @@ npc :ira_voss do
 
     She is working through the medical vessel beside Forty. The twelve recovery capsules name patients in current Hab-Worlder script, while the cabinet records use a Bitter Reach clinical hand.
   PROSE
+
+  gm_note :appears, "Voss enters a captured hull after the pressure and chemical crews and before the cutters mark a line, which puts her in the compartment at the moment anyone still living aboard is found."
+  gm_note :triggered_by, "Claims on a hull go under the claims column of Voss's board and move nothing while a mark stands under people. She will write the claim down, and the vessel stays in intake."
+  gm_note :complicates, "The twelve capsules name their patients in current Hab-Worlder script while the cabinet records are written in a Bitter Reach clinical hand, so Voss can produce a name or a history and cannot yet join one to the other."
 end
 relate :rel_ira_voss_located_in_brake, :located_in, :ira_voss, :brake, since: 2435 do
   prose "Ira Voss performs Brake's first occupied-hull inspection."

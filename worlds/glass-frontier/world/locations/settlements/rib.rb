@@ -31,6 +31,10 @@ installation :rib do
 
     A fist-sized reef bud removed from the cavity continues the second beat inside a ceramic transport jar. Each pulse draws moisture through the lid and adds a thin mineral rim. Filter crews want the bud taken to Vey before the terrace closes further. The households beside the narrowing doors require the same carrier space for children, tools, and stored food if the cutters order an evacuation.
   PROSE
+
+  gm_note :appears, "Rib's day runs on the reef's pulse rather than any clock. Cutters will open a passage only during the long low note, filter crews climb during the short rising pattern, and a party wanting either job done waits for the interval that suits it."
+  gm_note :triggered_by, "Dust, spores, smoke, or cutting work inside a room makes the filter mouths in its walls contract, and the room's air supply stops until they open again. Any fight or hurried repair indoors becomes a question of how long that room holds."
+  gm_note :complicates, "There is one carrier's worth of space to argue over while the fourth terrace closes a handspan at a time: the filter crews want the sealed reef bud carried to #{ref :vey, "Vey"}, and the households beside the narrowing doors want that space for children, tools, and stored food."
 end
 
 relate :rel_rib_located_in_frontier, :located_in, :rib, :the_glass_frontier, since: 2140 do

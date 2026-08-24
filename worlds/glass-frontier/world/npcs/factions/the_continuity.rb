@@ -44,6 +44,11 @@ faction :the_continuity do
   prose <<~PROSE, section: :present_day, heading: "Present Day"
     The current assembly retains a Continuity majority, but independent ward members hold enough seats to delay the next city capital plan. The disputed projects include #{ref :keelward, "Keelward"} freight expansion, a court addition in the #{ref :old_campus, "Old Campus"}, and a unified map for the #{ref :underlayers, "Underlayers"}. Each project has an existing department and budget; the assembly disagreement now concerns which one proceeds first.
   PROSE
+
+  gm_note :appears, "Whatever the party wants from Sithari, a department already has a form for it and a ward officer whose working " \
+                    "day is walking exceptions through rules the Continuity itself wrote. The answer is seldom no and seldom quick."
+  gm_note :triggered_by, "Threaten or lean on a Sithari civil servant and they refuse the unlawful instruction and outlast whoever gave it. The lever that moves is a ward bloc, which bargains before anything reaches the assembly floor."
+  gm_note :complicates, "New city money now means joining the queue behind Keelward freight, the Old Campus court addition, and the Underlayers map. Each already has a department defending its place, and the party's request arrives as a fourth claimant."
 end
 
 relate :rel_continuity_governs_sithari, :governs, :the_continuity, :sithari, since: 2160 do

@@ -17,6 +17,11 @@ incident :repeated_voice do
 
     The Red Sleeve supplies the oldest matching phrases. Its three owners and repeated training washes establish how quickly a true trace should decay. Several later garments carry stronger versions than their age permits, so Thirty-One has suspended certificates for the affected lots while their owners contest another destructive wash.
   PROSE
+
+  gm_note :appears, "The twenty-seven pieces came from surface caravans, ring tugs, a diplomatic courier and three local households with nothing in common, " \
+                    "so any garment a party has had cleaned at #{ref :wash_four} is a plausible twenty-eighth and gets pulled for mapping."
+  gm_note :triggered_by, "Players who ask to hear the whole thing are walked through it in wash order, and the last garment calls a turn past the cylinder's sealed axial wall that no clean-route lane reaches."
+  gm_note :complicates, "Certificates are suspended on the lots that read too strong, so their owners cannot sell the cloth on and are refusing the one destructive wash that would settle the question."
 end
 
 relate :rel_repeated_voice_manifests_bay_thirty_one, :manifests_at, :repeated_voice, :bay_thirty_one do

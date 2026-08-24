@@ -49,6 +49,10 @@ installation :underlayers do
   prose <<~PROSE, section: :present_day, heading: "Present Day"
     A sustained change in the central transit load has held several deep routes open beyond their usual interval. The Cooperative has added them to the amber boards while #{ref :tavi_soreth, "Tavi Soreth"} and #{ref :clarisant, "the Sithari Clarisant chapter"} repeat the surveys. One of those routes reaches a service gallery beside the #{ref :folded_annex, "Folded Annex"} that previous maps show only from the far side of the old campus.
   PROSE
+
+  gm_note :appears, "Below the marked limit an address is a fixed shaft plus a dated sequence of turns, not a street. Meeting someone down here begins at a route board, copying the current strip, and noticing whether it is white, amber, or shuttered red."
+  gm_note :triggered_by, "Calling for help costs two answers instead of one: the address, and the fixed shaft responders should enter from. Give only the address and the crew arrives through a corridor that now opens into a cistern."
+  gm_note :complicates, "A route can change with people standing in it. A doorframe grows a second reflected edge, a struck rail returns two decays, and once two signs agree the way out is closed until a survey pair reopens it from another stair."
 end
 
 relate :rel_underlayers_located_in_sithari, :located_in, :underlayers, :sithari, since: 2140 do

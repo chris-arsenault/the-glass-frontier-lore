@@ -32,6 +32,10 @@ faction :tessellan_communion do
 
     Several houses have asked for a common ruling on whether novices may sound the lawful figures before receiving a Clarisant credential. The Communion has no single leader who can issue one. Each house has published its own answer beside its triptych, and traveling keepers carry the differences from one house to the next.
   PROSE
+
+  gm_note :appears, "Anyone can ask a keeper to witness a contract, a repair account, or a settlement, and keepers are asked constantly. The keeper certifies that the statement shows how it closes and what carries its load, then declines to say whether the bargain was a good one."
+  gm_note :triggered_by, "Ask a house for the tradition's ruling and you get that house's answer, posted beside its own triptych, because no leader can issue a common one. The same split decides whether the house teaches with guarded arrays or with diagrams and unpowered frames."
+  gm_note :complicates, "Everyone present handles the frames before they are sounded, and a hidden brace or forced seam voids the demonstration. A character carrying a concealed device, or wanting the tone produced quickly, has to get past a room of people checking every joint."
 end
 
 relate :rel_tessellan_communion_headquartered_old_campus, :headquartered_in, :tessellan_communion, :old_campus, since: 2216 do

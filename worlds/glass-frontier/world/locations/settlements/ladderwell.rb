@@ -42,6 +42,12 @@ installation :ladderwell do
 
     The abandoned foundation has not settled evenly. Its north corner now returns a clear second tone below the known clay layer. Ladderwell's route keepers have closed one drain and the western third of the court while they determine whether the sound comes from stone, water, or buried construction.
   PROSE
+
+  gm_note :appears, "The chain runs all night and the upper benches hear it from bed, so a night scene here is set against a steady beat that the whole town can read. " \
+                    "A click is a dry bearing, a changed beat is a stretched link, and a high answer once per circuit is crystal riding up in a cup."
+  gm_note :triggered_by, "Anyone curious about the town's water is taken up to the settling tanks and shown the skimming. Sediment that answers strongly is kept out of the pipes: most becomes aggregate, and the fraction carrying blurred speech is sealed for the #{ref :echo_ledger_conclave, "Conclave"}."
+  gm_note :complicates, "The old pump court is Ladderwell's gathering ground and a third of it is roped off. " \
+                        "Until the route keepers name the second tone under the north corner, a market, a meeting, or a dance happens on the stable eastern half, and a keeper may interrupt any of them to test the floor."
 end
 
 relate :rel_ladderwell_in_avar, :located_in, :ladderwell, :avar, since: 2176 do

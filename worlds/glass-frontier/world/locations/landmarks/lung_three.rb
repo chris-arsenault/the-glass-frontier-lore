@@ -15,6 +15,13 @@ installation :lung_three do
 
     Lung Three currently carries the return displaced by the central-pump trial. Condensation has appeared on its highest bridge, where the chamber usually stays dry through the full rotation.
   PROSE
+
+  gm_note :appears, "Whatever is opened, spilled, or burned in the chamber reaches four residential wards through " \
+                    "the galleries, in whatever order the ribs decide. Threads on the maintenance bridge show the " \
+                    "reversal before the gauges at the gallery mouths do, and the wards smell it before either."
+  gm_note :complicates, "The highest bridge is dry through a normal rotation and is wet now, because Lung Three " \
+                        "carries the return displaced by the central-pump trial. Work at that height means slick " \
+                        "ceramic and shutters whose pull no longer agrees with the gauges below them."
 end
 relate :rel_lung_three_located_in_vey, :located_in, :lung_three, :vey, since: 2435 do
   prose "Lung Three distributes Vey's passive airflow through four residential wards."

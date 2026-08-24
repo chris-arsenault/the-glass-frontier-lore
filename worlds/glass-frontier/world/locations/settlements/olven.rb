@@ -34,6 +34,10 @@ installation :olven do
 
     The first test cut made every bound root in the chamber contract at once and silenced sensation in three control grafts across the transfer room. Growers closed the stall with the orders still posted. Root keepers want the cool stock separated intact; clinic buyers have offered to fund a destructive harvest if Olven releases the complete lineage record with it.
   PROSE
+
+  gm_note :appears, "Crossing Olven means crossing climate bands, and every door between them is a transfer room where clothing, tools, and resident microbes are changed for the next chamber's. Whatever a party carried in gets written into the receiving room's lineage book."
+  gm_note :triggered_by, "Ask who owns a crop and the answer is a list rather than a name: one household tends the room, a second leases shelves in it, a third holds shares through a band they have never worked."
+  gm_note :complicates, "The bound-root stall is shut with its orders still posted, and both sides want a visitor's hands. Root keepers want the cool stock moved out whole; clinic buyers will fund a destructive harvest the moment Olven releases the full lineage record with it."
 end
 
 relate :rel_olven_located_in_frontier, :located_in, :olven, :the_glass_frontier, since: 2305 do

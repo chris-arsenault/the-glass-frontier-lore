@@ -30,6 +30,10 @@ artifact :liras_wall do
 
     Every buoy deployed is stillwater that isn't preserving history. The #{ref :displacement_council, "Displacement Council"} maintains the network. The Conclave supplies the stillwater. The tension between these two needs — containment and preservation — is one of the system's quietest and most consequential ongoing negotiations.
   PROSE
+
+  gm_note :appears, "Any permanent cordon the party visits has buoy mounts distributed through its station frame — #{ref :outside, "Outside"} carries eighteen primary and four secondary — so a crew can drop one section for work while the rest of the wall holds."
+  gm_note :triggered_by, "Handling or salvaging a long-serving buoy puts years of absorbed cascade frequencies in the party's hands. Cordon crews treat those older units as records of how the boundary changed and as something to keep sealed."
+  gm_note :complicates, "The arrays draw anything that follows stable resonance, and a single #{ref :rind, "rind"} filament resting on a tuned mount pulls that section out of calibration while the crew is working somewhere else along the boundary."
 end
 
 relate :rel_liras_wall_depends_on_stillwater, :depends_on, :liras_wall, :stillwater do

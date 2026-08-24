@@ -33,6 +33,13 @@ phenomenon :glassfall_showers do
 
     Each stream mixes material from many parts of the old ring. Chemical and harmonic signatures can identify some original structures, but repeated collisions have erased most provenance. The showers are a continuing movement of the Glassfall, not a reliable sample of any one lost habitat.
   PROSE
+
+  gm_note :appears, "The first sign is instrumental: tuning compasses lean toward empty sky and signal gear takes brief echoes before any streak is visible. " \
+                    "A crew that reads the lean still has time to turn vulnerable faces away and close outside work; one watching the sky does not."
+  gm_note :triggered_by, "Players who try to draw on the passing field, or who retune equipment straight after a fall, get an unstable answer. " \
+                         "The same dust that strengthens a dusted basin lodges across a cut surface and bridges parts of an exposed array meant to stay separate, so local workers wait for the loose grains to wash or sink first."
+  gm_note :complicates, "A forecast can place the front within a few hours and still miss the narrow dense strand that damages a vessel. " \
+                        "No single reading settles it: a resonance spike without tracked debris may be a reflected field, and a visible fall with a weak response may be mostly slag."
 end
 
 relate :rel_glassfall_caused_showers, :caused, :the_glassfall, :glassfall_showers do

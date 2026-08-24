@@ -35,6 +35,13 @@ installation :mera do
 
     The diversion sends one water ward's garden share through another ward's public column. Both have filed claims before the apartment finishes melting free: one for the lost spring flow, the other for the room now occupying its frame. The bright-season market has moved onto the surrounding stairs, where ward readers post the falling water level beside each claim.
   PROSE
+
+  gm_note :appears, "An address in Mera sits on a frozen terrace through the cold season and on an open court floor after the melt. " \
+                    "Painted depth lines and the permanent ceramic stairs hold through both phases; a visitor navigating by anything else arrives on the wrong level."
+  gm_note :triggered_by, "Anything cut into a public column's clear outer layer stays legible until meltwater reaches it from below and blurs it upward. " \
+                         "A promise meant to outlast the season goes on the ceramic panels fixed to the court walls."
+  gm_note :complicates, "The Fourth Column apartment has two water wards filing against each other, with ward readers posting the falling water level beside each claim. " \
+                        "Business done on the bright-season market stairs is watched by both wards and expires when the column does."
 end
 
 relate :rel_mera_located_in_frontier, :located_in, :mera, :the_glass_frontier, since: 2140 do

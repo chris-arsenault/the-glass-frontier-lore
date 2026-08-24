@@ -14,6 +14,10 @@ npc :pera_soll do
 
     Soll retired to #{ref :korvath, "Korvath"} before the Silent Bloom. He keeps the original Crowncut log sheets and refuses Coremark offers for them. Council engineers visit when Lira's later methods need to be traced back to the refinery equipment that taught her.
   PROSE
+
+  gm_note :appears, "Anyone tracing containment practice back to the equipment that taught it arrives at a retired foreman's house on #{ref :korvath, "Korvath"}, where the original Crowncut sheets are kept in order. Soll reads them out and explains what the gauges missed; the paper does not leave the room."
+  gm_note :triggered_by, "Offer money for the log sheets and Soll sets the offer beside the ones #{ref :coremark, "Coremark"} has made. He goes on answering questions about the arrays and copies nothing afterwards, and Council engineers hear who asked on their next visit."
+  gm_note :complicates, "Soll reads no field himself, so when an attuned character says an array is drifting he asks for a description, writes it down, and clears the maintenance time to act on it. The record other engineers argue with later says what the character said, not what the instruments showed."
 end
 
 relate :rel_pera_soll_located_in_korvath, :located_in, :pera_soll, :korvath do

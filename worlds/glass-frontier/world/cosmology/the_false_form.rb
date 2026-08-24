@@ -57,6 +57,10 @@ concept :the_false_form do
 
     The public comfort rests on one accurate property. The Adversary has being, but its figure genuinely cannot close. It is a violation forced against reality's grain, a pressure that costs it something and gives the defenders their only leverage. The One Truth — perfect single-wavelength coherence, the horizon the elves reached for — offers the relevant weapon: a figure so completely closed that the False Form can find no open edge to press. The elves' centuries of work toward single-wavelength resonance are an attempt to close a figure the Adversary cannot open.
   PROSE
+
+  gm_note :appears, "The name arrives as ordinary speech long before it arrives as anything else: a preacher's worked example, an accusation that a contract reads closed and opens under weight, a word for a polished lie."
+  gm_note :triggered_by, "A player who uses *rhomboid* the city way gets a flat look from anyone who runs a bench near the #{ref :bloom_zones}, who spends the word only on glass that has stopped closing."
+  gm_note :complicates, "Trade rules bind at the table: nobody draws the open thing on a hull, nobody whistles the caption in a depleted field, and glass that shimmers wrong is re-tuned before the conversation resumes. Ignore them and the crew stops working with the party."
 end
 
 relate :rel_the_false_form_part_of_the_three_forms, :part_of, :the_false_form, :the_three_forms do

@@ -30,6 +30,13 @@ geographic_location :lithren do
 
     Teams are testing cold anchors and remote instruments before committing a crew. The first clean returns show parallel walls rather than a single conduit, extending the inhabited plan beyond the excavated courts.
   PROSE
+
+  gm_note :complicates, "Lithren stations put power work ahead of research without discussion. " \
+                        "A request for crew, heat, transport, or laboratory time loses to a radiator rebuild, and a chamber prepared across a whole season gets sealed untouched."
+  gm_note :triggered_by, "Carrying a find from the ruins into a heated station strips residue that may be the only evidence of what the object was for. " \
+                         "Excavators clear one surface, record it, and cover it before opening the next, and they expect visitors to work the same way."
+  gm_note :appears, "The basin survey has to cross ground too weak for a heated crawler and too broad to roof continuously. " \
+                    "Anyone arriving with a light footprint or their own sounding gear is asked to walk a section toward the fourth site group."
 end
 
 relate :rel_lithren_orbits_the_sun, :orbits, :lithren, :the_sun do

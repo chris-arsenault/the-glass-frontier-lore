@@ -17,6 +17,10 @@ incident :hospital_hull_recovery do
 
     Cutter crews want access to the drive record and sealed machinery behind the clinical deck. Ward representatives want the vessel joined to Brake before its stores fail. The medical watch keeps both requests behind the patient marks on Voss's intake board.
   PROSE
+
+  gm_note :appears, "Work at Brake that touches salvage or ward business draws a request to carry someone's case past the medical watch: cutter crews want the drive record behind the clinical deck, and ward representatives want the hull joined to the settlement before its stores fail."
+  gm_note :triggered_by, "Talk of waking one of the twelve meets the first line of the capsule instructions, which calls for a patient history absent from every cabinet #{ref :ira_voss, "Voss"} has cleared. The surgical room will open a capsule without it."
+  gm_note :complicates, "An alarm anywhere in the yard puts the vessel on one decision: #{ref :five_bolts, "Five Bolts"} holds the only tow line approved for emergency separation, and cutting the hull loose takes twelve sleeping patients away from Brake's power, water, and monitoring."
 end
 
 relate :rel_hospital_hull_recovery_manifests_brake, :manifests_at, :hospital_hull_recovery, :brake do

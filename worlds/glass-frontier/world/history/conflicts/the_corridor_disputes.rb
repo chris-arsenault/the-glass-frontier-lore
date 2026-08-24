@@ -50,6 +50,13 @@ conflict :the_corridor_disputes do
 
     Traffic continues under conditional marks. Departures wait for a named forecast, carry extra reserve, and list which rescue pool accepted the voyage. A missed connection can strand a crew at a small waystation. A false open mark can put them beyond any pool's declared reach.
   PROSE
+
+  gm_note :appears, "A departure board on the branch routes carries several marks rather than one route state, and crews read who supplied each. " \
+                    "A Prismwell forecast, a Compact closure, an Assembly rescue limit, and a receiving port's cargo rule can all apply to one voyage and disagree about whether it may sail."
+  gm_note :triggered_by, "What a party is carrying decides which branches it may use: remote-cut material needs isolated bays and a port that keeps separated clocks, and Bloom-sensitive instruments need beacons that do not repeat one cadence. " \
+                         "A corridor advertised without those limits turns the vessel back at its final stop."
+  gm_note :complicates, "Route notices are sealed with a local tone and a written expiry, and both can be faked: a tone replayed, an expired closure recopied to empty a rival branch. " \
+                        "A crew whose receivers were quiet when the update passed cannot separate a live mark from a copy without reaching the route office."
 end
 
 moment :corridor_disputes_begin, year: 2433, of: :the_corridor_disputes do

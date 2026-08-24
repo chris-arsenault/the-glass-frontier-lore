@@ -36,6 +36,13 @@ faction :prismwell_kite_guild do
 
     The guild's Glasswake wells remain its center. Tourists visit the oldest stepped basin for the light. Working crews use the deeper wells beyond it and object when visitors mistake the clean display cloth for equipment that has crossed a shower.
   PROSE
+
+  gm_note :appears, "Prismwell is hiring for the mid-drift, where familiar streams have spread into new fronts, and any capable crew standing in a yard gets offered the work. " \
+                    "It pays well because the same fine debris that fills a catch cloth strips an exposed control surface in minutes."
+  gm_note :triggered_by, "A hazard reading a crew takes on a guild route is expected in the shared record before its collected dust reaches market, and the receiving yard asks for it. " \
+                         "Holding one back ends that crew's repair and berth at every Prismwell well."
+  gm_note :complicates, "Every guild forecast carries a window, and Prismwell refuses liability for a carrier that departs on an expired reading. " \
+                        "Independent pilots use the forecasts without joining, pay more for repair, and still become a Prismwell rescue job when a front closes behind them."
 end
 
 relate :rel_prismwell_headquartered_in_glasswake, :headquartered_in, :prismwell_kite_guild, :glasswake, since: 2312 do

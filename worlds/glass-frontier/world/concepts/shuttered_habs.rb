@@ -33,4 +33,9 @@ phenomenon :shuttered_habs do
 
     Most communities have learned not to force them open. Coriolis made the cost of that approach vivid enough that few are willing to repeat it — though "few" is not "none," and the political pressure to reclaim shuttered territory has never fully gone away.
   PROSE
+
+  gm_note :appears, "A hab on the party's route holds power and atmosphere and does not answer hail. Behind the door is a working " \
+                    "council, a community that no longer has a word for contact, or people who kill outsiders on sight, and nothing outside distinguishes the three."
+  gm_note :triggered_by, "When players cut, pry, or talk their way through a sealed hab door, the #{ref :tempered_accord, "Accord"}'s protection applies whether or not the hab recognizes the Accord. The breach is actionable against whoever sponsored the party, regardless of what they find inside."
+  gm_note :complicates, "Someone always wants a locked hab opened, so a party with a route in acquires backers before it has a plan. The pressure to reclaim sealed territory outlives every argument against it."
 end

@@ -37,6 +37,11 @@ installation :ravel do
 
     Ravel has placed the catch in separate pressure cells and opened the affected panels for direct inspection. Nera Doss is carrying one sealed tray through the next plume passage while hull instruments compare its response with the material still on the web.
   PROSE
+
+  gm_note :appears, "The nine-day plume cycle decides what anyone can get out of Ravel. In the two days before a passage every hand is on line inspection and mesh repair, " \
+                    "and during the open days the tender crews are out among the released panels rather than at the dock."
+  gm_note :triggered_by, "Players who offer to buy, salvage, or claim a collector panel find that its owner stripe and edge repair marks are the ownership record, and that the family holding shares in it reads the last ten yields before naming a price."
+  gm_note :complicates, "A struggle, an accident, or an improvised maneuver out on the web during a catch pushes a boom past its red strain mark, and the crews answer by releasing the whole panel. Someone's inherited share then drifts into the plume until a tender recovers it."
 end
 
 relate :rel_ravel_located_in_frontier, :located_in, :ravel, :the_glass_frontier, since: 2305 do

@@ -20,6 +20,10 @@ npc :nemi_valerin do
 
     The Compact wants one map marked provisional before the next salvage departures. #{ref :the_continuity, "The Continuity"} mission at Threshold wants the query opened to its own analysts. Valerin has agreed to a joint instrument run and refused access to the proxy sequence that produced the answers.
   PROSE
+
+  gm_note :appears, "Anyone planning a Shear crossing this season meets her decision before they meet her, because the navigation feed has a hole where the safest route should be. One custodian returned two maps placing the crossing on opposite sides of the same debris belt, so crews are working from raw measurements."
+  gm_note :triggered_by, "Bring her a question and she asks what the answer would change for a named ship, a settlement, or a court. A response with no such consequence stays untranslated, which is why the Synod's public feed is thinner under her and why fewer of its releases need correcting afterward."
+  gm_note :complicates, "She trades in measurements and never in method. A party bargaining for custodian data can come away with raw readings, a joint instrument run, and her at the console beside them, and will still be refused the proxy sequence that produced the answer."
 end
 
 relate :rel_nemi_valerin_leads_synod, :leads, :nemi_valerin, :lattice_proxy_synod, since: 2431 do

@@ -41,6 +41,14 @@ transport :nine_holds do
 
     Keelward will not release the box into a warehouse. The insurer will not cover an exterior opening. The consignee has produced a valid ceramic manifest and refuses the ringglass duty. The partners have isolated Seven-new, discharged every other hold, and begun charging the consignee for a voyage the ship cannot finish while the cargo remains attached.
   PROSE
+
+  gm_note :appears, "Cheap passage outward runs through Hold Three, where folding bunks hang between the cargo rails and the exterior " \
+                    "cargo lock becomes the door, and passengers eat in a galley built for the twelve permanent crew."
+  gm_note :triggered_by, "Two people must be satisfied to get a load aboard: the voyage's cargo lead can refuse it outright, and the " \
+                         "hull lead can close the hold after acceptance if its field, temperature, or papers stop matching the " \
+                         "declaration."
+  gm_note :complicates, "Seven-new answers strong outside arrays more readily than the ship's own drive, so the partners leave it empty " \
+                        "beside any active crane until that crane's field is measured, and port crews call the delay excessive."
 end
 
 relate :rel_nine_holds_operates_korvath, :operates_in, :nine_holds, :korvath do

@@ -30,6 +30,10 @@ incident :displacement do
 
     The Displacement is the system's most recent mass trauma. Everyone alive remembers it or knows someone who lived through it. It is not history — it is current events, still unfolding, still producing consequences.
   PROSE
+
+  gm_note :appears, "Every settlement that took refugees has a diaspora quarter keeping one lost hab's craft, dish, or festival running in a place that never had it. Naming the hab correctly opens doors there; naming it wrong marks the speaker as someone who only read about the evacuation."
+  gm_note :triggered_by, "A character claiming Bloom-survivor standing is taken at their word by containment crews and handed the reading nobody else can parse. The claim is checkable: survivors know how their own hab failed, and the #{ref :displacement_council, "Displacement Council"} recruits from the same communities."
+  gm_note :complicates, "Families still pay crews to run toward habs where a relative was recorded as staying behind, and the evacuation records never separated the trapped from the ones who refused to believe the readings. The hire is for a name confirmed, not a body recovered."
 end
 
 relate :rel_displacement_caused_displacement_council, :caused, :displacement, :displacement_council do

@@ -35,6 +35,10 @@ installation :verathi do
 
     The Third Service district has withheld consent from a proposed freight spine that would cross its water return. The dock crescent is running close to capacity while the assembly studies routes around it.
   PROSE
+
+  gm_note :appears, "An agreement struck with the hab assembly still has to cross seven district councils, and any one of them can refuse work that touches its air, water, food beds, or structural field. No assembly majority overrides that refusal."
+  gm_note :triggered_by, "Asking Verathi to honor another polity's ruling produces a jurisdiction argument before it produces compliance. Its delegates separate accepting a common rule from accepting the government that wrote it, and they will make the distinction at length."
+  gm_note :complicates, "The single public docking crescent runs near capacity while Third Service withholds consent from the freight spine, so an unscheduled arrival waits for a berth and hears about the water return from whoever finally assigns one."
 end
 
 relate :rel_verathi_located_in_frontier, :located_in, :verathi, :the_glass_frontier do

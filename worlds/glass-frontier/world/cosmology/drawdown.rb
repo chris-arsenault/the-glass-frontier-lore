@@ -32,6 +32,10 @@ phenomenon :drawdown do
 
     Saturation can resemble drawdown at first. Both produce confused instruments and weak useful output. Saturated fields press too many responses into the same reading; drawn-down fields leave too little to distinguish. A Tuner compares several positions and a fixed reference before anyone moves additional ringglass into the area. Feeding a saturated field can turn a mistaken diagnosis into a destructive spike.
   PROSE
+
+  gm_note :appears, "The party's own heavy work is the usual cause: run cutters, a lift, or a shielded array through a shift and the nearest household lines go thin. The complaint arrives from a kitchen or a workshop three streets away, not from the machine anyone is standing at."
+  gm_note :triggered_by, "The reflex fix is to bring in more ringglass, which does not refill a place; fresh crystal left touching the local substrate settles toward the same weak response. If the field was saturated rather than drawn down, feeding it turns a wrong diagnosis into a destructive spike."
+  gm_note :complicates, "The failures that matter come from loads that do not fall with the field: a kite keeps its momentum after its kinetic band thins, and a reinforced span keeps its traffic after its structural band weakens. The answer is to shed the load, not to demand more from the quieting array."
 end
 
 relate :rel_drawdown_conducted_by_ringglass, :conducted_by, :drawdown, :ringglass do

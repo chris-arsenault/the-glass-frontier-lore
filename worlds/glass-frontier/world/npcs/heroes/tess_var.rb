@@ -16,6 +16,9 @@ npc :tess_var do
   PROSE
 
   log "2026-08-21 — Renamed Tess Var to Renn Var to remove a duplicated personal name from the same habitat pass."
+
+  gm_note :triggered_by, "Offer to make the cut and Var hands over a damper or a listening point instead; she seats the wedge herself until an apprentice's readings have matched hers across three separate cuts."
+  gm_note :appears, "#{ref :echo_ledger_conclave} listeners work her bench and write down the cuts she refuses along with the signal lost in each one, so a bad call made in front of her is read elsewhere in the system."
 end
 relate :rel_tess_var_located_in_talven, :located_in, :tess_var, :talven, since: 2435 do
   prose "Renn Var leads archive cutting on Talven's Sixth Bench."

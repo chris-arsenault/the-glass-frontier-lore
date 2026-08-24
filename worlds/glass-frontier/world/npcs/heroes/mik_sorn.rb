@@ -16,6 +16,10 @@ npc :mik_sorn do
 
     He has taken personal custody of the white case that returned full after four accepted deliveries. Its mark names his regular recipients in the correct daily order.
   PROSE
+
+  gm_note :triggered_by, "Ask Sorn about any delivery and he reads it off his coat: route changes chalked on the left cuff, recipient changes on the right, both smeared pale by midday and gone by the next wash."
+  gm_note :complicates, "He is carrying the white case himself now, and its mark lists his regular recipients in their correct daily order, so a player asking for a look at it is asking a courier to hand over the names of people he brings medicine to."
+  gm_note :appears, "Apprentices run his route off copied cuff marks until they can rebuild it after a missed drum, so the courier arriving with the hot meals and the cold-ward medicine is often someone working from Sorn's handwriting instead of Sorn."
 end
 relate :rel_mik_sorn_located_in_carom, :located_in, :mik_sorn, :carom, since: 2435 do
   prose "Mik Sorn carries the medical and hot-meal route through Carom."

@@ -74,6 +74,10 @@ creature :farborn do
 
     The beasts are not going away. The Deep continues to open onto somewhere. Whatever is on the other side continues to send things through. The crews who work the Shear regard this as the situation rather than the problem, and they regard the situation as theirs to live in.
   PROSE
+
+  gm_note :triggered_by, "Players ask what the thing in front of them is. A working crew answers with a behavior name — deckmouth, flintjack, clatter, glowbag — because the field term decides which shutter closes and which tone goes dark, and the name gets revised later if the specimen can be examined."
+  gm_note :complicates, "Put a Tuner in resonance contact with one and they report it is not quite where it is, with no instrument recording the discrepancy. Researchers who have not worked around the beasts dismiss this; containment Tuners say it matches what they feel near a Bloom Zone at lower amplitude."
+  gm_note :appears, "When a named beast takes a ship, the affected hab posts a bounty and the professional hunters converge. The hunter who brings one down is named beside it permanently, the way Geld Marrick has been introduced by Pale Star since 2376."
 end
 
 relate :rel_farborn_inhabits_the_shear, :inhabits, :farborn, :the_shear, since: 2140 do

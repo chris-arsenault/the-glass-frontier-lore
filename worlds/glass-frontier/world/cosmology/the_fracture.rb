@@ -36,6 +36,13 @@ geographic_location :the_fracture do
 
     Rescue agreements remain narrower than salvage claims. Crews that contest the same fragment still publish pressure failures and major drift warnings on a shared band. A false warning can clear a working zone long enough for theft and can also remove the only nearby ship when a real hull opens.
   PROSE
+
+  gm_note :complicates, "Survey stations issue Fracture approach maps for one working season and withdraw them after any collision that alters the local field. " \
+                        "A chart bought at full price last season routes through debris that has since migrated between the large bodies."
+  gm_note :triggered_by, "A pressure failure called on the shared band brings answers even from crews contesting the same fragment. " \
+                         "A call that proves false is read afterward as cover for theft, and the next one from that ship clears no working zone."
+  gm_note :appears, "Raiders anchor inside charted space-fauna shelters and copy herd movement to stay off a long survey. " \
+                    "A warm crack logged as safe on the last visit can hold a crewed hull on this one."
 end
 
 relate :rel_the_fracture_orbits_the_sun, :orbits, :the_fracture, :the_sun do

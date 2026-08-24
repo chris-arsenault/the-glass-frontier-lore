@@ -80,6 +80,10 @@ faction :echo_ledger_conclave do
 
     #{ref :lira_vashtenri, "Lira Vashtenri"} left the Conclave to join the #{ref :displacement_council, "Displacement Council"}, taking her resonance expertise with her. The Conclave considers this a personal betrayal dressed up as public service. Lira considers it the most useful thing she's ever done. They are both correct.
   PROSE
+
+  gm_note :appears, "Outside #{ref :sable_crescent, "Sable Crescent"} the Conclave arrives as a retrieval cell: four to six archivists with a contracted #{ref :tuners, "Tuner"}, a chartered transport, and the funds to buy the thing the party came for before the party reaches it."
+  gm_note :triggered_by, "Ask for a record and the answer is a fee and a redaction. The Conclave has three times been ordered to widen access and three times released material technically public and practically useless."
+  gm_note :complicates, "A find of doubtful provenance is worth more once an archivist attests to its resonance signature. The Conclave does not authenticate such goods; individual archivists do it on their own time, which makes the attestation itself something a rival can raise."
 end
 
 relate :rel_elc_studies_echo_rivers, :studies, :echo_ledger_conclave, :echo_rivers, since: 2310 do

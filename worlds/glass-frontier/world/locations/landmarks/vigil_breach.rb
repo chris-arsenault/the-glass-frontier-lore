@@ -23,6 +23,10 @@ installation :vigil_breach do
 
     Traders remain in the lower shelters with heated cases and offers for anything brought out. The valley councils prohibit sale until a surveyor has logged an object and a guide has confirmed where it was found.
   PROSE
+
+  gm_note :appears, "Nobody arrives at an opening; everybody waits for one, camped on a narrow shelf below the doors alongside Synod observers, guides, and traders holding the same forecast. Once the low tone runs through the cliff, anyone still down at the permanent shelter has missed it."
+  gm_note :triggered_by, "Push for the second doorway and the timing decides it: the inner door only begins to open once the outer leaves have started closing. Crossing is a decision to be shut in, and the rope will not stretch to cover both moves."
+  gm_note :complicates, "Traders wait in the lower shelters with heated cases and standing offers for anything carried out, but no sale is lawful until a surveyor logs the object and a guide confirms the find spot. A piece sold around that is a piece no shelter in the range will handle again."
 end
 
 relate :rel_vigil_breach_located_kyther_range, :located_in, :vigil_breach, :kyther_range do

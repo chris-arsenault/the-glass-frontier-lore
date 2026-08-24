@@ -13,6 +13,10 @@ transport :nera_doss do
 
     The present crew has fitted a sealed rack beneath the cabin for warm catch from the latest passages. During the next crossing, the rack will expose one tray to the plume field while keeping its pressure and temperature fixed.
   PROSE
+
+  gm_note :appears, "Anyone travelling to or from #{ref :ravel, "Ravel"} on the short #{ref :keel, "Keel"} branch rides in this cabin with four crew, two line workers, and six wet-fold lockers of recovered mesh dripping onto the deck."
+  gm_note :triggered_by, "Ask the crew for a tow and they weigh it against the drive reserve, which covers exactly one damaged panel pulled clear before the next web opens. Spending it on anything else leaves a panel out through the passage."
+  gm_note :complicates, "The rack under the cabin holds fixed pressure and temperature through a crossing, so hard maneuvering, a breach, or a power dip ends the comparison run and puts the next attempt nine days out."
 end
 relate :rel_nera_doss_operates_in_ravel, :operates_in, :nera_doss, :ravel, since: 2435 do
   prose "Nera Doss tends Ravel's outer collector lines and recovers released panels."

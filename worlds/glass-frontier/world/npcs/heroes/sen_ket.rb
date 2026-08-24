@@ -14,6 +14,13 @@ npc :sen_ket do
 
     Their repair method pairs new cable with fragments cut from the failed section. The fragment retains the local signal response and lets the replacement settle into the same delay. Sen'ket stores each removed piece in a numbered drawer beneath the array, turning the repair history into a physical timing record. The first three isolated listening beads they placed along Issel's extended guide cable received the Long Note before their cables were connected to the dish.
   PROSE
+
+  gm_note :appears, "Sen'ket is somewhere along the baseline with the hand cart and the shielded clock, and keeps a section comparison running while talking. " \
+                    "Breaking the run costs that section's timing, so answers come at the cart's pace and out of order."
+  gm_note :triggered_by, "Ask when a stretch of the array last failed and Sen'ket opens the numbered drawers beneath it, where every removed cable fragment is kept in order. " \
+                         "The fragments date the repair and still hold the signal response of the run they were cut from."
+  gm_note :complicates, "Sen'ket's first three listening beads took the #{ref :long_note, "Long Note"} before their cables reached the dish, so they will not accept a disconnected instrument as proof that nothing was heard. " \
+                        "Any test a party proposes gains a disconnected control bead before Sen'ket will argue from its result."
 end
 
 relate :rel_sen_ket_located_in_issel, :located_in, :sen_ket, :issel, since: 2435 do

@@ -11,6 +11,10 @@ artifact :nineteen do
 
     Nineteen is fitted to the forty-person walking bridge through shared straps between segments. It has begun carrying a twentieth body position from the front pair toward the formation's center during each rotation of the spoke chamber.
   PROSE
+
+  gm_note :appears, "Kesh issues Nineteen for any load one crew cannot carry, so a party joining a big lift is handed segments still adjusted to whoever wore them last. The belts can be retaken mid-formation only by dropping the count."
+  gm_note :triggered_by, "Everyone in the harness moves on one count, so a wearer who breaks stride to draw, turn, or grab at something sends that change around the ribs before the movement finishes. The line either bends with it or loses contact."
+  gm_note :complicates, "The harness reports twenty positions while forty people are in it, and the extra one travels from the front pair toward the center each time the spoke chamber turns. Whoever it passes through takes load from a body that is not there."
 end
 
 relate :rel_kesh_possesses_nineteen, :possesses, :kesh, :nineteen, since: 2435 do

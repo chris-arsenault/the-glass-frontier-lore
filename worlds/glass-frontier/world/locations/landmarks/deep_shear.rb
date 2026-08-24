@@ -57,6 +57,10 @@ geographic_location :deep_shear do
   prose <<~PROSE, section: :present_day, heading: "Present Day"
     The Deep Shear is one of the most reliably dangerous places in the system. It is also the source of the most valuable salvage anyone trades. The two facts are inseparable. The hush continues. The pockets shift. The Deep-runners pass charts to apprentices. Coremark replaces lost rigs. Pell crews isolate their cutter clocks. The Conclave waits for the next interesting fragment. Somewhere in the inner Deep, things that nobody has charted continue to be there.
   PROSE
+
+  gm_note :appears, "No instrument reports the crossing in time to act on it. A Tuner on the bridge feels the ambient noise withdraw within seconds; a crew without one finds out from clocks that disagree, parallax that stops behaving, or navigation placing the same debris mass in two positions."
+  gm_note :complicates, "Charts stop holding past the outer band. The same volume surveyed twice produces different charts, so a map the players drew an hour ago records one passage rather than the place, and a pocket can go from outer to middle Deep inside a hundred meters."
+  gm_note :triggered_by, "Everything carried out of the Deep has to be sold to somebody. Deep-shifted matter and Farborn tissue do not reliably stay what they were once removed from the distortion that made them, which has surprised buyers before and turns payment into an argument about condition on delivery."
 end
 
 moment :first_petition_for_deep_specific_regulation, year: 2420, of: :deep_shear do

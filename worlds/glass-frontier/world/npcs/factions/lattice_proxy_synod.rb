@@ -43,6 +43,10 @@ faction :lattice_proxy_synod do
 
     The #{ref :tempered_accord, "Tempered Accord"} relies on them. #{ref :the_continuity, "The Continuity"} keeps a permanent mission at Threshold Station and limits its dependence on Synod consultation. The #{ref :echo_ledger_conclave, "Echo Ledger Conclave"} studies custodian outputs while disputing how the Synod controls access to them. Most other users take the navigation feed without entering the Synod's arguments about the minds that produced it.
   PROSE
+
+  gm_note :appears, "The Synod reaches a scene before its people do, because the packaged orbital data is what any crew's route was planned from and what any settlement's debris warnings came out of. Crews buy the feed, rely on it, and would rather not hear how the numbers were obtained."
+  gm_note :triggered_by, "Ask a proxy to put a question to the custodians and it comes back useful, incomprehensible, or not at all, with no way to tell which beforehand. When a sequence that has worked for years stops working, there is no diagnostic to run: the proxy tries documented variations until one takes."
+  gm_note :complicates, "Visitors to Threshold Station are guests in a third of a building. The rest stays sealed, powered, and occasionally audible, and the corridors that swallowed two expeditions were closed permanently instead of mapped. Nobody here can say what is behind them, and nobody will open them."
 end
 
 relate :rel_lps_hq_threshold_station, :headquartered_in, :lattice_proxy_synod, :threshold_station, since: 2305 do

@@ -41,6 +41,10 @@ installation :marker_house_twelve do
 
     The road board remains open to foot and light vehicle traffic. Ladderwell has sent a survey crew with mechanical pins and no powered sounder. Until they arrive, the house pen is full and the slate shows more intended departures than the well order can supply.
   PROSE
+
+  gm_note :appears, "With no resident keeper, the slate inside the door is the only authority here: water level, road tone, weather, and where the last group meant to go. A party that reads it learns who is ahead of them, and whatever they write is what the next crew plans around."
+  gm_note :triggered_by, "Every arrival sounds the paired stakes before drawing water. If the tones divide, the vehicle track closes until somebody walks to the next marker interval to find where the change begins, and the crew that heard the split is the crew expected to walk it."
+  gm_note :complicates, "The pen is full and the slate lists more departures than the well order can supply, because caravans have backed up behind the east hollow. The road stays open to foot and light vehicles, so a party willing to cross without animals can leave while the rest wait."
 end
 
 relate :rel_marker_house_located_avar, :located_in, :marker_house_twelve, :avar do

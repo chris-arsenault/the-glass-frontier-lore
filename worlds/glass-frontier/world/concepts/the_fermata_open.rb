@@ -35,6 +35,10 @@ concept :the_fermata_open do
 
     The final piece is always a new composition. Most disappear after one performance. A composition that the room takes up becomes available as future law, carrying the circumstances of its first hearing with it. Fermata's most durable reforms and several of its costly mistakes began this way.
   PROSE
+
+  gm_note :appears, "Open week triples Fermata's moorings, so a berth that does not exist for the other fifty-one weeks of the year is available now. It comes with a bunk that is somebody's rehearsal room until the last Session ends."
+  gm_note :triggered_by, "A visitor who simply plays what they hear can pull apart a compromise two local factions spent the year building, because the tempo or the turn they answered carries settled political meaning they were never told. The result stands after they leave."
+  gm_note :complicates, "Drone crews chalk arcs on the weak panels and expect performers to keep those compartments quiet. A soft sustained tone at a responsive frequency travels farther through the frame than a loud passage, so the party can bind doors and craze windows across the station without ever raising their volume."
 end
 
 relate :rel_fermata_hosts_open, :hosts, :fermata_station, :the_fermata_open do

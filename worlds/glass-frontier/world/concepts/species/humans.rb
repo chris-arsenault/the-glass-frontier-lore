@@ -29,6 +29,11 @@ species :humans do
 
     This produces two reactions: a pragmatic culture of tool-building (if you can't feel it directly, build instruments that translate it into something you can read) and an occasional chip-on-the-shoulder competitiveness with attuned species that is mostly good-natured and occasionally not.
   PROSE
+
+  gm_note :triggered_by, "Ask a human specialist to read the resonance in a room and they reach for an instrument first. The reading " \
+                         "is only as good as that instrument and its last calibration, and without it they can offer method rather than a sense."
+  gm_note :appears, "A human NPC pressed on what they are names a city, a crew, or a trade instead. Human faces are the ordinary case in almost every settlement, so the species carries no claim worth making."
+  gm_note :complicates, "Set a human practitioner beside a #{ref :gnomes, "gnome"} on the same problem and the human reaches the answer by measurement and repetition. The edge in that exchange is good-natured until someone is judging the work."
 end
 
 relate :rel_humans_inhabit_sithari, :inhabits, :humans, :sithari, since: 2050 do

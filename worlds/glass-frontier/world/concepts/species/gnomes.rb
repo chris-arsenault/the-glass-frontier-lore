@@ -47,6 +47,10 @@ species :gnomes do
 
     Gnomish communities exist, particularly in settlements built around major ringglass processing operations, but gnomes don't have a species-level homeland. Like most species in the system, their primary identity is cultural.
   PROSE
+
+  gm_note :appears, "Walk a gnome into any room and they can say what ringglass is in it, what frequencies are running, and what is tuned wrong, before the party has finished looking around. The search the table planned is over in a sentence."
+  gm_note :triggered_by, "Ask a gnome to work somewhere with distorted resonance and they are pricing years, not danger pay. Sensory overload and lattice microfracture at the #{ref :bloom_zones, "Bloom Zones"} decide whether a gnome sees a hundred and fifty or fifty, and the ones who take the work track their exposure closely."
+  gm_note :complicates, "A resting gnome's bones hum below their own hearing, and everyone else in a quiet room can pick it up. Hiding in silence, sharing a bunk, or waiting out a search in a sealed compartment does not work the way the party expects, and the gnome finds the subject tiresome."
 end
 
 relate :rel_gnomes_attuned_to_resonance, :attuned_to, :gnomes, :resonance do

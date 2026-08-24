@@ -32,6 +32,10 @@ installation :kesh do
 
     The group trains with #{ref :nineteen, "Nineteen"}, an old linked harness whose segments carry weight and body position around the full formation. During the latest crossing, the harness registered twenty positions while forty people remained in contact. The extra position moved from the leading pair toward the center as the chamber turned.
   PROSE
+
+  gm_note :appears, "All four spoke docks turn gravity toward the junction on the approach, and residents cross that turn linked. A visitor who declines to take a position is carried through inside a rescue frame or left waiting at the dock until someone has time to build one."
+  gm_note :triggered_by, "The field carries breath, pulse, tremor and grip pressure between linked bodies, so a captain reads a newcomer's fear or temper before it is spoken. They act on it immediately: steady breathers go to the center, and anyone straining is rotated off the load-bearing edge."
+  gm_note :complicates, "Kesh crews keep separate calls, grips and marked straps but share enough positions to merge on an emergency call. A party that arrived as its own group is dissolved into the rescue formation and its members reassigned by position, not by who they came with."
 end
 
 relate :rel_kesh_located_in_frontier, :located_in, :kesh, :the_glass_frontier, since: 2305 do

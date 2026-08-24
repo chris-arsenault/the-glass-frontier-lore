@@ -37,6 +37,10 @@ culture :hab_worlder do
 
     The one context where the label carries unambiguous weight is the Bloom displacement. Hab-Worlders who lost their habs during the Silent Bloom share a specific subset of the identity: people who know what it means to lose a sealed environment. The Displacement Council draws heavily from this population, and the phrase "I'm Hab-Worlder" carries a different resonance when spoken by someone whose hab no longer exists.
   PROSE
+
+  gm_note :appears, "Two Hab-Worlders pick each other out across a crowded surface station within minutes, by the contained, economical way each one moves through space that is no longer scarce. They may share nothing else at all."
+  gm_note :triggered_by, "A change in the fan and recycler noise of a sealed room registers on a Hab-Worlder before any instrument reports it, and a first night in a surface settlement keeps them awake because the absence of that noise reads as system failure."
+  gm_note :complicates, "Hab-Worlders keep a practical count of favors given and owed, so a party that takes hospitality inside a sealed environment without pulling weight finds its next request measured against the work it did not do."
 end
 
 relate :rel_hab_worlder_originated_in_tgf, :originated_in, :hab_worlder, :the_glass_frontier do

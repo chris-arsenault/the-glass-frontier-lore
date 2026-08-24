@@ -43,6 +43,13 @@ installation :cold_lantern do
 
     Pell has left the waypoint open and added an isolated recorder beside the first. Outbound crews must choose whether to write their intended branch onto a station already carrying a signal no ship admits transmitting.
   PROSE
+
+  gm_note :appears, "Outbound crews stop to press a route strip carrying the vessel name, intended branch, people aboard, and reserve. " \
+                    "Skipping it keeps a private claim off the shared record and removes the one document that would tell a rescue lead which branch to search."
+  gm_note :triggered_by, "Lighting the beacon calls every Assembly ship on the current rescue watch and tells anything hunting in the Deep where the waypoint is. " \
+                         "It takes breaking a physical starter seal, so the call cannot afterwards be blamed on a fault."
+  gm_note :complicates, "The passive recorder already carries the three-pulse distress pattern from beyond the sealed Pell array, with the answering tone of " \
+                        "#{ref :quiet_measure, "*Quiet Measure*"} written beneath it on two strips. Writing a branch onto that strip puts the route on the same record."
 end
 
 relate :rel_cold_lantern_located_pell_cut, :located_in, :cold_lantern, :pell_cut do

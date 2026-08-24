@@ -34,6 +34,13 @@ installation :issel do
 
     Brief matches now appear at the edge of drive wakes on the Prismwell surface leg. The guild has withdrawn that route from passenger boards until Issel can separate a real wake from the added note. Two loaded survey kites wait behind the dish for the next clean track, paying for berth and provisions with each delayed departure.
   PROSE
+
+  gm_note :appears, "Every vessel arriving at Issel shuts down its signal equipment and follows a physical guide cable to the shielded dock, so a party lands with no instruments and no way to call ahead. " \
+                    "In the work chambers they get slate and hand signs, because a voice crosses an active receiver as a thin trace."
+  gm_note :triggered_by, "Ask what happened on any route within the dish's reach and Issel sells a timed track with the receiver state fixed beside each observation. " \
+                         "The track locates the point where traffic, debris, or resonance changed the route, and the sale is copied onto a household's boards."
+  gm_note :complicates, "Two loaded survey kites are berthed behind the dish waiting for a clean track, paying berth and provisions for every day the #{ref :prismwell_kite_guild, "Prismwell"} surface leg stays off the passenger boards. " \
+                        "Their crews press any capable visitor to shorten the wait."
 end
 
 relate :rel_issel_located_in_frontier, :located_in, :issel, :the_glass_frontier, since: 2305 do

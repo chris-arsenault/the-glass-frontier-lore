@@ -26,6 +26,10 @@ npc :shei_lush do
 
     The eastern seating bank is also returning an unexplained low tone under a full audience. Shei has moved preliminary hearings to a smaller room and left the Closing Session on the calendar, subject to Ol'dent's load tests.
   PROSE
+
+  gm_note :appears, "Shei reads every submitted matter before a Session and restates the disputed change in her own words when the hearing opens. Petitioners hear their business summarized more exactly than they wrote it, and the Players then argue the version she stated."
+  gm_note :triggered_by, "Carry a point in a Session and Shei has a second ensemble play the resolution back before it enters the record. Anything that cannot be reproduced is written down as an adjournment, so an unrepeatable performance settles nothing."
+  gm_note :complicates, "The eastern seating bank returns a low tone under a full audience, so Shei has moved preliminary hearings to a smaller room and holds the central hall subject to #{ref :ol_dent, "Ol'dent"}'s load tests. She refuses any tune whose load the hall cannot currently take."
 end
 
 relate :rel_shei_lush_located_in_fermata, :located_in, :shei_lush, :fermata_station do

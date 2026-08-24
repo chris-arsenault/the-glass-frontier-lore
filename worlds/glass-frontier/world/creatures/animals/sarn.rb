@@ -14,6 +14,10 @@ creature :sarn do
 
     Old combs loosen during the seasonal passage at #{ref :perch, "Perch"}. Their mineral fibers retain the loads carried during growth and have become valuable materials. Collection crews wait for a comb to separate and keep their lines outside the living fans; a cut made early can pull an entire collection frame into the herd's shared turn.
   PROSE
+
+  gm_note :appears, "Sarn cross the gaps between fragments on their own schedule, so a herd turns up in a lane the charts show as clear; the first warning a crossing party gets is usually a hab closing its approach lanes ahead of them."
+  gm_note :triggered_by, "Fly into the spiral rather than beneath it and the herd treats the vessel as one more load to pass along; adults can throw its momentum toward the outer edge faster than a kite cancels it, and the way out runs with the turn, not across it."
+  gm_note :complicates, "A comb cut before it separates on its own is still attached to a moving animal, and the herd's shared turn takes the line, the frame, and whatever the frame is bolted to; a crew watching a rich fan has every reason to cut early."
 end
 
 relate :rel_sarn_inhabits_perch, :inhabits, :sarn, :perch, since: 2435 do

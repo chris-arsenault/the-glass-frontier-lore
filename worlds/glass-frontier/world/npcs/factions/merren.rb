@@ -19,6 +19,10 @@ faction :merren do
 
     At Vey, three dock wards back a central atmosphere plant for cargo surges. The contract transfers pressure control from six public lungs to one secured machine. Merren's trial unit has held the warehouse ring steady while changing humidity and return timing in the surrounding passive passages.
   PROSE
+
+  gm_note :appears, "Merren turns up wherever a hab's utilities have just failed under load, offering the machine that would fix it at close to what it cost to build. The price is a permanent service bay and first claim on every repair the installation will ever need."
+  gm_note :triggered_by, "Fixing a pump or a shutter in a settlement where Merren holds a bay crosses the first-claim terms, and the resident crew answers it as a contract matter rather than as a favor."
+  gm_note :complicates, "The company is three #{ref :vey, "Vey"} dock crews who got tired of ward fans failing during cargo surges, so anyone arguing against a Merren contract is arguing with former crewmates, neighbors, and relatives."
 end
 
 relate :rel_merren_headquartered_in_vey, :headquartered_in, :merren, :vey, since: 2429 do

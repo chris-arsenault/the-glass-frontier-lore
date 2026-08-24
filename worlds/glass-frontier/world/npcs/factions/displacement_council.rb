@@ -40,6 +40,10 @@ faction :displacement_council do
   prose <<~PROSE, section: :present_day, heading: "Present Day"
     #{ref :dern_talish, "Dern Talish"} leads. Containment holds. The zones have not contracted. Outside keeps Karet-3 stable, and the closed boundary at Pell remains under observation because its array records still contain fragments of #{ref :pell_answer, "the Pell Answer"}.
   PROSE
+
+  gm_note :triggered_by, "Ask the Council for help and the price is a stop condition agreed before launch: a named field operator, an isolated clock, and a stated point at which the crew turns back whether or not the party is finished."
+  gm_note :complicates, "The founding charter forbids taking a side, so the Council will haul, cordon, and mediate for every faction at the table and decline to say which of them is right — including when the party plainly is."
+  gm_note :appears, "Whenever the party's business would open a second front, the answer costs an existing station its coverage: closed humanitarian offices, longer rotations, smaller cordons left on remote watch. The First Threshold names which."
 end
 
 relate :rel_dc_maintains_bloom_zones, :maintains, :displacement_council, :bloom_zones, since: 2384 do

@@ -24,6 +24,10 @@ npc :venn_talis do
 
     Requests to identify the faction that mounted the entry receive the same response: its later name matters less than the authority it claimed at the hatch. Venn has not joined the effort to remove the name from sealed inquiry records.
   PROSE
+
+  gm_note :appears, "Venn is reached by written question through the #{ref :echo_ledger_conclave, "Echo Ledger Conclave"}'s Sithari archive office, never in person and never at short notice. The reply separates what the record shows from what Venn inferred, and leaves anything the record cannot support unanswered."
+  gm_note :triggered_by, "Asking which faction mounted the entry produces the same sentence every time: the name matters less than the authority it claimed at the hatch. The name survives in the sealed inquiry records, and there is a standing effort to strike it that Venn has neither joined nor opposed."
+  gm_note :complicates, "Venn refuses condensed versions of the Coriolis record, so a party wanting a quick briefing gets all four parts or none: the spoken testimony, the suit telemetry, the team's entry plan, and the outer-hatch recording."
 end
 
 relate :rel_venn_talis_cooperates_with_conclave, :cooperates_with, :venn_talis, :echo_ledger_conclave do

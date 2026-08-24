@@ -41,6 +41,13 @@ artifact :counterweight_road_rig do
 
     Ladderwell retained a smaller duplicate set for bridges, mills, and water work. The travelling rig kept the marked originals. Counterweight contracts now allow local crews to copy every ordinary component they can maintain. The tuned cores and bridge controller remain with the road rig because their inspection records travel with them.
   PROSE
+
+  gm_note :triggered_by, "Ask to borrow one piece of the rig and the crew answers with the packing plan rather than the part. " \
+                         "A jack without its mat is not available, and a shackle whose numbered core went to scrap is not replaced with one that happens to fit."
+  gm_note :complicates, "A warning shackle sounding between counts stops the lift and settles nothing. It may be answering heat rather than strain, " \
+                        "and a silent shackle can stand beside a failing mat, so the caller reads it against the jack heights and the marks on the road first."
+  gm_note :appears, "Retired cores are cut open in front of local trainees and left behind, so towns along the rig's route keep a shelf of opened failures: heat cracks, loose seats, contaminated crystal, drift. " \
+                    "Someone there can usually name what killed a core the players carry in."
 end
 
 relate :rel_counterweight_possesses_road_rig, :possesses, :counterweight, :counterweight_road_rig, since: 2429 do

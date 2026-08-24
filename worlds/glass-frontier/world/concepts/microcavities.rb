@@ -13,6 +13,9 @@ resource :microcavities do
 
     The cells are small — most are thumbnail-sized or smaller — and are traded in standardized racks. A full rack looks like a tray of tiny glass seeds, each one humming faintly if you hold it close enough to feel.
   PROSE
+
+  gm_note :appears, "A standardized rack is the size of a seed tray, so the high-energy fuel a scene calls for is usually already in someone's locker. Ask each player where theirs was bought, since the grade that holds charge best comes out of #{ref :the_shear, "the Shear"} and costs accordingly."
+  gm_note :triggered_by, "Cracking a cell's seal releases the whole stored charge at once as kinetic-band output, enough to restart a dead array or supply emergency thrust. A cell sealed loosely to save money vents the same energy without anyone choosing the moment."
 end
 
 relate :rel_microcavities_derived_from_ringglass, :derived_from, :microcavities, :ringglass do

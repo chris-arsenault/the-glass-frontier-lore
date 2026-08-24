@@ -31,6 +31,10 @@ installation :span_nine do
 
     The engineering is consistent with #{ref :elves, "elven"} work, though no surviving record credits them specifically. Its builders possessed capabilities the current civilization cannot approach. The filament has survived the Glassfall, #{elapsed :the_glassfall, approx: true} of orbital debris, and every attempt to study it while continuing to function perfectly. It is the most visible surviving example of Ring Age engineering that current workshops cannot reproduce.
   PROSE
+
+  gm_note :appears, "Real-time conversation across the system happens only at the three termini, #{ref :whitefoot, "Whitefoot"}, #{ref :pelhari, "Pelhari"} and Threshold. Everywhere else news moves at the speed of the ship carrying it, and a party needing an answer from the far side goes to a terminus or waits."
+  gm_note :triggered_by, "Any deliberate move on the filament — reaching for it on EVA, cutting a sample, plotting an intercept — ends with the attempt gone rather than refused. The character comes back with an hour missing and no memory of trying, and the ship's navigation has already routed around it."
+  gm_note :complicates, "Work beside the Span is harmless until it turns purposeful, and nobody can say where that line falls; the #{ref :lattice_proxy_synod, "Synod"} has tested the distinction for decades without finding the mechanism. A crew mooring, surveying or salvaging near it gets no ruling in advance."
 end
 
 relate :rel_span_nine_in_whitefoot, :located_in, :span_nine, :whitefoot, since: 2305 do

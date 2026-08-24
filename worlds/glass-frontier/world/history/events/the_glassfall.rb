@@ -29,6 +29,10 @@ incident :the_glassfall do
 
     Most people have stopped expecting an answer. The Glassfall is history now — the kind that shapes everything but that nobody alive experienced firsthand. It matters the way an earthquake matters: not as a mystery to solve, but as the reason the landscape looks the way it does.
   PROSE
+
+  gm_note :appears, "The debris in the lanes, the #{ref :the_shear, "Shear"} between atmosphere and orbit, and the ringglass settled through crust and waterways all date from one day in 2140, so salvage, flight, and resonance problems bottom out in an event nobody alive witnessed."
+  gm_note :triggered_by, "The question of who broke the ring produces the sabotage argument rather than an answer: the rings were built to survive far worse than Kaleidos's orbit could produce, so something deliberate must have started the cascade."
+  gm_note :complicates, "Inquiry into the cause ends at the #{ref :lattice_proxy_synod, "Lattice Proxy Synod"}, which holds classified archives from the ring-era custodian AIs and will not say whether they contain an answer."
 end
 
 moment :the_glassfall_begins, year: 2140, of: :the_glassfall do

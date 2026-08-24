@@ -42,6 +42,13 @@ installation :three_arms_yard do
 
     Prismwell has assigned one arm and the dead bench to the examination. Damaged survey craft are waiting outside the gate while the returned lamp occupies space normally used for ordinary repairs.
   PROSE
+
+  gm_note :appears, "The repair queue hangs on the outer gate, and Prismwell crews move ahead of it whenever a forecast is active. " \
+                    "An independent party pays the posted rate or buys its place with a wash shift or a night watch, which puts it in the wash well beside the apprentices."
+  gm_note :triggered_by, "Hand the yard any recovered lamp or sounder and it goes to the dead bench on the western wall, its record read before the housing is opened. " \
+                         "Anything found out of position stays in a ceramic box until its clock, field, and physical marks agree on at least one account of the flight."
+  gm_note :complicates, "One arm and the dead bench are given over to the marker that reached Glasswake ahead of #{ref :rainline, "*Rainline*"}, so ordinary repairs are stacked outside the gate. " \
+                        "The crews waiting there trade what they have heard about the lamp to anyone willing to argue their frame up the queue."
 end
 
 relate :rel_three_arms_located_glasswake, :located_in, :three_arms_yard, :glasswake do

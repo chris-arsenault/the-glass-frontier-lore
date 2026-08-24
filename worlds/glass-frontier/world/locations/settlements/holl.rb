@@ -39,6 +39,10 @@ installation :holl do
 
     Lower cistern wards now count the new flow in their daily shares. Upper-route households want the chamber opened before the next lift overhaul closes their long descent. Five Landing will host a joint reading after one dry week; the flow record will determine whether public money goes first to a permanent stair or a bypass pipe around the fracture.
   PROSE
+
+  gm_note :appears, "Directions here come as a color and a level, since water crews paint every active seep line to read from the opposing terraces and each inhabited level keeps one ladder toward a dock and one lateral route to the next cistern."
+  gm_note :triggered_by, "The split wall moves a few millimeters every orbit, so anything a party mounts rigid against it, a pipe or a bracket or a winch anchor, starts a rising structural note that the neighbors hear for days before the fitting tears free."
+  gm_note :complicates, "A household votes with the cistern it draws from, so opening a route or redirecting a seep moves whole rows of homes between wards within a season. #{ref :five_landing, "Five Landing"} hosts the joint reading after one dry week that settles where the money goes."
 end
 
 relate :rel_holl_located_in_frontier, :located_in, :holl, :the_glass_frontier, since: 2140 do

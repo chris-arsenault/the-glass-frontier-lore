@@ -41,6 +41,13 @@ transport :quiet_measure do
 
     A new distress pattern has appeared twice beyond the closed Pell array: three short carrier pulses followed by the tender's own acknowledgment tone. *Quiet Measure* did not transmit the acknowledgments recorded by the yard. The next patrol carries an isolated receiver to determine whether an old beacon, a damaged ship, or the sealed array is repeating the exchange.
   PROSE
+
+  gm_note :appears, "The tender launches on a member crew calling, on coverage another rescue pool has bought, or on a ship failing to report after taking an Assembly mark. " \
+                    "Who pays enters the ledger after the casualty is secured, so it arrives before the question is settled."
+  gm_note :complicates, "Everything brought off a casualty is tagged into the forward hold for the voyage, energized tools included, and owners get it back only after Pell Cut sounds the lot. " \
+                        "Rescued crews discover this at the receiving lock with the sounding frame in front of them."
+  gm_note :triggered_by, "When a stricken hull gives a coherent return from somewhere else, the tender will not dock: a line goes across, people come over one at a time, and cargo stays. " \
+                         "The rescue lead has final authority until separation, and captains have argued it from the far end of the passage."
 end
 
 relate :rel_pell_assembly_maintains_quiet_measure, :maintains, :pell_freight_assembly, :quiet_measure do

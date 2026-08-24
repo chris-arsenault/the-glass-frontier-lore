@@ -74,6 +74,10 @@ concept :tuners do
 
     Teachers in this lineage can trace their instruction through older local schools and reach a gap where the named founders all learned the same method without recording its source. The Dissident's last location and fate remain absent from both those records and the hidden elven archive.
   PROSE
+
+  gm_note :appears, "A settlement needing resonance work hires whoever it has: a folk practitioner who knows that hab or valley better than any visitor could and cannot orient anywhere else, or a credentialed one with breadth and no feel for the local field. Three in ten practising Tuners hold no credential."
+  gm_note :triggered_by, "Asking openly for a Tuner in a settlement that prosecutes unauthorized resonance work, or that still associates it with the elves, reaches the one who practises in secret and exposes them. They will take the job and want the payment kept off every ledger."
+  gm_note :complicates, "A Tuner's reading is what other people act on — a mine closes, a corridor empties, a departure is held — and in a settlement weeks from the next practitioner there is no second opinion to fetch. Whoever dislikes the answer can overrule it or wait."
 end
 
 relate :rel_tuners_emerged_during_signal_famine, :emerged_during, :tuners, :signal_famine do

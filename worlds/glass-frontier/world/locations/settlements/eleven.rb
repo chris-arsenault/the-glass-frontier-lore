@@ -40,6 +40,10 @@ installation :eleven do
 
     The lower shafts have proposed new gardens and cooling work for those hours. Source crews want a season of operation before changing the schedule. #{ref :merren, "Merren"} has offered Eleven the second machine at cost in exchange for a permanent service bay beside the channel and first claim on repairs throughout the eleven shafts.
   PROSE
+
+  gm_note :appears, "Freight crosses the shafts on the exterior cable and passengers ride the parallel bore, but with either one down the water walk is the road, and a party travels by skiff through the deep reaches and by ledge past the painted waterline marks."
+  gm_note :triggered_by, "Water here is bought in minutes at a stated valve opening rather than by volume, and the minutes belong to households and workshops that bargain with them. A crew wanting a bath, a coolant fill, or a wash-down negotiates with a neighbor and usually pays in labor."
+  gm_note :complicates, "Anything adjusted at the source line arrives in all eleven shafts as temperature, pressure, and structural tone, so a quiet fix upstream is known in the lower courts before the party who made it gets there."
 end
 
 relate :rel_eleven_located_in_frontier, :located_in, :eleven, :the_glass_frontier, since: 2140 do

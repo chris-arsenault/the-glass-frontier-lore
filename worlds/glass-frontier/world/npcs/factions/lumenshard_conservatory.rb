@@ -34,6 +34,13 @@ faction :lumenshard_conservatory do
 
     Miraeth remains the institution's center and its strongest evidence that resonance damage can heal when matter retains stable relationships. Bloom work keeps showing the boundary of that lesson.
   PROSE
+
+  gm_note :appears, "Any repair that cannot take a rigid ringglass brace sends someone to the Conservatory for a living graft, which keeps adjusting its structural response for a time after cutting. " \
+                    "How long that lasts depends on moisture, local resonance, and how violently the fitting is asked to compensate."
+  gm_note :triggered_by, "Report odd behavior in growing matter and the Conservatory answers by planting. " \
+                         "Quick-rooting beds go in outside the damping line and are read for where roots stop behaving as connected matter, which gives a party a boundary map days before an instrument survey produces one."
+  gm_note :complicates, "The Conservatory argued against immediate containment when the #{ref :the_silent_bloom, "Silent Bloom"} began and joined the Coalition late in 2378, and opponents raise it in any containment argument. " \
+                        "It answers with substrate maps and growers who read boundary changes before fixed instruments do."
 end
 
 relate :rel_lumenshard_studies_showers, :studies, :lumenshard_conservatory, :glassfall_showers, since: 2286 do

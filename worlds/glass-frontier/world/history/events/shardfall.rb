@@ -39,6 +39,10 @@ incident :shardfall do
 
     Forty-seven cut marks remain along the replacement rail of Brake's observation gallery. The two unpowered Drossmark frames in the cutting yards are used as sorting tables. Split Wake's ships were dismantled there. The field itself is empty of intact-grade material and carries ordinary local traffic.
   PROSE
+
+  gm_note :appears, "\"Another Shardfall\" is what people call a salvage risk that has crossed into someone else's air, route or structure, and Compact inspectors say it to an operator who is treating a linked field as separate machines."
+  gm_note :triggered_by, "Fixing several debris masses and a carrier into one cutting field is the arrangement that answered Brake's arrestors, and a hab with kinetic arrays orders the work stopped as soon as its instruments begin echoing the extraction tone."
+  gm_note :complicates, "#{ref :brake} settles claim hearings from drive sequences because this one fixed who moved, who fired and which arrays stayed active, so a party arguing a claim there is arguing against its own logs."
 end
 
 relate :rel_shardfall_caused_shear_compact, :caused, :shardfall, :shear_compact do

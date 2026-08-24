@@ -35,6 +35,10 @@ transport :flitter do
 
     Regional designs follow those conditions. Steppe craft carry broad feet and detachable skids for routes whose marked ground has moved. Shower-route flitters fold pale catch cloth over vulnerable joints. Ashvane cabins put cooling ahead of insulation. Lowbank models keep their controls high and their lower shells plain enough to wash after a flooded landing.
   PROSE
+
+  gm_note :triggered_by, "Order a flitter onto a leg where the local beacons and its hull #{ref :tuning_compass, "tuning compass"} disagree beyond tolerance and it refuses to fly. Someone has to take manual control and own the departure from the registered route, or the trip waits for a better reading."
+  gm_note :complicates, "A flitter that has just landed sits in its berth frame until the pad lights fall together and the residual kinetic pull has drained into it. Reaching into the cabin before that transfers the last correction into whatever is touched: a case, a loading arm, or the person holding it."
+  gm_note :appears, "In a depleted field a flitter descends on stored charge and then waits for the local gradient to recover. Passengers end up beside an undamaged craft whose pilot cannot name a departure time, and the only way onward is another system."
 end
 
 relate :rel_flitter_depends_on_kite, :depends_on, :flitter, :kite_sail do

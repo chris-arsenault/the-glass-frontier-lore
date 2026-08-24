@@ -16,6 +16,10 @@ npc :nara_pell do
 
     She closed the current blue-loam exchange after noticing that patients from one bed described warmth and patients from the next described a persistent pulse. Her six matched cultures now occupy separate rooms around Seren's axis.
   PROSE
+
+  gm_note :appears, "Anyone bringing a living sample to #{ref :seren, "Seren"} meets Pell before they see a bed. She wants the cultivation account, and her questions are about hands and hours: who turned the soil, how long the vat stayed open, what color came before the mold fruited."
+  gm_note :triggered_by, "A tidied or secondhand answer about where a culture was grown sends it to a bed matched to the declared source rather than the real one, and Pell writes the difference into both notebooks for the depositor to answer later."
+  gm_note :complicates, "Six matched blue-loam cultures and Olven's velin lineages already fill Pell's days, so she buys her own attention back in errands: sit through a grower's feeding, carry a sealed case, bring her the account nobody wrote down."
 end
 
 relate :rel_nara_pell_located_in_seren, :located_in, :nara_pell, :seren, since: 2435 do

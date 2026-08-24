@@ -31,6 +31,10 @@ faction :ring_collective do
 
     The current dispute concerns emergency docking. Ports want authority to redirect a damaged vessel to any member with a compatible seal. Small habs insist that a receiving habitat must consent before the route notice goes out, even when delay leaves a ship under failing pressure.
   PROSE
+
+  gm_note :appears, "An approach to any ring hab is checked against the Collective's register, which records who accepts contact, who requires terms agreed in advance, and who has withdrawn, alongside compatible docking seals, quarantine notices, and current route closures."
+  gm_note :triggered_by, "Asking the Collective to make a member do something produces a resolution at most. Each hab keeps its own law and may reject one, and the assembly claims no right to open a hatch, inspect an interior, or seat a delegation outsiders have sent."
+  gm_note :complicates, "A damaged vessel looking for a berth lands in the assembly's open dispute: large ports want authority to redirect it to any member with a compatible seal, small habs require the receiving hab's consent first, and the route notice waits on that argument."
 end
 
 relate :rel_ring_collective_headquartered_hab_meridian, :headquartered_in, :ring_collective, :hab_meridian, since: 2318 do

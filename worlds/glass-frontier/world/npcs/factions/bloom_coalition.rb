@@ -63,6 +63,10 @@ faction :bloom_coalition do
 
     The Coalition is sometimes invoked rhetorically in present-day politics: as a model when cooperation is needed, as a warning when emergency powers are being expanded. The invocations are mostly empty. The Coalition was a specific institution for a specific crisis, and the conditions that produced it were not replicable on purpose. It worked because the alternative was worse. It dissolved because the alternative was, eventually, better.
   PROSE
+
+  gm_note :appears, "Most cross-faction work under way today has an old Coalition hand somewhere in it, retired or near it, who still runs a briefing to field-command habit and still holds a working relationship across a line current politics does not support. Those relationships move faster than the formal channel."
+  gm_note :triggered_by, "Citing the Coalition in an argument works for either side, as the model when cooperation is being asked for and as the warning when emergency powers are. The citation binds nobody: the charter dissolved in 2396 and the Hand of the Coalition title was retired with it."
+  gm_note :complicates, "The founding charter was signed at a #{ref :sithari, "Sithari"} meeting whose minutes nobody kept, so any claim about what a signatory faction agreed to in 2380 rests on the memory of people now very old. Two of them will remember it differently and neither account can be checked."
 end
 
 relate :rel_bloom_coalition_caused_the_bitter_reach, :caused, :bloom_coalition, :the_bitter_reach do

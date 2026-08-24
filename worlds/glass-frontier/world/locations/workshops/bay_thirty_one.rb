@@ -18,6 +18,10 @@ installation :bay_thirty_one do
   PROSE
 
   log "2026-08-21 — Made the workers' shorthand Thirty-One primary while retaining Bay Thirty-One as the formal designation."
+
+  gm_note :complicates, "No water touches a garment until its map is copied onto fired ceramic, so a piece handed in for urgent answers spends a full dry pass under paddles and chalk while its owner waits outside the pressure door."
+  gm_note :appears, "Twenty-seven garments hang from the ceiling frames with the floor lanes kept clear beneath them, so anyone crossing the bay walks the route the traces describe while a worker plays them in order overhead."
+  gm_note :triggered_by, "Whatever falls out of a garment during the dry pass goes into a labeled tray instead of back to its owner, so a courier who wants a pocketed item returned has to name it before the wash and collect it from the tray."
 end
 
 relate :rel_bay_thirty_one_located_in_wash_four, :located_in, :bay_thirty_one, :wash_four, since: 2435 do

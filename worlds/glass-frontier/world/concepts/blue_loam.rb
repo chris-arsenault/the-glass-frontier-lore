@@ -15,6 +15,10 @@ resource :blue_loam do
 
     Seren's stock has divided into two stable forms while retaining the same appearance and recorded ancestry. The exchange lot remains closed while matched cultures establish which form a shipment carries.
   PROSE
+
+  gm_note :appears, "Blue loam arrives as three things at once: live soil, dried nodules, and a scored ceramic bar carrying the bed's cultivation tone. A bar cracked or swapped in transit leaves nobody able to say which of the two forms the shipment holds."
+  gm_note :triggered_by, "Any patient treated with the paste raises the question of which bed the stock came from; a stressed culture drives rapid pulses through the tissue around the injury and keeps them awake for days."
+  gm_note :complicates, "The exchange lot at #{ref :seren, "Seren"} is closed, so loam offered anywhere else moved before the closure, and a seller who understands that prices the ceramic bar above the soil."
 end
 
 relate :rel_blue_loam_sourced_from_seren, :sourced_from, :blue_loam, :seren do

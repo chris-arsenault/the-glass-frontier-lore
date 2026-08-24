@@ -21,6 +21,10 @@ installation :whitefoot do
 
     Reactivation increased Sithari's reach, but the city did not acquire the terminus by chance or contain it within the capital. Whitefoot remains a separate station under Sitharian maintenance and its own access rules.
   PROSE
+
+  gm_note :appears, "Sending anything off-world from the surface means coming out to the yard in person: an operator assigns the channel, the receiving station is verified before traffic starts, and the customs hall handles whatever crosses with it. A message goes to a station that has answered, never to a person."
+  gm_note :triggered_by, "The moment a response runs past what local equipment can take, operators disconnect it and the exchange stops mid-sentence. Nothing in the yard controls the conduit, so a party's business finishes when the converter banks say so rather than when the speakers are done."
+  gm_note :complicates, "The yard keeps its own access rules outside Sithari's municipal boundary while drawing every staffer, every watt and every customs officer up the rail line from the city. A quarrel with the capital reaches Whitefoot as a staffing or transport problem, not as an order about the Span."
 end
 
 relate :rel_whitefoot_located_on_kaleidos, :located_in, :whitefoot, :kaleidos do

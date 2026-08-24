@@ -18,6 +18,9 @@ npc :teren_voss do
   prose <<~PROSE, section: :history, heading: "The Trial Record"
     Voss argued that the aligned anchor chain remained active after the test equipment shut down. Coremark treated the residual readings as an accounting problem and ordered the site stripped. He sent his copies to the #{ref :shear_compact, "Shear Compact"} after the #{ref :the_silent_bloom, "Silent Bloom"}; those records now provide the clearest route by which the first cascade crossed the mid-drift.
   PROSE
+
+  gm_note :triggered_by, "Show Voss a conduit or array design and he marks the coupled loads it has overlooked. If the plan amounts to another Span, he hands the sheets back and refuses the work regardless of who is paying."
+  gm_note :appears, "Voss is who Keelward calls when municipal signal gear fails, which puts the man holding the #{ref :second_span_trial, "Second Span trial"} telemetry at an ordinary repair bench. Investigators tracing the first cascade across the mid-drift end up there."
 end
 
 relate :rel_teren_voss_located_in_keelward, :located_in, :teren_voss, :keelward do

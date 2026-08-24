@@ -39,6 +39,10 @@ faction :lower_routes_cooperative do
   prose <<~PROSE, section: :present_day, heading: "Present Day"
     #{ref :tavi_soreth, "Tavi Soreth"} currently coordinates the long surveys opened by a change in central transit load. The Cooperative has accepted three approaches as amber and refused city requests to publish them as ordinary streets. One reaches the #{ref :folded_annex, "Folded Annex"}; another ends beneath a residential foundation whose plans show solid ground.
   PROSE
+
+  gm_note :appears, "The steward at a fixed shaft can close an approach on the spot, and nothing short of a Cooperative survey returns it to white — not a city order, not a #{ref :clarisant, "Clarisant"} Tuner's instrument. When a route someone needs goes amber, the steward is who they argue with."
+  gm_note :triggered_by, "Producing a municipal map or a navigation reading invites a correction. The Cooperative holds deep routes back until a second pair has walked them, so the city's model shows approaches nobody has cleared and omits ones residents use daily."
+  gm_note :complicates, "Ignoring a closure costs board access, which in this district means navigating by your own last survey — an instrument reading cannot tell you which cellar now reaches the room it measured."
 end
 
 relate :rel_lower_routes_headquartered_underlayers, :headquartered_in, :lower_routes_cooperative, :underlayers, since: 2227 do

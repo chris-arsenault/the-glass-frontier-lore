@@ -76,6 +76,10 @@ installation :keel do
 
   log "2026-08-20 — Replaced the single-carrier account of Keel services with named municipal, cooperative, guild, and carrier facilities. Vantara keeps a large network but does not own the route's accommodation, rescue, or receiving infrastructure."
   log "2026-08-23 — Added the fixed chart paths for the main spine and its Glasswake, Korvath, Mareth, and Pell branches; route termini now point toward the Keel consistently."
+
+  gm_note :appears, "Beacons, fuel, shelter and rescue on the Keel are kept in sections, and the section changes at every branch point. A tow arranged on one leg is a stranger's favor on the next, with different rates, different paperwork and a different idea of who is liable."
+  gm_note :triggered_by, "Ask who to take a grievance to after something happens in open corridor and you get a list of overlapping authorities rather than an answer. Accord jurisdiction out there is theoretical, and the parties are expected to settle it between themselves."
+  gm_note :complicates, "Carrying intact ringglass turns any leg into a convoy problem: the escort premium runs to a serious fraction of the crate's value, and the unpatrolled gaps between segments are exactly where raiders wait for cargo worth that much."
 end
 
 relate :rel_keel_in_orbit_of_kaleidos, :in_orbit_of, :keel, :kaleidos do

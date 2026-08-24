@@ -23,6 +23,10 @@ npc :duthrek do
 
     Deep-Shear cells are also reporting more drift around familiar extraction sites. Duthrek has reduced quotas in three zones and raised them in two others. He has not explained whether the changes follow Compact surveys, private losses, or information bought from a cordon crew.
   PROSE
+
+  gm_note :appears, "Duthrek's quota changes reach the Deep Shear before any explanation does. A crew that worked a zone last season finds it closed or its allowance cut, and the officer carrying the order cannot say whether it followed a Compact survey, a private loss, or a purchase from a cordon crew."
+  gm_note :triggered_by, "Ask Coremark for a Bloom relic on a settlement's behalf and Duthrek wants the system it will keep running and the name of the person who will hold it. That record sets the price of later access and names the first suspect if the relic moves."
+  gm_note :complicates, "An officer who loses people through an avoidable shortcut can lose the cell's charter, and Duthrek treats a concealed failure worse than the failure. Officers caught short in front of witnesses will bargain hard for a version of events their own crew will repeat."
 end
 
 relate :rel_duthrek_located_on_korvath, :located_in, :duthrek, :korvath, since: 2409 do

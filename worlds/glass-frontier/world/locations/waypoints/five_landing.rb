@@ -14,6 +14,10 @@ installation :five_landing do
 
     The new temporary stair from the upper pressure door now terminates beside the blue route. Its traffic has filled the landing with survey crews and residents inspecting the chamber above. Market sellers have already extended their awnings over the unpainted part of the floor.
   PROSE
+
+  gm_note :appears, "Directions on this deck are colors, not turns — each of the five routes runs its band across the floor and through the crowd. Follow the wrong band and you arrive at the upper cargo lift instead of the spring-level ladders."
+  gm_note :triggered_by, "The hoist operator's bell clears the outer rail for a lift load. Benches come off, a public meeting stops where it stands, and whatever was being negotiated moves to the water taps along the wall until the freight is down."
+  gm_note :complicates, "The temporary stair from the upper pressure door lands beside the blue route, so the deck now holds survey crews, residents going up to see the chamber, and market awnings already staked over floor nobody has painted a band across."
 end
 relate :rel_five_landing_located_in_holl, :located_in, :five_landing, :holl, since: 2435 do
   prose "Five Landing joins Holl's principal ladders, lift, cable gallery, and cross-wall bridge."

@@ -36,6 +36,11 @@ installation :carom do
 
     A sealed white case marked for Neighborhood Eight has passed through Rattle on four consecutive days. Each recipient accepted the case, opened it, and returned an empty shelf. The case came back full at the next morning sort with the same weight and seal. Mik Sorn has moved the fifth delivery onto his own route.
   PROSE
+
+  gm_note :complicates, "The three segments hold different rotation rates and the drums join them for only a few minutes, so anything a party carries across Carom is timed against an alignment nobody controls, " \
+                        "and a missed drum means rebuilding the route from whichever deck they are standing on."
+  gm_note :triggered_by, "Outsiders read the first transfer correctly and lose the parcel on the second, because the drums change order; a local courier feels which one is open through the kinetic tone in the frame handle."
+  gm_note :appears, "A chalk stroke across a route mark means a temporary diversion and a clipped corner sends the parcel back the same way after delivery, so players redirecting something are writing in a grammar every courier reads at walking speed."
 end
 
 relate :rel_carom_located_in_frontier, :located_in, :carom, :the_glass_frontier, since: 2140 do

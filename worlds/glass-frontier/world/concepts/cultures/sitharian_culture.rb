@@ -44,6 +44,11 @@ culture :sitharian_culture do
 
     Sithari who travel outside the capital region learn quickly that "I'm from the capital" can close as many doors as it opens. The smart ones learn to read the room. Those who don't adapt find their cultural prestige complicates rather than helps.
   PROSE
+
+  gm_note :triggered_by, "Press a Sitharian speaker for a plain yes and the answer still arrives in full clause structure, with the " \
+                         "concession or the refusal inside a subordinate clause. Players who stop listening at the main verb leave with the wrong agreement."
+  gm_note :appears, "Naming a Sitharian training or a capital posting outside the capital region opens the records office and cools the room it was said in. Both effects land in the same conversation."
+  gm_note :complicates, "A Sitharian ally's help is real, competently given, and carries the assumption that the party could not have managed it alone. Non-Sitharian NPCs in the scene hear that assumption whether or not the party does."
 end
 
 relate :rel_sitharian_originated_in_sithari, :originated_in, :sitharian_culture, :sithari do

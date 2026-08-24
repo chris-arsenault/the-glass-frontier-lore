@@ -32,6 +32,10 @@ concept :remote_cutting do
 
     Council work has stricter stop conditions than salvage work and assigns a named operator to every live return. The machinery is much the same. What changed after Pell is the record kept beside it: which clock drove the cut, which distant sites answered, and who had authority to stop the tone.
   PROSE
+
+  gm_note :triggered_by, "Time pressure puts two cutters on one clock and one repeated processing cadence. The coupled seams can stay phase-related after the material has arrived, and a rig built to current practice trips its own receivers the moment two of them begin answering as one."
+  gm_note :complicates, "The receiver gains exactly what the claim loses, heat and pressure and resonance load together, so a rich cut moves a refinery's worth of trouble onto the vessel holding the crew. Every shutter has a hand breaker because the failure crews plan for is a control system reporting the job within limits."
+  gm_note :appears, "The #{ref :displacement_council, "Displacement Council"} moves damping mass and instruments across cordon boundaries with the same machinery salvage crews use. One named operator owns every live return there and can end the tone over the objection of whoever is paying for the cut."
 end
 
 relate :rel_remote_cutting_depends_on_resonance, :depends_on, :remote_cutting, :resonance do

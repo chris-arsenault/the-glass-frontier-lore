@@ -99,16 +99,15 @@ species :elves do
 
     Whether they're right is the question the story will eventually have to answer.
   PROSE
-  prose <<~PROSE, section: :usage_notes, heading: "DM Usage Notes", dm: true
-    - The public entry stands alone. Players can engage with the elven disappearance as a historical mystery without knowing the truth.
-    - The Echo River fragments are the primary discovery mechanism. Archivists who dig deep enough will find patterns suggesting intentional, sophisticated erasure.
-    - Elven operatives in the general population are potential NPCs — not villains, but people bearing an enormous secret and an enormous sacrifice. Some doubt. Some are tired. None are evil.
-    - The hidden habs are potential locations. What's inside is #{elapsed :elves_vanish, approx: true} of preparation by the system's most technically advanced civilization.
-    - The Bloom Zones are the active front line. Elven operatives in and around the zones are the closest thing to combat troops in the hidden war. Some Displacement Council members may notice patterns in their "unexplained successes" — containment that works better than it should, threats that resolve before the Council gets there.
-    - The Adversary is a campaign-level threat. Don't define it until you need to.
-    - The key dramatic question for any elf NPC: was the sacrifice worth it? The answer should be genuinely uncertain.
-    - The Bloom Zone relics are a wild card. They're created by contact between normal reality and the Adversary's influence. Are they weapons? Tools? Side effects? The elves don't fully understand them either, and Coremark is smuggling them into the broader system.
-  PROSE
+  gm_note :appears, "Anything working better than its owner can account for gets sold as elven " \
+                    "engineering, whether or not an elf was ever near it. The claim adds to the " \
+                    "asking price and nobody can check it."
+  gm_note :triggered_by, "Ask any scholar whether the record gaps were deliberate and you get " \
+                         "one of three settled positions, delivered as though holding either of " \
+                         "the other two were an embarrassment."
+  gm_note :complicates, "Any resonance repair that needs the original design runs out of " \
+                        "documentation at the elven layer. What gets fitted instead is a " \
+                        "substitution somebody local worked out, and it holds at reduced load."
 end
 
 relate :rel_elves_built_the_glass_frontier, :built, :elves, :the_glass_frontier do

@@ -26,6 +26,13 @@ installation :pell_cut do
 
     The old synchronized clock hangs inert above the central route board. Its hands stopped at the moment the first distress signal came back in the yard's own voice.
   PROSE
+
+  gm_note :appears, "Anchor time is reserved by member vessels that bring their own cutter and settle in handled mass or in maintenance shifts, " \
+                    "which lets a crew short of coin buy receiving rooms with labor. Three anchors are working, and the one allotted decides which claim pocket the crew cuts."
+  gm_note :complicates, "Nothing leaves the central yard without both an Assembly cargo seal and a containment record from the Council instruments on the old fourth anchor. " \
+                        "Members resent the delay and no longer vote to remove it, and a load that fails the record waits in a process room."
+  gm_note :triggered_by, "Running two anchors on one cadence, or releasing the physical breaker between them, has to be argued on the station: " \
+                         "the route council cannot override it from Glasswake, and the refusal comes from whoever is standing at the breaker."
 end
 
 relate :rel_pell_cut_located_in_deep_shear, :located_in, :pell_cut, :deep_shear, since: 2428 do

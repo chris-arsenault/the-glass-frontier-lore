@@ -31,6 +31,10 @@ npc :sable_korr do
 
     For the coming Closing Session, she has prepared every unresolved ending in the archive and found no precedent for Dez Morrn's composition without a fixed return. She is recording the rehearsals as context rather than law. If the piece enters the repertoire, later scholars will need to know what its players believed they were attempting before the central hall answered them.
   PROSE
+
+  gm_note :triggered_by, "Ask Sable what an earlier Session meant and she supplies the recording, the witness account that contradicts it, and the repair report showing the room's pulse slowed on its own. She names the conflict without recommending a reading, so the choice gets made in front of the hall."
+  gm_note :complicates, "Her failed Sit-In bars Sable from voting, calling a tune, or playing a governing solo, so nothing she knows can enter a Session in her own voice. Her evidence needs a citizen willing to play it and to carry whatever it does to the argument."
+  gm_note :appears, "Copies of Fermata's Session recordings sell to visiting scholars during #{ref :the_fermata_open, "the Fermata Open"}, and Sable sends each one out with the dispute, the repair report, and the witness accounts attached. A buyer who wants the performance alone does not get the sale."
 end
 
 relate :rel_sable_located_in_fermata, :located_in, :sable_korr, :fermata_station do

@@ -24,6 +24,13 @@ geographic_location :vitrael do
 
     An aerostat identifies itself by pressure band as well as name. Two communities can pass within sight while occupying layers whose winds carry them in opposite directions. Meetings planned by distance often fail; meetings planned by the next shared band usually occur.
   PROSE
+
+  gm_note :triggered_by, "Homing on your own signal wake over Vitrael follows a transmission the clouds held onto, and after lightning that bearing is false. " \
+                         "A skiff returns on pressure, wind, and a timed tone sent from a station other than the one that launched it."
+  gm_note :appears, "An aerostat answers to its pressure band as much as to its name, and two of them can pass within sight while their winds run opposite. " \
+                    "A meeting arranged by distance fails; one arranged for the next shared band happens."
+  gm_note :complicates, "Storm towers climb out of the lower deck faster than an orbiting support station can see them. " \
+                        "Warning and spare lifting gas come from the other settlements traveling in the group, so an aerostat drifting alone has neither."
 end
 
 relate :rel_vitrael_orbits_the_sun, :orbits, :vitrael, :the_sun do

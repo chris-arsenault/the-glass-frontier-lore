@@ -24,6 +24,10 @@ species :dwarves do
   prose <<~PROSE, section: :present_day, heading: "Present Day"
     Dwarves have no species homeland and belong to the cultures in which they were raised. Their tactile sense is common in trace work, fine fitting, inspection, and instrument repair, but most dwarves work elsewhere. #{ref :tess_orr, "Tess Orr"} uses it at Wash Four to separate route and handling impressions held in repaired cloth.
   PROSE
+
+  gm_note :triggered_by, "A dwarf asked to read something has to hold it bare-handed and still for as long as it takes, gets no bearing on anything at a distance, and returns nothing at all for a pattern that reader has never met before."
+  gm_note :complicates, "Dwarven skin trades heat so slowly that a hot workroom or a cold transfer lock stays comfortable well past safe, which is why dwarven crews run timed exposure against a surface thermometer rather than asking how anyone feels."
+  gm_note :appears, "No homeland places a dwarf, so one met anywhere carries the accent, dress and obligations of the hab or surface town that raised them rather than anything shared with other dwarves."
 end
 
 relate :rel_dwarves_inhabit_frontier, :inhabits, :dwarves, :the_glass_frontier, since: 2050 do

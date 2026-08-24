@@ -17,6 +17,9 @@ incident :returning_pods do
 
     Tangent carries an empty cradle and a reader loaded with the six seal sequences. Its patrol follows the pods' approach into a branch recorded as clear space on the current lane chart.
   PROSE
+
+  gm_note :appears, "The six claimants live at #{ref :clearance_eight} and lost the objects on separate recent journeys, so any character who has misplaced gear on a run can be called into a claim room to identify a repaired version of it."
+  gm_note :complicates, "Every day the identity and route desks hold the cases open adds storage debt to claimants who never asked for the repair, so the people pressing hardest for a disposition are residents watching a bill grow against something they already own."
 end
 
 relate :rel_returning_pods_manifests_clearance_eight, :manifests_at, :returning_pods, :clearance_eight do

@@ -31,6 +31,10 @@ npc :goruth do
 
     This year he has agreed to play Dez Morrn's proposed composition. He has also accepted the Chair's request to remain in the central hall if its separated parts stop hearing one another. Neither agreement establishes what he will play when that happens.
   PROSE
+
+  gm_note :appears, "Goruth is already in the hall, barefoot and tuned to the room, before any Session the party cares about begins. Anyone who wants his backing has to get an instrument and play with him; a case made to him during a break gets a courteous hearing and no answer."
+  gm_note :triggered_by, "Ask him whether the station can carry something and he answers from the floor rather than from an opinion. Repair crews with no authority over him keep calling him to play simple changes beside a replaced brace, and he keeps coming."
+  gm_note :complicates, "When Goruth declines to support a phrase, he does it by leaving the chord out, and every regular Player in the room hears the refusal before anyone says a word. The party's proposal is then alone in the hall with nobody on record against it."
 end
 
 relate :rel_goruth_located_in_fermata, :located_in, :goruth, :fermata_station do

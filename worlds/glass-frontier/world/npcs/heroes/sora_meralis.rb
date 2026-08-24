@@ -20,6 +20,10 @@ npc :sora_meralis do
 
     Three senior archivists have called for a new vote before the catalogue leaves #{ref :thornvault, "Thornvault"}. Meralis continues to sign releases from the upper gallery while the ballots are prepared. Any release already sealed remains valid even if she loses the office.
   PROSE
+
+  gm_note :appears, "Her catalogue corrections reach the party as paperwork trouble: one holding entered under two names, a gap nobody had listed, an access rule that differs between adjoining galleries they already have permission for."
+  gm_note :triggered_by, "Ask Meralis for a restricted holding and she gives the title, the date and the reason it is closed, without the recording. Private voices and the locations of active #{ref :echo_rivers, "Echo River"} sites she refuses outright."
+  gm_note :complicates, "Three senior archivists have called a vote on her office while she keeps signing releases from #{ref :thornvault, "Thornvault"}'s upper gallery. A sealed release survives her losing, so both sides of a dispute have reason to move before the ballots are counted."
 end
 
 relate :rel_sora_meralis_leads_conclave, :leads, :sora_meralis, :echo_ledger_conclave, since: 2433 do

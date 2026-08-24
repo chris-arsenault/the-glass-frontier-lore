@@ -49,6 +49,10 @@ installation :ledgerfall do
 
     Holding that order has reduced flow to two upper mills during their busiest season. The water board granted three more mornings and refused the Conclave's request for an open extension. Copy houses are already selling printed guesses at the exchange, most produced before a complete recording existed.
   PROSE
+
+  gm_note :appears, "No two of the nine channels are left at equal flow, because matching falls reinforce one fragment until it carries across the whole town. Gate crews adjust them by small amounts through the day, and the town's background murmur shifts with the work."
+  gm_note :triggered_by, "Every request made of the falls costs someone water. The listening window on the western spill has two upper mills short in their busiest season, and the water board granted three more mornings rather than the open extension the #{ref :echo_ledger_conclave, "Conclave"} asked for."
+  gm_note :complicates, "Copy houses on the eastern terraces sell printed guesses at the dawn exchange, most set before any complete recording existed. A party asking around gets several confident transcripts that do not agree."
 end
 
 relate :rel_ledgerfall_in_sable_crescent, :located_in, :ledgerfall, :sable_crescent, since: 2190 do

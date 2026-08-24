@@ -41,6 +41,10 @@ installation :far_bell do
 
     The plate continues to give one clean stroke. #{ref :held_breath, "*Held Breath*"} recorded similar steps stopping at each break in its painted hull line. The Council now sends reset crews in pairs from separate shelter rooms and photographs the dust before anyone touches the spring.
   PROSE
+
+  gm_note :appears, "Every arrival at Karet-3 stops here first. One stroke through the hull means approach on the route sent with it, silence means hold and ask #{ref :outside} by burst, and a second stroke in the same arrival is false."
+  gm_note :triggered_by, "Wanting the approach kept open means winding the spring yourself, inspecting plate, dock, and both rooms, and finding out what has crossed the dust since the last crew came out."
+  gm_note :complicates, "The two shelter rooms have no door between them. Split a waiting party and each half is out of the other's reach, and either room can lose pressure and release on its own."
 end
 
 relate :rel_far_bell_located_karet_three, :located_in, :far_bell, :karet_three do

@@ -62,6 +62,10 @@ concept :ratters do
 
     The subculture is not romantic about itself. Ratters die in the Shear at rates that surface people do not believe when told. The work is hard, the margins are thin, and the long-rat structure is fragile under stress. But the structure has held. The debts get paid. The distress calls get answered. The next generation of skiff captains is already learning the cant.
   PROSE
+
+  gm_note :triggered_by, "Any Ratter in distress in the Shear is answered by every crew that can reach them. That includes crews the caller owes, crews they walked out on, and crews they were fighting the week before; the rivalry resumes afterward without discussion."
+  gm_note :complicates, "Accepting fuel, parts, or a tow from a Ratter creates a debt repaid in kind rather than in coin, and it stays callable years later. A crew that walks one gets no flotilla, no skiff-port service, and no long-rat to speak for them, which is where #{ref :coremark, "Coremark"} finds people to hire."
+  gm_note :appears, "Ratters read each other off the patchwork coat, the cant, and the shard pendant from a first claim, and all three are checked at once. Wearing the gear without the argot marks a player as suspect, and faking fluency in Shear-cant is caught inside a sentence."
 end
 
 relate :rel_ratters_operates_the_shear, :operates_in, :ratters, :the_shear, since: 2320 do

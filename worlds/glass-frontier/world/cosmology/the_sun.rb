@@ -29,6 +29,10 @@ geographic_location :the_sun do
 
     Deep-system charts record distance outward from the sun and travel time from Kaleidos. The two measures keep routes comparable without treating the inhabited planet as the physical center of the system.
   PROSE
+
+  gm_note :appears, "A solar front takes the signal band down first, so the earliest sign is a relay losing clarity and a forecast office issuing closures. Kite sails start drawing unevenly hours later, and route keepers push traffic out of dense ring debris until the front passes."
+  gm_note :triggered_by, "Fly through a closure and the exposed ringglass on the hull answers in tones outside its own profile, worst inside dense debris where many small responses couple. Tuned gear aboard follows the storm instead of its settings until the front has gone by."
+  gm_note :complicates, "Position and time across the system are settled against the sun, and deep-system charts count distance outward from it rather than from Kaleidos. A crew that gives a location relative to their home world has to have it converted before another port can act on it."
 end
 
 relate :rel_sun_part_of_kaleidos_system, :part_of, :the_sun, :kaleidos_system do

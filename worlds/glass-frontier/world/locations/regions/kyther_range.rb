@@ -39,6 +39,10 @@ geographic_location :kyther_range do
 
     Objects brought down from the breach must be logged before sale. The rule keeps a fragment's position, finder, and first measured response attached to it; valley councils enforce it at the shelters rather than trying to control trade after a buyer leaves the range.
   PROSE
+
+  gm_note :appears, "Each maintained pass has its own interval of sounding posts, repeated closely enough to follow by ear in weather that hides the next marker. A note missing from the series does not mean a lost trail; it means the slab and the slope beneath it have stopped moving together."
+  gm_note :triggered_by, "Anything that breaks a slope's shared response brings the slab down with rock, road, and buildings inside it. A quarry strike, a heated channel, or a kinetic array run hard is enough, and a valley Tuner can say how far the shock will carry through a seam before anyone makes it."
+  gm_note :complicates, "A valley with only one route out keeps food stores sized for a full closure and elects the person who inspects its bridges. A party caught there when the pass shuts is fed and housed for as long as it takes and expected to take a turn at the work the closure creates."
 end
 
 relate :rel_kyther_range_on_kaleidos, :on_surface_of, :kyther_range, :kaleidos do

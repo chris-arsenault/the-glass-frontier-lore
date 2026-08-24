@@ -40,6 +40,10 @@ artifact :echo_strip do
 
     Pell sent one record to Thornvault and kept one in the rescue office. Playback copies omit the acknowledgment after the first generation. The originals continue to give the response when played inside a dead room, with no connected equipment answering the call.
   PROSE
+
+  gm_note :appears, "Cheap grades travel as household messages and archive grades as field evidence, so a workshop, a listening room or a rescue office has strips on hand in rigid sleeves with the start line exposed."
+  gm_note :triggered_by, "The foil takes the strongest coherent pattern reaching it, not the one the party aimed at. A deposition recorded beside an active lift preserves the lift beautifully and the witness as a thin change along one margin."
+  gm_note :complicates, "Authentication reads the folds and the edge noise, so a clean playback with no environmental margin is treated as a copy or a staged recording. Copying keeps the words and destroys exactly the structure that would place the original."
 end
 
 relate :rel_echo_conclave_possesses_echo_strip, :possesses, :echo_ledger_conclave, :echo_strip do

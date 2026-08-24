@@ -61,6 +61,11 @@ installation :sithari do
   PROSE
 
   log "2026-08-20: Moved district-scale facts into Old Campus, Underlayers, Accord Shore, and Keelward so Sithari remains the city overview. The Continuity now owns its political history and structure."
+
+  gm_note :appears, "A central Sithari address names a surface entrance and a lowest public approach, and the two can sit in different " \
+                    "districts under different offices. A party given only one arrives at the wrong end of the right building."
+  gm_note :triggered_by, "When players plan around a posted schedule, the residents around them are already reading the color bands that passing debris lays across the facades, and they call a dense drift before the public notice updates."
+  gm_note :complicates, "Anything the party has graded, certified, financed, or ruled on here travels only as far as Sitharian institutions are trusted. A refusal issued in Sithari follows the document into every other jurisdiction."
 end
 
 relate :rel_sithari_on_surface_of_kaleidos, :on_surface_of, :sithari, :kaleidos do

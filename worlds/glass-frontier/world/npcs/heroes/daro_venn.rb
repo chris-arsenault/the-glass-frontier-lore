@@ -27,6 +27,13 @@ npc :daro_venn do
 
     Crews still take his contracts. They read the hazard lines more closely than they once did.
   PROSE
+
+  gm_note :appears, "Route work runs through him, and so does the memory of which yard can repair an old cutter head, which master will take a difficult return load, " \
+                    "and which crew has already spent its tolerance for risk. He is at the Glasswake yard five shifts in six and at Pell on the sixth."
+  gm_note :complicates, "He signs each cordon payment before the route council releases ordinary freight accounts, " \
+                        "so Assembly business a crew brings queues behind the bill for a boundary he sponsored."
+  gm_note :triggered_by, "Raising the four-array test gets a defense of remote cutting with isolated clocks and local stop authority rather than an apology. " \
+                         "Treating a schedule as more important than a member turns an Assembly meeting hostile, and some of the people in it voted against him."
 end
 
 relate :rel_daro_leads_pell_assembly, :leads, :daro_venn, :pell_freight_assembly, since: 2429 do

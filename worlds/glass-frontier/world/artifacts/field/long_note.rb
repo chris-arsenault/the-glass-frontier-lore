@@ -10,6 +10,13 @@ artifact :long_note do
 
     Navigators use the record to compare unexplained signals from other routes. Several have found brief rising tones at the edge of busy drive wakes. Their pitch matches a short interval from the middle plate.
   PROSE
+
+  gm_note :appears, "A navigator with a trace they cannot place sends for the case, and the plates arrive with their original watch boards and array-temperature marks. " \
+                    "The mechanical reader reproduces the timing outside any signal field, so the comparison runs with the party's own instruments shut down."
+  gm_note :triggered_by, "Any rising tone a player describes at the edge of a drive wake gets checked against the middle plate, and short intervals do match. " \
+                         "A match earns the crew a hearing at #{ref :issel, "Issel"} and a request for their raw watch boards, which most crews never kept."
+  gm_note :complicates, "The three plates give one signal three arrival directions and three different apparent distances, so an explanation fitting a single plate settles nothing. " \
+                        "Whoever holds the record asks a player's theory to account for all three before acting on it."
 end
 
 relate :rel_issel_possesses_long_note, :possesses, :issel, :long_note, since: 2435 do

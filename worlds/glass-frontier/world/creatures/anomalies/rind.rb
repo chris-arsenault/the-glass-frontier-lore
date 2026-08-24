@@ -24,6 +24,13 @@ creature :rind do
 
     Council teams are preparing a series of counter-tones to draw it back toward the Deep. The station's permanent residents watch from the maintenance bay. Some have begun marking its daily position beside the cordon readings.
   PROSE
+
+  gm_note :appears, "The animal arrives at whatever holds a steady tone: a wall array, a mooring beacon, a rig left sounding overnight. " \
+                    "Cutting the source does not send it away; it circles outward hunting the line, which spreads it across more of the site than before."
+  gm_note :complicates, "Filaments trail ten to fifteen meters behind the shell and drift on their own, so a rind at a comfortable distance can still lay a strand across tuned ringglass. " \
+                        "The animal is unharmed and the array mount stays out of calibration for hours."
+  gm_note :triggered_by, "Shooting it enlarges the problem: the shell scatters the filaments, and every scattered strand is another contact. " \
+                         "Deep-runners keep weapons cold and place a counter-tone beyond the route they want, which needs patience, a clear field, and hours nobody has."
 end
 
 relate :rel_rind_inhabits_deep_shear, :inhabits, :rind, :deep_shear do

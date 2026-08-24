@@ -40,6 +40,13 @@ creature :glasswurm do
 
     The colony has compacted part of the pile into saleable curved plate. It has also bored toward the foundation of an occupied sorting shed. Pell has closed the nearest bay, posted a plate bounty, and prohibited powered sounding until the shed is shored from the far side.
   PROSE
+
+  gm_note :triggered_by, "Sustained sounding, a repeated hammer, or a scan run twice near a wurm-held fragment is a structural note the animal follows. " \
+                         "It comes back along a tunnel it already cut, so it arrives through ground the crew has walked and cleared."
+  gm_note :complicates, "A burrow leaves ribs of untouched material between its openings, and those ribs hold load until the animal returns to feed on the glass inside them. " \
+                        "Shoring, a braced floor, or a survey done last week can stop being true with nothing visible changing."
+  gm_note :appears, "A large specimen bores through a bulkhead, receiver wall, or anchored cutter because worked structure gives a cleaner path than rubble, " \
+                    "so it enters an occupied room through the floor. It rarely touches the people there; the breach behind it is the emergency."
 end
 
 relate :rel_glasswurm_inhabits_shear, :inhabits, :glasswurm, :the_shear do

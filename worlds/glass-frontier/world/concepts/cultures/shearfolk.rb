@@ -21,6 +21,12 @@ culture :shearfolk do
   prose <<~PROSE, section: :aesthetics, heading: "What Travels"
     Clothing is layered for pressure changes and marked at cuffs, knees, and shoulders with repair thread visible from across a work bay. A replaced panel keeps the color of the crew that fitted it until the next complete overhaul. Tools carry short chains of stamped owners, allowing a borrowed cutter or sounding weight to find its way back across several ports.
   PROSE
+
+  gm_note :triggered_by, "A player who introduces themselves with a name alone gets asked for their vessel and the last route " \
+                         "they can answer conditions for. Skipping the route is heard as an admission that their charts have expired."
+  gm_note :appears, "Borrowed gear in the party's kit carries a stamped chain of owners, so a bay hand at #{ref :brake, "Brake"} " \
+                    "can read a cutter or sounding weight and ask which crew lent it and whether that crew expects it back."
+  gm_note :complicates, "A crew that leaves another ship behind loses bunks, guides, and buyers before it loses the claim, and the abandonment stays on the record of everyone who transfers off that crew."
 end
 
 relate :rel_shearfolk_inhabit_shear, :inhabits, :shearfolk, :the_shear, since: 2305 do

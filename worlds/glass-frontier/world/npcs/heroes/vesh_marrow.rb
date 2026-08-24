@@ -21,6 +21,11 @@ npc :vesh_marrow do
 
     The #{ref :the_corridor_disputes, "Corridor Disputes"} have brought him back into regular sessions. Several delegates want one office to direct traffic when a corridor closes. Marrow supports a named controller for each closure and rejects a permanent command over the whole route network. His marked copy of the proposal has become the text under negotiation.
   PROSE
+
+  gm_note :triggered_by, "Players seeking Marrow's backing for emergency powers get three questions first: who can end them, which " \
+                         "records stay public, and what happens to the person who refuses an order. Without a named ender, he withholds his support."
+  gm_note :appears, "Where a crisis charter is being drafted, his marked copy of the draft circulates before he does. Delegations meet his objections in the margins and arrive at the session already arguing his terms."
+  gm_note :complicates, "He holds no seat and declines to chair, so his weight arrives as annotated text and testimony. A party that has won Marrow over still has to find the delegates who will carry the vote."
 end
 
 relate :rel_vesh_marrow_led_bloom_coalition, :leads, :vesh_marrow, :bloom_coalition, since: 2380, till: 2396 do

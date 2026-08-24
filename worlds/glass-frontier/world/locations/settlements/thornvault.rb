@@ -52,6 +52,10 @@ installation :thornvault do
 
     The work continues. The records grow. The river keeps surfacing. Thornvault keeps listening.
   PROSE
+
+  gm_note :appears, "Visitors reach the Vault by the high road from #{ref :ledgerfall, "Ledgerfall"} or they do not reach it; the canyon airspace makes #{ref :kite_sail, "kite"} approach uncomfortable enough that pilots refuse it, so an urgent errand still costs a half-day on the rim."
+  gm_note :triggered_by, "Asking for a specific record moves the conversation downward. The upper galleries produce working files on request, the mid-galleries want the request written, and anything in the river-facing halls needs a senior archivist willing to walk the stairs alongside you."
+  gm_note :complicates, "The Conclave settles contested matters in the late afternoon and schedules its difficult conversations there, so an urgent morning arrival is fed, housed, and left waiting until the western galleries fill with light."
 end
 
 relate :rel_thornvault_located_in_sable_crescent, :located_in, :thornvault, :sable_crescent, since: 2308 do

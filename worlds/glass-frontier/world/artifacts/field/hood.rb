@@ -41,6 +41,10 @@ artifact :hood do
 
     Several used rigs now offered in Glasswake carry freshly painted windows and no service weights. Ratter yards have posted a simple refusal: a seller who will not open all three arms for inspection is selling furniture.
   PROSE
+
+  gm_note :appears, "Licensed frames are being pulled out of training rooms and research stores to fill working ships, and clean stillwater is short because the #{ref :echo_ledger_conclave, "Echo Ledger Conclave"} needs the same supply. A crew wanting a hood on short notice is offered someone else's."
+  gm_note :triggered_by, "Hoods get lent, because a fitted frame sits idle whenever its own Tuner does not need it. A hood damps changes around the resting response it was fitted to, so on a borrower it can make the signal more regular rather than less visible."
+  gm_note :complicates, "A covered Tuner cannot check whether the danger passed, so another crew member holds the line and decides when the arms open. The wearer's one reading is the unequal tapping through the shoulder pads, and taps falling into step mean the frame has begun following something outside."
 end
 
 relate :rel_ratters_possess_hood, :possesses, :ratters, :hood do

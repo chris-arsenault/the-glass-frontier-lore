@@ -30,6 +30,10 @@ npc :renn_duvasi do
 
     Their current concern is a set of depleted sites where the predicted receiving field never strengthens. The measurements rule out a simple broken path. They do not distinguish between resonance leaving the mapped substrate, being held by an unknown sink, or returning too slowly for the available records to show it.
   PROSE
+
+  gm_note :triggered_by, "Bring Duvasi readings that do not belong together — a dead heater, a distant refinery starting, a compass pointing into rock — and they map the set against known ringglass paths and say where the load went. The answer is good enough to choose the next survey site and is not a repair."
+  gm_note :complicates, "Duvasi answers a question about an old record by producing the damaged sheet, the copies taken from it, and the overlays where visiting mechanics disagreed. Whoever wanted one authoritative reading gets three and an invitation to mark their own on the transparency."
+  gm_note :appears, "The second edition keeps Duvasi out of the archive and standing in the places their records describe, asking who rebuilt a wall and where a conduit went. Salvage crews meet them as a scholar with exact questions about a run of #{ref :ringglass, "ringglass"} already sold."
 end
 
 relate :rel_renn_located_in_pelhari, :located_in, :renn_duvasi, :pelhari, since: 2411 do

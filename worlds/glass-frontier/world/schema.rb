@@ -9,6 +9,7 @@ schema do
   # this; a block a person writes declares `drafted_by: :human`.
   drafted_by_default :ai
   require_fact_cards! from: :renowned, minimum: 4
+  require_gm_notes! from: :forgotten, minimum: 1
   require_playable_coverage! :chronicle_location,
                              kinds: location_kinds,
                              except: %i[kaleidos kaleidos_system the_glass_frontier the_sun],

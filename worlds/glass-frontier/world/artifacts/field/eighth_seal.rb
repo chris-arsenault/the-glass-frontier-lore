@@ -12,6 +12,10 @@ artifact :eighth_seal do
 
     The seals found inside the returning pods reproduce current desk tools, hand pressures, and room tones. Their ceramic carries handling wear from journeys older than the impressions fixed across it.
   PROSE
+
+  gm_note :appears, "Anything a party hands over or recovers in #{ref :clearance_eight}'s custody comes back wearing one. Read clockwise, it gives the hazards, identity marks and route evidence behind the disposition rather than only the color at the center."
+  gm_note :triggered_by, "Push for an early release and the center is still gray: the color arrives only once all eight channels are impressed, so the empty channel names the desk that is refusing to sign."
+  gm_note :complicates, "#{ref :tangent} carries authenticated blanks for retrievals beyond the custody docks, so a seal can be pressed far from the desks whose findings it records."
 end
 
 relate :rel_clearance_eight_possesses_eighth_seal, :possesses, :clearance_eight, :eighth_seal, since: 2435 do

@@ -21,6 +21,15 @@ incident :hinge_six_occupation do
 
     Later belligerents left civilian relay rooms alone even when they fought over the routes around them. The Accord's communication standards inherited the same rule: a relay may close for safety, but an armed party may not decide which civilian message deserves to pass.
   PROSE
+
+  gm_note :appears, "The rule cited whenever an armed party touches a relay was settled here in 2362: a station may close its own signal " \
+                    "for safety, but no armed party decides which civilian message passes."
+  gm_note :triggered_by, "Propose sorting traffic by sender at any station and a route keeper answers with what the clerks did here: " \
+                         "navigation stayed up while medical requests and port closures vanished into the sorting, and the keepers " \
+                         "replied by opening the breakers and going silent."
+  gm_note :complicates, "Holding a relay means holding a route carriers can stop using; #{ref :vantara, "Vantara"} and the independents " \
+                        "suspended the branch, two habs refused cargo routed through the station, and the occupier withdrew to keep " \
+                        "the supply corridor it came for."
 end
 
 relate :rel_third_arc_participated_hinge_occupation, :participated_in, :third_arc_defense, :hinge_six_occupation do

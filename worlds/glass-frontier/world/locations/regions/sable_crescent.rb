@@ -43,6 +43,10 @@ geographic_location :sable_crescent do
 
     At dusk, exposed crystal strata catch the lowering sun and refract it through mist rising from the marsh. Residents call the resulting pale bands glasslight. Boats carry shaded lamps until the bands fade because an uncovered light can repeat through several banks and make another vessel appear closer than it is. Thornvault's upper galleries face the brightest canyon wall, while lower listening rooms remain near the river below.
   PROSE
+
+  gm_note :appears, "Distance here is water level and gate schedule rather than ground. A rim town can stand directly above a stilt village and still cost a full day of stairs, ferries and narrow lifts to reach."
+  gm_note :triggered_by, "Travel at dusk brings glasslight, and an uncovered lamp repeats through several banks of exposed strata until another boat reads as much closer than it is. Crescent crews run shaded lamps until the bands fade."
+  gm_note :complicates, "Gate schedules are negotiated across the whole basin before the wet season, so an upstream council holding water to save its own crop sends a sharper rise downstream. Anyone the party is bargaining with below is already watching the highland gauges."
 end
 
 relate :rel_sable_crescent_on_surface_kaleidos, :on_surface_of, :sable_crescent, :kaleidos do

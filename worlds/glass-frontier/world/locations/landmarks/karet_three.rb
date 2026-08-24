@@ -30,6 +30,9 @@ geographic_location :karet_three do
 
     A #{ref :rind, "rind"} has followed the array's resonance gradient to the station. Its presence has forced the Council to distinguish movement caused by the zone from interference caused by an animal that has no interest in the cordon at all.
   PROSE
+
+  gm_note :triggered_by, "Players who navigate Karet-3 by looking at it disagree with the next observer about what they saw. The twelve families on the platform are the only workable map of the old hab, and they will want something for the walk."
+  gm_note :complicates, "The boundary holds one frequency and changes the gaps between its pulses, so anyone who has slept a night at #{ref :outside} hears a shift beginning. That is the whole warning before the geometry inside moves."
 end
 
 relate :rel_karet_three_part_of_bloom_zones, :part_of, :karet_three, :bloom_zones do

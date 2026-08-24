@@ -20,6 +20,10 @@ npc :davan_koralis do
 
     The #{ref :shear_compact, "Shear Compact"} has certified the first hull and has not approved a regular passenger route. Koralis is taking refundable reservations while Vantara and the Compact argue over how quickly a scenic segment can be closed after a drift forecast changes. He will not announce a departure date without approval, and he will not stop advertising the service while approval remains possible.
   PROSE
+
+  gm_note :appears, "Every port Koralis calls at gets a rescue drill and an open meeting for local pilots attached to the visit, so anyone working that harbor is invited into both before it becomes clear #{ref :vantara, "Vantara"} is selling a route."
+  gm_note :triggered_by, "Mention a fault to him — a cold meal, a dead berth light, a rescue window missed — and it is written against a named Vantara manager before he leaves the room, whether or not the complaint was meant to travel that far."
+  gm_note :complicates, "He takes refundable reservations for a Shear passenger route the #{ref :shear_compact, "Compact"} has not approved, names no departure date, and keeps advertising, which sends ticketholders to ask Shear crews and pilots when the ships actually sail."
 end
 
 relate :rel_davan_koralis_leads_vantara, :leads, :davan_koralis, :vantara, since: 2428 do

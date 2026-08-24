@@ -43,6 +43,14 @@ transport :channel_barge do
 
     Pilots preserve their local routes because those routes are their livelihood and their towns' emergency access. They share depths and closures freely when life is at risk. Ownership, cargo, and the quiet way around a port gate receive a different answer.
   PROSE
+
+  gm_note :appears, "Local travel in #{ref :dovra, "Dovra"} means asking a household barge for deck space, and the fare is as often " \
+                    "return carriage, repair tile, or a share of the load as it is coin."
+  gm_note :triggered_by, "A passenger in a hurry does not get a shortcut; the pilot sounds the approach even holding a posted closure, " \
+                         "because silt rises after a notice leaves and a barge ahead may have cut a new passage."
+  gm_note :complicates, "During flood work a water board can call any suitable vessel into service with its cargo aboard, recording the " \
+                        "lost work beside the labor supplied from shore; whatever the party hired it for waits until the board " \
+                        "releases it."
 end
 
 relate :rel_channel_barge_operates_dovra, :operates_in, :channel_barge, :dovra do

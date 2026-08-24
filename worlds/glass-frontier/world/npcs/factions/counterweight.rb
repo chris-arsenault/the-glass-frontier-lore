@@ -41,6 +41,12 @@ faction :counterweight do
 
     The Counterweight owns no yard. Its heavy mats, cribbing, sleds, and spare drives travel in two cargo kites. Settlements store replacement timber and iron between jobs under reciprocal agreements. A town may wait years to call on the cache. When it does, the material has usually acquired another use and must be gathered again.
   PROSE
+
+  gm_note :triggered_by, "Anyone working the count can stop a Counterweight move, including a player who joined the hands an hour ago. " \
+                         "The crew settles the load first and asks for the reason afterward, and a person who keeps calling for attention rather than danger is moved off the rig instead of argued with."
+  gm_note :complicates, "The crew will not clear a building of the people living in it. When a safe move needs the rooms empty and the residents refuse, the Counterweight explains the load, paints the line the fall will take, and packs the rig."
+  gm_note :appears, "A town that agreed years ago to hold the crew's replacement timber and iron has usually put the cache to another use by the time it calls the Counterweight in. " \
+                    "The job opens with the settlement arguing its own materials back out of whatever was built with them."
 end
 
 relate :rel_counterweight_operates_avar, :operates_in, :counterweight, :avar, since: 2429 do

@@ -23,6 +23,10 @@ incident :meridian_crop_failure do
 
     Later carriers adopted the receiving signatures, environmental limits, and named-custodian fields from the crop manifests. The forms changed. The principle that a cargo record must describe what keeps its contents alive did not.
   PROSE
+
+  gm_note :appears, "Cargo records for anything alive still carry the fields the crop runs invented: environmental limits, a named custodian, and signatures from the people who packed the load and the people ready to receive it. The shortage reaches a freight scene as paperwork."
+  gm_note :triggered_by, "Meridian growers object to any bed expanded on a single proven culture, and will say why: identical closed-cycle beds are what let one root blight cross nearly the whole hab in 2317."
+  gm_note :complicates, "Living cargo on the #{ref :glasswake, "Glasswake"} run travels with its growers, so a shipment that would otherwise be a hold and a manifest becomes a passenger problem, with the people who packed the cultures aboard to hand them to whoever signs."
 end
 
 relate :rel_hab_meridian_participated_crop_failure, :participated_in, :hab_meridian, :meridian_crop_failure do

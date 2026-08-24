@@ -48,6 +48,10 @@ species :fae do
 
     The fae relationship with the system's other engineered species — gnomes — is complicated. Both were made. Both live with the consequences. But gnomes were given a gift (attunement) while fae were given a burden (dislocation). The solidarity is real but asymmetric.
   PROSE
+
+  gm_note :appears, "Coherence is a held flex, so a fae in a scene is running a clock. A negotiation, a watch, or a search that outlasts their coherent period ends with them blurring from the edges inward, still perceiving the whole room and no longer able to think at speed in it."
+  gm_note :triggered_by, "The moment players damage, pawn, borrow, or bargain over a coherence aid, they are handling the wearer's waking hours. The good ones are #{ref :gnomes, "gnome-made"} and expensive, and a cheap replacement means shorter periods upright and a reputation for being unreliable."
+  gm_note :complicates, "Any scene where the local resonance moves — a failed tuning, a #{ref :bloom_zones, "Bloom Zone"} edge, ringglass under stress — can disperse a fae involuntarily. In a corridor that is embarrassing; in vacuum, weather, or a fight it removes them from the scene while they watch all of it."
 end
 
 relate :rel_fae_depends_on_gnomes, :depends_on, :fae, :gnomes do

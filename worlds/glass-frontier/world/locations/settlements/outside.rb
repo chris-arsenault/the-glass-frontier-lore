@@ -40,6 +40,10 @@ installation :outside do
 
     The rind has made ordinary maintenance harder without behaving aggressively. Counter-tone teams are trying to draw it away from the array before its filaments touch a mount.
   PROSE
+
+  gm_note :triggered_by, "Say within earshot that the boundary looks thin and the displaced quarter is at the party's door within the hour, asking them to carry a request for supervised entry that the #{ref :displacement_council} has refused every previous time."
+  gm_note :complicates, "Work at the deep mounts is logged by symptom — pairs, a time limit, headaches written down instead of shrugged off. A player who hides one costs the party its access below the inhabited decks."
+  gm_note :appears, "A scene on the south deck breaks off mid-sentence when the array's pulse intervals change and everyone in the room listens. That is how the station learns Karet-3 has shifted."
 end
 
 relate :rel_outside_located_in_shear, :located_in, :outside, :the_shear, since: 2427 do

@@ -16,6 +16,10 @@ npc :tess_orr do
 
     She first found the repeated voice in the #{ref :red_sleeve, "Red Sleeve"}. Her arrangement of the later garments turns its directions into a continuous route toward Wash Four's sealed axis.
   PROSE
+
+  gm_note :triggered_by, "Orr treats nothing until she has taken test thread out of an existing repair, so a garment with no repair to sacrifice waits while she bargains for one; " \
+                         "the tested thread goes back to the owner in a small glass tube."
+  gm_note :complicates, "She learned on sailcloth and refuses a wash order that could push a route beacon into a later patch, which puts her against anyone who wants the cloth clean faster than they want it readable."
 end
 
 relate :rel_tess_orr_located_in_wash_four, :located_in, :tess_orr, :wash_four, since: 2435 do

@@ -37,6 +37,11 @@ faction :tempered_accord do
   prose <<~PROSE, section: :present_day, heading: "Present Day"
     The Accord's offices remain active, its member provisions remain in force, and no crisis has yet tested the limits identified by its critics. The district staff still maintain the lake and its ducks.
   PROSE
+
+  gm_note :triggered_by, "Players who ask the Accord to make someone act learn the secretariat cannot order a member government. What it can " \
+                         "put on the table is a hearing and expulsion, which costs the target Compact mediation, #{ref :vantara, "Vantara"}'s routes, and enforceable contracts."
+  gm_note :appears, "Any dispute the party cannot settle bilaterally gets referred here, and the referral itself buys months. Both sides keep trading and arguing while the case sits on the hearing schedule."
+  gm_note :complicates, "A hearing needs a presiding mediator both parties accept from the roster, so an opponent can spend the first sessions striking names. The party's evidence waits behind the argument over who reads it."
 end
 
 relate :rel_tempered_accord_hq_accord_shore, :headquartered_in, :tempered_accord, :accord_shore, since: 2423 do

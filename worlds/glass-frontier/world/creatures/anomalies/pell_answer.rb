@@ -24,6 +24,13 @@ creature :pell_answer do
 
     That leaves two live explanations. The Pell field may have made a new entity, or it may have given an existing thing a route into the yard. Current containment rules are the same under either account.
   PROSE
+
+  gm_note :triggered_by, "It builds from whatever is repeated back at it: a tone used twice, a shutter sequence run the same way, a hail sent on the schedule the last one used. " \
+                         "Breaking the pattern every time is the only defense, and it is hard to hold when the channel asks for help in a crew voice."
+  gm_note :appears, "Fragments survive in the sealed array records and in the stillwater from the cordon, and the Council stores them apart and never plays two at once. " \
+                    "Two of those records in one room is the Answer with material to work from."
+  gm_note :complicates, "Ratter crews call it a young choir-thing and the #{ref :echo_ledger_conclave, "Echo Ledger Conclave"} calls that conclusion premature. " \
+                        "Asking what it was at Pell produces the argument rather than an answer."
 end
 
 relate :rel_pell_answer_created_during_pell_four, :created_during, :pell_answer, :pell_four do

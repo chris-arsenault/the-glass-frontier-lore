@@ -30,6 +30,10 @@ installation :the_choir_fragment do
 
     The correspondence remains observational. The weekly signal continues whether anyone reaches the deck or not.
   PROSE
+
+  gm_note :appears, "The transmitter fires on its own seven-day clock, so any visit that crosses the interval includes the exchange: the location request, the acknowledgement, and a closing sentence with two words changed since last week."
+  gm_note :triggered_by, "Expeditions organized around proving a theory about the Fragment report diversions, contradictory ranges and missed burns on approach. Pilots treating it as an ordinary maintenance run reach the southern deck without incident."
+  gm_note :complicates, "Salvage is barred along the maintenance route, and the route covers about nine percent of the intact volume. Everything worth taking lies in unmapped sections where the claim is unsettled and pressure alternates with vacuum room by room."
 end
 
 relate :rel_choir_fragment_located_in_shear, :located_in, :the_choir_fragment, :the_shear do

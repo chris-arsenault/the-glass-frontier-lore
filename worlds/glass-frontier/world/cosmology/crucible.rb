@@ -24,6 +24,13 @@ geographic_location :crucible do
 
     Imported food, medicines, and delicate instruments arrive through orbital yards rather than surface ports. A missed lift window delays delivery until the next safe descent and can leave cargo circling above the settlement that ordered it.
   PROSE
+
+  gm_note :triggered_by, "Rescue rules on Crucible forbid sending a second crew after workers who crossed a closure line. " \
+                         "Anyone caught outside the window reaches the paired shelter and waits out the hot interval on its independent clock, or is not reached at all."
+  gm_note :appears, "Crucible's uplands yield dense clear crystals that cut like ringglass and hold no stable tuning. " \
+                    "A cargo bought here as ringglass will not take a tuning, and the substitution only shows when someone tries to sound it."
+  gm_note :complicates, "Everything imported to Crucible descends through orbital yards on lift windows. " \
+                        "A missed window leaves medicine, instruments, or passage circling above the settlement that ordered them until the next safe descent."
 end
 
 relate :rel_crucible_orbits_the_sun, :orbits, :crucible, :the_sun do

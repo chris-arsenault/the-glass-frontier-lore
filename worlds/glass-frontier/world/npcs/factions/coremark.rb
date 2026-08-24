@@ -51,6 +51,10 @@ faction :coremark do
 
     A successful purchase can leave a town dependent on an object nobody can reproduce or service. Theft then disables public infrastructure, and replacement demand sends recovery crews back across cordons. Route crews test poorly understood effects in live confrontations. Coremark profits once from the sale and again when the buyer needs access, concealment, or another relic to replace the first.
   PROSE
+
+  gm_note :appears, "Salvage in the deep #{ref :the_shear, "Shear"} eventually crosses a Coremark working zone, announced by a survey vessel standing off. A cell that reads the party as competitors jams their signal, falsifies telemetry, and has killed independent #{ref :ratters, "Ratter"} crews for less."
+  gm_note :triggered_by, "Press a convoy hard and it abandons the cargo rather than fight, because doctrine puts route continuity above any single load. The party keeps what it seized and loses the route: the waystation they followed goes cold and the next traffic runs on a pattern nobody has seen."
+  gm_note :complicates, "A town that bought a Bloom relic to hold its air return open is a Coremark client whether its council says so or not. Recovering the object as stolen goods shuts down the thing it was keeping running, and the replacement order sends recovery crews back across a cordon."
 end
 
 # --- relationships (structural connections, render as paragraphs on the page) ---

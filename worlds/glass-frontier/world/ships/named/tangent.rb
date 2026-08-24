@@ -11,6 +11,10 @@ transport :tangent do
 
     Tangent is following the trajectory of the six returning pods. The vessel carries one empty cradle and a reader loaded with the seal impressions found inside their lids.
   PROSE
+
+  gm_note :appears, "It touches each working trajectory once per circuit, so anyone stranded among the release bundles is inside a scheduled pass. The flexible net takes pressure suits and soft containers; the articulated cradle takes anything with a frame."
+  gm_note :triggered_by, "Ask the crew to bring in something broken and the net plus the short kinetic vanes cancel the individual rotations, so its pieces reach the desks in the relative positions they were found in."
+  gm_note :complicates, "One of the two cradles is held empty for whatever waits on the #{ref :returning_pods, "returning pods"} approach line, so asking Tangent for a tow asks its crew to give up the trajectory they are following."
 end
 
 relate :rel_tangent_operates_in_clearance_eight, :operates_in, :tangent, :clearance_eight, since: 2435 do

@@ -60,6 +60,10 @@ faction :clarisant do
 
     None of this is yet a crisis. The Clarisant's institutional posture has always been that the work is the answer to the questions about the work. They keep training. They keep certifying. They keep showing up.
   PROSE
+
+  gm_note :appears, "Work touching a ringglass installation, a hab's structure or an uninspected site goes to the nearest chapter house, which builds the commission out of its own roster — a survey Tuner, a containment specialist, a wright if the job needs one. A client picks the chapter and never the people."
+  gm_note :triggered_by, "Anyone claiming the credential can be tested on the spot: the pin is tuned to its bearer and any credentialed Tuner reads its signature against the archive in seconds. A borrowed or inherited pin fails exactly as a forged one does, because the pin cannot be transferred."
+  gm_note :complicates, "A commissioned Tuner logs the job in a casebook that the chapter annotates and that gets read out at promotion examinations and malpractice hearings. Whatever the party does in front of them becomes a written record the chapter holds and the party does not."
 end
 
 relate :rel_clarisant_trains_tuners, :trains, :clarisant, :tuners, since: 2310 do

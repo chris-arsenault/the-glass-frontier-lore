@@ -31,6 +31,10 @@ conflict :the_bitter_reach do
 
     The fighting stopped through linked settlements rather than one surrender. Some embargo claims and losses remain unresolved. Accord panels still encounter contracts whose parties date their obligations from different closures during the war.
   PROSE
+
+  gm_note :appears, "Any contract, debt or docking right written before 2423 carries a start date its two parties disagree about, because the war closed in separate settlements rather than one surrender. Hearings on old paper open with an argument over which closure governs."
+  gm_note :triggered_by, "Name a settlement in the wrong port and someone there can list which convoys it turned away and whose credit Sithari cut on its account. Embargo losses were never settled, and the people who ate them still work the same routes."
+  gm_note :complicates, "Route crews learned during the war that a seized station can be closed by its own keepers, and dispatchers, repair crews and receiving ports still reach for refusal before resistance. Taking a junction by force wins a junction with nothing moving through it."
 end
 
 moment :bitter_reach_begins, year: 2407, of: :the_bitter_reach do

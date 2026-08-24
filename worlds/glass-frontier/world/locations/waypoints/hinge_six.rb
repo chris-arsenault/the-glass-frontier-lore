@@ -43,6 +43,15 @@ installation :hinge_six do
 
     One collar is occupied by a tug refusing release until the charge is removed from its strip. Two passenger craft are waiting behind it. The station can move the tug only by cutting the soft ring or persuading its crew to bring the drive cold.
   PROSE
+
+  gm_note :appears, "Turning outward from Kaleidos means stopping for a joined route strip, and the route room asks which receiving port " \
+                    "expects the ship; a vessel with no answer stays at the collars or leaves as unreceived traffic, outside the " \
+                    "rescue pools."
+  gm_note :triggered_by, "Crews short of money work the station: cooking, cleaning, and cargo handling alongside the five permanent " \
+                         "hands buys water, bunk space, or a cut in the route charge."
+  gm_note :complicates, "One of four collars is held by a tug that will not release until the predator surcharge comes off its strip, " \
+                        "with two passenger craft waiting behind it; freeing the berth means cutting the soft ring or talking its " \
+                        "crew into a cold drive."
 end
 
 relate :rel_hinge_six_located_keel, :located_in, :hinge_six, :keel do

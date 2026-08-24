@@ -38,6 +38,10 @@ installation :folded_annex do
   prose <<~PROSE, section: :present_day, heading: "Present Day"
     #{ref :tavi_soreth, "Tavi Soreth"} has verified a new approach to the service side of the upper instrument well. The #{ref :lattice_proxy_synod, "Lattice Proxy Synod"} identifies its field pattern as a known maintenance state. The interpretation rests on a custodian output whose coordinates do not match any modern map of Sithari.
   PROSE
+
+  gm_note :appears, "The licensed gate below the Old Campus service level opens only while the surrounding field sits in its narrow range; the rest of the time it shows a shallow utility recess faced in blank stone. A party can arrive on schedule with valid permits and find no Annex to enter."
+  gm_note :triggered_by, "Whatever a party finds stays where it is. Records are copied in place, loose objects are numbered, and a separate permit names what may be lifted on a later visit, a rule written after a crystal gauge came out of a cabinet and the route used to reach it never appeared again."
+  gm_note :complicates, "Everyone carries a wound clock, and more than a minute of disagreement between them ends the visit at the next door. Push past that and nothing attacks: the place takes the route instead, leaving a person visible through a gallery window and unreachable from the door beside it."
 end
 
 relate :rel_folded_annex_located_in_underlayers, :located_in, :folded_annex, :underlayers do

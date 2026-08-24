@@ -31,6 +31,10 @@ resource :pre_glassfall_transmissions do
 
     New fragments still surface. Most add one ordinary detail to a place already known. Those details are often what make the old ring legible.
   PROSE
+
+  gm_note :appears, "Salvagers price loose shards by provenance and apparent clarity, neither of which can be established without listening. A shard bought at a market is a purchase made blind until someone supplies the carrier tone."
+  gm_note :triggered_by, "When a player reads a damaged fragment aloud, let them fill the gap with the expected word and not notice. This is why the #{ref :echo_ledger_conclave, "Conclave"} keeps instrument output, listener transcript and conditions as three separate records."
+  gm_note :complicates, "One message circulates in several copies, each pulled from a different medium and each preserving different words. Two parties can hold honest recoveries of the same transmission and disagree about what it says."
 end
 
 relate :rel_pre_glassfall_transmissions_created_ring_age, :created_during, :pre_glassfall_transmissions, :the_ring_age do

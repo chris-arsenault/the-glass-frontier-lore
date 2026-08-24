@@ -22,6 +22,10 @@ faction :drossmark_industries do
   prose <<~PROSE, section: :legacy, heading: "What Remains"
     The affected hab retains two Drossmark extraction frames with their power paths physically cut. Crews use the housings as stationary sorting tables and leave the black plates exposed. Current inspection books still illustrate linked controls with a Drossmark panel because one command could keep every array running after local crews tried to stop them.
   PROSE
+
+  gm_note :appears, "The black plate with three white cuts still shows on working loaders in private yards, because the hulls outlasted the company by decades. Asking a yard owner where the hull came from is how most people first hear the name."
+  gm_note :triggered_by, "Proposing to link several cutting arrays under one control gets the Drossmark panel produced from an inspection book. It remains the standard illustration of a command that kept every rig running after local crews had tried to stop them."
+  gm_note :complicates, "Two frames survive at the affected hab as sorting tables with their power paths physically cut. An offer to restore one for extraction has to be made to the people who cut them."
 end
 
 relate :rel_drossmark_headquartered_keelward, :headquartered_in, :drossmark_industries, :keelward, since: 2329, till: 2359 do

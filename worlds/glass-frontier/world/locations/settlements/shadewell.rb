@@ -51,6 +51,18 @@ installation :shadewell do
 
     Rim businesses want the lines restored before the next heavy Keel arrivals. Terrace wards have refused a fixed date. The water board will reopen them when the new shaft shows where the additional heat enters, leaving several port repair yards to run shorter shifts during the hottest part of the day.
   PROSE
+
+  gm_note :appears, "Freight off the Keel sits under the reflective sheds until its temperature and field " \
+                    "equalize, so a shipment can be on Ashvane for a full day and still not be in the city. " \
+                    "A crate that came down cold enough to contract can break its restraints halfway down the crater wall."
+  gm_note :triggered_by, "Attaching a kiln, pump, or heater to a public return line takes a registered place in " \
+                         "the chain; done without notice it leaves the next use downhill cold and overheats the " \
+                         "line beyond it. The city finds such taps by temperature, and a warm stair wall locates " \
+                         "one before anyone admits to it."
+  gm_note :complicates, "Two lower return lines are shut while crews drill a new temperature shaft, so port repair " \
+                        "yards run short shifts through the hot hours and workshop jobs queue with no promised " \
+                        "date. Rim businesses want them open before the next heavy Keel arrivals and will push " \
+                        "visitors to argue it to the terrace wards."
 end
 
 relate :rel_shadewell_in_ashvane, :located_in, :shadewell, :ashvane do

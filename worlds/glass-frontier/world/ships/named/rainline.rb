@@ -41,6 +41,13 @@ transport :rainline do
 
     One lamp from the latest string has returned to Glasswake ahead of the ship that dropped it. Its casing is intact, its clock agrees with the yard, and its record shows an ordinary deployment followed by a second release from a point inside the mid-drift. *Rainline* carries the replacement marker on its next survey.
   PROSE
+
+  gm_note :appears, "Anyone new aboard is clipped in before the first turn and told to read the colored band around a doorway before stepping through it, because seats, lockers, and instrument faces belong to three separately correcting rings. " \
+                    "Dropped gear can appear to roll uphill."
+  gm_note :triggered_by, "An observer who reports what the hull is physically taking against what the field sounders read can change the published forecast, and the divergence counts even when the instruments still agree with one another. " \
+                         "The crew expects that call made out loud."
+  gm_note :complicates, "The sample frame opens only on the retreat leg, and the crew cuts a full catch loose rather than spend the seconds needed to close it. " \
+                        "Anyone aboard who has paid for material, or whose plan needs the sample, discovers this with the front already moving."
 end
 
 relate :rel_prismwell_maintains_rainline, :maintains, :prismwell_kite_guild, :rainline do

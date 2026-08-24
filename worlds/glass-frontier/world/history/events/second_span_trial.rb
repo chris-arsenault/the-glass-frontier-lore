@@ -27,6 +27,10 @@ incident :second_span_trial do
 
     #{ref :teren_voss, "Teren Voss"}, the trial's lead engineer, survived because the final acceptance run was controlled from outside the anchor chain. Voss later gave the Shear Compact the complete project records, including the rejected readings that first showed Pyre answering a silent array.
   PROSE
+
+  gm_note :appears, "The anchor beds are still seated through the mid-drift, stripped of transmitters and cut crystal and still heavy with aligned ringglass, and each one tests inert when tested alone. That is exactly the test the project crews ran before signing the chain off as a passive guide."
+  gm_note :triggered_by, "Stripping a bed for its aligned ringglass is the obvious payday, since Coremark left the mass only because hauling it cost more than it was worth. Certification for that work runs through the #{ref :shear_compact, "Shear Compact"}, which holds Voss's records of what the chain carried."
+  gm_note :complicates, "Sithari still holds the only working span and no replacement has been attempted since the trial closed, so the grievance that financed it has no outlet. Raising a second span in political company gets the Bloom's route through the abandoned anchors read back at the proposer."
 end
 
 relate :rel_second_span_trial_conducted_by_coremark, :conducted_by, :second_span_trial, :coremark do

@@ -14,6 +14,10 @@ creature :marrower do
 
     Orra crews keep trained pairs in padded cases and release them at survey ports. The animals return for bitter fungal paste. A marrower that stays inside has usually found a fresh warm pocket, and the crew opens the parallel service passage before cutting toward it. Untrained colonies defend those pockets and will follow a tapping tool into occupied fungal beds.
   PROSE
+
+  gm_note :appears, "A survey inside the carrier opens with a padded case at the port and a pair of trained animals let loose into channels no person fits through. The pair that comes back for its paste has found nothing; the one that stays has found a warm pocket worth cutting toward."
+  gm_note :triggered_by, "Striking tissue, tapping a tool, or working metal anywhere near a channel gets repeated back by every marrower in earshot, and an untrained colony will follow the sound into the room that made it."
+  gm_note :complicates, "A rhythm that accelerates means the animals are trapped and the tissue around them is closing, which can drive sweet gas into whichever service passage the crew is standing in. Flame and kinetic tools go out before anyone moves."
 end
 
 relate :rel_marrower_inhabits_orra, :inhabits, :marrower, :orra, since: 2435 do

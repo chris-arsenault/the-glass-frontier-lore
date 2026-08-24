@@ -41,6 +41,13 @@ installation :the_dry_net do
 
     Traders are offering “Pell plates” from locked cases in the side rooms. The Dry Net allows the meetings and refuses the cases space in its dry store. Two crews have hired guards for material that no Glasswake toolmaker has agreed to grade.
   PROSE
+
+  gm_note :appears, "Most Glasswake dock work reaches crews through the Dry Net hiring wall, where the clerk red-slashes any slip missing its vessel, watch, cargo class, closer, or pay terms. " \
+                    "Slashed slips stay up, so a bad offer is still readable weeks after it was posted."
+  gm_note :triggered_by, "Settling terms in a side room instead of the open hall is allowed, and the house then declines to help when the pay, an injury, or the cargo class turns out otherwise. " \
+                         "The clerk states that boundary once and goes back to witnessing the wall."
+  gm_note :complicates, "Energized tools, ringglass samples, and remote-cut goods belong in the cellar bays until a yard has sounded them, and the house is refusing that store to the locked cases of " \
+                        "#{ref :glasswurm, "glasswurm"} plate now arriving from Pell. Those cases sleep upstairs with hired guards."
 end
 
 relate :rel_dry_net_located_glasswake, :located_in, :the_dry_net, :glasswake do

@@ -37,6 +37,12 @@ installation :wash_four do
   PROSE
 
   prose "#{embed :repeated_voice}", section: :present_day, heading: "The Repeated Voice"
+
+  gm_note :complicates, "Arriving characters enter on the dirty side and their coats, webbing and soft cases split into separate drums by material and source, " \
+                        "so anything sewn into a lining travels a different route from its owner and reappears at the clean market hours later."
+  gm_note :triggered_by, "Ask what a stranger's stitching says and it reads out: white for pressure integrity, blue for biological treatment, yellow for signal clearing, " \
+                         "green for a trace the owner still holds, with every older mark left standing beside the new one."
+  gm_note :appears, "Cloth sells here on its chain, so a piece with an unbroken route through dirty dock, wash bay, repair loft and clean market fetches a premium and a gap in the marks invites questions about that cycle."
 end
 
 relate :rel_wash_four_located_in_frontier, :located_in, :wash_four, :the_glass_frontier, since: 2305 do

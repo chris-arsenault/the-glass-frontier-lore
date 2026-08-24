@@ -40,6 +40,19 @@ transport :heat_road_hauler do
 
     Strong tidal periods close some low roads by schedule. Others close after a scout finds new steam, a changing marker tone, or salt crust too thin to carry a loaded wheel. The cargo then waits, transfers to smaller vehicles, or pays for a kite. Basalt temperature sets the delay.
   PROSE
+
+  gm_note :appears, "Freight houses seal each bay by temperature and handling need, so the crew carrying a party's " \
+                    "cargo can name every owner on the manifest and none of the buyers. At small towns the same " \
+                    "vehicle brings mail, legal notices, apprentices changing workshops, and patients well enough " \
+                    "for a slow journey."
+  gm_note :triggered_by, "Asking a crew to shed heat before dark means raising the radiator frames in daylight, " \
+                         "visible to every temperature sensor along the road, and their cooling stop will not " \
+                         "match the one they published. Carriers running concealed cargo already accept the hotter " \
+                         "load rather than do it."
+  gm_note :complicates, "At bad crossings the hauler pulses a buried ringglass cut and reads what returns: slow " \
+                        "and even is solid basalt, a divided answer means a hot cavity or a fracture opening " \
+                        "below. Crews turn back on that reading, and a stranded hauler gives shade and water long " \
+                        "after it gives motion."
 end
 
 relate :rel_heat_road_hauler_operates_ashvane, :operates_in, :heat_road_hauler, :ashvane do

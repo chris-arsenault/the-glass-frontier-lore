@@ -41,6 +41,15 @@ installation :fourth_bell_house do
 
     Several luggage numbers now appear on two different cases: one from the grounded freighter and one from a Vantara passenger arrival. Port staff have stopped releasing either set until the duplicate plates are traced through the wash lift that served both terminals.
   PROSE
+
+  gm_note :appears, "A public closure that breaks a booking at #{ref :keelward, "Keelward"} ends in a lodging chit here, covering a " \
+                    "bunk, two meals, secure baggage, and the first rail trip after the route reopens; whether the carrier caused " \
+                    "the delay is argued long after the traveler leaves."
+  gm_note :triggered_by, "A search for an overdue passenger reaches half a ward before it reaches the register, because the surrounding " \
+                         "neighborhood uses the courtyard stalls and the claims desk."
+  gm_note :complicates, "Room plates travel with the person, so baggage and messages follow the bed rather than the corridor; duplicate " \
+                        "plates have put one luggage number on two cases, and staff are releasing neither set until the wash lift is " \
+                        "traced."
 end
 
 relate :rel_fourth_bell_located_keelward, :located_in, :fourth_bell_house, :keelward do

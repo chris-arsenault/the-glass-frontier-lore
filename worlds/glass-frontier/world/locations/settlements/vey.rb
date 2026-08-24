@@ -45,6 +45,10 @@ installation :vey do
 
     The trial unit now serves an empty warehouse ring. Kir Orm's vapor maps show clean air and higher humidity there. Lung crews are measuring how the surrounding passive passages respond when the warehouse draws from a separate source.
   PROSE
+
+  gm_note :appears, "The shutter handles that set pressure by neighborhood sit in public galleries behind clear covers, with each current position painted on the floor beneath it. A party can change the air in a district in under a minute and cannot do it unseen."
+  gm_note :triggered_by, "Docking surges, eclipse maneuvers, and any outside repair work start the mechanical reserves, and the pitch of every room changes as flow leaves the walls for the ducts. Residents look up when it happens and ask who is working the hull."
+  gm_note :complicates, "#{ref :merren, "Merren"}'s trial plant is running in the empty warehouse ring while lung crews measure the passive passages around it, so a repair a party makes with company parts or company help is read as evidence in the argument over central pressure control."
 end
 
 relate :rel_vey_located_in_frontier, :located_in, :vey, :the_glass_frontier, since: 2140 do

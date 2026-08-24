@@ -17,6 +17,10 @@ installation :third_latch do
   PROSE
 
   log "2026-08-21 — Made the residents' name Latchhouse primary while retaining Third Latch on gate plans and freight marks."
+
+  gm_note :appears, "Regulars pick their sleeping cabinet by which latch tooth they can hear through the wall, and they have had first choice for years. Anyone booking on arrival takes what is left, which is the curve where the working teeth are loudest."
+  gm_note :complicates, "The whole round room rolls a fraction on every gate cycle, so freight, spilled drink and anything set down on the floor migrates toward the guide shaft. The cook stalls on the inner ledge are the only surface in the hall that stays put."
+  gm_note :triggered_by, "Anyone who looks under the freight scales finds hairline joints tracing a circular plate in the floor, with the fifth tone rising through the sealed base of the shaft beneath it. Service continues over the top of it and the tables fill before every test of the gate."
 end
 
 relate :rel_third_latch_located_in_mareth, :located_in, :third_latch, :mareth, since: 2435 do

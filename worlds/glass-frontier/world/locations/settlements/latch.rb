@@ -20,6 +20,12 @@ installation :latch do
   prose <<~PROSE, section: :culture, heading: "Latch Names"
     Former residents identify themselves by deck and shift rather than by the vanished street plan. Their association keeps a short registry at Cordon Station Nine and still receives property claims for rooms that cannot be reached.
   PROSE
+
+  gm_note :appears, "Latch survivors turn up across the mid-drift habs. " \
+                    "Asked where they are from, they answer with a deck number and a shift."
+  gm_note :complicates, "Instruments read Latch as a reachable service hab. " \
+                        "Any approach crosses into an active Bloom boundary, and the " \
+                        "transfer drum sits somewhere different on each survey."
 end
 
 relate :rel_latch_located_in_bloom_zones, :located_in, :latch, :bloom_zones do

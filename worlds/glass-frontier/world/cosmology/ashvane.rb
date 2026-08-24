@@ -48,6 +48,13 @@ geographic_location :ashvane do
 
     This practice also makes Ashvane a market for repair knowledge. Engineers arrive to test equipment under sustained heat and leave with local modifications in their plans. Ashvane makers object when those modifications return under an off-world mark and charge more than the original repair.
   PROSE
+
+  gm_note :appears, "Ashvane towns publish hours by direct light, giant-shade, and the cooler span after sunset, while port districts also keep Keel system time. " \
+                    "An appointment fixed with a #{ref :shadewell, "Shadewell"} clerk and one fixed with a highland workshop land hours apart unless a caller translates."
+  gm_note :complicates, "During a heat emergency, private workshop sinks join the municipal return by law. " \
+                        "A workshop, cold store, or docked hull loses its cooling to the town first, and the utility credit is argued once the temperature falls."
+  gm_note :triggered_by, "Cutting one large resonance loop instead of several modest ones works until a fracture shifts the ambient field. " \
+                         "Every surface tied into that cut then drifts toward the same frequency, and the building loses heat rejection in every room at once."
 end
 
 relate :rel_ashvane_orbits_ashenmaw, :orbits, :ashvane, :ashenmaw do

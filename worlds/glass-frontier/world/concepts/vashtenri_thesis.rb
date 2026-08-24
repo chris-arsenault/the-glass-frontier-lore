@@ -26,6 +26,10 @@ resource :vashtenri_thesis do
 
     Duvasi treats these cases as limits on the map and the model. The published evidence establishes that local draws can move load through connected material. It does not establish how ambient resonance replenishes, how far an unknown path can carry it, or whether every missing response has gone somewhere that current instruments can measure.
   PROSE
+
+  gm_note :appears, "Any working copy a crew borrows is missing leaves, because mechanics carry the transparent maps off to walls and engine rooms and do not always bring them back. The party gets an answer with a hole in it and has to find who took the sheet before the layers line up."
+  gm_note :triggered_by, "Plan from the thesis in loose debris, a fractured deep-#{ref :the_shear, "Shear"} claim, or Bloom-altered material and the prediction misses. The field is not stronger where the map sends the crew, or it recovers from a direction with no path drawn on any leaf."
+  gm_note :complicates, "A marked-up copy is worth more in the deep Shear than a clean one, because the annotations record where the published substrate maps are wrong. Whoever holds one is carrying a trade good that other crews will bargain, borrow, or lift for."
 end
 
 relate :rel_vashtenri_thesis_derived_from_lira, :derived_from, :vashtenri_thesis, :lira_vashtenri do

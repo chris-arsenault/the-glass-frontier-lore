@@ -40,6 +40,13 @@ creature :cinderback do
 
     Port workers cannot seal the drain until the young are moved and cannot run the radiator at full load while adults crowd its exhaust shade. Highland handlers have built a screened path toward an unused quarry. The herd leaves the path whenever the cold-store pumps start, following the buried return toward the yard again.
   PROSE
+
+  gm_note :appears, "Cinderbacks collect behind a parked vehicle for its shade and stay put once the drive begins warming. " \
+                    "Ashvane drivers walk the whole chassis before departure; skipping the walk starts the run with animals under the machinery."
+  gm_note :triggered_by, "A herd standing in shade with every back plate lifted is reading a warm pulse below the ground. " \
+                         "Radiator crews take it as a leaking return that pressure instruments have not registered yet and dig from the first disturbed soil."
+  gm_note :complicates, "A frightened cinderback digs toward cooler ground instead of running, even when the cool ground lies under a house floor. " \
+                        "Its claws go through ceramic joints, old sealant, and cooling cloth, so a herd scattered by noise ends as a floor repair."
 end
 
 relate :rel_cinderback_inhabits_ashvane, :inhabits, :cinderback, :ashvane do

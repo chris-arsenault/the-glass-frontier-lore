@@ -20,6 +20,17 @@ installation :gray_line do
   prose <<~PROSE, section: :present_day, heading: "The Registry Room"
     One sealed room holds the surviving Latch registry, recovery requests, and objects brought back from the outer service arc. Families may inspect the records but cannot authorize a crossing. The room also carries a private significance known only to the First Threshold: Oram Sells used it to brief Dern on the hidden elven contact before his death.
   PROSE
+
+  gm_note :appears, "Families come to Gray Line to read the surviving Latch registry and leave recovery requests, " \
+                    "and the station shows them the records while authorizing nobody across the cordon. " \
+                    "#{ref :iro_senn, "Iro Senn"} signs that refusal himself and delivers it in person."
+  gm_note :triggered_by, "Asking to cross puts the question to the sealed registry room, where the recovery " \
+                         "requests and the objects brought back from the outer service arc are kept. The records " \
+                         "are open to read; the crossing is refused, and the request joins the ledger " \
+                         "#{ref :oram_sells, "Oram Sells"} required of every cordon."
+  gm_note :complicates, "Every cordon job here can be worked without leaving the boundary, so the crew met on the " \
+                        "exterior mounts this month is walking the inspection route the next and running a " \
+                        "recovery station the season after."
 end
 
 relate :rel_gray_line_located_in_bloom_zones, :located_in, :gray_line, :bloom_zones do

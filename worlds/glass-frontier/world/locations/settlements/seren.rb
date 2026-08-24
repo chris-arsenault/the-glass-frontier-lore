@@ -34,6 +34,10 @@ installation :seren do
 
     Pell has closed the exchange lot and issued matched samples to six resident growers. Their first cultures divide along the same line as the trial beds. The difference travels with the loam.
   PROSE
+
+  gm_note :appears, "A crew carrying anything alive can deposit it here, but a deposit is three parts and the third is a written account of growing it. Depositors tend the first growth themselves, which keeps a party on the spindle for a season instead of an afternoon."
+  gm_note :triggered_by, "Seren pays in stock rather than coin. A deposit that survives its trial bed draws equivalent cultures from the public catalog or shares of later propagation, which is how a party with no money leaves with medicine."
+  gm_note :complicates, "Air, tools, and people move one way here, from the clean rooms toward the trial beds along painted routes. Walking a painted corridor backwards contaminates everything between you and the vaults, and the residents will say so before you reach the far door."
 end
 
 relate :rel_seren_located_in_frontier, :located_in, :seren, :the_glass_frontier, since: 2305 do

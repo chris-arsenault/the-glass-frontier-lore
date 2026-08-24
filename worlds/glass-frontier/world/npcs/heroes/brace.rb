@@ -16,6 +16,10 @@ npc :brace do
 
     The walking bridge now consumes most of Brace's shifts. They have marked the twentieth position reported by Nineteen as an open place inside the formation and assigned two experienced residents to keep their hands around it during the next chamber turn.
   PROSE
+
+  gm_note :triggered_by, "Tell Brace what you are good at and they will assign you the position the crossing is weakest at instead. Every member rehearses the crawl beneath the load, including the ones who will never do it, before anyone is allowed onto the threshold."
+  gm_note :appears, "Brace lays out the crossing on the floor in footprints, hand marks and breath counts, then expects it walked through before the talking resumes. Crews with no language in common learn the whole route from those marks."
+  gm_note :complicates, "Brace has left the twentieth position open in the walking bridge with two experienced residents' hands around it. Newcomers are placed away from the center and told where not to step, and the formation crosses one body short on purpose."
 end
 
 relate :rel_brace_located_in_kesh, :located_in, :brace, :kesh, since: 2435 do

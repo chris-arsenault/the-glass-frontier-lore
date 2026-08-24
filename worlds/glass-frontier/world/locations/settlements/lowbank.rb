@@ -44,6 +44,10 @@ installation :lowbank do
 
     Enforcement remains uneven. Lowbank's size supplies investigators and concealment in equal measure. Inspectors close individual firms while successor companies bid for the same leases through new owners. Municipal clerks now compare those bids with port payroll and water-board transit tallies before approving them.
   PROSE
+
+  gm_note :appears, "Nothing moves in or out of Lowbank without an independent pilot, and pilots bid by route, water level, and cargo draft rather than by distance. A good one gets a shipment around a closed gate without ever putting it on a road."
+  gm_note :triggered_by, "A permit, a clearance, or a dropped inspection belongs to one of three authorities and never to all of them. The assembly holds the streets and markets, the port holds deepwater traffic, and the water boards hold the channels, so cargo cleared into the city can still be refused the route it arrived by."
+  gm_note :complicates, "When the boards close channels, gates, and lower streets, the causeways are already shut and every able resident is on their mound's flood crew. Anyone below the painted flood bands is moving upward with the rest of the ward, whatever else they had planned."
 end
 
 relate :rel_lowbank_in_dovra, :located_in, :lowbank, :dovra do

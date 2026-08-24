@@ -41,6 +41,10 @@ transport :held_breath do
 
     The steps follow the painted blue line and stop at each gap. No camera has shown a walker. Crews inspect the hull after every approach and have found dust displaced in the shape of a bare, narrow foot. The Council has kept the passage open for remote work and barred exterior crossings along that face.
   PROSE
+
+  gm_note :complicates, "Nothing aboard can be announced at once. A fire, a casualty, or a breach travels by runner from whichever section found it, and the party acts on what one compartment knows while the bridge is still being told."
+  gm_note :triggered_by, "A familiar voice through a closed speaking tube has to be checked by opening the shutter and seeing who is talking. Crews do it without comment, and a passenger who answers without looking gets corrected in front of everyone."
+  gm_note :appears, "The broken blue line is how anyone boarding from outside names their nearest isolated section, and cordon crews expect a party to say which one before a lock is worked for them."
 end
 
 relate :rel_displacement_council_maintains_held_breath, :maintains, :displacement_council, :held_breath do

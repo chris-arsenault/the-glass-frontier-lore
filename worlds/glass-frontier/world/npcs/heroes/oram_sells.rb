@@ -15,6 +15,14 @@ npc :oram_sells do
   prose <<~PROSE, section: :history, heading: "Succession"
     Bloom exposure accumulated across #{elapsed 2421, 2432} of inspections. When the damage became terminal, Sells chose #{ref :dern_talish, "Dern Talish"} as his successor and spent his final season transferring the Council's ordinary command. The last briefing took place at #{ref :gray_line, "Gray Line"}, where he disclosed the hidden elven cooperation and gave her the contact protocol.
   PROSE
+
+  gm_note :appears, "Sells died in 2432 and the cordons still run on his requirements: each keeps the recovery " \
+                    "ledger he ordered for the families outside it, and station handoffs follow the form he " \
+                    "standardized. Asked why a cordon files records for people it will not let across, an officer " \
+                    "gives his name."
+  gm_note :complicates, "Bloom exposure taken across #{elapsed 2421, 2432} of station inspections killed him, and " \
+                        "Council officers reach for that whenever they refuse to extend a watch or approve an " \
+                        "unscheduled crossing."
 end
 
 relate :rel_oram_sells_leads_displacement_council, :leads, :oram_sells, :displacement_council, since: 2421, till: 2432 do

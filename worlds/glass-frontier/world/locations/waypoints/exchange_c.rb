@@ -17,6 +17,10 @@ installation :exchange_c do
   PROSE
 
   log "2026-08-21 — Made the courier name Rattle primary while retaining the Ring Age designation Exchange C."
+
+  gm_note :complicates, "Frame wheels over the expansion gaps, drum bells at five minutes, two minutes and closure, and couriers calling changes across the colored bands mean any conversation on the deck is shouted or moved into the cold-locker passage."
+  gm_note :appears, "Residents waiting for hand delivery stand along the outer rail with nothing to do but watch the unloading lane, which makes them witnesses to whatever happens in the six colored bands."
+  gm_note :triggered_by, "Asking after a parcel that went astray gets a party sent to the correction wall, whose oldest surviving card follows one across all three segments nineteen times to a room beside the exchange it started in."
 end
 relate :rel_exchange_c_located_in_carom, :located_in, :exchange_c, :carom, since: 2435 do
   prose "Rattle sorts Carom's busiest drum traffic and most off-hab deliveries."

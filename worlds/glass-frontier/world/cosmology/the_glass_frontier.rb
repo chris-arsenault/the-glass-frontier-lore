@@ -45,6 +45,10 @@ geographic_location :the_glass_frontier do
 
     It's also, still, slowly falling apart. The Shear grows. Habs that were stable for decades occasionally collapse into it. The ring is not safe. It's not tame. But it is, emphatically, alive.
   PROSE
+
+  gm_note :appears, "Traffic between worlds routes through ring-based stations, because that is where the docking systems, beacons and resonance relays are densest. A party crossing the #{ref :kaleidos_system, "Kaleidos system"} spends time under some hab's local rules on the way to anywhere else."
+  gm_note :triggered_by, "What players learn at one hab rarely transfers to the next: the fragments were standardized modules before the #{ref :the_glassfall, "Glassfall"} and have improvised separately ever since, so docking, trading and asking for help work differently at each."
+  gm_note :complicates, "In the habs still running the original ring infrastructure, residents know only that the lights come on and the air stays fresh. A fault in that machinery leaves nobody aboard who can say what broke."
 end
 
 relate :rel_tgf_orbits_kaleidos, :orbits, :the_glass_frontier, :kaleidos do

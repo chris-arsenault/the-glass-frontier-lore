@@ -23,6 +23,10 @@ faction :shear_compact do
 
     It is also, increasingly, tested. Ringglass demand is growing. The Compact's extraction limits slow supply. Someone is always making the argument that safety standards are too conservative — the same argument #{ref :coremark, "Coremark"} made before Pyre, in different words, from different mouths. "That's what they said about Pyre" still works as a response. It won't work forever.
   PROSE
+
+  gm_note :appears, "Every Shear crossing starts with the Compact's forecast of debris, resonance tides, and drift events, and the forecast is wrong often enough that reading it aloud starts an argument in the cabin. The crew flies on it regardless, because there is nothing else to fly on."
+  gm_note :triggered_by, "Working the Shear uncertified is stopped by nobody, since the Compact keeps no armed arm, but the fine follows and an uncertified crew loses the mediation that settles salvage claims. Their next disputed find belongs to whoever is holding it."
+  gm_note :complicates, "Ringglass demand outruns what the extraction limits release, so there is always a buyer paying above the certified rate for an over-limit haul. The penalty for taking that work is a fine one profitable run absorbs, which is why determined operators keep taking it."
 end
 
 relate :rel_shear_compact_regulates_the_shear, :regulates, :shear_compact, :the_shear, since: 2383 do

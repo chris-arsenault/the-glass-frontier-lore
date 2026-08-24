@@ -51,6 +51,10 @@ geographic_location :kaleidos do
 
     The orbital ring dominates accounts written elsewhere in the system. On Kaleidos, weather services track its debris, towns collect its dust, and builders work the fallen material into walls, roads, fields, and drainage beds.
   PROSE
+
+  gm_note :appears, "Every overland leg comes with a forecast that mixes weather and resonance: a shower front shutting air lanes, rain softening the steppe's shallow crystal beds, an alignment that pulls a vehicle toward a buried seam. Route keepers' closures bind the way storm warnings do."
+  gm_note :triggered_by, "Carry a working technique to the next settlement, or the next street, and it fails about as often as it holds: two buildings a street apart can sit in different local fields. Builders, well-keepers and irrigation crews sound the ground first everywhere on the surface."
+  gm_note :complicates, "A map drawn in Sithari names the road without naming the people who keep it open, and inland towns still run on calendars, measures and speech that outlived the Famine. An arrangement made in the capital gets renegotiated with whoever actually maintains the crossing."
 end
 
 relate :rel_kaleidos_orbits_the_sun, :orbits, :kaleidos, :the_sun do

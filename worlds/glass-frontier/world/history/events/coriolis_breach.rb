@@ -32,6 +32,9 @@ incident :coriolis_breach do
 
     The survivor, #{ref :venn_talis, "Venn Talis"}, gave testimony, withdrew from the faction that mounted the expedition, and refused later public office. Accord mediators still study the testimony before working with a community that limits contact.
   PROSE
+
+  gm_note :triggered_by, "Proposing to open a sealed hab, for salvage or for a crew believed trapped inside, brings the #{ref :tempered_accord, "Tempered Accord"}'s sovereignty provisions into the scene, and they exist because of Coriolis. The question stops being how to breach the hatch and becomes who claims authority at it."
+  gm_note :complicates, "The faction that forced Coriolis open was sincere, and the NPCs arguing for the next entry bring instrument readings rather than threats. Refusing them means accepting that people behind the wall may die of something a visiting crew could have treated."
 end
 
 relate :rel_coriolis_breach_caused_tempered_accord, :caused, :coriolis_breach, :tempered_accord do

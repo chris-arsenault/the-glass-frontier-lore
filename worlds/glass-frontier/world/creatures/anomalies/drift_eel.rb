@@ -40,6 +40,10 @@ creature :drift_eel do
 
     Young eels have been found inside cutter wakes, short enough to coil beneath a receiving grate. Whether they crossed as whole animals or grew from severed filaments remains unresolved. Ratter records contain both observations and no controlled specimen has survived long enough in a quiet field to distinguish them.
   PROSE
+
+  gm_note :triggered_by, "The instinct once mouths fix to the hull is to shut everything down. Abrupt silence sends the animal searching across the surface instead, so the sources come down one at a time while a lure is raised, walking the mouths off habitation, pressure seals, and control lines."
+  gm_note :complicates, "Answering an attached eel with more drive power pulls it harder against the hull, because the body tightens around the field it is feeding on. A severed plate keeps gripping for hours afterward and leaks a conductive fluid carrying the ship's own signal."
+  gm_note :appears, "A tuning compass usually registers an eel before anything visual does, its reeds leaning toward a point that moves against the surrounding debris while hull current drops in small separate steps. It is following the weakest gradient the vessel makes, often a badly shielded cable rather than the drive."
 end
 
 relate :rel_drift_eel_inhabits_shear, :inhabits, :drift_eel, :the_shear do

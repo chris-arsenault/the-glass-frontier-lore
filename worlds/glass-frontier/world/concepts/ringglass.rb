@@ -47,6 +47,11 @@ resource :ringglass do
 
     This creates a slow squeeze. Aggregate stays cheap. Refined stays profitable but competitive. And intact pieces become rarer and more valuable with every year that passes.
   PROSE
+
+  gm_note :appears, "Whatever a party hauls out of a wreck, a riverbed, or a claim gets sorted before it gets priced: someone vibrates it and reads what comes back for natural frequency and purity. " \
+                    "Aggregate is settled in a minute by machine, and anything that might be better goes to a sorter working by hand."
+  gm_note :triggered_by, "Players who ask what an intact piece is worth get no number. Pieces surface irregularly, interested parties negotiate or bid or occasionally fight, and the price follows what the configuration turns out to do — which can take months of study to establish."
+  gm_note :complicates, "A find is won or lost at the cut. Along the crystal planes it yields a clean section that rings true; across them the internal stresses fracture the piece and the resonance is gone, and there is no second attempt on the same fragment."
 end
 
 relate :rel_ringglass_powers_resonance, :powers, :ringglass, :resonance do

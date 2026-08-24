@@ -27,6 +27,10 @@ installation :tanel do
 
     The receiving rack has produced the same forty-seven-knock sequence twice since then. Each run ended with an empty cradle and a pressure trace moving back toward the Alda branch. The line loses a measurable volume of air on every return. Tanel has assigned the next set of dry nursery seals to the crew opening Junction Two, which suspends two contracted hospital installations until the Alda pressure loss is contained.
   PROSE
+
+  gm_note :triggered_by, "Anything a party sends by tube is audited by ear: a clean route knocks three times, and any extra knock puts a line crew at the first unexpected branch within the shift, so a private message becomes a work order for four other people."
+  gm_note :appears, "The sealed network is larger than the inhabited settlement and routine pressure tests keep opening branches shut since the Famine, so a wall in whatever room a scene occupies can be a ceramic throat a test crew opens from the far side."
+  gm_note :complicates, "The dry nursery seals promised to two hospital installations have gone instead to the crew opening Junction Two, so their buyers are at Tanel asking when they ship and the answer depends on stopping the Alda line's air loss."
 end
 
 relate :rel_tanel_located_in_frontier, :located_in, :tanel, :the_glass_frontier, since: 2140 do

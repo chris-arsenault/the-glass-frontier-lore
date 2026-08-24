@@ -49,6 +49,18 @@ installation :lumenshard do
 
     The reduction has not threatened food or household power. It has cut the graftwood marked for bridges and delayed several instrument orders. Buyers are offering higher prices for existing stock, while ward assemblies resist harvesting older limbs to meet contracts written before the fall was measured.
   PROSE
+
+  gm_note :appears, "Wards take their quiet turn in rotation, so an evening errand crosses streets with dimmed " \
+                    "lamps, disconnected workshop lines, and households on stored heat while the market two " \
+                    "terraces over is bright. The schedule is public, and an inn will say which bridge lighting " \
+                    "goes dark tonight."
+  gm_note :triggered_by, "Running a resonant device in the basin without a ward's grant shows as a bright path " \
+                         "through the roots pointing straight at it, with empty young veins beyond. The fine pays " \
+                         "for replanting and lost harvest; concealing the draw costs channel access instead."
+  gm_note :complicates, "A thin shower season has left new growth short of clear veins, so the graftwood marked " \
+                        "for bridges is committed and instrument orders are late. Buyers are outbidding each other " \
+                        "for existing stock while ward assemblies refuse to cut older limbs to fill contracts " \
+                        "written before the fall was measured."
 end
 
 relate :rel_lumenshard_in_miraeth, :located_in, :lumenshard, :miraeth, since: 2192 do

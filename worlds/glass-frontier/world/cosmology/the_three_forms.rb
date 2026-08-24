@@ -40,6 +40,11 @@ concept :the_three_forms do
 
     What is not in dispute is the smaller, stranger echo of the cosmology that walks around in daylight: the #{ref :fae, "fae"}, whose every waking hour is the work of holding a coherent figure against the pull toward the diffuse. A fae concentrating into a single clear shape, and bleeding back out into an occupied haze when the effort fails, is the closing of the figure made flesh — order held by will, at the scale of one person. The keepers point to the fae and say: this is the whole cosmos, in a body you can shake hands with. The fae, who have to live it, are generally less moved by the comparison.
   PROSE
+
+  gm_note :appears, "Cheap printed triptychs hang over workshop benches, so a party waiting on a repair can read the panels off the wall. Gold marks the structural band and red the kinetic, which tells them what the machine in front of them does before its owner explains."
+  gm_note :triggered_by, "Ask any working hand what a resonance device is doing and the answer comes back as figures closing rather than bands and " \
+    "bandwidth, because the picture is what most people learned first. A #{ref :tuners, "Clarisant-trained Tuner"} corrects the framing and then uses it anyway."
+  gm_note :complicates, "When someone in a scene calls a thing a false form, the phrase can mean the drawn third panel or the ordinary word for a lie that holds its shape. Keepers hear the first and speakers usually intend the second, so an insult can land as a doctrinal claim."
 end
 
 relate :rel_three_forms_derived_from_resonance, :derived_from, :the_three_forms, :resonance do

@@ -39,6 +39,13 @@ geographic_location :miraeth do
 
     The #{ref :prismwell_kite_guild, "Prismwell Kite Guild"} forecasts the denser shower fronts and collects clean material in flight. Above registered groves, guild craft narrow their catch and leave lower strands to fall. Ground readings from the Conservatory help pilots identify those strands. Sparse years strain the arrangement because the same clear grain can become a seed in Lumenshard or an instrument in Glasswake.
   PROSE
+
+  gm_note :appears, "After a heavy shower fall the ward assembly posts a quiet period at the gate houses and disconnects the settled terraces, so a party arrives to dark streets and cold rooms in a village that has lost nothing. " \
+                    "The line stays down until the new grain has settled into the roots."
+  gm_note :triggered_by, "Any equipment a party runs in a basin lands somewhere it did not intend. " \
+                         "A workshop line's heat travels through the root plate and warms a bed uphill, and a pump drawn too sharply leaves nearby seedlings without enough local response to bind new grain; the grower whose bed changed traces it within days."
+  gm_note :complicates, "Miraeth is several separate watersheds with their own villages, water rules, and dialects rather than one continuous forest, so access agreed in one basin carries no weight over the saddle into the next. " \
+                        "A party crossing the chain renegotiates at each gate house where the channels enter the terraces."
 end
 
 relate :rel_miraeth_on_kaleidos, :on_surface_of, :miraeth, :kaleidos do

@@ -37,6 +37,14 @@ geographic_location :dovra do
 
     Local pilots resist scrutiny that would place every household route in an off-world registry. They also lose business when criminal traffic brings inspections and insurer refusals. Several boards now issue sealed transit tallies that prove a cargo's route without publishing the channel details. Ports accept the tallies unevenly, and forged versions appeared within a season of the first issue.
   PROSE
+
+  gm_note :appears, "Every water board sounds its own registered gate interval at the start of the wet season, so crossing districts " \
+                    "changes the note underfoot; children raised near a gatehouse can name their interval and the flood path that " \
+                    "goes with it."
+  gm_note :triggered_by, "Directions in Dovra go stale: a route given by landmark may name a channel silt has since closed, and a chart " \
+                         "a few seasons old can run a party into what is now an orchard boundary."
+  gm_note :complicates, "A sealed transit tally proves a cargo crossed inspected water without naming a single channel, so it settles " \
+                        "the route and nothing about who loaded the crate; forged tallies appeared within a season of the first issue."
 end
 
 relate :rel_dovra_on_korvath, :on_surface_of, :dovra, :korvath do

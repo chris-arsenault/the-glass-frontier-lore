@@ -47,6 +47,10 @@ species :orcs do
 
     The lack of a cultural center combines with the species' natural conservatism to produce a recognizable pattern: orc communities, wherever they form, tend to become self-reinforcing. The traditions are maintained. The standards are upheld. New arrivals are welcomed if they meet those standards and quietly frozen out if they don't. This isn't hostility — orcs will tell you it's quality control, and they'll mean it — but the practical effect is that orc-majority communities are some of the most stable settlements in the system and some of the slowest to respond when stability stops being what's needed. An orc neighborhood in a city that's changing around it will be the last block to adapt and the first to wonder why nobody else values doing things properly anymore.
   PROSE
+
+  gm_note :triggered_by, "Ask an injured orc how bad it is and the answer will be honest and wrong. A dampened pain response hides stress fractures and early resonance exposure alike, so anyone treating an orc has to examine the body instead of believing the report."
+  gm_note :complicates, "An orc states a position once and hears it restated as an attempt at deception. A negotiation that reopens a settled point to find middle ground costs the party the ground it already had, and orc delegates walk out of talks other species consider still in progress."
+  gm_note :appears, "In an orc-majority block, work, rooms and introductions go to whoever meets the standard, and everyone else finds that nothing is offered and nothing is refused. Nobody involved will describe this as exclusion; they will describe it as quality control."
 end
 
 relate :rel_orcs_inhabit_tgf, :inhabits, :orcs, :the_glass_frontier, since: 2080 do

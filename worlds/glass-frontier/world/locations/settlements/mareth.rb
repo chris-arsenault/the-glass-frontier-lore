@@ -34,6 +34,10 @@ installation :mareth do
 
     The next opening sequence already carries the fifth tone. Gate crews have cleared the rooms around the base while a Keel freight convoy waits in the holding lanes. If the extra interval returns, Kesh formations will walk instrument frames across the exposed joints before ordinary traffic enters; another extension during closure would leave the convoy between moving leaves.
   PROSE
+
+  gm_note :appears, "The frame announces itself: a repeating series of low tones builds toward the opening while whatever the party is doing continues around it. Shop counters roll toward the aperture, trenches fill with cargo crews, and every room against a moving leaf pulls its furniture behind the painted lines."
+  gm_note :triggered_by, "Ask a resident how far away something is and the answer arrives in leaf joints crossed, which only measures anything while the gate is open. Directions taken on a gate day stop describing the place once the aperture shuts and its face unfolds into market frames."
+  gm_note :complicates, "The fifth tone is already in the next opening sequence, and the last one held the gate open for six extra leaf crossings. Anyone in the aperture is betting on an interval nobody can predict, with a Keel freight convoy stacked behind them in the holding lanes."
 end
 
 relate :rel_mareth_located_in_frontier, :located_in, :mareth, :the_glass_frontier, since: 2140 do

@@ -42,6 +42,14 @@ installation :ninth_kiln do
 
     The yard has quarantined the batch on the high platform. Boatyards need the ribs before the eastern water rises further. Keelward's buyer has offered to accept the blocks untested if the kiln removes its mark, which would leave the yard with payment and no record of where the pieces went.
   PROSE
+
+  gm_note :appears, "Every gate piece, barge rib, pipe collar, and stove tile around #{ref :lowbank, "Lowbank"} comes from this yard, " \
+                    "and each carries a mark naming the load it was tested against, so the kiln can say whether a broken part was " \
+                    "used outside its test."
+  gm_note :triggered_by, "Ceramic brought in from an unknown field never rejoins the clay cycle; the yard sets it aside for marked " \
+                         "flood fill and wants to know where the piece sat and what was running beside it."
+  gm_note :complicates, "The quarantined batch rings one common low note across pieces from three chambers, boatyards need those ribs " \
+                        "before the eastern water rises, and Keelward's buyer will take the blocks if the kiln strikes off its mark."
 end
 
 relate :rel_ninth_kiln_located_lowbank, :located_in, :ninth_kiln, :lowbank do

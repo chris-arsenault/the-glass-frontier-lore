@@ -41,6 +41,10 @@ geographic_location :bloom_zones do
 
     Frontier researchers have found no shared cause that explains both groups of tears. Some argue that the two sites are connected through resonance geometry; others treat their apparent similarity as incomplete evidence. The dispute has drawn sustained concern within containment and research circles and little attention outside them.
   PROSE
+
+  gm_note :triggered_by, "Fix one distortion per zone before the party enters and hold it: this zone bends distance, that one misplaces sound, another leaves no surface with a reliable edge. The rule does not carry to the next zone."
+  gm_note :complicates, "A #{ref :gnomes, "gnome"} in the party takes the distortion through their own nervous system while a #{ref :fae, "fae"} crosses on skills they use daily, so one walk splits a mixed group into casualties and guides."
+  gm_note :appears, "New zones open where nobody has cordoned, as one did beside #{ref :xyloathax} in 2431. Any orbit the party is standing in can become a containment site, which puts them inside a new perimeter rather than outside it."
 end
 
 relate :rel_bloom_zones_in_orbit_of_kaleidos, :in_orbit_of, :bloom_zones, :kaleidos do

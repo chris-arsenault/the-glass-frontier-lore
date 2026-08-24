@@ -25,6 +25,13 @@ incident :pell_four do
 
     The incident also changed who bears the cost of a failed industrial test. The Pell Freight Assembly retained the site, paid for the cordon, and supplied the closure crews. Its members continue to argue over the decision. The Cut continues to work under the rules written afterward.
   PROSE
+
+  gm_note :appears, "Contracts for remote work written since 2434 isolate the rig timing system and name the person who may stop a return. " \
+                    "Crews who have never been near the Cut work under terms Pell wrote."
+  gm_note :triggered_by, "Repeating one excitation pattern across separated receivers on a shared clock is what Pell did, and a rig that reproduces it produces the same early signs: " \
+                         "doors opening in two rooms at once, instruments counting one receiver where the plans show several."
+  gm_note :complicates, "The Assembly kept the site, paid for the cordon, and supplied the closure crews, and its members are still arguing about that. " \
+                        "Pell comes up in any Assembly room where a levy, a route fee, or a seal charge is being voted."
 end
 
 relate :rel_pell_four_located_at_pell_cut, :located_in, :pell_four, :pell_cut do

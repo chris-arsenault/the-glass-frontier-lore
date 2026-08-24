@@ -23,6 +23,11 @@ artifact :bloom_relics do
 
     Formation follows the object's structure, the load on it, and the local boundary. Those conditions make the result patterned without making it predictable. Two identical machines exposed at different moments can produce different relics; most exposed objects produce none. Unlike intact ring-era equipment, a Bloom relic is accidental, tied to one site and event, and rarely repairable once its altered material is spent.
   PROSE
+
+  gm_note :appears, "Most relics reach a table as goods before they reach it as finds. A seller offers a demonstration, a custody record, or a story, and what they can actually show sets the price."
+  gm_note :triggered_by, "When players ask what a recovered relic does, answer from the object's old job — a seal divides, a relay carries one signal, a bearing holds an axis — " \
+                         "and make the strange rule a narrowing of that job rather than an unrelated power."
+  gm_note :complicates, "Every relic the party keeps is being spent. The altered material carries its pinned relationship only so far and no workshop can restore it, so owners argue over which job is worth the loss."
 end
 
 relate :rel_bloom_relics_manifests_at_bloom_zones, :manifests_at, :bloom_relics, :bloom_zones do

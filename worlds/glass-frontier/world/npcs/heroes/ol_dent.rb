@@ -26,6 +26,10 @@ npc :ol_dent do
 
     The Chair wants the Closing Session held in the central hall. Ol'dent will open it only if the empty-room test and a staffed rehearsal produce the same response on consecutive days.
   PROSE
+
+  gm_note :appears, "Ol'dent is under the central hall, not in it, and he will not come up for a Session on any terms currently offered. Whatever the party wants from him is settled on the structural decks, between shifts, with his hands on a baritone saxophone or flat against a brace."
+  gm_note :triggered_by, "Any plan that fills a chamber or holds a sustained note needs his clearance, and right now the eastern seating bank is closed to a full house until the empty-room test and a staffed rehearsal answer the same way two days running."
+  gm_note :complicates, "He relieves Drone players before fatigue bends their pitch, so pulling one off the rotation for the party's errand shortens the coverage on that section. Ol'dent then withdraws permission for whatever crowd was booked there."
 end
 
 relate :rel_ol_dent_located_in_fermata, :located_in, :ol_dent, :fermata_station do

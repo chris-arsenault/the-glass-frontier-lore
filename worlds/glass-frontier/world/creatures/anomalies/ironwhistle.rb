@@ -44,6 +44,15 @@ creature :ironwhistle do
 
     Current route notices place the animal between Pell and the branches skirting Karet-3. Carriers are loading iron decoys and arguing over whether the additional mass belongs in corridor fees. The Compact has asked every vessel to submit raw hull recordings before crews edit the whistle into something easier to identify.
   PROSE
+
+  gm_note :appears, "Crews meet Ironwhistle through the hull first: a recorder catches a faint scrape while a hand flat on a bulkhead " \
+                    "feels the whole descending call, and a steady single note means the membranes are folding for a strike."
+  gm_note :triggered_by, "Running the #{ref :kite_sail, "kite"} up feeds the dragon, because a stronger field gives it more organized " \
+                         "force to follow; crews live through a pass by cutting to the minimum power needed for control, turning " \
+                         "across the approach, and releasing an iron decoy on a separate pulse."
+  gm_note :complicates, "A sighting with the marks clear earns a modest observation payment, and the Compact now wants raw hull " \
+                        "recordings before crews edit the whistle into something easier to identify; a warning filed after cargo loss " \
+                        "is examined much more closely."
 end
 
 relate :rel_ironwhistle_inhabits_shear, :inhabits, :ironwhistle, :the_shear do

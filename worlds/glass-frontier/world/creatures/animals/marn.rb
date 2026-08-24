@@ -42,6 +42,10 @@ creature :marn do
 
     Market towns process more marn goods than they raise. #{ref :ladderwell, "Ladderwell"} is the eastern steppe's largest wool and machinery exchange, where highland carriers meet lowland herds and repair shops produce pumps sturdy enough for both routes.
   PROSE
+
+  gm_note :appears, "Herds share every steppe road, so a party arriving by kite comes down into somebody's livestock. A flitter settling nearby drives a kinetic correction through the ground and can make a tethered group pull at once, which is why small markets post a landing interval."
+  gm_note :triggered_by, "Players who read a stopped animal as a warning get one answer from herders and another from route keepers. One refusal is temperament, a whole herd facing the same empty ground moves the caravan, and no keeper will reopen or close a section on animal behavior alone."
+  gm_note :complicates, "Animals kept beside a settlement learn the rhythm of the machine they live next to, and a changed bearing unsettles the entire pen. Work on a mill or pump reaches the livestock before anyone else notices, and the handlers arrive wanting to know what was altered."
 end
 
 relate :rel_marn_inhabits_avar, :inhabits, :marn, :avar do

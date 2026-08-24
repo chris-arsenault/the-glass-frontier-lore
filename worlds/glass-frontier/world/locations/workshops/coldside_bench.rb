@@ -42,6 +42,17 @@ installation :coldside_bench do
 
     Cinderbacks damaged three flexible lines while following the cold-store leak beneath the port. Those repairs have priority over commercial work. A Keel crane controller, two road pumps, and a hauler drive remain unopened on the sand while their owners compete for the next safe return slot.
   PROSE
+
+  gm_note :appears, "Work left here gets a marker on the cold bench, and its position says whether the delay is " \
+                    "cooling, diagnosis, parts, fitting, or test. Owners argue at the marker in front of everyone " \
+                    "else waiting, so an urgent job is public the moment it is asked for."
+  gm_note :triggered_by, "Asking for a rebuild certified for the port alone gets the part refused. The hall writes " \
+                         "the port account and the road account on the same card and will not fit an assembly that " \
+                         "a neighboring shop cannot open."
+  gm_note :complicates, "Cooling lines the culvert #{ref :cinderback, "cinderbacks"} tore open outrank commercial " \
+                        "work, so a Keel crane controller, two road pumps, and a hauler drive sit unopened on the " \
+                        "sand. Machines now cool through more than one giant-shade and the terrace road outside is " \
+                        "full of parked haulers."
 end
 
 relate :rel_coldside_located_shadewell, :located_in, :coldside_bench, :shadewell do

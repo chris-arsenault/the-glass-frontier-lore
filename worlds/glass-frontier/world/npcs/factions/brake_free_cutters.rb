@@ -24,6 +24,10 @@ faction :brake_free_cutters do
   prose <<~PROSE, section: :present_day, heading: "Present Day"
     The Cutters now work smaller claims and bring difficult hulls into Brake's cutting lots. Their oldest tugs carry mismatched plates from the Drossmark rigs they helped seize. Each plate is drilled through the control channels before installation.
   PROSE
+
+  gm_note :appears, "Salvage work around #{ref :brake} runs into the common board, which records who holds which claim and assigns the pooled tugs, watches and cutting time. A crew that wants shared equipment registers the claim first."
+  gm_note :triggered_by, "Borrowing a Cutters tug begins with reading the warnings kept beside the #{ref :shardfall} claim record: no linked cut inside an inhabited field, no weapon discharge across a marked work line, no claim worth closing a route home."
+  gm_note :complicates, "Their oldest tugs wear mismatched plates cut from #{ref :drossmark_industries} rigs, each drilled through its control channels before installation and recognizable on sight to anyone who reads salvage marks."
 end
 
 relate :rel_brake_free_cutters_headquartered_brake, :headquartered_in, :brake_free_cutters, :brake, since: 2336 do

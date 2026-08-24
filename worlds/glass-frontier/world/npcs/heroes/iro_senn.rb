@@ -14,6 +14,13 @@ npc :iro_senn do
 
     Senn remained at Gray Line when Dern moved into regional command. Their friendship consists mostly of shift notes, arguments over exposure limits, and one shared meal whenever she visits.
   PROSE
+
+  gm_note :appears, "Senn signs the recovery permits and sets the exposure limits for crews going out to the " \
+                    "mounts, so an errand across the cordon becomes an argument about hours before it becomes a yes."
+  gm_note :triggered_by, "Arriving with an inspection order or a headquarters letter gets the shortest version of " \
+                         "the station; he distrusts ceremonial visits and answers them from the watch log. The " \
+                         "same facts reach #{ref :dern_talish, "Dern Talish"} that evening unimproved, because she " \
+                         "asked him never to soften bad news."
 end
 
 relate :rel_iro_senn_located_in_gray_line, :located_in, :iro_senn, :gray_line do

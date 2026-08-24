@@ -40,6 +40,14 @@ creature :pole_thief do
 
     Barge crews work through the delay with second poles and loud opinions. The pole-thieves continue feeding beneath them.
   PROSE
+
+  gm_note :appears, "A sounding pole worked near any reed margin can come back wrong: a pole-thief grips the metal shoe, twists toward " \
+                    "the bank, and the pilot cannot tell that reach from moving ground until a second pole says otherwise."
+  gm_note :triggered_by, "Hiring a bank crew to clear a colony buys several nights of cracked shell and wooden beaters along an unused " \
+                         "bank; poison is refused near freshwater intakes, and sealing the burrows weakens the bank."
+  gm_note :complicates, "At #{ref :lowbank, "Lowbank"}'s eastern approaches the port wants the animals gone before the wet season and " \
+                        "the water board wants the dredged bank untouched until it knows which flow moved, so anyone offering to " \
+                        "solve it picks a side."
 end
 
 relate :rel_pole_thief_inhabits_dovra, :inhabits, :pole_thief, :dovra do

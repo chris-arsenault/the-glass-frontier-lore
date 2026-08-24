@@ -63,6 +63,10 @@ installation :hab_meridian do
 
     The signal Aless Vorrith answered in 2305 is still played, daily, in the radio room she once worked in, by people whose grandparents knew her. The conversation is forty-three minutes long. Visitors who want to hear the whole thing have to schedule a slot. Most do.
   PROSE
+
+  gm_note :appears, "The Period Arc is reached only through the single transition gate at the segment boundary, and inside it the arc runs on its own civic schedule: period markets, period workshops, period schools, and a council keeping hours the rest of the hab does not."
+  gm_note :triggered_by, "Asking to hear the first contact gets a scheduled slot rather than a copy. The forty-three-minute Meridian recording is played daily in the radio room Aless Vorrith once worked in, the Glasswake side of it did not survive, and anyone wanting the whole thing books ahead."
+  gm_note :complicates, "Decisions come out of the Outer, where the council, the doctors, and every visitor arrangement sit, while what is at issue is usually inside the Period Arc. The two populations work together professionally and sometimes resentfully."
 end
 
 relate :rel_hab_meridian_part_of_glass_frontier, :part_of, :hab_meridian, :the_glass_frontier do

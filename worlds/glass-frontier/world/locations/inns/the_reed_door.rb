@@ -41,6 +41,10 @@ installation :the_reed_door do
 
     Three sounding poles returned with identical fresh strikes from pole-thieves, though the boats used separate channels. The route crews want to close all three approaches. Freight captains waiting at the Reed Door want another sounding before the water reaches the next mark on the hall posts.
   PROSE
+
+  gm_note :appears, "Registering here begins with tying your route pole beside the landing, which tells the desk which channel you came in by and whether your boat can leave the same way. A party that arrived overland has no pole to tie and gets asked how they intend to leave."
+  gm_note :triggered_by, "Ask the common hall about anyone and it answers, because the residents who eat here without meeting anyone keep track of which crew has been waiting too long, which barge is refusing inspection, and who came back without the pole they took out."
+  gm_note :complicates, "The house guarantees nothing below the middle floor, so freight stays on the boat or goes to the mound warehouse. On a flood warning the ground hall empties in a fixed order and the woven panel lifts last, after the people still waiting on a ferry have gone above the old flood line."
 end
 
 relate :rel_reed_door_located_lowbank, :located_in, :the_reed_door, :lowbank do

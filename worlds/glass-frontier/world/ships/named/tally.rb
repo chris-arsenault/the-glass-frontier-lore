@@ -11,6 +11,10 @@ transport :tally do
 
     Tally flies whenever a drum delay would spoil food, warm medicine, or strand a live shipment. Its schedule changes with Carom's rotation, and its pilots eat from whichever meal frame has the shortest remaining route.
   PROSE
+
+  gm_note :appears, "Tally launches on spoilage rather than on a schedule, so it drops into an outer dock whenever a drum delay would ruin food, warm medicine or strand a live shipment, and passengers ride in whatever space the eight frames leave."
+  gm_note :triggered_by, "Loading is one clamp turn into one of eight narrow locks, and the courier takes out the empty frame the previous trip left, so cargo that does not arrive framed does not go aboard."
+  gm_note :complicates, "The scratched count beside the cargo door tallies meals delivered before cooling and the crew keeps it running on a replaceable brass strip, so asking for a detour is asking them to break the count."
 end
 relate :rel_tally_operates_in_carom, :operates_in, :tally, :carom, since: 2435 do
   prose "Tally carries urgent courier frames between Carom's outer docks."

@@ -15,6 +15,10 @@ artifact :red_sleeve do
 
     Played in wash order, those short phrases become directions through Wash Four's clean route. Several later garments carry a stronger voice than their treatment history permits, making the sleeve a limit on the evidence as well as its comparison piece.
   PROSE
+
+  gm_note :triggered_by, "Every calibration a party asks for costs the sleeve something: the reading recovers the voice at the cuff, an engine rhythm at the elbow " \
+                         "and a route beacon near the shoulder seam, and it strips the quiet words a little further each time."
+  gm_note :complicates, "The sleeve fixes how fast a genuine trace should decay, so measuring a promising find against it usually disqualifies the find rather than confirming it."
 end
 
 relate :rel_wash_four_possesses_red_sleeve, :possesses, :wash_four, :red_sleeve, since: 2435 do

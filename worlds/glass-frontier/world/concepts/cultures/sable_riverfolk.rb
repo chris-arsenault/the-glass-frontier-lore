@@ -23,6 +23,10 @@ culture :sable_riverfolk do
   prose <<~PROSE, section: :aesthetics, heading: "Marks That Survive Water"
     Route bands woven into sleeves and cargo covers use dyes that remain distinct when wet. Ceramic tallies mark landings, household stores, and barge shares because they survive flood and fire better than paper. Musicians carry broad songs downstream and add local verses at each stop; a performance names its route in the order of those additions.
   PROSE
+
+  gm_note :triggered_by, "Repeat something without saying how you came by it and a Riverfolk listener discounts the rest. Naming the bearer, the route, and a person who can be asked later turns the same words into something they will act on."
+  gm_note :appears, "A bargain struck on the water acquires a third party who can be found again, because a Riverfolk agreement is not finished until someone has witnessed it. Freight claims, marriage records, and inherited songs all take that shape."
+  gm_note :complicates, "A song carries the verses added at each landing in the order they were added, so a listener who knows the Crescent can hear exactly which stops the singer made and in which direction."
 end
 
 relate :rel_sable_riverfolk_inhabit_crescent, :inhabits, :sable_riverfolk, :sable_crescent, since: 2305 do

@@ -14,6 +14,9 @@ resource :ravel_water do
 
     Separate pressure cells keep the samples more than a meter apart. One travels aboard *Nera Doss* during the next plume crossing, with temperature, pressure, distance, and signal tone recorded through the passage.
   PROSE
+
+  gm_note :triggered_by, "The moment players stow two trays in the same locker or carry them down a corridor together, the films climb the ceramic toward one another and the high-band tones start, loud enough on any signal sounder to bring whoever is on watch."
+  gm_note :complicates, "Only metal and ringglass hold the liquid in place, so in an ordinary galley or processing room it is already crossing the ceramic while the party improvises containment out of whatever the room happens to have."
 end
 relate :rel_ravel_water_sourced_from_ravel, :sourced_from, :ravel_water, :ravel do
   prose "Ravel Water condenses on Ravel's outer nets during the recurring plume passage."

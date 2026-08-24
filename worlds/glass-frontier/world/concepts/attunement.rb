@@ -26,6 +26,10 @@ ability :attunement do
 
     Quiet fields create a different problem. During #{ref :drawdown, "drawdown"}, an attuned person can follow the remaining gradients and estimate which band failed first, but the absence carries little information about the cause. Crews compare that perception against a #{ref :tuning_compass, "tuning compass"} and the recent load on local arrays before deciding whether to wait, shut down, or move.
   PROSE
+
+  gm_note :appears, "The first person to notice a bad field is rarely a hired #{ref :tuners, "Tuner"}; it is the mechanic who feels drift before the gauge moves, the pilot reading thrust through a deck, or a householder who has lived with one room's tone for years. They can say something is wrong, not which band."
+  gm_note :triggered_by, "When two attuned characters compare a reading they will use unrelated words for it — pressure behind the eyes, weight across the teeth, a difference in how a plate takes a blow — and still agree on band, direction, and rate. Disagreement about the rate means fatigue or a reflection."
+  gm_note :complicates, "Attunement is perception without control, so a character can name a collapsing frequency and have no tool, material, or training that would correct it. The warning arrives well ahead of anyone who could act on it."
 end
 
 relate :rel_attunement_depends_on_resonance, :depends_on, :attunement, :resonance do

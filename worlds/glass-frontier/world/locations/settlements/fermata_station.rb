@@ -99,6 +99,10 @@ installation :fermata_station do
     - Listening as virtue vs. listening as control. The highest cultural value is also the most effective tool for keeping people quiet.
     - Beauty vs. justice. Sometimes the most musically satisfying resolution isn't the fair one. The station has no mechanism for distinguishing between the two.
   PROSE
+
+  gm_note :appears, "Whatever the party wants from Fermata — a berth, a repair, a cargo term, leave to travel on — becomes a tune called in a public Session, and the answer is whatever the room converges on that night. Attendance is not required and absence is noted."
+  gm_note :triggered_by, "Players who state their case in words get a hearing and no standing. Only someone who has passed the Sit-In can solo, comp, or propose in Session, so a visitor pressing an argument is handed an instrument or handed to a Player willing to carry it."
+  gm_note :complicates, "A shouted argument, a brawl, or a badly played hour is a structural event here: unresolved tension loads the ringglass, and a small one crazes a window while a loud one moves bulkheads. Whoever the party was fighting will name the damage before naming the fight."
 end
 
 relate :rel_fermata_in_orbit_of_kaleidos, :in_orbit_of, :fermata_station, :kaleidos do

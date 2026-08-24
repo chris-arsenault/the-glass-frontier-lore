@@ -32,6 +32,10 @@ faction :pell_freight_assembly do
 
     Pell remains expensive. The pooled fund pays cordon costs, interrupted contracts, and the crews who dismantle the synchronized equipment. Members argue over how long those payments should continue. They do not dispute that the debt belongs to them.
   PROSE
+
+  gm_note :triggered_by, "Someone eventually asks the Assembly to send a ship or order a crew somewhere. The five route factors cannot direct a member vessel; they can withhold docks, insurance, and freight access, so the pressure reaches a member through the ledger rather than through an order."
+  gm_note :appears, "A crew that cannot meet a cash call at a Pell yard is offered work credit instead: maintenance watches, rescue standby, or an empty return leg. Rescue standby is a real obligation and it gets called in at the yard's convenience."
+  gm_note :complicates, "#{ref :daro_venn, "Daro Venn"} runs Assembly meetings like a claim board, naming the hazard first, the price second, and letting the person who will carry the risk speak before anyone votes. Players who want the decision made for them have to stand up and say what they are accepting."
 end
 
 relate :rel_pell_assembly_hq_glasswake, :headquartered_in, :pell_freight_assembly, :glasswake, since: 2416 do

@@ -40,6 +40,10 @@ installation :brake do
   prose "#{embed :shardfall, :aftermath}", section: :history, heading: "Shardfall"
 
   prose "#{embed :hospital_hull_recovery}", section: :present_day, heading: "Hospital Hull Recovery"
+
+  gm_note :appears, "Only the central fragment's permanent routes carry bright orange handrails. Every other way across the settlement passes through eleven hulls built in different eras for different gravities, joined by cargo locks, temporary bridges and torn engine rooms."
+  gm_note :triggered_by, "A crew that wants to keep its ship whole can petition for ward status, at the price of a thirty-day survey of its life support, access routes and weapons spaces, and one public passage opened permanently through the hull."
+  gm_note :complicates, "Salvaged pieces take a lot mark at removal, so a buyer can trace a pressure door back to its vessel and deck, and anything a party sells into the lots can be traced the same way."
 end
 
 relate :rel_brake_located_in_frontier, :located_in, :brake, :the_glass_frontier, since: 2305 do

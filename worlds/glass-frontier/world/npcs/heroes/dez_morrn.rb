@@ -31,6 +31,10 @@ npc :dez_morrn do
 
     Emergency crews have reviewed the score's known frequencies and found no single dangerous passage. They cannot model the combined load without the performance itself. Dez has accepted extra Drone players in the surrounding compartments. She has not changed the piece.
   PROSE
+
+  gm_note :appears, "Anyone at Fermata with a grievance about the Standards gets invited to a rehearsal in the damped compartments behind the old freight lining. Dez starts newcomers on one sustained tone and will not move on until every player in the room can name where it came back through the deck."
+  gm_note :triggered_by, "Players who try to prove their commitment by breaking something get expelled on the spot. She bars anyone who plays past a marked weak panel and drops anyone who offers a cracked window as evidence of seriousness."
+  gm_note :complicates, "Both of Dez's arrests sit unresolved in the Session archive, so associating with her carries a charge nobody can define and nobody can dismiss. A party pulled in alongside her waits out the repairs while the room fails to agree on what to call the offense."
 end
 
 relate :rel_dez_located_in_fermata, :located_in, :dez_morrn, :fermata_station do

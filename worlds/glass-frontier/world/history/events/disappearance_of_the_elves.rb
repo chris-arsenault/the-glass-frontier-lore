@@ -38,6 +38,10 @@ incident :disappearance_of_the_elves do
 
     Time handled living memory. Public figures did not return when signals resumed. People who had known them died while the elves who planned the withdrawal remained alive in hiding. The operation left enough evidence to prove that elves had shaped the system and too little to follow any one of them home.
   PROSE
+
+  gm_note :triggered_by, "Research into any pre-Glassfall technical procedure turns up a document that still works, full method and full tolerances, with the author line generic or gone. The #{ref :echo_ledger_conclave, "Echo Ledger Conclave"} will confirm the gap and will not say whether it was cut out or simply lost."
+  gm_note :appears, "Listening deep enough in the #{ref :echo_rivers, "Echo Rivers"} reaches below the flattening: a conversation that does not cut to hum, carrying a voice signature the alteration never touched. The Conclave catalogs every such fragment, and each one reopens its unsettled argument about the pattern."
+  gm_note :complicates, "Elves stayed in the general population to watch the archives, so research closing on a real elven location gets noticed before it gets published. The interference arrives as a misfiled requisition, a reassigned archivist, or a folio that was on the shelf last visit."
 end
 
 relate :rel_elves_participated_disappearance, :participated_in, :elves, :disappearance_of_the_elves do

@@ -40,6 +40,10 @@ creature :blank do
 
     The Shear Compact has issued a shared warning without declaring one animal responsible. Deep-runners have begun varying their retreat checks and carrying two decoy resonators. The recovered membrane continues to repeat a weak version of the third ship's drive-start tone when placed near tuned ringglass.
   PROSE
+
+  gm_note :triggered_by, "Repetition draws it, and repetition is what a worried crew produces. A Tuner rechecking one bearing, an array sweeping on a single cadence, and a beacon transmitting an unchanged call each give it a path, and it settles on the most regular of them until that pattern breaks."
+  gm_note :complicates, "Feeding takes organized pattern rather than material, so gauges stay lit while their calibration tones flatten and tuned ringglass loses its tune. The person who could name what is wrong is the Tuner, who by then is giving uncertain answers about signals they have known for years."
+  gm_note :appears, "Rescue after a strike is run as a contaminated approach: a passive line, every tuned thing cold, people taken off before anything is powered up. A tender that brings its own active array alongside can carry the animal or its false returns home with the survivors."
 end
 
 relate :rel_blank_inhabits_deep_shear, :inhabits, :blank, :deep_shear do

@@ -83,6 +83,10 @@ transport :heavy_hauler do
 
     A career on the haulers is a respectable life. The wages are decent. The work is steady. The crews are good company. The vessels are large enough to feel like home and small enough that everyone aboard knows everyone else. People raise families on the haulers — children born aboard, schooled in port stops, working the watch by the time they are old enough — and many of those children stay in the trade. The hauler population is older than the general working-spacer population and substantially more stable. The system runs on what they carry. They know it. They take the work seriously.
   PROSE
+
+  gm_note :appears, "Getting anywhere along #{ref :keel, "the Keel"} usually means riding a hauler whose eight to twelve crew have sailed together for fifteen or twenty years, raise children aboard, and fold passengers into a watch rotation that was settled long before the party booked passage."
+  gm_note :triggered_by, "Chartering a hauler outright produces a vessel running one cargo for one buyer, and that manifest is rare enough that port clerks, rival masters, and escort operators all read something into it."
+  gm_note :complicates, "A coupled-freight load rides in bulkheaded bays with its monitoring instruments cut off from the ship's cadence, so no one aboard can tell the party what is in those bays or whether anything has changed inside them since loading."
 end
 
 relate :rel_heavy_hauler_operates_keel, :operates_in, :heavy_hauler, :keel, since: 2335 do

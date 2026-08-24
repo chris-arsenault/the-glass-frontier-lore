@@ -69,6 +69,10 @@ geographic_location :kaleidos_system do
 
     The system is compressed enough that no destination is truly remote — just inconvenient. Lithren is the farthest, and even that is a week's journey, not a season's.
   PROSE
+
+  gm_note :appears, "Distance here is counted in days: an adjacent world is one day by fast ship and #{ref :lithren, "Lithren"} is a week from Kaleidos. Nobody outruns a problem by leaving the planet, and anyone with a faster hull arrives before the party has finished explaining itself."
+  gm_note :triggered_by, "Asked where someone in the system lives, the answer is often not a planet: ring habs, orbital stations, and #{ref :span_nine, "Threshold Station"} at the Kaleidos-sun point all hold real populations. A search that works down the list of eight worlds misses where people actually are."
+  gm_note :complicates, "A multi-day crossing passes within reach of things that are not on a planet: listening posts, a #{ref :clarisant, "Clarisant"} retreat sited away from any planetary field, caches whose owners notice traffic. A crew running a straight line is still passing someone's doorstep."
 end
 
 relate :rel_kaleidos_system_depends_on_resonance, :depends_on, :kaleidos_system, :resonance do

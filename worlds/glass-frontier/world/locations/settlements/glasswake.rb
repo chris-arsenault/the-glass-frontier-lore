@@ -47,6 +47,10 @@ installation :glasswake do
 
     A surface-access spur connects Glasswake to #{ref :keel, "the Keel"}, the system's primary orbital trade lane. Kites descending from the Keel use the town as a minor waypoint and resupply stop.
   PROSE
+
+  gm_note :appears, "Cargo and hiring both come in at the dock fringe, where independent kites, #{ref :ratters, "Ratter"} crews and steppe carriers put in to dodge Sithari's fees, while the inspections and mineral contracts sit uptown. A crew can be hired at one end of that walk in the morning and audited at the other by evening."
+  gm_note :triggered_by, "Whatever the party brings off a claim only exists uptown after washing, grading and a #{ref :shear_compact, "Shear Compact"} inspection turn it into a certified lot. The fringe buys the same material unwashed, for less, and asks nothing about where it came from."
+  gm_note :complicates, "Taking anything out of the wreck ridge is a structural reader's call rather than a cutter's, because pulling a grade can wake a second seam or shift load into an occupied part of the fragment. Crews who open a sealed face anyway learn which rooms underneath were carrying it."
 end
 
 relate :rel_glasswake_on_surface_kaleidos, :on_surface_of, :glasswake, :kaleidos do
