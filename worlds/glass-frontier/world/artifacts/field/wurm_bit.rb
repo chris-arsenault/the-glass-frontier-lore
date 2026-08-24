@@ -1,5 +1,6 @@
 artifact :wurm_bit do
   name "Wurm-bit"
+  summary "A wurm-bit is a hand- or cutter-mounted boring machine built around a shed glasswurm mouth plate. Salvagers use its changing bite angle to follow curved seams through mixed mineral and ringglass."
   subkind :machine
   function "Cuts curved mineral and ringglass seams with a mounted glasswurm mouth plate"
   status :complete

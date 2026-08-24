@@ -1,5 +1,6 @@
 artifact :stillweight do
   name "Stillweight"
+  summary "A stillweight is a portable structural clamp that holds an object in relation to nearby stable mass. Rescue, road, and salvage crews use its three feet and ringglass core to restrain damaged doors, vehicles, braces, and buildings."
   aka "Field mass clamp", "deadweight"
   subkind :machine
   function "Holds one contacted object against local movement by returning its load through a structural-frequency anchor"

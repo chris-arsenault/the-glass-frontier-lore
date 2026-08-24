@@ -1,5 +1,6 @@
 faction :vantara do
   name "Vantara"
+  summary "Vantara is the system's largest travel and logistics corporation, operating carriers, route infrastructure, lodging, and private escorts."
   playable_as :allegiance
   origin_blurb "The system's largest travel company runs carriers, waystations, lodging, and the contracts behind them."
   subkind :company
@@ -61,9 +62,11 @@ end
 
 # --- history (moments) ---
 moment :vantara_founded, year: 2320, of: :vantara do
+  summary "Vantara was founded in 2320 to operate the schedules, maintenance, crews, and waystations needed by Reconnection trade."
   prose "Founded during the Rekindling, when the first inter-settlement trade networks needed someone to handle the boring parts — scheduling, maintenance, crew rotation, waystation provisioning. The founders understood the money wasn't in the cargo; it was in making the journey tolerable for the people carrying it."
   effects { set :vantara, standing: :active }
 end
 moment :vantara_arms_escorts, year: 2360, of: :vantara do
+  summary "Vantara began arming convoy escorts in 2360 after attacks on its ships along disputed corridors."
   prose "During the Contested Reach, after its ships were targeted on disputed corridors, Vantara began arming its convoy escorts. The escorts never stood down — its security division is now the largest private armed force in civilian space, a fact it is very clear does not make it a military."
 end

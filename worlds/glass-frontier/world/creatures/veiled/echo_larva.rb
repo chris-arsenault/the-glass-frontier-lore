@@ -1,5 +1,6 @@
 creature :echo_larva do
   name "Echo Larva"
+  summary "Echo larvae are recording-borne anomalies found at Ledgerfall, the Choir Fragment, and Tanel. They hatch inside old records and consume the loudest word from each repeated passage."
   subkind :anomaly
   status :complete
   prominence :marginal

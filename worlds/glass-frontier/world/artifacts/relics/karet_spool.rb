@@ -1,5 +1,6 @@
 artifact :karet_spool do
   name "Karet Spool"
+  summary "The Karet Spool is a freight-winch relic recovered from Karet-3 in 2426. Its finite braided line preserves one route already crossed through changing space, and the Displacement Council keeps it at Outside for mapped recoveries."
   subkind :relic
   origin_date 2426
   status :complete

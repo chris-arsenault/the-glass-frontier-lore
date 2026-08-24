@@ -1,5 +1,6 @@
 culture :shade_families do
   name "Shade Families"
+  summary "Shade Families are Ashvane households who exchange pressure-safe rooms by season and carry their door seals between homes."
   subkind :regional_culture
   status :complete
   prominence :marginal

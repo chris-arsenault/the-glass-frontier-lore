@@ -1,5 +1,6 @@
 installation :marker_house_twelve do
   name "Marker House Twelve"
+  summary "Marker House Twelve is a stone wayhouse on the eastern road from Ladderwell across Avar, beside a public well and singing route stakes."
   playable_as :chronicle_location
   subkind :station
   status :complete

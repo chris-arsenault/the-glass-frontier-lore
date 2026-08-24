@@ -1,5 +1,6 @@
 culture :cordon_children do
   name "Cordon Children"
+  summary "Cordon Children are people raised beside Bloom boundaries, taught warning colors before letters and accustomed to wearing safe-route marks."
   subkind :overview
   status :complete
   prominence :marginal

@@ -1,5 +1,6 @@
 species :root_deck_symbiotes do
   name "Root-Deck Symbiotes"
+  summary "Root-Deck Symbiotes are the organisms exchanged among garden habitats to move heat, waste, and warning pulses through living graft networks."
   subkind :overview
   status :complete
   prominence :marginal

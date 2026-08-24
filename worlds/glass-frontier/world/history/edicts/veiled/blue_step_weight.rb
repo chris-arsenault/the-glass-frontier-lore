@@ -1,5 +1,6 @@
 edict :blue_step_weight do
   name "The Blue-Step Weight"
+  summary "The Blue-Step Weight limits loads on the Avar roads to the mass that two stranded crews can move by hand."
   subkind :edict
   status :complete
   prominence :marginal

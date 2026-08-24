@@ -1,5 +1,6 @@
 ability :fracture_afterimage do
   name "Fracture Afterimage"
+  summary "Fracture Afterimage is an innate visual effect that preserves the safe outline of moving debris for several breaths after it vanishes."
   subkind :innate_ability
   status :complete
   prominence :marginal

@@ -1,5 +1,6 @@
 transport :flitter do
   name "Flitter"
+  summary "A flitter is a short-range kite for ordinary passenger travel and light freight. Public and commercial fleets use compact craft to cross cities, climb between surface terminals and low orbit, and reach nearby settlements."
   subkind :vessel
   status :complete
   capacity "One to six passengers, or an equivalent light cargo load"

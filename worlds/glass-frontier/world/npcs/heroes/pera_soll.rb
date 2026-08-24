@@ -1,5 +1,6 @@
 npc :pera_soll do
   name "Pera Soll"
+  summary "Pera Soll is a retired Crowncut ringglass-array foreman who trained Lira Vashtenri and now keeps the refinery's original service logs at Korvath."
   subkind :specialist
   occupation "Retired ringglass array foreman"
   specialty "Coupled-field maintenance"

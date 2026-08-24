@@ -1,5 +1,6 @@
 culture :hab_worlder do
   name "Hab-Worlder"
+  summary "Hab-Worlders are people raised in sealed ring habitats, where atmosphere, structural maintenance, and mutual obligation are part of ordinary household life."
   playable_as :culture
   origin_blurb "Raised in sealed habs, Hab-Worlders read air, exits, maintenance, and mutual obligation instinctively."
   subkind :way_of_life

@@ -1,5 +1,6 @@
 faction :four_span_mutual do
   name "Four-Span Mutual"
+  summary "Four-Span Mutual is a route-aid society that caches food, cable, and relay glass at four surviving stations."
   subkind :mutual_aid
   status :complete
   prominence :marginal

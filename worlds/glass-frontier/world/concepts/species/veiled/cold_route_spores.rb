@@ -1,5 +1,6 @@
 species :cold_route_spores do
   name "Cold-Route Spores"
+  summary "Cold-Route Spores are dormant archive organisms that open into pale fans beside warm navigation lamps."
   subkind :overview
   status :complete
   prominence :marginal

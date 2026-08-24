@@ -1,5 +1,6 @@
 faction :echo_ledger_conclave do
   name "Echo Ledger Conclave"
+  summary "The Echo Ledger Conclave is the Sable Crescent archive order that authenticates, interprets, and controls access to records recovered from the Echo Rivers."
   playable_as :allegiance
   origin_blurb "Archivists catalogue voices from Echo Rivers and govern access to recordings whose context still matters."
   subkind :religious_order
@@ -110,6 +111,7 @@ end
 
 # --- history (moments) ---
 moment :echo_ledger_conclave_formed, year: 2310, of: :echo_ledger_conclave do
+  summary "Echo River listeners formed the Echo Ledger Conclave in 2310 to catalogue records surfacing across Kaleidos."
   prose "The Conclave formed during the Rekindling, when reconnecting settlements compared notes about the #{ref :echo_rivers, "Echo Rivers"} and realized the same fragments were surfacing planet-wide. The early archivists were just listeners — people who sat near surfacing points and wrote down what they heard. The Conclave organized them, standardized their methods, and claimed custodianship over the material. The claim stuck because nobody else wanted the job: cataloguing the conversations of dead strangers attracts a specific patient, obsessive, ambiguity-tolerant personality, and the Conclave has been selecting for it ever since."
   effects { set :echo_ledger_conclave, standing: :active }
 end

@@ -1,5 +1,6 @@
 artifact :long_note do
   name "The Long Note"
+  summary "The Long Note is a three-plate signal record made from passive-array traces at Issel. Navigators use its conflicting directions and distances to compare unexplained rising signals from other routes."
   subkind :record
   status :complete
   tags :archives, :navigation, :mystery, :"signal-freq"

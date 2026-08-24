@@ -1,5 +1,6 @@
 concept :open_salvage_warrant do
   name "Open Salvage Warrant"
+  summary "An Open Salvage Warrant is an emergency authorization allowing any equipped crew to cut a dangerous hull in return for its first stable component."
   subkind :doctrine
   status :complete
   prominence :marginal

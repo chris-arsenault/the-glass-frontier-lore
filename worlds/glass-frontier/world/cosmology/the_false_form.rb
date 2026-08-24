@@ -1,5 +1,6 @@
 concept :the_false_form do
   name "The False Form"
+  summary "The False Form is the impossible third figure in the Three Forms, a resonance path that returns to its beginning without closing."
   subkind :physical_system
   path "player/cosmology/the-false-form.md"
   reviewed "2026-06-18"

@@ -1,5 +1,6 @@
 creature :mirror_leech do
   name "Mirror Leech"
+  summary "A mirror leech is a body-copying anomaly found in the Fracture and around Ashenmaw. Its reflective skin takes the shape of the last warm body it held until the leech feeds."
   subkind :anomaly
   status :complete
   prominence :marginal

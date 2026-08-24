@@ -1,5 +1,6 @@
 faction :lower_routes_cooperative do
   name "Lower Routes Cooperative"
+  summary "The Lower Routes Cooperative is the Underlayers' resident-run route, mapping, and rescue service."
   playable_as :allegiance
   origin_blurb "Resident survey crews keep Sithari's shifting underlayers connected through repeated readings and public route boards."
   subkind :mutual_aid

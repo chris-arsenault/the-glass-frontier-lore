@@ -1,5 +1,6 @@
 resource :lung_moss do
   name "Lung Moss"
+  summary "Lung moss is a living filter material sourced from Lung Three and Kesh. It traps structural dust and turns bitter before an air shaft begins to buckle."
   subkind :biological_material
   status :complete
   prominence :marginal

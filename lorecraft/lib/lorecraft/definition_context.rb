@@ -145,6 +145,7 @@ module Lorecraft
 
     def title(value) = @moment.static_attr(:title, value)
     alias name title
+    def summary(value) = @moment.static_attr(:summary, value.to_s)
     def tags(*values) = @moment.static_attr(:tags, values.flatten.map(&:to_sym))
     def prominence(value) = @moment.static_attr(:prominence, value.to_sym)
     def subkind(value) = @moment.static_attr(:subkind, value.to_sym)

@@ -1,5 +1,6 @@
 installation :vigil_breach do
   name "Vigil Breach"
+  summary "Vigil Breach is a ring-era doorway behind the central glaciers of the Kyther Range, opening only at three recorded celestial alignments."
   playable_as :chronicle_location
   subkind :landmark
   tags :surface, :"ring-era", :resonance, :danger, :archives

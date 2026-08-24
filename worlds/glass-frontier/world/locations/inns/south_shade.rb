@@ -1,5 +1,6 @@
 installation :south_shade do
   name "South Shade"
+  summary "South Shade is a road house below Shadewell's southern rim, where Ashvane's highland road meets the cargo lifts to the Keel fields."
   playable_as :chronicle_location
   subkind :installation
   status :complete

@@ -1,5 +1,6 @@
 incident :displacement do
   name "Displacement"
+  summary "The Displacement was the mass evacuation of mid-drift ring habitats during the Silent Bloom cascade beginning in 2378."
   subkind :migration
   path "player/history/events/displacement.md"
   status :complete

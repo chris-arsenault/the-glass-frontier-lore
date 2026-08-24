@@ -1,5 +1,6 @@
 npc :oram_sells do
   name "Oram Sells"
+  summary "Oram Sells was the Displacement Council's Third First Threshold from 2421 until his death in 2432."
   subkind :leader
   occupation "Third First Threshold of the Displacement Council"
   species "human"
@@ -34,6 +35,7 @@ relate :rel_oram_sells_located_in_gray_line, :located_in, :oram_sells, :gray_lin
 end
 
 moment :oram_sells_dies, year: 2432, of: :oram_sells do
+  summary "Oram Sells died from accumulated Bloom exposure in 2432, three months after naming Dern Talish as his successor."
   prose "Sells died from accumulated Bloom exposure three months after naming Dern Talish as his successor."
   effects { set :oram_sells, standing: :dead }
 end

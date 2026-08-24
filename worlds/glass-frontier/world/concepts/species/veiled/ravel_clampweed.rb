@@ -1,5 +1,6 @@
 species :ravel_clampweed do
   name "Ravel Clampweed"
+  summary "Ravel Clampweed is a hull-seam plant that grips shut during signal tides and opens its leaves after the pull passes."
   subkind :species
   status :complete
   prominence :marginal

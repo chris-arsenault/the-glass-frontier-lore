@@ -1,5 +1,6 @@
 concept :bellward_hospitality do
   name "Bellward Hospitality"
+  summary "Bellward Hospitality is a lodging custom that reserves one bed in participating houses for travelers carrying news between Sithari and the Keel."
   subkind :social_system
   status :complete
   prominence :marginal

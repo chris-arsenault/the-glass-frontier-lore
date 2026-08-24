@@ -1,5 +1,6 @@
 npc :sora_meralis do
   name "Sora Meralis"
+  summary "Sora Meralis is Chief Ledgrist of the Echo Ledger Conclave, elected in 2433 after a career authenticating legal records."
   subkind :leader
   born 2391
   occupation "Chief Ledgrist of the Echo Ledger Conclave"

@@ -1,5 +1,6 @@
 npc :renn_duvasi do
   name "Renn Duvasi"
+  summary "Renn Duvasi is a Pelhari archive scholar who joins damaged pre-Glassfall maintenance records to the casebooks of living Tuners."
   subkind :specialist
   occupation "Archive scholar at the Pelhari academy"
   specialty "Pre-Glassfall resonance maintenance records"

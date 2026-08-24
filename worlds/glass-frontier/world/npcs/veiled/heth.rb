@@ -1,5 +1,6 @@
 npc :heth do
   name "Heth"
+  summary "Heth is the leader of Mera's night harvest crews."
   subkind :leader
   status :complete
   prominence :marginal

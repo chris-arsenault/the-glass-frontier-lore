@@ -1,5 +1,6 @@
 installation :coldside_bench do
   name "Coldside Bench"
+  summary "Coldside Bench is a shaded public repair hall on a lower Shadewell terrace, rebuilding heat-rated pumps, radiator controls, and road-hauler gear."
   playable_as :chronicle_location
   subkind :workshop
   function "Rebuilds heat-rated pumps, radiator controls, and road-hauler running gear"

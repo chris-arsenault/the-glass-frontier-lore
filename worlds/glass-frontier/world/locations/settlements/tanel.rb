@@ -1,5 +1,6 @@
 installation :tanel do
   name "Tanel"
+  summary "Tanel is a settlement of eight thousand people in the Glass Frontier, spread through pressure modules linked by an extensive Ring Age tube network."
   playable_as :chronicle_location
   subkind :settlement
   status :complete

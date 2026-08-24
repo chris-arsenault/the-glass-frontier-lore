@@ -1,5 +1,6 @@
 transport :kyther_scree_runner do
   name "Kyther Scree Runner"
+  summary "Kyther scree runners are slope vehicles used in the Kyther Range and Vigil Breach. Their broad feet shed one layer after every slide across resonance-charged ground."
   subkind :transport
   status :complete
   prominence :marginal

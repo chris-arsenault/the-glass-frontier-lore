@@ -1,5 +1,6 @@
 npc :bell_var do
   name "Bell Var"
+  summary "Bell Var is a Hinge Six berth official who closes docks when their echoes fall outside the safe count."
   subkind :official
   status :complete
   prominence :marginal

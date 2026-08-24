@@ -1,5 +1,6 @@
 installation :old_campus do
   name "Old Campus"
+  summary "The Old Campus is the surviving ring-era research complex at the center of Sithari, now a dense civic district built through its laboratories and workshops."
   playable_as :chronicle_location
   subkind :settlement
   population 110_000

@@ -1,5 +1,6 @@
 geographic_location :kaleidos_system do
   name "The Kaleidos System"
+  summary "The Kaleidos system is a compact inhabited star system containing seven intact planets, the Fracture's planetary remains, and the broken ring around Kaleidos."
   log "2026-08-22 — Excluded as a chronicle location because the full star system cannot supply one local starting neighborhood."
   subkind :star_system
   path "player/cosmology/kaleidos-system.md"

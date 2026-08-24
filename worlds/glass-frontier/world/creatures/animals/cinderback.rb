@@ -1,5 +1,6 @@
 creature :cinderback do
   name "Cinderback"
+  summary "Cinderbacks are low, six-legged animals native to Ashvane's volcanic highlands. Their plated backs manage heat, and settlements tolerate them near outer drains because they clear warm channels and react to changing heat underground."
   subkind :animal
   status :complete
   tags :"outer-system", :ecology, :danger, :trade, :resonance

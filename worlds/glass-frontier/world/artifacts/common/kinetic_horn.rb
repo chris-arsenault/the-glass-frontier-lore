@@ -1,5 +1,6 @@
 artifact :kinetic_horn do
   name "Kinetic Horn"
+  summary "A kinetic horn is a braced resonant instrument that turns a held tone into directed force. Pilots, cargo crews, and rescuers use it to steady craft, control suspended loads, and push debris from a safe distance."
   subkind :instrument
   function "Applies a directed kinetic-band force while a player holds a matched tone"
   status :complete

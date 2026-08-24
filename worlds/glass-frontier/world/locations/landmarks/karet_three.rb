@@ -1,5 +1,6 @@
 geographic_location :karet_three do
   name "Karet-3"
+  summary "Karet-3 is a contained Bloom Zone in the remains of a freight habitat in the outer Shear, where the interior no longer agrees with the hull."
   playable_as :chronicle_location
   subkind :hazardous_zone
   tags :orbital, :danger, :resonance, :isolation

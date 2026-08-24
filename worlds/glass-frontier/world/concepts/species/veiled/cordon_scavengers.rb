@@ -1,5 +1,6 @@
 species :cordon_scavengers do
   name "Cordon Scavengers"
+  summary "Cordon Scavengers are sealant-feeding animals found along Bloom boundaries, retreating when local light reaches the red warning band."
   subkind :overview
   status :complete
   prominence :marginal

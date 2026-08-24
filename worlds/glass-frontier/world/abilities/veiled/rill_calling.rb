@@ -1,5 +1,6 @@
 ability :rill_calling do
   name "Rill Calling"
+  summary "Rill Calling is a herding technique used at Perch, where tapped pipe tones guide animals through the settlement."
   subkind :ability
   status :complete
   prominence :marginal

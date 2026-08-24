@@ -1,5 +1,6 @@
 phenomenon :shuttered_habs do
   name "Shuttered Habs"
+  summary "Shuttered habs are sealed ring habitats that refused reconnection during the Rekindling and remain isolated from the wider system."
   subkind :social_condition
   path "player/concepts/shuttered-habs.md"
   status :complete

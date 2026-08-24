@@ -1,5 +1,6 @@
 creature :vault_moth do
   name "Vault Moth"
+  summary "Vault moths are archive animals found at Thornvault, the Folded Annex, and Old Campus. They eat binding glue and leave each freed page enclosed in a transparent cocoon."
   subkind :animal
   status :complete
   prominence :marginal

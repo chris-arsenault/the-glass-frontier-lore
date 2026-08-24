@@ -1,5 +1,6 @@
 artifact :seven_tine_gauge do
   name "The Seven-Tine Gauge"
+  summary "The Seven-Tine Gauge is a salvage-testing instrument used between Pell Cut and Crowncut Refinery. It identifies material that can be refined without releasing its trapped kinetic charge."
   subkind :instrument
   status :complete
   prominence :marginal

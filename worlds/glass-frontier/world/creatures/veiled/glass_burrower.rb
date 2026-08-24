@@ -1,5 +1,6 @@
 creature :glass_burrower do
   name "Glass Burrower"
+  summary "Glass burrowers are crystal-dwelling creatures found at Vitrael and Ashenmaw. They tunnel through Vitrael crystal and surface where a cutting crew begins to sing."
   subkind :creature
   status :complete
   prominence :marginal

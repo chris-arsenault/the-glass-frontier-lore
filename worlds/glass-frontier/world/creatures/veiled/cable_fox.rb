@@ -1,5 +1,6 @@
 creature :cable_fox do
   name "Cable Fox"
+  summary "Cable foxes are animals that nest in idle counterweight housings along the Keel. They steal only wire carrying a live signal."
   subkind :animal
   status :complete
   prominence :marginal

@@ -1,5 +1,6 @@
 npc :dern_talish do
   name "Dern Talish"
+  summary "Dern Talish is the Displacement Council's Fourth First Threshold, responsible for Bloom cordons and the crews that maintain them."
   subkind :official
   path "player/npcs/heroes/dern-talish.md"
   reviewed "2026-03-18"
@@ -104,20 +105,25 @@ end
 
 # --- history (moments) ---
 moment :dern_talish_evacuated, year: 2378, of: :dern_talish do
+  summary "Four-year-old Dern Talish was evacuated from Latch during the Silent Bloom in 2378."
   prose "Four years old when the #{ref :the_silent_bloom, "Silent Bloom"} took #{ref :latch, "Latch"}, Talish was carried out in the displacement and given the registration tattoo every Bloom evacuee wore. She has no memory of the hab she lost. She has never had the tattoo removed."
   effects { set :dern_talish, standing: :bloom_evacuee }
 end
 moment :dern_talish_cordon_career, year: 2412, of: :dern_talish do
+  summary "Dern Talish began her long Gray Line assignment in 2412, rising from perimeter patrol to regional operations lead."
   prose "She gave twenty years to the Council's #{ref :gray_line, "Gray Line"} cordon, rising from perimeter patrol beside #{ref :iro_senn, "Iro Senn"} to zone-incursion specialist and regional operations lead. The work left her with a tremor in her right hand and an unshakeable conviction that the cordons must hold."
   effects { set :dern_talish, standing: :regional_operations_lead }
 end
 moment :dern_talish_turns_back_convoys, year: 2415, of: :dern_talish do
+  summary "Dern Talish barred three rival convoys from using Gray Line as a staging point during the Bitter Reach in 2415."
   prose "During the #{ref :the_bitter_reach, "Bitter Reach"}, Talish turned away a Continuity relief convoy, a Vantara security column, and ships of #{ref :third_arc_defense, "Third Arc Defense"} when each tried to use Gray Line as a staging point. She was shot at twice. She did not return fire; she closed the cordon gates and waited. All three convoys eventually left. That neutrality became the foundation of her authority."
 end
 moment :dern_talish_becomes_first_threshold, year: 2432, of: :dern_talish do
+  summary "The Displacement Council named Dern Talish its fourth First Threshold in 2432."
   prose "After twenty years on the cordons she was named the fourth First Threshold of the #{ref :displacement_council, "Displacement Council"} — the person who stands at the boundary of every Bloom Zone and decides what crosses it. She did not want the job."
   effects { set :dern_talish, standing: :first_threshold }
 end
 moment :dern_talish_read_in, year: 2432, of: :dern_talish, dm: true do
+  summary "Oram Sells disclosed the hidden elven conflict to Dern Talish at Gray Line in 2432, and she confirmed it through the communication shard."
   prose "Three months before he died of Bloom-exposure complications, her predecessor #{ref :oram_sells, "Oram Sells"} read her in — the #{ref :elves, "elves"}, the Adversary, the reality tears, the hidden war — in a single conversation in a sealed room at #{ref :gray_line, "Cordon Station Nine"}. She did not believe him until he showed her the #{ref :communication_shard, "contact protocol"} and she activated it, and an elf answered. She has not slept a full night since."
 end

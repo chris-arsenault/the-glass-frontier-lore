@@ -1,5 +1,6 @@
 npc :keeps_the_measure do
   name "Keeps-the-Measure"
+  summary "Keeps-the-Measure is a courier carrying pressure samples between Ashvane and Crucible."
   subkind :courier
   status :complete
   prominence :marginal

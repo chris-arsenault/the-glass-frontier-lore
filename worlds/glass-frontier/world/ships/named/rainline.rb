@@ -1,5 +1,6 @@
 transport :rainline do
   name "Rainline"
+  summary "Rainline is a narrow Prismwell survey kite built to enter the leading edge of Glassfall showers. Its flank sounders, marker lamps, and sample frame find where a forecast stops being true."
   subkind :vessel
   status :complete
   capacity "Seven crew, two observers, a marker rack, and one folded shower-catch frame"

@@ -1,5 +1,6 @@
 ability :cold_count do
   name "Cold Count"
+  summary "Cold Count is an innate sensitivity to rapid hull heat loss that can wake its bearer before ordinary gauges register the change."
   subkind :innate_ability
   status :complete
   prominence :marginal

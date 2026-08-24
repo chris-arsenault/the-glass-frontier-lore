@@ -1,5 +1,6 @@
 artifact :alda_capsule do
   name "Alda Capsule"
+  summary "The Alda Capsule is a ceramic message carrier launched from the Alda residential module in 2305 and delivered to Tanel in 2434. Its trip card requests help at a failing nursery seal beyond the surviving tube network."
   subkind :record
   recorded 2305
   status :complete

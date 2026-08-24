@@ -1,5 +1,6 @@
 creature :pressure_grazer do
   name "Pressure Grazer"
+  summary "Pressure grazers are animals that feed on hot mineral film outside Shadewell and nearby Ashvane settlements. Before storms, herds run toward sealed workshops."
   subkind :animal
   status :complete
   prominence :marginal

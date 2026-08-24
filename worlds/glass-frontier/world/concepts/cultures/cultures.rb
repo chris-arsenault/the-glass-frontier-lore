@@ -1,5 +1,6 @@
 culture :cultures do
   name "Cultures"
+  summary "Cultures in the Kaleidos system are identities shaped chiefly by place, upbringing, and shared practice rather than species."
   article!
   log "2026-08-22 — Classified as a reference article because it is the culture registry, not a culture in the world."
   subkind :overview

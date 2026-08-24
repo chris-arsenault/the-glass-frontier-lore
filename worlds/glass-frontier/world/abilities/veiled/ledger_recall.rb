@@ -1,5 +1,6 @@
 ability :ledger_recall do
   name "Ledger Recall"
+  summary "Ledger Recall is a mnemonic discipline that binds passages of a spoken account to distinct pulses in the speaker's wrist."
   subkind :ability
   status :complete
   prominence :marginal

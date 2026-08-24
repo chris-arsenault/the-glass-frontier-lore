@@ -1,5 +1,6 @@
 phenomenon :sable_backecho do
   name "Sable Backecho"
+  summary "A Sable Backecho is a recording anomaly that inserts a nearby living voice into material recorded before that person was born."
   subkind :phenomenon
   status :complete
   prominence :marginal

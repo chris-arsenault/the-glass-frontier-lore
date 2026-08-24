@@ -1,5 +1,6 @@
 edict :four_hatch_order do
   name "The Four-Hatch Order"
+  summary "The Four-Hatch Order keeps one docking mouth clear at every Keel stop for unpowered rescue craft."
   subkind :edict
   status :complete
   prominence :marginal

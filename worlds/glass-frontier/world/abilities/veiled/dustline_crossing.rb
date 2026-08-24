@@ -1,5 +1,6 @@
 ability :dustline_crossing do
   name "Dustline Crossing"
+  summary "Dustline Crossing is a route-reading skill that reconstructs buried roads from grit caught against stones and other low obstructions."
   subkind :learned_ability
   status :complete
   prominence :marginal

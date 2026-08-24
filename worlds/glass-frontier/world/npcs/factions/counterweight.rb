@@ -1,5 +1,6 @@
 faction :counterweight do
   name "The Counterweight"
+  summary "The Counterweight is a four-person mobile rigging crew that relocates structures settlements cannot afford to abandon."
   playable_as :allegiance
   origin_blurb "Mobile riggers help settlements move structures that local hands cannot shift safely alone."
   subkind :mutual_aid

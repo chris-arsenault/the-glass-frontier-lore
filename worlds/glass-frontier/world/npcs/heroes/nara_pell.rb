@@ -1,5 +1,6 @@
 npc :nara_pell do
   name "Nara Pell"
+  summary "Nara Pell is Seren's biological-deposit custodian, assigning every new culture or seed stock to a trial bed."
   subkind :specialist
   occupation "Biological deposit custodian"
   specialty "Matching recovered cultures to safe trial conditions"

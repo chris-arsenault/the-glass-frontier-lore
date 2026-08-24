@@ -1,5 +1,6 @@
 ability :glass_taste do
   name "Glass Taste"
+  summary "Glass Taste is an inherited Kyther sensitivity that distinguishes grades of ringglass by the metallic trace they leave on the breath."
   subkind :innate_ability
   status :complete
   prominence :marginal

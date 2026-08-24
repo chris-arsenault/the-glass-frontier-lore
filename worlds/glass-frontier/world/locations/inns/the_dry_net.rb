@@ -1,5 +1,6 @@
 installation :the_dry_net do
   name "The Dry Net"
+  summary "The Dry Net is a lodging house and hiring room on Glasswake's dock fringe, used by Ratter crews, steppe carriers, and cargo hands."
   playable_as :chronicle_location
   subkind :installation
   status :complete

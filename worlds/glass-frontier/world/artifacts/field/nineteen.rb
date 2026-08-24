@@ -1,5 +1,6 @@
 artifact :nineteen do
   name "Nineteen"
+  summary "Nineteen is a linked work harness whose ringglass ribs share load, balance, and body position across a moving formation. Kesh fits its recovered belt and shoulder segments to a forty-person walking bridge."
   subkind :instrument
   function "Shares load, balance, and body position through a linked work formation"
   status :complete

@@ -1,5 +1,6 @@
 transport :cinder_sledge do
   name "Cinder Sledge"
+  summary "Cinder sledges are surface cargo vehicles used between Pyre, Cinder Gap, and Crowncut Refinery. Their runners soften without melting while they drag hot salvage."
   subkind :transport
   status :complete
   prominence :marginal

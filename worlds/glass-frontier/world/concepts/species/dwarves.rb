@@ -1,5 +1,6 @@
 species :dwarves do
   name "Dwarves"
+  summary "Dwarves are a sapient ring-era immigrant species whose compact, heat-steady bodies and sensitive fingertips read fine changes in texture and vibration."
   playable_as :species
   origin_blurb "Compact and heat-steady, dwarves read fine vibration and layered material through touch."
   subkind :sapient_species

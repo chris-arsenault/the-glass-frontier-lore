@@ -1,5 +1,6 @@
 installation :hinge_six do
   name "Hinge Six"
+  summary "Hinge Six is a small Keel waystation where traffic from Kaleidos turns outward toward Korvath and Ashvane."
   playable_as :chronicle_location
   subkind :station
   status :complete

@@ -1,5 +1,6 @@
 faction :tessellan_communion do
   name "Tessellan Communion"
+  summary "The Tessellan Communion is a devotional order whose keepers preserve and openly teach complete copies of the Three Forms."
   playable_as :allegiance
   origin_blurb "Keepers preserve the Three Forms through handwork, sound, open study, and complete public copies."
   subkind :religious_order

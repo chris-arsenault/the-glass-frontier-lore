@@ -1,5 +1,6 @@
 creature :bell_lung_colossus do
   name "Bell-Lung Colossus"
+  summary "The bell-lung colossus is a creature sleeping around an air shaft between Vey and Lung Three. It exhales whenever the habitat frame bends."
   subkind :creature
   status :complete
   prominence :marginal

@@ -1,5 +1,6 @@
 artifact :echo_strip do
   name "Echo Strip"
+  summary "An echo strip is a hand-length sheet of dark foil that records the strongest coherent resonance pattern touching it. Archives, workshops, and households use strips for field evidence, machine tones, and messages beyond live signal coverage."
   subkind :record
   status :complete
   tags :archives, :"signal-freq", :resonance, :trade, :household

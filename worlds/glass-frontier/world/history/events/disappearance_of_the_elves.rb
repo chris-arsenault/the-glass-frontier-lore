@@ -1,5 +1,6 @@
 incident :disappearance_of_the_elves do
   name "Disappearance of the Elves"
+  summary "The Disappearance of the Elves is the recognized absence of every elven community and individual when sustained communication returned in 2305."
   subkind :migration
   tags :mystery, :archives, :isolation, :"ring-era"
   prominence :recognized
@@ -57,6 +58,7 @@ relate :rel_signal_famine_caused_disappearance, :caused, :signal_famine, :disapp
 end
 
 moment :elves_vanish, year: 2305, of: :disappearance_of_the_elves do
+  summary "No elven community returned to the public network when the Reconnection began in 2305."
   prose "When the Reconnection began, no elven community returned to the public network."
   effects { set :elves, standing: :vanished }
 end

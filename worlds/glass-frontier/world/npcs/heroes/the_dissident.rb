@@ -1,5 +1,6 @@
 npc :the_dissident do
   name "The Dissident"
+  summary "The Dissident was an elf who remained after the collective disappearance and taught practical Tuning under a human name from 2160 onward."
   subkind :dissident
   status :complete
   tags :resonance, :training, :isolation, :mystery
@@ -39,8 +40,10 @@ relate :rel_clarisant_derived_from_dissident, :derived_from, :clarisant, :the_di
 end
 
 moment :dissident_begins_teaching, year: 2160, of: :the_dissident, dm: true do
+  summary "The Dissident adopted a human identity and began teaching practical elven resonance work in 2160."
   prose "The Dissident settled under a human identity and began teaching a practical subset of elven resonance work."
 end
 moment :dissident_vanishes, year: 2180, of: :the_dissident, dm: true do
+  summary "The Dissident cleared their room and disappeared in 2180, leaving the Tuner teaching line without its source."
   prose "The Dissident cleared their room and disappeared, leaving the teaching line without its source."
 end

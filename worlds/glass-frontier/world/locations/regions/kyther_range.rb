@@ -1,5 +1,6 @@
 geographic_location :kyther_range do
   name "Kyther Range"
+  summary "The Kyther Range is a long mountain chain east of Avar on Kaleidos, with dark peaks, settled valleys, glaciers, and crystal-bearing seams."
   playable_as :chronicle_location
   subkind :region
   status :complete

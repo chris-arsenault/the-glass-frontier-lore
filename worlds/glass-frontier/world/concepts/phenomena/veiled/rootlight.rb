@@ -1,5 +1,6 @@
 phenomenon :rootlight do
   name "Rootlight"
+  summary "Rootlight is a blue pulse that travels through Miraeth soil and gathers beneath plants carrying damaged ringglass."
   subkind :phenomenon
   status :complete
   prominence :marginal

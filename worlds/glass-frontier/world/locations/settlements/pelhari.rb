@@ -1,5 +1,6 @@
 installation :pelhari do
   name "Pelhari"
+  summary "Pelhari is a vertical city carved into a deep crater on an inhabited moon of Vastine, and the outer system's largest center of learning and trade."
   playable_as :chronicle_location
   subkind :settlement
   path "player/locations/settlements/pelhari.md"
@@ -69,5 +70,6 @@ end
 
 # --- history (moment) ---
 moment :pelhari_academy_founded, year: 2200, of: :pelhari do
+  summary "Clarisant founders established the Pelhari Academy around a resonance-silent pre-Glassfall observatory in 2200."
   prose "The Famine-era founders of the #{ref :clarisant, "Clarisant"} discovered by accident that the embedded pre-Glassfall observatory was a clean room for #{ref :resonance, "resonance"} practice — a place where a trained sense could be calibrated against silence — and built the Academy around it. What the observatory was originally observing remains an open question."
 end

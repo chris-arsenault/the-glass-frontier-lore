@@ -1,5 +1,6 @@
 installation :ravel do
   name "Ravel"
+  summary "Ravel is a settlement of thirty-five hundred people on a small ring fragment in the Glass Frontier, harvesting a mineral-rich plume every nine days."
   playable_as :chronicle_location
   subkind :settlement
   status :complete

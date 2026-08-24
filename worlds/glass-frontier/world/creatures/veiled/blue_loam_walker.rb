@@ -1,5 +1,6 @@
 creature :blue_loam_walker do
   name "Blue-Loam Walker"
+  summary "Blue-loam walkers are garden-bearing creatures found around Miraeth, Lumenshard, and Seren. They carry living soil on their backs and bury themselves when it turns sour."
   subkind :creature
   status :complete
   prominence :marginal

@@ -1,5 +1,6 @@
 ability :dead_pulse_reckoning do
   name "Dead-Pulse Reckoning"
+  summary "Dead-Pulse Reckoning is a navigation skill that holds a route by counting the silences between damaged beacons."
   subkind :learned_ability
   status :complete
   prominence :marginal

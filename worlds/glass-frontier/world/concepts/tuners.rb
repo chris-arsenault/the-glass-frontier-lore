@@ -1,5 +1,6 @@
 concept :tuners do
   name "Tuners"
+  summary "Tuners are trained resonance workers who separate a local field from its physical carriers and turn what they perceive into practical judgments."
   subkind :practice
   path "player/concepts/tuners.md"
   status :complete

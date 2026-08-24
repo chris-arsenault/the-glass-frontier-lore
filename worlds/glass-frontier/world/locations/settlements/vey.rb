@@ -1,5 +1,6 @@
 installation :vey do
   name "Vey"
+  summary "Vey is a settlement of twelve and a half thousand people inside a porous ring fragment in the Glass Frontier, ventilated by its rotating thermal cycle."
   playable_as :chronicle_location
   subkind :settlement
   status :complete

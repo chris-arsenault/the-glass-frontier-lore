@@ -1,5 +1,6 @@
 ability :signal_folding do
   name "Signal Folding"
+  summary "Signal Folding is a communication technique that compresses a spoken warning into a resonance burst able to cross damaged relay lines."
   subkind :ability
   status :complete
   prominence :marginal

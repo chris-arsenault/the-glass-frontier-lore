@@ -1,5 +1,6 @@
 creature :sarn do
   name "Sarn"
+  summary "Sarn are large migratory animals that cross the gaps between ring fragments in load-sharing spirals. Their mineral combs grip kinetic gradients, and old combs shed during the seasonal passage at Perch."
   subkind :animal
   status :complete
   tags :ecology, :resonance, :"kinetic-freq", :orbital

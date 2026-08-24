@@ -1,5 +1,6 @@
 faction :rattle_bench do
   name "Rattle Bench"
+  summary "Rattle Bench is a civic claims body serving Exchange C and Carom, with hearings held around the sealed disputed cargo."
   subkind :civic_body
   status :complete
   prominence :marginal

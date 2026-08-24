@@ -1,5 +1,6 @@
 installation :clearance_eight do
   name "Clearance Eight"
+  summary "Clearance Eight is a traffic settlement in the Glass Frontier, built on a capture frame that clears passage between two narrow ring fragments."
   playable_as :chronicle_location, :homeland
   origin_blurb "A debris-capture settlement where eight public desks decide what may pass, be claimed, or be cut."
   subkind :settlement

@@ -1,5 +1,6 @@
 resource :pre_glassfall_transmissions do
   name "Pre-Glassfall Transmissions"
+  summary "Pre-Glassfall Transmissions are fragments of signal traffic accidentally preserved in ringglass and crystal-bearing water since the intact ring age."
   subkind :data
   tags :archives, :resonance, :"signal-freq", :"ring-era", :mystery
   prominence :recognized

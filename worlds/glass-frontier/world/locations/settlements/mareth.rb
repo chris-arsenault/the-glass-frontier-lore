@@ -1,5 +1,6 @@
 installation :mareth do
   name "Mareth"
+  summary "Mareth is a settlement of forty-one hundred people inside a vast Ring-era freight gate in the Glass Frontier, with streets built through its frame and latch housings."
   playable_as :chronicle_location
   aka "Mareth-Avelin"
   subkind :settlement

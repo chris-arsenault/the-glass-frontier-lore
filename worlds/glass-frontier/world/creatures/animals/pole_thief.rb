@@ -1,5 +1,6 @@
 creature :pole_thief do
   name "Pole-thief"
+  summary "Pole-thieves are low amphibious animals found along Korvath's Dovra. They mistake the metal shoes of sounding poles for prey, seize them, and pull toward the bank."
   subkind :animal
   status :complete
   tags :"outer-system", :ecology, :resonance, :transport

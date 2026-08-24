@@ -1,5 +1,6 @@
 species :fae do
   name "Fae"
+  summary "Fae are a sapient ring-era people whose spatially diffuse bodies require sustained attention and resonance aids to hold a coherent form."
   playable_as :species
   origin_blurb "Spatially diffuse people use coherence aids and practiced attention to hold a stable bodily form."
   subkind :sapient_species

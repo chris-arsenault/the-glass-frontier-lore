@@ -1,5 +1,6 @@
 resource :rattle_tally_dust do
   name "Rattle Tally Dust"
+  summary "Rattle tally dust is a cargo-data medium sourced from Bay Thirty-One and Exchange C. It settles into the last registered weight of any container opened above it."
   subkind :data
   status :complete
   prominence :marginal

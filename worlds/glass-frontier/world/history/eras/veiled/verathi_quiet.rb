@@ -1,5 +1,6 @@
 era :verathi_quiet do
   name "The Verathi Quiet"
+  summary "The Verathi Quiet was the interval when every Verathi exchange message arrived through Sable recordings instead of live speech."
   subkind :historical_period
   status :complete
   prominence :marginal

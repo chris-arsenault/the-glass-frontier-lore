@@ -1,5 +1,6 @@
 culture :doorstep_claimants do
   name "Doorstep Claimants"
+  summary "Doorstep Claimants are displaced households who carry floor tiles from lost homes and place them beneath each temporary bed."
   subkind :culture
   status :complete
   prominence :marginal

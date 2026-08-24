@@ -1,5 +1,6 @@
 npc :ol_dent do
   name "Ol'dent"
+  summary "Ol'dent is the baritone saxophonist and maintenance lead responsible for Fermata Station's continuous Drone."
   subkind :specialist
   status :complete
   tags :music, :resonance, :"structural-freq", :governance

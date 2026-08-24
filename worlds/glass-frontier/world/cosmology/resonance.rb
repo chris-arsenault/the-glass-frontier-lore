@@ -1,5 +1,6 @@
 concept :resonance do
   name "Resonance"
+  summary "Resonance is an ambient energy throughout the Kaleidos system that tuned ringglass channels into structural, kinetic, and signal effects."
   subkind :physical_system
   path "player/cosmology/resonance.md"
   status :complete

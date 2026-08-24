@@ -64,6 +64,7 @@ module Lorecraft
 
     # Moments own pages too, so they expose the same surface the renderers use.
     def title = @static_attrs[:title] || @id.to_s.split("_").map(&:capitalize).join(" ")
+    def summary = @static_attrs[:summary]
     def tags = Array(@static_attrs[:tags]).map(&:to_sym)
     def prominence = @static_attrs[:prominence]
     def subkind = (@static_attrs[:subkind] || @kind).to_sym

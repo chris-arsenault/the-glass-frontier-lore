@@ -1,5 +1,6 @@
 ability :hinge_step do
   name "Hinge Step"
+  summary "Hinge Step is a docking technique for crossing a moving joint during the brief beat when it carries no load."
   subkind :ability
   status :complete
   prominence :marginal

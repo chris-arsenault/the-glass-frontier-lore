@@ -1,5 +1,6 @@
 installation :eleven do
   name "Eleven"
+  summary "Eleven is a settlement of nine thousand people along eleven shafts in the Glass Frontier, sharing one gravity-fed water and coolant line."
   playable_as :chronicle_location
   aka "Service Habitat Eleven"
   subkind :settlement

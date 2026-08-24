@@ -1,5 +1,6 @@
 era :fracture_candle_years do
   name "The Fracture-Candle Years"
+  summary "The Fracture-Candle Years were a period around Korvath and Vigil Breach when claim beacons failed faster than crews could replace them."
   subkind :historical_period
   status :complete
   prominence :marginal

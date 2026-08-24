@@ -1,5 +1,6 @@
 creature :lantern_fisher do
   name "Lantern Fisher"
+  summary "Lantern fishers are light-casting anomalies found near Cold Lantern, Far Bell, and Outside. They stretch threads of cold light across docking mouths to collect charged dust."
   subkind :anomaly
   status :complete
   prominence :marginal

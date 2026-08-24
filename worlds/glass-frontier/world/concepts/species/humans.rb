@@ -1,5 +1,6 @@
 species :humans do
   name "Humans"
+  summary "Humans are the most numerous sapient species in Kaleidos, descended from alien arrivals around 2050 CE and dependent on training and instruments to perceive resonance."
   playable_as :species
   origin_blurb "Numerous and adaptable, humans rely on learned skill and instruments rather than an innate resonance sense."
   subkind :sapient_species

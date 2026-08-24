@@ -1,5 +1,6 @@
 installation :issel do
   name "Issel"
+  summary "Issel is a shielded settlement of about six hundred people inside a surviving receiver-dish fragment in the Glass Frontier."
   playable_as :chronicle_location
   aka "Issen-Lareth"
   subkind :settlement

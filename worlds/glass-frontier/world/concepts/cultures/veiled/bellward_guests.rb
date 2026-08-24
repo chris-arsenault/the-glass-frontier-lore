@@ -1,5 +1,6 @@
 culture :bellward_guests do
   name "Bellward Guests"
+  summary "Bellward Guests are travelers lodged under the Bellward custom who repay a household by carrying one message onward toward Sithari or the Keel."
   subkind :culture
   status :complete
   prominence :marginal

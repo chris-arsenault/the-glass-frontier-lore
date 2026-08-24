@@ -1,5 +1,6 @@
 species :species do
   name "Species"
+  summary "The Kaleidos system is home to six documented sapient species shaped by alien arrival, ring-era engineering, or disputed local origins."
   article!
   log "2026-08-22 — Classified as a reference article because it is the species registry, not a species in the world."
   subkind :overview

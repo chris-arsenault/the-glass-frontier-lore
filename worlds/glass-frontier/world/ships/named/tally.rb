@@ -1,5 +1,6 @@
 transport :tally do
   name "Tally"
+  summary "Tally is a two-seat hab-runner that carries delayed courier frames between Carom's outer docks. It launches when drum delays would spoil food, warm medicine, or strand a live shipment."
   subkind :vessel
   capacity "Two crew and eight courier frames"
   status :complete

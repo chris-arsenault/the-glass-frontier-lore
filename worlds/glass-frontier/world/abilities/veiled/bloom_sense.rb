@@ -1,5 +1,6 @@
 ability :bloom_sense do
   name "Bloom Sense"
+  summary "Bloom Sense is an innate sensitivity to dormant Bloom Zones, felt as pain in the teeth before a zone emits light."
   subkind :innate_ability
   status :complete
   prominence :marginal

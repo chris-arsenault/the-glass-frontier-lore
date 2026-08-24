@@ -1,5 +1,6 @@
 concept :prominence do
   name "Prominence"
+  summary "Prominence is the five-grade measure of how widely a person, place, organization, event, or concept is known across the Kaleidos system."
   article!
   log "2026-08-22 — Classified as a reference article because it explains an editorial awareness scale rather than a world concept."
   subkind :reference_concept

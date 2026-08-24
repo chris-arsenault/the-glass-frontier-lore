@@ -1,5 +1,6 @@
 phenomenon :echo_rivers do
   name "Echo Rivers"
+  summary "Echo Rivers are crystal-bearing underground waterways on Kaleidos that carry fragments of pre-Glassfall signals and speech."
   subkind :physical_phenomenon
   path "player/cosmology/echo-rivers.md"
   status :complete

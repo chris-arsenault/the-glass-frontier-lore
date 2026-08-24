@@ -1,5 +1,6 @@
 faction :ash_circuit_carriers do
   name "Ash Circuit Carriers"
+  summary "Ash Circuit Carriers is a freight company that moves hot ore between Crucible and Ashvane in linked pods."
   subkind :company
   status :complete
   prominence :marginal

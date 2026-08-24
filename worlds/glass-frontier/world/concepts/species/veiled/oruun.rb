@@ -1,5 +1,6 @@
 species :oruun do
   name "Oruun"
+  summary "Oruun are a sapient people who adjust their skin density to local spin and mark kinship by exchanging weighted rings."
   subkind :sapient_species
   status :complete
   prominence :marginal

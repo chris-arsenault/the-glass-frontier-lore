@@ -1,5 +1,6 @@
 npc :nemi_valerin do
   name "Nemi Valerin"
+  summary "Nemi Valerin is the Lattice Proxy Synod's Voice Proximate, the senior researcher permitted to speak for its custodian work."
   subkind :leader
   born 2389
   occupation "Voice Proximate of the Lattice Proxy Synod"

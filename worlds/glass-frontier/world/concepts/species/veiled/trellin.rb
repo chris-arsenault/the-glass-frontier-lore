@@ -1,5 +1,6 @@
 species :trellin do
   name "Trellin"
+  summary "Trellin are a sapient people who hear signal resonance through throat fans and deliver recorded testimony as layered chords."
   subkind :sapient_species
   status :complete
   prominence :marginal

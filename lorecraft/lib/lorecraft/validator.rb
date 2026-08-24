@@ -1000,7 +1000,7 @@ module Lorecraft
       /\b(?:will not|won't) say\b/i,
       /\bunknown\b/i,
     ].freeze
-    VEILED_ALLOWED_STATIC_ATTRS = %i[title tags prominence status subkind veiled].freeze
+    VEILED_ALLOWED_STATIC_ATTRS = %i[title summary tags prominence status subkind veiled].freeze
     ORIGIN_ROLES = %i[species culture homeland allegiance].freeze
 
     def check_canonical_metadata
@@ -1073,7 +1073,7 @@ module Lorecraft
       err("#{label(entity)}: a shell cannot be veiled") if entity[:status] == :shell
       err("#{label(entity)}: a veiled entry cannot declare playable roles") unless accepted.empty?
       unless entity.content_blocks.empty? && entity.fact_values.empty? && entity.custom_fact_defs.empty?
-        err("#{label(entity)}: a veiled entry may contain only its name, tagline, and indexing metadata")
+        err("#{label(entity)}: a veiled entry may contain only its name, summary, tagline, and indexing metadata")
       end
       extra = entity.static_attrs.keys - VEILED_ALLOWED_STATIC_ATTRS
       unless extra.empty?

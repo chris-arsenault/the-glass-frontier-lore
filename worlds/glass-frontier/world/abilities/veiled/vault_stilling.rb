@@ -1,5 +1,6 @@
 ability :vault_stilling do
   name "Vault Stilling"
+  summary "Vault Stilling is an archive-handling technique that damps a room's signal band long enough to move one unstable case."
   subkind :ability
   status :complete
   prominence :marginal

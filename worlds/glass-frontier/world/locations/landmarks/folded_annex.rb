@@ -1,5 +1,6 @@
 installation :folded_annex do
   name "The Folded Annex"
+  summary "The Folded Annex is a ring-era archive and experimental suite in Sithari's deep Underlayers, built from rooms joined through structural resonance."
   playable_as :chronicle_location
   subkind :archive
   holdings "Ring-era spatial calibration records, test rooms and sealed instrument stores"

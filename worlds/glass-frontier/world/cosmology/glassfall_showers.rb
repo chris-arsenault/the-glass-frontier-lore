@@ -1,5 +1,6 @@
 phenomenon :glassfall_showers do
   name "Glassfall Showers"
+  summary "Glassfall showers are recurring streams of fine ring debris that cross Kaleidos's atmosphere and inhabited orbits, bringing impact and resonance hazards."
   subkind :physical_phenomenon
   medium "Streams of fine ring debris crossing inhabited orbits and Kaleidos's atmosphere"
   content "Vitrified dust, ringglass grains, slag, and occasional larger fragments"

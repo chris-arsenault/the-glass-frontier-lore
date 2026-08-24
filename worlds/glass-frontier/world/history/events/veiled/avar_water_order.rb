@@ -1,5 +1,6 @@
 incident :avar_water_order do
   name "The Avar Water Order"
+  summary "The Avar Water Order was Avar's emergency diversion of two road cisterns to Marker House Twelve after its buried well began ringing."
   subkind :policy_action
   status :complete
   prominence :marginal

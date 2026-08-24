@@ -1,5 +1,6 @@
 concept :life_in_the_system do
   name "Life in the System"
+  summary "Ordinary life in the inhabited Kaleidos system relies on resonance for light, heat, communication, construction, and travel between worlds."
   article!
   log "2026-08-22 — Classified as a reference article because it surveys ordinary life across the system rather than naming one thing in the world."
   subkind :social_system

@@ -1,5 +1,6 @@
 faction :merren do
   name "Merren"
+  summary "Merren is a Vey-founded manufacturer of pumps, shutters, heat exchangers, and atmosphere machinery for structurally linked habitats."
   aka "Merren Works"
   subkind :company
   founded 2429

@@ -1,5 +1,6 @@
 installation :blue_step_works do
   name "Blue Step Works"
+  summary "Blue Step Works is a heavy repair shop on Ladderwell's second bench, building pump frames, road gear, bridge fittings, and structural clamps for Avar."
   playable_as :chronicle_location
   subkind :workshop
   function "Builds and tests portable structural clamps, pump frames, and road-moving gear"

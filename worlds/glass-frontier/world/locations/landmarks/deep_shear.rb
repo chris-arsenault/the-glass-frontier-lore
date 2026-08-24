@@ -1,5 +1,6 @@
 geographic_location :deep_shear do
   name "Deep Shear"
+  summary "The Deep Shear is a set of scattered pockets within the Shear where resonance distortion disrupts distance, angle, and volume."
   playable_as :chronicle_location
   subkind :hazardous_zone
   path "player/locations/landmarks/deep-shear.md"
@@ -64,6 +65,7 @@ geographic_location :deep_shear do
 end
 
 moment :first_petition_for_deep_specific_regulation, year: 2420, of: :deep_shear do
+  summary "The Pell Freight Assembly and six Deep-runner flotillas petitioned the Shear Compact for Deep-specific safety rules in 2420."
   prose "The #{ref :pell_freight_assembly, "Pell Freight Assembly"} and signatories from six Deep-runner flotillas petitioned the #{ref :shear_compact, "Shear Compact"} in 2420. They asked the Compact to treat a run as Deep work once bridge clocks disagreed with a Tuner, and to require isolated clocks and declared rescue coverage from that point. The Compact refused because the boundary could be identified only after a vessel had crossed it, and because instruments on the same bridge did not agree on when that crossing occurred."
 end
 

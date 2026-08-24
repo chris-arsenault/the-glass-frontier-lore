@@ -1,5 +1,6 @@
 installation :ladderwell do
   name "Ladderwell"
+  summary "Ladderwell is a town of twenty-eight thousand people on stone benches at Avar's eastern edge, above a deep aquifer at the foot of the Kyther Range."
   playable_as :chronicle_location
   subkind :settlement
   status :complete
@@ -58,5 +59,6 @@ relate :rel_ladderwell_depends_on_resonance, :depends_on, :ladderwell, :resonanc
 end
 
 moment :ladderwell_pump_house_moved, year: 2434, of: :ladderwell do
+  summary "The Counterweight and Ladderwell workers moved the operating chain house onto firm stone without interrupting its water service in 2434."
   prose "The Counterweight and Ladderwell's own workers moved the operating chain house from a settling clay bed to firm stone on the next bench. Drinking taps and fire storage remained supplied throughout the move."
 end

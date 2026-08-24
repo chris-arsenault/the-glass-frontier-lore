@@ -1,5 +1,6 @@
 ability :load_singing do
   name "Load Singing"
+  summary "Load Singing is a salvage-rigging skill that pitches a lifting frame until hidden fractures answer through its cables."
   subkind :learned_ability
   status :complete
   prominence :marginal

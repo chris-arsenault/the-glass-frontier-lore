@@ -1,5 +1,6 @@
 creature :cinder_mimic do
   name "Cinder Mimic"
+  summary "Cinder mimics are salvage-yard anomalies found around Pyre, Cinder Gap, and Crowncut Refinery. They resemble hot salvage until a cutter reaches for them, then unfold hooked legs."
   subkind :anomaly
   status :complete
   prominence :marginal

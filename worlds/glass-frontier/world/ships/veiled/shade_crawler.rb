@@ -1,5 +1,6 @@
 transport :shade_crawler do
   name "Shade Crawler"
+  summary "Shade crawlers are rock-clinging passenger vehicles used around Shadewell, South Shade, and Coldside Bench. Pressure hammocks secure their occupants during wind shifts."
   subkind :transport
   status :complete
   prominence :marginal

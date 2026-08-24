@@ -1,5 +1,6 @@
 installation :cold_lantern do
   name "Cold Lantern"
+  summary "Cold Lantern is an uninhabited emergency waypoint on the outer Pell approach, used as the last common route check before the Deep Shear claims."
   playable_as :chronicle_location
   subkind :station
   status :complete

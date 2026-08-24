@@ -1,5 +1,6 @@
 ability :attunement do
   name "Attunement"
+  summary "Attunement is the learned ability to distinguish resonance from the pressure, vibration, heat, and sound that carry it through bodies, materials, and machines."
   subkind :learned_ability
   tags :resonance, :training
   prominence :recognized

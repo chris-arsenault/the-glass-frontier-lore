@@ -1,5 +1,6 @@
 geographic_location :lithren do
   name "Lithren"
+  summary "Lithren is the frozen outermost planet of the Kaleidos system, where sealed research stations study open-air ruins older than surviving records."
   playable_as :chronicle_location
   subkind :celestial_body
   status :complete

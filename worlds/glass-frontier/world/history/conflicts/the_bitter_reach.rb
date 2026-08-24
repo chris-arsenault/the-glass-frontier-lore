@@ -1,5 +1,6 @@
 conflict :the_bitter_reach do
   name "The Bitter Reach"
+  summary "The Bitter Reach was the system-wide conflict of 2407–2423, fought through embargoes, route occupations, credit restrictions, convoy seizures, and limited ship combat."
   subkind :war
   status :complete
   tags :military, :trade, :governance, :diplomacy, :transport
@@ -38,10 +39,12 @@ conflict :the_bitter_reach do
 end
 
 moment :bitter_reach_begins, year: 2407, of: :the_bitter_reach do
+  summary "Three armed route seizures turned years of embargoes and supply disputes into the Bitter Reach in 2407."
   prose "Three armed route seizures in 2407 joined years of embargoes and supply disputes into the conflict named the Bitter Reach."
   effects { set :the_bitter_reach, standing: :active }
 end
 moment :bitter_reach_ends, year: 2423, of: :the_bitter_reach do
+  summary "Linked settlements ended the Bitter Reach in 2423 and transferred shared route disputes into the Tempered Accord."
   prose "The linked settlements of 2423 ended organized fighting and transferred shared route disputes into the Tempered Accord."
   effects { set :the_bitter_reach, standing: :ended }
 end

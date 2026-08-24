@@ -79,7 +79,7 @@ module Lorecraft
     def collect
       @issues = []
       %i[
-        check_titles check_dm_phrase_leakage check_markers check_prominence_reach
+        check_titles check_entity_summaries check_dm_phrase_leakage check_markers check_prominence_reach
         check_fact_cards check_focus_requirements check_typed_spans check_question_anchors check_double_article
         check_banned_phrases check_resonance_vocab check_dm_public_entry
         check_shell_consistency check_causal_cycles check_antisymmetry
@@ -129,6 +129,7 @@ module Lorecraft
 
     def entities = @world.entities.values
     def pages = entities.reject { |e| shell?(e) }
+    def rendered_pages = @world.pages.reject { |page| shell?(page) }
     def shell?(e) = e[:status].to_s == "shell"
     def label(e) = "#{e.kind} #{e.id}"
 
@@ -139,6 +140,22 @@ module Lorecraft
 
     def check_titles
       pages.each { |e| err("#{label(e)}: missing title", owner: e) unless e[:title] }
+    end
+
+    def check_entity_summaries
+      return unless @world.schema.entity_summaries_required?
+
+      rendered_pages.each do |entity|
+        next unless @world.schema.wiki_kind?(entity.kind)
+
+        summary = entity.summary.to_s.strip
+        if summary.empty?
+          err("#{label(entity)}: missing authored summary", owner: entity)
+        elsif summary.length > @world.schema.entity_summary_maximum
+          err("#{label(entity)}: summary is #{summary.length} characters; " \
+              "allows at most #{@world.schema.entity_summary_maximum}", owner: entity)
+        end
+      end
     end
 
     def check_dm_phrase_leakage

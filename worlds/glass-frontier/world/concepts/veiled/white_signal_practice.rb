@@ -1,5 +1,6 @@
 concept :white_signal_practice do
   name "White Signal Practice"
+  summary "White Signal Practice is a message-verification method that repeats damaged words through three materials before accepting them as stable."
   subkind :practice
   status :complete
   prominence :marginal

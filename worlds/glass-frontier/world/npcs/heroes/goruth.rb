@@ -1,5 +1,6 @@
 npc :goruth do
   name "Goruth"
+  summary "Goruth is the guitarist who accompanies Fermata Station's governing Sessions and shapes the harmonic ground beneath proposals."
   subkind :npc
   occupation "Comp guitarist in Fermata Station's governing Sessions"
   species "orc"

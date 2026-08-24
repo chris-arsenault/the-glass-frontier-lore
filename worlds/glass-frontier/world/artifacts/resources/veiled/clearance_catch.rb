@@ -1,5 +1,6 @@
 resource :clearance_catch do
   name "Clearance Catch"
+  summary "A Clearance catch is a cargo-securing device sourced from Clearance Eight and Mareth. After a sharp change in spin, it locks a drifting frame to the nearest rail."
   subkind :device
   status :complete
   prominence :marginal

@@ -1,5 +1,6 @@
 geographic_location :ashvane do
   name "Ashvane"
+  summary "Ashvane is a hot inhabited moon of Ashenmaw and the far terminus of the Keel, settled along cooler crater walls and highland ridges."
   playable_as :chronicle_location
   subkind :celestial_body
   status :complete

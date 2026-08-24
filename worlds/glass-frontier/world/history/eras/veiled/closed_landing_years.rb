@@ -1,5 +1,6 @@
 era :closed_landing_years do
   name "Closed-Landing Years"
+  summary "The Closed-Landing Years were the local period when Fourth Bell housed every traveler turned back by Five Landing."
   subkind :era
   status :complete
   prominence :marginal

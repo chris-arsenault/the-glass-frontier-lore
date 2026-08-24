@@ -1,5 +1,6 @@
 npc :ira_voss do
   name "Ira Voss"
+  summary "Ira Voss is Brake's salvage intake reader, responsible for identifying inhabited hulls before cutters mark a line."
   subkind :specialist
   occupation "Salvage intake reader"
   specialty "Occupied hulls, crew records, and live ship systems"

@@ -1,5 +1,6 @@
 artifact :hood do
   name "Hood"
+  summary "A hood is a wearable damping machine that conceals the resonance changes produced by a Tuner's active perception. Deep-runners use its ringglass and stillwater frame where Tuning would draw a blank or disturb a sensitive field."
   subkind :machine
   function "Masks the small resonance changes produced by a Tuner's active perception"
   status :complete

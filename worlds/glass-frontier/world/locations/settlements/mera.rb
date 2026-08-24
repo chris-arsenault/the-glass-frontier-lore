@@ -1,5 +1,6 @@
 installation :mera do
   name "Mera"
+  summary "Mera is a settlement of about six thousand people on a slow-tumbling fragment of the Glass Frontier, where a long shaded season supports ice-grown water storage."
   playable_as :chronicle_location
   subkind :settlement
   status :complete

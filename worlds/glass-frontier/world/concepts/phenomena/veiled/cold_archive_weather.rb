@@ -1,5 +1,6 @@
 phenomenon :cold_archive_weather do
   name "Cold Archive Weather"
+  summary "Cold Archive Weather is a resonance phenomenon that lays readable frost on sealed hulls near the passage of a Lithren text."
   subkind :phenomenon
   status :complete
   prominence :marginal

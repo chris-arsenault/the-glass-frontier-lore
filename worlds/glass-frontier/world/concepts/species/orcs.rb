@@ -1,5 +1,6 @@
 species :orcs do
   name "Orcs"
+  summary "Orcs are a sapient ring-era immigrant species whose dense bones, heavy musculature, and high endurance suit structural and kinetic resonance work."
   playable_as :species
   origin_blurb "Dense-boned and enduring, orcs read resonance most readily through stressed metal, stone, and glass."
   subkind :sapient_species

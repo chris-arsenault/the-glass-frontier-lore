@@ -1,5 +1,6 @@
 npc :daro_venn do
   name "Daro Venn"
+  summary "Daro Venn is a senior route factor of the Pell Freight Assembly and the former Ratter captain who sponsored the Pell Cut array test."
   subkind :leader
   occupation "Senior route factor of the Pell Freight Assembly"
   species "human"

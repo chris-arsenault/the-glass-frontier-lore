@@ -1,5 +1,6 @@
 npc :duthrek do
   name "Duthrek"
+  summary "Duthrek is the head of Coremark, directing its extraction cells and convoy crews from Korvath since 2409."
   subkind :leader
   status :complete
   tags :salvage, :trade, :danger, :governance

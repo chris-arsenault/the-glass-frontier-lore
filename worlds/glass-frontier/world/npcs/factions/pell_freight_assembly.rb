@@ -1,5 +1,6 @@
 faction :pell_freight_assembly do
   name "Pell Freight Assembly"
+  summary "The Pell Freight Assembly is a Glasswake-based, member-owned network of freight crews, repair yards, claim brokers, and cargo cooperatives."
   playable_as :allegiance
   origin_blurb "Independent carriers pool bulk cargo, equipment, and risk across the outer Pell routes."
   subkind :trade_network

@@ -1,5 +1,6 @@
 installation :latch do
   name "Latch"
+  summary "Latch is a lost mid-drift service habitat inside a Bloom Zone, abandoned during the first Silent Bloom evacuations."
   playable_as :chronicle_location
   subkind :settlement
   tags :"ring-hab", :catastrophe, :resonance

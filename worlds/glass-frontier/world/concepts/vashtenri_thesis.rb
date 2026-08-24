@@ -1,5 +1,6 @@
 resource :vashtenri_thesis do
   name "Vashtenri Thesis"
+  summary "The Vashtenri Thesis is Renn Duvasi's published study of how resonance loads spread through connected ringglass beyond the equipment drawing the field."
   subkind :data
   tags :archives, :resonance, :"ring-era"
   prominence :marginal
@@ -46,5 +47,6 @@ relate :rel_vashtenri_thesis_located_in_pelhari, :located_in, :vashtenri_thesis,
 end
 
 moment :vashtenri_thesis_published, year: 2427, of: :vashtenri_thesis do
+  summary "Renn Duvasi published the Vashtenri Thesis through the Pelhari academy in 2427."
   prose "#{ref :renn_duvasi, "Renn Duvasi"} published the Vashtenri Thesis through the Pelhari academy in 2427."
 end

@@ -1,5 +1,6 @@
 installation :far_bell do
   name "Far Bell"
+  summary "Far Bell is the outer traffic marker for Karet-3, beyond Outside's inhabited platform and clear of the Bloom cordon's working space."
   playable_as :chronicle_location
   subkind :station
   status :complete

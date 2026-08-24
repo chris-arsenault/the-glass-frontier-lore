@@ -1,5 +1,6 @@
 culture :crowncut_shifts do
   name "Crowncut Shifts"
+  summary "Crowncut Shifts are refinery work-families who keep contaminated clothing outside their homes and take meals together at the work boundary."
   subkind :way_of_life
   status :complete
   prominence :marginal

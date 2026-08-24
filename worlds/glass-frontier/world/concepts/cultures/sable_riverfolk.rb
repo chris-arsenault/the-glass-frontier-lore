@@ -1,5 +1,6 @@
 culture :sable_riverfolk do
   name "Sable Riverfolk"
+  summary "Sable Riverfolk are the route-bound households of the Sable Crescent's rivers, canyon roads, and deltas, joining names and obligations to the passages that carry them."
   playable_as :culture
   origin_blurb "River households bind names, freight, and remembered voices to the routes that carried them."
   subkind :regional_culture

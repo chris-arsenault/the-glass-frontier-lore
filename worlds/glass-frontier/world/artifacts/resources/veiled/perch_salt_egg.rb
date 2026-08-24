@@ -1,5 +1,6 @@
 resource :perch_salt_egg do
   name "Perch Salt-Egg"
+  summary "Perch salt-eggs are preserved food sourced from Perch and Kesh. They keep for a season and crack open when held beside a working kinetic line."
   subkind :food
   status :complete
   prominence :marginal

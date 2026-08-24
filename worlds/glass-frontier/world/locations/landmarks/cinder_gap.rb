@@ -1,5 +1,6 @@
 installation :cinder_gap do
   name "Cinder Gap"
+  summary "Cinder Gap is a cordon section on the contained edge of Pyre's Bloom Zone, where the first full stillwater wall stopped two expansion paths."
   playable_as :chronicle_location
   subkind :border_post
   tags :orbital, :danger, :resonance

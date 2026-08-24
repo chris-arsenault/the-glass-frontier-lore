@@ -1,5 +1,6 @@
 resource :thawglass do
   name "Thawglass"
+  summary "Thawglass is Mera's porous ceramic mesh threaded with ringglass fiber to guide the freezing and controlled melt of large water structures."
   subkind :material
   function "Guides the freezing and controlled melt of large water structures"
   grades "Frame, stair, and household mesh"

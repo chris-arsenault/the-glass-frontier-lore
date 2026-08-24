@@ -1,5 +1,6 @@
 artifact :eighth_seal do
   name "The Eighth Seal"
+  summary "An Eighth Seal is a palm-sized ceramic custody record fixed to an object at Clearance Eight. Its eight channels preserve the evidence and public findings behind the object's release, sale, quarantine, return, or continued custody."
   subkind :record
   status :complete
   tags :governance, :archives, :salvage, :resonance

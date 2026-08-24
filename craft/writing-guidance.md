@@ -4,6 +4,24 @@ Mandatory rules for all lore prose, in every world in this repository. Follow th
 
 Worked examples for a particular setting live in that world's `guidance/` — this file carries the rules.
 
+## Write The Atlas Summary First
+
+Every reader entity needs a short `summary` that lets someone identify it before
+they read the article. The first clause names what the subject concretely is.
+A location also places itself; a person gives their role or base; an object
+names its physical class and use; an incident states what happened, where, and
+when when those facts are known. One second sentence may carry the feature that
+distinguishes this subject from others of its class.
+
+The summary is not an excerpt, scene, hook, consequence, or atmospheric opening.
+Do not copy the first 200 characters of prose. Do not assume the title, kind chip,
+or directory supplies the missing noun. A veiled entity keeps its selection hook
+in `veiled` and states its identity separately in `summary`.
+
+Write from canonical facts and relationships. If the world has not established
+where a place is or what an object is, leave that part out and raise a question
+instead of inventing it.
+
 ## 1. Do Not Make Procedure The Subject
 
 An entry describes something that exists or happens in the world: a person, people, place, group, object, event, belief, technology, creature, resource, phenomenon, or conflict. It does not exist to explain a form, protocol, inspection, schedule, contract, accord, register, claim, hearing, or chain of approval.

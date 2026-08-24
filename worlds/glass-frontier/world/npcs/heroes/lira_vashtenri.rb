@@ -1,5 +1,6 @@
 npc :lira_vashtenri do
   name "Lira Vashtenri"
+  summary "Lira Vashtenri is a former Coremark Shear mechanic and the containment architect whose stillwater networks held the first Bloom boundary."
   subkind :specialist
   specialty "Bloom containment"
   path "player/npcs/heroes/lira-vashtenri.md"
@@ -58,10 +59,12 @@ end
 
 # --- history (moments) ---
 moment :lira_discovered, year: 2380, of: :lira_vashtenri do
+  summary "The Bloom Coalition recruited Lira Vashtenri as its containment lead in 2380 after tracing Crowncut's stable arrays to her maintenance work."
   prose "When the #{ref :bloom_coalition, "Bloom Coalition"} needed containment and nothing worked, someone traced the maintenance records to the one deep-Shear refinery that had never reported the chronic failures — and found the mechanic behind it. Pulled from her regular work and given resources she'd never had, Lira realized Bloom Zone boundaries follow the crystal substrate's natural fault lines: dampen the channels, stop the flow."
   effects { set :lira_vashtenri, standing: :containment_lead }
 end
 moment :lira_founds_containment_ops, year: 2384, of: :lira_vashtenri do
+  summary "Lira Vashtenri founded the Displacement Council's containment operations in 2384 after her buoy network held at Cinder Gap."
   prose "Having proven the damping-buoy network at #{ref :cinder_gap, "Cinder Gap"}, Lira founded the #{ref :displacement_council, "Displacement Council"}'s containment operations, scaling her instinct into a training program. She never led the Council — #{ref :oram_sells, "Oram Sells"} later held that office, followed by #{ref :dern_talish, "Dern Talish"} — but the containment methodology is hers. Securing the #{ref :stillwater, "stillwater"} her buoys needed, from a Conclave that had never heard of her, was its own long battle."
   effects { set :lira_vashtenri, standing: :containment_architect }
 end

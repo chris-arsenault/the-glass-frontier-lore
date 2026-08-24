@@ -1,5 +1,6 @@
 resource :resonant_instruments do
   name "Resonant Instruments"
+  summary "Resonant instruments are devices that shape ambient resonance through breath, pressure, and other physical vibration instead of fixed ringglass arrays. Skilled players use specialized instruments for kinetic, signal, and structural work."
   subkind :device
   function "Produce adjustable resonance effects through physical vibration"
   path "player/artifacts/common/resonant-instruments.md"

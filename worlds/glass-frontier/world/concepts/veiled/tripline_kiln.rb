@@ -1,5 +1,6 @@
 concept :tripline_kiln do
   name "Tripline Kiln"
+  summary "A Tripline Kiln is a river-clay kiln suspended from a Korvath barge so ground tremors cannot crack its firing load."
   subkind :technology
   status :complete
   prominence :marginal

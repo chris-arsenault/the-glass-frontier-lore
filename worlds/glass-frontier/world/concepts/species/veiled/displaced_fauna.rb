@@ -1,5 +1,6 @@
 species :displaced_fauna do
   name "Displaced Fauna"
+  summary "Displaced Fauna are animals adapted to room shifts, nesting in thresholds and following air currents between incompatible interiors."
   subkind :overview
   status :complete
   prominence :marginal

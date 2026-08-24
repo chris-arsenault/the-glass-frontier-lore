@@ -67,6 +67,7 @@ module Lorecraft
     GM_NOTE_MAXIMUM = 3
     GM_NOTE_SENTENCE_MAXIMUM = 3
     GM_NOTE_LENGTH_MAXIMUM = 320
+    ENTITY_SUMMARY_LENGTH_MAXIMUM = 280
 
     FACT_TYPES = %i[text integer year entity entities].freeze
     RELATION_PROPERTY_TYPES = %i[boolean entity enum frame integer number text].freeze
@@ -82,7 +83,7 @@ module Lorecraft
                 :fact_cards_required_minimum, :playable_roles, :location_kinds,
                 :playable_coverage_requirements, :playable_count_requirements,
                 :focus_choice_requirements, :gm_notes_required_from,
-                :gm_notes_required_minimum
+                :gm_notes_required_minimum, :entity_summary_maximum
 
     def initialize
       @kinds = {}            # kind(sym) => KindDef; wiki=false means non-reader
@@ -103,6 +104,8 @@ module Lorecraft
       @fact_cards_required_minimum = 1
       @gm_notes_required_from = nil
       @gm_notes_required_minimum = 1
+      @entity_summaries_required = false
+      @entity_summary_maximum = ENTITY_SUMMARY_LENGTH_MAXIMUM
     end
 
     # Declare one or more entity kinds. `wiki: false` marks a kind as absent
@@ -262,6 +265,21 @@ module Lorecraft
 
     def require_explicit_subkinds! = @require_explicit_subkinds = true
     def explicit_subkinds_required? = @require_explicit_subkinds
+
+    # Require every written reader entity to carry its own concise identity
+    # statement. Lead prose is not a summary: it may begin with a scene,
+    # operation, or consequence and it must never be truncated into metadata.
+    def require_entity_summaries!(maximum: ENTITY_SUMMARY_LENGTH_MAXIMUM)
+      unless maximum.is_a?(Integer) && maximum.positive?
+        raise DefinitionError, "entity summary maximum must be a positive integer"
+      end
+      raise DefinitionError, "duplicate entity summary requirement" if @entity_summaries_required
+
+      @entity_summaries_required = true
+      @entity_summary_maximum = maximum
+    end
+
+    def entity_summaries_required? = @entity_summaries_required
 
     def require_fact_cards!(from: :renowned, minimum: 1)
       from = from.to_sym

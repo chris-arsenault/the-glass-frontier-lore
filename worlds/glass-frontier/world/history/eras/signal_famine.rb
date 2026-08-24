@@ -1,5 +1,6 @@
 era :signal_famine do
   name "Signal Famine"
+  summary "The Signal Famine was the period of broken communication and isolated communities between the Glassfall in 2140 and sustained reconnection in 2305."
   subkind :historical_period
   status :complete
   tags :isolation, :catastrophe, :divergence, :archives

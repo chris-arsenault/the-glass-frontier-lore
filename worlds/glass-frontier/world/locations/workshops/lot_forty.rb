@@ -1,5 +1,6 @@
 installation :lot_forty do
   name "Forty"
+  summary "Forty is Brake's largest enclosed cutting bay, built to divide captured vessels among clean work, hot cutting, quarantine, and cargo recovery."
   playable_as :chronicle_location
   aka "Lot Forty"
   subkind :workshop

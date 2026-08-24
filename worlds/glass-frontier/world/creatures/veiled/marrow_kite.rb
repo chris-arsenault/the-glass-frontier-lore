@@ -1,5 +1,6 @@
 creature :marrow_kite do
   name "Marrow Kite"
+  summary "Marrow kites are drifting creatures found between the ring habitats around Carom, Wash Four, Clearance Eight, and Mareth. They crack stored bones and feed on the resonance held inside."
   subkind :creature
   status :complete
   prominence :marginal

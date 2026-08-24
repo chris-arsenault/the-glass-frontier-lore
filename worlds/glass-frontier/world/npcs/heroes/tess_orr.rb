@@ -1,5 +1,6 @@
 npc :tess_orr do
   name "Tess Orr"
+  summary "Tess Orr is a Bay Thirty-One textile washer who maps dirt, repairs, pressure, and resonance before choosing a treatment."
   subkind :specialist
   occupation "Textile trace washer"
   specialty "Recovering signal impressions from layered and repaired cloth"

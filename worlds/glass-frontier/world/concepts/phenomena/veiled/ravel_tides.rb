@@ -1,5 +1,6 @@
 phenomenon :ravel_tides do
   name "Ravel Tides"
+  summary "Ravel Tides are periodic force shifts that draw loose objects toward the next active signal relay before releasing them together."
   subkind :physical_phenomenon
   status :complete
   prominence :marginal

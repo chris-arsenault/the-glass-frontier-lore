@@ -1,5 +1,6 @@
 faction :split_wake do
   name "Split Wake"
+  summary "Split Wake was a mobile pirate crew of three armed cutters and a fast loader during the Contested Reach."
   subkind :community
   founded 2343
   tags :military, :salvage, :transport
@@ -35,6 +36,7 @@ relate :rel_shardfall_destroyed_split_wake, :destroyed, :shardfall, :split_wake 
 end
 
 moment :split_wake_disbanded, year: 2348, of: :split_wake do
+  summary "Split Wake ended in 2348 when its surviving crews surrendered after Shardfall."
   prose "The surviving Split Wake crews surrendered after Shardfall."
   effects { set :split_wake, standing: :disbanded }
 end

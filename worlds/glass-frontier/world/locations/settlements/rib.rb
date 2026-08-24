@@ -1,5 +1,6 @@
 installation :rib do
   name "Rib"
+  summary "Rib is a small settlement inside a living pressure reef in the Glass Frontier, built along one exposed ring support and maintained through the reef's pulse."
   playable_as :chronicle_location
   subkind :settlement
   status :complete

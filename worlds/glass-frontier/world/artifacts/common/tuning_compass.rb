@@ -1,5 +1,6 @@
 resource :tuning_compass do
   name "Tuning Compass"
+  summary "A tuning compass is a portable instrument that shows the dominant resonance band, gradient, and stability around it. Mechanics, pilots, surveyors, and households use pocket, survey, and hull-mounted versions."
   subkind :device
   function "Shows the direction, band, and stability of a local resonance gradient"
   classes "Pocket, survey, and hull-mounted"

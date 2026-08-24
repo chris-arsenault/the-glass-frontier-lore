@@ -1,5 +1,6 @@
 transport :blue_roadspider do
   name "Blue Roadspider"
+  summary "Blue Roadspider is a six-legged freight vehicle used on broken Avar roads. Independently weighted legs carry loads between Blue Step Works and Marker House Twelve."
   subkind :transport
   status :complete
   prominence :marginal

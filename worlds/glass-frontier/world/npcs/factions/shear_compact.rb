@@ -1,5 +1,6 @@
 faction :shear_compact do
   name "Shear Compact"
+  summary "The Shear Compact is the standards and mediation body that certifies salvage operators and regulates extraction in the Shear."
   subkind :government
   path "player/npcs/factions/shear-compact.md"
   reviewed "2026-03-18"
@@ -38,6 +39,7 @@ end
 
 # --- history (moments) ---
 moment :shear_compact_formed, year: 2383, of: :shear_compact do
+  summary "Salvage operators formed the Shear Compact in 2383 around shared safety standards, neutral mediation, and the evidence from Shardfall."
   prose "The Compact formed out of the #{ref :bloom_coalition, "Bloom Coalition"}'s emergency response: salvage operators who had spent the Contested Reach competing lethally found themselves cooperating on containment logistics, and realized shared safety standards would have prevented some of the disasters that led to the Bloom. #{ref :shardfall, "Shardfall"} was the political catalyst — proof that unregulated Shear work endangers everyone — and the Bloom proved the consequences could be civilizational. The charter borrowed the Coalition's neutrality provision and structured mediation."
   effects { set :shear_compact, standing: :active }
 end

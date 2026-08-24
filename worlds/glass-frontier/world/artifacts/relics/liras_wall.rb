@@ -1,5 +1,6 @@
 artifact :liras_wall do
   name "Lira's Wall"
+  summary "Lira's Wall is a resonance-containment network of stillwater damping buoys placed along Bloom Zone boundaries. Lira Vashtenri designed it to absorb cascade frequencies and stop a boundary from expanding."
   subkind :machine
   function "Stabilizes the boundaries of Bloom Zones"
   path "player/artifacts/relics/liras-wall.md"
@@ -48,6 +49,7 @@ end
 
 # --- history (moment) ---
 moment :liras_wall_first_deployment, year: 2382, of: :liras_wall do
+  summary "The Bloom Coalition deployed Lira's first stillwater buoy network along an active Bloom Zone boundary in 2382, where it held."
   prose "The #{ref :bloom_coalition, "Bloom Coalition"} almost didn't approve it: the buoys required #{ref :stillwater, "stillwater"}, the #{ref :echo_ledger_conclave, "Echo Ledger Conclave"}'s most valuable archival medium, and committing it to containment meant choosing the present over the past. The Conclave recognized the need and approved. The first buoy network went out along an active #{ref :bloom_zones, "Bloom Zone"} boundary and held — proof that the Bloom could be contained."
   effects { set :liras_wall, standing: :deployed }
 end

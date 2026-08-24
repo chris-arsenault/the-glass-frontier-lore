@@ -1,5 +1,6 @@
 ability :countermass_threading do
   name "Countermass Threading"
+  summary "Countermass Threading is a Keel rigging skill for moving loaded hulls through changing force by balancing four mobile weights by hand."
   subkind :learned_ability
   status :complete
   prominence :marginal

@@ -1,5 +1,6 @@
 era :the_rekindling do
   name "The Rekindling"
+  summary "The Rekindling was the period of reconnection that began in 2305 when Glasswake reached Hab Meridian by repaired transmitter."
   subkind :historical_period
   status :complete
   tags :rebuilding, :diplomacy, :transport, :divergence

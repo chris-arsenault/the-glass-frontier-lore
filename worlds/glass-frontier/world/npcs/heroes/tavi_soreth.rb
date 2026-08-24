@@ -1,5 +1,6 @@
 npc :tavi_soreth do
   name "Tavi Soreth"
+  summary "Tavi Soreth is an Underlayers route surveyor and rescue coordinator for the Lower Routes Cooperative."
   subkind :specialist
   born 2387
   occupation "Route surveyor and rescue coordinator"

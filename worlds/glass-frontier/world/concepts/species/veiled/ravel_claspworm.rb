@@ -1,5 +1,6 @@
 species :ravel_claspworm do
   name "Ravel Claspworm"
+  summary "Ravel Claspworms are pipe-dwelling animals that knot around loose water lines and release them only at full pressure."
   subkind :species
   status :complete
   prominence :marginal

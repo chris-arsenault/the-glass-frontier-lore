@@ -1,5 +1,6 @@
 geographic_location :the_fracture do
   name "The Fracture"
+  summary "The Fracture is a broad outer-system belt formed from the remains of the sixth planet, exposing its crust, mantle, and cooled core."
   playable_as :chronicle_location
   subkind :celestial_body
   status :complete

@@ -1,5 +1,6 @@
 faction :the_continuity do
   name "The Continuity"
+  summary "The Continuity is the political organization that has governed Sithari through elected majorities and municipal administration since 2160."
   subkind :government
   founded 2160
   mandate "Govern Sithari through its elected assembly and municipal administration"

@@ -1,5 +1,6 @@
 creature :gutter_crown do
   name "Gutter Crown"
+  summary "A gutter crown is a many-mouthed drain creature found between Glasswake and the Dry Net. It spreads through runoff channels and filters metal from the water."
   subkind :creature
   status :complete
   prominence :marginal

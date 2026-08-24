@@ -1,5 +1,6 @@
 conflict :the_corridor_disputes do
   name "The Corridor Disputes"
+  summary "The Corridor Disputes are continuing claims over who may open, close, mark, and charge for branch routes of the Keel, dating in their current form from 2433."
   subkind :dispute
   status :complete
   tags :transport, :trade, :governance, :diplomacy, :danger
@@ -60,6 +61,7 @@ conflict :the_corridor_disputes do
 end
 
 moment :corridor_disputes_begin, year: 2433, of: :the_corridor_disputes do
+  summary "Concurrent Bloom, shower, and debris closures began the present Corridor Disputes along Keel branch routes in 2433."
   prose "Simultaneous Bloom, shower, and debris closures diverted Keel traffic onto branch routes whose keepers had never agreed on common fees, rescue duties, or authority to reopen them."
   effects { set :the_corridor_disputes, standing: :active }
 end

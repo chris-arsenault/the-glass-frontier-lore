@@ -1,5 +1,6 @@
 npc :davan_koralis do
   name "Davan Koralis"
+  summary "Davan Koralis is Vantara's Chief Experience Officer, a company leader trained in passenger operations and convoy service."
   subkind :leader
   born 2388
   occupation "Chief Experience Officer of Vantara"

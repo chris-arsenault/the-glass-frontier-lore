@@ -1,5 +1,6 @@
 species :breach_lichen do
   name "Breach Lichen"
+  summary "Breach Lichen is a stone-growing organism that follows resonance strikes and turns black before the rock discharges again."
   subkind :species
   status :complete
   prominence :marginal

@@ -1,5 +1,6 @@
 installation :span_nine do
   name "Span Nine"
+  summary "Span Nine is a pre-Glassfall signal conduit connecting Whitefoot on Kaleidos to Pelhari and Threshold Station across interplanetary distance."
   playable_as :chronicle_location
   subkind :landmark
   path "player/locations/landmarks/span-nine.md"
@@ -49,6 +50,7 @@ end
 
 # --- history (moment) ---
 moment :span_nine_rediscovered, year: 2305, of: :span_nine do
+  summary "Surface crews rediscovered Span Nine above Whitefoot and restored its buried trunk to Sithari in 2305."
   prose "Span Nine was rediscovered in the Rekindling, when settlements emerging from the #{ref :signal_famine, "Signal Famine"} identified the filament above Whitefoot as a signal-band conduit. Surface crews restored the buried trunk to #{ref :sithari, "Sithari"}; Pelhari and Threshold then expanded their surviving terminus facilities around the returned link."
   effects { set :span_nine, standing: :operational }
 end

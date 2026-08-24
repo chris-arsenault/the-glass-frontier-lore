@@ -1,5 +1,6 @@
 conflict :vitrael_cut_war do
   name "The Vitrael Cut War"
+  summary "The Vitrael Cut War was fought by Vitrael and Ashenmaw crews over a crystal seam; armed cutting frames remain in the abandoned workings."
   subkind :war
   status :complete
   prominence :marginal

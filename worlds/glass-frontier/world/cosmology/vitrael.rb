@@ -1,5 +1,6 @@
 geographic_location :vitrael do
   name "Vitrael"
+  summary "Vitrael is the fourth planet, a hot high-pressure world inhabited from aerostats and orbital stations above its metal-bearing clouds."
   playable_as :chronicle_location
   subkind :celestial_body
   status :complete

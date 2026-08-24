@@ -1,5 +1,6 @@
 geographic_location :crucible do
   name "Crucible"
+  summary "Crucible is the innermost planet of the Kaleidos system, a hot rocky world mined from shielded settlements at high latitude."
   playable_as :chronicle_location
   subkind :celestial_body
   status :complete

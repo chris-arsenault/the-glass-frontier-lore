@@ -1,5 +1,6 @@
 installation :hab_meridian do
   name "Hab Meridian"
+  summary "Hab Meridian is a ring habitat in the Glass Frontier that preserves one inhabited arc as a working museum of the early Rekindling."
   playable_as :chronicle_location
   subkind :settlement
   path "player/locations/settlements/hab-meridian.md"
@@ -78,6 +79,7 @@ end
 
 # --- history (moment) ---
 moment :meridian_answered_first_signal, year: 2305, of: :hab_meridian do
+  summary "Hab Meridian answered Glasswake's long-range transmission in 2305, opening the first sustained cross-channel conversation since the Glassfall."
   prose "Hab Meridian's standing watch — a single technician, **Aless Vorrith**, on a long shift at an old receiver kept active despite decades without expected traffic — heard the carrier wave come in from #{ref :glasswake, "Glasswake"}, recognized it, and answered. The first cross-channel conversation in #{elapsed :the_glassfall, :the_rekindling} lasted forty-three minutes and was largely about whether the signal was real. Meridian has banked its entire civic identity on that moment ever since."
   effects { set :hab_meridian, standing: :reconnected }
 end

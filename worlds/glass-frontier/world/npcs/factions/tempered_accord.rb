@@ -1,5 +1,6 @@
 faction :tempered_accord do
   name "Tempered Accord"
+  summary "The Tempered Accord is the system's mediation framework and set of shared standards, ratified by member settlements in 2423."
   subkind :government
   path "player/npcs/factions/tempered-accord.md"
   reviewed "2026-03-18"
@@ -50,6 +51,7 @@ end
 
 # --- history (moments) ---
 moment :tempered_accord_ratified, year: 2423, of: :tempered_accord do
+  summary "The settlements ending the Bitter Reach ratified the Tempered Accord in 2423."
   prose "Born from exhaustion at the end of the #{ref :the_bitter_reach, "Bitter Reach"}. The #{ref :bloom_coalition, "Bloom Coalition"} had proved cooperation worked; the Bitter Reach proved the system couldn't survive without it; the #{ref :shear_compact, "Shear Compact"} proved emergency structures could become permanent. By the time the fighting stopped the preconditions only needed writing down. Three institutions shaped it: the #{ref :lattice_proxy_synod, "Lattice Proxy Synod"} supplied an AI-derived governance model, #{ref :vantara, "Vantara"} the trade provisions, and the #{ref :displacement_council, "Displacement Council"} the humanitarian framework and the trusted-mediator role."
   effects { set :tempered_accord, standing: :active }
 end

@@ -1,5 +1,6 @@
 faction :fracture_lampers do
   name "The Fracture Lampers"
+  summary "The Fracture Lampers are a vessel-dwelling community that tends claim beacons on unrecovered debris around the Fracture."
   subkind :community
   status :complete
   prominence :marginal

@@ -1,5 +1,6 @@
 culture :keel_route_kin do
   name "Keel Route Kin"
+  summary "Keel Route Kin are a corridor culture whose members count family through the docking crews that answer the same emergency bell."
   subkind :regional_culture
   status :complete
   prominence :marginal

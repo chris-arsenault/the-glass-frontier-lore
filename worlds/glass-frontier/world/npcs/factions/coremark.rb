@@ -1,5 +1,6 @@
 faction :coremark do
   name "Coremark"
+  summary "Coremark is a criminal salvage syndicate descended from the deep-Shear extraction corporation implicated in the Silent Bloom."
   playable_as :allegiance
   origin_blurb "A disciplined outlaw salvage company pays well, protects its crews, and extracts where the Compact forbids."
   subkind :company
@@ -64,6 +65,7 @@ end
 
 # --- moments (what happened to Coremark over time; drive its `standing`) ---
 moment :coremark_founded, year: 2322, of: :coremark do
+  summary "Coremark was founded at Korvath in 2322 to extract high-grade ringglass from the Deep Shear."
   prose <<~PROSE
     Founded in the 2320s on #{ref :korvath, "Korvath"} when the Shear salvage industry was young and unregulated. Coremark's founding insight was that the deep #{ref :the_shear, "Shear"} — the dangerous, distorted, poorly charted pockets far from any hab — held the highest-grade #{ref :ringglass, "ringglass"} in the system. Everyone else was picking the accessible debris fields clean; Coremark went where the margins were lethal and the material was priceless.
   PROSE
@@ -75,12 +77,14 @@ moment :coremark_founded, year: 2322, of: :coremark do
 end
 
 moment :coremark_expands, year: 2338, of: :coremark do
+  summary "Coremark expanded from Deep Shear work into high-volume mid-drift extraction in 2338."
   prose <<~PROSE
     As #{ref :ringglass, "ringglass"} demand grew through the Rekindling, Coremark expanded beyond its deep-Shear niche into mid-drift extraction — closer to inhabited habs, higher volume, lower margins. The aggressive methods it had honed where nobody else was present became destructive when applied near civilian populations. Its deep-Shear techniques were genuine, though: the #{ref :shear_compact, "Shear Compact"} later standardized several of them into industry practice.
   PROSE
 end
 
 moment :coremark_disgraced, year: 2378, of: :coremark do
+  summary "Coremark lost its legitimacy in 2378 after the overload at its Pyre refinery helped trigger the Silent Bloom."
   prose <<~PROSE
     #{ref :pyre, "Pyre"} was theirs — a refinery whose overload helped trigger the #{ref :the_silent_bloom, "Silent Bloom"} cascade. One catastrophe they actually caused, and it was enough. The company was publicly disgraced; its operations were seized or boycotted as the scale of the negligence became clear.
   PROSE
@@ -88,6 +92,7 @@ moment :coremark_disgraced, year: 2378, of: :coremark do
 end
 
 moment :coremark_goes_under, year: 2407, of: :coremark do
+  summary "Coremark became an underground criminal syndicate during the Bitter Reach in 2407."
   prose <<~PROSE
     Through the Bitter Reach the disgraced corporation went underground. The people and infrastructure didn't disappear — they stopped being legitimate. Coremark became a criminal syndicate, doing what it had always done, now illegally: deep-Shear extraction in uncharted zones, smuggling #{ref :bloom_zones, "Bloom Zone"} relics and #{ref :duskgrain, "duskgrain"} through black-market channels, and protection rackets along the less-patrolled stretches of #{ref :keel, "the Keel"}.
   PROSE
@@ -95,6 +100,7 @@ moment :coremark_goes_under, year: 2407, of: :coremark do
 end
 
 moment :duthrek_takes_coremark, year: 2409, of: :coremark do
+  summary "Duthrek took sole control of Coremark from Korvath in 2409."
   prose "By 2409 the syndicate answered to a single leader — #{ref :duthrek, "Duthrek"} — running it mafia-style out of #{ref :korvath, "Korvath"}."
   effects { set :duthrek, leads: :coremark }
 end

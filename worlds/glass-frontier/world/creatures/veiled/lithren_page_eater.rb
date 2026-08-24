@@ -1,5 +1,6 @@
 creature :lithren_page_eater do
   name "Lithren Page-Eater"
+  summary "Lithren page-eaters are archive-dwelling creatures found at Lithren and Pelhari. They digest written ink and leave the same text behind as a line of frost."
   subkind :creature
   status :complete
   prominence :marginal

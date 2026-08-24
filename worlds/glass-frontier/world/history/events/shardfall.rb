@@ -1,5 +1,6 @@
 incident :shardfall do
   name "Shardfall"
+  summary "Shardfall was a four-day salvage battle and resonance cascade beside Brake in 2348 that killed forty-seven people."
   subkind :disaster
   path "player/history/events/shardfall.md"
   status :complete

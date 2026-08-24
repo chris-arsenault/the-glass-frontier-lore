@@ -1,5 +1,6 @@
 resource :stillwater do
   name "Stillwater"
+  summary "Stillwater is purified Echo River water whose suspended crystal lattice stores dense signal-band information after its accidental historical imprints are removed."
   subkind :material
   path "player/concepts/stillwater.md"
   reviewed "2026-03-19"

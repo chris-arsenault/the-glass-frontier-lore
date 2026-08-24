@@ -1,5 +1,6 @@
 species :heshari do
   name "Heshari"
+  summary "Heshari are a sapient people with replaceable glass teeth and lungs suited to cutting yards filled with airborne splinters."
   subkind :sapient_species
   status :complete
   prominence :marginal

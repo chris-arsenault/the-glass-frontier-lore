@@ -1,5 +1,6 @@
 concept :the_three_forms do
   name "The Three Forms"
+  summary "The Three Forms is a cosmology and working model that describes coherent resonance as paths closing into stable figures."
   subkind :physical_system
   path "player/cosmology/the-three-forms.md"
   reviewed "2026-06-18"

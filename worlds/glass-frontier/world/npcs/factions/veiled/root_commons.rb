@@ -1,5 +1,6 @@
 faction :root_commons do
   name "The Root Commons"
+  summary "The Root Commons is a mutual-aid network that moves food and air workers among Noll, Rib, Vey, and Lung Three."
   subkind :mutual_aid
   status :complete
   prominence :marginal

@@ -1,5 +1,6 @@
 installation :orra do
   name "Orra"
+  summary "Orra is a settlement of seventy-four hundred people in the Glass Frontier, sealed around a dead Ring Age maintenance carrier whose body fills half the hab."
   playable_as :chronicle_location
   subkind :settlement
   status :complete

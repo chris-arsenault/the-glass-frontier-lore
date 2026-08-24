@@ -1,5 +1,6 @@
 artifact :talven_red_index do
   name "Talven Red Index"
+  summary "The Talven Red Index is a glass-failure record shared by Talven and Tanel. It pairs damaged samples with the signals recorded before each fracture."
   subkind :record
   status :complete
   prominence :marginal

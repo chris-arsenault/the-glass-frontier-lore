@@ -1,5 +1,6 @@
 installation :xyloathax do
   name "Xyloathax"
+  summary "Xyloathax is a ring-hab settlement of sixty-four hundred people in clean Kaleidos orbit, with one service truss caught inside a Bloom boundary."
   playable_as :chronicle_location
   subkind :settlement
   population 6400
@@ -38,6 +39,7 @@ installation :xyloathax do
 end
 
 moment :xyloathax_zone_appears, year: 2431, of: :xyloathax do
+  summary "A Bloom boundary opened beside Xyloathax's sunward service truss in 2431, the first recorded zone beside a stable hab in clean orbit."
   prose "A Bloom boundary appeared beside Xyloathax's sunward service truss in 2431, the first recorded zone to open beside a stable hab in otherwise clean orbit."
 end
 

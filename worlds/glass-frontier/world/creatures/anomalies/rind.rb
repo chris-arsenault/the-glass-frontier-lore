@@ -1,5 +1,6 @@
 creature :rind do
   name "Rind"
+  summary "A rind is a large Deep Shear animal that follows sustained resonance gradients. Its pale shell trails filaments that can disrupt tuned ringglass, and the first specimen recorded beside a Bloom cordon now holds near Outside."
   subkind :animal
   tags :ecology, :resonance, :orbital, :danger, :mystery
   prominence :marginal

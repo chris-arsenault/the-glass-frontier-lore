@@ -1,5 +1,6 @@
 transport :whitefoot_signal_cart do
   name "Whitefoot Signal Cart"
+  summary "Whitefoot signal carts are message vehicles used between Whitefoot, Old Campus, and Sithari. They carry pulses through dead relay ground in their wheel hubs."
   subkind :transport
   status :complete
   prominence :marginal

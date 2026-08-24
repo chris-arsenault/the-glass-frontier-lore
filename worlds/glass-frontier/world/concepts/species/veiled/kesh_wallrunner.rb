@@ -1,5 +1,6 @@
 species :kesh_wallrunner do
   name "Kesh Wallrunner"
+  summary "Kesh Wallrunners are climbing animals that store kinetic force in their tails and discharge it in a single straight leap."
   subkind :species
   status :complete
   prominence :marginal

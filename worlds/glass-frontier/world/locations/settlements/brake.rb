@@ -1,5 +1,6 @@
 installation :brake do
   name "Brake"
+  summary "Brake is a salvage settlement of about nine thousand people in the Glass Frontier, built across a reinforced ring fragment and eleven anchored wrecks."
   playable_as :chronicle_location, :homeland
   origin_blurb "A free-cutting hab built around derelict recovery, shared claims, and hard rescue rules."
   subkind :settlement

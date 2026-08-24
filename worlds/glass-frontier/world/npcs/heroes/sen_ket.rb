@@ -1,5 +1,6 @@
 npc :sen_ket do
   name "Sen'ket"
+  summary "Sen'ket is the passive-array mechanic who maintains Issel's longest surviving receiver baseline."
   subkind :specialist
   occupation "Passive-array mechanic"
   specialty "Timing long receiver baselines through damaged ringglass"

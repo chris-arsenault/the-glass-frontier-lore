@@ -1,5 +1,6 @@
 incident :blue_root_discovery do
   name "The Blue-Root Discovery"
+  summary "The Blue-Root Discovery was the recovery of living roots beneath a dry Sable recording vault and their transfer to Ledgerfall."
   subkind :discovery
   status :complete
   prominence :marginal

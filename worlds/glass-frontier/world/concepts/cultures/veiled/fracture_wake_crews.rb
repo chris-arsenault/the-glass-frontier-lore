@@ -1,5 +1,6 @@
 culture :fracture_wake_crews do
   name "Fracture-Wake Crews"
+  summary "Fracture-Wake Crews are mobile debris workers whose households follow crossing calendars and reunite when their marked shards meet."
   subkind :way_of_life
   status :complete
   prominence :marginal

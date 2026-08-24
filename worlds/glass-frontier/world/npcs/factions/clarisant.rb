@@ -1,5 +1,6 @@
 faction :clarisant do
   name "Clarisant"
+  summary "The Clarisant is the Pelhari-based professional guild that trains, certifies, and disciplines Tuners across the system."
   playable_as :allegiance
   origin_blurb "A dispersed guild of trained Tuners whose credential carries trust across most of the system."
   subkind :religious_order
@@ -81,5 +82,6 @@ end
 
 # --- history (moments) ---
 moment :clarisant_bloom_hawk_split, year: 2378, of: :clarisant do
+  summary "The Silent Bloom split the Clarisant in 2378 between Hawks advocating containment work and Skeptics opposing it."
   prose "When the #{ref :the_silent_bloom, "Silent Bloom"} ignited, a faction of Tuners — the Hawks — began pressing the guild to make Bloom-containment work its future; the Skeptics called it a meatgrinder. The argument never resolved: the Hawks win the votes, the Skeptics win the resignations."
 end

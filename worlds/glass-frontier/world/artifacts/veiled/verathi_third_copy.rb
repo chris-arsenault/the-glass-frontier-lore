@@ -1,5 +1,6 @@
 artifact :verathi_third_copy do
   name "The Verathi Third Copy"
+  summary "The Verathi Third Copy is an exchange-compact record held between Verathi and Accord Shore. It preserves concessions omitted from both public versions."
   subkind :record
   status :complete
   prominence :marginal

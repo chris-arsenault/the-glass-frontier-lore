@@ -1,5 +1,6 @@
 geographic_location :bloom_zones do
   name "Bloom Zones"
+  summary "Bloom Zones are expanding reality tears in Kaleidos orbit and the Fracture, where physical rules and distance become inconsistent."
   playable_as :chronicle_location
   subkind :hazardous_zone
   path "player/locations/landmarks/bloom-zones.md"
@@ -56,5 +57,6 @@ end
 
 # --- history (moment) ---
 moment :bloom_zones_created, year: 2378, of: :bloom_zones do
+  summary "The Silent Bloom opened the first reality fractures across the mid-drift in 2378, creating the Bloom Zones."
   prose "The Bloom Zones were born in the #{ref :the_silent_bloom, "Silent Bloom"} cascade — the resonance disaster that tore the first reality fractures open across the mid-drift and left a crisis that has only spread since."
 end

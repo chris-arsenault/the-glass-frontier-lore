@@ -1,5 +1,6 @@
 ability :echo_orientation do
   name "Echo Orientation"
+  summary "Echo Orientation is an innate sense of physical scale that preserves balance when resonance recordings distort a corridor's apparent width."
   subkind :innate_ability
   status :complete
   prominence :marginal

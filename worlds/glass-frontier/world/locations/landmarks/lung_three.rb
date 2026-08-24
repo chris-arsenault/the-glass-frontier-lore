@@ -1,5 +1,6 @@
 installation :lung_three do
   name "Lung Three"
+  summary "Lung Three is a tall ceramic airflow chamber inside Vey that divides the settlement's thermal return among four residential wards."
   playable_as :chronicle_location
   subkind :infrastructure
   function "Divides Vey's main thermal airflow among four residential wards"

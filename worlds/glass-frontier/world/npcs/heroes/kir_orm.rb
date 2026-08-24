@@ -1,5 +1,6 @@
 npc :kir_orm do
   name "Kir Orm"
+  summary "Kir Orm is a Vey airwright who maps passages through the habitat's curved lung walls."
   subkind :specialist
   occupation "Airwright and passage mapper"
   specialty "Tracing airflow through porous structural channels"

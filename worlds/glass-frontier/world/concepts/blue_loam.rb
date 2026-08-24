@@ -1,5 +1,6 @@
 resource :blue_loam do
   name "Blue Loam"
+  summary "Blue loam is a live medicinal soil cultivated at Seren; its fungal nodules guide sensation back through damaged nerves."
   subkind :biological_material
   function "Carries a medicinal mold that guides nerve regrowth"
   status :complete

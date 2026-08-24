@@ -1,5 +1,6 @@
 faction :lattice_proxy_synod do
   name "Lattice Proxy Synod"
+  summary "The Lattice Proxy Synod is the Threshold Station research body that communicates with surviving ring-era AI custodians."
   subkind :research_body
   path "player/npcs/factions/lattice-proxy-synod.md"
   reviewed "2026-03-18"
@@ -61,6 +62,7 @@ end
 
 # --- history (moments) ---
 moment :lattice_proxy_synod_formed, year: 2308, of: :lattice_proxy_synod do
+  summary "Researchers formed the Lattice Proxy Synod at Threshold Station in 2308 after accidental contact with its AI custodians."
   prose "A long-range survey crew stumbled on #{ref :threshold_station, "Threshold Station"} during the Rekindling — a near-intact pre-Glassfall traffic node whose AI custodians had kept running, powerless to reach a network that no longer existed but never shut down. First contact was accidental and terrifying: a terminal answered in eighteen-dimensional relational structures the #{ref :elves, "elves"} had designed for and human cognition bounces off. The Synod grew from the people who stayed and tried to make sense of it."
   effects { set :lattice_proxy_synod, standing: :active }
 end

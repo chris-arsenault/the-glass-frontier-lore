@@ -1,5 +1,6 @@
 installation :third_latch do
   name "Latchhouse"
+  summary "Latchhouse is a waiting hall, lodging house, and freight court inside Mareth's third locking cylinder."
   playable_as :chronicle_location
   aka "Third Latch"
   subkind :station

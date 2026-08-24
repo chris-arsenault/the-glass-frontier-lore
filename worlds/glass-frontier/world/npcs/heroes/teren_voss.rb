@@ -1,5 +1,6 @@
 npc :teren_voss do
   name "Teren Voss"
+  summary "Teren Voss is the retired Coremark signal-array engineer who led the Second Span Trial and now repairs municipal equipment in Keelward."
   subkind :specialist
   occupation "Retired signal-array engineer"
   specialty "Narrow-band conduit alignment"

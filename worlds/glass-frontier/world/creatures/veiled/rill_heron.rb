@@ -1,5 +1,6 @@
 creature :rill_heron do
   name "Rill Heron"
+  summary "Rill herons are animals found between Perch and Talven. They spear rootfish and follow irrigation failures along the route."
   subkind :animal
   status :complete
   prominence :marginal

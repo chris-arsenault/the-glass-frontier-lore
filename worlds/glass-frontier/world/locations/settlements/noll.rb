@@ -1,5 +1,6 @@
 installation :noll do
   name "Noll"
+  summary "Noll is a forested ring-hab settlement of twenty-three hundred people in the Glass Frontier, cultivating resonant structural timber beneath a transparent hull."
   playable_as :chronicle_location
   aka "Nol-Avaren"
   subkind :settlement

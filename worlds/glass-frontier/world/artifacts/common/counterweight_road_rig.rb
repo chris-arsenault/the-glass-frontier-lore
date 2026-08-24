@@ -1,5 +1,6 @@
 artifact :counterweight_road_rig do
   name "Counterweight Road Rig"
+  summary "The Counterweight Road Rig is a two-kite equipment set for moving occupied or operating buildings across temporary load paths. The Counterweight carries its lifting frames, pressure sleds, service lines, and warning instruments between jobs."
   subkind :machine
   function "Moves an occupied or operating structure across a temporary load path"
   status :complete

@@ -1,5 +1,6 @@
 rumor :ravel_second_hull do
   name "Ravel's Second Hull"
+  summary "Ravel's Second Hull is a maintenance rumor about a second pressure shell that answers knocks from inside the inhabited hull."
   subkind :rumor
   status :complete
   prominence :marginal

@@ -1,5 +1,6 @@
 species :signal_fed_life do
   name "Signal-Fed Life"
+  summary "Signal-Fed Life is the family of organisms that gathers around damaged relays and converts repeated transmissions into heat and shell growth."
   subkind :overview
   status :complete
   prominence :marginal

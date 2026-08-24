@@ -1,5 +1,6 @@
 incident :circling_herd do
   name "The Circling Herd"
+  summary "The Circling Herd is a 2435 sarn passage that split at Perch, with one group still circling the settlement and shedding mapped combs."
   subkind :incident
   date 2435
   status :complete

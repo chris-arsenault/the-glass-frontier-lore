@@ -1,5 +1,6 @@
 installation :ninth_kiln do
   name "Ninth Kiln"
+  summary "Ninth Kiln is a municipal ceramic yard on Lowbank's eastern boatbuilding mound, firing isolation blocks, barge ribs, flood fittings, and household ware."
   playable_as :chronicle_location
   subkind :workshop
   function "Fires ceramic isolation blocks, barge ribs, and flood-resistant fittings"

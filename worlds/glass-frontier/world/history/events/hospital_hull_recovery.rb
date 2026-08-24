@@ -1,5 +1,6 @@
 incident :hospital_hull_recovery do
   name "Hospital Hull Recovery"
+  summary "Hospital Hull Recovery is Brake's 2435 capture of a powered medical vessel carrying twelve occupied recovery capsules."
   subkind :discovery
   date 2435
   status :complete

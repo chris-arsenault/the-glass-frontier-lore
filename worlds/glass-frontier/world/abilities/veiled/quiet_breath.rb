@@ -1,5 +1,6 @@
 ability :quiet_breath do
   name "Quiet Breath"
+  summary "Quiet Breath is a salvage breathing discipline used to work beside sound-sensitive glasswurm colonies without waking them."
   subkind :ability
   status :complete
   prominence :marginal

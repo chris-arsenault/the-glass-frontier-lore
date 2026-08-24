@@ -1,5 +1,6 @@
 installation :lowbank do
   name "Lowbank"
+  summary "Lowbank is Dovra's largest port city on Korvath, spread across raised islands where three river channels reach the middle sea."
   playable_as :chronicle_location
   subkind :settlement
   status :complete

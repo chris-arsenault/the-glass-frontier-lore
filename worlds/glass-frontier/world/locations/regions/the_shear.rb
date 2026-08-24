@@ -1,5 +1,6 @@
 geographic_location :the_shear do
   name "The Shear"
+  summary "The Shear is the debris-filled orbital space between the surviving ring habitats around Kaleidos, where distorted resonance makes salvage dangerous."
   playable_as :chronicle_location
   subkind :frontier
   path "player/locations/regions/the-shear.md"

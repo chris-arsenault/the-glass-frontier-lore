@@ -1,5 +1,6 @@
 faction :prismwell_kite_guild do
   name "Prismwell Kite Guild"
+  summary "The Prismwell Kite Guild is a Glasswake pilots' guild, repair network, and carrier specializing in routes affected by Glassfall showers."
   playable_as :allegiance
   origin_blurb "Pilots, repair wells, and carriers share forecasts and rescue duties along Glassfall shower routes."
   subkind :company

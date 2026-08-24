@@ -1,5 +1,6 @@
 phenomenon :kyther_glass_rain do
   name "Kyther Glass Rain"
+  summary "Kyther Glass Rain is a mountain storm that lifts old crystal splinters from the slopes and drives them sideways through marked shelters."
   subkind :catastrophe
   status :complete
   prominence :marginal

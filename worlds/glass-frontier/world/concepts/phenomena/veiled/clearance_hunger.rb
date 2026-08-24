@@ -1,5 +1,6 @@
 phenomenon :clearance_hunger do
   name "Clearance Hunger"
+  summary "Clearance Hunger is the recurring shortage among crews stranded in Clearance Eight's traffic galleries when a supply window slips."
   subkind :social_condition
   status :complete
   prominence :marginal

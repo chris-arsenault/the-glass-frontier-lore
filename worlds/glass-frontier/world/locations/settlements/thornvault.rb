@@ -1,5 +1,6 @@
 installation :thornvault do
   name "Thornvault"
+  summary "Thornvault is a bridge-city and archive across the deepest canyon of the Sable Crescent, serving as the headquarters of the Echo Ledger Conclave."
   playable_as :chronicle_location
   subkind :settlement
   path "player/locations/settlements/thornvault.md"

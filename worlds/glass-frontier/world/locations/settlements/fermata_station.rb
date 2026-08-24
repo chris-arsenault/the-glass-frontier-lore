@@ -1,5 +1,6 @@
 installation :fermata_station do
   name "Fermata Station"
+  summary "Fermata Station is a ring habitat around Kaleidos where public jazz Sessions produce binding civic decisions."
   playable_as :chronicle_location, :homeland
   origin_blurb "A ring hab where public Sessions turn musical improvisation into binding civic decisions."
   subkind :settlement
@@ -117,9 +118,11 @@ end
 
 # --- history (moments) ---
 moment :fermata_founded, year: 2140, of: :fermata_station do
+  summary "Survivors founded Fermata Station around a bar that held the ring fragment's only functioning social contract in 2140."
   prose "When the ring shattered, the fragment that would become Fermata contained a bar — power, social structure, and a culture of resolving tension through call-and-response. That was more than most fragments had. The bartender kept pouring, the band kept playing, and adjacent compartments were absorbed not through force but through need: the bar was the only place with a functioning social contract."
   effects { set :fermata_station, standing: :surviving_fragment }
 end
 moment :fermata_sealed_by_famine, year: 2160, of: :fermata_station do
+  summary "The Signal Famine sealed Fermata from the ring and surface in 2160, leaving its musical governance to develop in isolation."
   prose "The #{ref :signal_famine, "Signal Famine"} sealed it. Cut off from the ring and the surface, Fermata had no model for governance except the one it was already practicing. By the time contact was re-established decades later, the jazz system had calcified into something no outsider would have designed and no resident could imagine replacing."
 end

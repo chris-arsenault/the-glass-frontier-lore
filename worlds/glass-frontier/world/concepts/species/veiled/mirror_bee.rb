@@ -1,5 +1,6 @@
 species :mirror_bee do
   name "Mirror Bee"
+  summary "Mirror Bees are pollinating insects of blue-loam beds whose bodies copy the color of the last healthy flower they touched."
   subkind :species
   status :complete
   prominence :marginal

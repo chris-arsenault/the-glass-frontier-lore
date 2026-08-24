@@ -1,5 +1,6 @@
 installation :carom do
   name "Carom"
+  summary "Carom is a fourteen-thousand-person ring-hab settlement in the Glass Frontier, formed from three rotating segments joined by transfer drums and sorting decks."
   playable_as :chronicle_location, :homeland
   origin_blurb "Three rotating segments trade parcels, meals, and messages through transfer drums that never align for long."
   subkind :settlement

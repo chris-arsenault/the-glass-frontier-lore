@@ -1,5 +1,6 @@
 transport :rattle_tug do
   name "Rattle Tug"
+  summary "Rattle tugs are market cargo vehicles used around Carom, Exchange C, and Wash Four. They move containers by locking each frame to the habitat's changing spin."
   subkind :transport
   status :complete
   prominence :marginal

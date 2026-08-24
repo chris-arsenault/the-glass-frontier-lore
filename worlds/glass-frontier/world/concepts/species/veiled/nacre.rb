@@ -1,5 +1,6 @@
 species :nacre do
   name "Nacre"
+  summary "Nacre are a sapient mineral-plated people who record route bearings as fine grooves in the plates they shed."
   subkind :sapient_species
   status :complete
   prominence :marginal

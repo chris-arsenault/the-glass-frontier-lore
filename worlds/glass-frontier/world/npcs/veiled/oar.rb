@@ -1,5 +1,6 @@
 npc :oar do
   name "Oar"
+  summary "Oar is a Reed Door host who keeps a free bunk for travelers carrying living river specimens."
   subkind :npc
   status :complete
   prominence :marginal

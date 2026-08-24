@@ -1,5 +1,6 @@
 installation :three_arms_yard do
   name "Three Arms Yard"
+  summary "Three Arms Yard is a Prismwell repair shop in Glasswake, where three lifting arms hold flexible survey kites without forcing their frames into alignment."
   playable_as :chronicle_location
   subkind :workshop
   function "Repairs flexible-frame survey kites and shower-catch equipment"

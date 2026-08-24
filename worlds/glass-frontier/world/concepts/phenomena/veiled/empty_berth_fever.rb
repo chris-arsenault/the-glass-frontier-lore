@@ -1,5 +1,6 @@
 phenomenon :empty_berth_fever do
   name "Empty-Berth Fever"
+  summary "Empty-Berth Fever is a social condition among stranded passengers who occupy unused rooms and defend them as inherited homes."
   subkind :social_condition
   status :complete
   prominence :marginal

@@ -1,5 +1,6 @@
 concept :shared_gravity do
   name "Shared Gravity"
+  summary "Shared Gravity is a four-hab counterweight system that coordinates local force schedules so freight arrives under the gravity for which it was packed."
   subkind :physical_system
   status :complete
   prominence :marginal

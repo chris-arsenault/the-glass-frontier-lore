@@ -1,5 +1,6 @@
 faction :displacement_council do
   name "Displacement Council"
+  summary "The Displacement Council is a neutral containment order that maintains Bloom Zone cordons and supports displaced communities."
   subkind :civic_body
   path "player/npcs/factions/displacement-council.md"
   reviewed "2026-03-19"
@@ -73,9 +74,11 @@ end
 
 # --- history (moments) ---
 moment :displacement_council_formed, year: 2380, of: :displacement_council do
+  summary "Bloom refugees formed the neutral Displacement Council in 2380 to secure rights, resources, and recognition for displaced communities."
   prose "Born from the #{ref :displacement, "Displacement"} — Bloom refugees who first organized for advocacy (settlement rights, resource access, recognition) and turned out to be the people best equipped to contain the thing that had displaced them. Neutrality was written into the founding charter from day one: the founders had just watched the #{ref :bloom_coalition, "Bloom Coalition"} strain as factions pressed their own interests through the crisis, and they prohibited the Council from ever taking sides. You cannot hold cordons if half the system won't talk to you."
   effects { set :displacement_council, standing: :active }
 end
 moment :displacement_council_takes_cordons, year: 2384, of: :displacement_council do
+  summary "The Displacement Council became a standing containment order and took over the Bloom cordons in 2384."
   prose "It formalized as a standing containment order and took the physical Bloom cordons over from the #{ref :bloom_coalition, "Bloom Coalition"}. The first First Threshold burned out quickly under the scale of the job. A second held the office through the Council's early expansion. #{ref :oram_sells, "Oram Sells"} became the third in 2421 and served until 2432; #{ref :dern_talish, "Dern Talish"} is the fourth."
 end

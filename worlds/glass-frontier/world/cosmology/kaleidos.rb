@@ -1,5 +1,6 @@
 geographic_location :kaleidos do
   name "Kaleidos"
+  summary "Kaleidos is the inhabited world beneath the Glass Frontier, with oceans, old continents, and ringglass scattered through its soil, water, and foundations."
   log "2026-08-22 — Excluded as a chronicle location because the whole world is too broad to anchor a starting focus."
   subkind :celestial_body
   status :complete

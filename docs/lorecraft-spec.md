@@ -172,6 +172,9 @@ unknown word.
 - `drafted_by_default :ai`, `:human`, or `:ai_human` supplies block provenance
   when a block has no override.
 - `require_explicit_subkinds!` rejects entities that omit `subkind`.
+- `require_entity_summaries! maximum: 280` makes a missing or overlong summary
+  a lint error on every written reader entity and rendered moment, including
+  articles and DM entries.
 - `location_kind :geographic_location, :installation` identifies the kinds that
   need an explicit chronicle-location decision.
 - `playable_role :species, "meaning"` declares one controlled selection role.
@@ -211,6 +214,7 @@ An entity constructor is the entity's registered kind.
 ```ruby
 npc :inez_bell do
   name "Inez Bell"
+  summary "Inez Bell is the municipal seal and voter-roll keeper at Cairo Ridge."
   subkind :official
   tags :governance, :legibility
   prominence :marginal
@@ -225,7 +229,7 @@ npc :inez_bell do
 end
 ```
 
-Common explicit methods are `name`/`title`, `tags`, `prominence`, `aka`,
+Common explicit methods are `name`/`title`, `summary`, `tags`, `prominence`, `aka`,
 `status`, `region`, `narrative_role`, `subkind`, `reviewed`, `dm!`, `prose`,
 `cards`, `fact`, `custom_fact`, `question`, `log`, `gm_note`, and `derive`.
 
@@ -236,9 +240,10 @@ Accepted origin roles require `origin_blurb`, one line no longer than 140
 characters.
 
 `veiled "Sentence."` defines a thin public story hook with a stable id and its
-real kind. Its affirmative declarative sentence is its complete description;
-it cannot also carry prose, facts, DM visibility, a location kind, an article
-flag, or a playable role.
+real kind. Its affirmative declarative sentence appears during story selection;
+`summary` separately identifies what the entity is in Atlas and search results.
+A veiled entity cannot also carry prose, facts, DM visibility, a location kind,
+an article flag, or a playable role.
 
 `gm_note :kind, "…"` declares how the entry behaves when a game reaches it. The
 kinds are `appears`, `triggered_by`, and `complicates`. A note is one to three
@@ -425,6 +430,7 @@ end
 
 moment :cairo_retreat, at: 2082, of: :inez_bell, type: :incident do
   title "The Cairo Retreat"
+  summary "The municipal seal keeper moved Cairo's records uphill in 2082."
   prose "Bell carried the municipal seal uphill."
   effects do
     transfer :located_in, from: :cairo, to: :cairo_ridge, subject: :inez_bell
@@ -433,7 +439,8 @@ end
 ```
 
 `genesis` establishes baseline state and has no reader page. `moment` records a
-dated occurrence, may own prose, and is page-bearing unless it is genesis. Use
+dated occurrence, may own prose, and is page-bearing unless it is genesis. Its
+`summary` states what happened, where, and when when those facts are known. Use
 `span: { from:, to: }` instead of `at:` for a ranged moment. `of:` selects the
 entity whose page receives the moment prose; otherwise the first effect subject
 is the home entity.

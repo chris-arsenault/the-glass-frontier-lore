@@ -1,5 +1,6 @@
 culture :rootward_households do
   name "Rootward Households"
+  summary "Rootward Households are garden-hab families who raise children among rotating crops and give each child a living graft to maintain."
   subkind :way_of_life
   status :complete
   prominence :marginal

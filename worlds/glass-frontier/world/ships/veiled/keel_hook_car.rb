@@ -1,5 +1,6 @@
 transport :keel_hook_car do
   name "Keel Hook-Car"
+  summary "Keel hook-cars are cargo vehicles used on damaged track around the Keel, Hinge Six, and Third Latch. They bite into old route ribs to swing loads past broken sections."
   subkind :transport
   status :complete
   prominence :marginal

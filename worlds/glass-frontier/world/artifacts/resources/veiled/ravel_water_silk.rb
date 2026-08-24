@@ -1,5 +1,6 @@
 resource :ravel_water_silk do
   name "Ravel Water-Silk"
+  summary "Ravel water-silk is a biological repair material sourced around Ravel, Tanel, Issel, and Karet-3. It tightens around a leak and changes color when the escaping fluid carries a signal charge."
   subkind :biological_material
   status :complete
   prominence :marginal

@@ -1,5 +1,6 @@
 incident :thirty_one_drop do
   name "The Thirty-One Drop"
+  summary "The Thirty-One Drop was a cargo-handling failure that sent a tuned rack through Wash Four's lower wall."
   subkind :operational_failure
   status :complete
   prominence :marginal

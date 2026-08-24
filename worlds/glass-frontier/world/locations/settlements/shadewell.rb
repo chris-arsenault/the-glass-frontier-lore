@@ -1,5 +1,6 @@
 installation :shadewell do
   name "Shadewell"
+  summary "Shadewell is Ashvane's main port city, terraced down a shaded crater wall above the moon's largest accessible ice lens."
   playable_as :chronicle_location
   subkind :settlement
   status :complete

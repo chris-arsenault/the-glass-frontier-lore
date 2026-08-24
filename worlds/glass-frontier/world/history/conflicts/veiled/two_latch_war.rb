@@ -1,5 +1,6 @@
 conflict :two_latch_war do
   name "The Two-Latch War"
+  summary "The Two-Latch War was a boarding conflict between Mareth and Third Latch that fixed their present docking line."
   subkind :war
   status :complete
   prominence :marginal

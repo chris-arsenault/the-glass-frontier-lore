@@ -1,5 +1,6 @@
 transport :five_bolts do
   name "Five Bolts"
+  summary "Five Bolts is a compact tow vessel working Brake's outer capture lane and cutting lots. Its kinetic array cancels small changes in motion while a mechanical yoke carries one derelict hull at a time."
   subkind :vessel
   capacity "Three crew and one short-haul tow frame"
   status :complete

@@ -1,5 +1,6 @@
 conflict :fourth_bell_tenancy do
   name "The Fourth Bell Tenancy"
+  summary "The Fourth Bell Tenancy is a conflict between Keelward families and route crews over occupancy of Fourth Bell House during dock closures."
   subkind :conflict
   status :complete
   prominence :marginal

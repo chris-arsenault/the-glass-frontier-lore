@@ -1,5 +1,6 @@
 era :the_accord do
   name "The Accord"
+  summary "The Accord is the present era, beginning in 2423 when the settlements that ended the Bitter Reach ratified a shared mediation framework."
   subkind :historical_period
   status :complete
   tags :governance, :diplomacy, :trade, :rebuilding

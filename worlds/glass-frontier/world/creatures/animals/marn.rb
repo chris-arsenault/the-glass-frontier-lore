@@ -1,5 +1,6 @@
 creature :marn do
   name "Marn"
+  summary "Marn are broad-footed grazing animals kept across Avar for wool, milk, hides, meat, and light pack work. Their foot pads sense low vibration, and herders watch a whole herd's response for signs of moving ground."
   subkind :animal
   status :complete
   tags :surface, :ecology, :trade, :resonance

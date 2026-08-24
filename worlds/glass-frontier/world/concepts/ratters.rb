@@ -1,5 +1,6 @@
 concept :ratters do
   name "Ratters"
+  summary "Ratters are independent small-crew salvagers in the Shear who share route knowledge through loose flotillas while keeping their ships, claims, and hauls separate."
   subkind :practice
   path "player/concepts/ratters.md"
   tags :salvage, :"social-structure", :orbital, :trade

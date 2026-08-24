@@ -1,5 +1,6 @@
 creature :sorel do
   name "Sorel"
+  summary "Sorel are broad, low grazing animals bred at Rib to keep the pressure reef's passages open. Their rasping mouths remove soft mineral growth while leaving mature load-bearing ridges intact."
   subkind :animal
   status :complete
   tags :ecology, :resonance, :"structural-freq", :"ring-hab"

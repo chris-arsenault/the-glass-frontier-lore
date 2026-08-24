@@ -1,5 +1,6 @@
 transport :hollow_lift do
   name "Hollow Lift"
+  summary "Hollow lifts are spoke vehicles serving Eleven, Holl, and Five Landing. They travel on counterweights filled with household scrap."
   subkind :transport
   status :complete
   prominence :marginal

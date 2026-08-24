@@ -1,5 +1,6 @@
 installation :sithari do
   name "Sithari"
+  summary "Sithari is the largest city in the Kaleidos system, an equatorial surface capital built in layers above a surviving ring-era research campus."
   playable_as :chronicle_location, :homeland
   origin_blurb "A surface capital where law, trade, and old institutions shape daily life."
   subkind :settlement
@@ -83,10 +84,12 @@ end
 
 # --- history (moments) ---
 moment :sithari_held_the_glassfall, year: 2140, of: :sithari do
+  summary "Sithari's hardened research campus retained power and shelter through the Glassfall in 2140, drawing survivors inside its walls."
   prose "Before the #{ref :the_glassfall, "Glassfall"}, the site was a ring-era #{ref :resonance, "resonance"} research complex with hardened walls, independent power, and sealed laboratories. The campus retained power and shelter after the ring broke. People from the surrounding region began consolidating within its walls in the following weeks."
   effects { set :sithari, standing: :surviving_complex }
 end
 moment :sithari_becomes_capital, year: 2305, of: :sithari do
+  summary "Sithari became the principal surface government and de facto system capital during the Rekindling in 2305."
   prose "By the end of the #{ref :signal_famine, "Signal Famine"}, the surviving campus stood at the center of a city of hundreds of thousands. Its infrastructure, records, and administration made Sithari the principal surface government and the system's de facto capital during the Rekindling."
   effects { set :sithari, standing: :capital }
 end

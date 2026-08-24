@@ -1,5 +1,6 @@
 artifact :vitrael_cold_prism do
   name "Vitrael Cold Prism"
+  summary "Vitrael Cold Prism is a crystal-cutting instrument used at Vitrael and Ashenmaw. It clouds along every stressed plane to mark safe cuts through frozen crystal."
   subkind :instrument
   status :complete
   prominence :marginal

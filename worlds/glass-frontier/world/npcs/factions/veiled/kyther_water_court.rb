@@ -1,5 +1,6 @@
 faction :kyther_water_court do
   name "Kyther Water Court"
+  summary "Kyther Water Court is the local government that assigns melt channels across Kyther Range from records at Marker House Twelve."
   subkind :government
   status :complete
   prominence :marginal

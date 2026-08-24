@@ -1,5 +1,6 @@
 npc :nara_velis do
   name "Nara Velis"
+  summary "Nara Velis is a legal courier carrying sealed witness accounts between Accord Shore and Verathi."
   subkind :courier
   status :complete
   prominence :marginal

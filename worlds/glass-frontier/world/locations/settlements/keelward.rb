@@ -1,5 +1,6 @@
 installation :keelward do
   name "Keelward"
+  summary "Keelward is Sithari's eastern port district on Kaleidos, where the Keel reaches surface terminals, freight yards, rail lines, and residential wards."
   playable_as :chronicle_location, :homeland
   origin_blurb "Sithari's crowded arrival district of shuttle fields, freight rail, port hostels, and old neighborhoods."
   subkind :settlement

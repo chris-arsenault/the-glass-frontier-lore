@@ -1,5 +1,6 @@
 concept :remote_cutting do
   name "Remote Cutting"
+  summary "Remote cutting is a salvage technique that couples material from an unstable claim to a crewed processing vessel while the workers remain at stand-off range."
   subkind :technology
   tags :salvage, :resonance, :orbital, :trade, :danger
   prominence :recognized

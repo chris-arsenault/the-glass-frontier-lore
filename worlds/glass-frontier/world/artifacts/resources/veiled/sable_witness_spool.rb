@@ -1,5 +1,6 @@
 resource :sable_witness_spool do
   name "Sable Witness Spool"
+  summary "Sable witness spools are spoken-record media sourced along the Sable Crescent, Verathi, Hab Meridian, and the Underlayers. Each preserves one account in four voices so later distortion remains visible."
   subkind :data
   status :complete
   prominence :marginal

@@ -1,5 +1,6 @@
 geographic_location :sable_crescent do
   name "Sable Crescent"
+  summary "The Sable Crescent is a warm river basin on Kaleidos whose marshes, cliffs, and canyons contain the system's densest concentration of Echo Rivers."
   playable_as :chronicle_location
   subkind :region
   path "player/locations/regions/sable-crescent.md"

@@ -1,5 +1,6 @@
 creature :drift_eel do
   name "Drift-eel"
+  summary "Drift-eels are long Shear predators drawn to electrical discharge and active resonance arrays. Smaller adults can wrap around a flitter, anchor several mouths to its hull, and feed on current, heat, and field response."
   subkind :anomaly
   status :complete
   tags :danger, :orbital, :resonance, :ecology, :salvage

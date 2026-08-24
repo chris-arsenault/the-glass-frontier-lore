@@ -1,5 +1,6 @@
 installation :holl do
   name "Holl"
+  summary "Holl is a settlement of about sixty-two hundred people beneath the overhanging face of a split ring wall in the Glass Frontier."
   playable_as :chronicle_location
   subkind :settlement
   status :complete

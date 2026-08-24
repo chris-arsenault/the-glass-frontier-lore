@@ -1,5 +1,6 @@
 resource :pyre_softglass do
   name "Pyre Softglass"
+  summary "Pyre softglass is a repair material sourced from Pyre and Latch. It bends around a damaged seal while hot and retains the fitted shape after cooling."
   subkind :material
   status :complete
   prominence :marginal

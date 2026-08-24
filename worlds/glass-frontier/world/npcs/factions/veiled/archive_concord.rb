@@ -1,5 +1,6 @@
 faction :archive_concord do
   name "Archive Concord"
+  summary "Archive Concord is a research body whose readers compare recovered texts across four separate archive vaults."
   subkind :research_body
   status :complete
   prominence :marginal

@@ -1,5 +1,6 @@
 npc :venn_talis do
   name "Venn Talis"
+  summary "Venn Talis is a retired contact surveyor and the sole surviving member of the team that forced entry into Hab Coriolis."
   subkind :npc
   status :complete
   tags :isolation, :diplomacy, :archives

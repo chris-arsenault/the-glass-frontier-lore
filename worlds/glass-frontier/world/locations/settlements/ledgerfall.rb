@@ -1,5 +1,6 @@
 installation :ledgerfall do
   name "Ledgerfall"
+  summary "Ledgerfall is a city on the northern rim of the Sable Crescent, built around speaking waterfalls where an Echo River descends into the marshes."
   playable_as :chronicle_location
   subkind :settlement
   status :complete

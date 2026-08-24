@@ -1,5 +1,6 @@
 era :the_ring_age do
   name "The Ring Age"
+  summary "The Ring Age was the period before 2140 when Kaleidos's orbital ring functioned as one inhabited structure and signal lattice."
   subkind :historical_period
   status :complete
   tags :"ring-era", :resonance, :origin, :archives

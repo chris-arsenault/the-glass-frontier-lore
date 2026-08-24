@@ -1,5 +1,6 @@
 installation :pyre do
   name "Pyre"
+  summary "Pyre is a ruined Coremark ringglass refinery in the mid-drift Shear, now enclosed by the Bloom Zone that formed during the Silent Bloom."
   playable_as :chronicle_location
   subkind :landmark
   path "player/locations/landmarks/pyre.md"
@@ -33,6 +34,7 @@ end
 
 # --- history (moment) ---
 moment :pyre_overload, year: 2378, of: :pyre do
+  summary "Accumulated safety failures overloaded Coremark's Pyre refinery in 2378 and began the Silent Bloom."
   prose "Pyre was a mid-drift refinery — part of #{ref :coremark, "Coremark"}'s expansion beyond its deep-Shear niche in the 2340s–2350s, at peak one of the highest-throughput plants in the Shear. It ran in an environment already past its limits: decades of unrestrained harvesting had depleted the ambient resonance ecology, and the nearby #{ref :second_span_trial, "Second Span trial"} had left an aligned guide through local space. The overload was not one dramatic failure but a cascade of small negligences — safety margins treated as obstacles, precursor readings dismissed as noise by operators who lacked the #{ref :elves, "elven"} knowledge to recognize them. The refinery burned with pale resonance fire visible across the mid-drift, and the #{ref :the_silent_bloom, "Silent Bloom"} began."
   effects { set :pyre, standing: :destroyed }
 end

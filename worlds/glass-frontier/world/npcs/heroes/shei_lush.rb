@@ -1,5 +1,6 @@
 npc :shei_lush do
   name "Shei Lush"
+  summary "Shei Lush is the pianist and Chair who has presided over Fermata Station's governing Sessions since 2424."
   subkind :official
   status :complete
   tags :music, :governance, :diplomacy
@@ -46,5 +47,6 @@ relate :rel_shei_lush_cooperates_sable_korr, :cooperates_with, :shei_lush, :sabl
 end
 
 moment :shei_lush_takes_chair, year: 2424, of: :shei_lush do
+  summary "Fermata's Players chose Shei Lush as Chair in 2424 after a Session failed three times to determine its own adopted ending."
   prose "Fermata's Players chose Shei Lush to hold the Chair after one Session failed three times to establish which of two endings it had adopted."
 end

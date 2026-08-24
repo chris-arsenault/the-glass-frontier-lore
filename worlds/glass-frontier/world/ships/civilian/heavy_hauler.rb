@@ -1,5 +1,6 @@
 transport :heavy_hauler do
   name "Heavy Hauler"
+  summary "Heavy haulers are the largest civilian kite-driven cargo vessels in regular service. Vantara and independent crews carry bulk ringglass, water, food, and industrial goods along the Keel and outer-system routes."
   subkind :vessel
   path "player/ships/civilian/heavy-hauler.md"
   tags :trade, :transport, :ringglass, :"kinetic-freq", :orbital, :navigation

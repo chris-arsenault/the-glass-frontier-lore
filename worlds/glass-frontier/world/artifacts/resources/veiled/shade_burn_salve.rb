@@ -1,5 +1,6 @@
 resource :shade_burn_salve do
   name "Shade-Burn Salve"
+  summary "Shade-burn salve is a wound medicine sourced from Crucible and South Shade. It draws charged grit from flesh and becomes rigid when the last grain leaves."
   subkind :medicine
   status :complete
   prominence :marginal

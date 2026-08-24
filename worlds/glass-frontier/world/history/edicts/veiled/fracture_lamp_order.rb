@@ -1,5 +1,6 @@
 edict :fracture_lamp_order do
   name "The Fracture-Lamp Order"
+  summary "The Fracture-Lamp Order requires claim vessels working the Fracture and Ashenmaw routes to leave a beacon on abandoned debris."
   subkind :edict
   status :complete
   prominence :marginal

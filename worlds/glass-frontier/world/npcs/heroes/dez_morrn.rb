@@ -1,5 +1,6 @@
 npc :dez_morrn do
   name "Dez Morrn"
+  summary "Dez Morrn is a Fermata trumpeter and organizer who leads the station's free-jazz opposition to the governing Standards."
   subkind :dissident
   occupation "Trumpeter and organizer of Fermata's free-jazz movement"
   species "human"

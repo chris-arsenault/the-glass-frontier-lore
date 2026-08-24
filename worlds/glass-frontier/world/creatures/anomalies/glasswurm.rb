@@ -1,5 +1,6 @@
 creature :glasswurm do
   name "Glasswurm"
+  summary "Glasswurms are segmented Farborn borers that live inside soft debris and coarse ringglass aggregates. Their independently turning mouth rings cut smooth tunnels that may strengthen rubble or hollow a load-bearing seam."
   subkind :anomaly
   status :complete
   tags :orbital, :salvage, :danger, :ringglass, :resonance

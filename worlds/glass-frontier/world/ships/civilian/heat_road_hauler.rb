@@ -1,5 +1,6 @@
 transport :heat_road_hauler do
   name "Heat-road Hauler"
+  summary "Heat-road haulers are long, low surface vehicles that carry bulk freight between Ashvane towns without dependable landing fields. Broad wheels and a small kinetic array keep them moving across salt, basalt, and crater approaches."
   subkind :transport
   status :complete
   tags :transport, :trade, :resonance, :"kinetic-freq", :"outer-system"

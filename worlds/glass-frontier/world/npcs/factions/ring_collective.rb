@@ -1,5 +1,6 @@
 faction :ring_collective do
   name "Ring Collective"
+  summary "The Ring Collective is the standing assembly through which connected ring habitats present common positions without surrendering local law."
   subkind :civic_body
   status :complete
   tags :"ring-hab", :governance, :diplomacy, :trade

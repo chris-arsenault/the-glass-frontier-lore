@@ -1,5 +1,6 @@
 incident :second_span_trial do
   name "Second Span Trial"
+  summary "The Second Span Trial was Coremark's failed 2356 attempt to build a modern counterpart to Span Nine through the mid-drift."
   subkind :operational_failure
   tags :resonance, :"signal-freq", :ringglass, :danger
   prominence :recognized

@@ -1,5 +1,6 @@
 npc :nera_vasken do
   name "Nera Vasken"
+  summary "Nera Vasken is a plant grafter who joins Lumenshard cuttings to Mera rootstock."
   subkind :specialist
   status :complete
   prominence :marginal

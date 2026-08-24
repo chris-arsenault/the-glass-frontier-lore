@@ -1,5 +1,6 @@
 concept :yard_inheritance do
   name "Yard Inheritance"
+  summary "Yard Inheritance is a rigger's succession practice that awards an unfinished frame to the crew able to name every repair already made to it."
   subkind :practice
   status :complete
   prominence :marginal

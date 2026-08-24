@@ -1,5 +1,6 @@
 concept :working_chorus do
   name "The Working Chorus"
+  summary "The Working Chorus is a public-music convention that claims a repeated machine tone once three crews can keep time with it."
   subkind :concept
   status :complete
   prominence :marginal

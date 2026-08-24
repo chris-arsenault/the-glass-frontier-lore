@@ -1,5 +1,6 @@
 resource :white_signal_cloth do
   name "White Signal Cloth"
+  summary "White signal cloth is a message medium sourced from Span Nine and Whitefoot. It carries one relay pulse as a visible crease that vanishes after reading."
   subkind :resource
   status :complete
   prominence :marginal

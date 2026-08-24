@@ -925,13 +925,7 @@ module Lorecraft
         sections.filter_map { |section| section[:markdown] }.join("\n\n")
       end
 
-      def summary_for(node, sections)
-        return node.summary if node.respond_to?(:summary) && !node.summary.to_s.strip.empty?
-
-        text = prose_markdown(sections)
-        text = node.veil_tagline if text.empty? && node.respond_to?(:veiled?) && node.veiled?
-        summarize(text)
-      end
+      def summary_for(node, _sections) = node.respond_to?(:summary) ? node.summary.to_s.strip : ""
 
       def entry_route(id) = "/#{@world_id}/entry/#{slug(id)}"
       def chronicle_route(id) = "/#{@world_id}/chronicle/#{slug(id)}"

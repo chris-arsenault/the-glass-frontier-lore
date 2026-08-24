@@ -1,5 +1,6 @@
 species :kyrri do
   name "Kyrri"
+  summary "Kyrri are a sapient mountain people with four lower limbs and hollow joints used to read resonance through Kyther stone."
   subkind :sapient_species
   status :complete
   prominence :marginal

@@ -1,5 +1,6 @@
 phenomenon :mareth_recoil do
   name "Mareth Recoil"
+  summary "Mareth Recoil is a brief reversal of corridor pull after a heavy vessel leaves Mareth under load."
   subkind :physical_phenomenon
   status :complete
   prominence :marginal

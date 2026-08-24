@@ -1,5 +1,6 @@
 phenomenon :korvath_groundsong do
   name "Korvath Groundsong"
+  summary "Korvath Groundsong is a vibration that travels through river mud and turns suspended kiln loads toward its source."
   subkind :physical_phenomenon
   status :complete
   prominence :marginal

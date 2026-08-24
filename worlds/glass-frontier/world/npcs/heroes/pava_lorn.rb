@@ -1,5 +1,6 @@
 npc :pava_lorn do
   name "Pava Lorn"
+  summary "Pava Lorn is a sarn migration reader who assigns safe collection bands from Perch's outer pylons."
   subkind :specialist
   occupation "Migration reader"
   specialty "Sarn health, formation changes, and safe collection bands"

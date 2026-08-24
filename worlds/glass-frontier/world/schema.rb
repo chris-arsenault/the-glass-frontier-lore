@@ -8,6 +8,7 @@ schema do
   # who wrote it was written by a machine. `make provenance` reports against
   # this; a block a person writes declares `drafted_by: :human`.
   drafted_by_default :ai
+  require_entity_summaries!
   require_fact_cards! from: :renowned, minimum: 4
   require_gm_notes! from: :forgotten, minimum: 1
   require_playable_coverage! :chronicle_location,

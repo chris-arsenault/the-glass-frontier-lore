@@ -1,5 +1,6 @@
 ability :root_tracing do
   name "Root Tracing"
+  summary "Root Tracing is a survey skill for following buried ring conduits through the warmth they leave in adjoining walls."
   subkind :learned_ability
   status :complete
   prominence :marginal

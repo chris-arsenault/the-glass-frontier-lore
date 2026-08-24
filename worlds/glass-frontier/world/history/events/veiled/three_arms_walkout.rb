@@ -1,5 +1,6 @@
 incident :three_arms_walkout do
   name "The Three Arms Walkout"
+  summary "The Three Arms Walkout was a riggers' campaign that moved unfinished frames to Blue Step until both yards adopted the same injury pay."
   subkind :campaign
   status :complete
   prominence :marginal

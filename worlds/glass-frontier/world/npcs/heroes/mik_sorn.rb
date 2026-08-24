@@ -1,5 +1,6 @@
 npc :mik_sorn do
   name "Mik Sorn"
+  summary "Mik Sorn is a meal and medical courier serving Rattle and Carom's eighth neighborhood."
   subkind :courier
   occupation "Meal and medical courier"
   route "Rattle, Neighborhood Eight, the cold wards, and Dock Four"

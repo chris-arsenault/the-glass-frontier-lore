@@ -1,5 +1,6 @@
 npc :senn_ravel do
   name "Senn Ravel"
+  summary "Senn Ravel is a freight-record dissident who posts erased claims on public walls at Ravel and Third Latch."
   subkind :dissident
   status :complete
   prominence :marginal

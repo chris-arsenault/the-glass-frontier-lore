@@ -1,5 +1,6 @@
 artifact :bloom_relics do
   name "Bloom Relics"
+  summary "Bloom relics are unique objects formed when a changing Bloom boundary fixes part of an ordinary object's existing function under an altered physical rule. Current workshops cannot manufacture them on demand or reliably repair their spent material."
   subkind :relic
   path "player/artifacts/relics/bloom-relics.md"
   reviewed "2026-03-19"

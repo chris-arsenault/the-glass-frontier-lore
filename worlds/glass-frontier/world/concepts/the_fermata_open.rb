@@ -1,5 +1,6 @@
 concept :the_fermata_open do
   name "The Fermata Open"
+  summary "The Fermata Open is the annual week when visiting musicians may play in Fermata Station's governing Sessions without gaining a vote or taking the Chair."
   subkind :practice
   tags :music, :governance, :trade, :resonance, :"ring-hab"
   prominence :recognized

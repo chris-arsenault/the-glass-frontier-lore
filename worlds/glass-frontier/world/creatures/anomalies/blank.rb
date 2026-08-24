@@ -1,5 +1,6 @@
 creature :blank do
   name "Blank"
+  summary "Blanks are Deep Shear predators that follow the resonance changes made by active perception. A Tuner reaching into the field gives one a path, first marked by a clean absence in the Deep's weak background."
   subkind :anomaly
   status :complete
   tags :orbital, :danger, :resonance, :salvage, :mystery

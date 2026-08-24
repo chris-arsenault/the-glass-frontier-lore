@@ -1,5 +1,6 @@
 creature :whitefoot_teller do
   name "Whitefoot Teller"
+  summary "Whitefoot tellers are relay-ground anomalies found between Whitefoot and Threshold Station. They repeat signal bursts in children's voices and flee from a correct reply."
   subkind :anomaly
   status :complete
   prominence :marginal

@@ -1,5 +1,6 @@
 ability :pressure_memory do
   name "Pressure Memory"
+  summary "Pressure Memory is an innate Ashvane-born sensitivity that lets a person retrace a pressure front hours after it crossed a sealed room."
   subkind :innate_ability
   status :complete
   prominence :marginal

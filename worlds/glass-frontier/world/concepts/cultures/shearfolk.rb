@@ -1,5 +1,6 @@
 culture :shearfolk do
   name "Shearfolk"
+  summary "Shearfolk are people raised aboard the salvage ships, claim stations, and route settlements of the Shear, where rescue debts and current charts determine trust."
   playable_as :culture
   origin_blurb "Route crews trade current charts, shared rescue debts, and work names across the Shear."
   subkind :way_of_life

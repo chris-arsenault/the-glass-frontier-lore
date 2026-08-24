@@ -353,6 +353,49 @@ class NarrativeDocumentTest < Minitest::Test
     end
   end
 
+  def test_entity_summary_is_not_inferred_from_lead_prose
+    world = narrative_world
+    world.define_entity(kind: :concept, id: :reader) do
+      title "Reader"
+      status :complete
+      prose "A long opening passage describes something that happened near the reader."
+    end
+
+    Dir.mktmpdir do |dir|
+      Lorecraft::Render::Site.new(world, root: dir).render(
+        out: File.join(dir, "public"), world_id: "test", title: "Test", revision: "revision"
+      )
+      document = JSON.parse(
+        File.read(File.join(dir, "public", "worlds", "test", "entries", "reader.json"))
+      )
+
+      assert_equal "", document["summary"]
+    end
+  end
+
+  def test_moment_summary_renders_verbatim
+    world = Lorecraft.define do
+      schema { entity_type :incident }
+      timeline { era :t, starts: 0, length: 10; now year: 4 }
+      moment :first_crossing, at: 3 do
+        title "First Crossing"
+        summary "A survey crew completed the first crossing in year 3."
+        prose "The crew returned before dark."
+      end
+    end
+
+    Dir.mktmpdir do |dir|
+      Lorecraft::Render::Site.new(world, root: dir).render(
+        out: File.join(dir, "public"), world_id: "test", title: "Test", revision: "revision"
+      )
+      document = JSON.parse(
+        File.read(File.join(dir, "public", "worlds", "test", "entries", "first-crossing.json"))
+      )
+
+      assert_equal "A survey crew completed the first crossing in year 3.", document["summary"]
+    end
+  end
+
   def test_world_can_narrow_a_shared_relation
     world = narrative_world
     world.schema.instance_eval do
@@ -677,6 +720,7 @@ class CanonicalMetadataTest < Minitest::Test
       end
       npc :courier do
         name "The Blue Courier"
+        summary "The Blue Courier is a chart carrier working between separated habitats."
         status :complete
         veiled "A blue-clad courier carries sealed maps between separated habs."
       end
@@ -687,6 +731,8 @@ class CanonicalMetadataTest < Minitest::Test
     assert world[:ancestry].playable_as?(:species)
     refute world[:reach].playable_as?(:chronicle_location)
     assert world[:courier].veiled?
+    assert_equal "The Blue Courier is a chart carrier working between separated habitats.",
+                 world[:courier].summary
     assert_equal "A blue-clad courier carries sealed maps between separated habs.",
                  world[:courier].veil_tagline
   end
@@ -750,7 +796,9 @@ class CanonicalMetadataTest < Minitest::Test
 
     problems = world.validate
     assert(problems.any? { |problem| problem.include?("affirmative concrete fact") })
-    assert(problems.any? { |problem| problem.include?("only its name, tagline, and indexing metadata") })
+    assert(problems.any? do |problem|
+      problem.include?("only its name, summary, tagline, and indexing metadata")
+    end)
   end
 
   def test_veiled_entries_cannot_be_locations
@@ -1823,9 +1871,22 @@ class SiteRenderTest < Minitest::Test
         relation :knows, temporal: false
       end
       timeline { era :t, starts: 0, length: 10; now year: 1 }
-      concept :article do name "Reference"; article!; prose "A reader guide." end
-      concept :place do name "Place"; playable_as :chronicle_location end
-      npc :courier do name "Courier"; veiled "A courier carries sealed charts between two settlements." end
+      concept :article do
+        name "Reference"
+        summary "Reference is a reader guide to the test world."
+        article!
+        prose "A reader guide."
+      end
+      concept :place do
+        name "Place"
+        summary "Place is the test world's chronicle location."
+        playable_as :chronicle_location
+      end
+      npc :courier do
+        name "Courier"
+        summary "Courier is a chart carrier working between two settlements."
+        veiled "A courier carries sealed charts between two settlements."
+      end
       relate :article_knows_place, :knows, :article, :place
       relate :place_knows_courier, :knows, :place, :courier
     end
@@ -1845,7 +1906,7 @@ class SiteRenderTest < Minitest::Test
       refute_includes graph["nodes"].map { |node| node["id"] }, "article"
       refute(graph["edges"].any? { |edge| edge["src"] == "article" || edge["tgt"] == "article" })
       assert courier["veiled"]
-      assert_equal "A courier carries sealed charts between two settlements.", courier["summary"]
+      assert_equal "Courier is a chart carrier working between two settlements.", courier["summary"]
       assert_equal courier["veil_tagline"], courier.dig("sections", 0, "markdown")
     end
   end
@@ -1854,6 +1915,41 @@ end
 class LinterTest < Minitest::Test
   def lint(&block)
     Lorecraft.define(&block).lint(root: Dir.mktmpdir)
+  end
+
+  def test_world_can_require_authored_entity_summaries
+    findings = lint do
+      schema do
+        entity_type :concept
+        entity_type :incident
+        entity_type :thread, wiki: false
+        require_entity_summaries! maximum: 60
+      end
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
+      concept :missing do name "Missing"; prose "Lead prose is not metadata." end
+      concept :long do name "Long"; summary "This deliberately overlong summary exceeds the configured maximum length for this test world." end
+      concept :present do name "Present"; summary "Present is a concise test concept." end
+      concept :shell do name "Shell"; status :shell end
+      thread :structure do name "Structure" end
+      moment :missing_moment, at: 2 do
+        title "Missing Moment"
+        prose "Something happens without an authored summary."
+      end
+      moment :present_moment, at: 3 do
+        title "Present Moment"
+        summary "Present Moment is a dated test incident."
+        prose "Something else happens."
+      end
+    end
+
+    errors = findings.select { |finding| finding.level == :error }.map(&:message)
+    assert(errors.any? { |message| message.include?("concept missing: missing authored summary") })
+    assert(errors.any? { |message| message.include?("concept long: summary is") })
+    refute(errors.any? { |message| message.include?("concept present") })
+    refute(errors.any? { |message| message.include?("concept shell") })
+    refute(errors.any? { |message| message.include?("thread structure") })
+    assert(errors.any? { |message| message.include?("incident missing_moment: missing authored summary") })
+    refute(errors.any? { |message| message.include?("incident present_moment") })
   end
 
   def test_dm_phrase_leakage

@@ -1,5 +1,6 @@
 resource :root_broth do
   name "Root Broth"
+  summary "Root broth is a heat-storing food prepared around Olven, Orra, Mera, and Rib. It can warm a cold sleeper without raising the surrounding room's temperature."
   subkind :food
   status :complete
   prominence :marginal

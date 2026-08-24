@@ -1,5 +1,6 @@
 culture :span_names do
   name "Span Names"
+  summary "Span Names are signal-work names amended with the last relay their bearer repaired."
   subkind :naming_practice
   status :complete
   prominence :marginal

@@ -1,5 +1,6 @@
 creature :root_crab do
   name "Root Crab"
+  summary "Root crabs are agricultural animals found among Mera, Noll, and Rib. They prune sick root mats and carry the severed fibres into warm wall cavities."
   subkind :animal
   status :complete
   prominence :marginal

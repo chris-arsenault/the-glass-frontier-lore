@@ -1,5 +1,6 @@
 culture :kesh_challenge_names do
   name "Kesh Challenge Names"
+  summary "Kesh Challenge Names are working names earned by completing a kinetic trial without assistance and used to record the bearer's latest such feat."
   subkind :naming_practice
   status :complete
   prominence :marginal

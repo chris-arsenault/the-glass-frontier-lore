@@ -1,5 +1,6 @@
 phenomenon :room_rain do
   name "Room Rain"
+  summary "Room Rain is a displacement catastrophe in Xyloathax that drops furniture and wall panels from shifted chambers into occupied streets."
   subkind :catastrophe
   status :complete
   prominence :marginal

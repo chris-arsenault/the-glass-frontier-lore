@@ -1,5 +1,6 @@
 era :yard_winter do
   name "Yard Winter"
+  summary "Yard Winter was a cold cutting season when three surface crews finished one hull beneath a canvas roof."
   subkind :historical_period
   status :complete
   prominence :marginal

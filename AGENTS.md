@@ -145,6 +145,7 @@ Broad condition, specific consequence: the condition is something an ordinary sc
 ### Entity fields
 
 - `title` — required. The entry's name.
+- `summary` — a concise identity statement for Atlas cards, search results, and the top of the entry page. Its first clause says what the entity concretely is; a location also says where it is, an NPC gives their role or base, an object names its physical class and function, and an incident says what happened. It is not copied from the opening prose and it is separate from a veiled selection hook.
 - `kind` — required. Determines which directory it lives in. See the taxonomy below.
 - `subkind` — required. Narrows the kind to the entry's concrete class and adds that class's fact fields.
 - `tags` — optional. Topics and themes this entry involves. **Controlled vocabulary** — only tags declared in the world's `world/schema.rb` (`tag :name, "meaning"`). Add a tag there before using it. Tags describe what an entry is *about* (`governance`, `resonance`, `trade`), not what it is *related to*.

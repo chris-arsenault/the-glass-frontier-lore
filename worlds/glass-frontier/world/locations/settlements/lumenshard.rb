@@ -1,5 +1,6 @@
 installation :lumenshard do
   name "Lumenshard"
+  summary "Lumenshard is the largest settlement in Miraeth, occupying terraces beneath the crystal-veined canopy of the region's central forest basin."
   playable_as :chronicle_location
   subkind :settlement
   status :complete

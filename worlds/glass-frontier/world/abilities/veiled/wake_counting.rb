@@ -1,5 +1,6 @@
 ability :wake_counting do
   name "Wake Counting"
+  summary "Wake Counting is a vessel-recognition skill that identifies an approach from the rhythm transmitted through household water tanks."
   subkind :learned_ability
   status :complete
   prominence :marginal

@@ -1,5 +1,6 @@
 transport :pale_return do
   name "Pale Return"
+  summary "Pale Return is an archive-ice carrier serving Lithren, Pelhari, and Vastine. It remains off the dock until every passenger has named their cargo."
   subkind :vessel
   status :complete
   prominence :marginal

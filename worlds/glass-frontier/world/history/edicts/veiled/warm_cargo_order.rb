@@ -1,5 +1,6 @@
 edict :warm_cargo_order do
   name "The Warm-Cargo Order"
+  summary "The Warm-Cargo Order requires Crucible ore to carry an open heat gauge from the mine lift to its Ashvane workshop."
   subkind :edict
   status :complete
   prominence :marginal

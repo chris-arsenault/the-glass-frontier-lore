@@ -1,5 +1,6 @@
 npc :iro_senn do
   name "Iro Senn"
+  summary "Iro Senn is the Gray Line station lead, managing its cordon watch, recovery requests, and outer-mount crews."
   subkind :official
   occupation "Gray Line station lead"
   species "human"

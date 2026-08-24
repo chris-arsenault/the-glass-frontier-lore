@@ -1,5 +1,6 @@
 concept :open_hand_rule do
   name "The Open-Hand Rule"
+  summary "The Open-Hand Rule is a rescue-entry doctrine requiring anyone who enters a displaced room to show an empty glove first."
   subkind :doctrine
   status :complete
   prominence :marginal

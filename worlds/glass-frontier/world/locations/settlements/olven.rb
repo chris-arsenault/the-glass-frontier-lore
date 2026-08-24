@@ -1,5 +1,6 @@
 installation :olven do
   name "Olven"
+  summary "Olven is an agricultural ring-hab settlement in the Glass Frontier, with fifty-four hundred residents working climate chambers around a warm conduit."
   playable_as :chronicle_location
   aka "Olven-Terath"
   subkind :settlement

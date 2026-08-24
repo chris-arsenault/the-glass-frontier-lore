@@ -1,5 +1,6 @@
 transport :quiet_measure do
   name "Quiet Measure"
+  summary "Quiet Measure is a rescue tender stationed at Pell Cut and maintained by the Pell Freight Assembly. Its receiving lock, paired tow forks, and separate treatment rooms serve vessels beyond ordinary port reach."
   subkind :vessel
   status :complete
   capacity "Eighteen crew, twenty-four rescued passengers, and two disabled-craft tow points"

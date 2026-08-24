@@ -1,5 +1,6 @@
 phenomenon :drain_migration do
   name "The Drain Migration"
+  summary "The Drain Migration is the seasonal departure of metal-feeding life from Glasswake's drains when surface yards begin cutting ringglass."
   subkind :ecological_phenomenon
   status :complete
   prominence :marginal

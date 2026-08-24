@@ -1,5 +1,6 @@
 npc :sable_korr do
   name "Sable Korr"
+  summary "Sable Korr is the keeper of Fermata Station's informal Session archive and an Audience member excluded from formal performance."
   subkind :dissident
   occupation "Standard scholar and keeper of Fermata's Session archive"
   species "human"
@@ -45,5 +46,6 @@ relate :rel_sable_studies_open, :studies, :sable_korr, :the_fermata_open, since:
 end
 
 moment :sable_failed_sit_in, year: 2405, of: :sable_korr do
+  summary "Sable Korr failed Fermata's citizenship Sit-In in 2405 after following a written Standard more closely than the other musicians."
   prose "Sable Korr failed her citizenship Sit-In in 2405 after answering a written Standard more closely than the musicians who had departed from it."
 end

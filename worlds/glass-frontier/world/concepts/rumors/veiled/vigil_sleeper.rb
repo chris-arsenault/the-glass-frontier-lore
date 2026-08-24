@@ -1,5 +1,6 @@
 rumor :vigil_sleeper do
   name "The Vigil Sleeper"
+  summary "The Vigil Sleeper is a rescue rumor about a warm human outline recorded beyond the breached wall at Vigil."
   subkind :rumor
   status :complete
   prominence :marginal

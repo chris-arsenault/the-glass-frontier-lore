@@ -1,5 +1,6 @@
 concept :fracture_lots do
   name "Fracture Lots"
+  summary "Fracture Lots is a salvage-claim doctrine granting the first safe claim on new debris to the crew that charted its motion for a full crossing."
   subkind :doctrine
   status :complete
   prominence :marginal

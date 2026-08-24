@@ -1,5 +1,6 @@
 ability :hollow_balance do
   name "Hollow Balance"
+  summary "Hollow Balance is an innate sense of changing spin that keeps climbers upright between adjoining ring-habitat decks."
   subkind :innate_ability
   status :complete
   prominence :marginal

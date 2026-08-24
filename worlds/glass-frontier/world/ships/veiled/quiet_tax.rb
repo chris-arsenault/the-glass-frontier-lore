@@ -1,5 +1,6 @@
 transport :quiet_tax do
   name "Quiet Tax"
+  summary "Quiet Tax is a salvage vessel operating around Karet-3, Far Bell, and Gray Line. It charges one usable component from every recovered machine it hauls out."
   subkind :vessel
   status :complete
   prominence :marginal

@@ -1,5 +1,6 @@
 npc :brace do
   name "Brace"
+  summary "Brace is a formation captain who leads mixed crews through Kesh's heavy and changing gravity."
   subkind :specialist
   occupation "Formation captain"
   specialty "Large crossings through changing gravity"

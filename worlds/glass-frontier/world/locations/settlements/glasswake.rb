@@ -1,5 +1,6 @@
 installation :glasswake do
   name "Glasswake"
+  summary "Glasswake is a coastal mining town on Kaleidos, built between the sea and the fused ridge of a ring fragment that fell during the Glassfall."
   playable_as :chronicle_location, :homeland
   origin_blurb "A coastal mining town built against a fallen hab whose repaired transmitter began the Rekindling."
   subkind :settlement
@@ -48,7 +49,7 @@ installation :glasswake do
     A surface-access spur connects Glasswake to #{ref :keel, "the Keel"}, the system's primary orbital trade lane. Kites descending from the Keel use the town as a minor waypoint and resupply stop.
   PROSE
 
-  gm_note :appears, "Cargo and hiring both come in at the dock fringe, where independent kites, #{ref :ratters, "Ratter"} crews and steppe carriers put in to dodge Sithari's fees, while the inspections and mineral contracts sit uptown. A crew can be hired at one end of that walk in the morning and audited at the other by evening."
+  gm_note :appears, "Cargo and hiring both come in at the dock fringe, where kites, #{ref :ratters, "Ratter"} crews, and steppe carriers dodge Sithari's fees; inspections and mineral contracts sit uptown. A crew can be hired at one end of that walk in the morning and audited at the other by evening."
   gm_note :triggered_by, "Whatever the party brings off a claim only exists uptown after washing, grading and a #{ref :shear_compact, "Shear Compact"} inspection turn it into a certified lot. The fringe buys the same material unwashed, for less, and asks nothing about where it came from."
   gm_note :complicates, "Taking anything out of the wreck ridge is a structural reader's call rather than a cutter's, because pulling a grade can wake a second seam or shift load into an occupied part of the fragment. Crews who open a sealed face anyway learn which rooms underneath were carrying it."
 end
@@ -69,9 +70,11 @@ end
 
 # --- history (moments) ---
 moment :glasswake_founded, year: 2160, of: :glasswake do
+  summary "Settlers founded Glasswake around a half-buried ring fragment on Kaleidos in 2160."
   prose "A ring fragment fell during the #{ref :the_glassfall, "Glassfall"} and half-buried itself, leaving a ridge of fused crystal and stone. The first settlers built against it for shelter during the Famine. Repeated arrivals added homes, mines, and workshops around the wreckage without a central plan."
 end
 moment :glasswake_first_signal, year: 2305, of: :glasswake do
+  summary "A Glasswake salvage crew restored a transmitter and reached Hab Meridian in 2305, beginning the system's reconnection."
   prose "A salvage crew found a pre-Glassfall transmitter that still had power, and one of them knew enough to make it talk. The first long-range signal after the #{ref :signal_famine, "Signal Famine"} went from Glasswake to #{ref :hab_meridian, "Hab Meridian"}, whose receiver happened to still be listening. The reconnection of the system began with two communities that stumbled into it."
   effects { set :glasswake, standing: :reconnected }
 end

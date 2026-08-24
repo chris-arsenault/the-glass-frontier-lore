@@ -1,5 +1,6 @@
 era :bloom_edge_years do
   name "Bloom-Edge Years"
+  summary "The Bloom-Edge Years were the period when Karet shelters and displaced rooms first shared cordon crews."
   subkind :era
   status :complete
   prominence :marginal

@@ -1,5 +1,6 @@
 transport :root_cart do
   name "Root Cart"
+  summary "Root carts are agricultural vehicles used among Mera, Noll, Olven, and Seren. Their shallow beds carry living root mats, and stored plant heat turns their wheels."
   subkind :transport
   status :complete
   prominence :marginal

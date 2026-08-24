@@ -1,5 +1,6 @@
 ability :ash_veiling do
   name "Ash Veiling"
+  summary "Ash Veiling is a Crucible heat-working technique that shapes charged dust into a protective cloak without fouling a visor."
   subkind :ability
   status :complete
   prominence :marginal

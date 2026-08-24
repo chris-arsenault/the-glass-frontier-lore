@@ -1,5 +1,6 @@
 culture :naming_conventions do
   name "Naming Conventions"
+  summary "Naming conventions in the Kaleidos system follow culture first, with species ancestry retained mainly through ceremonial, inherited, or deliberately asserted names."
   article!
   log "2026-08-22 — Classified as a reference article because it compares naming practices across cultures rather than naming one practice."
   subkind :naming_practice

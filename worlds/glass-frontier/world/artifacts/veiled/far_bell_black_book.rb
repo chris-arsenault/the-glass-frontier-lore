@@ -1,5 +1,6 @@
 artifact :far_bell_black_book do
   name "Far Bell Black Book"
+  summary "Far Bell Black Book is a beacon record shared among Far Bell, Outside, and Karet-3. It lists replies received after their registered senders were lost."
   subkind :record
   status :complete
   prominence :marginal

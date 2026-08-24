@@ -1,5 +1,6 @@
 creature :ironwhistle do
   name "Ironwhistle"
+  summary "Ironwhistle is a named Shear dragon ranging between the mid-drift and the inner Keel branch routes. It feeds on active kinetic fields and metal-rich Farborn, announcing its spread membranes through a descending whistle felt in hull members."
   subkind :anomaly
   status :complete
   tags :orbital, :danger, :resonance, :transport, :legend

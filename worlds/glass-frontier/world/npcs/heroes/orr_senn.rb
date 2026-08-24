@@ -1,5 +1,6 @@
 npc :orr_senn do
   name "Orr Senn"
+  summary "Orr Senn is the source-line reader who tracks pressure, tone, and delivery time through Eleven's main water system."
   subkind :specialist
   occupation "Source-line reader"
   specialty "Water pressure, heat drift, and coupled structural tone"

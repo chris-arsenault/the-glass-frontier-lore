@@ -1,5 +1,6 @@
 edict :displaced_door_order do
   name "The Displaced-Door Order"
+  summary "The Displaced-Door Order treats any threshold opening into Xyloathax as occupied housing until inspectors clear it."
   subkind :edict
   status :complete
   prominence :marginal

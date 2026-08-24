@@ -1,5 +1,6 @@
 species :elves do
   name "Elves"
+  summary "Elves are a vanished sapient species that helped found Kaleidos civilization and served as the primary architects of the orbital ring before disappearing during the Signal Famine."
   log "2026-08-22 — Excluded from present-day character origins because the known elven population vanished during the Signal Famine."
   subkind :sapient_species
   path "player/concepts/species/elves.md"

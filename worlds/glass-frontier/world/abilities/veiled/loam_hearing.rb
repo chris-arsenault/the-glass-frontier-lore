@@ -1,5 +1,6 @@
 ability :loam_hearing do
   name "Loam Hearing"
+  summary "Loam Hearing is an innate tactile sensitivity that registers damaged plant roots as pulses through bare fingertips."
   subkind :innate_ability
   status :complete
   prominence :marginal

@@ -1,5 +1,6 @@
 installation :seren do
   name "Seren"
+  summary "Seren is a biological repository settlement in the Glass Frontier, occupying a cold Ring-era spindle divided between sealed vaults and warm trial beds."
   playable_as :chronicle_location
   aka "Seren-ith"
   subkind :settlement

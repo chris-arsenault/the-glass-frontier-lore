@@ -1,5 +1,6 @@
 creature :farborn do
   name "Farborn"
+  summary "Farborn are a working category of unrelated creatures native to the Shear. Bestiaries group them by habitat and shared impossible features rather than by a common body plan, ancestor, or known lineage."
   subkind :anomaly
   path "player/creatures/anomalies/farborn.md"
   tags :danger, :orbital, :resonance, :ecology, :mystery

@@ -1,5 +1,6 @@
 incident :the_glassfall do
   name "The Glassfall"
+  summary "The Glassfall was the hours-long shattering of Kaleidos's inhabited orbital ring in 2140, leaving isolated habitats and debris across the system."
   subkind :disaster
   path "player/history/events/the-glassfall.md"
   status :complete
@@ -36,6 +37,7 @@ incident :the_glassfall do
 end
 
 moment :the_glassfall_begins, year: 2140, of: :the_glassfall do
+  summary "Kaleidos's orbital ring shattered in 2140, beginning the Glassfall and the Signal Famine."
   prose "The orbital ring shattered in 2140, beginning the Glassfall and the Signal Famine."
 end
 

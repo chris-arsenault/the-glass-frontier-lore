@@ -1,5 +1,6 @@
 npc :tess_var do
   name "Renn Var"
+  summary "Renn Var is an archive-face cutter at Talven and the maker of Var's Wedge."
   subkind :specialist
   occupation "Archive-face cutter"
   specialty "Separating recorded ringglass along the crystal grain"

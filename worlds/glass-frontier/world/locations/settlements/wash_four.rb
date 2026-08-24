@@ -1,5 +1,6 @@
 installation :wash_four do
   name "Wash Four"
+  summary "Wash Four is a decontamination settlement in the Glass Frontier, occupying a service cylinder of wash drums, drying lofts, and textile-trace workshops."
   playable_as :chronicle_location, :homeland
   origin_blurb "A sealed hab where textile traces, missing routes, and careful washing preserve old signals."
   aka "Decontamination Habitat Four"

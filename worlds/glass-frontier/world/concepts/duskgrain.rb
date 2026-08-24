@@ -1,5 +1,6 @@
 resource :duskgrain do
   name "Duskgrain"
+  summary "Duskgrain is solidified resonance found in Bloom Zones and deep Shear pockets; each dark, humming grain stores great power across an unstable range of frequencies."
   subkind :food
   path "player/concepts/duskgrain.md"
   reviewed "2026-03-19"

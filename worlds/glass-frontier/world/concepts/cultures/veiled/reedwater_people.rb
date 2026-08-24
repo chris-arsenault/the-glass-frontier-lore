@@ -1,5 +1,6 @@
 culture :reedwater_people do
   name "Reedwater People"
+  summary "Reedwater People are Korvath channel families who mark adulthood with a first solo crossing through water their household maintains."
   subkind :regional_culture
   status :complete
   prominence :marginal

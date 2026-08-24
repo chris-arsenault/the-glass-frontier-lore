@@ -1,5 +1,6 @@
 geographic_location :dovra do
   name "Dovra"
+  summary "Dovra is a low tidal river country on Korvath's middle sea, where shifting channels carry farms and towns toward the port of Lowbank."
   playable_as :chronicle_location
   subkind :region
   status :complete

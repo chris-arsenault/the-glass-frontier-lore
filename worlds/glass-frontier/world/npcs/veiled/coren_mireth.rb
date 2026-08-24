@@ -1,5 +1,6 @@
 npc :coren_mireth do
   name "Coren Mireth"
+  summary "Coren Mireth leads the volunteer crews that keep Kyther Range meltwater moving when road crews withdraw."
   subkind :leader
   status :complete
   prominence :marginal

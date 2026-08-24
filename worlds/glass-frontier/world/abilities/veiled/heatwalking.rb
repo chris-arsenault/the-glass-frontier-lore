@@ -1,5 +1,6 @@
 ability :heatwalking do
   name "Heatwalking"
+  summary "Heatwalking is an Ashvane yard-crossing skill that reads dangerous pressure shimmer through the soles of insulated boots."
   subkind :learned_ability
   status :complete
   prominence :marginal

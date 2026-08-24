@@ -1,5 +1,6 @@
 installation :five_landing do
   name "Five Landing"
+  summary "Five Landing is the broad central deck in Holl where five vertical and cross-wall routes meet above a shifting market."
   playable_as :chronicle_location
   subkind :station
   status :complete

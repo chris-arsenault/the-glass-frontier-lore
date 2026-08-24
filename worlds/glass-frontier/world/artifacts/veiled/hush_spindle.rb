@@ -1,5 +1,6 @@
 artifact :hush_spindle do
   name "The Hush Spindle"
+  summary "The Hush Spindle is a recording instrument used at the Choir Fragment and Fermata Station. It isolates one voice from a layered record and burns the removed harmonics into its axle."
   subkind :instrument
   status :complete
   prominence :marginal

@@ -1,5 +1,6 @@
 transport :vault_mule do
   name "Vault Mule"
+  summary "Vault mules are archive-transport vehicles serving Thornvault, the Folded Annex, and the Underlayers. Suspended cages isolate unstable records so one bad page cannot activate the rest."
   subkind :transport
   status :complete
   prominence :marginal

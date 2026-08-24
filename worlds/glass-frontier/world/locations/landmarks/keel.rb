@@ -1,5 +1,6 @@
 installation :keel do
   name "The Keel"
+  summary "The Keel is the Kaleidos system's main trade route, linking surface ports, ring habitats, Shear industry, Korvath, and Ashvane."
   playable_as :chronicle_location
   subkind :infrastructure
   function "Connects the system's major ringglass, trade and settlement nodes"
@@ -87,5 +88,6 @@ relate :rel_keel_in_orbit_of_kaleidos, :in_orbit_of, :keel, :kaleidos do
 end
 # --- history (moment) ---
 moment :keel_reestablished, year: 2305, of: :keel do
+  summary "Route crews restored the Keel as the first major post-Famine trade corridor in 2305."
   prose "When the #{ref :signal_famine, "Signal Famine"} broke, the Keel was the first major trade route brought back into service — the spine along which bulk commerce reconnected, and the corridor every later route branched from."
 end

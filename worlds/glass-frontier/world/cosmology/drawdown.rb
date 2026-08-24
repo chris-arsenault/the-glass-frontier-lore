@@ -1,5 +1,6 @@
 phenomenon :drawdown do
   name "Drawdown"
+  summary "Drawdown is the weakening of a local resonance field when use drains it faster than it recovers, reducing power across connected ringglass."
   subkind :physical_phenomenon
   medium "Local ambient fields carried through ringglass and ringglass-bearing material"
   hazard "Loss or distortion of resonance-powered heat, thrust, signal, and structural support"

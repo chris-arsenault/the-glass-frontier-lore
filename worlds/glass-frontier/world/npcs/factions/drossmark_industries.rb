@@ -1,5 +1,6 @@
 faction :drossmark_industries do
   name "Drossmark Industries"
+  summary "Drossmark Industries was a mid-drift extraction company whose linked heavy cutting arrays caused the Shardfall cascade at Brake."
   subkind :company
   founded 2329
   tags :salvage, :trade, :materials, :military
@@ -39,6 +40,7 @@ relate :rel_drossmark_participated_shardfall, :participated_in, :drossmark_indus
 end
 
 moment :drossmark_dissolved, year: 2359, of: :drossmark_industries do
+  summary "Port refusals, lost insurance, and creditor seizures dissolved Drossmark Industries in 2359."
   prose "Port refusals, lost insurance, and creditor seizures ended Drossmark Industries in 2359."
   effects { set :drossmark_industries, standing: :dissolved }
 end

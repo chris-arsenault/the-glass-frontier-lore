@@ -1,5 +1,6 @@
 transport :claim_rig do
   name "Claim Rig"
+  summary "A claim rig is a salvage vessel built to recover unstable debris without bringing its crew alongside the claim. Separate cutters, receivers, and processing rooms keep each return isolated until the crew knows what came back."
   subkind :vessel
   status :complete
   capacity "Three to twelve crew, one to four remote cutters, and isolated receiving rooms"

@@ -1,5 +1,6 @@
 resource :cold_marrow_draught do
   name "Cold-Marrow Draught"
+  summary "Cold-marrow draught is a medicine made along the Lithren, Vastine, Pelhari, and Vitrael routes. It slows resonance fever long enough for a patient to cross the outer routes awake."
   subkind :medicine
   status :complete
   prominence :marginal

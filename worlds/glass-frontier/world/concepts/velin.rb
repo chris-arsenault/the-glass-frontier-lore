@@ -1,5 +1,6 @@
 resource :velin do
   name "Velin"
+  summary "Velin is a living fiber cultivated at Olven and prepared as grafts that bridge damaged nerves while a patient's own tissue grows through them."
   subkind :biological_material
   function "Forms living bridges across damaged nerves and sensory tissue"
   status :complete

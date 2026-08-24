@@ -161,6 +161,7 @@ The order makes same-year effects deterministic.
 ```ruby
 npc :inez_bell do
   name "Inez Bell"
+  summary "Inez Bell is the municipal seal and voter-roll keeper at Cairo Ridge."
   subkind :official
   tags :governance, :legibility
   prominence :marginal
@@ -181,10 +182,12 @@ end
 relate :bell_at_ridge, :located_in, :inez_bell, :cairo_ridge
 ```
 
-The entity owns constant facts and prose. The relation is a separate, typed
-world fact. A card is an authored reading path and does not create a factual
-edge. `question` records unresolved work; `log` records settled editorial
-history and never renders for a reader.
+The summary identifies the entity in Atlas cards, search results, and the entry
+header; it is authored metadata, never a truncated prose excerpt. A world may
+enforce it with `require_entity_summaries!`. The entity owns constant facts and
+prose. The relation is a separate, typed world fact. A card is an authored
+reading path and does not create a factual edge. `question` records unresolved
+work; `log` records settled editorial history and never renders for a reader.
 
 Production worlds require a declared subkind. Common facts come from the shared
 kind and subkind schema; a world can extend them, and a single entity can append

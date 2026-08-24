@@ -1,5 +1,6 @@
 installation :accord_shore do
   name "Accord Shore"
+  summary "Accord Shore is a civic district of Sithari around an artificial lake west of the Old Campus, built to house the Tempered Accord's delegations and hearings."
   playable_as :chronicle_location
   subkind :settlement
   population 32_000

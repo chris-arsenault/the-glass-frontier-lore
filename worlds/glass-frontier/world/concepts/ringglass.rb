@@ -1,5 +1,6 @@
 resource :ringglass do
   name "Ringglass"
+  summary "Ringglass is the crystalline material of the broken orbital ring and the principal medium used to concentrate and channel ambient resonance."
   subkind :material
   path "player/concepts/ringglass.md"
   status :complete

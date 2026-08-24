@@ -1,5 +1,6 @@
 culture :sitharian_culture do
   name "Sitharian Culture"
+  summary "Sitharian culture is the cosmopolitan prestige culture of the system's de facto capital, marked by formal procedure, institutional memory, and measured speech."
   playable_as :culture
   origin_blurb "Sitharian upbringing prizes measured speech, institutional memory, and confidence in formal procedure."
   subkind :regional_culture

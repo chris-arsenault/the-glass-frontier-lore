@@ -1,5 +1,6 @@
 creature :reedjaw do
   name "Reedjaw"
+  summary "Reedjaws are Dovra animals found around Lowbank and the Reed Door. They strip waterweed from barges and bite through poles used to drive them off."
   subkind :animal
   status :complete
   prominence :marginal

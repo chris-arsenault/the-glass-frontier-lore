@@ -1,5 +1,6 @@
 resource :microcavities do
   name "Microcavities"
+  summary "Microcavities are sealed ringglass cells cut to hold dense standing resonance and release it as portable high-energy fuel."
   subkind :material
   path "player/concepts/microcavities.md"
   reviewed "2026-03-19"

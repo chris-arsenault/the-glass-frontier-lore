@@ -1,5 +1,6 @@
 incident :coriolis_breach do
   name "Coriolis Breach"
+  summary "The Coriolis Breach was a forced entry into a sealed habitat during the Contested Reach that killed all but one member of the contact team."
   subkind :dispute
   path "player/history/events/coriolis-breach.md"
   status :complete

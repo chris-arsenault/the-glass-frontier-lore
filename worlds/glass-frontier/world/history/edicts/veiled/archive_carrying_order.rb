@@ -1,5 +1,6 @@
 edict :archive_carrying_order do
   name "The Archive-Carrying Order"
+  summary "The Archive-Carrying Order requires each recovered record to pass through three separate vaults before a public reading."
   subkind :edict
   status :complete
   prominence :marginal

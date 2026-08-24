@@ -1,5 +1,6 @@
 creature :ash_skater do
   name "Ash Skater"
+  summary "Ash skaters are mineral-finned animals found across Crucible and Ashvane. They ride pressure fronts and shed cutting flakes when cornered."
   subkind :animal
   status :complete
   prominence :marginal

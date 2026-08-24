@@ -1,5 +1,6 @@
 npc :vesh_marrow do
   name "Vesh Marrow"
+  summary "Vesh Marrow was the Hand of the Bloom Coalition from its unified command in 2380 until its dissolution in 2396."
   subkind :official
   born 2358
   occupation "Retired Hand of the Bloom Coalition and adviser on Accord emergency charters"

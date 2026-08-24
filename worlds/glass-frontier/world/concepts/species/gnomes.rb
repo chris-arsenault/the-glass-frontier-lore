@@ -1,5 +1,6 @@
 species :gnomes do
   name "Gnomes"
+  summary "Gnomes are a sapient species engineered during the ring age with ringglass threaded through bone and nervous tissue, giving them direct sensory attunement to resonance."
   playable_as :species
   origin_blurb "Ringglass threads their bones and nerves, making resonance a direct sense that demands lifelong care."
   subkind :sapient_species

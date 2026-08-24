@@ -1,5 +1,6 @@
 creature :fold_spider do
   name "Fold Spider"
+  summary "Fold spiders are spatial anomalies found in the Folded Annex and Underlayers. They stitch nearby corners together and retreat through the resulting seam when disturbed."
   subkind :anomaly
   status :complete
   prominence :marginal

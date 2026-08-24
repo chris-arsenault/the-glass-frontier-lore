@@ -1,5 +1,6 @@
 creature :shellback do
   name "Shellback"
+  summary "Shellbacks are slow Shear grazers that attach to debris and feed across resonance-active surfaces. When disturbed, one locks its gripping limbs and draws the surrounding structural response into its layered shell."
   subkind :anomaly
   status :complete
   tags :orbital, :resonance, :ecology, :salvage, :danger, :ringglass

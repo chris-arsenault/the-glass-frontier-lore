@@ -1,5 +1,6 @@
 installation :threshold_station do
   name "Threshold Station"
+  summary "Threshold Station is a pre-Glassfall spindle at the inner balance point between Kaleidos and the sun, housing the Lattice Proxy Synod and one end of Span Nine."
   playable_as :chronicle_location
   subkind :settlement
   path "player/locations/settlements/threshold-station.md"
@@ -72,8 +73,10 @@ end
 
 # --- history (moments) ---
 moment :threshold_telleran_lost, year: 2367, of: :threshold_station do
+  summary "The Telleran expedition vanished inside Threshold Station in 2367, and the Synod sealed its sector at the expedition boundary."
   prose "The Telleran expedition did not return in 2367 — the deepest the Synod had pushed into the sealed station. Its records of what was found before the loss are extensive, deliberately incomplete, and unpublished. The Telleran Sector was sealed at the expedition's boundary and has been patrolled ever since."
 end
 moment :threshold_lower_vault_incident, year: 2381, of: :threshold_station do
+  summary "One of three Wardens died during a telemetry recovery inside Threshold Station's Lower Vault in 2381."
   prose "Three Wardens entered the deep station to retrieve the lost expedition's telemetry. Two returned. The third's body was recovered three days later, inside the sector, in a position the Wardens have never publicly explained. The Lower Vault was resealed at a deeper boundary than the incursion had required."
 end

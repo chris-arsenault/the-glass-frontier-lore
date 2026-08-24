@@ -1,5 +1,6 @@
 resource :navren do
   name "Navren"
+  summary "Navren is a copper-barked tree cultivated at Noll for curved structural timber whose tuned grain flexes under changing loads."
   subkind :biological_material
   function "Provides curved structural timber that carries a tuned load through its grain"
   status :complete

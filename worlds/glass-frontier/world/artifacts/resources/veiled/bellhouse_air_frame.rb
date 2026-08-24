@@ -1,5 +1,6 @@
 resource :bellhouse_air_frame do
   name "Bellhouse Air Frame"
+  summary "Bellhouse air frames are folding emergency-life-support structures sourced from Fourth Bell House, Five Landing, Holl, and Eleven. One frame sustains twelve sleepers in a sealed room through a dock closure."
   subkind :infrastructure
   status :complete
   prominence :marginal

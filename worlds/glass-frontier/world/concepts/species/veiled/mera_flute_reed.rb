@@ -1,5 +1,6 @@
 species :mera_flute_reed do
   name "Mera Flute-Reed"
+  summary "Mera Flute-Reed is a cultivated plant that vents root heat as a chord whose pitch changes when neighboring grafts become diseased."
   subkind :species
   status :complete
   prominence :marginal

@@ -1,5 +1,6 @@
 creature :marrower do
   name "Marrower"
+  summary "Marrowers are forearm-length, six-legged scavengers that live inside Orra's dead carrier. Survey crews release trained pairs into fluid channels, where their resonant belly plates reveal sealed channels, gas pockets, and warm tissue."
   subkind :animal
   status :complete
   tags :ecology, :resonance, :"ring-hab"

@@ -1,5 +1,6 @@
 resource :kite_sail do
   name "KITE"
+  summary "A kite is the general-purpose motive engine of the Kaleidos system, moving vehicles by redirecting opposing forces through kinetic-band resonance. The same engine drives surface craft, orbital vessels, and Shear-rated ships."
   subkind :device
   function "Moves vehicles by redirecting opposing forces into a frequency null space"
   path "player/artifacts/common/kite-sail.md"
@@ -55,6 +56,7 @@ resource :kite_sail do
 end
 
 moment :kite_sail_development, year: 2235, of: :kite_sail do
+  summary "A freight crew recorded the first repeatable kite tuning during a surface crossing on Kaleidos in 2235."
   prose "A freight crew crossed a dry basin on Kaleidos in 2235 with a kinetic array fixed to three cloth spars. The surviving maintenance record includes the first repeatable tuning pattern for a kite; workshops across the surface copied it within the year."
 end
 

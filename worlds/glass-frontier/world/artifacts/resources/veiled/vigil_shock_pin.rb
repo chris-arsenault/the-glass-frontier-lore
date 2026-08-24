@@ -1,5 +1,6 @@
 resource :vigil_shock_pin do
   name "Vigil Shock Pin"
+  summary "A Vigil shock pin is a single-use grounding device sourced from Vigil Breach, the Kyther Range, Marker House Twelve, and Ladderwell. It absorbs one resonance strike and shatters into harmless black grains."
   subkind :device
   status :complete
   prominence :marginal

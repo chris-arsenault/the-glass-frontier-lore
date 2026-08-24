@@ -1,5 +1,6 @@
 ability :span_listening do
   name "Span Listening"
+  summary "Span Listening is a learned structural skill for hearing changes in the load carried by old ring beams before they shift."
   subkind :learned_ability
   status :complete
   prominence :marginal

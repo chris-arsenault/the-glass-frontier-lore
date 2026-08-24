@@ -1,5 +1,6 @@
 phenomenon :latch_quiet do
   name "Latch Quiet"
+  summary "Latch Quiet is the collective withdrawal from Latch's public rooms when cordon bells repeat the pattern heard before Pyre's last surge."
   subkind :social_condition
   status :complete
   prominence :marginal

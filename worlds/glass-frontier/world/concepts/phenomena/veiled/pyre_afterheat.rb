@@ -1,5 +1,6 @@
 phenomenon :pyre_afterheat do
   name "Pyre Afterheat"
+  summary "Pyre Afterheat is a recurring flameless heat surge that softens exposed seals along the Cinder Gap cordon."
   subkind :catastrophe
   status :complete
   prominence :marginal

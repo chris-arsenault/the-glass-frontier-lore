@@ -1,5 +1,6 @@
 culture :avar_road_people do
   name "Avar Road People"
+  summary "Avar Road People are the mobile households of Avar's shifting surface routes, keeping their stores in chests that can move when a road changes course."
   subkind :overview
   status :complete
   prominence :marginal

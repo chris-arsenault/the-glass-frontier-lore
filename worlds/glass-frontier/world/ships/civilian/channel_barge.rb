@@ -1,5 +1,6 @@
 transport :channel_barge do
   name "Channel Barge"
+  summary "Channel barges are broad, shallow vessels that carry people and goods through Korvath's Dovra. Household and village crews reconfigure their decks for cargo, passengers, markets, and flood work."
   subkind :vessel
   status :complete
   capacity "A family or village crew, a shallow cargo deck, and removable passenger or living shelters"
