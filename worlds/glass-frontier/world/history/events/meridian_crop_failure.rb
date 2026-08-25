@@ -9,6 +9,20 @@ incident :meridian_crop_failure do
   duration "One growing cycle"
   cause_status "Expansion of identical closed-cycle beds allowed one root blight to cross the hab"
 
+  descriptive_identity(
+    marks:
+      "Freight paperwork is where the shortage survives: records for " \
+      "living cargo carry environmental limits, a named custodian, and " \
+      "paired signatures from packers and receivers, fields the crop " \
+      "manifests invented. The relief schedule between Hab Meridian and " \
+      "Glasswake hardened into a standing run, and cultures aboard it " \
+      "still travel with their growers.",
+    stakes:
+      "Meridian growers object to any bed expanded on a single proven " \
+      "culture, and will say why: identical closed-cycle beds let one " \
+      "root blight cross nearly the whole hab in 2317."
+  )
+
   prose <<~PROSE
     The food shortage that turned the first restored signal between #{ref :hab_meridian, "Hab Meridian"} and #{ref :glasswake, "Glasswake"} into a working freight relationship. Meridian expanded its old growing beds after Reconnection traffic increased. The new beds used the same preserved root culture as the old ones. A blight that one varied field could have contained crossed nearly the whole hab.
   PROSE
@@ -32,8 +46,29 @@ end
 
 relate :rel_hab_meridian_participated_crop_failure, :participated_in, :hab_meridian, :meridian_crop_failure do
   prose "Hab Meridian rebuilt its growing beds with surface cultures and visiting growers."
+  descriptive_identity(
+    aims:
+      "The hab needed varied root stock and live soil to restart beds " \
+      "that a single preserved culture had left open to one blight.",
+    conduct:
+      "It paid in tuned orbital components and sent its technicians " \
+      "down on the return legs to fit ringglass controls in Glasswake's " \
+      "workshops.",
+    cost:
+      "One harvest was lost outright; the beds themselves survived."
+  )
 end
 
 relate :rel_glasswake_participated_crop_failure, :participated_in, :glasswake, :meridian_crop_failure do
   prose "Glasswake supplied the living cargo and received Meridian technicians on the return legs."
+  descriptive_identity(
+    aims:
+      "What Glasswake stood to gain was a standing market for living " \
+      "cargo and a dependable source of tuned components — worth more " \
+      "than any single relief payment.",
+    conduct:
+      "Its growers rode up with each shipment of seed, soil cultures, " \
+      "and varied root stock, signing shared manifests beside the " \
+      "people prepared to receive them."
+  )
 end

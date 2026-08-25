@@ -10,6 +10,33 @@ faction :brake_free_cutters do
   status :complete
   omit_facts :leaders, :predecessors
 
+  descriptive_identity(
+    ideology:
+      "Family crews own their vessels and tools outright, but a claim " \
+      "belongs to whoever marked it and told Brake — buoys set, assay cuts " \
+      "made, notice on record. Since Shardfall they also hold that no " \
+      "claim is worth closing a route home, and that a debris field near " \
+      "enough to threaten Brake cannot be abandoned to a stronger company.",
+    methods:
+      "The common board records every claim and assigns the pooled tugs, " \
+      "watches, rescue stores, and cutting time needed to hold it safely. " \
+      "Dangerous hulls get towed back to Brake's cutting lots rather than " \
+      "opened where they lie, and nobody makes a linked cut inside an " \
+      "inhabited field or fires a weapon across a marked work line.",
+    presence:
+      "Mining families on their own tugs, the oldest wearing mismatched " \
+      "plates cut from seized Drossmark rigs — each drilled through its " \
+      "control channels before installation, recognizable on sight to " \
+      "anyone who reads salvage marks. Ashore they are the claim board and " \
+      "the permanent rescue stores beside Brake's capture lanes.",
+    attitude:
+      "Newcomers come in through the board: register the claim, read the " \
+      "warnings kept beside the Shardfall record, and the shared equipment " \
+      "follows. Toward a company that plants rigs on a marked field they " \
+      "concede nothing — they lacked the ships to force Drossmark out and " \
+      "stayed anyway."
+  )
+
   prose <<~PROSE
     The Brake Free Cutters are family mining crews that pool tugs, claim watches, rescue stores, and cutting time around #{ref :brake, "Brake"}. Each crew owns its vessel and tools. A common board records claims and assigns the shared equipment needed to hold them safely.
 
@@ -39,7 +66,35 @@ relate :rel_brake_free_cutters_operate_shear, :operates_in, :brake_free_cutters,
 end
 relate :rel_brake_free_cutters_supply_brake, :supplies, :brake_free_cutters, :brake, since: 2336 do
   prose "Their graded salvage feeds Brake's repair yards and cutting lots."
+  descriptive_identity(
+    terms:
+      "Dangerous hulls come home under tow instead of being opened " \
+      "where they lie, logged on the common board with the claim that " \
+      "produced them, and the town's intake teams take it from there.",
+    dependence:
+      "Brake has eaten from this arrangement before: the last " \
+      "intact-grade load after Shardfall paid for the hab's pressure " \
+      "repairs, and the rescue stores beside the capture lanes stand " \
+      "stocked because Cutter families keep them so."
+  )
 end
 relate :rel_brake_free_cutters_participated_shardfall, :participated_in, :brake_free_cutters, :shardfall do
   prose "The Cutters defended their prior claim, pulled damaged vessels toward Brake, and later stabilized the field."
+  descriptive_identity(
+    aims:
+      "The claim was theirs by every rule they keep — buoys set, assay " \
+      "cuts made, notice on Brake's record — and the field sat close " \
+      "enough to threaten their home that abandoning it to a stronger " \
+      "company was never on the table.",
+    conduct:
+      "They powered down when the hab ordered work stopped, fired only " \
+      "when an escort tried to hold one of their barges in the field, " \
+      "and severed the nearest array tether while Brake's crews cut the " \
+      "arrestor feeds.",
+    cost:
+      "Nine Cutters died. Three years of single-vessel cuts stabilized " \
+      "the field, and its last load went to Brake's pressure repairs, " \
+      "household shares for the dead, and the rescue stores that now " \
+      "wait at the capture lanes."
+  )
 end

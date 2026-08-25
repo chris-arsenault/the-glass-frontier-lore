@@ -7,6 +7,27 @@ resource :duskgrain do
   tags :resonance, :danger, :materials
   prominence :recognized
 
+  descriptive_identity(
+    appearance:
+      "Dark grains rarely larger than a seed, each giving off a faint " \
+      "harmonic hum that Tuners call unsettling. They come out of Bloom " \
+      "Zones and deep Shear pockets, wherever narrow-band resonance has " \
+      "held long enough to solidify.",
+    working:
+      "One grain can power a mid-bandwidth device for days, but the " \
+      "stored resonance is tuned to no band and releases across the " \
+      "full spectrum at once — drawing it down cleanly takes " \
+      "narrow-bandwidth skill. It changes hands through smuggling " \
+      "routes and black-market channels rather than open trade.",
+    risks:
+      "An uncontrolled release runs from disruptive to catastrophic at " \
+      "small scale. Years of handling leave marks: hearing narrow-band " \
+      "work nobody else notices, mistaking which side of a bulkhead a " \
+      "sound came from. Possession is lawful under the Accord while the " \
+      "cordoned ground it comes from is not, and enforcement reads that " \
+      "gray area darkly.",
+  )
+
   prose <<~PROSE, section: :how_it_works, heading: "How It Works"
     A crystallized substance found in #{ref :bloom_zones, "Bloom Zones"} and occasionally in deep #{ref :the_shear, "Shear"} pockets. Duskgrain forms where narrow-bandwidth resonance has been sustained for extended periods — it's essentially resonance energy that has solidified into a physical material. The grains are small (rarely larger than a seed), dark, and produce a faint harmonic hum that #{ref :tuners, "Tuners"} describe as unsettling.
 

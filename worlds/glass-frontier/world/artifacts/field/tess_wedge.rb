@@ -7,6 +7,26 @@ artifact :tess_wedge do
   tags :ringglass, :archives, :"signal-freq", :materials
   prominence :marginal
 
+  descriptive_identity(
+    appearance:
+      "A clear ringglass edge cut from an offcut, backed by a ceramic " \
+      "heel, its grip wrapped in lift cable. Repeated dressing has " \
+      "shortened the edge, and Talven keeps it at the Sixth Bench " \
+      "between assignments.",
+    handling:
+      "Seat the clear edge along the crystal grain and tap the heel; " \
+      "the wedge answers the signal in the layer and sends the same " \
+      "vibration up through the wrapped grip, so the holder feels the " \
+      "recording before the listening points do. Pressure during that " \
+      "return opens a flat fracture behind the recording and leaves the " \
+      "signal-bearing face whole.",
+    risks:
+      "Talven assigns it only to archive cuts whose surrounding layer " \
+      "has been mapped, so a fresh face costs a mapping shift first. " \
+      "Workshop copies match its shape, split the glass just as " \
+      "cleanly, and scatter the recorded signal across both new faces.",
+  )
+
   prose <<~PROSE
     Twelve intact plates came from the first archive face cut with Var's Wedge. Talven cutter #{ref :tess_var, "Renn Var"} made the tool from a clear offcut, a ceramic heel, and a grip wrapped in lift cable after every metal edge broke the recorded signal. The archive manifest attached her name to the successful instrument.
 

@@ -16,6 +16,19 @@ species :fae do
   custom_fact :principal_accommodation, "Coherence-supporting devices and architecture",
               label: "Principal Accommodation"
 
+  descriptive_identity(
+    appearance:
+      "When coherent, a fae is roughly person-shaped with edges that never " \
+      "quite settle — an outline that softens when they tire, a translucence " \
+      "that starts at the fingers. Most wear a coherence aid openly somewhere " \
+      "on the body, and its quality is the most legible fact about them.",
+    senses:
+      "A diffuse fae perceives its whole spread area at once, slowly and " \
+      "dreamily; a coherent fae perceives much as a person does. A sudden " \
+      "resonance shift hits the body before any sense names it, and can pull " \
+      "coherence apart uninvited."
+  )
+
   prose <<~PROSE
     Engineered origin, created or modified during the ring era. The details of who made them and why are debated — the #{ref :elves, "elves"} are the obvious candidates, but the fae predate some ring-era records in ways that don't track with a clean "the elves made them" narrative. Some scholars believe fae are a modification of a pre-existing species rather than a ground-up creation. The fae themselves consider the question irrelevant to their present circumstances, which are complicated enough without worrying about origins.
   PROSE
@@ -57,6 +70,13 @@ end
 
 relate :rel_fae_depends_on_gnomes, :depends_on, :fae, :gnomes do
   prose "The fae depend on the #{ref :gnomes, "gnomes"} — the best coherence aids are gnomish-made, an economic tie neither engineered species is quite comfortable with."
+  descriptive_identity exposure:
+    "A fae cut off from gnomish workshops falls back on cheap or aging " \
+    "aids, and the cost is counted in waking hours: shorter coherent " \
+    "periods, more forced rest, and a reputation for unreliability that " \
+    "follows the person rather than the hardware. Both peoples were " \
+    "made, but one was given a gift and the other a burden, and the " \
+    "trade never lets either forget it."
 end
 relate :rel_fae_depends_on_resonance, :depends_on, :fae, :resonance do
   prose "More fundamentally they depend on #{ref :resonance, "resonance"} itself: the fields in their coherence aids are the prosthetic that makes a coherent life possible."

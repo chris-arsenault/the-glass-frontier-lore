@@ -13,6 +13,30 @@ installation :rib do
   access "Filter carriers from Vey and timber loads from Noll through one approach trench kept open in the outer shell"
   omit_facts :maintained_by
 
+  descriptive_identity(
+    setting:
+      "Narrow terraces cut between old alloy and living stone inside a " \
+      "growing pressure reef, curved around the one exposed ring " \
+      "support at the center. Room walls breathe through soft filter " \
+      "mouths, and the reef's low structural pulses travel up through " \
+      "floors, pipes, and the hard belly plates of grazing sorel.",
+    activity:
+      "The pulse is the schedule: cutters open passages during the long " \
+      "low note while new mineral is soft, filter crews climb during the " \
+      "short rising pattern that drives grit outward, and meals gather " \
+      "on the terraces in the quiet interval while the reef moves its " \
+      "water.",
+    access:
+      "Filter carriers from Vey and timber loads from Noll come in " \
+      "through the single approach trench kept open in the outer shell.",
+    hazards:
+      "Dust, spores, smoke, or cutting work makes a room's filter " \
+      "mouths contract, and its air supply stops until they reopen. The " \
+      "fourth terrace is closing a handspan at a time, fresh shell " \
+      "creeping over doors, rail sockets, and three generations of " \
+      "painted measure marks."
+  )
+
   prose <<~PROSE
     Work follows the pulse. Shell cutters open passages during the long low note, when new mineral lies soft around its channels. Filter crews climb during the short rising pattern that drives trapped grit toward the outer surface. Meals gather on the terraces during the quiet interval while the reef redistributes water.
 

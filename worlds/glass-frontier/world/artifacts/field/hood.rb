@@ -7,6 +7,30 @@ artifact :hood do
   tags :resonance, :salvage, :danger, :orbital, :training
   prominence :recognized
 
+  descriptive_identity(
+    appearance:
+      "Three curved arms across the shoulders and behind the head, each " \
+      "holding a narrow ringglass strip above a stillwater layer, with " \
+      "dark windows on the arms where bubbles show as the medium takes " \
+      "signal. A genuine rig carries service weights; the imitations in " \
+      "Glasswake carry fresh paint and none.",
+    handling:
+      "The frame is fitted to one wearer's resting response — another " \
+      "operator matches the three strips while the Tuner sits without " \
+      "practicing — and once closed it swallows the small changes their " \
+      "attention would place into local resonance. The wearer keeps " \
+      "ordinary senses, reads the rig only through soft unequal taps in " \
+      "the shoulder pads, and a partner holds the line and decides when " \
+      "the arms open, one at a time.",
+    risks:
+      "Taps falling into step mean the frame is following an external " \
+      "pattern and must be opened; three dark windows mean it is near " \
+      "release. On a borrower the fitted damping can make the signal " \
+      "more regular instead of less visible, damaged compartments fail " \
+      "by feeling more comfortable, and the hood hides nothing else — " \
+      "not a drive, a sweep, or the path a blank has already fixed.",
+  )
+
   prose <<~PROSE
     A hood is a wearable dampening frame used when active Tuning would draw a #{ref :blank, "blank"} or disturb a sensitive field. Three curved arms sit across the shoulders and behind the head. Each holds a narrow strip of ringglass above a layer of stillwater. When closed around a prepared wearer, the strips absorb the small organized changes their attention would otherwise place into local resonance.
 

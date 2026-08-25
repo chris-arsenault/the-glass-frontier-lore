@@ -7,6 +7,25 @@ resource :blue_loam do
   tags :ecology, :materials, :trade, :resonance
   prominence :marginal
 
+  descriptive_identity(
+    appearance:
+      "Dark soil threaded with cobalt fungal hairs, the mature mold " \
+      "forming pale nodules along its tone lines. A shipment is three " \
+      "things together: live loam, dried nodules, and a scored ceramic " \
+      "bar carrying the bed's cultivation tone.",
+    working:
+      "Growers keep it in shallow warm beds fed with powdered root, " \
+      "saline water, and a slow structural tone; apothecaries steep the " \
+      "nodules into a paste laid around damaged nerves, and a steady " \
+      "culture coaxes sensation back from the injury outward.",
+    risks:
+      "A stressed culture drives rapid pulses through the surrounding " \
+      "tissue and can keep a patient awake for days. Seren's stock has " \
+      "split into two stable forms identical to the eye and the record, " \
+      "so with the exchange lot closed, a cracked or swapped ceramic " \
+      "bar leaves nobody able to say which form a shipment holds.",
+  )
+
   prose <<~PROSE
     Cobalt fungal hairs thread the dark soil sold as blue loam. Growers at #{ref :seren, "Seren"} keep it in shallow warm beds and feed it powdered root, saline water, and a slow structural tone. The mature mold forms pale nodules along the tone lines.
 

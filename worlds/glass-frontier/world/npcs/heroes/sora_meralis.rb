@@ -5,6 +5,13 @@ npc :sora_meralis do
   born 2391
   occupation "Chief Ledgrist of the Echo Ledger Conclave"
   species "human"
+  identity_source :species, :humans
+  identity_source :culture, :sitharian_culture
+  descriptive_identity disposition:
+    "Meralis gives a restricted holding's title, its date, and the reason " \
+    "it is closed, and not the recording. Her seals record the evidence " \
+    "she examined, the evidence she refused, and where a finding rests on " \
+    "interpretation."
   culture "Sithari"
   tags :archives, :resonance, :"signal-freq", :governance
   prominence :recognized
@@ -35,6 +42,12 @@ relate :rel_sora_meralis_located_thornvault, :located_in, :sora_meralis, :thornv
 end
 relate :rel_sora_meralis_member_conclave, :member_of, :sora_meralis, :echo_ledger_conclave, since: 2413 do
   prose "Meralis entered the Conclave as an authentication archivist before joining its senior ledgers."
+  descriptive_identity standing:
+    "Her standing was earned at the authentication benches, where a " \
+    "missing line could move a home or a cargo hold between claimants; " \
+    "the discipline of those years — evidence examined, evidence " \
+    "refused, interpretation marked as such — is what she now asks of " \
+    "the whole catalogue."
 end
 relate :rel_sora_meralis_studies_echo_rivers, :studies, :sora_meralis, :echo_rivers, since: 2413 do
   prose "Her authentication work compares disputed records with dated voices recovered from the Echo Rivers."

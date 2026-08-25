@@ -7,6 +7,22 @@ transport :claim_rig do
   tags :transport, :salvage, :resonance, :orbital, :danger, :trade
   prominence :recognized
 
+  descriptive_identity(
+    appearance: "Outwardly it could be anything — a converted cargo craft, survey hull, or old passenger kite — " \
+                "carrying one to four unmanned cutters in cradles. What marks a working rig is its repairs: scrape " \
+                "marks around a shutter, mismatched wall plates, a breaker moved within easier reach.",
+    aboard: "Short passages, heavy shutters, cleanable walls, exposed manual breakers, and painted deck routes " \
+            "showing which controls belong together. Each cutter has its own receiver, clock, and power break; " \
+            "closed rooms carry a physical tally outside the door naming who may reopen them. Cabins sit at the " \
+            "clean end past the bridge, and boots and outer clothing do not cross into them unwashed.",
+    behavior: "It stands off from the claim and takes material through remote cutters, each return landing in an " \
+              "isolated bay that is sounded and sampled before anything opens inward. A good cut looks uneventful " \
+              "from the bridge and exhausting in the process rooms. Returns sometimes carry living things — a " \
+              "cutter wake — and the response is to seal the room and kill every tone beyond it, because the " \
+              "intruder follows the strongest useful signal. Crews drop receivers and shear cutter lines before " \
+              "risking the route home."
+  )
+
   prose <<~PROSE
     A claim rig is a salvage vessel built to receive material from unstable debris without bringing its crew alongside the claim. It carries one or more unmanned cutters, a separate receiver for each cutter, and enough processing rooms to decide what has come back before opening it to the rest of the ship. #{ref :ratters, "Ratters"} call almost every vessel they fly a skiff. A claim rig is the kind of skiff whose interior is arranged around doors that may need to close quickly.
 

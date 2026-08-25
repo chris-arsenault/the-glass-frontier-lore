@@ -5,6 +5,30 @@ resource :vashtenri_thesis do
   tags :archives, :resonance, :"ring-era"
   prominence :marginal
 
+  descriptive_identity(
+    appearance:
+      "A three-part volume: pre-Glassfall service fragments reproduced " \
+      "at actual size with their burns and overwritten figures, Lira " \
+      "Vashtenri's refinery readings laid over substrate maps on " \
+      "transparent leaves, and recorded drawdown cases. Working copies " \
+      "are usually missing leaves, carried off to engine rooms and not " \
+      "returned.",
+    working:
+      "Laid in order, the transparent leaves show a heavy draw as a " \
+      "darkened region spreading along ringglass-bearing seams, and a " \
+      "reader can lift a layer to separate instrument record from " \
+      "Duvasi's inference. Crews use it to look past a failed device: " \
+      "map the gradient across the surrounding structure before " \
+      "declaring a source exhausted.",
+    risks:
+      "The model holds only where the substrate has been surveyed — in " \
+      "loose debris, fractured deep-Shear claims, and Bloom-altered " \
+      "material its predictions miss. In the deep Shear an annotated " \
+      "copy outvalues a clean one because the margins record where the " \
+      "published maps are wrong, which makes it a trade good other " \
+      "crews will bargain, borrow, or lift for.",
+  )
+
   prose <<~PROSE
     The Vashtenri Thesis is Renn Duvasi's published study of resonance load moving through connected ringglass. Its central claim is practical: an array draws from a field larger than its housing, and the strongest effect may appear where that field narrows rather than where the work occurs. A refinery can quiet a distant household line. A structural array can strengthen one seam while leaving another slow to recover. Boundaries drawn around equipment rarely match the paths the resonance follows.
 

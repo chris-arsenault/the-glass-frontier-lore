@@ -7,6 +7,35 @@ installation :the_dry_net do
   tags :trade, :salvage, :transport, :household, :surface
   prominence :marginal
 
+  descriptive_identity(
+    setting:
+      "A former net loft on Glasswake's dock fringe, between the harbor " \
+      "wash yard and the road up to the mineral offices. Stone ground " \
+      "floor drained for wet boots, bunk rooms and curtained bays under " \
+      "the old ceiling rails above, and a cellar cut into bays by dead " \
+      "ceramic walls where energized goods wait to be sounded.",
+    activity:
+      "Cargo hands read work slips nailed under the tide and mine-shift " \
+      "boards while the kitchen runs from the first mine lift until the " \
+      "tide turns. Long tables mix trades that never share a workplace — " \
+      "a claim Tuner beside a wool grader — and chalk comes out for " \
+      "drawing seams and load paths on the tabletops.",
+    access:
+      "Anyone can walk into the front hall; a bed buys wash water, a " \
+      "blanket, and one sealed case in the dry store. Hiring is done in " \
+      "the open room under the clerk's eye — a private bargain stays " \
+      "legal but gets no help from the house when pay, injury, or cargo " \
+      "turns out otherwise. The stranded pay by taking a kitchen or " \
+      "night-desk shift.",
+    hazards:
+      "An active seam carried upstairs once set every bed frame on the " \
+      "floor pulling east, which is why the cellar walls exist. The Pell " \
+      "plate rush has brought slips that hide the no-powered-sounding " \
+      "condition in smaller writing, and locked cases of ungraded plate " \
+      "now sleep upstairs with hired guards because the house refuses " \
+      "them the dry store."
+  )
+
   prose <<~PROSE
     The Dry Net is a lodging house and hiring room on #{ref :glasswake, "Glasswake"}'s dock fringe. It occupies a former net loft between the harbor wash yard and the road climbing toward the mineral offices. Ratter crews sleep upstairs, steppe carriers take the broad ground rooms, and cargo hands come through the front hall to read work slips nailed beneath the tide and mine-shift boards.
 

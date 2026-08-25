@@ -8,6 +8,36 @@ faction :pell_freight_assembly do
   tags :trade, :transport, :salvage, :resonance, :"social-structure"
   prominence :recognized
 
+  descriptive_identity(
+    ideology:
+      "Working crews should own their own network: one member, one vote, " \
+      "however many vessels the member runs, and lenders never sit the " \
+      "route council. Whoever will bear the cost of a decision speaks " \
+      "before anyone votes on it, and a debt like Pell Four belongs to the " \
+      "members, not to anyone else.",
+    methods:
+      "Five elected route factors publish schedules, set the common safety " \
+      "rules, and decide which losses the pooled fund covers; they cannot " \
+      "order a member ship to fly, only withhold docks, insurance, and " \
+      "freight access until the argument settles. Cargo dues and work " \
+      "credits pay for the network — a crew short of cash takes " \
+      "maintenance watches, rescue standby, or an empty return leg.",
+    presence:
+      "Flight crews, yards, cargo hands, claim operators, and resonance " \
+      "staff working shared receiving yards and freight junctions on the " \
+      "Pell approaches. A meeting runs like a claim board: hazard named " \
+      "first, price second, the person accepting the risk on their feet " \
+      "before the vote. Since the Emergence, every remote array clock in " \
+      "the network runs separately and the on-site Tuner can stop the " \
+      "work alone.",
+    attitude:
+      "Outside money may lend to the Assembly and will never vote in it. " \
+      "When Pell Four came, it did not argue jurisdiction — it closed the " \
+      "affected routes, surrendered its array records, and put its repair " \
+      "crews under Displacement Council direction until the boundary was " \
+      "gone."
+  )
+
   prose <<~PROSE
     A member-owned freight and extraction network based in #{ref :glasswake, "Glasswake"}. Its voting shares belong to working crews, repair yards, claim brokers, and cargo cooperatives. A member may own several vessels but holds one vote. Outside investors can lend to the Assembly but cannot sit its route council.
 
@@ -53,4 +83,21 @@ relate :rel_pell_assembly_maintains_heavy_haulers, :maintains, :pell_freight_ass
 end
 relate :rel_pell_assembly_participated_in_pell_four, :participated_in, :pell_freight_assembly, :pell_four do
   prose "The Assembly financed the synchronized array test that caused Pell Four and supplied the crews that helped close it."
+  descriptive_identity(
+    aims:
+      "The four-array test extended the Assembly's own discipline — " \
+      "shared clocks, uniform procedure, pooled losses — to claims its " \
+      "members could not have financed alone.",
+    conduct:
+      "When the boundary formed it closed the affected routes, " \
+      "surrendered its array records, and put its haulers and repair " \
+      "crews under Displacement Council direction until the boundary " \
+      "was gone; afterward it separated every remote clock in the " \
+      "network and gave on-site Tuners independent stop authority.",
+    cost:
+      "The pooled fund still pays cordon costs, interrupted contracts, " \
+      "and the crews dismantling the synchronized equipment. Members " \
+      "argue over how long the payments should run and not over whose " \
+      "debt it is."
+  )
 end

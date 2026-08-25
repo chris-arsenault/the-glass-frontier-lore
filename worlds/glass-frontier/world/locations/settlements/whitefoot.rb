@@ -7,6 +7,31 @@ installation :whitefoot do
   prominence :recognized
   status :complete
 
+  descriptive_identity(
+    setting:
+      "An open field north of Sithari where the old conduit meets a low " \
+      "ringglass platform and rises from it as a white filament, a broad " \
+      "flare of light marking the point of entry. Around it stand " \
+      "isolated signal rooms, a customs hall, and the converter banks " \
+      "that step Span traffic down to modern bandwidth.",
+    activity:
+      "Operators assign channels, verify the receiving station before " \
+      "any traffic starts, and stand ready to disconnect local " \
+      "equipment; the customs hall processes whatever crosses with a " \
+      "transmission. Staff commute up the electric rail from Sithari's " \
+      "Old Campus each day.",
+    access:
+      "A buried signal trunk and an electric rail line connect the yard " \
+      "to the Old Campus — close enough for daily work, far enough that " \
+      "a Span closure does not sit over the city. The station keeps its " \
+      "own access rules under Sitharian maintenance.",
+    hazards:
+      "Nothing in the yard controls the conduit. When a response runs " \
+      "past what local equipment can take, operators disconnect it and " \
+      "the exchange ends mid-sentence, finished when the converter banks " \
+      "say so rather than when the speakers are done."
+  )
+
   prose <<~PROSE
     The surface terminus of #{ref :span_nine, "Span Nine"}, outside Sithari's northern municipal boundary. The old conduit meets a low ringglass platform in an open field and rises from it as a white filament. The common name describes the broad flare of light where the filament enters the platform.
   PROSE
@@ -42,4 +67,10 @@ end
 
 relate :rel_whitefoot_depends_on_sithari, :depends_on, :whitefoot, :sithari do
   prose "Whitefoot depends on Sithari for staff, power distribution, customs, and surface transport."
+  descriptive_identity exposure:
+    "Every operator, customs officer, and watt rides the rail up from " \
+    "the Old Campus each day, so the city can idle the terminus without " \
+    "touching it: a quarrel with the capital arrives as an empty yard " \
+    "and a silent converter hall, and the Span itself never enters the " \
+    "argument."
 end

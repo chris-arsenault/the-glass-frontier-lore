@@ -13,6 +13,28 @@ geographic_location :the_sun do
   custom_fact :principal_hazard, "Particle storms that disturb signal and kinetic resonance",
               label: "Principal Hazard"
 
+  descriptive_identity(
+    setting:
+      "The single star at the system's center, followed by seven " \
+      "intact planets and the remains of an eighth. Seen from " \
+      "Kaleidos, the broken ring crosses its face as arcs and " \
+      "isolated fragments, and fine debris catching direct light " \
+      "gives the daytime sky its shifting colors.",
+    activity:
+      "Pilots, surveyors, and clock keepers from Crucible's mines to " \
+      "the stations above Lithren take their common reference from " \
+      "its position, and deep-system charts count distance outward " \
+      "from it. Forecast offices weigh stellar observations against " \
+      "outer-beacon measurements before issuing closures.",
+    hazards:
+      "Particle storms take the signal band down first and the " \
+      "kinetic fields later: relays lose clarity, kite sails draw " \
+      "unevenly, and exposed ringglass answers in tones outside its " \
+      "ordinary profile. A strong front hits the inner worlds early " \
+      "and hard, and around Kaleidos it forces traffic away from " \
+      "dense debris where many small responses can couple."
+  )
+
   prose <<~PROSE
     The sun is the central star of the #{ref :kaleidos_system, "Kaleidos system"}. Seven intact planets and the remains of an eighth world follow it. Pilots, surveyors, and clock keepers use its position as the common reference from the mines of Crucible to the stations above Lithren.
 

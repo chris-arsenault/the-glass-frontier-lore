@@ -9,6 +9,32 @@ faction :vantara do
   tags :trade, :transport, :governance
   prominence :recognized
 
+  descriptive_identity(
+    ideology:
+      "The product is the experience of travel, not the logistics — the " \
+      "money was never in the cargo but in making the journey tolerable " \
+      "for the people carrying it. Neutrality is a commercial position: " \
+      "taking sides is bad for business, so Vantara takes none.",
+    methods:
+      "It runs the largest civilian kite fleet in the system and " \
+      "maintains the route infrastructure nobody formally owns — beacons, " \
+      "refueling stations, rescue coverage — funded partly by Accord " \
+      "subsidy and partly by usage fees everyone pays while complaining. " \
+      "Asked to choose a side, it produces a quote; a paying party gets " \
+      "escorts and berths, and so does the faction chasing them.",
+    presence:
+      "Waystations and hotels that are reliably clean, consistently " \
+      "average, and identical from the Keel to a ring hab, staffed under " \
+      "corporate-smooth branding. Its escort ships carry weapons while " \
+      "the company states, very clearly, that it is not a military.",
+    attitude:
+      "Everyone with funds is a customer, which is what makes it a " \
+      "logistics backbone all sides can work with. Independent operators " \
+      "live off its beacons and rescue coverage while its pricing " \
+      "squeezes their margins, and both parties treat that stable, " \
+      "unhappy arrangement as permanent."
+  )
+
   prose <<~PROSE
     *"Every journey, elevated."*
 
@@ -58,6 +84,11 @@ relate :rel_vantara_operates_keel, :operates_in, :vantara, :keel, since: 2330 do
 end
 relate :rel_vantara_member_of_bloom_coalition, :member_of, :vantara, :bloom_coalition, since: 2380, till: 2396 do
   prose "It carried the #{ref :bloom_coalition, "Bloom Coalition"}'s logistics through the containment years, moving people and material the cordons couldn't."
+  descriptive_identity standing:
+    "Vantara was already running the evacuation lifts in the improvised " \
+    "response before the charter existed; signing it placed the " \
+    "company's ships and schedules under the Coalition's single chain " \
+    "of command for as long as containment required one."
 end
 
 # --- history (moments) ---

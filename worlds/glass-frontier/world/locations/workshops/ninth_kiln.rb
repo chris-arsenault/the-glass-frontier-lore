@@ -8,6 +8,37 @@ installation :ninth_kiln do
   tags :"outer-system", :trade, :transport, :resonance, :rebuilding
   prominence :marginal
 
+  descriptive_identity(
+    setting:
+      "A municipal ceramic yard on Lowbank's eastern boatbuilding " \
+      "mound: a firing chamber on a stone core inside a raised " \
+      "platform, clay ramps built to be cut away before a severe " \
+      "flood, sheds for fuel and green ware joined by detachable " \
+      "walks, and a test pool under the unloading crane. Long barge " \
+      "ribs fire upright in narrow side chambers, held straight by " \
+      "their own weight.",
+    activity:
+      "Workers wash and skim Dovra clay until no dark iron line runs " \
+      "through a test tile, move dampers so neighboring blocks never " \
+      "cool on one cadence, and soak every finished piece before " \
+      "sounding it. Boatyards collect ribs, river boards take gate " \
+      "pieces, and household ware clears the platform after the " \
+      "industrial orders.",
+    access:
+      "The yard sells to anyone whose order leaves the ceramic " \
+      "repairable by another shop — a customer's own sounding tone is " \
+      "refused if it would make the batch useful only beside that " \
+      "customer's machine. Ceramic that has sat in an unknown field " \
+      "never rejoins the clay cycle; it goes to marked flood fill, with " \
+      "questions about where it sat.",
+    hazards:
+      "Pieces that ring together after the soak mean the firing built " \
+      "the very pattern the ceramic exists to break, and a whole batch " \
+      "is quarantined on the high platform now for sharing one low " \
+      "note across three chambers — while boatyards need its ribs " \
+      "before the eastern water rises."
+  )
+
   prose <<~PROSE
     Ninth Kiln is a municipal ceramic yard on the eastern boatbuilding mound of #{ref :lowbank, "Lowbank"}. It fires the dead layers that keep a channel barge's drive from coupling into Korvath's iron-rich ground, along with flood gates, pipe collars, stove tile, and ordinary household ware.
 

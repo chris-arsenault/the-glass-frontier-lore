@@ -6,6 +6,18 @@ npc :mik_sorn do
   route "Rattle, Neighborhood Eight, the cold wards, and Dock Four"
   species "human"
   culture "Hab-Worlder"
+  identity_source :species, :humans
+  identity_source :culture, :hab_worlder
+  identity_source :trade, :couriers
+  descriptive_identity attire:
+    "Sorn's coat carries the route in chalk — changes on the left cuff, " \
+    "recipients on the right — smeared pale by midday and gone by the next " \
+    "wash."
+  descriptive_identity disposition:
+    "Sorn reads a delivery question off his own cuffs, left for route " \
+    "changes and right for recipients. The white case stays in his " \
+    "personal custody because its mark lists the people he brings " \
+    "medicine to."
   status :complete
   tags :transport, :household, :trade
   prominence :marginal

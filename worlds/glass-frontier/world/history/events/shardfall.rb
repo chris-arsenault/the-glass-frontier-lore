@@ -11,6 +11,23 @@ incident :shardfall do
   cause_status "Drossmark continued linked extraction after Brake's arrestors began answering the rigs"
   log "2026-08-21 — Fixed Shardfall in 2348 at Brake, named all three armed parties, and based the casualty and regulatory record on the hab's surviving instruments and drive logs."
 
+  descriptive_identity(
+    marks:
+      "Forty-seven cut marks run along the replacement rail of Brake's " \
+      "observation gallery, two dead Drossmark frames hold sorting " \
+      "work in the cutting yards, and permanent rescue stores wait at " \
+      "the capture lanes, paid for by the field's last load. 'Another " \
+      "Shardfall' names any salvage risk that crosses into someone " \
+      "else's air, route, or structure.",
+    stakes:
+      "An operator who claims a private salvage risk ends at the edge " \
+      "of their own vessel gets Brake's recordings quoted back, and " \
+      "Compact inspectors reach for the event whenever a linked field " \
+      "is treated as separate machines. Brake settles claim hearings " \
+      "from drive sequences because this one fixed who moved, who " \
+      "fired, and which arrays stayed active."
+  )
+
   prose <<~PROSE
     Shardfall was a four-day salvage battle beside #{ref :brake, "Brake"} in 2348. #{ref :drossmark_industries, "Drossmark Industries"}, the #{ref :brake_free_cutters, "Brake Free Cutters"}, and #{ref :split_wake, "Split Wake"} fought over an intact-grade ringglass field close to the hab's capture lanes. Linked extraction arrays carried the field's resonance into Brake and killed forty-seven people, including eleven residents inside the hab.
 
@@ -54,4 +71,21 @@ relate :rel_shardfall_located_in_shear, :located_in, :shardfall, :the_shear do
 end
 relate :rel_brake_participated_shardfall, :participated_in, :brake, :shardfall do
   prose "Brake ordered the extraction stopped, kept the public claim channel open, and suffered the cascade across three inhabited wards."
+  descriptive_identity(
+    aims:
+      "The hab wanted the linked cutting stopped before its own " \
+      "structure joined it — its arrestor instruments were answering " \
+      "the extraction tone before the first full load left the rigs.",
+    conduct:
+      "Local crews cut the arrestor feeds on the fourth day, rescue " \
+      "teams recovered everyone whose route into the field stayed on an " \
+      "isolated clock, and copies of the recordings went out with every " \
+      "departing carrier. Afterward Brake expelled Drossmark and held " \
+      "the surviving Split Wake crews for the casualty hearings.",
+    cost:
+      "Eleven of the forty-seven dead were residents. A capture frame " \
+      "snapped inward, pressure doors closed through occupied " \
+      "corridors, an observation gallery lost its outer wall, and the " \
+      "repairs were paid from the field's last load."
+  )
 end

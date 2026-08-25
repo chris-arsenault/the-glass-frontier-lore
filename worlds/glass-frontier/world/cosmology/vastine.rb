@@ -8,6 +8,29 @@ geographic_location :vastine do
   prominence :recognized
   position frame: :kaleidos_system_chart, radius: 7, angle_deg: 46
 
+  descriptive_identity(
+    setting:
+      "A water giant whose atmosphere deepens into a global ocean with " \
+      "no known solid surface, filling its moons' skies with blue-gray " \
+      "bands and white storms. Sounding returns show large slow " \
+      "animals moving in the deep between warm current boundaries, " \
+      "known only through instruments and recovered fragments.",
+    activity:
+      "The inhabited moons trade ice, instruments, food cultures, and " \
+      "refined atmospheric material among themselves, with Pelhari " \
+      "holding the largest port. Communities name recurring band " \
+      "patterns, set civic dates by their return, and research flights " \
+      "release disposable sounding chains into an ocean their crews " \
+      "cannot follow.",
+    hazards:
+      "When the radiation and storm fields rise, safe transfer windows " \
+      "close before a delayed ship can arrive, and a neighboring moon " \
+      "becomes harder to reach than Kaleidos. Chains come back cut, " \
+      "crushed, or carrying tissue from animals some traditions call " \
+      "ancestors and hunting crews call valuable material — both " \
+      "claims arriving with the sample."
+  )
+
   prose <<~PROSE
     Vastine is the seventh planet, a water giant whose atmosphere deepens into a global ocean without a known solid surface. Its inhabited moons include #{ref :pelhari, "Pelhari"}, the largest center of learning and trade in the outer system.
 

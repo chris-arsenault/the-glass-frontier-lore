@@ -9,6 +9,33 @@ geographic_location :kyther_range do
   position frame: :kaleidos_surface, latitude_deg: 10, longitude_deg: -58,
            size_class: :region
 
+  descriptive_identity(
+    setting:
+      "A long chain of dark peaks, high valleys, and year-round " \
+      "snowfields east of Avar, with glaciers in the central heights " \
+      "whose ice runs in bands darkened or cleared by fine ringglass. " \
+      "Thin native crystal seams thread the rock, and where shower " \
+      "dust has entered the cracks a whole face can carry a faint " \
+      "structural answer — climbers hear the mountain before they see " \
+      "it move.",
+    activity:
+      "Valley households farm terraces, herd, quarry stone, guide, " \
+      "and take turns as pass workers through winter, trading wool, " \
+      "hard cheese, and instrument crystal for steppe grain. Pass " \
+      "keepers maintain sounding posts whose wind-blown notes tell " \
+      "both the state of the snow and the way through white weather, " \
+      "and seasonal survey traffic climbs toward Vigil Breach on " \
+      "their forecasts.",
+    hazards:
+      "A low structural hum can bind a snow slab far beyond its " \
+      "visible supports, and anything that breaks the shared response " \
+      "— a quarry blast, a warm-water channel, a passing shower — " \
+      "brings it down with rock, road, and buildings. Springs change " \
+      "valleys when an active seam shifts the meltwater's path, and " \
+      "a community with one pass out keeps stores sized for a full " \
+      "closure."
+  )
+
   prose <<~PROSE
     The Kyther Range is a long mountain chain of dark peaks, high valleys, and snowfields east of #{ref :avar, "Avar"}. Its western slopes feed #{ref :miraeth, "Miraeth"}; water leaving its southern valleys eventually reaches the #{ref :sable_crescent, "Sable Crescent"}. The highest passes hold snow through the year. The lower valleys support towns, pasture, quarrying, and narrow belts of terrace agriculture.
 
@@ -51,9 +78,26 @@ relate :rel_kyther_range_on_kaleidos, :on_surface_of, :kyther_range, :kaleidos d
 end
 relate :rel_kyther_supplies_miraeth, :supplies, :kyther_range, :miraeth do
   prose "Kyther rain and meltwater feed the channels and root mats of #{ref :miraeth, "Miraeth"}."
+  descriptive_identity(
+    terms:
+      "Water on the mountain's schedule, not anyone's: meltwater follows " \
+      "the ringglass bands in the ice, and a spring can change valleys " \
+      "after a warm season when an active seam shifts its path.",
+    dependence:
+      "Each basin's ward assemblies budget irrigation turns and quiet " \
+      "periods around what comes down from the foothills; a moved " \
+      "spring redraws those postings for a whole watershed."
+  )
 end
 relate :rel_kyther_supplies_sable_crescent, :supplies, :kyther_range, :sable_crescent do
   prose "The range's southern rivers carry water and mineral sediment toward the #{ref :sable_crescent, "Sable Crescent"}."
+  descriptive_identity(
+    terms:
+      "The southern rivers deliver more than volume — their sediment " \
+      "crosses crystal-laced ground on the way down, and what surfaces " \
+      "in the basin's traps after a flood is washed for low-grade " \
+      "ringglass."
+  )
 end
 relate :rel_kyther_adjacent_miraeth, :adjacent_to, :kyther_range, :miraeth,
        props: { frame: :kaleidos_surface, bearing_deg: 225 } do

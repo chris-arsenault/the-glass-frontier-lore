@@ -14,6 +14,32 @@ installation :clearance_eight do
   access "Escort through the cleared centerline; Brake lies one tug shift beyond the custody docks"
   omit_facts :maintained_by
 
+  descriptive_identity(
+    setting:
+      "A capture frame spanning the gap between two narrow ring " \
+      "fragments across a busy approach, kinetic arrays drawing loose " \
+      "material into slots along its outer edge while ships pass down " \
+      "the cleared centerline. Behind the custody docks wait claim " \
+      "rooms, powered cradles, quarantine berths, and sorted salvage " \
+      "lots.",
+    activity:
+      "Eight public desks work through recovery and hazard, identity " \
+      "and route, ownership and debt, salvage value and release, each " \
+      "pressing one impression into the seal fixed to an object. " \
+      "Residents read what motion did to a thing — a bent panel edge " \
+      "gives its last collision, dust in a sealed seam places it near a " \
+      "drive plume.",
+    access:
+      "Arrivals come down the centerline under escort, with the arrays " \
+      "stripping anything unlisted off a hull before it ties up. Brake " \
+      "lies one tug shift beyond the custody docks.",
+    hazards:
+      "During release work the patrol tug can push an unlisted object " \
+      "back into the capture field and hold all traffic while the desks " \
+      "assign it a route. A disputed machine sits powered in custody " \
+      "for as long as its route and ownership impressions stay open."
+  )
+
   prose <<~PROSE
     Two narrow fragments carry a capture frame across one of the ring's busiest approaches. Kinetic arrays draw loose material into slots along its outer edge while ships cross the cleared centerline. Rekindling pilots numbered the managed approaches as they restored them; the settlement kept Clearance Eight's service designation.
 
@@ -43,4 +69,16 @@ end
 
 relate :rel_clearance_eight_supplies_brake, :supplies, :clearance_eight, :brake, since: 2435 do
   prose "Clearance Eight sends unclaimed hull sections and intact machinery to Brake with the full custody record attached."
+  descriptive_identity(
+    terms:
+      "Material released only after all eight desks have closed their " \
+      "impressions on the seal, then hauled the one tug shift down the " \
+      "lane with the readings that put it in a salvage lot rather than " \
+      "a claim room.",
+    dependence:
+      "Brake's cutting lots trace every piece back to its vessel and " \
+      "deck, and a hull arriving with the Eighth Seal already complete " \
+      "is one the yards can open without waiting out an ownership " \
+      "dispute of their own."
+  )
 end

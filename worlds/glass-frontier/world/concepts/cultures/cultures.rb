@@ -23,6 +23,13 @@ culture :cultures do
 
     Each culture defines distinct naming patterns — the primary species-agnostic cultural signal. Name generation follows patterns defined in `../the-canonry` name-forge for lexographic consistency.
   PROSE
+  prose <<~PROSE, section: :perception, heading: "Reading a Stranger"
+    Twelve generations under different gravity, light, and work have made the system's peoples visibly distinct. A body is a reliable record of where a person grew up — a docker's shoulders, a low-spin frame, skin darkened by glasslight — and an unreliable record of everything else. Bodies in Kaleidos announce origin; they do not announce trade, standing, or intent.
+
+    Those are read from what a person carries and wears. Government officials wear uniforms, some of them elaborate. The trade guilds are known by the instruments of their craft, carried openly — a Tuner's kit, a courier's sealed case, a reader's references. Criminal organizations are not outwardly identifiable at all; their people read as any other crew until a ledger says otherwise.
+
+    The standard mistake is reading the body when the instruments are what count. A stranger sees a Shear-built frame and assumes a salvager, and the woman is a surgeon whose grandparents left the Shear before she was born. The signs are legible everywhere and misread constantly, and every culture keeps its own stock of confident wrong conclusions about the others.
+  PROSE
   prose <<~PROSE, section: :sources, heading: "Culture Registry"
     | Culture | Home and movement | Shared practice |
     |---------|-------------------|-----------------|

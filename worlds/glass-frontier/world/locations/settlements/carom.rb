@@ -14,6 +14,31 @@ installation :carom do
   access "Frequent local carriers and scheduled Pell frames at six public docks; a complete three-segment transfer takes one drum cycle"
   omit_facts :maintained_by
 
+  descriptive_identity(
+    setting:
+      "Three hab segments that kept different rotation rates after the " \
+      "Glassfall, joined by transfer drums that align for only minutes " \
+      "at a time. Between them lie painted sorting floors whose colors " \
+      "match the shelves of the wheeled frames, and every exchange " \
+      "keeps a correction wall of damaged marks and unusual routes.",
+    activity:
+      "Meals, medicine, parcels, tools, and personal messages cross the " \
+      "hab in batches — couriers break each load into smaller frames, " \
+      "walk them to the next band, and rebuild them in the order the " \
+      "far drum needs, reading segment, exchange, table, and route from " \
+      "one compact mark at walking speed.",
+    access:
+      "Frequent local carriers and scheduled Pell frames use six public " \
+      "docks, and a complete three-segment transfer takes one drum " \
+      "cycle.",
+    hazards:
+      "Anything carried across Carom is timed against an alignment " \
+      "nobody controls, and a missed drum means rebuilding the route " \
+      "from whichever deck you stand on. Visiting freight systems read " \
+      "the first transfer correctly and lose the parcel when the drums " \
+      "change order."
+  )
+
   prose <<~PROSE
     Meals, medicine, parcels, tools, and personal messages cross Carom in batches. Each load enters a painted sorting floor, leaves in another carrier's hands, and may change hands again before reaching the right neighborhood. Local couriers read the receiving segment, drum, table, and final route from one compact mark at walking speed.
 

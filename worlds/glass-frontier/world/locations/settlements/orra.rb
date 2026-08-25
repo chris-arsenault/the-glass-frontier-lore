@@ -13,6 +13,31 @@ installation :orra do
   access "Twice-weekly clean carriers from Seren at two pressure docks cut through the dead carrier's harness sockets"
   omit_facts :maintained_by
 
+  descriptive_identity(
+    setting:
+      "A sealed pressure shell closed around a dead Ring Age maintenance " \
+      "carrier that fills half the usable volume: pale ribs cross public " \
+      "halls, dry hide districts ring the outside, and warm wet fungal " \
+      "quarters fill the old digestive folds. A short walk passes " \
+      "through machine rooms, cultivated cavities, and chambers cut into " \
+      "the body itself.",
+    activity:
+      "Cutters lift only material the body has released along mapped " \
+      "fractures, growers tend fungal beds and the insects that " \
+      "pollinate the food plants, and deep readers pull temperature and " \
+      "structural-tone measurements from probes seated along the spine. " \
+      "Most households work more than one of these trades.",
+    access:
+      "Clean carriers from Seren call twice a week at two pressure docks " \
+      "cut through the dead carrier's harness sockets.",
+    hazards:
+      "Marrow galleries hold pockets of sweet gas that light under a " \
+      "kinetic spark, so tuned tools go through them dead or stay at the " \
+      "boundary. The carrier's tissue keeps changing stage, and a " \
+      "workshop built for one material can become unsafe when the layer " \
+      "beneath it turns into another."
+  )
+
   prose <<~PROSE
     A dead Ring Age carrier fills nearly half of Orra's usable volume. The animal died during the Glassfall with its body locked into a nursery cradle, and the surviving pressure shell closed around both. Pale ribs now cross public halls, while engineered fungi fill the old digestive folds.
 
@@ -52,6 +77,18 @@ end
 
 relate :rel_orra_supplies_seren, :supplies, :orra, :seren, since: 2435 do
   prose "Orra sends documented fungi, carrier tissue, and channel organisms to Seren's trial beds."
+  descriptive_identity(
+    terms:
+      "Material nothing else in the system produces: cultures from a " \
+      "body that has kept changing stage since the Glassfall, each lot " \
+      "labeled with the layer boundary it came off and the stage it was " \
+      "taken in, riding the twice-weekly clean carriers.",
+    dependence:
+      "For Seren the value is the moving source itself — a deposit " \
+      "whose parent tissue will not exist in the same form next season " \
+      "has to be caught, proven, and vaulted while it can still be " \
+      "grown."
+  )
 end
 
 relate :rel_orra_studies_marrowers, :studies, :orra, :marrower, since: 2435 do

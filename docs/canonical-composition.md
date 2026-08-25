@@ -100,6 +100,7 @@ separate their audiences:
 |---|---|---|---|
 | prose and known facts | yes | no | `page ID`, `facts ID` |
 | typed graph and chronology | yes | no | `connections ID`, `path FROM TO`, `timeline ID`, `graph` |
+| descriptive identity and source provenance | yes | yes | `identity [ID]` |
 | unresolved future names | name only | no | `lint`, `queue [ID]` |
 | questions | no | yes | `queue [ID]` |
 | entry logs | no | yes | `log ID` |

@@ -8,6 +8,20 @@ installation :latch do
   status :complete
   omit_facts :maintained_by
 
+  descriptive_identity(
+    setting:
+      "An abandoned mid-drift service hab: two cargo arcs joined by a " \
+      "rotating transfer drum, empty since the first Silent Bloom " \
+      "evacuations and still inside an active Bloom boundary. External " \
+      "surveys can identify the arcs but place the drum somewhere " \
+      "different each time.",
+    hazards:
+      "Instruments read Latch as a sound, reachable structure, and " \
+      "during the evacuation the drum began returning people to the " \
+      "lock they had just left. Every approach crosses the Bloom " \
+      "boundary."
+  )
+
   prose <<~PROSE
     A lost mid-drift service hab overtaken during the first Silent Bloom evacuations. Latch joined two cargo arcs through a rotating transfer drum, and most of its residents worked docking, pressure service, or freight inspection. #{ref :dern_talish, "Dern Talish"} was born there and evacuated at four years old.
   PROSE

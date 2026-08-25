@@ -13,6 +13,30 @@ installation :mera do
   access "Seasonal Keelward freight at one axial dock; ice-court locks open only during the cold build"
   omit_facts :maintained_by
 
+  descriptive_identity(
+    setting:
+      "A slow-tumbling fragment whose main courts sit in shadow for weeks " \
+      "at a stretch. Through the cold season immense ice columns stand " \
+      "over the courts carrying stairs, cold rooms, and market platforms; " \
+      "in the bright return, watercourses cross the same floors as the " \
+      "columns narrow.",
+    activity:
+      "Cold-season crews redirect spray nozzles over thawglass frames, " \
+      "growing each column to melt in a chosen order; after the light " \
+      "returns, first melt fills the drinking tanks and shops climb down " \
+      "from high platforms to the exposed floor. Residents carve murals " \
+      "and one-season promises into the clear outer ice.",
+    access:
+      "Keelward freight calls seasonally at a single axial dock, and the " \
+      "ice-court locks open only during the cold build.",
+    hazards:
+      "An address moves with the season — winter terraces and spring " \
+      "courts occupy the same ground, and only the painted depth lines " \
+      "and permanent ceramic stairs hold through both. This thaw, two " \
+      "water wards are filing claims against each other over a furnished " \
+      "Ring Age apartment melting free of the Fourth Column."
+  )
+
   prose <<~PROSE
     A slow tumble leaves Mera's main courts in shadow for weeks. Residents use the cold season to grow immense ice columns from circulating water. During the bright return, the columns melt through channels that feed homes, gardens, baths, and workshops.
 
@@ -51,4 +75,10 @@ end
 
 relate :rel_mera_supplies_keelward, :supplies, :mera, :keelward, since: 2435 do
   prose "Mera ships thawglass frames to Keelward for seasonal cold rooms and temporary water stores."
+  descriptive_identity(
+    terms:
+      "Frames recovered from inside the columns when the spray court " \
+      "closes, loaded once a season at the single axial dock while the " \
+      "ice-court locks stand open."
+  )
 end

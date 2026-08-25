@@ -9,6 +9,28 @@ culture :shearfolk do
   prominence :recognized
   integration "Raised among routes where charts expire and a crew's rescue record determines trust"
 
+  descriptive_identity(
+    appearance:
+      "Raised to ships and claim stations, Shearfolk show it in the body's " \
+      "habits more than its build: a hand that finds the rail or hold " \
+      "without looking, a stance set for a deck that might move.",
+    attire:
+      "Layered for pressure changes and marked at cuffs, knees, and " \
+      "shoulders with repair thread visible from across a work bay. A " \
+      "replaced panel keeps the color of the crew that fitted it until the " \
+      "next complete overhaul.",
+    manner:
+      "Introductions give a working name, the present vessel or station, and " \
+      "the last route the speaker can answer conditions for. Rescue debts " \
+      "are recited beside work shares, and a bare name is heard as expired " \
+      "charts.",
+    hospitality:
+      "Anyone the Shear has put in need gets taken aboard — no questions " \
+      "before the rescue and few after. Beyond distress, a berth is earned: " \
+      "guests state their route and their business, and the bunk follows " \
+      "the answer."
+  )
+
   prose <<~PROSE
     Shearfolk are people raised aboard salvage ships, claim stations, and route settlements across the #{ref :the_shear, "Shear"}. A person may spend a childhood moving between crews and still meet familiar hands at Brake, a Compact office, or a deep-route shelter. The shared culture rests on current route knowledge, visible work, and rescue debts that pass from one crew to the next.
   PROSE

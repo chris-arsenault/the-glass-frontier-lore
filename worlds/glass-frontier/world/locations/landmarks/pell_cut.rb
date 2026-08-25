@@ -7,6 +7,37 @@ installation :pell_cut do
   prominence :recognized
   function "Receives and separates material extracted from remote Deep Shear claims"
 
+  descriptive_identity(
+    setting:
+      "Receiving yards strung along a narrow navigable cut in the outer " \
+      "Deep Shear: three working anchor stations facing their claim " \
+      "pockets, each with cutter cradles outside, a receiving breach " \
+      "behind thick shutters, and bolted-wall process rooms built to be " \
+      "cut away if damaged. Freight spines run them all into a crowded " \
+      "central yard, where the old synchronized clock hangs stopped " \
+      "above the route board.",
+    activity:
+      "Cargo hands work under the hanging route boards while " \
+      "arraywrights carry sealed receiver heads between shops, and shift " \
+      "meals run at one long counter because everyone leaves on the same " \
+      "freight windows. When a window closes, the whole yard goes quiet " \
+      "at once.",
+    access:
+      "Member vessels of the Pell Freight Assembly reserve an anchor, " \
+      "bring their own cutter, and pay for the receiving rooms in " \
+      "handled mass or maintenance shifts — a crew short of coin buys " \
+      "in with labor. Nothing departs without both an Assembly cargo " \
+      "seal and a containment record from the Council instruments on the " \
+      "old fourth anchor.",
+    hazards:
+      "The last time all four arrays shared one cadence, the sympathetic " \
+      "tone across the seams produced Pell Four, and the emergency " \
+      "cordon cut the spines; the anchors now run on separate clocks " \
+      "behind a physical breaker nobody can throw from Glasswake. A load " \
+      "that fails its containment record sits in a process room, and " \
+      "members resent the delay without voting to remove it."
+  )
+
   prose <<~PROSE
     A chain of receiving yards fixed along a narrow navigable cut through the outer #{ref :deep_shear, "Deep Shear"}. Four anchor stations face four different claim pockets. Freight spines join them to a central sorting yard, where recovered material is separated before it moves inward on #{ref :heavy_hauler, "heavy haulers"}.
 

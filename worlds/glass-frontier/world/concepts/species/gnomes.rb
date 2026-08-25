@@ -15,6 +15,19 @@ species :gnomes do
   lifespan "About 50–150 years, depending on lattice care and exposure"
   resonance_relation "Direct sensory attunement to local resonance"
 
+  descriptive_identity(
+    appearance:
+      "Small-framed and unexpectedly heavy, a gnome carries a crystalline " \
+      "lattice grown through the bone, and it shows: skin with a faint depth to " \
+      "it in strong light, a glimmer in direct sun, and a hum from the bones at " \
+      "rest that the gnome cannot hear and a quiet room can.",
+    senses:
+      "A gnome feels the local resonance field the way other species feel " \
+      "temperature — what ringglass is present, what is running, what is " \
+      "tuned wrong, before conscious thought names any of it. The same " \
+      "openness makes distorted resonance a physical assault."
+  )
+
   prose <<~PROSE
     Bioengineered by the #{ref :elves, "elves"} during the ring era. Gnomes were designed — there is no polite way around the word — to interface with the orbital ring's #{ref :resonance, "resonance"} systems. Their biology incorporates #{ref :ringglass, "ringglass"} at a fundamental level: crystalline structures threaded through their skeletal system and nervous tissue, grown in place rather than implanted. A gnome is, in a very literal sense, part crystal.
   PROSE
@@ -56,4 +69,8 @@ end
 
 relate :rel_gnomes_attuned_to_resonance, :attuned_to, :gnomes, :resonance do
   prose "Gnomes are attuned to #{ref :resonance, "resonance"} by design — part ringglass themselves, they read and work it with an ease no other species matches."
+  descriptive_identity expression:
+    "The working sign is the absence of instruments. Where another " \
+    "practitioner reaches for a meter, a gnome goes still for a moment and " \
+    "then answers, and the answer covers the whole room."
 end

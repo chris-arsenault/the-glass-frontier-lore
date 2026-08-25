@@ -5,6 +5,30 @@ resource :pre_glassfall_transmissions do
   tags :archives, :resonance, :"signal-freq", :"ring-era", :mystery
   prominence :recognized
 
+  descriptive_identity(
+    appearance:
+      "Old signal held in whatever absorbed it: crystal shards carrying " \
+      "a few seconds of one circuit, ringglass walls steeped in years of " \
+      "local traffic, river water lifting fragments from crystal-laced " \
+      "rock, fallen ring pieces still transmitting on fixed intervals. " \
+      "Salvagers sell shards by provenance and apparent clarity, and " \
+      "neither can be judged without listening.",
+    working:
+      "A fragment does not play back on its own — the carrier has to be " \
+      "reconstructed from the medium holding it, and each medium colors " \
+      "the result: river fragments overlap, building channels mix in " \
+      "the walls' other signals, some ring volumes wait silent until a " \
+      "Tuner supplies the missing tone. Careful recovery keeps the " \
+      "instrument output, the listener's transcript, and the conditions " \
+      "as three separate records.",
+    risks:
+      "Every listening reshapes the record, strengthening some patterns " \
+      "and erasing others, and a listener can start supplying the " \
+      "expected words across a gap without noticing. Copies of one " \
+      "message recovered from different media preserve different words, " \
+      "so two honest recoveries can disagree about what was said.",
+  )
+
   prose <<~PROSE
     Fragments of signal traffic preserved from the intact ring. Most are incomplete: a cargo number without its destination, one side of a family call, a calibration sequence repeated after the machine it served has vanished. A few retain enough context to identify a speaker, place, or event.
 

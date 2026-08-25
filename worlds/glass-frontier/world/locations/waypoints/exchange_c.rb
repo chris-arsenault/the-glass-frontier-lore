@@ -9,6 +9,27 @@ installation :exchange_c do
   prominence :marginal
   omit_facts :maintained_by
 
+  descriptive_identity(
+    setting:
+      "Carom's largest sorting deck, six floor colors radiating from the " \
+      "unloading lane toward neighborhood tables, cold lockers, meal " \
+      "racks, and the drum queue. 'Exchange C' is still painted over the " \
+      "main doors from the Ring Age drum, and the correction wall of " \
+      "misdelivery cards covers the passage to the cold lockers.",
+    activity:
+      "The deck is loud through every alignment: frame wheels striking " \
+      "the expansion gaps, drum bells calling five minutes, two minutes, " \
+      "and closure, couriers shouting route changes across the colored " \
+      "bands while residents line the outer rail waiting on hand " \
+      "delivery — and watching everything in the lanes.",
+    hazards:
+      "Ordinary conversation is impossible; talk is shouted or taken " \
+      "into the cold-locker passage. Parcels do go wrong — the oldest " \
+      "card on the correction wall tracks one across all three segments " \
+      "nineteen times before it reached a room beside the deck it " \
+      "started from."
+  )
+
   prose <<~PROSE
     Rattle is Carom's largest sorting deck. Exchange C remains painted above the main doors from the Ring Age transfer drum, but couriers named the deck for the frame wheels striking its expansion gaps. Six floor colors radiate from the unloading lane toward neighborhood tables, cold lockers, meal racks, and the drum queue.
 

@@ -8,6 +8,36 @@ faction :prismwell_kite_guild do
   tags :transport, :trade, :ringglass, :resonance
   prominence :recognized
 
+  descriptive_identity(
+    ideology:
+      "Shower knowledge is pooled property: every hazard reading enters " \
+      "the shared record before the collected dust reaches market, " \
+      "costing a successful crew some advantage so that no crew enters a " \
+      "front blind. The guild belongs to its working wells, not to any " \
+      "office above them.",
+    methods:
+      "Scouts fly ahead of a predicted stream with reinforced leading " \
+      "edges and several independent instruments, dropping marker lights " \
+      "where the safest crossing is likely to hold; collection kites " \
+      "follow into the thin trailing edge with sacrificial cloth " \
+      "unfolded between short spars. Withholding a hazard reading ends a " \
+      "crew's access to every Prismwell well.",
+    presence:
+      "Craft known by pale catch panels folded against the hull between " \
+      "showers, and yards of collection cloth, sorting floors, and " \
+      "repair benches around stepped wells that throw fractured light " \
+      "after a fall. Working cloth comes back grey and stiff with fused " \
+      "grains — crews object when visitors mistake clean display cloth " \
+      "for it.",
+    attitude:
+      "Independents may fly on the published forecasts without joining; " \
+      "they pay more for repair, take no share of the collection, and " \
+      "still become a Prismwell rescue job when a front closes behind " \
+      "them. The guild honors its trade with the groves below — narrowed " \
+      "catches for ground readings — while disputing every season how " \
+      "much crystal the vegetation actually needs."
+  )
+
   prose <<~PROSE
     A pilots' guild, repair network, and regional carrier based at #{ref :glasswake, "Glasswake"}. The Prismwell Kite Guild specializes in routes affected by #{ref :glassfall_showers, "Glassfall showers"}: predicting the streams, carrying traffic around dense fronts, and recovering clean ringglass grains from the fall. Its craft are recognized by pale catch panels folded against the hull between showers.
 
@@ -60,4 +90,17 @@ relate :rel_prismwell_operates_keelward, :operates_in, :prismwell_kite_guild, :k
 end
 relate :rel_prismwell_cooperates_lumenshard, :cooperates_with, :prismwell_kite_guild, :lumenshard_conservatory, since: 2388 do
   prose "Prismwell leaves shower fall above Miraeth and receives the Conservatory's ground readings in return."
+  descriptive_identity(
+    basis:
+      "Ground workers signal which parts of a front the groves can " \
+      "receive and pilots narrow their catch over those paths — the " \
+      "readings improve the guild's forecasts, the restraint lets the " \
+      "root mats take their crystal.",
+    limits:
+      "It began after broad catch cloth stripped a season's fall and " \
+      "living crystal failed along the collection line, and it settles " \
+      "nothing about who owns material still in the sky. A thin season " \
+      "puts a workshop short of clean grain against a bed of empty " \
+      "young veins, and the argument returns."
+  )
 end

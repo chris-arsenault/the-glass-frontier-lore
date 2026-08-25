@@ -7,6 +7,32 @@ artifact :kinetic_horn do
   tags :resonance, :music, :"kinetic-freq", :training, :transport
   prominence :recognized
 
+  descriptive_identity(
+    appearance:
+      "A broad alloy tube folded around a rigid center bar, with a " \
+      "narrow mouthpiece, a main working bell, a smaller rear bell for " \
+      "the player's reference, and interchangeable collars for metal, " \
+      "stone, fluid, or a vessel's frame. A shoulder stock and waist " \
+      "harness carry the reaction; deck versions lock into a rail " \
+      "socket.",
+    handling:
+      "The player starts below the target response and climbs in small " \
+      "intervals until the harness tightens and the load begins " \
+      "shedding motion; the force lasts only while the note holds, and " \
+      "a second person watches the load because the player hears " \
+      "nothing clearly through the instrument and their own bones. It " \
+      "is cleaned after every field use and sounded against a fixed " \
+      "block before working near a person.",
+    risks:
+      "Numb lips, pressure in the teeth, and a harness that vibrates " \
+      "after the note stops are the early exposure signs — playing past " \
+      "them brings tremors and force directed into the brace. In a " \
+      "saturated field several objects answer one note; a rear bell " \
+      "carrying more than one beat is the signal to stop, and the horn " \
+      "pushes the wrong member of a failing frame as readily as the " \
+      "right one.",
+  )
+
   prose <<~PROSE
     A kinetic horn is a braced #{ref :resonant_instruments, "resonant instrument"} that turns breath, lip pressure, and hand position into directed kinetic-band force. Pilots use one to steady a damaged craft. Cargo crews ease a suspended load away from a wall. Rescue teams push loose debris without placing a person inside its path.
 

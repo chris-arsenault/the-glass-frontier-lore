@@ -9,6 +9,27 @@ resource :thawglass do
   tags :materials, :ringglass, :household, :resonance
   prominence :marginal
 
+  descriptive_identity(
+    appearance:
+      "A porous ceramic mesh threaded with low-grade ringglass fiber, " \
+      "fired with a painted heat line marking the direction of the " \
+      "spring melt. Heavy frame grade builds a column's skeleton, stair " \
+      "grade carries rough ribs that grip under frost, and household " \
+      "mesh bends around cisterns and food stores.",
+    working:
+      "A weak structural tone runs through the fibers, so water freezes " \
+      "on the mesh first and binds the column to its frame, then melts " \
+      "along the ceramic pores when the frame warms. Every piece is set " \
+      "with its heat line facing the melt, and used pieces are owed " \
+      "back to Mera's kilns after the thaw.",
+    risks:
+      "Set against its painted line, a column freezes out of sequence " \
+      "and melts through the wrong face; a mis-frozen frame shows clear " \
+      "fibers along one edge and gets crushed into household mesh, " \
+      "whose short fibers cannot steer a public column. Thawglass " \
+      "carried off the fragment stays on a kiln crew's recovery list.",
+  )
+
   prose <<~PROSE
     Mera grows its seasonal ice columns around thawglass, a porous ceramic mesh threaded with ringglass fiber. A weak structural tone moves through the fibers. Water freezes there first and binds the column to its frame, then melts along the ceramic pores when the frame warms.
 

@@ -7,6 +7,23 @@ transport :held_breath do
   tags :transport, :orbital, :danger, :resonance, :navigation
   prominence :recognized
 
+  descriptive_identity(
+    appearance: "White hull, with a broken blue line running bow to stern; the gaps in the paint mark the " \
+                "electrical and structural breaks inside, and boarding crews use them to name the nearest " \
+                "isolated section. Visitors take the gaps for old damage until they see the same pattern " \
+                "repeated on the deck.",
+    aboard: "No continuous signal bus anywhere: lights, doors, instruments, and clocks run in small local " \
+            "circuits that cannot fall into one cadence. Hand-worked speaking tubes, shuttered light boxes, " \
+            "mechanical status boards, clocks wound on staggered watches. Evacuees ride in three small aft " \
+            "cabins rather than one shelter, each with water, pressure cloth, hand lamps, and a mechanical " \
+            "release toward the exterior lock.",
+    behavior: "It holds station outside an active cordon and sends remote cutters in first, dropping ordinary " \
+              "broadcast traffic on approach — exterior messages arrive as single bursts copied to a board " \
+              "before anyone answers, and orders travel by runner, acknowledged face to face. The bridge can " \
+              "cut power to a section but cannot command every section at once, so a fire or breach is handled " \
+              "by whichever compartment found it while the bridge is still being told."
+  )
+
   prose <<~PROSE
     *Held Breath* is a Displacement Council boundary vessel stationed at #{ref :outside, "Outside"}. It carries technicians, damping mass, remote cutters, and the #{ref :karet_spool, "Karet Spool"} to work sites around Karet-3. The ship has no continuous internal signal bus. Lights, instruments, doors, and clocks are divided into small local circuits that cannot fall into one repeating cadence across the hull.
 

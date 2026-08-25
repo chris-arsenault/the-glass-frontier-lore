@@ -15,6 +15,33 @@ installation :verathi do
   access "Scheduled hab carriers and one public docking crescent"
   omit_facts :maintained_by
 
+  descriptive_identity(
+    setting:
+      "An open ring hab of about eighteen thousand on the outer inhabited " \
+      "arc, built as seven service districts, each wrapped around a " \
+      "life-support loop that came through the Glassfall. One public " \
+      "docking crescent handles everything that arrives.",
+    activity:
+      "Small carriers come and go constantly — pressure fittings, " \
+      "closed-cycle crop cultures, and loop-inspection crews outbound — " \
+      "while district councils and the hab assembly argue over which body " \
+      "a given piece of work belongs to. Sithari's mission staff live " \
+      "beside the docking crescent and stay out of local rulings.",
+    access:
+      "Scheduled hab carriers land at the one public crescent, which runs " \
+      "close to capacity; an unscheduled arrival waits for a berth and " \
+      "gets assigned one by whoever is free to do it. Visitors have been " \
+      "admitted since the Reconnection, but any work touching a " \
+      "district's air, water, food beds, or structural field needs that " \
+      "district's consent.",
+    hazards:
+      "A deal struck with the assembly can die in any one of seven " \
+      "district councils, and no majority overrides the refusal — the " \
+      "freight spine is stalled that way now, with Third Service holding " \
+      "out over its water return. Berth waits lengthen while the assembly " \
+      "studies routes around the problem."
+  )
+
   prose <<~PROSE
     Verathi is an open ring hab whose people emerged from the Signal Famine with a complete civil registry and no surviving belief that the old ring government still held authority over them. It answered the Reconnection signals, admitted visitors, and exchanged technical records. Its first dispute with Sithari concerned the terms of contact rather than whether contact should happen.
   PROSE
@@ -52,4 +79,15 @@ end
 
 relate :rel_verathi_cooperates_with_sithari, :cooperates_with, :verathi, :sithari, since: 2311 do
   prose "Reciprocal missions have linked Verathi and Sithari since the Verathi Exchange."
+  descriptive_identity(
+    basis:
+      "A narrow Verathi building at Accord Shore and Sithari staff " \
+      "quartered beside the hab's public docking crescent, trading " \
+      "technical records and consular work in both directions.",
+    limits:
+      "Neither mission governs a citizen of its host, and Sithari's " \
+      "people stay clear of local rulings — a lesson set early, since " \
+      "the two polities' first dispute was over the terms of contact " \
+      "rather than whether to have it."
+  )
 end

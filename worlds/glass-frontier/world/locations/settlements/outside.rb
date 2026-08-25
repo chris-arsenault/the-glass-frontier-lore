@@ -12,6 +12,32 @@ installation :outside do
   tags :orbital, :resonance, :danger, :governance, :isolation
   prominence :recognized
 
+  descriptive_identity(
+    setting:
+      "A cordon platform fixed to the Karet-3 perimeter in the outer " \
+      "Shear, smelling of processed ringglass and recycled air, with " \
+      "Karet family homes built below the docking ring. The south wall " \
+      "hums at the array's structural frequency — low and even on stable " \
+      "days, broken into changed pulse intervals when the zone shifts.",
+    activity:
+      "Crews keep eighteen primary and four secondary ringglass mounts " \
+      "reading the local resonance gradient so the stillwater buoys of " \
+      "Lira's Wall stay calibrated. Contractors cycle through on tours " \
+      "while permanent residents plan by school terms and supply " \
+      "intervals, and the displaced quarter guides survey teams through " \
+      "the old hab plans.",
+    access:
+      "Council traffic, supply ships, and resident berths, with supply " \
+      "ships holding for the single-stroke approach signal at Far Bell.",
+    hazards:
+      "Below the inhabited decks the damping field weakens: Shear " \
+      "resonance returns as equipment hum, the Bloom boundary becomes an " \
+      "uneven low tone, and inspection teams work in pairs, limit their " \
+      "time, and write down headaches. Beyond the mounts, the rind holds " \
+      "position and makes ordinary maintenance harder without behaving " \
+      "aggressively."
+  )
+
   prose <<~PROSE
     The permanent cordon station at #{ref :karet_three, "Karet-3"}. Evacuees first called the platform Outside to distinguish it from the home they could still see across the wall. The name outlasted the emergency cordon. Outside smells of processed ringglass and recycled air. Cordon crews know the combination before they see the station markings.
 
@@ -52,4 +78,11 @@ relate :rel_outside_located_in_shear, :located_in, :outside, :the_shear, since: 
 end
 relate :rel_outside_depends_on_liras_wall, :depends_on, :outside, :liras_wall do
   prose "Its wall array and stillwater buoys are a permanent local deployment of #{ref :liras_wall, "Lira's Wall"}."
+  descriptive_identity exposure:
+    "The station is the wall; there is no version of Outside behind a " \
+    "failed one. A mount out of calibration is heard before it is read " \
+    "— the south deck's hum breaks into changed pulse intervals — and " \
+    "everything after that is measured in how fast a crew can isolate " \
+    "the section, with the Karet families' old home on the far side of " \
+    "whatever gets through."
 end

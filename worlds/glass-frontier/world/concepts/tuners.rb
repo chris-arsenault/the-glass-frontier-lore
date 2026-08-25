@@ -8,6 +8,20 @@ concept :tuners do
   tags :resonance, :training, :"social-structure"
   prominence :recognized
 
+  descriptive_identity(
+    tools:
+      "The credential or the kit. A Clarisant-trained Tuner shows guild " \
+      "certification recognized in most settlements; a folk Tuner shows the " \
+      "working instruments themselves — made, inherited, or adapted to one " \
+      "place. Practitioners read a stranger's training off the kit before " \
+      "the introduction finishes.",
+    manner:
+      "A reading is delivered as a judgment other people act on — which " \
+      "corridor, which load, which departure — and a careful Tuner says what " \
+      "the reading rests on. Folk practitioners work by local feel, guild " \
+      "ones by transferable method, and each hears the gap in the other."
+  )
+
   prose <<~PROSE
     People who practise #{ref :attunement, "attunement"} as a trade. Anyone can operate a #{ref :ringglass, "ringglass"}-powered lantern. Tuners have trained themselves to separate the local resonance field from the pressure, vibration, heat, and sound that carry it, then turn what they perceive into decisions other people can use. The crystal hums, the ground vibrates, the air carries harmonics that most people walk through without noticing. Tuners notice.
 

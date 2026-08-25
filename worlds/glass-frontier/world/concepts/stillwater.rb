@@ -7,6 +7,28 @@ resource :stillwater do
   tags :resonance, :"signal-freq", :materials
   prominence :recognized
 
+  descriptive_identity(
+    appearance:
+      "Echo River water filtered clear of its historical content, " \
+      "carried in sealed vials. The crystal particulate suspended " \
+      "through it is the point: a three-dimensional lattice of " \
+      "microscopic storage surfaces.",
+    working:
+      "Writing to it and reading it back both take signal-band Tuning, " \
+      "and a single vial holds more data than a crystal array ten times " \
+      "its size — the archival medium nothing else approaches. The " \
+      "Conclave consumes most of the supply, and the Lattice Proxy " \
+      "Synod uses it for custodian outputs that die in transfer to " \
+      "conventional media.",
+    risks:
+      "Heat, contamination, a resonance spike, or a broken seal " \
+      "corrupts the contents, and nobody learns what was lost until a " \
+      "Tuner reads the vial at the far end. Stock offered outside " \
+      "Conclave supply may never have been purified — vials with the " \
+      "original river voices intact sell to collectors for far more " \
+      "than clean medium.",
+  )
+
   prose <<~PROSE, section: :how_it_works, heading: "How It Works"
     Purified #{ref :echo_rivers, "Echo River"} water. In its raw state, Echo River water carries resonance imprints — fragments of pre-Glassfall data encoded in the crystal particulate suspended in the flow. With careful filtration and resonance stabilization, the water can be cleaned of its historical content while retaining its extraordinary capacity to hold signal-band information.
 

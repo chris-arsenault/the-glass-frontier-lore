@@ -5,6 +5,12 @@ npc :davan_koralis do
   born 2388
   occupation "Chief Experience Officer of Vantara"
   species "human"
+  identity_source :species, :humans
+  identity_source :culture, :sitharian_culture
+  descriptive_identity disposition:
+    "Koralis treats any fault mentioned to him — a cold meal, a dead berth " \
+    "light, a missed rescue window — as part of one journey, and writes it " \
+    "against a named manager before he leaves the room."
   culture "Sithari"
   tags :trade, :transport, :governance, :salvage
   prominence :recognized
@@ -35,6 +41,11 @@ relate :rel_davan_koralis_located_keelward, :located_in, :davan_koralis, :keelwa
 end
 relate :rel_davan_koralis_member_vantara, :member_of, :davan_koralis, :vantara, since: 2410 do
   prose "His career has run through Vantara's passenger office, convoy service, and executive command."
+  descriptive_identity standing:
+    "The career mark is operational rather than financial: he can read " \
+    "a route ledger and has served aboard armed escorts, and the " \
+    "measure he applies to the company is a rested passenger and a " \
+    "crew home on schedule."
 end
 relate :rel_davan_koralis_operates_shear, :operates_in, :davan_koralis, :the_shear, since: 2435 do
   prose "He is visiting Shear ports and trial segments while the Compact considers Vantara's passenger-route proposal."

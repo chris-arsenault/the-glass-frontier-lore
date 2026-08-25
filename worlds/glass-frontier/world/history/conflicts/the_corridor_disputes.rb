@@ -6,6 +6,28 @@ conflict :the_corridor_disputes do
   tags :transport, :trade, :governance, :diplomacy, :danger
   prominence :recognized
 
+  descriptive_identity(
+    cause:
+      "One shipping season in 2433 closed several established Keel " \
+      "branches at once — Bloom movement, glassfall fronts, and two " \
+      "major debris drifts — and pushed traffic onto corridors built " \
+      "for smaller loads. The emergency fees and operating rules " \
+      "hardened before anyone agreed who held authority to make them " \
+      "permanent.",
+    intensity:
+      "Nobody shoots. The disputes run as claims, contested fees, and " \
+      "mediation, and the danger lands on crews: a missed connection " \
+      "strands a vessel at a small waystation, and a false open mark " \
+      "can put one beyond any rescue pool's declared reach.",
+    conduct:
+      "Departure boards carry several marks instead of one route " \
+      "state, each supplied by a different authority that may disagree " \
+      "with the rest. Forged marks redirect traffic toward overpriced " \
+      "waystations or recopy expired closures to empty a rival branch, " \
+      "and Accord panels apportion fees only among parties that accept " \
+      "the finding."
+  )
+
   prose <<~PROSE
     The Corridor Disputes are the continuing arguments over who may open, close, mark, and charge for the branch routes of #{ref :keel, "the Keel"}. The term covers dozens of claims between carriers, ports, rescue pools, regulators, and settlements. Most concern a route everyone agrees exists and nobody governs from end to end.
 
@@ -71,12 +93,46 @@ relate :rel_corridor_disputes_manifest_keel, :manifests_at, :the_corridor_disput
 end
 relate :rel_prismwell_participated_corridor_disputes, :participated_in, :prismwell_kite_guild, :the_corridor_disputes do
   prose "Prismwell contests how long a shower forecast keeps a corridor open and who bears the risk after its window ends."
+  descriptive_identity(
+    aims:
+      "The guild wants the rule to match how showers behave: a front " \
+      "can close between one vessel and the next, so a crossing is open " \
+      "only while the measured stream stays inside the forecast — and " \
+      "it wants those windows shorter, not longer.",
+    conduct:
+      "Its scouts keep flying ahead of each predicted front on the " \
+      "disputed branches, and a carrier stranded on an old reading — " \
+      "member or independent — still becomes a Prismwell rescue job."
+  )
 end
 relate :rel_pell_assembly_participated_corridor_disputes, :participated_in, :pell_freight_assembly, :the_corridor_disputes do
   prose "The Assembly ties route status to crew consent, rescue coverage, and the cargo facilities waiting at the far end."
+  descriptive_identity(
+    aims:
+      "It wants rescue duties and loss coverage priced before a " \
+      "corridor opens rather than billed after a diversion, and it is " \
+      "holding out for another rescue vessel before accepting the " \
+      "published schedule.",
+    conduct:
+      "Its route factors can refuse a corridor Assembly docks and " \
+      "insurance, and cannot order a member crew to fly one — so the " \
+      "coverage it promises exists exactly where enough crews have " \
+      "said yes."
+  )
 end
 relate :rel_vantara_participated_corridor_disputes, :participated_in, :vantara, :the_corridor_disputes do
   prose "Vantara seeks payment for beacons and waystations used by carriers that reject its wider route contracts."
+  descriptive_identity(
+    aims:
+      "Vantara treats the branch network as paid infrastructure — it " \
+      "funded the continuous service where nobody else would — and " \
+      "wants its fees to survive a public port or cooperative taking " \
+      "over part of the work.",
+    conduct:
+      "It has offered the missing rescue vessel for the disputed " \
+      "branches under a fee arrangement the independents reject, and " \
+      "keeps its stations running while the claims sit in mediation."
+  )
 end
 relate :rel_shear_compact_participated_corridor_disputes, :participated_in, :shear_compact, :the_corridor_disputes do
   prose "The Compact closes and inspects the portions passing through managed Shear corridors while disclaiming authority beyond them."

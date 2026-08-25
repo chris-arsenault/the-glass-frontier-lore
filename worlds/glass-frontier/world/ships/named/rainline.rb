@@ -7,6 +7,22 @@ transport :rainline do
   tags :transport, :navigation, :ringglass, :orbital, :danger, :resonance
   prominence :recognized
 
+  descriptive_identity(
+    appearance: "A narrow survey kite of three separate rings joined by flexible spars, with field sounders " \
+                "along both flanks, disposable marker lamps under the keel, and a folded catch frame behind the " \
+                "cabin. The rebuilt port spar shows in every Glasswake yard: a pale laminated brace crossing " \
+                "the darker original frame like a bone set under the skin.",
+    aboard: "Level is unreliable — seats, lockers, and instrument faces follow different rings, colored bands " \
+            "mark which ring carries each fitting, and a dropped tool can seem to roll uphill when two frames " \
+            "correct against each other. Everyone clips in before the first turn, and hard corrections draw a " \
+            "low creak from the repaired spar through the cabin.",
+    behavior: "It enters below a Glassfall shower's forecast path and climbs until fine grains strike the " \
+              "forward cloth, each ring correcting its own motion so the hull yields where debris pushes " \
+              "hardest. Marker lamps drop behind it at every useful change, leaving a string later vessels use " \
+              "as a temporary lane. The sample frame opens only on the retreat leg, and a full catch gets cut " \
+              "loose before it is allowed to slow the withdrawal."
+  )
+
   prose <<~PROSE
     *Rainline* is a narrow Prismwell survey kite built to enter the leading edge of a #{ref :glassfall_showers, "Glassfall shower"}. Its job is to discover where a forecast stops being true. The ship carries field sounders along both flanks, disposable marker lamps under the keel, and a folded catch frame behind the cabin for taking a physical sample of the dust it has measured.
 

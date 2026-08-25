@@ -6,6 +6,24 @@ creature :glasswurm do
   tags :orbital, :salvage, :danger, :ringglass, :resonance
   prominence :recognized
 
+  descriptive_identity(
+    appearance: "A segmented, plated borer, narrower than a ship corridor and long enough to cross one several " \
+                "times, cutting with rings of small mouths that each turn independently around its axis. Belts " \
+                "of dark eyes line each segment's underside, appearing one after another as the body crosses " \
+                "an opening; old specimens carry enough accumulated glass to answer a sounder from across a " \
+                "fragment.",
+    behavior: "It bores smooth, strong-walled tunnels through soft debris and coarse ringglass aggregate, " \
+              "passing loosened material back through separate feeding openings and sorting glass and metal " \
+              "into dense body chambers. A live tunnel shows fine dust moving along one wall in still air and " \
+              "regular crescent bite marks; the animal branches around strong seams, leaving ribs of untouched " \
+              "material it returns later to feed on.",
+    threat: "Repeated structural notes — sustained sounding, a twice-run scan, a hammer — draw it back along " \
+            "its own tunnel, through ground a crew has already walked and cleared. Large specimens bore " \
+            "through bulkheads, receiver walls, and anchored cutters because worked structure cuts cleaner " \
+            "than rubble; one crossing a pressurized room rarely touches the occupants, and the breach it " \
+            "leaves can kill them."
+  )
+
   prose <<~PROSE
     Glasswurms are segmented Farborn borers that live inside soft debris masses and coarse ringglass aggregates. Most working specimens are narrower than a ship corridor and long enough to cross one several times. Their plated bodies follow tunnels cut by rings of small mouths, each ring able to turn independently around the animal's axis.
 

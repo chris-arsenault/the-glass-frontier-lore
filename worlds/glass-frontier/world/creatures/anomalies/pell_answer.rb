@@ -5,6 +5,17 @@ creature :pell_answer do
   tags :resonance, :danger, :mystery, :orbital
   prominence :recognized
 
+  descriptive_identity(
+    behavior: "It has no body to see: it lived in the relation among four distant receivers, answering a " \
+              "cutter's pulse from another receiver and returning pieces of crew speech in later alarms. It " \
+              "learns by repetition — a tone used twice enters its next response, a shutter sequence becomes a " \
+              "route through the station — until it can anticipate a shared clock by several seconds.",
+    threat: "Its clearest output resembled a distress call asking the rig to approach the boundary, delivered " \
+            "in a crew voice on the work channel. The defense is to stop being regular: separate clocks, " \
+            "changed tones, every repeated sequence broken as it begins. Fragments in the sealed records still " \
+            "carry the pattern, which is why the Council stores them apart and never plays two at once."
+  )
+
   prose <<~PROSE
     The Displacement Council designation for the voice-like entity that formed during #{ref :pell_four, "Pell Four"}. No body was seen. The Pell Answer occupied the relation among four distant receivers, speaking through alarms, shutters, and borrowed pieces of crew transmission.
 

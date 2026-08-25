@@ -8,6 +8,37 @@ installation :blue_step_works do
   tags :surface, :rebuilding, :resonance, :"structural-freq", :trade
   prominence :marginal
 
+  descriptive_identity(
+    setting:
+      "A heavy repair shop on Ladderwell's second bench, its load hall " \
+      "footed on deep stone with eight work pads on separate piers so a " \
+      "test on one cannot pull its neighbors into the same response. " \
+      "Blue lines run from each pad to its witness board, a broad " \
+      "blue-painted step crosses the entrance, and the ringglass core " \
+      "room sits beyond two ceramic thresholds with no fixed powered " \
+      "tool inside.",
+    activity:
+      "Gear arrives already having done its job — twisted stillweights, " \
+      "bowed sled runners, pump frames carrying the crack they stopped — " \
+      "and workers draw and measure the damage before any heat or force " \
+      "touches it. Finished pieces take a staged load: ordinary weight " \
+      "first, then a structural tone drawn from the work they will " \
+      "enter. Road crews fill the outer court with food, news, and " \
+      "broken machines.",
+    access:
+      "Incoming machinery waits on the blue step until its old load is " \
+      "marked and released. Customers watch from the marked gallery and " \
+      "stay off the test floor no matter whose machine it is or what " \
+      "the delay costs; municipal jobs get the same benches as private " \
+      "ones and their own ledger line.",
+    hazards:
+      "A chalk pin marking outside the chosen line stops the work, and " \
+      "any holder of a bench right can halt a test for as long as the " \
+      "marks stay wrong. One pad is roped off now: a recalled " \
+      "blue-backed core answers the shop foundation and a buried line " \
+      "east of the wall that the pipe maps do not show."
+  )
+
   prose <<~PROSE
     Blue Step Works is a heavy repair shop on the second bench of #{ref :ladderwell, "Ladderwell"}. It builds pump frames, pressure-sled parts, bridge fittings, and #{ref :stillweight, "stillweights"} for the roads and settlements of Avar. A broad blue-painted step crosses the entrance. Incoming machinery rests there until its old load has been marked and released.
 

@@ -6,6 +6,23 @@ creature :blank do
   tags :orbital, :danger, :resonance, :salvage, :mystery
   prominence :recognized
 
+  descriptive_identity(
+    appearance: "A broad central membrane folded around a cord of muscle and clear cartilage, with lines of " \
+                "sealed eyes across the outer surface. Near an active field the eyes open from the center " \
+                "outward and the membrane spreads into a shallow dish facing the source; fed and folded, it " \
+                "simply drifts.",
+    behavior: "It waits in the Deep Shear's weak background and follows repeated acts of attention — a Tuner " \
+              "rechecking one bearing, an array sweeping on a single cadence, a beacon sending an unchanged " \
+              "call — settling on the most regular and feeding until the pattern breaks. Feeding drains " \
+              "organized resonance rather than material: ringglass loses its tune, gauges stay lit while " \
+              "their calibration tones flatten.",
+    threat: "The warning is a clean gap — a narrow direction from which nothing returns, felt by a Tuner " \
+            "while instruments still show noise, widening as it closes. It rarely strikes the hull; it takes " \
+            "the drive's efficiency and the Tuner's ability to separate signal from sensation. Injured, it " \
+            "throws short false returns that read as nearby surfaces and steer a searcher straight onto it; " \
+            "the torn membrane bleeds cold clear fluid carrying the last signal it fed on."
+  )
+
   prose <<~PROSE
     Blanks are Deep Shear predators that follow active resonance perception. A Tuner reaching into the local field gives the animal a path. The stronger and more sustained the reading, the sooner the blank closes. Deep-runners named them for the clean absence that precedes an attack. They use the name for specimens sharing the same feeding behavior and flattened body plan; preserved tissue shows enough variation that researchers dispute whether they are one species.
 

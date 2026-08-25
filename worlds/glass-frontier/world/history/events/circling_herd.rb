@@ -7,6 +7,22 @@ incident :circling_herd do
   tags :ecology, :transport, :danger, :resonance, :trade
   prominence :marginal
 
+  descriptive_identity(
+    marks:
+      "One herd still turns a widening circle around Perch, dropping " \
+      "combs at every pass, while the inner collection band stays " \
+      "closed and every ferry comes around the far fragment for a full " \
+      "extra shift. The fallen combs hold a structural map of the " \
+      "settlement's inhabited decks, including wards raised after the " \
+      "herd arrived.",
+    stakes:
+      "Water stored for the closing market is being rationed and the " \
+      "seasonal wards have begun pooling food, so anyone asking Perch " \
+      "for supplies or berths is bidding against thousands of stalled " \
+      "workers. Combs shed on later turns map decks that were not " \
+      "standing when the earlier ones fell."
+  )
+
   prose <<~PROSE
     The current sarn passage divided at Perch. One herd crossed the far fragment along the recorded route. The second entered a widening circle around the settlement and began shedding combs at every turn.
 
@@ -30,10 +46,32 @@ end
 
 relate :rel_pava_lorn_participated_circling_herd, :participated_in, :pava_lorn, :circling_herd do
   prose "Pava Lorn closed the collection band and reads the altered formation from Perch's pylons."
+  descriptive_identity(
+    aims:
+      "Lorn will not assign a band inside a formation she cannot read, " \
+      "and this one is inverted — old animals holding the quiet center " \
+      "where juveniles belong, younger adults carrying the strained " \
+      "outer edge.",
+    conduct:
+      "She recalled every line that crossed the circle, and when the " \
+      "pylon record cannot resolve the inner formation she rides Molt " \
+      "into the spiral she has closed to everyone else."
+  )
 end
 
 relate :rel_molt_participated_circling_herd, :participated_in, :molt, :circling_herd do
   prose "Molt tracks the oldest animals and recovers exhausted juveniles from the circle."
+  descriptive_identity(
+    conduct:
+      "Its racks trail observation frames instead of comb, and every " \
+      "pass beneath the old animals adds another line to the structural " \
+      "map; the two recovered juveniles came home in the open cradle " \
+      "kept ready for anything warm.",
+    cost:
+      "Collection is suspended while the vessel follows the circle — " \
+      "wards and buyers expecting Molt's usual graded load are getting " \
+      "survey notes."
+  )
 end
 
 relate :rel_circling_herd_caused_by_sarn, :caused_by, :circling_herd, :sarn do

@@ -6,6 +6,26 @@ artifact :long_note do
   tags :archives, :navigation, :mystery, :"signal-freq"
   prominence :marginal
 
+  descriptive_identity(
+    appearance:
+      "Three ceramic plates in a padded case, traveling with their " \
+      "original watch boards and array-temperature marks. Each plate's " \
+      "groove depth follows the strength of the same narrow signal, " \
+      "recorded rising slowly in pitch from three sides of Issel's " \
+      "dish.",
+    handling:
+      "A mechanical reader reproduces the timing outside any signal " \
+      "field, so a comparison can run with every instrument shut down. " \
+      "Navigators send for the case to check unexplained rising tones " \
+      "against the middle plate; a match earns a hearing at Issel and a " \
+      "request for the crew's raw watch boards.",
+    risks:
+      "The plates give one signal three arrival directions and three " \
+      "different apparent distances, so any account that fits a single " \
+      "plate settles nothing, and the record's keepers require a theory " \
+      "to cover all three before anyone acts on it.",
+  )
+
   prose <<~PROSE
     Three passive-array traces recorded at #{ref :issel, "Issel"} make up the Long Note. Each carries the same narrow signal rising slowly in pitch, but their directions cross the dish from three sides and their delays place each apparent source at a different distance. Issel fixed them into separate ceramic plates whose groove depth follows signal strength. A mechanical reader can reproduce the timing outside the observatory's signal field, and the plates travel in a padded case with the original watch boards and array-temperature marks.
 

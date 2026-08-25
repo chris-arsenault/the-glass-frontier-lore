@@ -7,6 +7,22 @@ incident :second_span_trial do
   status :complete
   date 2356
 
+  descriptive_identity(
+    marks:
+      "A chain of aligned ringglass anchor beds still sits through the " \
+      "mid-drift, stripped of transmitters and cut crystal, each " \
+      "segment testing inert on its own — the same test that once " \
+      "signed the chain off as a passive guide. The complete project " \
+      "records, down to the rejected readings of Pyre answering a " \
+      "silent array, rest with the Shear Compact.",
+    stakes:
+      "Sithari keeps the only working span and no replacement has been " \
+      "attempted since, so the inequality that financed the trial has " \
+      "no outlet. The aligned mass in the beds is an obvious payday, " \
+      "and certification to strip it runs through the Compact that " \
+      "holds the record of what the chain carried."
+  )
+
   prose <<~PROSE
     The failed attempt to build a modern counterpart to #{ref :span_nine, "Span Nine"}. #{ref :coremark, "Coremark"} financed the work during the Contested Reach, when Sithari's exclusive access to the old conduit had become a system-wide grievance. The trial never opened a second span. It left a chain of aligned ringglass anchors through the mid-drift, close enough to #{ref :pyre, "Pyre"} to carry the refinery's later failure far beyond its walls.
   PROSE
@@ -44,6 +60,20 @@ end
 
 relate :rel_teren_voss_participated_second_span_trial, :participated_in, :teren_voss, :second_span_trial do
   prose "#{ref :teren_voss, "Teren Voss"} led the engineering team and signed the abandonment report."
+  descriptive_identity(
+    aims:
+      "Voss wanted the full chain to hold one coherent signal end to " \
+      "end, and when it would not, he wanted the abandoned anchor beds " \
+      "recognized as active rather than written off as inert.",
+    conduct:
+      "He ran the final acceptance attempt from outside the anchor " \
+      "chain — the choice that kept him alive — and kept private copies " \
+      "of the rejected readings showing Pyre answering a silent array.",
+    cost:
+      "His warnings were filed as an accounting problem, and the " \
+      "readings he preserved became evidence only after the cascade had " \
+      "already taken the route he described."
+  )
 end
 
 relate :rel_second_span_trial_caused_silent_bloom_path, :caused, :second_span_trial, :the_silent_bloom do

@@ -15,6 +15,33 @@ installation :xyloathax do
   status :complete
   omit_facts :maintained_by
 
+  descriptive_identity(
+    setting:
+      "A ring hab in clean Kaleidos orbit, curved around a narrow garden " \
+      "valley with homes and workshops set into both walls and a service " \
+      "truss crossing the open side. Since 2431 the Bloom Zone shows " \
+      "through the valley as a dark break across that truss, while " \
+      "ordinary sunlight passes around it.",
+    activity:
+      "Sixty-four hundred people keep the hab running as if the boundary " \
+      "were weather: gardens tended below the inner doors, meals and " \
+      "shifts marked by the truss shadow, evacuation cases packed and " \
+      "left by the door. Growers are currently moving the next harvest " \
+      "into sealed storage.",
+    access:
+      "The sunward dock is closed; arrivals use the two controlled " \
+      "corridors on the far arc, stopping at an outer buoy to surrender " \
+      "automatic docking control to a local pilot. The approach distance " \
+      "is checked by paired clocks, and a disagreement shuts the " \
+      "corridor until a Tuner and a pilot survey it together.",
+    hazards:
+      "The outer buoy now reads early on the dock clocks and on time on " \
+      "its own isolated mechanism, and the gap widens after every supply " \
+      "transfer — so each delivery worsens the next approach, with only " \
+      "one corridor left open while a third clock goes onto the hab " \
+      "wall."
+  )
+
   prose <<~PROSE
     Xyloathax is an inhabited ring hab in a clean orbit of Kaleidos. Its old name survives in spoken form; the intact wall script begins with the same sounds and continues for another line. The hab curves around a narrow garden valley, with homes and workshops set into both walls and a service truss crossing the open side.
 
@@ -51,6 +78,11 @@ relate :rel_xyloathax_located_in_frontier, :located_in, :xyloathax, :the_glass_f
 end
 relate :rel_xyloathax_member_ring_collective, :member_of, :xyloathax, :ring_collective do
   prose "The hab sends one delegation to the Ring Collective and uses its register for emergency berths."
+  descriptive_identity standing:
+    "The membership belongs to the habitat rather than its council, and " \
+    "it is being drawn on now: while the corridor clocks disagree, the " \
+    "Collective holds emergency berths at Hab Meridian against the day " \
+    "both approaches close."
 end
 relate :rel_bloom_zones_manifest_at_xyloathax, :manifests_at, :bloom_zones, :xyloathax do
   prose "A Bloom Zone opened across Xyloathax's sunward service truss without entering the inhabited arc."

@@ -89,6 +89,7 @@ Every content/query command selects one world through `--world ID`,
 | inspect one entity's changes | `timeline ID` | chronological effect strip |
 | recover settled editorial reasoning | `log ID` | non-reader entry history |
 | find missing structured facts | `facts [ID]` | global coverage or one entry's values |
+| inspect descriptive identity | `identity [ID]` | resolved keys, sources, local operations, and provenance |
 | write instructions for running an entry | `gm-notes [ID]` | note coverage plus duplicate, opening, and echo findings |
 | inspect fixed map data | `placement [ID]` | frame coverage or one entry's positions and route paths |
 | measure local graph coverage | `topology` | typed degree and thin entries |
@@ -308,6 +309,65 @@ values, numeric bounds, dependencies, and exclusions. The validator applies
 those constraints to each named relation. Symmetry and inverse are exported
 metadata; authors still declare the stored direction explicitly.
 
+## Descriptive identity
+
+Descriptive identity is a stable key-to-text dictionary assembled from complete
+canonical source entries. A kind declares its keys and named source slots:
+
+```ruby
+extend_kind :species do
+  identity_key :visual
+  no_identity_sources
+end
+
+extend_kind :culture do
+  identity_key :bearing
+  no_identity_sources
+end
+
+extend_kind :npc do
+  identity_key :visual
+  identity_key :bearing
+  identity_source :species, kinds: :species, keys: :visual
+  identity_source :culture, kinds: :culture, keys: :bearing
+end
+```
+
+Each source slot declares `one` or `many` cardinality, allowed kinds and optional
+subkinds, projected keys, and precedence. A projection may rename a key with a
+hash such as `keys: { physical_form: :visual }`. A slot can instead read a live
+typed edge by declaring `relation:` and `direction:`. Only that named slot
+transfers identity; unrelated graph neighbors never participate.
+
+```ruby
+species :orcs do
+  status :complete
+  descriptive_identity visual: "Orcs are usually physically beautiful."
+  prose "Orcs are a people found throughout the settled worlds."
+end
+
+npc :ugly_orc do
+  identity_source :species, :orcs
+  override_identity visual: "Contrary to most orcs, this one is remarkably ugly."
+end
+```
+
+`descriptive_identity` extends source text. `override_identity` suppresses prior
+contributions for that key on this owner only. Source references and local
+operations remain canonical; `World#resolve_identity` compiles the resolved
+dictionary at one year and retains active and suppressed provenance. Named
+relationship instances use the same authoring methods when their relation kind
+declares identity keys and sources.
+
+A source entry must be complete, non-veiled, have prose, and resolve every
+required identity key. Public entries cannot inherit DM-only identity. The
+validator rejects missing or incorrectly typed sources, undeclared keys or
+slots, empty values, cardinality errors, source cycles, and missing required
+resolved keys. `require_descriptive_identities!` additionally requires every
+kind to declare source slots or `no_identity_sources`; unresolved shells are the
+only entities allowed to defer the contract. Use `identity [ID]` for sources,
+local operations, resolved values, and provenance, or `identity` for coverage.
+
 ## Fixed spatial data
 
 Spatial metadata describes an authored map. It does not calculate motion or
@@ -508,7 +568,9 @@ trusted-loopback boundary, revision checks, and permitted declarations.
   authored pages, entry pages, indexes, tags, timeline, causality, and sidebar.
 - `graph` emits game-world node and relationship intervals as JSON.
   `live_at_render` marks state at the requested year; positions, route geometry,
-  and edge properties accompany their owners. Reference articles are excluded.
+  edge properties, descriptive identity, normalized source references, local
+  operations, and provenance accompany their owners. Reference articles are
+  excluded as graph nodes but remain addressable identity sources in entry data.
 - `render` emits a directory-shaped Markdown compatibility view. Its default
   audience is `all`; pass `--audience player` before sharing it.
 

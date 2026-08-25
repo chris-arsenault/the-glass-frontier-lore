@@ -5,6 +5,13 @@ npc :pava_lorn do
   occupation "Migration reader"
   specialty "Sarn health, formation changes, and safe collection bands"
   species "human"
+  identity_source :species, :humans
+  identity_source :culture, :hab_worlder
+  identity_source :trade, :readers
+  descriptive_identity disposition:
+    "Lorn replies in spacing and comb angle rather than permission, and " \
+    "sends anyone pointing at a single animal's turn back to count the " \
+    "whole formation first."
   culture "Hab-Worlder"
   status :complete
   tags :ecology, :navigation, :trade, :"kinetic-freq"

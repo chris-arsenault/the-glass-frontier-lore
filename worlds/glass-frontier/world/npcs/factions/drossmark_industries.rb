@@ -8,6 +8,31 @@ faction :drossmark_industries do
   status :complete
   omit_facts :leaders, :headquarters, :predecessors
 
+  descriptive_identity(
+    ideology:
+      "Speed was the product. A buyer paid for a graded load and a " \
+      "delivery window; which claim was cut, with what equipment, and at " \
+      "what loss was Drossmark's business alone.",
+    methods:
+      "Its heavy arrays fixed several debris masses into one temporary " \
+      "field and drew material through all of them without moving the " \
+      "carrier between cuts — quick in open Shear, and passing vibration " \
+      "into every mass the array held. The linked rigs answered to one " \
+      "command, which could keep them all cutting after local crews had " \
+      "tried to stop them.",
+    presence:
+      "Black hull plates bearing three white cuts, a mark that outlasted " \
+      "the company on loaders still working in private yards. Beyond the " \
+      "hulls it survives as a warning: two extraction frames repurposed as " \
+      "sorting tables with their power paths cut, and a Drossmark panel " \
+      "kept in inspection books as the standard picture of linked control.",
+    attitude:
+      "Other people's claims and warnings were priced, not honored. At " \
+      "Shardfall it entered a field the Brake Free Cutters had already " \
+      "marked, fought to hold it, and went on extracting after hab " \
+      "instruments warned that the arrestors were answering its rigs."
+  )
+
   prose <<~PROSE
     Drossmark Industries was a mid-drift extraction company built around heavy ringglass cutting arrays. Its rigs fixed several debris masses into one temporary field and drew material through them without moving the carrier between cuts. The method worked quickly in open Shear and transferred vibration across every mass held by the array.
 
@@ -37,6 +62,22 @@ relate :rel_drossmark_operated_shear, :operates_in, :drossmark_industries, :the_
 end
 relate :rel_drossmark_participated_shardfall, :participated_in, :drossmark_industries, :shardfall do
   prose "Drossmark entered the claimed field with heavy arrays, fought to hold them, and continued extraction until the cascade reached the hab."
+  descriptive_identity(
+    aims:
+      "The field was a delivery window: intact-grade material with a " \
+      "buyer waiting, and the local claim priced as an obstacle rather " \
+      "than honored as one.",
+    conduct:
+      "Its three arrays fixed the exposed mass, the neighboring debris, " \
+      "and its own carrier into one cutting field on a single command — " \
+      "the arrangement that kept every rig running after local crews " \
+      "tried to stop them — and it contested Brake's authority over " \
+      "open Shear rather than power down.",
+    cost:
+      "Eighteen of its workers died in the field, ports refused its " \
+      "cargo within days of receiving Brake's recordings, and insurers " \
+      "and creditors finished what the refusals began."
+  )
 end
 
 moment :drossmark_dissolved, year: 2359, of: :drossmark_industries do

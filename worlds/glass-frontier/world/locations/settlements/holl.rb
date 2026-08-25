@@ -13,6 +13,31 @@ installation :holl do
   access "One local carrier leg from Eleven, then ladder galleries from two docks or the upper cargo lifts"
   omit_facts :maintained_by
 
+  descriptive_identity(
+    setting:
+      "Homes fill water-cut alcoves under the overhanging face of a " \
+      "split ring wall, with balconies, ladders, narrow bridges, and " \
+      "cargo lines crossing the open interior. From the lowest terrace, " \
+      "kitchen lights climb two hundred meters up the opposing face, and " \
+      "the dark curve of Kaleidos hangs beyond every railing.",
+    activity:
+      "Water crews ride low sleds across the wall face painting each " \
+      "active seep line in a color readable from the far terraces, while " \
+      "freight changes from upper lift to lower cable at Five Landing " \
+      "and markets fill the free deck between arrivals.",
+    access:
+      "One local carrier leg runs from Eleven; from the two docks, " \
+      "ladder galleries and the upper cargo lifts carry people down into " \
+      "the terraces. Every inhabited level keeps a direct ladder toward " \
+      "a dock and a lateral route to the next cistern.",
+    hazards:
+      "The wall shifts a few millimeters each orbit, and anything " \
+      "mounted rigid against it sings a rising structural note for days " \
+      "before tearing free. When the wall moves further it can close a " \
+      "seep or open a new one, and the rerouted water carries whole rows " \
+      "of homes into different cistern wards within a season."
+  )
+
   prose <<~PROSE
     Homes fill water-cut alcoves beneath a ring wall split open during the Glassfall. Balconies, ladders, narrow bridges, and cargo lines cross the open interior. From the lowest inhabited terrace, kitchen lights rise two hundred meters along the opposing face, with the dark curve of Kaleidos beyond every railing.
   PROSE
@@ -52,8 +77,28 @@ end
 
 relate :rel_holl_supplies_eleven_flow_measurements, :supplies, :holl, :eleven, since: 2435 do
   prose "Holl sends gravity-flow measurements from its moving wall to Eleven's source-line readers."
+  descriptive_identity(
+    terms:
+      "Seep-by-seep readings from a wall that shifts a few millimeters " \
+      "every orbit, carried down the local carrier leg with the water " \
+      "crews' painted color codes attached.",
+    dependence:
+      "Orr Senn's wall charts need an outside case where gravity does " \
+      "the lifting; Holl's records show him what a flow change looks " \
+      "like before any pump is involved."
+  )
 end
 
 relate :rel_eleven_supplies_holl_pipe_designs, :supplies, :eleven, :holl, since: 2435 do
   prose "Eleven sends flexible-pipe designs proven along its long water spine to Holl's cistern crews."
+  descriptive_identity(
+    terms:
+      "Joint patterns and fittings that have already survived years of " \
+      "thermal cycling on the eleven-shaft line, drawn up for crews who " \
+      "assemble them on ledges rather than in a workshop.",
+    dependence:
+      "Every pipe in Holl must flex or fail — a hard-mounted run sings " \
+      "a rising structural note for days and then tears free — so the " \
+      "proven designs are the difference between plumbing and debris."
+  )
 end

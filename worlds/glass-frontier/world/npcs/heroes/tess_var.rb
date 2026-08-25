@@ -5,6 +5,12 @@ npc :tess_var do
   occupation "Archive-face cutter"
   specialty "Separating recorded ringglass along the crystal grain"
   species "human"
+  identity_source :species, :humans
+  identity_source :culture, :hab_worlder
+  descriptive_identity disposition:
+    "Offer to make the cut and Var hands over a damper or a listening " \
+    "point instead; she seats the wedge herself until an apprentice's " \
+    "readings have matched hers across three separate cuts."
   culture "Hab-Worlder"
   status :complete
   tags :ringglass, :archives, :materials, :training

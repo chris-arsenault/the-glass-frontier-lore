@@ -11,7 +11,7 @@ module Lorecraft
     # player knowledge. Questions, entry logs and drafting records go into a
     # separate document intended for the authenticated editorial API.
     class Site < Base
-      SCHEMA_VERSION = 9
+      SCHEMA_VERSION = 10
       CAUSAL_RELATIONS = %w[causes caused caused_by].freeze
 
       def initialize(world, root: Dir.pwd)
@@ -211,7 +211,7 @@ module Lorecraft
           positions: position_documents(node),
           summary: summary_for(node, sections),
           route: entry_route(node.id),
-        }.compact
+        }.merge(identity_document(node, :player)).compact
       end
 
       # How to run the entity, for whoever is running the game. Published with
@@ -273,7 +273,7 @@ module Lorecraft
           positions: position_documents(node),
           summary: summary_for(node, sections),
           route: entry_route(node.id),
-        }.compact
+        }.merge(identity_document(node, audience)).compact
       end
 
       def sections_for(node, audience)
@@ -555,7 +555,7 @@ module Lorecraft
           to: relation.to_year,
           props: (relation.props unless relation.props.empty?),
           source_metadata: relation.source_metadata,
-        }.compact
+        }.merge(identity_document(relation, :player)).compact
       end
 
       def chronicles_for(entity_id)
@@ -706,12 +706,28 @@ module Lorecraft
           to: edge["to"],
           live: edge["live_at_render"],
           properties: edge["props"],
+          descriptive_identity: edge["descriptive_identity"],
+          identity_sources: edge["identity_sources"],
+          identity_local: edge["identity_local"],
+          identity_provenance: edge["identity_provenance"],
         }.compact
       end
 
       def kind_index(entries)
         entries.group_by { |entry| entry[:kind] }.map do |kind, members|
-          { id: kind, title: humanize(kind), count: members.size }
+          definition = @world.schema.kinds[kind.to_sym]
+          {
+            id: kind,
+            title: humanize(kind),
+            count: members.size,
+            identity_source_policy: definition&.identity_source_policy,
+            descriptive_identity_keys: Array(definition&.identity_keys).map do |key|
+              identity_key_definition(key)
+            end,
+            identity_sources: Array(definition&.identity_sources).map do |source|
+              identity_source_definition(source)
+            end,
+          }.compact
         end.sort_by { |kind| kind[:title] }
       end
 
@@ -723,6 +739,15 @@ module Lorecraft
             kind: kind,
             title: definition&.label || humanize(subkind),
             count: members.size,
+            identity_source_policy: @world.schema.identity_source_policy_for(
+              kind, subkind: subkind
+            ),
+            descriptive_identity_keys: @world.schema.identity_keys_for(
+              kind, subkind: subkind
+            ).map { |key| identity_key_definition(key) },
+            identity_sources: @world.schema.identity_sources_for(
+              kind, subkind: subkind
+            ).map { |source| identity_source_definition(source) },
           }
         end.sort_by { |subkind| [subkind[:kind], subkind[:title]] }
       end
@@ -751,7 +776,66 @@ module Lorecraft
               exclusive_with: property.exclusive_with.empty? ? nil : property.exclusive_with.map(&:to_s),
             }.compact
           end,
+          identity_source_policy: relation.identity_source_policy,
+          descriptive_identity_keys: @world.schema.relation_identity_keys(relation.name).map do |key|
+            identity_key_definition(key)
+          end,
+          identity_sources: @world.schema.relation_identity_sources(relation.name).map do |source|
+            identity_source_definition(source)
+          end,
         }.compact
+      end
+
+      def identity_key_definition(key)
+        {
+          id: key.name.to_s,
+          required: key.required?,
+          merge: key.merge.to_s,
+          separator: key.separator,
+        }
+      end
+
+      def identity_source_definition(source)
+        {
+          id: source.name.to_s,
+          relation: source.relation&.to_s,
+          direction: source.direction.to_s,
+          cardinality: source.cardinality.to_s,
+          required: source.required?,
+          kinds: source.kinds.map(&:to_s),
+          subkinds: source.subkinds.map(&:to_s),
+          projection: source.projection.to_h do |source_key, target_key|
+            [source_key.to_s, target_key.to_s]
+          end,
+          precedence: source.precedence,
+        }.compact
+      end
+
+      def identity_document(owner, audience)
+        return {} unless owner.is_a?(Entity) || owner.is_a?(RelationInstance)
+
+        resolution = @world.resolve_identity(owner, at: @year, audience: audience)
+        return {} if resolution.descriptive_identity.empty? && resolution.sources.empty? &&
+                     resolution.local.empty?
+
+        {
+          descriptive_identity: stringify_identity_dictionary(resolution.descriptive_identity),
+          identity_sources: resolution.sources.map do |source|
+            source.transform_values { |value| value.is_a?(Symbol) ? value.to_s : value }
+          end,
+          identity_local: resolution.local.to_h do |key, value|
+            [key.to_s, value.transform_values { |item| item.is_a?(Symbol) ? item.to_s : item }]
+          end,
+          identity_provenance: resolution.provenance.to_h do |key, contributions|
+            [key.to_s, contributions.map do |contribution|
+              contribution.to_h.transform_values { |value| value.is_a?(Symbol) ? value.to_s : value }
+            end]
+          end,
+        }
+      end
+
+      def stringify_identity_dictionary(dictionary)
+        dictionary.to_h { |key, value| [key.to_s, value] }
       end
 
       def spatial_frame_documents

@@ -12,6 +12,19 @@ species :dwarves do
   lifespan "Usually a little longer than humans"
   resonance_relation "Fine signal-frequency vibration is legible through sustained touch"
 
+  descriptive_identity(
+    appearance:
+      "A dwarf stands lower and heavier than a human, compact through the chest " \
+      "and joints, and slow to flush or shiver when a room runs hot or cold. Up " \
+      "close the fingertips are the distinguishing feature: broad and densely " \
+      "padded, and kept bare of glove and callus by anyone who reads by touch.",
+    senses:
+      "Dwarven fingertips read fine texture and vibration through sustained " \
+      "bare contact — nothing at a distance, nothing through a glove, and " \
+      "nothing the reader has never met before. Heat and cold register " \
+      "slowly, so comfort can outlast safety."
+  )
+
   prose <<~PROSE
     Dwarves entered the Kaleidos system during the ring era and now live throughout its surface towns and habs. Their bodies retain heat slowly, their hands distinguish very small changes in texture and vibration, and their compact frames tolerate abrupt changes in acceleration well.
   PROSE

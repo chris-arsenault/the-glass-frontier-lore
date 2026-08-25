@@ -353,6 +353,7 @@ module Lorecraft
     class Graph < Base
       def render(at: :now, audience: :all, pretty: true)
         year = @world.timeline.year_for(at)
+        @year = year
         graph_nodes = nodes(audience)
         ids = graph_nodes.map { |node| node[:id] }.to_set
         data = {
@@ -383,12 +384,13 @@ module Lorecraft
             route_geometry: (route_geometry_document(n.route_geometry) if n.respond_to?(:route_geometry) && n.route_geometry),
             dm: (n.respond_to?(:dm?) && n.dm?),
             path: page_path(n)
-          }.compact
+          }.merge(identity_graph_fields(n, audience)).compact
         end
       end
 
       def edges(year, audience)
         Edges.new(@world, at: year, audience: audience).rows.map do |edge|
+          relation = @world.relation_instances[edge.origin]
           {
             src: edge.subject,
             rel: edge.relation,
@@ -398,8 +400,25 @@ module Lorecraft
             dm: edge.dm,
             props: (edge.props unless edge.props.nil? || edge.props.empty?),
             live_at_render: edge.live,
-          }.compact
+          }.merge(relation ? identity_graph_fields(relation, audience) : {}).compact
         end
+      end
+
+      def identity_graph_fields(owner, audience)
+        return {} unless owner.is_a?(Entity) || owner.is_a?(RelationInstance)
+
+        resolution = @world.resolve_identity(owner, at: @year, audience: audience)
+        return {} if resolution.descriptive_identity.empty? && resolution.sources.empty? &&
+                     resolution.local.empty?
+
+        {
+          descriptive_identity: resolution.descriptive_identity,
+          identity_sources: resolution.sources,
+          identity_local: resolution.local,
+          identity_provenance: resolution.provenance.transform_values do |rows|
+            rows.map(&:to_h)
+          end,
+        }
       end
 
       def position_documents(node)

@@ -7,6 +7,21 @@ transport :flitter do
   tags :transport, :resonance, :"kinetic-freq", :surface, :orbital, :household
   prominence :recognized
 
+  descriptive_identity(
+    appearance: "A compact cabin slung beneath a ringglass drive frame, sized for two to six people, " \
+                "with landing feet and a luggage box built into a rigid cradle. Regional builds show at a glance: " \
+                "broad detachable skids on steppe craft, pale catch cloth folded over the joints of shower-route " \
+                "machines, plain washable lower shells on Lowbank models.",
+    aboard: "Seats or paired benches inside a weather shell, with the faint hum of a working array under everything; " \
+            "larger cabins add pressure seals and their own air for an orbit climb. Turns, climbs, and a rough landing " \
+            "all reach the passengers, and shifting seats mid-flight can put the balance past what an older craft " \
+            "corrects.",
+    behavior: "It flies itself along registered routes by reading local beacons against its hull compass, and refuses " \
+              "a leg when the two disagree; a pilot can take manual control to leave the route. After landing it " \
+              "settles into a berth frame and holds its doors until the pad lights fall together and the residual " \
+              "kinetic pull has drained. In a depleted field it descends on stored charge and simply waits."
+  )
+
   prose <<~PROSE
     A flitter is the short-range #{ref :kite_sail, "kite"} used for ordinary passenger travel and light freight. Most carry two to six people in a compact cabin beneath a ringglass drive frame. They cross a city, climb between a surface terminal and low orbit, or follow a marked route to the next settlement. Their range is modest by system standards and ample for the journeys most people make in a day.
 

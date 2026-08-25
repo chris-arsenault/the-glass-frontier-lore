@@ -7,6 +7,37 @@ installation :the_reed_door do
   tags :"outer-system", :trade, :transport, :household, :ecology
   prominence :marginal
 
+  descriptive_identity(
+    setting:
+      "A ferry house on Lowbank's outer western mound, facing three " \
+      "channels whose approach shifts with tide and sediment. The landing " \
+      "floats on reed bundles around a ceramic frame, the ground hall is " \
+      "a stone kitchen core inside removable timber shutters, and the " \
+      "thick woven front panel lifts clear of its frame when storms come. " \
+      "Flood marks score the tables and benches.",
+    activity:
+      "Ferries work the downstream side of the landing and barges its " \
+      "long outer face while the common hall runs in more languages than " \
+      "Lowbank's courts hear. Pilots compare the hanging pole marks on " \
+      "the sounding balcony with the water below, boat owners hire poles " \
+      "and mud crews by the landing board, and locals eat here to keep " \
+      "track of who is waiting and who came back short a pole.",
+    access:
+      "A crew arriving by boat ties its route pole beside the landing " \
+      "before registering — the mark tells the desk which channel they " \
+      "used and whether they can leave the same way. Overland arrivals " \
+      "have no pole and get asked how they mean to depart. A room charge " \
+      "can include an early sounding for a crew leaving ahead of the " \
+      "route boat.",
+    hazards:
+      "Nothing below the middle floor is promised dry: freight stays on " \
+      "its vessel or goes to the mound warehouse, and a flood warning " \
+      "empties the ground hall in a fixed order with the front panel " \
+      "lifted last. The eastern approach is rising, one hinged walk is " \
+      "gone, and three poles have come back with identical fresh " \
+      "pole-thief strikes from three separate channels."
+  )
+
   prose <<~PROSE
     The Reed Door is a ferry house, food hall, and cheap lodging on #{ref :lowbank, "Lowbank"}'s outer western mound. Long-haul crews enter the city through its detachable landing. Flood workers open the upper hall when water closes the lower wards. The front door is a thick woven panel lifted clear of its frame during storms, giving the house its name and leaving one less rigid surface for the river to strike.
 

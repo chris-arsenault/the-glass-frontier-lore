@@ -14,6 +14,32 @@ installation :brake do
   access "One tug shift from Clearance Eight, then escorted passage through the capture lanes to three inhabited docks"
   omit_facts :maintained_by
 
+  descriptive_identity(
+    setting:
+      "A reinforced central fragment ringed by eleven inhabited hulls " \
+      "built in different eras for different gravities, with streets " \
+      "running between them through cargo locks, temporary bridges, and " \
+      "torn engine rooms. Cutter lines take one vessel apart deck by " \
+      "deck while another arrives beside it, so the skyline changes " \
+      "every month.",
+    activity:
+      "Tug crews fix incoming derelicts to three independent anchors " \
+      "while intake teams read pressure, chemical residue, structural " \
+      "tone, and ownership marks; cutting works inward from the outer " \
+      "hull along painted lines, and every salvaged piece takes a lot " \
+      "mark at removal.",
+    access:
+      "One tug shift out from Clearance Eight, then escorted passage " \
+      "through the capture lanes to three inhabited docks. Only the " \
+      "central fragment's permanent routes carry the bright orange " \
+      "handrails.",
+    hazards:
+      "Off the handrail routes, gravity changes hull by hull and doors " \
+      "keep old labels pointing to rooms elsewhere in the yard. The lot " \
+      "marks cut both ways: anything sold into the lots can be traced " \
+      "back to its vessel and deck."
+  )
+
   prose <<~PROSE
     Eleven inhabited hulls surround Brake's central fragment. They were built in different eras for different gravities, and streets pass between them through cargo locks, temporary bridges, and torn engine rooms. Permanent routes remain on the central fragment and carry bright orange handrails.
 

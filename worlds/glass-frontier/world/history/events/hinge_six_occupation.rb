@@ -7,6 +7,22 @@ incident :hinge_six_occupation do
   status :complete
   date 2362
 
+  descriptive_identity(
+    marks:
+      "The Accord's communication standards carry the rule the " \
+      "occupation settled: a relay may close itself for safety, but an " \
+      "armed party may not choose which civilian message passes. " \
+      "Belligerents since have left relay rooms alone even while " \
+      "fighting over the routes around them.",
+    stakes:
+      "Proposing to sort traffic by sender at any station gets " \
+      "answered with what the clerks did here — navigation kept " \
+      "running while medical requests and port closures vanished into " \
+      "the filter, until the keepers opened the breakers and went " \
+      "silent. Holding a relay still means holding a route carriers " \
+      "can simply stop using."
+  )
+
   prose <<~PROSE
     The armed seizure that placed civilian communication relays outside the accepted conduct of the Contested Reach. The #{ref :third_arc_defense, "Third Arc Defense"} occupied the earlier Hinge Six station during a route embargo and ordered its keepers to block Continuity priority traffic while leaving navigation service active.
   PROSE
@@ -35,12 +51,45 @@ end
 
 relate :rel_third_arc_participated_hinge_occupation, :participated_in, :third_arc_defense, :hinge_six_occupation do
   prose "The Third Arc Defense held Hinge Six and imposed the message filter."
+  descriptive_identity(
+    aims:
+      "The Defense had taken the station to protect a supply corridor " \
+      "during the embargo, and wanted Continuity priority traffic " \
+      "blocked without losing the branch's ordinary service.",
+    conduct:
+      "Its clerks left the beacon untouched and departures running, " \
+      "sorting messages by sender and destination — a filter that " \
+      "swallowed medical requests and port closures alongside the " \
+      "government orders it was aimed at.",
+    cost:
+      "It withdrew rather than lose the corridor it had come to " \
+      "protect, and the pact that had treated relays as common " \
+      "infrastructure spent the rest of its existence as a convoy " \
+      "organization."
+  )
 end
 
 relate :rel_hinge_six_participated_occupation, :participated_in, :hinge_six, :hinge_six_occupation do
   prose "The occupation took place in an earlier hull carrying the Hinge Six name and route office."
+  descriptive_identity(
+    conduct:
+      "The station keepers answered the filter by opening the signal " \
+      "breakers: ships could still turn at the marked corridor, but the " \
+      "relay itself went silent rather than pass a sorted service off " \
+      "as a whole one.",
+    cost:
+      "While the breakers stayed open, no joined route record and no " \
+      "receiving confirmation left the station — the keepers gave up " \
+      "the relay's whole function to keep it honest."
+  )
 end
 
 relate :rel_vantara_participated_hinge_occupation, :participated_in, :vantara, :hinge_six_occupation do
   prose "Vantara joined independent carriers in refusing the occupied branch."
+  descriptive_identity(
+    aims:
+      "The refusal was commercial rather than political: a relay whose " \
+      "confirmations could not be trusted was a branch not worth " \
+      "flying, whoever held its rooms."
+  )
 end

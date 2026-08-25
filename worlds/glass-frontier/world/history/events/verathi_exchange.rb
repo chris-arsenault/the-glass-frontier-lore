@@ -7,6 +7,22 @@ incident :verathi_exchange do
   status :complete
   date 2311
 
+  descriptive_identity(
+    marks:
+      "Standing missions in Verathi and Sithari, each recognizing the " \
+      "other's registries and courts, date from the signed instruments. " \
+      "First contacts across the system open with the questions the " \
+      "exchange settled: who can bind the community, whose law applies " \
+      "aboard a visiting vessel, and whether every privilege runs both " \
+      "ways.",
+    stakes:
+      "A document that assumes inherited authority over a hab — a " \
+      "restoration order, a district appointment — is handed back for " \
+      "rewriting rather than refused, and a community can join the " \
+      "wider system without conceding that the old ring administration " \
+      "ever governed it."
+  )
+
   prose <<~PROSE
     The first Reconnection dispute between two communities that both wanted contact. #{ref :verathi, "Verathi"} answered surface signals, exchanged records freely, and accepted a visiting delegation. The disagreement began when Sithari's restoration commission presented credentials that treated the hab as a returning district of the old ring administration.
   PROSE
@@ -29,10 +45,33 @@ end
 
 relate :rel_verathi_participated_exchange, :participated_in, :verathi, :verathi_exchange do
   prose "Verathi received the commission and required reciprocal recognition before accepting a permanent mission."
+  descriptive_identity(
+    aims:
+      "The hab wanted the wider system — signals answered, records " \
+      "exchanged, cargo moving — on the standing of a community that " \
+      "had kept its own registry, courts, and life-support councils " \
+      "running through the Famine.",
+    conduct:
+      "Its receivers cleared the commission's vessel to dock while its " \
+      "civic chambers received the officers as a foreign delegation, " \
+      "and the dock kept working through every rewriting of the " \
+      "documents."
+  )
 end
 
 relate :rel_continuity_participated_verathi_exchange, :participated_in, :the_continuity, :verathi_exchange do
   prose "The Continuity sent Sithari's restoration commission and accepted the rewritten credentials."
+  descriptive_identity(
+    aims:
+      "The commission arrived carrying authority to restore services " \
+      "and seat a district liaison — the model of a returning district " \
+      "of the old ring administration.",
+    conduct:
+      "When the model failed it stayed at the table: every clause " \
+      "assuming inherited jurisdiction came out, and its mission staff " \
+      "took the same protections aboard the hab that Verathi's would " \
+      "hold in Sithari."
+  )
 end
 
 relate :rel_verathi_exchange_caused_cooperation, :caused, :verathi_exchange, :verathi do

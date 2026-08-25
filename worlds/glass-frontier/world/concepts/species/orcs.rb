@@ -15,6 +15,21 @@ species :orcs do
   lifespan "Comparable to humans, with an earlier peak and steeper decline"
   resonance_relation "Strong material sense; best suited to structural and kinetic work"
 
+  descriptive_identity(
+    appearance:
+      "Orcs are tall and broad, dense through the bone, with skin in deep " \
+      "saturated tones — charcoals, greens, rich earths — that catch light, and " \
+      "strong, precisely proportioned features. The near-universal first " \
+      "reaction of other species is that they are beautiful, and orcs have long " \
+      "practice in being noticed for it. Past their prime they stiffen rather " \
+      "than shrink.",
+    senses:
+      "Orcish pain response is muted: damage underreports itself, and an orc " \
+      "can work through an injury they genuinely have not noticed. What orcs " \
+      "read keenly is material under stress — how a loaded seam or a " \
+      "ringglass-laced alloy wants to move under their hands."
+  )
+
   prose <<~PROSE
     Alien origin, arriving in the Kaleidos system independently — not engineered, not native. The second alien species after humans, though the order of arrival is debated and ultimately doesn't matter much. They are here. They have been here for a long time. They are not going anywhere.
   PROSE

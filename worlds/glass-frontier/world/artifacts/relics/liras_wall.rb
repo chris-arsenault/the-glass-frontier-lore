@@ -9,6 +9,28 @@ artifact :liras_wall do
   tags :resonance, :danger
   prominence :recognized
 
+  descriptive_identity(
+    appearance:
+      "Stillwater damping buoys strung along a Bloom Zone boundary, each " \
+      "seated in a mount worked into the cordon station's frame, with a " \
+      "ringglass monitoring array behind the line. Buoys of different " \
+      "ages serve side by side — some date to the first emergency " \
+      "cordons.",
+    handling:
+      "The array reads the boundary's local gradient and updates each " \
+      "buoy as the zone shifts; mounts are spread through the frame so a " \
+      "crew can isolate one section for work without dropping the whole " \
+      "wall. The work sits in the mid-bandwidth range a trained Tuner " \
+      "can manage, and part of it is keeping the local ecology off the " \
+      "machinery.",
+    risks:
+      "A long-serving buoy's stillwater holds years of absorbed cascade " \
+      "frequencies and is kept sealed. One rind filament resting on a " \
+      "tuned mount pulls that section out of calibration, and the wall " \
+      "only contains the Bloom — nothing about it reverses or heals what " \
+      "lies inside the boundary.",
+  )
+
   prose <<~PROSE
     The first resonance containment device. A network of stillwater damping buoys deployed along #{ref :bloom_zones, "Bloom Zone"} boundaries, designed by #{ref :lira_vashtenri, "Lira Vashtenri"} and built from the #{ref :echo_ledger_conclave, "Echo Ledger Conclave"}'s most precious substance.
   PROSE
@@ -39,12 +61,30 @@ end
 
 relate :rel_liras_wall_depends_on_stillwater, :depends_on, :liras_wall, :stillwater do
   prose "Lira's Wall depends on #{ref :stillwater, "Stillwater"} — the deep-water resonance reservoir that gives the containment field something stable to anchor against."
+  descriptive_identity exposure:
+    "A boundary section without fresh stillwater cannot be recalibrated " \
+    "as the zone drifts; the buoys keep absorbing until their charge is " \
+    "saturated, and then the corridor they were calming is open. There " \
+    "is no substitute medium waiting — the choice is more vials or a " \
+    "wider Bloom."
 end
 relate :rel_liras_wall_designed_by_lira, :designed, :lira_vashtenri, :liras_wall do
   prose "#{ref :lira_vashtenri, "Lira Vashtenri"} designed it, after noticing the #{ref :bloom_zones, "Bloom Zones"} bled along specific corridors rather than expanding uniformly — containment by observation, not theory."
 end
 relate :rel_conclave_supplies_liras_wall, :supplies, :echo_ledger_conclave, :liras_wall do
   prose "The #{ref :echo_ledger_conclave, "Echo Ledger Conclave"} supplies the #{ref :stillwater, "stillwater"} the buoys consume — every buoy deployed is archival medium that is no longer preserving history."
+  descriptive_identity(
+    terms:
+      "Purified vials released to the Displacement Council's cordon " \
+      "stations under an allocation the archivists renegotiate rather " \
+      "than renew, each shipment a quantity of history the Conclave " \
+      "has agreed not to write.",
+    dependence:
+      "Since the first network held in 2382 no other containment " \
+      "medium has been found, which leaves the system's quietest " \
+      "standing negotiation running between a preservation society and " \
+      "the crews spending its archive at the boundary."
+  )
 end
 
 # --- history (moment) ---

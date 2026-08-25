@@ -14,6 +14,31 @@ faction :bloom_coalition do
   log "2026-08-09 — dropped `status \"dissolved\"`. `status` is the authoring state (complete/draft/shell/needs_refinement); the Coalition's in-world standing is set by its dissolution moment, which the validator now enforces."
   log "2026-08-08 — prominence :renowned confirmed. Every faction in the system staffed the Coalition, so the entry cannot avoid naming recognized ones; the reach warnings it used to raise were the check's shape, not this entry's."
 
+  descriptive_identity(
+    ideology:
+      "One mission — keep the Bloom Zones from spreading — under one " \
+      "chain of command, and nothing else. The charter carried its own " \
+      "dissolution clause from the first day: the Coalition would exist " \
+      "exactly as long as containment required a unified head, then " \
+      "stop.",
+    methods:
+      "A standing committee that could issue an order within twelve " \
+      "hours, a council that could reverse it within seven days and " \
+      "never did, and field commands keyed to containment zones staffed " \
+      "by quarterly-rotating personnel seconded from every member " \
+      "faction. It was fast, decisive, willing to absorb casualties, and " \
+      "it treated the burnout of its senior people as the cost of the " \
+      "mission.",
+    presence:
+      "Since 2396, a residue rather than an organization: old hands " \
+      "scattered through most cross-faction work, still running " \
+      "briefings to field-command habit and still holding working " \
+      "relationships across lines current politics does not support. In " \
+      "argument its name is claimed by both sides — the model for " \
+      "cooperation, the warning about emergency powers — and binds " \
+      "nobody."
+  )
+
   prose <<~PROSE
     The unified operational command that contained the #{ref :the_silent_bloom, "Silent Bloom"} during the first #{elapsed 2378, 2396} of its expansion. Not a political body and not a treaty organization — the Coalition was an operational structure that drew personnel directly from every faction with a stake in containment and answered to a single chain of command. It existed for one purpose: keep the #{ref :bloom_zones, "Bloom Zones"} from spreading. It did the job. It dissolved on schedule.
 

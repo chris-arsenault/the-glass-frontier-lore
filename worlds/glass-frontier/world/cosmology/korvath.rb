@@ -8,6 +8,32 @@ geographic_location :korvath do
   prominence :recognized
   position frame: :kaleidos_system_chart, radius: 3, angle_deg: 126
 
+  descriptive_identity(
+    setting:
+      "A temperate world larger than Kaleidos, its three continents " \
+      "divided by deep oceans, with the busiest settled belt curved " \
+      "around a warm middle sea. Mountain arcs catch rain near the " \
+      "coasts, interiors dry into grass and red stone tableland, and " \
+      "the sky is usually clear of the bright broken band that hangs " \
+      "over the inner world.",
+    activity:
+      "Farms, fisheries, northern ironworking ports, and southern " \
+      "orchard coasts feed a heavy trade with Kaleidos and the outer " \
+      "worlds — food, ceramic insulation, and ship plate going out, " \
+      "ringglass and precision instruments coming in. A cargo crossing " \
+      "the planet answers to port leagues, river boards, and road " \
+      "compacts in turn, each with its own weights, seals, and labor " \
+      "rules.",
+    hazards:
+      "Iron-rich strata carry resonance weakly but broadly, so a badly " \
+      "seated array can push a shallow pulse through kilometers of " \
+      "stone and get an answer back from a bridge, quarry face, or " \
+      "crane along the path. A concealed criminal network runs finance, " \
+      "repair, and stolen cargo through the northern freight economy, " \
+      "and the towns' responses to it range from compromised to hostile " \
+      "with no planetary line between them."
+  )
+
   prose <<~PROSE
     Korvath is the next world beyond Kaleidos, larger in land and sea and home to settlements founded long before #{ref :coremark, "Coremark"}. Its temperate belts support broad river plains, old forests, upland pasture, and cities connected by coastal shipping. The planet receives less ring debris than Kaleidos. Its sky is usually clear of the bright broken band that hangs over the inner world.
 

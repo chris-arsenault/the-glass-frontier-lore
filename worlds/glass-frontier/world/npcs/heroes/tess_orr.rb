@@ -5,6 +5,19 @@ npc :tess_orr do
   occupation "Textile trace washer"
   specialty "Recovering signal impressions from layered and repaired cloth"
   species "dwarf"
+  identity_source :species, :dwarves
+  identity_source :culture, :hab_worlder
+  identity_source :trade, :readers
+  descriptive_identity appearance:
+    "Orr's hands are wash-pale to the wrist from bench work, and she keeps " \
+    "her sleeves rolled in any temperature so no cuff touches a cloth before " \
+    "she has read it."
+  descriptive_identity disposition:
+    "Orr treats no cloth until she has bargained test thread out of an " \
+    "existing repair, and the tested thread returns to the owner in a " \
+    "small glass tube. She refuses any wash order that could push a " \
+    "beacon into a later patch, however fast the owner wants the cloth " \
+    "clean."
   culture "Hab-Worlder"
   status :complete
   tags :household, :archives, :"signal-freq"

@@ -9,6 +9,32 @@ faction :counterweight do
   tags :surface, :"structural-freq", :"kinetic-freq", :transport, :training
   prominence :recognized
 
+  descriptive_identity(
+    ideology:
+      "A structure a town cannot afford to lose can be moved while it keeps " \
+      "working, because interruption is often more dangerous than labor " \
+      "beneath the load. Expertise gives no jurisdiction: the crew can mark " \
+      "where a building will fall, but it cannot order anyone out of it.",
+    methods:
+      "Every job starts by tracing everything the structure serves and " \
+      "settling what must stay live; then the load travels in short lifts " \
+      "over mats, cribbing, and sleds while hundreds of local hands work " \
+      "under four calls. Any worker can stop the move — the load is settled " \
+      "first and the reason asked afterward.",
+    presence:
+      "Four specialists and two cargo kites of heavy mats, sleds, and spare " \
+      "drives, with no yard of their own. They teach as they rig, write " \
+      "local training time into their contracts, and cut open retired " \
+      "warning shackles in front of the town so the faults are seen before " \
+      "the iron goes to scrap.",
+    attitude:
+      "A hiring settlement works as a partner, supplying labor, material, " \
+      "and knowledge of what the building serves, and sharing the decision " \
+      "about what stays live — though owners do not command the move " \
+      "itself. The crew refuses prisons and siege engines, and will not " \
+      "shift an occupied home without its residents' consent."
+  )
+
   prose <<~PROSE
     The Counterweight is a four-person moving crew that relocates structures a settlement cannot afford to lose. Its jobs include pump houses, mills, kilns, bridge heads, clinic wards, and workshops built on ground that has begun to fail. The structure usually remains in use while it moves. Towns hire the crew when interruption would be more dangerous than working beneath the load.
 
@@ -55,6 +81,18 @@ relate :rel_counterweight_operates_avar, :operates_in, :counterweight, :avar, si
 end
 relate :rel_counterweight_cooperates_ladderwell, :cooperates_with, :counterweight, :ladderwell, since: 2434 do
   prose "Its move of #{ref :ladderwell, "Ladderwell"}'s operating chain house left the town with a permanent rigging cache and trained local crew."
+  descriptive_identity(
+    basis:
+      "The job that made the crew's name beyond the steppe: an " \
+      "operating pump house carried onto firm stone with the drinking " \
+      "taps flowing throughout, hundreds of local hands working under " \
+      "four calls, and the contract's training clause honored in full.",
+    limits:
+      "What remains is reciprocal storage, not a garrison — Ladderwell " \
+      "holds replacement timber and iron against the crew's next call, " \
+      "and by the time that call comes the cache has usually been " \
+      "argued back out of whatever the town built with it."
+  )
 end
 relate :rel_counterweight_uses_tuning_compass, :depends_on, :counterweight, :tuning_compass do
   prose "The crew compares its load stakes with a #{ref :tuning_compass, "tuning compass"} so a local field shift is not mistaken for structural movement."

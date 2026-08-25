@@ -163,6 +163,58 @@ The shared schema declares `related_to` with category `banned`, allowing the
 validator to issue a specific error for a generic edge instead of reporting an
 unknown word.
 
+### Descriptive identity
+
+An entity kind, subkind, or relation kind may declare a descriptive identity
+contract. Keys define the stable output dictionary. Source slots define the
+only canonical entries whose identity may contribute to an owner.
+
+```ruby
+extend_kind :species do
+  identity_key :visual, required: true, merge: :append
+  no_identity_sources
+end
+
+extend_kind :npc do
+  identity_key :visual, required: true, merge: :append
+  identity_source :species,
+                  kinds: :species,
+                  cardinality: :one,
+                  keys: :visual
+end
+```
+
+`identity_key` accepts `required:`, `merge:` (`append` or `replace`), and a text
+`separator:`. A subkind definition with the same key replaces the kind
+definition in place.
+
+`identity_source` accepts:
+
+- `kinds:` and optional `subkinds:` for allowed source entries;
+- `cardinality:` (`one` or `many`) and `required:`;
+- `keys:` as a list of same-name projections or a source-to-target key hash;
+- `precedence:` for deterministic ordering;
+- optional `relation:` and `direction:` to select source entries from live typed
+  edges at the query year.
+
+A direct slot is assigned on an entity or named relationship with
+`identity_source :slot, :entry_id`. `descriptive_identity key: "text"` extends
+resolved source text. `override_identity key: "text"` suppresses inherited
+contributions for that key without changing the source or another consumer.
+
+Resolution recursively composes source entries, applies projections in declared
+precedence, then applies local extensions and overrides. The result retains the
+normalized source references, local operations, resolved dictionary, and
+per-key provenance, including suppressed contributions. Cycles are rejected.
+
+Source entries must be complete canonical entries with prose and complete
+required identity. They cannot be shells or veiled entries. A public owner
+cannot use a DM-only source. A world calls `require_descriptive_identities!` to
+require every kind to declare at least one source slot or
+`no_identity_sources`; subkinds inherit and may replace or omit declared slots.
+Shells may defer values, but established veiled entries must satisfy the same
+required source and key contract as other entities.
+
 ### Controlled declarations
 
 - `tag :id, "meaning"` defines the only tag ids entries may use.
@@ -656,6 +708,8 @@ records; other bounded commands use query objects. Other commands reject JSON.
 - effects do not change declared static attributes;
 - temporal existence and moment ordering are causal;
 - tags, prominence, subkinds, fact types, and sections use their schemas;
+- descriptive identity uses declared keys and source slots, complete compatible
+  source entries, acyclic resolution, valid cardinality, and required output;
 - narrative roles apply only to NPCs and use `viewpoint` or `titan`;
 - authoring status and provenance values have allowed shapes.
 
@@ -699,8 +753,9 @@ world.render(:site, out: "build/site", world_id: "dry-war",
 - `wiki` writes flat player-facing pages plus generated indexes, tags, timeline,
   causality, and sidebar.
 - `graph` returns JSON nodes and full relationship intervals, marking which are
-  live at the render year and retaining positions, route geometry, and edge
-  properties.
+  live at the render year and retaining positions, route geometry, edge
+  properties, resolved descriptive identity, source references, local
+  operations, and per-key provenance.
 - `timeline` returns a Markdown effect strip for one entity.
 - `site` writes the public JSON used by the React reader and can write a
   separate private editorial bundle.

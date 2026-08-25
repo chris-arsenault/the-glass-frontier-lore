@@ -9,6 +9,28 @@ conflict :the_bitter_reach do
   custom_fact :outcome, "Linked settlements ended organized fighting through the Tempered Accord",
               label: "Outcome"
 
+  descriptive_identity(
+    cause:
+      "The Bloom Coalition's dissolution released disputes it had held " \
+      "inside one common forum, and former partners took them up armed " \
+      "with shared routes, recent grievances, and direct knowledge of " \
+      "one another's supply limits.",
+    intensity:
+      "Ship combat stayed limited across sixteen years; the war ran " \
+      "hotter in contracts and cargo holds than in gunfire. It closed " \
+      "through linked settlements rather than a surrender, once no " \
+      "faction could secure the routes it needed without agreements " \
+      "with former opponents.",
+    conduct:
+      "Convoys refused rival ports, patrols held junctions beyond " \
+      "their home authority, and Sithari lenders restricted credit to " \
+      "settlements backing the other side. Occupations stayed brief " \
+      "because a station was easier to hold than to supply — keepers, " \
+      "dispatchers, and receiving ports shut down what force seized — " \
+      "while the Displacement Council's cordons stayed closed to every " \
+      "faction."
+  )
+
   prose <<~PROSE
     The Bitter Reach was the system-wide conflict from 2407 to 2423. It grew from disputes that the #{ref :bloom_coalition, "Bloom Coalition"} had held inside a common forum and that its dissolution left to separate factions. Former partners entered the new fighting with shared routes, recent grievances, and direct knowledge of one another's supply limits.
 
@@ -51,12 +73,50 @@ end
 
 relate :rel_third_arc_participated_bitter_reach, :participated_in, :third_arc_defense, :the_bitter_reach do
   prose "Third Arc Defense escorted outer-hab cargo and occupied contested signal junctions."
+  descriptive_identity(
+    aims:
+      "For the pact the war was about keeping food and pressure cargo " \
+      "moving between its three member habs, under armed escort where " \
+      "the embargo zones demanded it.",
+    conduct:
+      "Each member supplied patrol craft, dispatchers, and stores on " \
+      "its own account, and command rotated between the three " \
+      "delegations — which hab gave an order depended on the season.",
+    cost:
+      "The pact did not outlive the settlement: its remaining members " \
+      "dissolved it in 2423 and passed the escort guarantees into the " \
+      "Tempered Accord, where they still surface in outer-hab " \
+      "paperwork."
+  )
 end
 relate :rel_vantara_participated_bitter_reach, :participated_in, :vantara, :the_bitter_reach do
   prose "Vantara defended its trade stations, convoys, and claim to charge for the routes they supported."
+  descriptive_identity(
+    aims:
+      "The company fought to keep its network running and paid for " \
+      "regardless of who was shooting — its beacons, waystations, and " \
+      "rescue coverage were the infrastructure the whole war moved " \
+      "over.",
+    conduct:
+      "Armed escorts took contracted convoys through embargo zones for " \
+      "any client with funds, and access fees applied even where " \
+      "opponents insisted the routes were common property."
+  )
 end
 relate :rel_continuity_participated_bitter_reach, :participated_in, :the_continuity, :the_bitter_reach do
   prose "Continuity governments used credit, logistics, and institutional access to support favored combatants while Sithari remained formally neutral."
+  descriptive_identity(
+    conduct:
+      "The pressure ran through paperwork no combatant could answer: a " \
+      "denied loan, a delayed certification, a restricted freight " \
+      "contract, each issued lawfully by a city that stayed open under " \
+      "neutral rules.",
+    cost:
+      "The settlement placed the Accord's offices outside the " \
+      "Continuity's executive grounds, and outside delegations still " \
+      "read the party's involvement through what neutral Sithari's " \
+      "lenders did."
+  )
 end
 relate :rel_bitter_reach_manifested_keel, :manifests_at, :the_bitter_reach, :keel do
   prose "Embargoes and route occupations concentrated along the Keel and its surface approaches."

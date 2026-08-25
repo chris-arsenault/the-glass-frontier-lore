@@ -8,6 +8,28 @@ geographic_location :ashenmaw do
   prominence :recognized
   position frame: :kaleidos_system_chart, radius: 5, angle_deg: 278
 
+  descriptive_identity(
+    setting:
+      "A banded gas giant whose dark belts and pale storms dominate " \
+      "every moonward sky, flexing its moons with tides that keep " \
+      "their interiors warm. Several inner moons carry microbial life " \
+      "around vents beneath ice or salt crust, and Ashvane holds the " \
+      "largest permanent population.",
+    activity:
+      "The Keel ends its run here: ships brake against the planet's " \
+      "magnetic field on approach to Ashvane, and convoys bound " \
+      "farther out regroup above the moon to trade inner-system " \
+      "pilots for outer-route charts. Smaller stations monitor tidal " \
+      "strain, harvest trace gases, and keep warning beacons around " \
+      "the inner radiation bands.",
+    hazards:
+      "The visible bands shear and reform between circuits, so a " \
+      "storm-face mark that held last passage can point into open " \
+      "atmosphere on the next. The braking route crosses zones where " \
+      "charged particles scramble signal glass, and the maintained " \
+      "path shifts with the field rather than holding one curve."
+  )
+
   prose <<~PROSE
     Ashenmaw is the fifth planet, a banded gas giant with an inhabited system of moons. Its gravity flexes those moons and heats their interiors. On #{ref :ashvane, "Ashvane"}, that motion keeps volcanic fractures active and supplies much of the heat its towns must move away.
 

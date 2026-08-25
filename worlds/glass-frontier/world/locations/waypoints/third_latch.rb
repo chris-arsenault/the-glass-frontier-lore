@@ -9,6 +9,28 @@ installation :third_latch do
   prominence :marginal
   omit_facts :maintained_by
 
+  descriptive_identity(
+    setting:
+      "A round hall following the latch wall inside Mareth's third " \
+      "locking cylinder: sleeping cabinets up the curve, cook stalls on " \
+      "the stable inner ledge, freight spread across the broad floor " \
+      "around the central guide shaft. Furniture hangs from pivoting " \
+      "frames, bowls sit on weighted bases, and grip rails run parallel " \
+      "across the floor, because the whole room rolls a fraction with " \
+      "every gate cycle.",
+    activity:
+      "Travelers wait, sleep, and eat through the gate's rhythm — the " \
+      "tables fill before each test — and regulars claim their cabinets " \
+      "by the sound each latch tooth makes through the wall, leaving " \
+      "newcomers the curve where the working teeth are loudest.",
+    hazards:
+      "Everything set down on the floor migrates toward the guide shaft " \
+      "as the room rolls; only the cook stalls' ledge stays put. Under " \
+      "the freight scales, hairline joints now trace a circular plate in " \
+      "the floor, and a fifth tone rises through the sealed base of the " \
+      "shaft while service carries on above it."
+  )
+
   prose <<~PROSE
     Latchhouse is a waiting hall, lodging house, and freight court inside Mareth's third locking cylinder. Gate plans and freight marks call it Third Latch. The round main room follows the latch wall. Sleeping cabinets occupy its upper curve, cook stalls line the stable inner ledge, and freight rests on the broad floor around the central guide shaft.
 

@@ -4,6 +4,13 @@ npc :daro_venn do
   subkind :leader
   occupation "Senior route factor of the Pell Freight Assembly"
   species "human"
+  identity_source :species, :humans
+  identity_source :culture, :hab_worlder
+  descriptive_identity disposition:
+    "Daro deals in particulars — which yard can make the repair, which " \
+    "master will take a hard return load, which crew has spent its " \
+    "tolerance for risk — and defends a past decision sooner than he " \
+    "apologizes for it."
   culture "Hab-Worlder"
   tags :trade, :salvage, :transport, :resonance
   prominence :recognized
@@ -45,7 +52,29 @@ relate :rel_daro_based_in_glasswake, :located_in, :daro_venn, :glasswake, since:
 end
 relate :rel_daro_member_pell_assembly, :member_of, :daro_venn, :pell_freight_assembly, since: 2416 do
   prose "His voting share is the same size as any other working member's."
+  descriptive_identity standing:
+    "Seniority gives him the route council's voice and nothing over the " \
+    "members themselves — a meeting turns hostile when he treats a " \
+    "schedule as more important than one of them, and the Ratter crews " \
+    "he brought in expect to be dealt with as owners."
 end
 relate :rel_daro_participated_pell_four, :participated_in, :daro_venn, :pell_four do
   prose "He sponsored the synchronized test, delayed its shutdown, and directed Assembly support during the closure."
+  descriptive_identity(
+    aims:
+      "His case for the four arrays was that machines should absorb the " \
+      "losses crews had been carrying home, and that synchronized work " \
+      "would finish the Pell claims quickly enough to reduce total " \
+      "exposure.",
+    conduct:
+      "He accepted the Tuners' stop conditions and then let the test " \
+      "run through the early signs of separated receivers answering in " \
+      "one cadence; through the closure he stayed at the Cut with the " \
+      "Assembly's records open.",
+    cost:
+      "The vote that kept him in office split between members weighing " \
+      "the open records and members weighing when they were opened — " \
+      "and he still signs each cordon payment before ordinary freight " \
+      "accounts release."
+  )
 end

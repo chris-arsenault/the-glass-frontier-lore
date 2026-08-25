@@ -7,6 +7,18 @@ transport :tally do
   tags :transport, :trade, :household, :"ring-hab"
   prominence :marginal
 
+  descriptive_identity(
+    appearance: "A small hab-runner whose one distinguishing mark sits beside the cargo door: a scratched count " \
+                "of every meal delivered before cooling, kept going by each crew on a replaceable brass strip.",
+    aboard: "Two seats, a heated handrail, and eight narrow cargo locks behind the cabin. A courier rolls a " \
+            "complete frame in, turns one clamp, and takes the empty frame from the previous trip; passengers " \
+            "squeeze into whatever space the frames leave. The pilots eat from whichever meal frame has the " \
+            "shortest remaining route.",
+    behavior: "It launches on spoilage, not on a schedule — whenever a drum delay would ruin food, warm medicine, " \
+              "or strand a live shipment between Carom's outer docks. Its timing shifts with Carom's rotation, " \
+              "and cargo that does not arrive framed does not go aboard."
+  )
+
   prose <<~PROSE
     A scratched count beside *Tally*'s cargo door records every meal delivered before cooling. The first crew began it; the present crew continues on a replaceable brass strip. The small hab-runner carries delayed courier frames between Carom's outer docks in eight narrow locks behind a two-seat cabin and heated handrail. A courier rolls in a complete frame, turns one clamp, and receives the empty frame from the previous trip.
 

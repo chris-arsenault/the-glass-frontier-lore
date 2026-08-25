@@ -6,6 +6,22 @@ creature :cinderback do
   tags :"outer-system", :ecology, :danger, :trade, :resonance
   prominence :recognized
 
+  descriptive_identity(
+    appearance: "A low six-legged animal with overlapping black plates along the spine and a fringe of pale " \
+                "insulating fiber around the belly. The plates stand on short stems and lift as the animal " \
+                "heats, exposing the pale tissue between them; the front feet end in broad scraping claws. " \
+                "Owned animals wear bells or neck cords, since the plates shed.",
+    behavior: "It shelters from direct light in caves, culverts, and deep rock shade, then grazes fungi, salt " \
+              "growth, and seep-line plants during giant-shade and after sunset. Heat-sensitive rear pads let " \
+              "it trace a buried warm line through basalt and tell flowing water from a dry pipe; herds gather " \
+              "behind parked haulers for shade and stay put as the drive warms.",
+    threat: "It does not attack — it digs. A frightened cinderback goes toward cooler ground even when that " \
+            "ground lies beneath a house floor, and its claws defeat ceramic joints, old sealant, and cooling " \
+            "cloth, though intact metal usually stops it. A herd standing in shade with every back plate " \
+            "lifted is the warning: a warm pulse underground, often a leaking return no instrument has " \
+            "registered yet."
+  )
+
   prose <<~PROSE
     Cinderbacks are low, six-legged animals native to Ashvane's volcanic highlands. Adults carry overlapping black plates across the spine and a fringe of pale insulating fibers around the belly. They spend direct light in caves, culverts, and deep rock shade, then emerge during giant-shade and after sunset to graze fungi, salt growth, and the tough plants around seep lines.
 

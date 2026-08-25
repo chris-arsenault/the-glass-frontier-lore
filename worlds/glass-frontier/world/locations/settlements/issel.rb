@@ -14,6 +14,31 @@ installation :issel do
   access "Prismwell survey leg to a physical guide cable, followed under silence to the shielded dock"
   omit_facts :maintained_by
 
+  descriptive_identity(
+    setting:
+      "A surviving third of a Ring Age receiver dish, its rim galleries " \
+      "shielded with ceramic, water, and packed salvage felt. Speaking " \
+      "tubes link neighboring galleries, written boards carry work " \
+      "orders farther, and shift changes travel as floor vibration.",
+    activity:
+      "The restored arrays record beacons, drive wakes, stellar " \
+      "weather, and signal impressions carried through large fragments, " \
+      "and households sell timed tracks with the receiver state fixed " \
+      "beside each observation. Every household keeps one receiver room " \
+      "and one public duty — cable lights, dock carts, board copying, " \
+      "shield inspection.",
+    access:
+      "Ships come in on the Prismwell survey leg, pick up a physical " \
+      "guide cable, and follow it under full signal silence to the " \
+      "shielded dock.",
+    hazards:
+      "In the work chambers a spoken word can cross an active receiver " \
+      "as a thin trace, so conversation there runs on hand signs and " \
+      "slate. The Long Note has closed the Prismwell surface leg to " \
+      "passengers, and the two loaded kites waiting behind the dish " \
+      "press any capable visitor to shorten their wait."
+  )
+
   prose <<~PROSE
     A third of Issel's receiver dish survived the Glassfall along with most of the galleries behind it. Ceramic, water, and packed salvage felt shield the inhabited rooms. Speaking tubes connect neighboring galleries; written boards carry work orders farther. Arriving ships follow a physical guide cable and shut down signal equipment before entering the listening field.
 
@@ -50,8 +75,28 @@ end
 
 relate :rel_issel_supplies_prismwell_tracks, :supplies, :issel, :prismwell_kite_guild, since: 2435 do
   prose "Issel gives Prismwell survey pilots timed traffic and field tracks for the surface approach."
+  descriptive_identity(
+    terms:
+      "Sealed observation copies carried out by hand to ships beyond the " \
+      "listening field, each track sold with the receiver state fixed " \
+      "beside it — nothing here is transmitted.",
+    dependence:
+      "The guild's surface leg is off the passenger boards until Issel " \
+      "can tell a real drive wake from the Long Note, so every Prismwell " \
+      "departure on that route now waits on a track from the dish."
+  )
 end
 
 relate :rel_prismwell_supplies_issel_comparisons, :supplies, :prismwell_kite_guild, :issel, since: 2435 do
   prose "Returning Prismwell kites bring Issel receiver comparisons from the surface approach."
+  descriptive_identity(
+    terms:
+      "Readings taken in flight along the approach, brought in silent " \
+      "down the guide cable like any other cargo because the dish " \
+      "cannot ask for them by signal.",
+    dependence:
+      "A passive observatory has no way to test its own record against " \
+      "the route it describes; the kites are the only instrument Issel " \
+      "owns that moves."
+  )
 end

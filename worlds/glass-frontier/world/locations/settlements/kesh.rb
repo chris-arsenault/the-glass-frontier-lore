@@ -14,6 +14,31 @@ installation :kesh do
   access "Four spoke docks on the Mareth gate branch; each approach turns gravity toward the central junction"
   omit_facts :maintained_by
 
+  descriptive_identity(
+    setting:
+      "Interlocking chambers around a kinetic field junction, with " \
+      "gravity turning toward the center along every spoke. Weight is " \
+      "something the rooms do to you here, and it changes at the " \
+      "thresholds.",
+    activity:
+      "Everyone moves linked: pairs brace across turning thresholds " \
+      "while others pass between them, cargo teams lock shoulders and " \
+      "hips around suspended loads, and children practice circles that " \
+      "can sit, stand, and turn on one count.",
+    access:
+      "Four spoke docks open off the Mareth gate branch, and each " \
+      "approach turns gravity toward the junction. A visitor who will " \
+      "not take a position in a formation is carried through inside a " \
+      "rescue frame or waits at the dock until someone builds one.",
+    hazards:
+      "One spoke chamber now rotates between dock gravity and the " \
+      "junction, its fixed rails passing through the floor for half of " \
+      "each turn; a forty-person formation rebuilds the bridge at every " \
+      "change. The field also carries breath, pulse, and tremor between " \
+      "linked bodies, so panic spreads through a formation faster than " \
+      "words."
+  )
+
   prose <<~PROSE
     Residents move through the settlement in formations. Two people brace across a turning threshold while others pass between them. Cargo teams link shoulders and hips around a suspended load. Rescue crews build walking frames from their own bodies, carrying an injured person through gravity changes while the field distributes weight across every contact.
 

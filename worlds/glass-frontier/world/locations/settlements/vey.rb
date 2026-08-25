@@ -13,6 +13,34 @@ installation :vey do
   access "Inner service-fragment circuit from Eleven to four docks opening into cooled pressure vestibules"
   omit_facts :maintained_by
 
+  descriptive_identity(
+    setting:
+      "A porous ring fragment that breathes with its own rotation: " \
+      "sunward pores warm behind dark ceramic fins, air rises through " \
+      "the outer channels, and condenser ribs on the shaded side give " \
+      "the water back. Six chambers called lungs divide the main flow " \
+      "into hundreds of wall passages, their shutter handles standing in " \
+      "public galleries behind clear covers.",
+    activity:
+      "Households brush dust from the ceramic mesh of their own pores " \
+      "and read the thread indicators tied across each vent, while " \
+      "public meals follow the cycle — morning stalls in the sunward " \
+      "galleries as warm air lifts, evening tables beside the cold " \
+      "condenser water. Airwrights map the smallest passages by " \
+      "releasing scented vapor into a lung.",
+    access:
+      "Four docks on the inner service-fragment circuit from Eleven open " \
+      "into cooled pressure vestibules.",
+    hazards:
+      "Docking surges, eclipse maneuvers, and hull work start the " \
+      "mechanical reserves, and the pitch of every room changes as flow " \
+      "leaves the walls for the ducts — residents look up and ask who is " \
+      "on the hull. The shell holds only a few hours of moving air " \
+      "through a poor orientation, and a shutter moved in a public " \
+      "gallery changes a district's air in under a minute, in front of " \
+      "witnesses."
+  )
+
   prose <<~PROSE
     Sunward pores heat first. Air rises through broad outer channels, draws cooler air from the inhabited core, and returns through shaded condensers. Structural resonance keeps the smallest passages open as the shell expands and contracts. Fans handle kitchens, clinics, and crowded halls; the hab's main exchange follows the rotation of heat.
 
@@ -58,10 +86,27 @@ end
 
 relate :rel_rib_supplies_vey_filters, :supplies, :rib, :vey, since: 2435 do
   prose "Rib supplies living filter mouths for trials in Vey's warm wall passages."
+  descriptive_identity(
+    terms:
+      "Small lots of reef-grown filter tissue, cut during the pulse " \
+      "interval that suits the work and shipped through Rib's single " \
+      "approach trench on the same carriers that bring its timber in.",
+    dependence:
+      "The trials are still trials. Vey's own ceramic mesh carries the " \
+      "settlement's breath; the living mouths are a bet that a filter " \
+      "which closes against dust on its own could spare households " \
+      "their daily brushing."
+  )
 end
 
 relate :rel_vey_supplies_rib_growth_records, :supplies, :vey, :rib, since: 2435 do
   prose "Vey returns airflow and growth records with each stock of Rib-grown filters."
+  descriptive_identity(
+    terms:
+      "Kir Orm's vapor maps and gallery readings, showing where each " \
+      "batch of mouths opened, clogged, or grew past its socket in a " \
+      "warm passage the cutters back home will never see."
+  )
 end
 
 relate :rel_kir_orm_maintains_lung_three, :maintains, :kir_orm, :lung_three, since: 2435 do

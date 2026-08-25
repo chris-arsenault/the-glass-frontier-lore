@@ -7,6 +7,32 @@ installation :vigil_breach do
   prominence :recognized
   status :complete
 
+  descriptive_identity(
+    setting:
+      "Two pale door-leaves meeting in a vertical seam four people high, " \
+      "cut into a cliff behind the central Kyther glaciers, with ice over " \
+      "their lower half most of the year. No handle, no track, no writing " \
+      "— just a narrow waiting shelf below the doors and glacier on every " \
+      "side.",
+    activity:
+      "Watch parties camp on the shelf ahead of each forecast alignment: " \
+      "Synod observers tending instruments, Kyther guides reading the " \
+      "slope, traders waiting in the lower shelters with heated cases and " \
+      "standing offers for anything brought out.",
+    access:
+      "The doors answer no one; they draw inward only at three recorded " \
+      "alignments of Kaleidos, the sun, and Threshold Station, announced " \
+      "by a low tone through the cliff. Getting to the shelf takes Kyther " \
+      "guides, and the valley councils bar any sale until a surveyor logs " \
+      "the object and a guide confirms where it was found.",
+    hazards:
+      "Every observed opening has ended before a party could climb from " \
+      "the permanent shelter, and the inner door begins to open only as " \
+      "the outer leaves close — pressing on means being shut in. The old " \
+      "watch shelf has split from the cliff, and the marked route to the " \
+      "new one crosses snow that fails the sounding-post test."
+  )
+
   prose <<~PROSE
     Vigil Breach is a ring-era doorway cut into a cliff behind the central glaciers of the #{ref :kyther_range, "Kyther Range"}. Two pale leaves meet in a vertical seam four people high. They have no handle, track, writing, or visible control. Glacial ice covers the lower half of the doorway for most of the year.
 

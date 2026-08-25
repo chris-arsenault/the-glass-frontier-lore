@@ -7,6 +7,36 @@ installation :marker_house_twelve do
   tags :surface, :transport, :trade, :resonance, :household
   prominence :marginal
 
+  descriptive_identity(
+    setting:
+      "A thick-walled stone wayhouse on the eastern steppe road out of " \
+      "Ladderwell: one common room, a raised sleeping platform, a " \
+      "sealed store alcove, and a roof sloping into a covered cistern. " \
+      "Outside stand a public well, a marn pen downwind of the apron, " \
+      "and the twelfth paired set of singing route stakes on opposite " \
+      "sides of the road. Road news papers the walls, old notices " \
+      "under new.",
+    activity:
+      "Crews arrive, sound both stakes before drawing water, read the " \
+      "slate inside the door — water level, road tone, weather, last " \
+      "group's intended stop — and add their own marks before moving " \
+      "on. Surveyors get the small table by the stakes while everyone " \
+      "else eats around their instruments and listens for the result.",
+    access:
+      "No keeper lives here and no bed is assigned: early arrivals take " \
+      "the platform, late ones sleep below, and whatever is used from " \
+      "the emergency store is replaced at Ladderwell or the next " \
+      "maintained house, charged by the painted tally to a known " \
+      "passage.",
+    hazards:
+      "A divided tone between the stakes closes the vehicle track until " \
+      "somebody — usually whoever heard the split — walks the next " \
+      "marker interval to find where the change begins. The east hollow " \
+      "has backed caravans up behind a bare patch every lead animal " \
+      "refuses, so the pen is full and the slate lists more departures " \
+      "than the well order can supply."
+  )
+
   prose <<~PROSE
     Marker House Twelve is a stone wayhouse on the eastern road from #{ref :ladderwell, "Ladderwell"} across #{ref :avar, "Avar"}. It stands beside a public well, a marn pen, and the twelfth paired set of singing route stakes maintained from town. Hauler crews, pack caravans, well workers, and road surveyors share its roof.
 

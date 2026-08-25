@@ -14,6 +14,19 @@ species :humans do
   biology "Medium build; no unusual system-specific physiology"
   resonance_relation "No natural affinity; attunement requires training and instruments"
 
+  descriptive_identity(
+    appearance:
+      "Humans sit in the middle of every range: medium build, faces and skin in " \
+      "every tone, nothing about the species itself worth a second look. What a " \
+      "human body shows is where it grew up — gravity, light, and work write " \
+      "more on a human than species does.",
+    senses:
+      "Human senses are the system's baseline, and resonance is not among " \
+      "them: without an instrument a human feels nothing of the field. Human " \
+      "practice leans on meters, references, and repetition where other " \
+      "species trust feel."
+  )
+
   prose <<~PROSE
     Alien arrivals. Humans reached the Kaleidos system around 2050 CE, during the height of the ring era, and were integrated into the existing multi-species civilization built by the #{ref :elves, "elves"} and others. They were not the first non-native species to arrive, and their integration was unremarkable by the standards of the time — the ring-era civilization was already multi-species and accustomed to new additions.
   PROSE

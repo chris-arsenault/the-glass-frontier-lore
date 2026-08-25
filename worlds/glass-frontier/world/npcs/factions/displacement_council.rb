@@ -7,6 +7,28 @@ faction :displacement_council do
   tags :governance, :resonance, :danger
   prominence :recognized
 
+  descriptive_identity(
+    ideology:
+      "Containment before politics: the cordons hold because the Council " \
+      "refused to take sides in the Bitter Reach and still refuses. " \
+      "Displaced communities are owed support, and no one crosses a " \
+      "boundary a crew cannot bring them back from.",
+    methods:
+      "Rotating cordon crews, stillwater damping buoys, and remote cutters " \
+      "worked one boundary section at a time — each with a named operator, " \
+      "an isolated clock, and a stop condition agreed before launch. " \
+      "Funding is voluntary and its influence quiet.",
+    presence:
+      "A thin, disciplined crew at a boundary walk or a cordon office — " \
+      "buoy stores, instruments, and paperwork about stop conditions. Its " \
+      "reach is felt more often than seen; most of what the Council does " \
+      "happens where nobody else goes.",
+    attitude:
+      "Neutral to every faction and unbending about procedure. Requests " \
+      "are heard, ranked, and answered with what a stretched roster can " \
+      "actually deliver — which is less than anyone asks."
+  )
+
   log "Settled: a neutral containment order, focused on maintaining Bloom Zone cordons. Trusted by all factions because it stayed out of the Bitter Reach, and stretched thin as a result."
 
   log "2026-08-21 — The Karet families' supervised-entry request now begins a remote-recovery compromise. One new major zone forces closures and longer rotations; a second simultaneous opening forces the Council to choose which boundary receives full coverage."
@@ -67,9 +89,27 @@ relate :rel_dc_studies_pell_answer, :studies, :displacement_council, :pell_answe
 end
 relate :rel_dc_participated_pell_four, :participated_in, :displacement_council, :pell_four do
   prose "Council teams raised the Pell cordon, separated its four receivers, and closed the new boundary."
+  descriptive_identity conduct:
+    "The closure used the same remote system that had formed the event " \
+    "— a changed cutter cadence, quiet mass fed to each receiver on its " \
+    "own clock — while Council Tuners kept the new boundary off the " \
+    "central yard, and the final cordon team came home with nobody " \
+    "left inside."
 end
 relate :rel_dc_cooperates_pell_assembly, :cooperates_with, :displacement_council, :pell_freight_assembly, since: 2434 do
   prose "The Assembly supplies crews, haulers, and site access for continued Council work at Pell Cut."
+  descriptive_identity(
+    basis:
+      "When Pell Four opened, the Assembly did not argue jurisdiction: " \
+      "it closed the affected routes, surrendered its array records, " \
+      "and put its repair crews under Council direction until the " \
+      "boundary was gone. The working relationship kept that shape.",
+    limits:
+      "Assembly crews answer to their own route factors and safety " \
+      "rules, and since the Emergence their on-site Tuner can stop the " \
+      "work alone — cooperation runs to the boundary, not into the " \
+      "member votes."
+  )
 end
 
 # --- history (moments) ---

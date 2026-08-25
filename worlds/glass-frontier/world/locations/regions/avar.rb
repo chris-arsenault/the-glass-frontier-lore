@@ -9,6 +9,30 @@ geographic_location :avar do
   position frame: :kaleidos_surface, latitude_deg: 12, longitude_deg: -68,
            size_class: :region
 
+  descriptive_identity(
+    setting:
+      "Wind-kept grassland running inland from the coastal hills to " \
+      "the first ridges of the Kyther Range, crossed by long shelves " \
+      "of pale stone whose faces are packed with fine ringglass from " \
+      "centuries of showers. Near sunrise and late afternoon the " \
+      "ridges split the light into low gold bands, and green hollows " \
+      "mark where water nears the surface.",
+    activity:
+      "Homesteads, market towns, and seasonal camps farm the deep " \
+      "soils, move marn between ridge shelter and open grass, and " \
+      "draw water from deep shafts whose posted order governs every " \
+      "tap and trough. Route keepers sound suspect ground with staked " \
+      "chains and mark it white, green, or red, while kites navigate " \
+      "along the exposed ridgelines.",
+    hazards:
+      "Wet weather and repeated vibration align the crystal through " \
+      "the clay between shelves, opening slick planes under a load — " \
+      "a road used for years starts creeping, a pump settles its own " \
+      "foundation while the houses stay level. Collapsed barns and " \
+      "tilted pump houses mark the weak ground, and a moved or " \
+      "repainted route stake endangers everyone who follows it."
+  )
+
   prose <<~PROSE
     Avar begins behind the coastal hills above #{ref :glasswake, "Glasswake"} and runs inland to the first broken ridges of the #{ref :kyther_range, "Kyther Range"}. Old surface route books already write Avar beside the western wells. The spelling survived the Famine even as the mapped roads changed. Wind keeps most of the country in grass. Long shelves of pale stone rise through the soil at irregular intervals, their exposed faces filled with fine ringglass washed down from centuries of #{ref :glassfall_showers, "Glassfall showers"}. Near sunrise and late afternoon the ridges split the light into low gold bands.
 

@@ -6,6 +6,23 @@ creature :shellback do
   tags :orbital, :resonance, :ecology, :salvage, :danger, :ringglass
   prominence :recognized
 
+  descriptive_identity(
+    appearance: "Broad enough to cover a hatch and low enough to pass for fused wreckage: overlapping mineral " \
+                "plates around a shallow central dome, grown from ringglass, metal dust, and pieces of whatever " \
+                "mass carries it. Fine eyes sit in the plate seams and close one line at a time as dust " \
+                "crosses, a ripple crews mistake for reflected light.",
+    behavior: "It grazes charged deposits across Shear debris through a feeding mat of dozens of short limbs, " \
+              "gripping more points on a wreck than a salvage crew can see. A light pulse across the shell " \
+              "tells its state — even waves front to rear mean grazing. It can be drawn off a work line with a " \
+              "strip of charged aggregate, though the crossing may take hours, and older plates loosen and " \
+              "fall away as cast shell worth collecting.",
+    threat: "Struck, heated, or pried at, it retracts, fixes every gripping limb, and draws the surrounding " \
+            "structural response into its shell — the debris then reads sound while the animal is what holds " \
+            "it. A hard answer from every plate under the survey pulse is the warning that it is already " \
+            "carrying load, and cutting its central mat first can release both the animal and the piece of " \
+            "wreck it was supporting."
+  )
+
   prose <<~PROSE
     Shellbacks are slow Shear grazers that attach themselves to debris and feed across its resonance-active surface. Most are broad enough to cover a hatch and low enough to pass for fused wreckage until they move. Their layered shells incorporate ringglass, metal dust, and pieces of whatever mass supports them.
 

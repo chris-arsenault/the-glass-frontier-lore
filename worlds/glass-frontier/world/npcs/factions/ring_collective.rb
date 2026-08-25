@@ -9,6 +9,37 @@ faction :ring_collective do
   mandate "Represent connected ring habitats in shared route, salvage, and sovereignty matters"
   omit_facts :leaders, :predecessors
 
+  descriptive_identity(
+    ideology:
+      "Connected habs should speak together without surrendering an " \
+      "ounce of local law: any member may reject a resolution, and " \
+      "membership belongs to the habitat itself, not to whoever governs " \
+      "it. The assembly refuses to judge whether a Session's " \
+      "instructions or a civic appointment is the more legitimate way to " \
+      "send a delegation.",
+    methods:
+      "Sovereignty and contact questions get one voice per hab; freight " \
+      "and maintenance measures weigh declared population and traffic, " \
+      "so a port carries more when it accepts more work. Most " \
+      "resolutions pair a common minimum with voluntary agreements among " \
+      "members who need more, and the standing work is registry: who " \
+      "accepts contact, which seals are compatible, what routes are " \
+      "closed.",
+    presence:
+      "Delegation rooms and the route register at Hab Meridian, staffed " \
+      "largely with relay time and clerks the big ports provide — a " \
+      "dependence the smaller members resent in a nominally equal " \
+      "assembly. Each delegation arrives under whatever process its own " \
+      "hab recognizes.",
+    attitude:
+      "To anyone approaching a ring hab, it is the register consulted " \
+      "first: contact terms, quarantine notices, closures. To those who " \
+      "want it to compel a member, it offers a resolution at most — it " \
+      "claims no right to open a hatch, inspect an interior, or seat a " \
+      "delegation outsiders have sent, though it will relay a message to " \
+      "a shuttered hab where a recognized channel exists."
+  )
+
   prose <<~PROSE
     The Ring Collective is the standing assembly through which connected ring habitats present common positions to surface governments, carriers, and the #{ref :tempered_accord, "Tempered Accord"}. It does not govern its members. Each hab keeps its own law and may reject a Collective resolution.
 
@@ -43,10 +74,32 @@ relate :rel_ring_collective_headquartered_hab_meridian, :headquartered_in, :ring
 end
 relate :rel_ring_collective_cooperates_tempered_accord, :cooperates_with, :ring_collective, :tempered_accord, since: 2423 do
   prose "The Collective appoints ring-hab delegations to Accord panels and carries adopted standards back to its members."
+  descriptive_identity(
+    basis:
+      "When an Accord dispute touches habitats that are not direct " \
+      "parties, the Collective seats the ring-hab delegates, and its " \
+      "register of contact terms, seals, and closures is the reference " \
+      "both bodies work from.",
+    limits:
+      "What comes back from a panel is a resolution any member hab may " \
+      "reject. The Collective will not compel, inspect, or open a " \
+      "hatch on the Accord's behalf, and a shuttered hab gets at most " \
+      "a relayed message through a channel it once recognized."
+  )
 end
 relate :rel_fermata_member_ring_collective, :member_of, :fermata_station, :ring_collective do
   prose "Fermata sends a delegation instructed through its governing Sessions."
+  descriptive_identity standing:
+    "The Collective records the Session-instructed delegation as one " \
+    "member among equals, declining to judge whether musical " \
+    "instruction or civic appointment is the more legitimate way to " \
+    "send one."
 end
 relate :rel_hab_meridian_member_ring_collective, :member_of, :hab_meridian, :ring_collective do
   prose "Hab Meridian is a member and hosts the Collective's standing rooms without governing the assembly."
+  descriptive_identity standing:
+    "Meridian's weight runs through the freight and maintenance votes, " \
+    "where declared traffic counts, and through the relay time and " \
+    "clerks it supplies — a dependence the smaller members name " \
+    "whenever the nominally equal assembly leans on a big port's staff."
 end

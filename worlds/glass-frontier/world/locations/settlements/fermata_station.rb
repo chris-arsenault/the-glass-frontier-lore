@@ -16,6 +16,30 @@ installation :fermata_station do
   region "glass-frontier"
   aka "The Jazzocracy"
 
+  descriptive_identity(
+    setting:
+      "A ring hab in a quiet orbit of Kaleidos, its ringglass lattice tuned " \
+      "by generations of continuous music. Low sustained tones from the " \
+      "Drone run under everything, and the pulse in the central hall sets " \
+      "the pace the whole station keeps.",
+    activity:
+      "When a scene opens, a Session is likely gathering or already under " \
+      "way: Players trading themes in the public hall, the Audience " \
+      "listening and marking who is absent, and the Drone holding its " \
+      "post around the clock because the chord voicings are load-bearing.",
+    access:
+      "Sessions are public and anyone may listen, but a visitor's request " \
+      "— a berth, a repair, cargo terms — is called as a tune and answered " \
+      "by whatever the room converges on. Only those who have passed the " \
+      "Sit-In may play; everyone else argues through a Player willing to " \
+      "carry the case.",
+    hazards:
+      "Unresolved harmonic tension stresses the structure itself: a bad " \
+      "hour of playing crazes a window, and a loud coordinated dissonance " \
+      "can move bulkheads or breach a hull. Should the Drone ever stop, " \
+      "bulkheads fail."
+  )
+
   prose <<~PROSE
     *Known colloquially — and almost universally outside the station — as the Jazzocracy.*
 

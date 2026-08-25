@@ -8,6 +8,29 @@ geographic_location :lithren do
   prominence :recognized
   position frame: :kaleidos_system_chart, radius: 8, angle_deg: 158
 
+  descriptive_identity(
+    setting:
+      "Nitrogen frost, dark stone, and shallow frozen basins cover the " \
+      "outermost planet, where open-air ruins older than any surviving " \
+      "record stand partly buried along an equatorial basin. Sealed " \
+      "research cuts sit beside courts, ramps, and stone posts carved " \
+      "with bands no one has translated, and worn channels cross " \
+      "paving the present surface could never have watered.",
+    activity:
+      "Surface crews rotate through short residencies from orbital " \
+      "laboratories, excavating under movable pressure roofs — one " \
+      "surface cleared, recorded, and covered before the next is " \
+      "opened. A current survey is tracing buried channels toward a " \
+      "fourth concentration of stone returns.",
+    hazards:
+      "Exposed stone changes temperature too fast under work lights, " \
+      "and an object carried into a warm station loses residue that " \
+      "may be the only evidence of its use. Freight schedules stretch " \
+      "when outer-system weather closes a transfer, every research " \
+      "priority yields to power work, and the survey route crosses " \
+      "ground too weak for a heated crawler and too broad to roof."
+  )
+
   prose <<~PROSE
     Lithren is the eighth and outermost planet of the Kaleidos system. Nitrogen frost, dark stone, and shallow frozen basins cover its surface. Research stations occupy sealed cuts beside ruins built in the open before the oldest surviving system records.
 

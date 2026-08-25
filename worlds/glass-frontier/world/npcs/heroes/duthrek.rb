@@ -6,6 +6,13 @@ npc :duthrek do
   tags :salvage, :trade, :danger, :governance
   prominence :recognized
   occupation "Head of Coremark"
+  species "orc"
+  identity_source :species, :orcs
+  descriptive_identity disposition:
+    "Duthrek hears captains in pairs from different units so each can " \
+    "challenge the other's account, and settles their conflicts by " \
+    "protecting the route that will still earn after the present cargo is " \
+    "gone. A concealed failure draws worse from him than the failure itself."
 
   prose <<~PROSE
     Duthrek has directed #{ref :coremark, "Coremark"} from #{ref :korvath, "Korvath"} since 2409. Extraction captains bring him tonnage, losses, and routes. Convoy officers bring him buyers and exposed waystations. He settles conflicts between the two by protecting the route that will still earn money after the present cargo is gone.

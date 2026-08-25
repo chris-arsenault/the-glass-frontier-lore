@@ -11,6 +11,31 @@ resource :ringglass do
   grades "Aggregate, refined and intact"
   availability "Low grade is abundant; intact ring-era pieces are finite"
 
+  descriptive_identity(
+    appearance:
+      "Crystal from the broken ring, met in three grades: aggregate — " \
+      "small mixed fragments in soil, concrete, and cheap tools; " \
+      "refined — cut, purified stock tuned to one frequency band; and " \
+      "intact — large ring-era sections whose surfaces have the " \
+      "smoothness and endless self-repeating detail of the builders' " \
+      "own work, carrying multi-frequency tuning no refinery can " \
+      "reproduce.",
+    working:
+      "Raw material is sorted by vibrating it and reading what comes " \
+      "back, cut along its crystal planes to isolate consistent " \
+      "structure, tuned with pressure, heat, and reference crystals " \
+      "until it prefers one frequency, and mounted in a housing that " \
+      "suits the use — the crystal resonates through contact, so the " \
+      "mount shapes the performance.",
+    risks:
+      "The cut decides everything: across the planes, internal stresses " \
+      "fracture the piece and its resonance is gone, with no second " \
+      "attempt on the same fragment. An intact piece has no ordinary " \
+      "price — parties negotiate, bid, or fight, and its value follows " \
+      "what the configuration turns out to do, which can take months " \
+      "of study to establish.",
+  )
+
   prose <<~PROSE
     Ringglass is the crystalline material the orbital rings were built from. It is the primary medium through which ambient #{ref :resonance, "resonance"} is concentrated and channeled into practical applications.
   PROSE

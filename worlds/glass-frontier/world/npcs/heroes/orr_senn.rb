@@ -5,6 +5,14 @@ npc :orr_senn do
   occupation "Source-line reader"
   specialty "Water pressure, heat drift, and coupled structural tone"
   species "human"
+  identity_source :species, :humans
+  identity_source :culture, :hab_worlder
+  identity_source :trade, :readers
+  descriptive_identity disposition:
+    "Senn stands behind no reading he has not walked from the source " \
+    "gate. A blame brought to him comes back separated into heat, " \
+    "pumping, and ordinary household draw, with the hour the change " \
+    "reached each cistern."
   culture "Hab-Worlder"
   status :complete
   tags :household, :resonance, :training

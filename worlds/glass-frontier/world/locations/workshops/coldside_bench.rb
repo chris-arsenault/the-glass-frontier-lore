@@ -8,6 +8,34 @@ installation :coldside_bench do
   tags :"outer-system", :trade, :transport, :resonance, :rebuilding
   prominence :marginal
 
+  descriptive_identity(
+    setting:
+      "A public repair hall on a lower Shadewell terrace, opening " \
+      "toward the crater wall and shaded through the full surface " \
+      "cycle. Four receiving bays with roof radiators and sand beds " \
+      "face the terrace road, belt-driven machine tools fill the " \
+      "central room on separate foundations, and the long stone cold " \
+      "bench runs beside a water wall for the delicate final fitting.",
+    activity:
+      "Sealed machines rest on the sand until casing, lubricant, and " \
+      "ringglass return all agree with the hall; workers map a heat " \
+      "failure's whole chain before touching the part that stopped, and " \
+      "rebuild off-world assemblies so a neighboring shop can open " \
+      "them. Evening food stalls line the terrace once the outer bays " \
+      "cool.",
+    access:
+      "Anyone can bring work; the owner's marker goes on the cold bench " \
+      "and moves inward with the job, so the queue and every argument " \
+      "about it happen in public. Visiting engineers are welcome at the " \
+      "bench and barred from the receiving bays until they pass the " \
+      "local heat drill.",
+    hazards:
+      "Restricted return lines have machines cooling through more than " \
+      "one giant-shade, the terrace road jammed with parked haulers, " \
+      "and the lines the cinderbacks tore open jumping every commercial " \
+      "job in the queue."
+  )
+
   prose <<~PROSE
     Coldside Bench is a public repair hall on a lower terrace of #{ref :shadewell, "Shadewell"}. It handles pumps, radiator controls, heat-road running gear, and tools brought down from the Keel yards after their field and temperature have settled. The hall opens toward the crater wall and stays shaded through the full surface cycle.
 

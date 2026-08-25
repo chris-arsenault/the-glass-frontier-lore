@@ -9,6 +9,27 @@ installation :lung_three do
   prominence :marginal
   omit_facts :maintained_by
 
+  descriptive_identity(
+    setting:
+      "A tall ceramic chamber inside Vey where warm air comes up through " \
+      "a grated floor, climbs a forest of hollow ribs, and leaves by " \
+      "four residential galleries. A maintenance bridge winds up through " \
+      "the ribs, threads tied along its rails to show the flow, and the " \
+      "chamber smells different at every height as training vapor " \
+      "separates on the way up.",
+    activity:
+      "Apprentices work the shutters and compare the pull at different " \
+      "levels, reading the tied threads for local reversals before the " \
+      "gauges at the gallery mouths catch them.",
+    hazards:
+      "Anything opened, spilled, or burned in here reaches four wards " \
+      "through the galleries, in whatever order the ribs decide — and " \
+      "the wards smell it before any gauge reports it. With the " \
+      "central-pump trial's displaced return running through, the " \
+      "highest bridge is wet where it should be dry: slick ceramic, and " \
+      "shutters whose pull no longer agrees with the gauges below."
+  )
+
   prose <<~PROSE
     Lung Three is a tall ceramic chamber inside #{ref :vey, "Vey"}. Warm air enters beneath a grated floor, rises through a forest of hollow ribs, and leaves through four residential galleries. Each rib can be opened from a maintenance bridge winding through the chamber.
 

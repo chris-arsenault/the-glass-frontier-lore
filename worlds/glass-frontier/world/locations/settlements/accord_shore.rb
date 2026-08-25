@@ -11,6 +11,32 @@ installation :accord_shore do
   tags :surface, :governance, :diplomacy, :resonance
   prominence :recognized
 
+  descriptive_identity(
+    setting:
+      "A civic district wrapped around a shallow artificial lake in " \
+      "western central Sithari, a ring-era cooling basin remade: " \
+      "delegation houses and hearing halls on the inner shore, market " \
+      "streets and public offices along the south bank, three bridges " \
+      "over the narrow middle, and ducks nesting by the warm return " \
+      "pipes.",
+    activity:
+      "The district keeps hearing time rather than office hours. " \
+      "Translators, copyists, mediators, and couriers follow the Accord's " \
+      "sessions, a late settlement fills the south-bank kitchens after " \
+      "midnight, and petitioners raise signs on the public causeway " \
+      "within sight of the halls.",
+    access:
+      "City rail and public causeways reach the neighborhood freely. The " \
+      "inner hearing rooms sit behind controlled entrances where Accord " \
+      "marshals decide who enters, while city responders keep the fire " \
+      "doors and evacuation routes.",
+    hazards:
+      "A recorder or personal instrument carried into a quiet room fails " \
+      "the clerks' crystal-sheet test and closes both chambers until a " \
+      "Tuner traces the shared path. An adjournment empties half the " \
+      "district at once, leaving suppliers holding a week of ordered food."
+  )
+
   prose <<~PROSE
     Accord Shore surrounds an artificial lake west of #{ref :old_campus, "the Old Campus"}. #{ref :sithari, "Sithari"} rebuilt the former basin wards in 2423 to house the new #{ref :tempered_accord, "Tempered Accord"}, using a ring-era cooling reservoir that had supplied workshops in the original campus. Delegation houses and hearing halls occupy the inner shore. Apartments, inns, translation offices, copy rooms, and restaurants fill the streets beyond them.
 

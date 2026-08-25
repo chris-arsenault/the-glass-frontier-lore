@@ -7,6 +7,28 @@ faction :lattice_proxy_synod do
   tags :"ring-era", :AI, :governance, :resonance
   prominence :recognized
 
+  descriptive_identity(
+    ideology:
+      "The custodians answer, the answers work, and no doctrine is needed " \
+      "on what the custodians are. Documenting every ritual and every " \
+      "variation is the whole of the theory, because there is no other.",
+    methods:
+      "Proxies extract outputs through input sequences and invocations " \
+      "refined by years of trial and error, then translate them into " \
+      "navigation feeds, governance consultation, and resonance telemetry. " \
+      "When a ritual stops working there is no diagnosis — only variation " \
+      "until something answers again.",
+    presence:
+      "Proxies speak engineering and worship in the same breath, working " \
+      "documented sequences in a station whose deeper corridors stay " \
+      "sealed. Most of the system meets the Synod only as a data feed.",
+    attitude:
+      "Remote, neutral, and careful with confidence: findings arrive with " \
+      "enough conviction to persuade and enough qualification to earn " \
+      "trust. Questions about the sealed corridors are declined without " \
+      "ceremony."
+  )
+
   prose <<~PROSE
     The Synod talks to the old machines, and the old machines — sometimes — talk back.
 
@@ -58,6 +80,10 @@ relate :rel_lps_operates_tempered_accord, :operates_in, :lattice_proxy_synod, :t
 end
 relate :rel_lps_member_of_bloom_coalition, :member_of, :lattice_proxy_synod, :bloom_coalition, since: 2380, till: 2396 do
   prose "It joined the #{ref :bloom_coalition, "Bloom Coalition"} during the emergency, its custodian archives contributing to containment work until the coalition came apart."
+  descriptive_identity standing:
+    "Its custodian telemetry could see the cascade propagating before " \
+    "surface instruments detected it, and the seat that work earned at " \
+    "the crisis response table outlived the Coalition itself."
 end
 
 # --- history (moments) ---

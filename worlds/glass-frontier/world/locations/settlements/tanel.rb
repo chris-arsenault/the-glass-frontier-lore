@@ -13,6 +13,30 @@ installation :tanel do
   access "Two passenger docks on the Ravel collection leg, plus capsule exchange with adjacent fragments"
   omit_facts :maintained_by
 
+  descriptive_identity(
+    setting:
+      "A chain of pressure modules whose walls, floors, and service " \
+      "spaces carry thousands of ceramic pressure lines, with staffed " \
+      "tube rooms at every active terminus. The sealed Ring Age network " \
+      "beyond the hull plan is larger than the inhabited settlement.",
+    activity:
+      "Operators check seals, set mechanical gate codes, and listen to " \
+      "each launch — a clean route knocks three times through its " \
+      "junctions. Workshops turn out tube ceramic, seals, and gate " \
+      "clocks for other habs' hospital and dock systems.",
+    access:
+      "Two passenger docks connect to the Ravel collection leg, and " \
+      "capsule exchange runs to adjacent fragments. Small freight goes " \
+      "by tube; padded cargo capsules ride the larger lines through " \
+      "sections whose corridors take much longer routes.",
+    hazards:
+      "An extra knock on any launch puts a line crew at the first " \
+      "unexpected branch within the shift, so a private message becomes " \
+      "a work order for four other people. Routine pressure tests keep " \
+      "opening branches sealed since the Famine, and the reopened Alda " \
+      "line loses a measurable volume of air on every return."
+  )
+
   prose <<~PROSE
     Thousands of ceramic pressure lines cross Tanel's walls, floors, and service spaces. They carry messages, medicine, tools, laboratory samples, and small freight between modules. Larger tubes move padded cargo capsules through sections whose corridors take much longer routes.
 
@@ -40,6 +64,16 @@ end
 
 relate :rel_tanel_supplies_ravel, :supplies, :tanel, :ravel, since: 2435 do
   prose "Tanel supplies sealed ceramic capsules for Ravel's small and unstable plume catch."
+  descriptive_identity(
+    terms:
+      "Tube-grade ceramic with dry seals and mechanical gate clocks, the " \
+      "same manufacture Tanel sells for hospital lines, delivered along " \
+      "the Ravel collection leg.",
+    dependence:
+      "Ravel's warm catch sits in separate pressure cells because nobody " \
+      "yet knows what it does when two films meet; the seals are what " \
+      "let a nine-day settlement keep an unstable sample at all."
+  )
 end
 
 relate :rel_tanel_studies_alda_capsule, :studies, :tanel, :alda_capsule, since: 2434 do

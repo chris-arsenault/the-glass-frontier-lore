@@ -14,6 +14,30 @@ installation :seren do
   access "Clean-stock circuit from Orra and Olven to one freight lock and two passenger locks on the shaded end"
   omit_facts :maintained_by
 
+  descriptive_identity(
+    setting:
+      "A cold Ring-era spindle turning slowly through its own shadow: " \
+      "numbered vaults behind ceramic corridors on the dark half, " \
+      "stepped gardens, humid growth rooms, and shallow tanks on the " \
+      "sunward half, with air and tools moving from clean rooms toward " \
+      "trial beds along painted one-way routes.",
+    activity:
+      "Visiting crews prove their cultures can live outside storage, " \
+      "tending the first growth themselves in trial beds matched to the " \
+      "declared source while Seren workers record every intervention. A " \
+      "deposit that survives earns a vault number and enters exchange, " \
+      "paid in stock rather than coin.",
+    access:
+      "The clean-stock circuit from Orra and Olven serves one freight " \
+      "lock and two passenger locks on the shaded end.",
+    hazards:
+      "Walking a painted corridor backwards contaminates everything " \
+      "between you and the vaults, and residents will say so before you " \
+      "reach the far door. A viable stock with a poor cultivation " \
+      "account is the deeper danger — it can drink a habitat's water or " \
+      "crowd out its food plants before the error shows."
+  )
+
   prose <<~PROSE
     The spindle turns slowly through its own shadow. Its cold half holds numbered vaults behind ceramic corridors. Its sunward half carries stepped gardens, humid growth rooms, and shallow tanks where depositors prove that a sample can live outside storage. Air and tools move from clean rooms toward trial beds along painted routes.
 
@@ -47,6 +71,17 @@ end
 
 relate :rel_seren_supplies_olven, :supplies, :seren, :olven, since: 2435 do
   prose "Seren supplies sealed reserve cultures and cultivation accounts to Olven's climate chambers."
+  descriptive_identity(
+    terms:
+      "Deposits travel whole: sealed reserve, living sample, and the " \
+      "written account of somebody who has grown it, moved on the " \
+      "clean-stock circuit between the two habs.",
+    dependence:
+      "Olven's chambers write everything that crosses a transfer room " \
+      "into the receiving lineage book, so a Seren culture arrives with " \
+      "the one thing that book cannot generate — a proven history of " \
+      "how the organism behaves outside storage."
+  )
 end
 
 relate :rel_nara_pell_studies_blue_loam, :studies, :nara_pell, :blue_loam, since: 2435 do
@@ -60,4 +95,15 @@ end
 
 relate :rel_seren_supplies_lumenshard_conservatory, :supplies, :seren, :lumenshard_conservatory, since: 2435 do
   prose "Seren supplies verified seed, fungal stock, and cultivation accounts to Miraeth's basin growers through the Lumenshard Conservatory."
+  descriptive_identity(
+    terms:
+      "Vault-numbered stock proven in trial beds matched to each basin's " \
+      "declared conditions, with the Conservatory carrying the exchange " \
+      "because it holds no grove and governs no water — it can only " \
+      "recommend.",
+    dependence:
+      "A basin recovering from failed growth wants a culture whose " \
+      "misbehavior is already on paper; a viable stock with a poor " \
+      "account can drink a terrace's water before the error shows."
+  )
 end

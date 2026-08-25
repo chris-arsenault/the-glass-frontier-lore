@@ -7,6 +7,18 @@ transport :five_bolts do
   tags :transport, :salvage, :"kinetic-freq", :"ring-hab"
   prominence :marginal
 
+  descriptive_identity(
+    appearance: "A compact tow vessel whose cabin frame is pierced by five oversized fasteners — the bolts " \
+                "holding the arrestor yoke from Brake's first captured derelict. Their heads carry fresh paint, " \
+                "renewed by every crew before a new tow.",
+    aboard: "A three-person cabin built around that yoke. Whoever rides along paints the bolt heads with the " \
+            "crew, because the line does not go on until all five are done.",
+    behavior: "It carries one hull at a time between Brake's outer capture lane and the cutting lots: the " \
+              "kinetic array cancels the small changes in motion while the mechanical yoke takes the pull, so " \
+              "line crews read a steady load through an anchor. One tow frame, one line — anything else that " \
+              "needs shifting waits."
+  )
+
   prose <<~PROSE
     Five oversized fasteners hold the arrestor yoke from Brake's first captured derelict through the cabin frame of *Five Bolts*. Every crew paints the bolt heads before taking a new tow. The compact vessel moves hulls between the outer capture lane and the cutting lots: its kinetic array cancels small changes in motion while the mechanical yoke carries the pull, giving line crews a steady load they can read through an anchor.
 

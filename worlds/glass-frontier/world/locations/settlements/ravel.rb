@@ -13,6 +13,29 @@ installation :ravel do
   access "Short Keel branch aboard Nera Doss or a chartered tender to one sheltered dock behind the fragment"
   omit_facts :maintained_by
 
+  descriptive_identity(
+    setting:
+      "A small fragment with twelve booms extending like narrow bridge " \
+      "arms, fine mesh spanning the gaps during a catch and larger " \
+      "salvage nets trailing beyond the frame. Habitation shelters " \
+      "behind a thick central shield, and the sideways windows show the " \
+      "plume arriving as a pale band against the stars.",
+    activity:
+      "Life runs on the nine-day plume cycle: two days of line " \
+      "inspection and mesh repair, then the catch with boom crews in " \
+      "paired cabins watching strain beside resonance readings, then " \
+      "open days of processing, anchor tests, and mesh recovery by " \
+      "tender.",
+    access:
+      "A short Keel branch aboard Nera Doss, or a chartered tender, " \
+      "reaches the one sheltered dock behind the fragment.",
+    hazards:
+      "A damaged net can drag a boom out of alignment, so when strain " \
+      "crosses the red mark the crews release the whole panel — and " \
+      "with it somebody's inherited share, drifting in the plume until " \
+      "a tender brings it back."
+  )
+
   prose <<~PROSE
     Ravel crosses a thin plume of water vapor, mineral dust, and organic grains once every nine days. Collector webs open ahead of the passage and fold against the fragment before its orbit carries them into ordinary traffic. The catch supplies water, industrial salts, trace metals, and small quantities of material altered by the plume's uneven resonance field.
   PROSE
@@ -51,4 +74,14 @@ end
 
 relate :rel_tanel_supplies_nera_doss, :supplies, :tanel, :nera_doss, since: 2435 do
   prose "Tanel supplies the sealed ceramic capsules used for volatile samples aboard Nera Doss."
+  descriptive_identity(
+    terms:
+      "Capsules sized for the sealed rack beneath the tender's cabin, " \
+      "each holding its pressure and temperature through a full plume " \
+      "crossing.",
+    dependence:
+      "The comparison runs on the warm catch stand or fall with the " \
+      "seals — a failed capsule mid-passage ends the experiment and " \
+      "puts the next attempt nine days out."
+  )
 end

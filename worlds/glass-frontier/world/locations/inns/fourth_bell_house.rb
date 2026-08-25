@@ -7,6 +7,35 @@ installation :fourth_bell_house do
   tags :transport, :trade, :household, :surface, :governance
   prominence :marginal
 
+  descriptive_identity(
+    setting:
+      "A municipal hostel built over the freight rail in Keelward, wrapped " \
+      "around a covered courtyard that carries the rail noise up from " \
+      "below. Registration, meals, and public message boards fill the " \
+      "ground arcade; three galleries of curtained bunks and small family " \
+      "rooms rise above it, and the roof holds a warm laundry, a shaded " \
+      "garden, and a clear line to the outer terminal lights.",
+    activity:
+      "The house keeps no common night: outer-terminal crews sleep " \
+      "through the freight runs, children take breakfast beside " \
+      "passengers on the late meal, and the kitchen posts food as hot, " \
+      "cold, light, or filling rather than by hour. Berth lamps in the " \
+      "rooms change color when a route changes, and neighbors from the " \
+      "surrounding wards work the courtyard stalls and the claims desk.",
+    access:
+      "Port staff issue lodging chits when a public closure breaks a " \
+      "booked connection — bunk, two meals, secure baggage, and the first " \
+      "rail trip out once the route reopens. Anyone else pays by the " \
+      "shift, and during a field closure nobody is turned into the " \
+      "street; the courtyard becomes floor lodging behind folded screens.",
+    hazards:
+      "A traveler still here after the fourth bell has trouble beyond " \
+      "routine delay. Room plates travel with the person, so a duplicate " \
+      "plate puts one luggage number on two cases and freezes both until " \
+      "the wash lift is traced, while arguments over who caused a delay " \
+      "outlast the traveler who suffered it."
+  )
+
   prose <<~PROSE
     Fourth Bell House is a municipal port hostel in #{ref :keelward, "Keelward"}, built above the freight rail between the outer arrival halls and the older terminal wards. It receives passengers whose onward booking failed, crews waiting on field release, and families who reached Sithari before their baggage or sponsor.
 

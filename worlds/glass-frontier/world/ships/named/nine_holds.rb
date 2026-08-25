@@ -7,6 +7,23 @@ transport :nine_holds do
   tags :transport, :trade, :"outer-system", :resonance, :governance
   prominence :recognized
 
+  descriptive_identity(
+    appearance: "Nine box holds in three rows around a narrow drive spine, each joined through a ceramic break " \
+                "and openable from outside by its own small lock. The numbers are cut deep into the frames — " \
+                "paint changes, the cuts do not — and Hold Nine sits small and cold with a manual jettison " \
+                "lever beside the bridge.",
+    aboard: "Crawl passages reach each hold through a ceramic collar, and no two boxes need share an " \
+            "environment: washable floors and drains in One and Two, cradles for stone in Six, isolated " \
+            "instrument racks in Seven and Eight. Passengers eat in a galley built for the twelve permanent " \
+            "crew and sleep in narrow berths above the spine; overflow rides Hold Three on folding bunks " \
+            "between the cargo rails.",
+    behavior: "Slow to turn, because each loaded box answers the drive through its own break and the pilot " \
+              "waits for the hull to settle after every correction. Arrival announces itself as nine low knocks " \
+              "traveling forward while the holds come to rest. A hold can change customer at berth without the " \
+              "ship moving, and the hull lead can seal one whose field, temperature, or papers stop matching " \
+              "the declaration."
+  )
+
   prose <<~PROSE
     *Nine Holds* is a Korvathi freighter that carries mixed cargo between Korvath, Kaleidos, and the outer Keel. Its nine box holds attach to a narrow drive spine through ceramic breaks. Each has separate pressure, cooling, field monitors, and release bolts. The ship can carry grain beside tuned ringglass, livestock beside hot machinery, or passengers beside remote-cut stock without making every load share one environment.
 

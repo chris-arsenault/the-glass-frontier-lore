@@ -7,6 +7,38 @@ installation :far_bell do
   tags :orbital, :transport, :navigation, :danger, :resonance
   prominence :marginal
 
+  descriptive_identity(
+    setting:
+      "A truss anchored to an evacuated freight tank beyond the " \
+      "inhabited platform at Outside: a dock frame for one small " \
+      "vessel, two shelter rooms with no passage between them, and a " \
+      "thick oval ringglass plate in a ceramic rim. No beacon repeats " \
+      "here — the station is silent except when the plate gives its " \
+      "single stroke. Cargo tallies, Karet family names, and " \
+      "contractors' warnings cover the shelter walls.",
+    activity:
+      "Arrivals hold and listen; departures stop to shed the cordon's " \
+      "local marks, sealing boundary instruments into transfer cases " \
+      "and taking a clean route strip from the shelter locker. Council " \
+      "workers come out regularly to inspect everything and rewind the " \
+      "striker by hand, since the plate sounds once and cannot sound " \
+      "again until reset.",
+    access:
+      "One stroke through the hull means approach on the route sent " \
+      "with it; silence means hold and query Outside by burst; a " \
+      "second stroke in the same arrival is false. Larger ships stand " \
+      "off and transfer by line or flitter, no cargo opens here, and " \
+      "waiting visitors are tolerated only while a vessel supplies " \
+      "them and vouches for immediate departure in a closure.",
+    hazards:
+      "The divided shelters mean a split party is out of each other's " \
+      "reach, and either room can lose pressure and release on its " \
+      "own. The last two reset crews found narrow bare footprints in " \
+      "the dust, crossing both ceramic breaks and stopping under the " \
+      "striker — the Council now sends pairs from separate rooms and " \
+      "photographs the dust before anyone touches the spring."
+  )
+
   prose <<~PROSE
     Far Bell is the outer traffic marker for #{ref :karet_three, "Karet-3"}. It stands beyond the inhabited platform at #{ref :outside, "Outside"}, far enough from the Bloom boundary that an arriving vessel can stop there without entering cordon working space. A dock frame, two shelter rooms, and a single large signal plate surround a truss anchored to an evacuated freight tank.
 

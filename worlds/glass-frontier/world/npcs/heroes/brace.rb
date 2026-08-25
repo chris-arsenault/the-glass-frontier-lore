@@ -5,6 +5,11 @@ npc :brace do
   occupation "Formation captain"
   specialty "Large crossings through changing gravity"
   species "orc"
+  identity_source :species, :orcs
+  descriptive_identity disposition:
+    "Brace assigns a newcomer the position the crossing is weakest at, " \
+    "whatever they say they are good at, and lays the plan out on the floor " \
+    "in footprints and breath counts before discussion resumes."
   culture "Orcish"
   status :complete
   tags :training, :transport, :"kinetic-freq", :danger

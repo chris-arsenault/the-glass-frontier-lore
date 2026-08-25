@@ -19,6 +19,7 @@ module Lorecraft
   # holds what is constant: who it is, not what has happened to it.
   class Entity
     include PublishedContext
+    include IdentityOwner
 
     attr_reader :id, :kind, :static_attrs, :fact_values, :custom_fact_defs,
                 :content_blocks, :derives, :source_file, :source_line, :log_entries, :questions,
@@ -43,6 +44,7 @@ module Lorecraft
       @visibility = :public
       @public_entry = nil
       @index_note = nil
+      initialize_identity
       initialize_published_context
     end
 
@@ -83,6 +85,7 @@ module Lorecraft
     class Builder
       include Markers
       include PublishedContextBuilder
+      include IdentityBuilder
 
       def initialize(entity, world)
         @entity = entity
@@ -90,6 +93,8 @@ module Lorecraft
         @published_owner = entity
         @content_order = 0
       end
+
+      private def identity_owner = @entity
 
       # --- common static attributes (explicit for clarity / validation) -----
 

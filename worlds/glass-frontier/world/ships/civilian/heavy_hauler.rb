@@ -6,6 +6,20 @@ transport :heavy_hauler do
   tags :trade, :transport, :ringglass, :"kinetic-freq", :orbital, :navigation
   prominence :recognized
 
+  descriptive_identity(
+    appearance: "Easy to name on approach by the bracketed silhouette of its reinforced hull frame — heavy " \
+                "structural bracing laid over a long hull built around oversized kite arrays and modular cargo " \
+                "bays. Through dangerous space it flies in formation with armed escort kites rather than alone.",
+    aboard: "A small bridge and surprisingly comfortable quarters: galley, common rooms, individual cabins, " \
+            "sometimes a small library, because crews of eight to twelve live aboard for weeks and often raise " \
+            "children on the run. The holds are bulkheaded bays separated physically and by resonance, and any " \
+            "coupled-freight bay travels dark with its instruments cut off from the ship's cadence.",
+    behavior: "Slow by deliberate choice, steady when loaded and twitchy when the holds are empty, so operators " \
+              "plan tonnage in both directions and treat a deadhead leg as a planning failure. The kite arrays " \
+              "do most of the active piloting while the crew rotates through monitoring, maintenance, and rest; " \
+              "the schedule almost always holds."
+  )
+
   prose <<~PROSE
     The industrial cargo vessel class that moves bulk goods along #{ref :keel, "the Keel"} and the outer-system trade routes. Heavy haulers are the largest civilian #{ref :kite_sail, "kite"}-driven vessels in regular commercial service: slow by deliberate choice, sturdy by necessity, and load-bearing for nearly the entire system's bulk economy. #{ref :vantara, "Vantara"} operates the largest fleet; independent operators run the rest. A heavy hauler is the unglamorous backbone of orbital civilization.
 

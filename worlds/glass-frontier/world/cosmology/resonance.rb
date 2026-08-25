@@ -71,6 +71,11 @@ concept :resonance do
 
     And resonance is frequency-specific. A piece of ringglass tuned for structural reinforcement won't generate heat. A kinetic array won't carry signals. Retuning ringglass is possible but difficult, requires specialized equipment, and damages the crystal if done repeatedly. Most applications use purpose-cut pieces that do one thing well.
   PROSE
+  prose <<~PROSE, section: :limits, heading: "Feeling It Work"
+    What resonance work feels like to bystanders depends on who is standing by. The species with an innate sense — #{ref :gnomes, "gnomes"} above all — perceive it directly, each in their own kind's way. For everyone else, high-band, low-power work is imperceptible: a signal array can run at full duty in a crowded room and nobody unaided will know.
+
+    Low-band, high-power work is different. Heavy structural or kinetic draws register in every species as a bodily wrongness — the felt sense of one's own cells being asked to align toward a lattice they do not belong to. The feeling is unmistakable, hard to describe, and universally disliked, and it is the reason nobody needs an instrument to know that something large is being worked nearby, or worked wrong.
+  PROSE
   prose <<~PROSE, section: :trade, heading: "Who Controls It"
     Nobody controls resonance itself — it's ambient, like weather. But the supply chain for refined ringglass is a different matter. See #{ref :ringglass, "Ringglass"}.
   PROSE

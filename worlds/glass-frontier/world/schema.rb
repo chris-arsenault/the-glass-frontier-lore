@@ -9,6 +9,7 @@ schema do
   # this; a block a person writes declares `drafted_by: :human`.
   drafted_by_default :ai
   require_entity_summaries!
+  require_descriptive_identities!
   require_fact_cards! from: :renowned, minimum: 4
   require_gm_notes! from: :forgotten, minimum: 1
   require_playable_coverage! :chronicle_location,
@@ -34,8 +35,11 @@ schema do
                          veiled_kind_maximum: 24
 
   # Resonance is a physical force here, so attunement and sympathy are real
-  # edges rather than metaphors.
-  relation :attuned_to, category: :technical, temporal: false
+  # edges rather than metaphors. An attunement may describe how the bond
+  # shows in practice — its expression — as relationship identity.
+  relation :attuned_to, category: :technical, temporal: false do
+    identity_key :expression, required: false
+  end
   relation :resonates_with, category: :narrative, temporal: false
   extend_relation :terminus_of,
                   domain: location_kinds,
@@ -154,6 +158,166 @@ schema do
 
   extend_subkind :species, :sapient_species do
     field :resonance_relation, type: :text, label: "Resonance", expected: false
+    identity_key :appearance
+    identity_key :senses, required: false
+  end
+
+  # Descriptive identity. Bodies say where you grew up; belonging is the trade
+  # and its tools; culture supplies the layer under both. Norms live in
+  # complete source articles and entities inherit them without copying.
+  # Prose rules: guidance/identity.md.
+  extend_kind :npc do
+    identity_key :appearance
+    identity_key :attire, required: false
+    identity_key :tools, required: false
+    identity_key :manner, required: false
+    identity_key :disposition, required: false
+    identity_source :species, kinds: :species, subkinds: :sapient_species,
+                              keys: :appearance, cardinality: :one, precedence: 1
+    identity_source :culture, kinds: :culture, subkinds: %i[regional_culture way_of_life],
+                              keys: %i[appearance attire manner], cardinality: :many,
+                              required: false, precedence: 2
+    identity_source :trade, kinds: :concept, subkinds: :practice,
+                            keys: %i[attire tools manner], cardinality: :many,
+                            required: false, precedence: 3
+  end
+
+  # Scene-anchoring dictionaries for the rest of the atlas. Every key holds
+  # compact description a scene can narrate from; all optional, distilled from
+  # each entry's own canon. Variety is the premise — no source templates.
+  extend_kind :installation do
+    identity_key :setting, required: false
+    identity_key :activity, required: false
+    identity_key :access, required: false
+    identity_key :hazards, required: false
+  end
+
+  extend_kind :geographic_location do
+    identity_key :setting, required: false
+    identity_key :activity, required: false
+    identity_key :hazards, required: false
+  end
+
+  extend_kind :faction do
+    identity_key :ideology, required: false
+    identity_key :methods, required: false
+    identity_key :presence, required: false
+    identity_key :attitude, required: false
+  end
+
+  extend_kind :transport do
+    identity_key :appearance, required: false
+    identity_key :aboard, required: false
+    identity_key :behavior, required: false
+  end
+
+  extend_kind :artifact do
+    identity_key :appearance, required: false
+    identity_key :handling, required: false
+    identity_key :risks, required: false
+  end
+
+  extend_kind :creature do
+    identity_key :appearance, required: false
+    identity_key :behavior, required: false
+    identity_key :threat, required: false
+  end
+
+  extend_kind :resource do
+    identity_key :appearance, required: false
+    identity_key :working, required: false
+    identity_key :risks, required: false
+  end
+
+  extend_kind :ability do
+    identity_key :signs, required: false
+    identity_key :effect, required: false
+    identity_key :limits, required: false
+  end
+
+  extend_kind :phenomenon do
+    identity_key :signs, required: false
+    identity_key :effects, required: false
+    identity_key :hazards, required: false
+  end
+
+  extend_kind :incident do
+    identity_key :marks, required: false
+    identity_key :stakes, required: false
+  end
+
+  extend_kind :conflict do
+    identity_key :cause, required: false
+    identity_key :intensity, required: false
+    identity_key :conduct, required: false
+  end
+
+  # Relationship identity: the texture of an edge, for the verbs that carry
+  # scene tension. Authored on instances where an entry's tension lives.
+  extend_relation :participated_in do
+    identity_key :aims, required: false
+    identity_key :conduct, required: false
+    identity_key :cost, required: false
+  end
+
+  extend_relation :cooperates_with do
+    identity_key :basis, required: false
+    identity_key :limits, required: false
+  end
+
+  extend_relation :supplies do
+    identity_key :terms, required: false
+    identity_key :dependence, required: false
+  end
+
+  extend_relation :member_of do
+    identity_key :standing, required: false
+  end
+
+  extend_relation :employed_by do
+    identity_key :standing, required: false
+  end
+
+  extend_relation :governs do
+    identity_key :basis, required: false
+    identity_key :reach, required: false
+    identity_key :legitimacy, required: false
+    identity_key :resistance, required: false
+  end
+
+  extend_relation :regulates do
+    identity_key :reach, required: false
+    identity_key :enforcement, required: false
+  end
+
+  extend_relation :depends_on do
+    identity_key :exposure, required: false
+  end
+
+  extend_subkind :culture, :regional_culture do
+    identity_key :appearance, required: false
+    identity_key :attire, required: false
+    identity_key :manner, required: false
+    identity_key :hospitality, required: false
+  end
+
+  extend_subkind :culture, :way_of_life do
+    identity_key :appearance, required: false
+    identity_key :attire, required: false
+    identity_key :manner, required: false
+    identity_key :hospitality, required: false
+  end
+
+  extend_subkind :concept, :practice do
+    identity_key :attire, required: false
+    identity_key :tools, required: false
+    identity_key :manner, required: false
+  end
+
+  %i[ability artifact concept conflict creature culture edict era faction
+     geographic_location incident installation loop phenomenon resource rumor
+     species theme thread transport].each do |sourceless_kind|
+    extend_kind(sourceless_kind) { no_identity_sources }
   end
 
   tag :AI, "Artificial intelligence, custodian systems"

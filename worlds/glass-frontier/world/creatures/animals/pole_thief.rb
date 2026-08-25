@@ -6,6 +6,21 @@ creature :pole_thief do
   tags :"outer-system", :ecology, :resonance, :transport
   prominence :marginal
 
+  descriptive_identity(
+    appearance: "A low, flat amphibious animal, the largest spanning both arms of a human, with four walking " \
+                "limbs and a heavier front pair ending in opposed gripping pads. Layered back skin collects " \
+                "iron-rich silt until an old one looks like the bank around it; the pale underside stays soft " \
+                "and must stay wet.",
+    behavior: "It hunts burrowing shellfish and root insects by striking reeds, stones, and packed mud, " \
+              "reading the vibration through a plate behind the jaw. Burrows start under reed roots and rise " \
+              "to an air pocket above water level; colonies move after every large channel change, and their " \
+              "digging drains flooded banks while their feeding keeps shellfish off timber gates.",
+    threat: "A sounding pole reads as prey: the animal clamps the metal shoe, twists toward the bank, and can " \
+            "wrench a shoulder or turn the pole underfoot before releasing at the taste of metal. The tell is " \
+            "in the return — sliding silt drags, buried timber knocks once, a pole-thief grips and often " \
+            "answers a second pole placed nearby."
+  )
+
   prose <<~PROSE
     Pole-thieves are low amphibious animals found in the banks and reed beds of Korvath's #{ref :dovra, "Dovra"}. They strike the metal shoes of sounding poles, clamp on, and pull toward the bank. Pilots named them for the tools lost when a startled deck hand released their grip.
 

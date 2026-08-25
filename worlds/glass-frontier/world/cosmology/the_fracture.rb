@@ -14,6 +14,30 @@ geographic_location :the_fracture do
   custom_fact :principal_hazards, "Unstable debris, Bloom Zones, space fauna, raiders, and competing salvage claims",
               label: "Principal Hazards"
 
+  descriptive_identity(
+    setting:
+      "Large angular fragments of a shattered planet follow related " \
+      "orbits through a broad outer-system belt, exposing crust, " \
+      "mantle, and cooled core. The inner reaches hold the densest " \
+      "metal-bearing bodies; farther out, separated fragments carry " \
+      "ice, sealed cavities, and what once lay near the surface.",
+    activity:
+      "Salvage camps fasten to slow bodies and move their anchors as " \
+      "the debris drifts, while survey stations issue approach maps " \
+      "good for one working season. Crews contesting the same fragment " \
+      "still publish pressure failures and drift warnings on a shared " \
+      "band, and ownership rests on occupied anchors and buyers who " \
+      "recognize a cargo's mark.",
+    hazards:
+      "Smaller debris migrates between the large bodies, and any " \
+      "collision big enough to alter the local field voids the current " \
+      "charts. Bloom Zones open in several reaches with no crews close " \
+      "enough to cordon them, space fauna feed around collision plumes, " \
+      "and raiders copy the movement of a herd to hide from long " \
+      "survey — so a charted animal shelter can be a hostile anchorage " \
+      "by the next visit."
+  )
+
   prose <<~PROSE
     The Fracture is the remains of the sixth planet. Large angular fragments follow related orbits through a broad belt, exposing crust, mantle, and cooled core material. Their shared composition and fitted survey profiles leave no dispute that they belonged to one differentiated world.
 

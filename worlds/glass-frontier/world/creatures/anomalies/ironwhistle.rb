@@ -10,6 +10,24 @@ creature :ironwhistle do
   custom_fact :identifying_marks, "Missing tip on the second left membrane and a pale ring around the rear jaw"
   custom_fact :feeding, "Active kinetic fields and metal-rich Farborn"
 
+  descriptive_identity(
+    appearance: "A dragon longer than a heavy hauler: four broad membranes around a narrow trunk, a jaw " \
+                "divided into three independently closing parts, and old hide dulled to the red-brown of " \
+                "worked iron by metal dust grown through the tissue. The second left membrane is missing its " \
+                "tip and a pale ring circles the rear jaw.",
+    behavior: "It feeds on active kinetic fields and metal-rich Farborn, sliding in behind a working kite's " \
+              "drive gradient and holding where the redirected resistance returns to ordinary space — the ship " \
+              "feels rising drag and uneven corrections before the jaws arrive. Brittle dust ridges break off " \
+              "its membranes in sharp turns, and it vanishes from working space for years between periods of " \
+              "activity.",
+    threat: "The call comes through structure, not air: a microphone catches a faint scrape while a hand on a " \
+            "bulkhead feels the whole descending whistle. Descending means spread and feeding, short rising " \
+            "strokes mean turning, and a steady single note means the membranes are folding for a strike. " \
+            "More kite power feeds it; survivors cut to minimum control, turn across the approach, and drop " \
+            "an iron decoy on a separate pulse. It often tears away an energized frame and leaves the " \
+            "pressure shell intact."
+  )
+
   prose <<~PROSE
     Ironwhistle is a named Shear dragon whose range crosses the working corridors between the mid-drift and the inner Keel. Its body is longer than a heavy hauler, with four broad membranes set around a narrow trunk and a jaw divided into three independently closing parts. Dark metallic dust has accumulated through its outer tissue, giving old sections of the hide the dull red-brown of worked iron.
 

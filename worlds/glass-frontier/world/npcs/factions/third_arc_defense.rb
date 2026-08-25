@@ -10,6 +10,25 @@ faction :third_arc_defense do
   prominence :recognized
   status :complete
 
+  descriptive_identity(
+    ideology:
+      "Food and pressure cargo moving between outer ring habs deserved " \
+      "armed escort, and a civilian relay belonged to everyone who spoke " \
+      "through it, not to whichever power held the station. No member hab " \
+      "outranked the other two.",
+    methods:
+      "Patrol craft, dispatchers, and stores came from each member on its " \
+      "own account, under a command that rotated between the three " \
+      "delegations — who gave an order depended on the season. After the " \
+      "occupation of Hinge Six ended in defeat, the pact worked purely as " \
+      "a convoy organization until its dissolution.",
+    presence:
+      "What remains is paper: escort guarantees still surfacing in " \
+      "outer-hab records, and the common files and stores it kept at " \
+      "Verathi. The guarantees themselves passed into the Tempered Accord " \
+      "when the last members dissolved the pact in 2423."
+  )
+
   prose <<~PROSE
     A defense and logistics pact formed by three outer ring habs during the Contested Reach. Each member supplied patrol craft, dispatchers, and stores; command rotated between their delegations. The pact escorted food and pressure cargo through contested lanes and treated civilian relays as common infrastructure.
 

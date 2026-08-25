@@ -12,6 +12,21 @@ incident :the_glassfall do
   cause_status "Unknown; deliberate sabotage is the prevailing theory"
   prominence_xrefs ["lattice-proxy-synod"]
 
+  descriptive_identity(
+    marks:
+      "Everything the system lives in dates from one day in 2140: " \
+      "hundreds of surviving habs drifting where their ring sections " \
+      "cracked free, wreckage settled into the Shear between atmosphere " \
+      "and orbit, and ringglass sunk through Kaleidos's crust and " \
+      "waterways still carrying the imprint of old transmissions.",
+    stakes:
+      "The cause is argued rather than known. Sabotage is the " \
+      "prevailing theory, since the rings were built to outlast " \
+      "anything the orbit could produce, and the Lattice Proxy Synod " \
+      "holds classified custodian-AI archives without saying whether " \
+      "they contain an answer."
+  )
+
   prose <<~PROSE
     In 2140 CE, the orbital rings broke.
 

@@ -9,6 +9,31 @@ geographic_location :miraeth do
   position frame: :kaleidos_surface, latitude_deg: 6, longitude_deg: -61,
            size_class: :region
 
+  descriptive_identity(
+    setting:
+      "A chain of wooded basins along the Kyther Range's wet " \
+      "foothills, separated by high saddles and bare ridge, each " \
+      "holding deep soil, steady water, and old forest laced with " \
+      "clear ringglass veins grown into trunk and root. After dark " \
+      "the crystal keeps its light awhile, canopy first and then the " \
+      "exposed roots, a healthy basin fading gradually from the " \
+      "edges inward.",
+    activity:
+      "Families raise orchards, terrace grain, mushrooms, fish, and " \
+      "honey on unusual soil, harvest living graftwood in small " \
+      "volumes, and walk the groves after dusk when the connections " \
+      "show. Ward assemblies post irrigation turns and quiet periods " \
+      "at the gate houses, and each watershed keeps its own rules, " \
+      "so passage agreed in one basin means nothing over the saddle.",
+    hazards:
+      "Whatever a machine puts into a basin travels: workshop heat " \
+      "rides the root plate uphill into someone's bed, and a pump " \
+      "drawn too sharply strips the local response seedlings need to " \
+      "bind new grain. A grove deprived by extraction shows empty " \
+      "young veins and a hard bright ring around the machine that " \
+      "took its field, and the grower traces the change within days."
+  )
+
   prose <<~PROSE
     Miraeth is a chain of wooded basins along the wet foothills of the #{ref :kyther_range, "Kyther Range"}. Pre-Glassfall water records use the name for the whole chain. Basin speech kept it through the Famine while the watersheds developed separate rules and dialects. Each basin holds deep soil, steady water, and centuries of fine ringglass deposited by #{ref :glassfall_showers, "Glassfall showers"}. Plants incorporated the grains as they grew. Clear veins now run through old trunks and roots, linking whole stands through broad structural fields.
 

@@ -9,6 +9,30 @@ faction :echo_ledger_conclave do
   tags :archives, :resonance, :"signal-freq", :governance
   prominence :recognized
 
+  descriptive_identity(
+    ideology:
+      "What the ground remembers must be catalogued, authenticated, and " \
+      "released with its context — because a voice repeated without its " \
+      "provenance can mean anything. An artifact lost is recoverable later; " \
+      "an archivist lost is not.",
+    methods:
+      "Long listening shifts at Echo River surfacing points, written " \
+      "findings sealed and registered at Thornvault, and paid " \
+      "authentication whose assessment carries legal weight under the " \
+      "Tempered Accord. Field cells negotiate, pay, and walk away from an " \
+      "artifact before they will fight for it.",
+    presence:
+      "In the field, a retrieval cell of four to six archivists with " \
+      "packing equipment, careful instruments, a contracted Tuner, and " \
+      "funds; at home, crystal-laced halls built to channel river sound " \
+      "and face the glasslight. The instruments announce the trade.",
+    attitude:
+      "Serious people doing serious work, and priced accordingly. The " \
+      "Conclave answers questions it is paid to answer, guards access to " \
+      "the rest, and has complied with three Accord attempts to force it " \
+      "open in letter while ignoring their spirit."
+  )
+
   prose <<~PROSE
     Archivists. Gatekeepers. The people who catalogue what the ground remembers and decide who gets to hear it.
 
@@ -104,9 +128,21 @@ relate :rel_elc_hq_thornvault, :headquartered_in, :echo_ledger_conclave, :thornv
 end
 relate :rel_elc_supplies_stillwater, :supplies, :echo_ledger_conclave, :stillwater, since: 2313 do
   prose "It feeds recovered records to #{ref :stillwater, "Stillwater"}, the preservation effort that keeps what the rivers give up from decaying a second time."
+  descriptive_identity(
+    terms:
+      "Authenticated river fragments written into the medium by " \
+      "signal-band Tuners at the listening houses, sealed vial by " \
+      "vial — the Conclave supplies the content and consumes most of " \
+      "the clean stock in the same motion."
+  )
 end
 relate :rel_elc_member_of_bloom_coalition, :member_of, :echo_ledger_conclave, :bloom_coalition, since: 2380, till: 2396 do
   prose "Through the Bloom emergency it sat in the #{ref :bloom_coalition, "Bloom Coalition"}, lending archival and analytical weight until the coalition dissolved."
+  descriptive_identity standing:
+    "The Conclave went in a niche academic institution doing on-the-fly " \
+    "resonance analysis and came out a faction with practical relevance " \
+    "to the system's largest continuing crisis; not all of its senior " \
+    "archivists welcomed the change."
 end
 
 # --- history (moments) ---

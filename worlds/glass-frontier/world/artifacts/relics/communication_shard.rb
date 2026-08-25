@@ -8,6 +8,25 @@ artifact :communication_shard do
   function "Open a private signal channel to a hidden elven relay"
   dm!(public_entry: :dern_talish)
 
+  descriptive_identity(
+    appearance:
+      "A thumb-length sliver of clear ringglass with a single dark line " \
+      "running through its center, stopping short of both cut faces. Near " \
+      "an active Bloom cordon the line warms and can divide into three; " \
+      "elsewhere it stays single and cold.",
+    handling:
+      "Pressed against bare skin while its holder sounds the opening " \
+      "interval, it puts an elven operator's voice into her jaw and " \
+      "throat, and carries back only speech shaped inside her body — no " \
+      "recording, written message, or repeated tone opens it. It answers " \
+      "to Dern Talish herself, not to her office.",
+    risks:
+      "Strong damping fields silence it where ordinary jamming cannot, " \
+      "and there is no known way to pass it to a new holder without an " \
+      "elf on the channel. Fractured, it would end the contact and hand " \
+      "a piece of elven signal practice to whoever gathered the shards.",
+  )
+
   prose <<~PROSE
     The Communication Shard is a thumb-length sliver of clear ringglass held by #{ref :dern_talish, "Dern Talish"}. A dark line runs through its center without touching either cut face. When she presses the shard against bare skin and sounds its opening interval, the line divides into three and an elven operator answers.
 

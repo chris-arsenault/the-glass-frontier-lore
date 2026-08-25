@@ -8,6 +8,27 @@ geographic_location :vitrael do
   prominence :recognized
   position frame: :kaleidos_system_chart, radius: 4, angle_deg: 202
 
+  descriptive_identity(
+    setting:
+      "Aerostats and orbital stations hang above a deep hot atmosphere " \
+      "whose upper clouds carry metal condensates and crystal-bearing " \
+      "dust. Sunlight comes down in pale bands, and below everything " \
+      "lies the dark cloud deck no crewed descent has returned from.",
+    activity:
+      "Harvest skiffs draw charged droplets through ceramic vanes and " \
+      "run them home before the storm field changes, while scheduled " \
+      "shuttles move families between aerostat homes and the orbital " \
+      "platforms that handle heavy refining and interplanetary cargo. " \
+      "Settlements travel in loose groups, trading forecasts and " \
+      "lifting gas among themselves.",
+    hazards:
+      "Storm towers climb out of the lower deck fast enough to overtake " \
+      "an aerostat before its support station sees the change. The " \
+      "clouds hold a transmission long enough to make a false bearing, " \
+      "worst after lightning, so a skiff that follows its own signal " \
+      "wake home does not get there."
+  )
+
   prose <<~PROSE
     Vitrael is the fourth planet, wrapped in a deep hot atmosphere whose upper clouds carry metal condensates and crystal-bearing dust. Permanent habitation occupies orbital stations and aerostats above the crushing lower layers. No crewed descent has returned from beneath the dark cloud deck.
 

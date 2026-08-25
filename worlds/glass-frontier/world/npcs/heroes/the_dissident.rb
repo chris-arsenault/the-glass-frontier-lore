@@ -8,6 +8,8 @@ npc :the_dissident do
   occupation "Famine-era resonance teacher"
   omit_facts :based_in
   species "elf"
+  identity_source :species, :elves
+  identity_source :trade, :tuners
   dm!(public_entry: :tuners)
 
   prose <<~PROSE

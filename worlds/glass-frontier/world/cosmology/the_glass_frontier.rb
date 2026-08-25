@@ -14,6 +14,30 @@ geographic_location :the_glass_frontier do
   population_pattern "Hundreds of sealed habitats with distinct communities"
   principal_hazards "Debris, resonance distortion, structural collapse and Bloom Zones"
 
+  descriptive_identity(
+    setting:
+      "A vast shattered halo of crystalline megastructure around " \
+      "Kaleidos: hundreds of sealed hab fragments, some hundreds of " \
+      "kilometers long, drifting in new orbits with glass particulate " \
+      "between them that catches the light and turns the sky " \
+      "prismatic. Debris, distortion, and the Shear fill roughly half " \
+      "the orbital volume between the inhabited pieces.",
+    activity:
+      "Shuttles run routinely between the surface and the ring in " \
+      "well-connected regions, and most interplanetary traffic routes " \
+      "through ring stations where the old docking systems, beacons, " \
+      "and resonance relays are densest. Each hab runs its own way — " \
+      "some on quietly miraculous ring-era infrastructure, others on " \
+      "whatever their people reinvented during the isolation.",
+    hazards:
+      "A hab stable for decades can lose integrity and become just " \
+      "another piece of Shear, and a Bloom Zone can erupt beside " \
+      "either. Where the original infrastructure still hums, nobody " \
+      "aboard can say what broke when it stops, and in the saturated " \
+      "fluid-reality habs the boundary between real and imagined gets " \
+      "thin enough to step through."
+  )
+
   prose <<~PROSE
     The Glass Frontier is what's left of the orbital ring that once encircled Kaleidos — a vast, shattered halo of crystalline megastructures, still habitable, still inhabited, and still very much the center of everything.
 

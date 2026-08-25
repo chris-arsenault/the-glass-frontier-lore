@@ -5,6 +5,13 @@ npc :renn_duvasi do
   occupation "Archive scholar at the Pelhari academy"
   specialty "Pre-Glassfall resonance maintenance records"
   species "human"
+  identity_source :species, :humans
+  identity_source :culture, :sitharian_culture
+  descriptive_identity disposition:
+    "Put a question about an old record to Duvasi and out come the " \
+    "damaged sheet, the copies taken from it, and the overlays where " \
+    "visiting mechanics disagreed, with an invitation to mark a new " \
+    "reading on the transparency."
   culture "sithari"
   tags :archives, :resonance, :"ring-era", :training
   prominence :recognized
@@ -42,6 +49,11 @@ relate :rel_renn_located_in_pelhari, :located_in, :renn_duvasi, :pelhari, since:
 end
 relate :rel_renn_member_of_clarisant, :member_of, :renn_duvasi, :clarisant, since: 2411 do
   prose "Duvasi publishes through the #{ref :clarisant, "Clarisant"} and draws much of their evidence from its working casebooks."
+  descriptive_identity standing:
+    "The membership runs through the Pelhari academy's archive rather " \
+    "than field work: chapters lend Duvasi their working casebooks " \
+    "because every one comes back with a clean copy and a list of the " \
+    "passages used."
 end
 relate :rel_renn_created_vashtenri_thesis, :created, :renn_duvasi, :vashtenri_thesis do
   prose "Duvasi created the #{ref :vashtenri_thesis, "Vashtenri Thesis"} by comparing Lira's complete field notes with damaged pre-Glassfall maintenance records."

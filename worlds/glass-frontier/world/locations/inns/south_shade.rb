@@ -7,6 +7,36 @@ installation :south_shade do
   tags :"outer-system", :trade, :transport, :household, :resonance
   prominence :marginal
 
+  descriptive_identity(
+    setting:
+      "A road house below Shadewell's southern rim where the highland " \
+      "road meets the cargo lifts, its sleeping rooms cut into the cool " \
+      "side of a basalt ledge — the deepest have no exterior wall at " \
+      "all. A long roof shades the vehicle court's six stone-walled " \
+      "bays, and night here follows Ashenmaw's shadow, not the terminal " \
+      "clock.",
+    activity:
+      "Heat-road crews rest and repair before entering the port " \
+      "schedule, reading the court board that translates shade periods, " \
+      "road departures, and lift slots into one interval. The busiest " \
+      "meal begins when Ashenmaw crosses the sun: market tables under " \
+      "the vehicle roof, drivers trading vent-storm reports, mechanics " \
+      "arguing substitutions onto the port's parts lists.",
+    access:
+      "Anyone off the road can pay for a bay and a bed, but the deep " \
+      "cool rooms go to children, heat injuries, and emergency arrivals " \
+      "— a paying guest loses one the moment a casualty comes down the " \
+      "highland road. Cargo with an active field waits outside until " \
+      "the port sounders clear it, and a driver who accepts an " \
+      "impossible turn forfeits the covered bays.",
+    hazards:
+      "The cinderback handlers hold the two outer bays, and any pump " \
+      "start near the road turns the herd back toward the port with the " \
+      "handlers close behind asking who did it. The hot return is " \
+      "closed for the herd's sake, so the baths run cold and warm " \
+      "machinery cannot be washed until the next road station."
+  )
+
   prose <<~PROSE
     South Shade is a road house below #{ref :shadewell, "Shadewell"}'s southern rim, where the highland road meets the cargo lifts climbing to the Keel fields. Its sleeping rooms are cut into the cool side of a basalt ledge. A long roof shades the vehicle court, and a municipal return line carries kitchen and bath heat toward radiator frames on the empty slope above.
 

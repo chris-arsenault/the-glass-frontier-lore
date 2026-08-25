@@ -11,6 +11,32 @@ geographic_location :sable_crescent do
   position frame: :kaleidos_surface, latitude_deg: -4, longitude_deg: -55,
            size_class: :region
 
+  descriptive_identity(
+    setting:
+      "A warm river basin hooked around an ancient impact floor, " \
+      "marsh and flooded plain at its center, high cliffs and deep " \
+      "canyons cutting the rim where crystal-bearing strata glow " \
+      "faintly after sunset. Water moving through the laced sediment " \
+      "comes back to the surface carrying voices, and at dusk the " \
+      "exposed strata refract low sun through the marsh mist into " \
+      "pale bands the residents call glasslight.",
+    activity:
+      "Shallow broad-bottomed boats carry most freight below the " \
+      "cliffs, piloted by ear as much as eye, while farms work raised " \
+      "beds in the delta soil and crews wash low-grade ringglass out " \
+      "of the sediment traps after floods. Ledgerfall holds the big " \
+      "market, Thornvault anchors the Echo Ledger Conclave's " \
+      "listening work, and journeys are planned by water level and " \
+      "gate schedule as much as by distance.",
+    hazards:
+      "A channel with a strong new signal may hide a fresh deposit or " \
+      "an undercut bank, and an uncovered lamp in glasslight repeats " \
+      "through several banks until another boat reads far closer than " \
+      "it is. An upstream council holding water to save its own crop " \
+      "sends a sharper rise into the next district, so the flood " \
+      "arrives carrying somebody's decision."
+  )
+
   prose <<~PROSE
     The Sable Crescent is a warm river basin on Kaleidos, shaped like a hooked arc around an ancient impact floor. Marshes and flooded plains occupy its center. High cliffs and deep canyons cut the rim, exposing crystal-bearing strata that glow faintly after sunset. The #{ref :echo_rivers, "Echo Rivers"} surface here in greater concentration than anywhere else in the system.
 

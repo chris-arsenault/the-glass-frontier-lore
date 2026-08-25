@@ -11,6 +11,26 @@ culture :hab_worlder do
   prominence :renowned
   integration "Raised in sealed habitats where atmosphere and structure are communal work"
 
+  descriptive_identity(
+    appearance:
+      "The hab sets the frame — spin, ration, and work differ can to can — " \
+      "but the posture is near-universal: contained, economical movement, a " \
+      "body conserving space that used to be scarce.",
+    attire:
+      "Layered against temperature swings, fitted so nothing snags on " \
+      "infrastructure, with pockets and attachment points for tools. Cloth " \
+      "in a can is repaired rather than replaced, and the mending is neat by " \
+      "upbringing.",
+    manner:
+      "Checks the exits before anything else in an unfamiliar room, hears " \
+      "mechanical ambient sound as the sound of things being fine, and keeps " \
+      "a practical count of favors given and owed.",
+    hospitality:
+      "Hospitality in a can is a working arrangement: a guest gets air, a " \
+      "bunk, and a share of the table, and is expected to pull weight " \
+      "without being asked. The count of favors starts at the first meal."
+  )
+
   prose <<~PROSE
     The shared identity of people raised in ring habs. Not a single culture so much as a cultural family — Hab-Worlders from different habs can be as different from each other as any two surface settlements. What they share is the experience of growing up in sealed environments: an intuitive understanding of pressure, atmosphere, structural integrity, and the constant low-level awareness that everything outside the walls will kill you.
   PROSE

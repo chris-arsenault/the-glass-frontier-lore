@@ -5,6 +5,35 @@ ability :attunement do
   tags :resonance, :training
   prominence :recognized
 
+  descriptive_identity(
+    signs:
+      "Used, it looks like attention: a hand flat against a wall, a " \
+      "pause over a tool, two practitioners trading unrelated private " \
+      "words — pressure behind the eyes, weight across the teeth — " \
+      "and agreeing on band, direction, and rate. Bystanders of a " \
+      "species with an innate resonance sense feel nearby work each in " \
+      "their own kind's way; everyone else feels nothing while the " \
+      "work stays high-band and low-power, and when it runs low-band " \
+      "at high power every species alike feels their cells drawn to " \
+      "align toward an improper lattice.",
+    effect:
+      "The attuned tell resonance apart from the ordinary pressure, " \
+      "vibration, heat, and sound that carry it, following a change " \
+      "through a wall, a tool, or their own body far enough to call it " \
+      "structural, kinetic, or signal. Experienced practitioners " \
+      "separate nearby frequencies, recognize an unstable harmonic, " \
+      "and hold one response in mind while the surrounding field " \
+      "shifts.",
+    limits:
+      "It is perception without control: a person can name a " \
+      "collapsing frequency and lack the skill, tool, or material to " \
+      "correct it. Strong fields saturate the sense into merged " \
+      "pressure and nausea, long exposure brings headaches, tremors, " \
+      "lost sleep, and false readings — gnomes risk their own lattice " \
+      "besides — and a quiet field shows which band failed first while " \
+      "carrying little about the cause."
+  )
+
   prose <<~PROSE
     Attunement is the learned ability to distinguish resonance from the ordinary pressure, vibration, heat, and sound that carry it. An attuned person can follow a change through a wall, a tool, or their own body and identify enough of its pattern to act. The first useful distinction is usually broad: structural, kinetic, or signal. Experienced practitioners can separate nearby frequencies, recognize an unstable harmonic, and hold one response in mind while the surrounding field shifts.
 

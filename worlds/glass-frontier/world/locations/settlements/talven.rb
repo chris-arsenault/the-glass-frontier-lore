@@ -15,6 +15,32 @@ installation :talven do
   access "Echo Ledger courier branch to three freight docks and a passenger lock above the oldest quarry court"
   omit_facts :maintained_by
 
+  descriptive_identity(
+    setting:
+      "Descending quarries cut through unusually thick ringglass: tall " \
+      "shallow galleries separated by heavy ribs, old lift shafts " \
+      "reworked into light wells and air returns, homes and markets " \
+      "filling each level once the working face moves deeper. The main " \
+      "market opens onto the First Court, where a broad quarry wall " \
+      "adds its old machine pulse to anything played against it.",
+    activity:
+      "Cutters and brace crews work the deepest benches while archive " \
+      "readers lift recorded plates with hand wedges and dampers, " \
+      "marking grain and seating listening points around every cut. In " \
+      "the middle galleries, instrument makers work the offcuts and " \
+      "sellers demonstrate inside padded booths.",
+    access:
+      "An Echo Ledger courier branch serves three freight docks and a " \
+      "passenger lock above the oldest quarry court, and dust locks " \
+      "stand between every level of the town.",
+    hazards:
+      "Strike a gallery wall — a brawl, a fall, a dropped crate — and " \
+      "it answers in a few syllables from whoever worked that layer " \
+      "centuries ago, which brings an archive reader asking what was " \
+      "hit and where. Glass moved between levels is logged at each dust " \
+      "lock, and unprovenanced material is held there."
+  )
+
   prose <<~PROSE
     Clear bands in the glass preserve signal-frequency impressions. A hammer blow may release a few syllables from a work shift recorded centuries earlier. Broad cuts produce crowd noise, machine tones, or music spread across an entire wall. Talven sells structural glass, finished instruments, and carefully lifted recordings from strata whose date can be established.
 
@@ -54,6 +80,17 @@ end
 
 relate :rel_talven_supplies_echo_ledger, :supplies, :talven, :echo_ledger_conclave, since: 2435 do
   prose "Talven supplies provenanced signal plates and cut records to the Echo Ledger Conclave."
+  descriptive_identity(
+    terms:
+      "Lifted plates sold with their full paperwork — gallery, depth, " \
+      "adjacent layers, cut orientation, every tool used — moved out on " \
+      "the Conclave's own courier branch.",
+    dependence:
+      "The Conclave will not buy a voice separated from its stratum, " \
+      "however vivid, since a later cut could have carried another " \
+      "signal into the band; Talven's records are what turn a recording " \
+      "into evidence."
+  )
 end
 
 relate :rel_echo_ledger_studies_talven, :studies, :echo_ledger_conclave, :talven, since: 2435 do

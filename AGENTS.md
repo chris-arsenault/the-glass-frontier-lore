@@ -151,6 +151,8 @@ Broad condition, specific consequence: the condition is something an ordinary sc
 - `tags` — optional. Topics and themes this entry involves. **Controlled vocabulary** — only tags declared in the world's `world/schema.rb` (`tag :name, "meaning"`). Add a tag there before using it. Tags describe what an entry is *about* (`governance`, `resonance`, `trade`), not what it is *related to*.
 - `prominence` — optional but encouraged. How widely known this entity is: `forgotten`, `marginal`, `recognized`, `renowned`, `mythic`. NOT power or importance — only awareness. Gates how far references should reach in the knowledge graph.
 - `narrative_role` — optional. `viewpoint` or `titan`, for NPCs with elevated narrative functions. See `craft/narrative-roles.md`. Most NPCs don't have this.
+- `descriptive_identity` — local key-to-text details that extend identity inherited from the kind's declared source slots. Use `override_identity` when an inherited value does not apply to this entity.
+- `identity_source` — a typed reference assigned to one source slot declared by the entity's kind or subkind. Source entries own reusable identity; never copy their values into consumers.
 - `alias` — optional. Common alternative name(s).
 - `status` — `complete`, `draft`, `shell`, `needs_refinement`.
 - Additional fields as needed (`region`, `era`, …). Add only when they carry real information.
@@ -199,6 +201,18 @@ second entry needs it, move the field into their subkind. Relationship facts
 come from typed edges, and calculated facts come from canonical values. Reader
 pages omit missing facts; `make facts WORLD=<id>` reports coverage by kind and
 subkind. Do not fill a gap with `unknown`, `none recorded`, or a guessed value.
+
+Descriptive identity composes separately from fact cards. A kind declares
+stable keys with `identity_key` and named source slots with `identity_source`.
+Every source value names a complete canonical entry with prose and its own
+complete identity. `descriptive_identity` extends inherited values;
+`override_identity` suppresses inherited contributions for that key on one
+entity. Only declared slots transfer identity, including slots backed by a
+named live relationship. Use `no_identity_sources` when a kind genuinely has
+none, and enable complete world coverage with `require_descriptive_identities!`
+only after every kind's source axes are settled. `lorecraft identity [ID]`
+shows the resolved dictionary and provenance without stamping source text into
+the consumer.
 
 A world may declare `require_fact_cards! from: :renowned, minimum: 4`. Its
 public entries at that prominence and above must resolve that many facts or lint
@@ -359,6 +373,7 @@ JSON from the same typed result; validation and lint use diagnostic records.
 | `log [<id>]` | The entries' own history — why a fact changed, what a correction rests on. Not world content. |
 | `provenance [<id>]` | Global or entry-owned blocks: who drafted them, who read them, and whose read expired. |
 | `facts [<id>]` | Global expected-fact coverage or one entry's resolved and missing values. |
+| `identity [<id>]` | Global descriptive-identity coverage or one entity/relationship's sources, local operations, resolved dictionary, and provenance. |
 | `placement [<id>]` | Spatial-frame coverage or one entry's positions and route paths. |
 | `queue [<id>]` | Global or entry-scoped `question` declarations plus computed findings. A render, not a file. |
 | `page <id>` | One entity's rendered page on stdout. What the review app shows as prose. |

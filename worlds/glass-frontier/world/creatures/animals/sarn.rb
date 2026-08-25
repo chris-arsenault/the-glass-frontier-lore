@@ -6,6 +6,19 @@ creature :sarn do
   tags :ecology, :resonance, :"kinetic-freq", :orbital
   prominence :recognized
 
+  descriptive_identity(
+    appearance: "A narrow-bodied migratory animal, the largest the length of a small transport, with four " \
+                "steering fins and two fans of flexible mineral combs grown from its sides.",
+    behavior: "Herds cross the gaps between ring fragments in load-sharing spirals, twisting their combs to " \
+              "grip kinetic gradients, climb drive wakes, and pass momentum body to body so the young and " \
+              "injured travel near the quiet center. During the seasonal passage at Perch, old combs loosen " \
+              "and separate on their own.",
+    threat: "A vessel that enters the spiral becomes one more load in the exchange — adults can throw its " \
+            "momentum toward the outer edge faster than a kite cancels it, and the way out runs with the turn, " \
+            "not across it. A comb cut before it separates is still fixed to a moving animal, and the herd's " \
+            "shared turn takes the line, the frame, and whatever the frame is bolted to."
+  )
+
   prose <<~PROSE
     Sarn are large migratory animals that cross the gaps between ring fragments. A mature animal has a narrow body, four steering fins, and two fans of flexible mineral combs grown from its sides. The largest reach the length of a small transport.
 
@@ -28,4 +41,8 @@ end
 
 relate :rel_sarn_attuned_to_resonance, :attuned_to, :sarn, :resonance do
   prose "Sarn combs grip kinetic gradients and pass load through a moving herd."
+  descriptive_identity expression:
+    "A herd under load moves as one weight: the combs share the strain " \
+    "across every animal, and a watcher sees the whole line lean together " \
+    "before any single sarn shows effort."
 end

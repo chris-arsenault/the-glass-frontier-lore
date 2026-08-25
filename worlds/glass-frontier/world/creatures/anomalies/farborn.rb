@@ -6,6 +6,22 @@ creature :farborn do
   tags :danger, :orbital, :resonance, :ecology, :mystery
   prominence :recognized
 
+  descriptive_identity(
+    appearance: "No single body plan — three meters long or three hundred, silicate or fleshy or filamentary, " \
+                "single-bodied or distributed. What holds across all of them: more eyes than the body should " \
+                "need, some tracking, some staring at nothing that is there, and more mouths than the feeding " \
+                "requires, working independently — a beast can eat from three places at once.",
+    behavior: "They live in the Shear and worsen with depth, taking to the distorted resonance the way other " \
+              "creatures take to weather. Most can be avoided: standard practice is detect, divert, and stay " \
+              "quiet, and a working dampening rig with a careful Tuner keeps a ship uninteresting to most of " \
+              "them most of the time. Small ones ride home in remote cutter returns.",
+    threat: "A Tuner in resonance contact feels something not quite where it is, or not quite what it is — a " \
+            "wrongness no instrument records. The large single-body predators crews call dragons carry feeding " \
+            "apparatus that can shear a hull, and the rarest, the choir-things, reach ships at long range with " \
+            "sustained resonance that confuses navigation and shifts moods, sometimes into something " \
+            "language-like."
+  )
+
   prose <<~PROSE
     The collective name for the wide and unrelated family of creatures that live in #{ref :the_shear, "the Shear"}. Farborn have no single body plan, no single ancestor, and no clear taxonomic relationship to any other life in the system. They are grouped by where they live, not by what they are.
 

@@ -8,7 +8,8 @@ module Lorecraft
     Connection = Struct.new(
       :direction, :relation, :neighbor_id, :neighbor_title, :neighbor_kind,
       :neighbor_source, :from, :to, :live, :dm, :origin_id, :origin_source,
-      :props,
+      :props, :descriptive_identity, :identity_sources, :identity_local,
+      :identity_provenance,
       keyword_init: true
     )
 
@@ -20,6 +21,7 @@ module Lorecraft
       end
 
       @root = Pathname.new(root).expand_path
+      @audience = audience.to_sym
       @edges = Edges.new(world, at: at, audience: audience)
     end
 
@@ -46,6 +48,7 @@ module Lorecraft
         neighbor_id = outgoing ? edge.target : edge.subject
         neighbor = @world[neighbor_id]
         origin = @world[edge.origin]
+        identity = relationship_identity(origin)
         Connection.new(
           direction: outgoing ? :outgoing : :incoming,
           relation: edge.relation,
@@ -60,6 +63,12 @@ module Lorecraft
           origin_id: edge.origin,
           origin_source: relative_source(origin),
           props: edge.props,
+          descriptive_identity: identity&.descriptive_identity,
+          identity_sources: identity&.sources,
+          identity_local: identity&.local,
+          identity_provenance: identity&.provenance&.transform_values do |records|
+            records.map(&:to_h)
+          end,
         )
       end.sort_by do |row|
         [row.direction == :outgoing ? 0 : 1, row.relation.to_s, row.neighbor_title.downcase, row.from]
@@ -97,6 +106,10 @@ module Lorecraft
           unless row.props.nil? || row.props.empty?
             lines << "    properties: #{row.props.map { |key, value| "#{key}=#{value}" }.join(', ')}"
           end
+          unless row.descriptive_identity.nil? || row.descriptive_identity.empty?
+            values = row.descriptive_identity.map { |key, value| "#{key}=#{value}" }.join("; ")
+            lines << "    descriptive identity: #{values}"
+          end
           lines << "    neighbor: #{row.neighbor_source}" if row.neighbor_source
           if row.origin_id && row.origin_id != row.neighbor_id && row.origin_id != @entity.id
             origin = row.origin_source ? " — #{row.origin_source}" : ""
@@ -112,6 +125,12 @@ module Lorecraft
     def title_for(id)
       node = @world[id]
       node.respond_to?(:title) ? node.title : id.to_s.tr("_", " ").split.map(&:capitalize).join(" ")
+    end
+
+    def relationship_identity(origin)
+      return unless origin.is_a?(RelationInstance)
+
+      @world.resolve_identity(origin, at: @edges.year, audience: @audience)
     end
 
     def relative_source(node)

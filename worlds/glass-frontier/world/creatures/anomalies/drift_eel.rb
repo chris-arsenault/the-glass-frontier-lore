@@ -6,6 +6,23 @@ creature :drift_eel do
   tags :danger, :orbital, :resonance, :ecology, :salvage
   prominence :recognized
 
+  descriptive_identity(
+    appearance: "A chain of dark flexible plates joined by pale tissue, trailing a fringe of thin feeding " \
+                "filaments across the local field. Eyes line the plate undersides — some track movement, others " \
+                "stay fixed on empty directions while the animal turns around them. Small adults wrap a " \
+                "flitter; the oldest recorded bodies run several kilometres, most of it filament.",
+    behavior: "It follows the weakest gradient its prey produces — a badly shielded cable, a cycling receiver, " \
+              "a Tuner sounding one band too often — and gathers where machinery makes dependable gradients: " \
+              "managed corridors, extraction yards, habs whose old systems still pulse. It can reverse without " \
+              "turning by shifting its sensory response to the far end, so crews mark both ends until it " \
+              "leaves. Most will follow a lure imitating a poorly maintained craft.",
+    threat: "The first sign is often a tuning compass, its reeds leaning toward a point moving against the " \
+            "debris while hull current drops in small separate steps. Attached, it fixes several mouths across " \
+            "the hull and takes current, heat, and field response without entering; more drive power only " \
+            "pulls it tighter, and abrupt silence sends it searching across the surface. A severed section " \
+            "keeps gripping for hours and leaks conductive fluid that carries the ship's own signal."
+  )
+
   prose <<~PROSE
     Drift-eels are long Shear predators that follow electrical discharge and active resonance arrays. Small adults can wrap around a flitter. The oldest recorded bodies extend for several kilometres, though most of that length is thin feeding filament rather than muscle. Working crews encounter the smaller animals often enough to treat them as a route hazard rather than a rare beast.
 

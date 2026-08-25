@@ -29,6 +29,35 @@ installation :keel do
     path :pell_branch, through: %i[kaleidos_exchange the_shear cold_lantern]
   end
 
+  descriptive_identity(
+    setting:
+      "Not a road but a corridor through orbital space: a long " \
+      "navigable spine threading between ring habs and through managed " \
+      "Shear corridors, with branch routes leaving it like ribs on a " \
+      "navigation chart. End to end it runs from Keelward at the " \
+      "surface to Shadewell's port on Ashvane — days for a fast " \
+      "courier, weeks for a heavy hauler.",
+    activity:
+      "Bulk ringglass moves in heavy haulers, refined product under " \
+      "escort, intact pieces under heavy escort; microcavity fuel " \
+      "cells and hab-made goods flow the other way, and passenger " \
+      "traffic rides everything from Vantara's scheduled service to " \
+      "family carriers feeding the main departures.",
+    access:
+      "Navigation, shelter, rescue, and fuel are kept in sections by " \
+      "carriers, ports, guilds, and cooperatives, and the section " \
+      "changes at every branch point — a tow arranged on one leg is a " \
+      "stranger's favor on the next. Shear segments take Shear-rated " \
+      "vessels and can close on a drift event without warning.",
+    hazards:
+      "Raiders work the unpatrolled gaps between segments, and cargo " \
+      "worth an escort premium is exactly what they wait for. Bloom " \
+      "Zones near the branch routes can scramble navigation and damage " \
+      "resonance equipment, while the far stretches are effectively " \
+      "ungoverned — disputes out there are settled by the parties " \
+      "involved."
+  )
+
   prose <<~PROSE
     The system's primary trade lane — an orbital route connecting #{ref :ringglass, "ringglass"} production zones in #{ref :the_shear, "The Shear"}, major refinement facilities, #{ref :sithari, "Sithari"}, and #{ref :ashvane, "Ashvane"} at the far end. It remains the single most important corridor for bulk commerce in the Kaleidos system.
 

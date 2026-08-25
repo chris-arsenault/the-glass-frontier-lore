@@ -14,6 +14,35 @@ installation :shadewell do
   position frame: :ashvane_surface, latitude_deg: 0, longitude_deg: 0,
            size_class: :site
 
+  descriptive_identity(
+    setting:
+      "A city terraced down the shaded inner wall of a deep crater on " \
+      "Ashvane, with reservoirs and cold stores in the lower rock above " \
+      "a buried ice lens and the freight port out on the sunward rim. " \
+      "Inclined rail, cargo lifts, and a covered stair road join the two " \
+      "halves, and the stair crosses from direct heat into the first " \
+      "cool terrace like a doorway.",
+    activity:
+      "Cargo waits under reflective sheds on the rim until its " \
+      "temperature and field equalize, while below, water moves stage by " \
+      "stage from drinking storage through clinics, workshops, and " \
+      "washing to the terrace fields. Public courts where return lines " \
+      "meet stay warm after sunset and fill with food stalls, repair " \
+      "tables, and evening meetings.",
+    access:
+      "The Keel terminus on the rim takes heavy kites onto basalt pads, " \
+      "with regional kites, heat-road haulers, and crater lifts carrying " \
+      "traffic onward. Porters in the passenger halls check a visitor's " \
+      "outer layers before pointing them at a surface exit.",
+    hazards:
+      "A crate that came down cold enough to contract can break its " \
+      "restraints halfway down the crater wall, and a person dressed for " \
+      "the crater can be hurt crossing one unshaded freight apron. " \
+      "Tapping a public return line out of registered order leaves the " \
+      "next use downhill cold, and the city finds the tap by " \
+      "temperature."
+  )
+
   prose <<~PROSE
     Shadewell descends the inner wall of a deep crater on #{ref :ashvane, "Ashvane"}. The inhabited terraces remain in shadow for most of the day. Reservoirs and cold stores occupy the lower rock above a buried ice lens. The freight port stands on the sunward rim, where clear approaches and firm basalt matter more than comfort.
 

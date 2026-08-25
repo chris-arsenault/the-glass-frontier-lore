@@ -62,6 +62,9 @@ module Lorecraft
         name: kind.name,
         reader: kind.wiki == true,
         facts: kind.facts.map { |fact| fact_data(fact) },
+        identity_keys: kind.identity_keys.map { |key| identity_key_data(key) },
+        identity_sources: kind.identity_sources.map { |source| identity_source_data(source) },
+        identity_source_policy: kind.identity_source_policy,
         subkinds: kind.subkinds.values.sort_by { |subkind| subkind.name.to_s }.map do |subkind|
           {
             name: subkind.name,
@@ -70,6 +73,16 @@ module Lorecraft
             omitted_facts: subkind.omitted_facts,
             facts: subkind.facts.map { |fact| fact_data(fact) },
             resolved_facts: @schema.facts_for(kind.name, subkind: subkind.name).map { |fact| fact_data(fact) },
+            identity_source_policy: subkind.identity_source_policy || kind.identity_source_policy,
+            omitted_identity_sources: subkind.omitted_identity_sources,
+            identity_keys: subkind.identity_keys.map { |key| identity_key_data(key) },
+            identity_sources: subkind.identity_sources.map { |source| identity_source_data(source) },
+            resolved_identity_keys: @schema.identity_keys_for(
+              kind.name, subkind: subkind.name
+            ).map { |key| identity_key_data(key) },
+            resolved_identity_sources: @schema.identity_sources_for(
+              kind.name, subkind: subkind.name
+            ).map { |source| identity_source_data(source) },
           }
         end,
       }
@@ -102,6 +115,13 @@ module Lorecraft
         description: relation.description,
         properties: relation.properties.values.sort_by { |property| property.name.to_s }.map do |property|
           property_data(property)
+        end,
+        identity_source_policy: relation.identity_source_policy,
+        identity_keys: @schema.relation_identity_keys(relation.name).map do |key|
+          identity_key_data(key)
+        end,
+        identity_sources: @schema.relation_identity_sources(relation.name).map do |source|
+          identity_source_data(source)
         end,
       }.compact
     end
@@ -160,6 +180,29 @@ module Lorecraft
       }.compact
     end
 
+    def identity_key_data(key)
+      {
+        name: key.name,
+        required: key.required?,
+        merge: key.merge,
+        separator: key.separator,
+      }
+    end
+
+    def identity_source_data(source)
+      {
+        name: source.name,
+        relation: source.relation,
+        direction: source.direction,
+        cardinality: source.cardinality,
+        required: source.required?,
+        kinds: source.kinds,
+        subkinds: source.subkinds,
+        projection: source.projection,
+        precedence: source.precedence,
+      }.compact
+    end
+
     def named_vocabulary(values)
       values.sort_by { |name, _description| name.to_s }.map do |name, description|
         { name: name, description: description }.compact
@@ -187,6 +230,7 @@ module Lorecraft
     def report_kind(kind)
       lines = ["Kind — #{kind[:name]} (#{kind[:reader] ? 'reader' : 'non-reader'})"]
       lines.concat(fact_lines("Kind facts", kind[:facts]))
+      lines.concat(identity_lines(kind[:identity_keys], kind[:identity_sources], kind[:identity_source_policy]))
       lines << "Subkinds:"
       kind[:subkinds].each do |subkind|
         marker = subkind[:default] ? " (default)" : ""
@@ -196,6 +240,15 @@ module Lorecraft
           lines << "    no added or overridden facts"
         else
           subkind[:facts].each { |fact| lines << "    #{format_fact(fact)}" }
+        end
+        unless subkind[:resolved_identity_keys].empty?
+          lines << "    identity keys: #{subkind[:resolved_identity_keys].map { |key| key[:name] }.join(', ')}"
+        end
+        if subkind[:identity_source_policy] == :none
+          lines << "    identity sources: none"
+        elsif !subkind[:resolved_identity_sources].empty?
+          lines << "    identity sources: " \
+                   "#{subkind[:resolved_identity_sources].map { |source| source[:name] }.join(', ')}"
         end
       end
       lines.join("\n")
@@ -216,6 +269,26 @@ module Lorecraft
       attributes << "from=#{fact[:from]}" if fact[:from]
       attributes << "calculate=#{fact[:calculate]}" if fact[:calculate]
       "#{fact[:name]} (#{fact[:label]}): #{attributes.join(', ')}"
+    end
+
+    def identity_lines(keys, sources, policy)
+      lines = []
+      lines << if keys.empty?
+                 "Identity keys: none"
+               else
+                 "Identity keys: " + keys.map do |key|
+                   requirement = key[:required] ? "required" : "optional"
+                   "#{key[:name]} (#{requirement}, #{key[:merge]})"
+                 end.join(", ")
+               end
+      lines << if policy == :none
+                 "Identity sources: none"
+               elsif sources.empty?
+                 "Identity sources: undeclared"
+               else
+                 "Identity sources: #{sources.map { |source| source[:name] }.join(', ')}"
+               end
+      lines
     end
 
     def report_relations(relations)
@@ -243,6 +316,9 @@ module Lorecraft
       exclusions = relation[:exclusive_with]
       lines << "  exclusive with: #{exclusions&.join(', ') || 'none'}"
       lines << "  description: #{relation[:description]}" if relation[:description]
+      lines.concat(identity_lines(
+        relation[:identity_keys], relation[:identity_sources], relation[:identity_source_policy]
+      ).map { |line| "  #{line}" })
       unless relation[:properties].empty?
         lines << "  properties:"
         relation[:properties].each do |property|

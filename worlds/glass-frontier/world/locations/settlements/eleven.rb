@@ -14,6 +14,32 @@ installation :eleven do
   access "End docks on the inner service-fragment circuit between Holl and Vey, plus small locks at four middle shafts"
   omit_facts :maintained_by
 
+  descriptive_identity(
+    setting:
+      "Eleven round courts descend to a water tunnel spaced along six " \
+      "kilometers of service fragment: living quarters on the upper " \
+      "rings, lift machinery in the middle, and a stone-lined gallery at " \
+      "the bottom where the main channel runs. Painted marks show the " \
+      "expected waterline at every bend.",
+    activity:
+      "Neighborhood pumps lift each shaft's share on a daily schedule " \
+      "measured in minutes at a stated valve opening, and the minutes " \
+      "change hands through ordinary bargaining — early water for " \
+      "delivery work, night minutes for repair space. Maintenance " \
+      "workers travel the channel by narrow skiff and raised ledge.",
+    access:
+      "End docks sit on the inner service-fragment circuit between Holl " \
+      "and Vey, with small locks at four of the middle shafts. Between " \
+      "shafts, freight rides an exterior cable and passengers take " \
+      "hab-runners through a parallel bore.",
+    hazards:
+      "The line carries machine heat as well as water, so any adjustment " \
+      "at the source reaches the lower shafts as temperature, pressure, " \
+      "and structural tone — a quiet fix upstream announces itself " \
+      "downstream. When the cable is under repair, the water walk " \
+      "becomes the only fast road through all eleven communities."
+  )
+
   prose <<~PROSE
     Water enters at the source dock, descends through eleven inhabited shafts, and leaves through the outlet farms six kilometers away. Pumps lift local shares into neighborhood tanks. The main line also carries heat from machinery seated along the fragment's structural spine, so an upstream adjustment reaches the lower shafts as temperature, pressure, and resonance tone.
 
@@ -53,8 +79,25 @@ end
 
 relate :rel_vey_supplies_eleven_airwork, :supplies, :vey, :eleven, since: 2435 do
   prose "Vey supplies passive-flow shutters and passage drawings for Eleven's coupled water and heat spine."
+  descriptive_identity(
+    terms:
+      "Airwright work traded as drawings and hardware: shutter designs " \
+      "proven in Vey's six public lungs, sized for the valve galleries " \
+      "where Eleven's shafts draw their shares.",
+    dependence:
+      "Eleven's line carries machine heat with its water, so a shutter " \
+      "that meters flow without a powered fan spares the lower shafts " \
+      "the temperature swing an upstream pump would send them."
+  )
 end
 
 relate :rel_eleven_supplies_vey_flow_records, :supplies, :eleven, :vey, since: 2435 do
   prose "Eleven returns pressure, heat, and structural-tone records from each installed Vey design."
+  descriptive_identity(
+    terms:
+      "Working data rather than goods: six kilometers of instrumented " \
+      "channel reporting how each installed design behaves under daily " \
+      "schedules, bargained minutes, and the tremors the cable route " \
+      "cannot feel."
+  )
 end

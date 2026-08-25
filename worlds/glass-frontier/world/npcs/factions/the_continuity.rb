@@ -8,6 +8,30 @@ faction :the_continuity do
   tags :surface, :governance, :"social-structure", :isolation
   prominence :recognized
 
+  descriptive_identity(
+    ideology:
+      "Continuity is the platform: uninterrupted water, power, courts, " \
+      "schools, and archives, kept by an experienced civil service, beat " \
+      "any promise of new work. Standards written for repeated use extend " \
+      "the city; compatibility is the polite word for it.",
+    methods:
+      "Control through budgets, forms, appointments, and durable ward " \
+      "coalitions. Disputes are brought inside the party and settled before " \
+      "they reach the assembly floor, and exceptions move slowly through " \
+      "rules the party itself wrote.",
+    presence:
+      "Ward officers and department clerks in municipal uniform, a form for " \
+      "whatever is being asked, and a working day spent walking particular " \
+      "cases through the rulebook. The answer is seldom no and seldom " \
+      "quick.",
+    attitude:
+      "Procedurally courteous to everyone and structurally patient with " \
+      "opponents — the formal opposition is out-waited rather than fought. " \
+      "Outside delegations are received correctly and remember the Bitter " \
+      "Reach, when neutral Sithari's loans and freight contracts still " \
+      "picked sides."
+  )
+
   prose <<~PROSE
     The political organization that has governed #{ref :sithari, "Sithari"} since 2160. It began as a coalition of shelter councils, campus administrators, utility crews, and record keepers during the #{ref :signal_famine, "Signal Famine"}. The coalition coordinated food distribution, power, courts, and the expansion beyond the surviving campus walls. It adopted the name Continuity when those emergency functions became a permanent city government.
 
@@ -54,10 +78,43 @@ end
 
 relate :rel_continuity_governs_sithari, :governs, :the_continuity, :sithari, since: 2160 do
   prose "The #{ref :the_continuity, "Continuity"} has held a governing majority in #{ref :sithari, "Sithari"} since the post-Glassfall administration took permanent form."
+  descriptive_identity(
+    basis:
+      "Elected majorities, renewed at every citywide contest since the " \
+      "offices took their present form, resting on long records in " \
+      "utilities, law, education, and rebuilding.",
+    reach:
+      "The writ covers the assembly, the executive, and the budgets; " \
+      "the civil service is legally separate and older than many " \
+      "Continuity offices, can refuse an unlawful instruction, and " \
+      "regularly carries a project straight through a change of " \
+      "executive personnel.",
+    legitimacy:
+      "Voters who dislike particular policies still return the party as " \
+      "protection for systems earlier generations kept alive by hand, " \
+      "and the formal opposition has never assembled a citywide " \
+      "majority trusted with the whole administration.",
+    resistance:
+      "Opposition candidates win local races in Keelward and the " \
+      "Underlayers, independent ward members currently hold up the " \
+      "capital plan, and lower-city residents resist centralized route " \
+      "control."
+  )
 end
 relate :rel_continuity_headquartered_old_campus, :headquartered_in, :the_continuity, :old_campus, since: 2160 do
   prose "The party and the city executive keep their offices in the #{ref :old_campus, "Old Campus"}."
 end
 relate :rel_continuity_cooperates_tempered_accord, :cooperates_with, :the_continuity, :tempered_accord, since: 2423 do
   prose "The Continuity supplies city services to the #{ref :tempered_accord, "Tempered Accord"} while recognizing its control of the inner #{ref :accord_shore, "Accord Shore"} compound."
+  descriptive_identity(
+    basis:
+      "Water, power, transit, and municipal administration for the " \
+      "district, delivered through the same departments and forms the " \
+      "party runs everywhere else in Sithari.",
+    limits:
+      "The compound's independence is the point of the arrangement: " \
+      "delegations that watched neutral Sithari's loans and freight " \
+      "contracts pick sides in the Bitter Reach insisted on ground the " \
+      "city government serves but does not enter."
+  )
 end

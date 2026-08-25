@@ -18,6 +18,30 @@ geographic_location :bloom_zones do
 
   log "2026-08-21 — Bloom relics now form when a moving boundary pins an existing physical relationship into an exposed object. Formation is conditioned by structure, load, and the local boundary rather than by repetition."
 
+  descriptive_identity(
+    setting:
+      "Tears in reality scattered through Kaleidos orbit and the " \
+      "Fracture's belt, no two manifesting alike: in one zone walls " \
+      "admit light but cannot be seen through, in another sound " \
+      "arrives from the wrong direction, in another a ten-meter " \
+      "corridor runs thirty, or three. In the worst of them even " \
+      "direction loses a stable meaning.",
+    activity:
+      "The Displacement Council maintains permanent cordons around " \
+      "the active zones and treats every inhabited orbit as a " \
+      "possible containment site. The zones are also the system's " \
+      "most productive source of new artifacts, each one's properties " \
+      "established separately because no general theory predicts what " \
+      "a zone will produce.",
+    hazards:
+      "The zones expand slowly, and new ones open where nobody has " \
+      "cordoned — one appeared beside a stable ring hab in otherwise " \
+      "clean space. Inside, the resonance landscape is so saturated " \
+      "that signal drowns in noise; gnomes take the distortion " \
+      "directly through their crystal-laced nervous systems, while " \
+      "fae cross on the spatial dislocation they already manage daily."
+  )
+
   prose <<~PROSE
     Man-made reality tears. Places where the #{ref :resonance, "resonance"} environment has broken so thoroughly that physics stops behaving consistently. They exist in Kaleidos orbit — in the #{ref :the_shear, "Shear"}, adjacent to ring habs, and in otherwise clean orbital space — as well as in #{ref :the_fracture, "the Fracture"}'s asteroid belt. No accepted model accounts for the full distribution.
 
@@ -29,6 +53,11 @@ geographic_location :bloom_zones do
     In some zones, walls admit light while remaining impossible to see through, and their surfaces lose a reliable boundary. In others, sound arrives from the wrong direction. Elsewhere, spatial relationships fail: a corridor that was ten meters long becomes thirty, or three. In the worst zones, even "direction" loses a stable meaning.
 
     #{ref :tuners, "Tuners"} describe the resonance landscape inside a zone as saturated — so dense with information that signal-to-noise collapses. #{ref :gnomes, "Gnomes"} are hit worst — their crystal-laced nervous systems pick up the distortion directly. #{ref :fae, "Fae"} have an unexpected advantage — the spatial dislocation they manage daily is exactly the skill set the zones demand.
+  PROSE
+  prose <<~PROSE, section: :atmosphere, heading: "The Cordon Line"
+    From a ship, a cordon edge is nothing to look at: open space, ordinary light, the boundary invisible except near a damping buoy or a #{ref :liras_wall, "Lira's Wall"} anchor. What marks it is the sign every ship's sensors register as the line approaches — the standing broadcast that a boundary is ahead and crossing is regulated.
+
+    The custom is to register the crossing with whichever authority holds the local cordon and receive permission before proceeding. The practice is honored unevenly. Enforcement is thin, the punishments handed out for violations are arbitrary — a warning for one crew, a seizure for the next — and the offices around the cordons carry more corruption than any other institution the Frontier maintains. People who work the boundaries say the zones eat more than space: close to the Bloom, the patience and good faith the rest of the system runs on decay first.
   PROSE
   prose <<~PROSE, section: :mechanics, heading: "Growth"
     Bloom Zones grow organically. Frontier researchers have proposed several explanations for where new zones appear: a clear line of resonance sight between two zones, constructive interference patterns, or links through frequency dimensions that conventional maps cannot represent. Each hypothesis fits some appearances and fails to predict others.

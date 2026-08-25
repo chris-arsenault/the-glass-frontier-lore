@@ -15,6 +15,29 @@ installation :wash_four do
   access "Carom carrier service to paired dirty and clean docks connected by a one-way cargo route"
   omit_facts :maintained_by
 
+  descriptive_identity(
+    setting:
+      "A service cylinder split into a dirty end and a clean one: wash " \
+      "drums and inspection bays where loads arrive, drying lofts where " \
+      "warm air lifts cloth through hanging frames, and markets on the " \
+      "floor below the lofts.",
+    activity:
+      "Garments, webbing, and soft cargo move through separate drums " \
+      "sorted by material and source while trace washers sample every " \
+      "drain; the clean-side stalls sell repaired pressure layers, " \
+      "sailcloth, bedding, and bundles of authenticated scrap textile.",
+    access:
+      "Carom carriers serve a pair of docks, one dirty and one clean, " \
+      "joined by a one-way cargo route. Every arriving person and load " \
+      "enters on the dirty side.",
+    hazards:
+      "Anything sewn into a lining travels a different route from its " \
+      "owner and surfaces at the clean market hours later. A wash can " \
+      "also read back: a coherent pattern drawn into the rinse water may " \
+      "name the tool, room, or signal source that last pressed itself " \
+      "into the cloth."
+  )
+
   prose <<~PROSE
     Every arriving person and load enters on the dirty side. Clothing, webbing, soft cases, filters, and insulation move through separate drums according to material and source. The clean side opens onto drying lofts where warm air lifts cloth through hanging frames. Markets occupy the space below, selling repaired pressure layers, sailcloth, bedding, uniforms, and bundles of authenticated scrap textile.
 
@@ -52,6 +75,17 @@ end
 
 relate :rel_wash_four_supplies_carom, :supplies, :wash_four, :carom, since: 2435 do
   prose "Wash Four cleans and certifies courier bags, insulated cloth, and frame webbing for Carom."
+  descriptive_identity(
+    terms:
+      "Textile service on Carom's carrier runs: bags and webbing come " \
+      "back with yellow signal-clearing stitches added beside the older " \
+      "marks, the chain of treatments left readable.",
+    dependence:
+      "A courier bag records repeated route beacons along its straps, " \
+      "and Carom's whole trade is routes — uncleared cloth circulating " \
+      "through the sorting floors would carry every regular run's " \
+      "pattern to whoever thought to wash it out."
+  )
 end
 
 relate :rel_tess_orr_operates_bay_thirty_one, :operates_in, :tess_orr, :bay_thirty_one, since: 2435 do

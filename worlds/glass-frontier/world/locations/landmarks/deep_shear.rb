@@ -8,6 +8,31 @@ geographic_location :deep_shear do
   prominence :recognized
   log "2026-08-21 — Dated the first petition for Deep-specific regulation to 2420 and recorded the grounds on which the Shear Compact refused it."
 
+  descriptive_identity(
+    setting:
+      "Scattered pockets in the Shear's interior where the ambient " \
+      "roar suddenly drops away and distance, angle, and volume begin " \
+      "to behave like suggestions. The hush is not silence — it feels " \
+      "like something attentive having arrived — and it deepens by " \
+      "band: unreliable distances in the outer Deep, curving straight " \
+      "lines in the middle, and inner wrecks holding more interior " \
+      "than their hulls permit.",
+    activity:
+      "Small careful Deep-runner flotillas, pooled Pell crews, heavy " \
+      "industrial rigs, beast-hunters, and Conclave-contracted " \
+      "researchers all work the pockets for what nothing else " \
+      "produces: intact pre-Glassfall components, resonance-shifted " \
+      "matter, and Farborn biology. Most working traffic stays in the " \
+      "outer band and trades in stories about the middle one.",
+    hazards:
+      "No instrument reports the crossing in time — a Tuner goes " \
+      "still within seconds, and a crew without one learns from " \
+      "disagreeing clocks or a debris mass charted in two places at " \
+      "once. The same volume surveyed twice yields different charts, " \
+      "a pocket can shift bands inside a hundred meters, and more " \
+      "ships are lost here than to any other identifiable hazard."
+  )
+
   prose <<~PROSE
     The deepest pockets of #{ref :the_shear, "the Shear"}, where the resonance distortion that characterizes ordinary Shear work passes a threshold and the local laws of distance, angle, and volume begin to behave like suggestions. The Deep Shear is not a region in the geographical sense — it is a property of pockets, scattered through the Shear's interior, identifiable mostly after you have already entered one. Operators know they are in the Deep when the noise drops away.
 
@@ -74,4 +99,16 @@ relate :rel_deep_shear_part_of_the_shear, :part_of, :deep_shear, :the_shear do
 end
 relate :rel_shear_compact_regulates_deep_shear, :regulates, :shear_compact, :deep_shear, since: 2383 do
   prose "The Compact applies ordinary Shear certification and extraction standards to the Deep, despite repeated petitions from crews who work beyond those standards' useful limits."
+  descriptive_identity(
+    reach:
+      "The standards address equipment and procedure, and what kills " \
+      "crews in the Deep is neither; the 2420 petition for Deep rules — " \
+      "isolated clocks and declared rescue coverage from the moment " \
+      "bridge clocks disagree with a Tuner — was refused because the " \
+      "boundary can be identified only after a vessel has crossed it.",
+    enforcement:
+      "Certification is checked at the yards, not in the Deep. Nothing " \
+      "follows a crew past the outer band, and both the crews and the " \
+      "Compact know the inspection ends where the danger begins."
+  )
 end

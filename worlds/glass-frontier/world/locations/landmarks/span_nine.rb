@@ -11,6 +11,33 @@ installation :span_nine do
 
   log "2026-08-21 — Moved the surface terminus from Sithari to Whitefoot. The Span's original purpose remains unknown; Whitefoot, Pelhari, and Threshold grew around surviving termini rather than being selected by a modern network."
 
+  descriptive_identity(
+    setting:
+      "A shining white filament running unbroken from Whitefoot on the " \
+      "surface to Pelhari and Threshold Station, visible to the naked " \
+      "eye as an impossibly thin thread against the sky. It neither " \
+      "sags nor stretches while the bodies it connects keep moving, and " \
+      "like other ring-era work it has outlasted everything built since.",
+    activity:
+      "Signal-band resonance moves along it constantly — voice in real " \
+      "time, dense data, the custodians' outputs from Threshold — at " \
+      "bandwidths modern equipment can barely detect. At the termini, " \
+      "local operators run the yards that grew up around the surviving " \
+      "connection points.",
+    access:
+      "Anyone wanting a real-time answer from across the system goes to " \
+      "one of the three termini or waits on a ship's news. The Whitefoot " \
+      "ground point is worked by local operators, with Sithari reaching " \
+      "it by rail and a buried signal trunk.",
+    hazards:
+      "Incidental contact is harmless — the filament jumps around a " \
+      "passing hull — but a purposeful move on it simply vanishes from " \
+      "the person who made it: an EVA hand comes back with no memory of " \
+      "reaching, a sampling technician surfaces an hour later doing " \
+      "something else. Where incidental ends and purposeful begins, no " \
+      "test has established."
+  )
+
   prose <<~PROSE
     A shining white filament stretches from #{ref :whitefoot, "Whitefoot"} on Kaleidos to #{ref :pelhari, "Pelhari"} and #{ref :threshold_station, "Threshold Station"}, visible to the naked eye as an impossibly thin thread against the sky. Span Nine is a pre-Glassfall hardline communication conduit, a physical connection between the surface and two off-world installations maintained across orbital distances that should make a fixed link impossible.
 

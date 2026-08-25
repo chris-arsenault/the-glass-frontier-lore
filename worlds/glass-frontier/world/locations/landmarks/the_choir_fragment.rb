@@ -6,6 +6,33 @@ installation :the_choir_fragment do
   tags :orbital, :"ring-era", :resonance, :archives, :mystery, :salvage
   prominence :recognized
 
+  descriptive_identity(
+    setting:
+      "A fallen ring section adrift on the outer Pell routes, big enough " \
+      "that crews name its regions — the long deck, the plate rooms, the " \
+      "cold galleries, the southern antennae. Pale-green emergency lights " \
+      "mark the inspected route through otherwise dark corridors, the " \
+      "interior holds cold-storage temperature whatever the sun is doing, " \
+      "and a tone below ordinary hearing sits in every panel and wall.",
+    activity:
+      "Once a week, on its own clock, the southern antenna deck sends a " \
+      "short pre-Glassfall exchange with two words changed since the last " \
+      "one; Ratter crews have fourteen years of recordings. Every quarter " \
+      "two flotillas walk the clear route, replacing lights and marking " \
+      "structural movement.",
+    access:
+      "Pilots who treat the Fragment as an ordinary maintenance run reach " \
+      "the southern deck reliably; expeditions built around proving a " \
+      "theory report diversions, contradictory ranges, and missed burns " \
+      "before they arrive. The maintained route covers about nine percent " \
+      "of the intact volume.",
+    hazards:
+      "Off the inspected route the closed sections hold pressure in some " \
+      "rooms and vacuum in others, with no passage where the surviving " \
+      "plans show one. Salvage is prohibited along the maintenance route, " \
+      "and beyond it the claim is unsettled."
+  )
+
   prose <<~PROSE
     A fallen ring fragment on the outer Pell routes whose transmitting volume still has partial power. Once each week it sends a pre-Glassfall message through an intact southern antenna deck. The content repeats, except for two words that change from one transmission to the next.
 

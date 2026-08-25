@@ -12,6 +12,32 @@ installation :ledgerfall do
   tags :surface, :resonance, :archives, :trade, :"signal-freq"
   prominence :recognized
 
+  descriptive_identity(
+    setting:
+      "Terraced wards step down both walls of a gorge where a river " \
+      "breaks over the Sable Crescent's rim in a fan of nine falls, with " \
+      "mills and kite platforms above, a pile-built port among the reeds " \
+      "below, and bridges forming a second pattern of streets over the " \
+      "water. The spray speaks — shipping counts, old music, sentences " \
+      "that end before the subject arrives.",
+    activity:
+      "Gate crews nudge the nine channels through the day so no two " \
+      "falls match for long, while inclined lifts move cargo between " \
+      "highland caravans above and delta barges below. On the dry " \
+      "eastern terraces, mills, copy houses, printers, and booksellers " \
+      "feed the town's paper trade.",
+    access:
+      "Delta barges reach the lower port through the reed beds, the " \
+      "canyon road brings highland and steppe carriers to the upper " \
+      "town, and kite platforms stand above the falls.",
+    hazards:
+      "Two falls left at matching flow reinforce a single fragment until " \
+      "it carries across the whole town, and a clear phrase can stop a " \
+      "conversation when it holds a name, an alarm, or a voice meant for " \
+      "one person. In flood the gate crews save the drinking intake " \
+      "first and the lower port second."
+  )
+
   prose <<~PROSE
     Ledgerfall stands where a river crosses the stone rim of the #{ref :sable_crescent, "Sable Crescent"} and descends through a fan of falls into the marshes below. The water has crossed crystal-bearing rock for much of its underground course. As it breaks into spray, fragments of carried signal spread through the gorge: shipping counts, domestic talk, old music, weather reports, and sentences that end before anyone hears the subject.
 
@@ -61,7 +87,24 @@ relate :rel_ledgerfall_in_sable_crescent, :located_in, :ledgerfall, :sable_cresc
 end
 relate :rel_ledgerfall_cooperates_conclave, :cooperates_with, :ledgerfall, :echo_ledger_conclave, since: 2310 do
   prose "The town supplies listening rooms, records trades, and gate windows to the Echo Ledger Conclave while retaining civic control of the river."
+  descriptive_identity(
+    basis:
+      "A permanent listening room beside the western spill, steady " \
+      "employment for boat crews, conservators, and copyists, and a " \
+      "paper trade the archivists' appetite largely sustains.",
+    limits:
+      "Every listening window costs someone water. The water board " \
+      "grants mornings, not open extensions — the current hold on the " \
+      "gate order has two upper mills short in their busiest season — " \
+      "and the terrace councils, the board, and the harbor officers " \
+      "answer to no archivist."
+  )
 end
 relate :rel_ledgerfall_depends_on_echo_rivers, :depends_on, :ledgerfall, :echo_rivers do
   prose "Ledgerfall's water, mills, and public soundscape come from a surfacing branch of the #{ref :echo_rivers, "Echo Rivers"}."
+  descriptive_identity exposure:
+    "The river is drinking water, mill power, port, and archive in one " \
+    "channel, so a flood forces the town to rank them: gate crews save " \
+    "the drinking intake first and the lower port second, and whatever " \
+    "the water carries away that day, the falls keep talking about it."
 end

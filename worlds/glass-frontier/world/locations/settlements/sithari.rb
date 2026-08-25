@@ -17,6 +17,34 @@ installation :sithari do
   setting "Equatorial surface city built in layers above a ring-era campus"
   access "Orbital shuttles and the surface terminus of the Keel"
 
+  descriptive_identity(
+    setting:
+      "A dense, vertical, bright equatorial city of a few million, " \
+      "engineered crystal facades standing beside ring-era walls too " \
+      "useful to remove, built in layers over the buried campus that " \
+      "survived the Glassfall. Passing ring debris splits the daylight " \
+      "and lays moving bands of color across the streets, and a public " \
+      "stair can drop through several centuries of construction.",
+    activity:
+      "The city writes, insures, translates, grades, and litigates: " \
+      "contracts spanning three jurisdictions, ringglass financed " \
+      "before it moves onward, colleges training the clerks and " \
+      "specialists who carry Sitharian standards outward. Government " \
+      "business runs in the measured phrasing of Sitharian, which can " \
+      "carry care, authority, and impatience at once.",
+    access:
+      "Orbital shuttles and kites come down through Keelward's fields, " \
+      "and freight rail and city transit leave directly from the " \
+      "arrival halls.",
+    hazards:
+      "A central address names a surface entrance and a lowest public " \
+      "approach that may sit in different districts under different " \
+      "offices. Below the Underlayers' marked limit, active campus " \
+      "systems can change which corridors meet, and residents read an " \
+      "incoming debris drift off the facades before any public notice " \
+      "updates."
+  )
+
   prose <<~PROSE
     Sithari is the largest city in the Kaleidos system, with a few million people inside the city proper and more in the eastern sprawl. It stands at the equator above the ring-era research campus that survived the Glassfall with power, walls, and much of its service infrastructure intact. The settlement that formed around that complex became the system's financial and administrative center during the Rekindling.
 

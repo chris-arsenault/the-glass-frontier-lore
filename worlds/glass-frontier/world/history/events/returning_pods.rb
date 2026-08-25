@@ -7,6 +7,21 @@ incident :returning_pods do
   tags :salvage, :governance, :transport, :mystery
   prominence :marginal
 
+  descriptive_identity(
+    marks:
+      "Six pods sit in one powered custody row at Clearance Eight, an " \
+      "Eighth Seal fixed inside every lid with current impressions from " \
+      "all eight desks in their proper order. Tangent works the " \
+      "approach line beyond the cleared lane, carrying an empty cradle " \
+      "and a reader loaded with the six seal sequences.",
+    stakes:
+      "The ownership desk could return each object today; the identity " \
+      "and route desks refuse to close the cases while the fresh seals " \
+      "remain unexplained. Every day in custody adds storage debt " \
+      "against claimants who never asked for the repair or chose the " \
+      "return route."
+  )
+
   prose <<~PROSE
     Six cargo pods entered Clearance Eight's capture field from the same empty trajectory. Each contained repaired household objects packed in fresh restraint cloth. An Eighth Seal was fixed inside every lid, carrying current impressions from all eight desks in their proper order.
 
@@ -29,6 +44,16 @@ end
 
 relate :rel_tangent_participated_returning_pods, :participated_in, :tangent, :returning_pods do
   prose "Tangent follows the pods' empty approach trajectory with their seal impressions aboard."
+  descriptive_identity(
+    conduct:
+      "The claim reader works behind the nose glass with the six seal " \
+      "sequences loaded, checking whatever the circuit touches against " \
+      "the impressions taken from the pod lids.",
+    cost:
+      "One of the vessel's two cradles rides empty against whatever the " \
+      "approach line yields, so a tow request now asks the crew to " \
+      "abandon the trajectory they are following."
+  )
 end
 
 relate :rel_eighth_seal_resonates_returning_pods, :resonates_with, :eighth_seal, :returning_pods do

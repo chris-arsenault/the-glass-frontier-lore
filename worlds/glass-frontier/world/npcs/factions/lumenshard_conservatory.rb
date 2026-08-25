@@ -6,6 +6,35 @@ faction :lumenshard_conservatory do
   tags :ecology, :resonance, :ringglass, :surface
   prominence :recognized
 
+  descriptive_identity(
+    ideology:
+      "A grove is one working ecology — food plants, water filters, " \
+      "roots, insects, fungi, and ringglass all pulling on the same field " \
+      "— and resonance damage can heal so long as matter keeps its stable " \
+      "relationships. Miraeth is the standing proof of that conviction, " \
+      "and the late entry into the Bloom Coalition is its standing cost.",
+    methods:
+      "Workers read a grove from its edges inward: young leaves show " \
+      "sharp changes first, roots answer through shallow stakes, and " \
+      "outflow water carries traces of every crystal surface it crossed. " \
+      "Use alternates with rest — sections go electrically and resonantly " \
+      "quiet after a dense shower or a long draw — and strange reports " \
+      "are answered by planting quick-rooting beds and watching where the " \
+      "roots stop behaving as connected matter.",
+    presence:
+      "Growers, field ecologists, and resonance workers moving through " \
+      "groves that shine along their veins at dusk, carrying substrate " \
+      "maps and seed stock rather than fixed instruments. Builders come " \
+      "to them for living crystal grafts, cut roots and branches that go " \
+      "on adjusting where a rigid brace would break fragile material.",
+    attitude:
+      "It bargains rather than fences: ground workers signal kite pilots " \
+      "which parts of a shower front the grove can receive, and its teams " \
+      "plant boundary beds for the Displacement Council at Bloom cordons. " \
+      "When opponents raise the containment delay, it answers with its " \
+      "maps and its growers, not with denial."
+  )
+
   prose <<~PROSE
     A coalition of growers, field ecologists, and resonance workers who care for #{ref :miraeth, "Miraeth"}. These surface basins took centuries of fine ringglass from #{ref :glassfall_showers, "Glassfall showers"}. Their plants grew around the grains, drew crystal into bark and root, and joined living tissue to broad local fields. At dusk the oldest groves shine along their veins, giving the Conservatory its name.
 
@@ -49,9 +78,33 @@ relate :rel_lumenshard_studies_showers, :studies, :lumenshard_conservatory, :gla
 end
 relate :rel_lumenshard_cooperated_bloom_coalition, :cooperates_with, :lumenshard_conservatory, :bloom_coalition, since: 2378, till: 2396 do
   prose "After its late entry, the Conservatory supplied the Bloom Coalition with living substrate maps and field ecologists."
+  descriptive_identity(
+    basis:
+      "What it brought, no one else had: growers who noticed changes " \
+      "before fixed instruments did, and a long record of how " \
+      "resonance moves through mixed crystal and living material.",
+    limits:
+      "It came late, having argued from its own recovery records that " \
+      "the zones would rebalance like an overdrawn grove — a delay " \
+      "that ended only when roots began appearing in two places at " \
+      "once, and that every political account of the Coalition still " \
+      "carries."
+  )
 end
 relate :rel_lumenshard_cooperates_displacement_council, :cooperates_with, :lumenshard_conservatory, :displacement_council, since: 2384 do
   prose "Conservatory teams grow boundary beds at Council cordons to reveal small changes between instrument surveys."
+  descriptive_identity(
+    basis:
+      "Quick-rooting beds planted outside the damping lines and read " \
+      "for where roots stop behaving as connected matter — a cheap " \
+      "living map the Council's instruments cannot match between " \
+      "surveys.",
+    limits:
+      "The plants contain nothing; they only report. The teams work " \
+      "under the Council's cordon rules like any other crew, and the " \
+      "Conservatory's center of gravity stays in Miraeth, where its " \
+      "conviction that damage can heal still holds true."
+  )
 end
 relate :rel_lumenshard_studies_bloom_zones, :studies, :lumenshard_conservatory, :bloom_zones, since: 2378 do
   prose "The Conservatory compares Bloom boundary failures with the recoverable resonance ecologies of its groves."

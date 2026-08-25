@@ -4,6 +4,12 @@ npc :sable_korr do
   subkind :dissident
   occupation "Standard scholar and keeper of Fermata's Session archive"
   species "human"
+  identity_source :species, :humans
+  identity_source :culture, :hab_worlder
+  descriptive_identity disposition:
+    "Sable answers in full sentences, sets the conflicting accounts side " \
+    "by side, and does not recommend a choice. A buyer who wants a " \
+    "recording without its dispute does not get the sale."
   culture "Hab-Worlder"
   tags :music, :archives, :governance, :"signal-freq"
   prominence :forgotten

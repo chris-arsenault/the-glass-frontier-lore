@@ -9,6 +9,30 @@ geographic_location :ashvane do
   position frame: :kaleidos_system_chart, relative_to: :ashenmaw,
            radial_offset: 0.08, angle_offset_deg: 5
 
+  descriptive_identity(
+    setting:
+      "A hot moon warmed from below by tidal flexing, its dark " \
+      "volcanic plains, salt basins, and folded highlands lying under " \
+      "a sky that Ashenmaw fills. Towns take the cooler ground — " \
+      "crater walls, high plateaus, the shadowed faces of long " \
+      "ridges — and at night radiator frames stand over them as dark " \
+      "combs against the giant's bands.",
+    activity:
+      "Daily life runs on shade rather than one clock: schools and " \
+      "workshops publish hours by direct light, giant-shade, and the " \
+      "cooler span after sunset, while the port districts keep Keel " \
+      "system time as well. Terrace farms, basalt quarries, salt " \
+      "camps, and heat-chained resonance arrays keep the settlements " \
+      "fed and cooled, with Shadewell handling most Keel traffic.",
+    hazards:
+      "Some lava flows stay warm enough to soften boot soles, steam " \
+      "vents shift after strong tidal periods, and vent storms send " \
+      "the lowland camps out as rescue crews. A fracture shift can " \
+      "pull every surface on one large resonance loop toward the same " \
+      "frequency, and during a heat emergency the law hands private " \
+      "cooling to the municipal return first and argues payment after."
+  )
+
   prose <<~PROSE
     Ashvane is a hot inhabited moon of #{ref :ashenmaw, "Ashenmaw"} and the far terminus of #{ref :keel, "the Keel"}. Tidal flexing warms its crust from below while the gas giant fills the sky above. Dark volcanic plains, folded highlands, salt basins, and chains of old craters cover the surface. Towns occupy cooler crater walls, high plateaus, and the shadowed sides of ridges.
 

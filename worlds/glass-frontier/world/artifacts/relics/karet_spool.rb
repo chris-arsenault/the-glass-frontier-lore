@@ -7,6 +7,29 @@ artifact :karet_spool do
   tags :resonance, :danger, :orbital, :transport, :mystery
   prominence :recognized
 
+  descriptive_identity(
+    appearance:
+      "A freight-winch drum still bolted to its recovered deck plate, " \
+      "original motor, brake, and hook intact, wound with braided cable " \
+      "— fifty-nine serviceable meters of the eighty-one it carried out " \
+      "of Karet-3. Outer sections that have been through a hard route " \
+      "turn clear from the inside and are cut away.",
+    handling:
+      "The drum is seated at the entry, the hook fixed to a surface " \
+      "with a stable structural tone, and a line worker walks the cable " \
+      "through the passage before the brake closes on that route. " \
+      "Whoever keeps a hand, harness loop, or guide ring on the line can " \
+      "follow it after the corridor stops leading there; the Council " \
+      "stores it at Outside and measures the cable after every " \
+      "deployment.",
+    risks:
+      "Letting go drops a person into the corridor's present geometry, " \
+      "and cable moving while the brake is closed means a fixed end has " \
+      "shifted — the crews' signal to withdraw at once. Heavy loads, " \
+      "sudden pulls, and competing signal traffic all turn line clear " \
+      "faster, and no treatment restores a spent section.",
+  )
+
   prose <<~PROSE
     The Karet Spool is a freight-winch drum recovered from a service passage after the Karet-3 Bloom Zone opened in 2426. Its braided line preserves a route after the surrounding distance changes. A person seats the drum at the entry, walks the hook through an unstable passage, and fixes it at the far end. Anyone who maintains contact with the line can follow that route even when the corridor no longer leads there.
 

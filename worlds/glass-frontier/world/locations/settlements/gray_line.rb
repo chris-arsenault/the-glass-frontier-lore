@@ -8,6 +8,26 @@ installation :gray_line do
   prominence :marginal
   status :complete
 
+  descriptive_identity(
+    setting:
+      "A Displacement Council cordon station ringing the Bloom Zone that " \
+      "holds Latch and two empty service fragments, its line marked by " \
+      "old damping buoys faded gray from years of exposure. The post " \
+      "itself runs from exterior mounts through inspection walks to " \
+      "remote recovery stations, with one sealed registry room at its " \
+      "center.",
+    activity:
+      "Crews cycle through every cordon job without leaving the " \
+      "boundary — mounts one month, the inspection route the next, a " \
+      "recovery station the season after — while families arrive to read " \
+      "the surviving Latch registry and leave recovery requests.",
+    access:
+      "The registry room is open to families who come to read; the " \
+      "crossing itself is refused to everyone, and Iro Senn signs each " \
+      "refusal himself and delivers it in person. A request to cross " \
+      "joins the ledger required of every cordon."
+  )
+
   prose <<~PROSE
     A Displacement Council cordon section surrounding the zone that contains Latch and two empty service fragments. Its official designation is Cordon Station Nine. Crews call the whole assignment Gray Line for the old damping buoys whose casings faded after years of exposure.
   PROSE

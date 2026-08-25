@@ -8,6 +8,28 @@ phenomenon :shuttered_habs do
   tags :"ring-hab", :governance, :"social-structure"
   prominence :recognized
 
+  descriptive_identity(
+    signs:
+      "From outside, a shuttered hab is a hull holding power and " \
+      "atmosphere that does not answer hail. Nothing visible separates " \
+      "a working council keeping its own company from a community with " \
+      "no remaining word for contact.",
+    effects:
+      "Each sealed door closes over a different answer to generations " \
+      "of isolation: societies that prefer their own governance, " \
+      "interiors that rewilded into pre-technological life, and at " \
+      "least one documented case deep in the Shear whose inhabitants " \
+      "changed past the point of ordinary dealings. All of them sit " \
+      "outside the Ring Collective, and the Tempered Accord protects " \
+      "their refusal whether or not they recognize it.",
+    hazards:
+      "A breach is actionable against whoever sponsored it, regardless " \
+      "of what waits inside — and what waits may be people who kill " \
+      "outsiders on sight. Coriolis put a price on forcing a door that " \
+      "few will pay twice, yet the political pressure to reclaim " \
+      "sealed territory has never fully gone away."
+  )
+
   prose <<~PROSE
     Ring habs that refused reconnection during the Rekindling and remain closed in the present day. The number isn't important — what matters is that they exist, that their reasons vary wildly, and that the system has mostly learned to leave them alone.
   PROSE

@@ -8,6 +8,13 @@ npc :ol_dent do
   occupation "Drone lead at Fermata Station"
   specialty "Reading and correcting the station's structural drone"
   species "gnome"
+  identity_source :species, :gnomes
+  identity_source :culture, :hab_worlder
+  descriptive_identity disposition:
+    "Ol'dent settles business on the structural decks between shifts, " \
+    "hands on the saxophone or flat against a brace, and will not come up " \
+    "to a Session on the terms offered. Where the Drone cannot support a " \
+    "plan, he states the limit and leaves the Players to hear it."
   culture "Hab-Worlder"
 
   prose <<~PROSE

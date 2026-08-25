@@ -9,6 +9,26 @@ faction :coremark do
   tags :salvage, :ringglass, :trade, :danger
   prominence :recognized
 
+  descriptive_identity(
+    ideology:
+      "Profit first, move fast, and take care of the crews — skilled " \
+      "deep-Shear operators are rare, and retention has always been the " \
+      "strategy. The criminal turn changed the paperwork, not the culture.",
+    methods:
+      "Industrial extraction in uncertified deep-Shear zones and quiet " \
+      "movement of restricted salvage, run as a federation of disciplined " \
+      "working units under regional captains. Orders travel so that no one " \
+      "carries a complete route.",
+    presence:
+      "None that an ordinary person would recognize. Coremark people carry " \
+      "no marks, wear no colors, and read as any other salvage crew or " \
+      "freight office until the ledger says otherwise.",
+    attitude:
+      "Businesslike with anyone useful and hardest on outsiders and on its " \
+      "own officers who hide a failure from their crews. It does not seek " \
+      "attention, and attention is bad for its business."
+  )
+
   log "Settled: a criminal syndicate in the present day. Publicly discredited after the Bloom, went underground, now smuggles Bloom Zone artifacts through black-market channels."
 
   log "2026-08-21 — Expanded the Bloom-relic market beyond collectors and Conclave intermediaries to settlement councils and armed route crews, including the dependencies and violence created by one-off infrastructure fixes."

@@ -11,6 +11,22 @@ incident :displacement do
   date 2378
   scale "Tens of thousands evacuated from failing ring habitats"
 
+  descriptive_identity(
+    marks:
+      "Settlements that took refugees keep diaspora quarters where a " \
+      "lost hab's craft, dish, or festival goes on in a place that " \
+      "never had it, and naming a vanished hab as home still carries " \
+      "weight. The Displacement Council draws heavily from these " \
+      "communities, and Bloom-survivor standing holds specific " \
+      "authority in containment work.",
+    stakes:
+      "Families still hire crews toward habs where a relative was " \
+      "recorded as staying behind, and the evacuation records never " \
+      "separated the trapped from those who refused to believe the " \
+      "readings. Everyone alive remembers the evacuation or knows " \
+      "someone who lived it, and the consequences are still arriving."
+  )
+
   prose <<~PROSE
     The mass evacuation of mid-drift ring habs during the #{ref :the_silent_bloom, "Silent Bloom"} cascade, beginning 2378 CE. Tens of thousands of #{ref :hab_worlder, "Hab-Worlders"} lost their sealed environments — the thing that defined their identity — in days to weeks.
   PROSE

@@ -14,6 +14,30 @@ installation :perch do
   access "Seasonal ferries from Talven and local carriers through retractable moorings around the saddle"
   omit_facts :maintained_by
 
+  descriptive_identity(
+    setting:
+      "A field saddle between two ring fragments, most of the year a " \
+      "sparse platform of pylons, stores, and empty berths. When the sarn " \
+      "come, folded decks spread outward from the core and bright guide " \
+      "streamers fill the whole gap.",
+    activity:
+      "Off-season, three hundred residents keep the pylons, kitchens, and " \
+      "clinics ready. During the passage, crews below the spiral gather " \
+      "shed flight combs, trim away living tissue, and grade the pieces " \
+      "by size and resonance while seasonal wards berth and feed the " \
+      "influx.",
+    access:
+      "Seasonal ferries run from Talven, and local carriers take " \
+      "retractable moorings around the saddle. A ship that arrives during " \
+      "the migration gives its name to a ward, or joins whichever ward " \
+      "still has open berths.",
+    hazards:
+      "The calendar answers to the animals: the closing market opens when " \
+      "the last healthy sarn crosses the far fragment, and the decks fold " \
+      "whether or not anyone has finished selling. Wards that leave " \
+      "abandoned line in the saddle lose collection width next passage."
+  )
+
   prose <<~PROSE
     Three hundred residents maintain field pylons, stores, kitchens, clinics, and empty berths through most of the year. The first sighting transforms the hab. Ferries bring cutters, cooks, buyers, veterinarians, instrument makers, and families returning to the same temporary ward. Folded decks spread outward from the core and bright guide streamers fill the saddle.
 
@@ -41,6 +65,16 @@ end
 
 relate :rel_perch_supplies_talven, :supplies, :perch, :talven, since: 2435 do
   prose "Perch sends graded sarn combs to Talven's instrument makers after each migration."
+  descriptive_identity(
+    terms:
+      "One shipment a year, sold at the closing market that opens when " \
+      "the last healthy animal crosses the far fragment: shed flight " \
+      "combs trimmed of living tissue and sorted by size and resonance.",
+    dependence:
+      "Talven's middle-gallery shops buy the flexible grades for hull " \
+      "vanes and instrument work; a lean passage means a lean year of " \
+      "comb stock, and no second harvest is coming."
+  )
 end
 
 

@@ -5,6 +5,13 @@ npc :nara_pell do
   occupation "Biological deposit custodian"
   specialty "Matching recovered cultures to safe trial conditions"
   species "human"
+  identity_source :species, :humans
+  identity_source :culture, :hab_worlder
+  descriptive_identity disposition:
+    "Pell opens with hands and hours — who turned the soil, how long the " \
+    "vat stayed open, what color came before the mold fruited — and writes " \
+    "any difference between accounts into both notebooks for the depositor " \
+    "to answer later."
   culture "Hab-Worlder"
   status :complete
   tags :ecology, :archives, :materials

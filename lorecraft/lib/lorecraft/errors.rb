@@ -32,6 +32,10 @@ module Lorecraft
   # its existence interval (used before create / after destroy).
   class CausalityError < Error; end
 
+  # Raised when a descriptive identity cannot be resolved from its declared
+  # source slots at the selected snapshot.
+  class IdentityError < Error; end
+
   # A requested source edit could not be addressed or would not produce a
   # valid world. The code is stable so adapters do not classify English text.
   class SourceMutationError < Error

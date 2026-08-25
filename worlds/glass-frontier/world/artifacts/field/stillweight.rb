@@ -8,6 +8,28 @@ artifact :stillweight do
   tags :resonance, :"structural-freq", :salvage, :danger, :rebuilding
   prominence :recognized
 
+  descriptive_identity(
+    appearance:
+      "A squat metal body on three jointed feet, with a ringglass core " \
+      "set behind a thick hand wheel and witness pins at each foot. " \
+      "Careful crews chalk the selected tone on the casing and repeat " \
+      "the mark on the structure it is holding.",
+    handling:
+      "Two workers seat it — all three feet on the object, the wheel " \
+      "opened until the core answers the lowest clear structural tone " \
+      "nearby, then closed slowly while one turns and one reads the " \
+      "pins. Once seated it holds the object against the chosen mass, " \
+      "and it releases in reverse: load off onto an ordinary support " \
+      "before the wheel opens.",
+    risks:
+      "The clamp seats on whatever mass is actually continuous — a " \
+      "buried water line, the next foundation over — so the first pull " \
+      "can stress something nobody was watching. Opened under load it " \
+      "jumps, twists its feet, or returns the held motion all at once, " \
+      "and a counterfeit core can divide under a changing load, leaving " \
+      "each fragment anchored to a different mass.",
+  )
+
   prose <<~PROSE
     A stillweight is a portable structural clamp used to hold a door, brace, vehicle, or broken piece of a building in its present relation to nearby mass. The machine has a squat metal body, three jointed feet, and a ringglass core behind a thick hand wheel. Workers call it a deadweight when it is being used and a stillweight when it is being inspected, sold, or blamed.
 

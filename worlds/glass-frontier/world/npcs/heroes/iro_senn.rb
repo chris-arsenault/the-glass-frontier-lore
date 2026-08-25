@@ -4,6 +4,12 @@ npc :iro_senn do
   subkind :official
   occupation "Gray Line station lead"
   species "human"
+  identity_source :species, :humans
+  identity_source :culture, :hab_worlder
+  descriptive_identity disposition:
+    "Senn gives ceremonial visits the shortest version of the station and " \
+    "answers them from the watch log. An errand across the cordon becomes " \
+    "an argument about exposure hours before it becomes a yes."
   culture "Hab-Worlder"
   jurisdiction "Latch cordon and its recovery ledger"
   tags :resonance, :governance, :danger

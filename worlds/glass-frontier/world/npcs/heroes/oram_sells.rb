@@ -4,6 +4,8 @@ npc :oram_sells do
   subkind :leader
   occupation "Third First Threshold of the Displacement Council"
   species "human"
+  identity_source :species, :humans
+  identity_source :culture, :hab_worlder
   culture "Hab-Worlder"
   tags :governance, :resonance, :danger
   prominence :recognized

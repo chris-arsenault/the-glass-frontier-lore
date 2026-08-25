@@ -9,6 +9,31 @@ faction :merren do
   prominence :marginal
   omit_facts :leaders, :predecessors
 
+  descriptive_identity(
+    ideology:
+      "Machinery for a hab whose utilities share a structural field " \
+      "should match the existing lungs closely enough to run without " \
+      "retuning the surrounding walls. The profit is not in the sale — it " \
+      "is in the decades of repairs that follow it.",
+    methods:
+      "Merren arrives where utilities have just failed under load and " \
+      "offers the fixing machine near cost, in exchange for a permanent " \
+      "service bay and first claim on every repair the installation will " \
+      "ever need. A trained crew stays beside the machine, and anyone " \
+      "else who touches it is answered as a contract matter, not a favor.",
+    presence:
+      "A service bay by the source line, company tools and parts inside " \
+      "systems that households, wards, and public crews used to keep " \
+      "themselves. The people staffing it are Vey dock hands — former " \
+      "crewmates, neighbors, and relatives of the very wards they now " \
+      "hold contracts over.",
+    attitude:
+      "Generous at the moment of crisis and exacting ever after: the " \
+      "settlement gets its pump or its atmosphere plant cheap, and Merren " \
+      "gets access to every valve its work touches. Opposing a contract " \
+      "means arguing with kin."
+  )
+
   prose <<~PROSE
     Merren builds pumps, shutters, heat exchangers, and atmosphere machinery for habitats whose utilities share a structural field. Three Vey dock crews founded the company after a cargo surge overwhelmed their ward fans. Their first plant used six small impellers on separate controls, matching the public lungs closely enough to run without retuning the surrounding walls.
 

@@ -7,6 +7,19 @@ transport :nera_doss do
   tags :transport, :orbital, :materials, :resonance
   prominence :marginal
 
+  descriptive_identity(
+    appearance: "A short-hulled tender built to fit between deployed collector panels, its cabin ringed by four " \
+                "broad guide rings that fend off loose mesh. Two mechanical arms reach from the hull to gather " \
+                "released panels into wet-fold lockers.",
+    aboard: "Room for four crew and two line workers, with six wet-fold lockers of recovered mesh dripping onto " \
+            "the deck. A sealed rack beneath the cabin holds sample trays at fixed pressure and temperature " \
+            "through a plume crossing, so the crew flies gently while it runs.",
+    behavior: "Its kinetic array holds the short hull steady against a loaded net while line workers cut snarls " \
+              "from the boom. The drive keeps just enough reserve to tow one damaged panel clear of the hab " \
+              "before the next web opens; spend that reserve on anything else and a panel stays out through the " \
+              "passage."
+  )
+
   prose <<~PROSE
     *Nera Doss* is Ravel's outer-line tender. The founding crew joined the names of its two households when they converted the vessel for the first safe spread across the plume passage. Its short hull fits between deployed panels, with four broad guide rings protecting the cabin from loose mesh.
 

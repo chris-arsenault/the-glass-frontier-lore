@@ -6,6 +6,28 @@ artifact :eighth_seal do
   tags :governance, :archives, :salvage, :resonance
   prominence :marginal
 
+  descriptive_identity(
+    appearance:
+      "A palm-sized ceramic docket with eight radial channels around a " \
+      "gray center; when the last channel is impressed the center takes " \
+      "the color assigned to release, return, sale, quarantine, or " \
+      "continued custody. Seals from the returning pods carry handling " \
+      "wear older than the impressions on them.",
+    handling:
+      "It rides fixed to the object it records. Each public desk presses " \
+      "its finding into one channel with a tuned stylus, and reading " \
+      "clockwise gives recovery circumstances, hazards, identity marks, " \
+      "route evidence, claim, debts, salvage value, and disposition in " \
+      "order. Tangent carries authenticated blanks for retrievals beyond " \
+      "the custody docks.",
+    risks:
+      "A gray center means at least one desk has not signed, and the " \
+      "empty channel names which. Because the sequence binds each " \
+      "decision to the evidence in place when it was pressed, a seal " \
+      "impressed far from the desks records findings those desks never " \
+      "witnessed.",
+  )
+
   prose <<~PROSE
     An Eighth Seal is a palm-sized ceramic docket fixed to an object in Clearance Eight's custody. Eight radial channels accept impressions from the settlement's public desks. When every channel is filled, the center changes from gray to the color assigned to release, return, sale, quarantine, or continued custody.
 

@@ -14,6 +14,27 @@ geographic_location :kaleidos_system do
   custom_fact :population_centres, "Planets, moons, ring habitats and orbital stations",
               label: "Population Centres"
 
+  descriptive_identity(
+    setting:
+      "A compact star system of seven intact planets and the remains " \
+      "of an eighth, small enough that the outermost orbit would fit " \
+      "inside a larger star's inner reaches. Kaleidos and its broken " \
+      "ring sit second from the sun, and the spaces between worlds " \
+      "hold stations, outposts, and communities of their own.",
+    activity:
+      "Kite-driven ships cross between planets in a day for adjacent " \
+      "worlds and about a week for the far runs, with cargo haulers " \
+      "trailing behind the fast hulls. Populations live on planets and " \
+      "moons but also on ring habs, orbital stations, and Threshold " \
+      "Station at the Kaleidos-sun point, so traffic is a network " \
+      "rather than a set of separate worlds.",
+    hazards:
+      "No destination is remote enough to disappear toward — anyone " \
+      "with a faster hull arrives first, and Lithren itself is only a " \
+      "week out. A multi-day crossing passes listening posts, caches, " \
+      "and other quiet operations whose owners notice traffic."
+  )
+
   prose <<~PROSE
     Eight planets orbiting a star the elves named in their own language. Everyone else just calls it the sun. The system is compact by cosmic standards — the outermost planet's orbit would fit inside the inner reaches of a larger star's domain — which makes interplanetary travel practical. One planet to the next is a day's transit at minimum, a week for the farther runs. Fast scout ships cut that. Cargo haulers add to it.
 

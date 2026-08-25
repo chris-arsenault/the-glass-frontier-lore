@@ -12,6 +12,34 @@ installation :ladderwell do
   tags :surface, :resonance, :trade, :"structural-freq", :"kinetic-freq"
   prominence :recognized
 
+  descriptive_identity(
+    setting:
+      "A town climbing natural stone benches at the foot of the Kyther " \
+      "Range: market yards and the kite field on the lowest streets, " \
+      "mills and workshops on the middle levels, a covered reservoir " \
+      "above, and flights of exterior stairs wherever the road cannot " \
+      "hold a grade. All night the pump chain keeps a steady beat that " \
+      "the upper benches hear from bed.",
+    activity:
+      "A linked chain of cups lifts aquifer water to the settling " \
+      "tanks, where workers skim the crystal sediment and sound it " \
+      "before it reaches a pipe. Millers, smiths, and riggers rebuild " \
+      "machinery for the smaller steppe towns, and market week fills " \
+      "the stairs with pack frames and handcarts.",
+    access:
+      "The steppe road, a regional kite field, and highland pack routes " \
+      "converge on the lower yards; during market week the central " \
+      "stair flights belong to uphill traffic and residents take the " \
+      "narrower house stairs down.",
+    hazards:
+      "Everyone reads the chain — a click is a dry bearing, a changed " \
+      "beat a stretched link — and anyone on the chain-house roster, " \
+      "down to a first-season apprentice, can close a public line on an " \
+      "unsafe reading. The western third of the old pump court is roped " \
+      "off while route keepers chase a second tone under its north " \
+      "corner."
+  )
+
   prose <<~PROSE
     Ladderwell climbs a set of natural benches near the eastern edge of #{ref :avar, "Avar"}. The lowest streets hold the market yards and kite field. Homes, workshops, and mills occupy the middle benches. The upper town gathers around a covered reservoir fed from a deep sloping shaft. Flights of exterior stairs connect the levels where the road cannot hold a useful grade.
 

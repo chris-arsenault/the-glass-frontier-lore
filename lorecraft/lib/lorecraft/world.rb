@@ -8,6 +8,7 @@ require_relative "elapsed"
 require_relative "prose"
 require_relative "narrative_document"
 require_relative "facts"
+require_relative "identity"
 require_relative "entity"
 require_relative "moment"
 require_relative "relation"
@@ -38,6 +39,7 @@ module Lorecraft
       @spatial_frames = {}
       @load_index = 0
       @resolvers = {}
+      @identity_resolvers = {}
     end
 
     # --- construction ------------------------------------------------------
@@ -182,6 +184,7 @@ module Lorecraft
     # load path has a single completion hook.
     def finalize!
       @resolvers.clear
+      @identity_resolvers.clear
       self
     end
 
@@ -199,6 +202,13 @@ module Lorecraft
     def event_record(id) = @event_records[id.to_s]
     def relationship_for_source(id)
       @relation_instances.values.find { |relation| relation.source_id == id.to_s }
+    end
+
+    def resolve_identity(owner, at: :now, audience: :all)
+      year = @timeline.year_for(at)
+      resolver = (@identity_resolvers[[year, audience.to_sym]] ||=
+        IdentityResolver.new(self, at: year, audience: audience))
+      resolver.resolve(owner)
     end
     def known_id?(id) = @entities.key?(id.to_sym) || @moments.key?(id.to_sym)
 

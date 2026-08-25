@@ -11,6 +11,35 @@ installation :underlayers do
   tags :surface, :resonance, :"ring-era", :danger, :"social-structure"
   prominence :recognized
 
+  descriptive_identity(
+    setting:
+      "Buried neighborhoods below central Sithari: old service halls, " \
+      "post-Glassfall shelters, and the lower floors of buildings whose " \
+      "entrances were covered generations ago. Some blocks get daylight " \
+      "through shafts and sun courts; deeper down, floors meet at odd " \
+      "heights, pipes cross doorways at shoulder level, and painted " \
+      "bands lead toward water, clinics, and the nearest stair to open " \
+      "air.",
+    activity:
+      "Cheap floor space and even temperature keep repair trades alive " \
+      "that the surface has priced out — instrument housings, pumps, and " \
+      "household resonance devices come down through the lift halls and " \
+      "leave by handcart. Evening markets open in the broad corridors as " \
+      "the last commercial loads rise.",
+    access:
+      "Public stair towers and freight lifts serve everything above the " \
+      "marked limit; below it, descent runs through registered gates, " \
+      "and an address becomes a fixed shaft plus a dated sequence of " \
+      "turns read off a mechanical route board — white for inspected, " \
+      "amber for one changed reading, red shutters for unverified.",
+    hazards:
+      "Deep routes shift: a doorframe grows a second reflected edge, a " \
+      "struck rail returns two decays, and once two signs agree the door " \
+      "is closed until a survey pair reopens it from another stair. " \
+      "Unmarked doors may open onto active facilities whose dimensions " \
+      "and air do not agree with the surrounding structure."
+  )
+
   prose <<~PROSE
     The Underlayers begin below the present streets of #{ref :sithari, "Sithari"}. About one hundred eighty thousand people live there in rooms cut through old service halls, post-Glassfall shelters, and the lower floors of buildings whose original entrances have been buried for generations. Some neighborhoods receive daylight through shafts and sun courts. Others lie beneath enough city that residents set their clocks by work shifts and school bells.
 

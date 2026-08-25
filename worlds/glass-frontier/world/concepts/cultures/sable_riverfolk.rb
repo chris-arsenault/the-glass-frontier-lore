@@ -11,6 +11,26 @@ culture :sable_riverfolk do
   formal_register "A witnessed account names the route, the bearer, and the person who can answer for it"
   aesthetic "Dyed route bands, ceramic tally marks, and household names joined across generations"
 
+  descriptive_identity(
+    appearance:
+      "Crescent-raised skin is darkened and weathered by river sun and " \
+      "glasslight, and the hands are water-worn early. Riverfolk move at the " \
+      "pace of loaded boats — steady, balanced, unhurried on any footing.",
+    attire:
+      "Route bands woven into sleeves and cargo covers in dyes that stay " \
+      "distinct when wet, clothes cut for wading and rowing, and ceramic " \
+      "tallies carried where paper would rot.",
+    manner:
+      "An account arrives with its route — who bore it, by what passage, and " \
+      "who can answer for it later. A bargain is not finished until someone " \
+      "has witnessed it.",
+    hospitality:
+      "A landing household feeds a traveler who names their route and who " \
+      "carried them; the meal makes the traveler a witness the household " \
+      "can ask after later. Refusing to say how you came is refusing the " \
+      "table."
+  )
+
   prose <<~PROSE
     Sable Riverfolk live along the rivers, canyon roads, and delta routes of the #{ref :sable_crescent, "Sable Crescent"}. Barges, upland carriers, archive boats, and seasonal markets keep households in regular contact across long distances. A person's home is often named by a landing or tributary even when their work carries them between Lowbank, Ledgerfall, Thornvault, and smaller settlements.
   PROSE

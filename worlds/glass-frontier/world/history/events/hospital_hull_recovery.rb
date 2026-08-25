@@ -7,6 +7,22 @@ incident :hospital_hull_recovery do
   tags :salvage, :ecology, :transport, :mystery
   prominence :marginal
 
+  descriptive_identity(
+    marks:
+      "The vessel rides beside Forty on its own power, water, and " \
+      "clinical monitoring, twelve patients asleep with stable vitals " \
+      "and synchronized cycles. Ownership claims on it are suspended, " \
+      "its pharmacy issues medicine only to its own clinical systems, " \
+      "and Five Bolts keeps the one tow line approved for an emergency " \
+      "separation.",
+    stakes:
+      "Cutter crews press for the drive record behind the clinical " \
+      "deck while ward representatives push to join the hull to Brake " \
+      "before its stores fail; the medical watch keeps both behind the " \
+      "patient marks on Voss's intake board. Opening a capsule waits " \
+      "on a patient history absent from every cabinet cleared so far."
+  )
+
   prose <<~PROSE
     Brake captured a medical vessel with warm surgical rooms, stocked pharmacies, and twelve occupied recovery capsules. The patients carry stable vital signs and synchronized sleep cycles. Its navigation record ends during the Bitter Reach, while wear on the outer hull records many years of later travel.
 
@@ -30,10 +46,32 @@ end
 
 relate :rel_ira_voss_participated_hospital_hull_recovery, :participated_in, :ira_voss, :hospital_hull_recovery do
   prose "Ira Voss leads the occupied-hull intake and patient-record search."
+  descriptive_identity(
+    aims:
+      "Voss is trying to join a name to a history: the capsules carry " \
+      "their patients in current Hab-Worlder script while the cabinet " \
+      "records use a Bitter Reach clinical hand, and no cabinet cleared " \
+      "so far connects the two.",
+    conduct:
+      "Claims on the hull go under the claims column of her board and " \
+      "move nothing — the vessel stays in intake for as long as a mark " \
+      "stands under people."
+  )
 end
 
 relate :rel_five_bolts_participated_hospital_hull_recovery, :participated_in, :five_bolts, :hospital_hull_recovery do
   prose "Five Bolts captured the vessel and keeps it separated from inhabited anchors."
+  descriptive_identity(
+    conduct:
+      "Its crew rotates every six hours on the one tow line approved " \
+      "for emergency separation, so cutting the hull loose is always a " \
+      "single decision away — and takes twelve sleeping patients away " \
+      "from Brake's power, water, and monitoring with it.",
+    cost:
+      "With its single tow frame committed to the medical hull, " \
+      "everything else that needs moving through Brake's capture lanes " \
+      "waits."
+  )
 end
 
 relate :rel_lot_forty_hosts_hospital_hull_recovery, :hosts, :lot_forty, :hospital_hull_recovery, since: 2435 do

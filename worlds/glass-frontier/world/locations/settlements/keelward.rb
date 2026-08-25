@@ -14,6 +14,35 @@ installation :keelward do
   position frame: :kaleidos_surface, latitude_deg: 0, longitude_deg: 1,
            size_class: :district
 
+  descriptive_identity(
+    setting:
+      "Sithari's eastern sprawl between the old city and its landing " \
+      "fields: heavy shuttle pads on the high tableland, narrow kite " \
+      "fields with catch fences and collapsible roofs closer in, " \
+      "freight rail running west under elevated lines, and housing " \
+      "packed into the spaces between successive port boundaries. Most " \
+      "visitors first see it as landing lights through filtered cloud.",
+    activity:
+      "The district runs on staggered time, with shifts following " \
+      "orbital windows and markets opening for whoever just came off " \
+      "one. Ground crews sound the ringglass ties of each pad and wait " \
+      "for a berth's field to settle before anything unloads, while " \
+      "freight agents at the transfer board match delayed cargo to " \
+      "berth, warehouse, and onward train.",
+    access:
+      "Orbital shuttles use the outer fields, kites the inner pads, and " \
+      "freight rail begins below the customs halls; everyone and " \
+      "everything passes the inspection halls, and ringglass is graded " \
+      "and sounded before it reaches a warehouse.",
+    hazards:
+      "Most accidents start with haste — a crane attached before the " \
+      "field settles, a crate moved before its response check, a " \
+      "passenger crossing a live service line. Glassfall showers can " \
+      "shut the inner fields with little warning, and the abandoned " \
+      "elevator caissons still draw a structural load during some " \
+      "orbital alignments."
+  )
+
   prose <<~PROSE
     Keelward is the broad eastern district where #{ref :keel, "the Keel"} reaches #{ref :sithari, "Sithari"}. Orbital shuttles descend to its outer fields, kite traffic uses the shorter inner pads, and freight rail carries cleared loads west into the city. About four hundred sixty thousand people live among the terminals, yards, warehouses, older neighborhoods, and port hostels such as #{ref :fourth_bell_house, "Fourth Bell House"}.
 

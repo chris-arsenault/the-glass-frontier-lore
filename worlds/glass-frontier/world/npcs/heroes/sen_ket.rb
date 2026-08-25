@@ -5,6 +5,11 @@ npc :sen_ket do
   occupation "Passive-array mechanic"
   specialty "Timing long receiver baselines through damaged ringglass"
   species "gnome"
+  identity_source :species, :gnomes
+  descriptive_identity disposition:
+    "Sen'ket keeps a section comparison running while talking, so replies " \
+    "arrive at the cart's pace and out of order. A question about a past " \
+    "failure opens the numbered drawers beneath the array."
   culture "Gnomish"
   status :complete
   tags :navigation, :archives, :"signal-freq", :training

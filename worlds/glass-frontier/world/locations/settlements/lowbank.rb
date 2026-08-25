@@ -12,6 +12,35 @@ installation :lowbank do
   tags :"outer-system", :trade, :transport, :resonance, :governance
   prominence :recognized
 
+  descriptive_identity(
+    setting:
+      "Seven earth mounds raised above the flood line where three river " \
+      "channels reach the middle sea, joined by bridges at the center " \
+      "and by ferries and detachable walkways at the edges. Painted " \
+      "bands on every dockside column show the highest water of past " \
+      "floods, and each quay carries the distinct hum of its isolated " \
+      "crane drives, stopping at the warehouse wall.",
+    activity:
+      "Sea vessels work the western quays while channel barges pass " \
+      "through the tally houses to the north and east, and independent " \
+      "pilots bid for routes by water level and cargo draft. Behind the " \
+      "docks, each mound keeps its own market day, and the ceramic " \
+      "quarter fires pipe, tile, and the dead layers used under " \
+      "resonance machinery across Korvath.",
+    access:
+      "Coastal shipping, channel barges, and scheduled kites reach the " \
+      "city year-round; the road causeways connect only in dry weather. " \
+      "The port authority inspects hulls and cargo seals, the water " \
+      "boards inspect the routes, and river traffic moves only under an " \
+      "independent pilot.",
+    hazards:
+      "A flood closes channels, gates, and lower streets at the water " \
+      "boards' order, and every able resident joins their mound's crew " \
+      "moving people upward. Divided authority bites in fair weather " \
+      "too: cargo cleared into the city can be refused the channel it " \
+      "arrived through."
+  )
+
   prose <<~PROSE
     Lowbank stands on raised islands where three channels of #{ref :dovra, "Dovra"} reach deep water. The oldest wards occupy earth mounds built above the known flood line. Later docks extend along piles and floating quays. Causeways connect the inland road only in dry weather; river and sea traffic keep the city supplied when the road gates close.
 

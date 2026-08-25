@@ -6,6 +6,23 @@ transport :heat_road_hauler do
   tags :transport, :trade, :resonance, :"kinetic-freq", :"outer-system"
   prominence :recognized
 
+  descriptive_identity(
+    appearance: "Long and low on broad wheel sets, under reflective cargo covers, with radiator frames that " \
+                "fold flat on the move and rise above the body at a rest bay. Long combinations add a rear cab " \
+                "watching the trailers.",
+    aboard: "The lead driver reads the surface and the array response while a second crew member minds cargo " \
+            "temperatures, water, and the next radiator stop. Sensitive freight rides the insulated center " \
+            "bays; stone, salt, and kiln goods take the hotter outer racks, each bay sealed separately by the " \
+            "freight house. Mail, apprentices, and patients fit for a slow journey ride along between small " \
+            "towns.",
+    behavior: "Wheels carry it and a small kinetic array in a removable ceramic cradle eases the worst ground — " \
+              "soft salt, broken basalt, steep crater approaches — so a ringglass fault does not stop the " \
+              "vehicle. At bad crossings it pulses a buried ringglass cut: a slow even return is solid basalt, " \
+              "a divided one a hot cavity or opening fracture. Heat defeats it gradually — thinning grease, " \
+              "opening joints, a cradle answering the ground instead of the drive — and crews stop on the first " \
+              "combination of faults. Stranded, it gives shade and water long after it gives motion."
+  )
+
   prose <<~PROSE
     Heat-road haulers carry bulk freight between Ashvane towns that do not justify a flight or cannot offer a dependable landing field. They are long, low surface vehicles with broad wheel sets, reflective cargo covers, and radiator frames that rise above the body when stopped. A loaded hauler moves slowly enough for its crew to inspect the road ahead and steadily enough to cross the moon's open plains before the next strong tidal heating period.
 

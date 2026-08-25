@@ -8,6 +8,20 @@ incident :the_silent_bloom do
   date 2378
   cause_status "Pyre's overload entered the abandoned guide chain of the Second Span Trial"
 
+  descriptive_identity(
+    marks:
+      "The first Bloom Zones lie along the old guide paths behind " \
+      "stillwater buoys and the Displacement Council's permanent " \
+      "cordons, and Latch was never recovered. The Bloom Coalition and " \
+      "the extraction rules the Shear Compact enforces both grew out of " \
+      "the 2378 emergency.",
+    stakes:
+      "What ended was the uninterrupted spread from Pyre, not the " \
+      "condition it created; new zones have opened since. Every cordon " \
+      "chart carries a date, and the older that date, the less of the " \
+      "route it still describes."
+  )
+
   prose <<~PROSE
     The resonance cascade that began at #{ref :pyre, "Pyre"} and opened the first #{ref :bloom_zones, "Bloom Zones"}. A refinery failure that should have remained local entered the abandoned guide chain of the #{ref :second_span_trial, "Second Span Trial"}. Separate mid-drift sites began answering the same signal pattern, including habs with no working connection to Pyre.
   PROSE

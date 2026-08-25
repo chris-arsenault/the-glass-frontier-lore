@@ -3,8 +3,28 @@ concept :ratters do
   summary "Ratters are independent small-crew salvagers in the Shear who share route knowledge through loose flotillas while keeping their ships, claims, and hauls separate."
   subkind :practice
   path "player/concepts/ratters.md"
+  status :complete
   tags :salvage, :"social-structure", :orbital, :trade
   prominence :recognized
+
+  descriptive_identity(
+    attire:
+      "Coats and harnesses are working patchworks of salvaged ringglass " \
+      "scraps, ring-era components, and hand-stitched repair. A new " \
+      "Ratter's gear is plain; a veteran's is a biography readable across a " \
+      "dock — where they have worked, what they have found, who repaired " \
+      "them when they needed it.",
+    tools:
+      "A crew tattoo of the current ship's mark somewhere visible, with the " \
+      "old marks kept; a shard pendant of ringglass from the first claim, " \
+      "worn at throat or wrist and never replaced; and a claim ledger clean " \
+      "enough that the next broker can verify the work.",
+    manner:
+      "Debts between Ratters are tracked obsessively and repaid in kind, " \
+      "and a distress call in the Shear is answered no matter whose it is. " \
+      "The flotilla coordinates; the haul, the claim, and the ship stay the " \
+      "crew's own."
+  )
 
   prose <<~PROSE
     The independent salvage subculture of #{ref :the_shear, "the Shear"}. Ratters are the working majority of Shear salvage by ship-count and the minority by tonnage — small crews, fast ships, marginal profits, and a working identity that has held together for #{elapsed 2320, approx: true} across hundreds of vessels and several economic eras. They pioneered Shear salvage in the 2320s. They survive #{ref :coremark, "Coremark"} by being smaller, faster, and more numerous. They tolerate the #{ref :shear_compact, "Shear Compact"} because the Compact tolerates them.
@@ -84,6 +104,18 @@ relate :rel_ratters_designed_remote_cutting, :designed, :ratters, :remote_cuttin
 end
 relate :rel_ratters_cooperate_pell_assembly, :cooperates_with, :ratters, :pell_freight_assembly, since: 2416 do
   prose "Ratter crews use the Assembly's shared receiving yards while retaining their ships and claims."
+  descriptive_identity(
+    basis:
+      "Heavy receiving bays a skiff crew could never finance alone, " \
+      "paid for in cargo dues or work credits — maintenance watches, " \
+      "rescue standby, an empty return leg — with one vote per member " \
+      "however many hulls they run.",
+    limits:
+      "Membership buys yard access, not a flag. The crews that joined " \
+      "did so precisely because it meant not selling their claims, and " \
+      "a subculture that has refused to consolidate for over a century " \
+      "is not about to do it for a freight cooperative."
+  )
 end
 relate :rel_ratters_study_farborn, :studies, :ratters, :farborn, since: 2320 do
   prose "Ratter field names sort #{ref :farborn, "Farborn"} by the danger they pose during a live job."

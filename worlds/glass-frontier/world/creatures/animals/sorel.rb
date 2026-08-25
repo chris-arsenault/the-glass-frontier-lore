@@ -6,6 +6,20 @@ creature :sorel do
   tags :ecology, :resonance, :"structural-freq", :"ring-hab"
   prominence :marginal
 
+  descriptive_identity(
+    appearance: "A broad, low grazer with four gripping feet that hold it against steep shell, a rasping " \
+                "mouth, and a hard oval plate covering the belly. Rib households paint theirs with food-safe " \
+                "mineral stains and tell individuals apart by plate rhythm.",
+    behavior: "The belly plate vibrates against the pressure reef and aligns the animal with its structural " \
+              "pulse: a herd feeds spread along one tone line, rests when the note shifts, and crosses together " \
+              "to the next band. Where it grazes is a survey — cropped soft mineral is new growth, untouched " \
+              "ridges carry load, and a herd that settles has found warm water behind the wall.",
+    threat: "Anything standing across the line of a herd's crossing — door, rail, or person — takes the " \
+            "combined weight of every animal against the wall. Away from the reef the plate loses alignment in " \
+            "a few hours, and a transport cradle with a failed shell pad swings the disoriented animal toward " \
+            "the strongest structural tone aboard the carrier."
+  )
+
   prose <<~PROSE
     Sorel are broad, low grazers bred at #{ref :rib, "Rib"} to keep the pressure reef's passages open. Four gripping feet hold them against steep shell. A rasping mouth removes soft mineral growth and leaves mature load-bearing ridges untouched.
 

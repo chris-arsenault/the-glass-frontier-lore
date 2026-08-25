@@ -301,7 +301,7 @@ class NarrativeDocumentTest < Minitest::Test
       timeline = JSON.parse(File.read(File.join(root, "timeline.json")))
       editorial = JSON.parse(File.read(File.join(dir, "internal", "worlds", "ice.json")))
 
-      assert_equal 9, chronicle["schema_version"]
+      assert_equal 10, chronicle["schema_version"]
       assert_equal "tick", index["time_unit"]
       assert_equal "tick", timeline["unit"]
       assert_equal "The ice remembers the first mark.", chronicle["content"]
@@ -1710,7 +1710,7 @@ class SpatialMetadataTest < Minitest::Test
       route = JSON.parse(File.read(File.join(root, "entries", "trade-lane.json")))
       port = JSON.parse(File.read(File.join(root, "entries", "port.json")))
 
-      assert_equal 9, index["schema_version"]
+      assert_equal 10, index["schema_version"]
       assert_equal %w[planet_surface system_chart], index["spatial_frames"].map { |frame| frame["id"] }
       assert_equal %w[planet outer_turn port], route.dig("route_geometry", "paths", 0, "through")
       assert_equal 1_200, port.dig("connections", 0, "properties", "distance_km")
@@ -1848,7 +1848,7 @@ class SiteRenderTest < Minitest::Test
       index = JSON.parse(File.read(File.join(public_root, "index.json")))
       editorial = JSON.parse(File.read(File.join(dir, "internal", "worlds", "sample-world.json")))
 
-      assert_equal 9, ada["schema_version"]
+      assert_equal 10, ada["schema_version"]
       assert_equal "cartographer", ada["subkind"]
       assert(index["subkinds"].any? { |item| item["kind"] == "person" && item["id"] == "cartographer" })
       assert_equal ["born", "age", "occupation", "home", "chart_room", "working_language"], ada["facts"].map { |fact| fact["id"] }
@@ -3743,6 +3743,294 @@ class ReviewEditorTest < Minitest::Test
       assert_equal "computed_declaration", error.code
       assert_equal before, File.binread(file)
     end
+  end
+
+  def test_descriptive_identity_composes_sources_and_supports_extension_and_override
+    world = Lorecraft.define do
+      schema do
+        entity_type :species do
+          identity_key :visual
+          no_identity_sources
+        end
+        entity_type :culture do
+          identity_key :bearing
+          no_identity_sources
+        end
+        entity_type :person do
+          identity_key :visual
+          identity_key :bearing
+          identity_source :species, kinds: :species, keys: :visual
+          identity_source :culture, kinds: :culture, keys: :bearing
+        end
+        require_descriptive_identities!
+      end
+      timeline { era :present, starts: 0, length: 10; now year: 1 }
+
+      species :orcs do
+        name "Orcs"
+        status :complete
+        descriptive_identity visual: "Orcs are usually physically beautiful."
+        prose "Orcs are a people found throughout the settled worlds."
+      end
+      culture :riverfolk do
+        name "Riverfolk"
+        status :complete
+        descriptive_identity bearing: "Riverfolk move with measured patience."
+        prose "Riverfolk communities follow the navigable watercourses."
+      end
+      person :ordinary_orc do
+        name "Ordinary Orc"
+        identity_source :species, :orcs
+        identity_source :culture, :riverfolk
+      end
+      person :scarred_orc do
+        name "Scarred Orc"
+        identity_source :species, :orcs
+        identity_source :culture, :riverfolk
+        descriptive_identity visual: "A pale scar crosses one cheek."
+      end
+      person :ugly_orc do
+        name "Ugly Orc"
+        identity_source :species, :orcs
+        identity_source :culture, :riverfolk
+        override_identity visual: "Contrary to most orcs, this one is remarkably ugly."
+      end
+    end
+
+    assert_empty world.validate
+    ordinary = world.resolve_identity(:ordinary_orc)
+    scarred = world.resolve_identity(:scarred_orc)
+    ugly = world.resolve_identity(:ugly_orc)
+
+    assert_equal "Orcs are usually physically beautiful.", ordinary.descriptive_identity[:visual]
+    assert_equal "Orcs are usually physically beautiful.\n\nA pale scar crosses one cheek.",
+                 scarred.descriptive_identity[:visual]
+    assert_equal "Contrary to most orcs, this one is remarkably ugly.",
+                 ugly.descriptive_identity[:visual]
+    assert ugly.provenance[:visual].first.suppressed
+    refute ugly.provenance[:visual].last.suppressed
+    assert_equal :orcs, ugly.sources.first[:id]
+    assert_equal :override, ugly.local.dig(:visual, :operation)
+
+    audit = Lorecraft::IdentityAudit.new(world, owner: :ugly_orc).data
+    assert_equal :owner, audit[:scope]
+    assert_equal "Contrary to most orcs, this one is remarkably ugly.",
+                 audit.dig(:descriptive_identity, :visual)
+    schema = Lorecraft::SchemaInspection.new(world, topic: "kind", name: "person").data
+    assert_equal %i[species culture],
+                 schema.dig(:kind, :identity_sources).map { |source| source[:name] }
+
+    Dir.mktmpdir do |directory|
+      Lorecraft::Render::Site.new(world).render(
+        out: directory,
+        world_id: "test",
+        title: "Test",
+        revision: "identity-test",
+      )
+      root = File.join(directory, "worlds", "test")
+      index = JSON.parse(File.read(File.join(root, "index.json")))
+      ugly_summary = index.fetch("entries").find { |entry| entry.fetch("id") == "ugly_orc" }
+      ugly_entry = JSON.parse(File.read(File.join(root, "entries", "ugly-orc.json")))
+
+      assert_equal 10, index.fetch("schema_version")
+      assert_equal "Contrary to most orcs, this one is remarkably ugly.",
+                   ugly_summary.dig("descriptive_identity", "visual")
+      assert_equal "orcs", ugly_entry.dig("identity_sources", 0, "id")
+      assert ugly_entry.dig("identity_provenance", "visual", 0, "suppressed")
+    end
+  end
+
+  def test_veiled_entities_are_blank_slates
+    build = lambda do |veiled_identity|
+      Lorecraft.define do
+        schema do
+          entity_type :species do
+            identity_key :visual
+            no_identity_sources
+          end
+          entity_type :person do
+            identity_key :visual
+            identity_source :species, kinds: :species, keys: :visual
+          end
+          require_descriptive_identities!
+        end
+        timeline { era :present, starts: 0, length: 10; now year: 1 }
+        species :orcs do
+          name "Orcs"
+          status :complete
+          descriptive_identity visual: "Orcs are usually physically beautiful."
+          prose "Orcs are a people found throughout the settled worlds."
+        end
+        person :walk_on do
+          name "Walk-On"
+          status :complete
+          veiled "A stranger the table will establish."
+          identity_source :species, :orcs if veiled_identity
+        end
+      end
+    end
+
+    blank = build.call(false)
+    assert_empty blank.validate
+    resolution = blank.resolve_identity(:walk_on)
+    assert_empty resolution.descriptive_identity
+    assert_empty resolution.missing_required
+
+    declared = build.call(true)
+    problem = declared.validate.find { |message| message.include?("blank slate") }
+    assert problem, "expected a blank-slate violation for a veiled entity declaring identity"
+  end
+
+  def test_descriptive_identity_can_use_a_live_relation_as_a_strict_source_slot
+    world = Lorecraft.define do
+      schema do
+        relation :located_in, temporal: true
+        entity_type :environment do
+          identity_key :conditions
+          no_identity_sources
+        end
+        entity_type :place do
+          identity_key :conditions
+          identity_source :environment,
+                          kinds: :environment,
+                          keys: :conditions,
+                          relation: :located_in
+        end
+      end
+      timeline { era :present, starts: 0, length: 20; now year: 10 }
+      environment :open_air do
+        name "Open Air"
+        status :complete
+        descriptive_identity conditions: "The sky and weather remain visible."
+        prose "Open-air places are exposed to the surrounding atmosphere."
+      end
+      place(:courtyard) { name "Courtyard" }
+      relate :courtyard_environment, :located_in, :courtyard, :open_air, since: 5
+    end
+
+    assert_equal "The sky and weather remain visible.",
+                 world.resolve_identity(:courtyard, at: 10).descriptive_identity[:conditions]
+    error = assert_raises(Lorecraft::IdentityError) do
+      world.resolve_identity(:courtyard, at: 4)
+    end
+    assert_includes error.message, "needs identity source environment"
+  end
+
+  def test_relationship_instances_have_the_same_identity_composition_contract
+    world = Lorecraft.define do
+      schema do
+        entity_type :organization
+        entity_type :conflict_mode do
+          identity_key :hostility
+          no_identity_sources
+        end
+        relation :opposes do
+          identity_key :hostility
+          identity_key :cause
+          identity_source :mode, kinds: :conflict_mode, keys: :hostility
+        end
+      end
+      timeline { era :present, starts: 0, length: 10; now year: 1 }
+      organization(:north) { name "North" }
+      organization(:south) { name "South" }
+      conflict_mode :silent_trade_war do
+        name "Silent Trade War"
+        status :complete
+        descriptive_identity hostility: "Both parties sabotage trade while avoiding open fire."
+        prose "A silent trade war uses prices, access, and deniable interference as weapons."
+      end
+      relate :north_south_trade_war, :opposes, :north, :south do
+        identity_source :mode, :silent_trade_war
+        descriptive_identity cause: "North closed the only winter exchange route."
+      end
+    end
+
+    assert_empty world.validate
+    identity = world.resolve_identity(:north_south_trade_war)
+    assert_equal "Both parties sabotage trade while avoiding open fire.",
+                 identity.descriptive_identity[:hostility]
+    assert_equal "North closed the only winter exchange route.",
+                 identity.descriptive_identity[:cause]
+
+    graph = JSON.parse(world.render(:graph, pretty: false))
+    edge = graph.fetch("edges").find { |row| row.fetch("src") == "north" }
+    assert_equal "Both parties sabotage trade while avoiding open fire.",
+                 edge.dig("descriptive_identity", "hostility")
+    assert_equal "silent_trade_war", edge.dig("identity_sources", 0, "id")
+    connection = Lorecraft::Connections.new(world, entity: :north).data[:connections].first
+    assert_equal "Both parties sabotage trade while avoiding open fire.",
+                 connection.dig(:descriptive_identity, :hostility)
+  end
+
+  def test_strict_identity_validation_rejects_undeclared_slots_incomplete_sources_and_cycles
+    world = Lorecraft.define do
+      schema do
+        entity_type :profile do
+          identity_key :visual
+          identity_source :parent, kinds: :profile, keys: :visual
+        end
+        entity_type :person do
+          identity_key :visual
+          identity_source :profile, kinds: :profile, keys: :visual
+        end
+        entity_type :undeclared
+        require_descriptive_identities!
+      end
+      timeline { era :present, starts: 0, length: 10; now year: 1 }
+      profile :first do
+        name "First"
+        status :complete
+        identity_source :parent, :second
+        prose "First profile."
+      end
+      profile :second do
+        name "Second"
+        status :complete
+        identity_source :parent, :first
+        prose "Second profile."
+      end
+      person :consumer do
+        name "Consumer"
+        identity_source :profile, :first
+        identity_source :unknown, :second
+      end
+    end
+
+    problems = world.validate
+    assert problems.any? { |problem| problem.include?("entity kind undeclared") }
+    assert problems.any? { |problem| problem.include?("unknown identity source slot unknown") }
+    assert problems.any? { |problem| problem.include?("descriptive identity source cycle") }
+  end
+
+  def test_identity_sources_must_be_complete_full_articles
+    world = Lorecraft.define do
+      schema do
+        entity_type :profile do
+          identity_key :visual
+          no_identity_sources
+        end
+        entity_type :person do
+          identity_key :visual
+          identity_source :profile, kinds: :profile, keys: :visual
+        end
+      end
+      timeline { era :present, starts: 0, length: 10; now year: 1 }
+      profile :unfinished do
+        name "Unfinished"
+        status :draft
+        descriptive_identity visual: "An unfinished source."
+      end
+      person :consumer do
+        name "Consumer"
+        identity_source :profile, :unfinished
+      end
+    end
+
+    error = assert_raises(Lorecraft::IdentityError) do
+      world.resolve_identity(:consumer)
+    end
+    assert_includes error.message, "must be complete"
+    assert world.validate.any? { |problem| problem.include?("must be complete") }
   end
 
   private

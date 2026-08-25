@@ -8,6 +8,30 @@ phenomenon :glassfall_showers do
   tags :orbital, :ringglass, :resonance, :danger
   prominence :recognized
 
+  descriptive_identity(
+    signs:
+      "Instruments notice first: tuning compasses lean toward empty " \
+      "sky and signal sets take brief echoes before any streak shows. " \
+      "From the surface the shower crosses as pale streaks in quick " \
+      "succession; in orbit it is a dry hiss along the hull and bright " \
+      "pinpricks on exposed shielding.",
+    effects:
+      "A dense stream carries a moving resonance field through the " \
+      "local background, so kinetic arrays pull unevenly as the " \
+      "gradient crosses them and old structural glass can answer a " \
+      "frequency the debris carries. Afterward a basin dusted with " \
+      "fresh crystal often holds a stronger field, and communities " \
+      "stretch cloth across roofs and yards to catch grains fine " \
+      "enough for instrument work.",
+    hazards:
+      "Larger fragments ride inside the stream without announcing " \
+      "themselves until a tracking array resolves them, and grains " \
+      "enter every unsealed joint, lodging across cut surfaces and " \
+      "bridging parts of an array meant to stay separate. A forecast " \
+      "can place the front within a few hours and still miss the " \
+      "narrow dense strand that damages a vessel."
+  )
+
   prose <<~PROSE
     Glassfall showers are recurring passages through the fine debris left by the shattered ring. Most grains are too small to track alone. Together they form long streams in related orbits, spread by centuries of close passes through the Shear and by repeated encounters with Kaleidos's atmosphere. A stream may return to the same broad corridor on a known cycle while arriving thicker, thinner, earlier, or split into several fronts.
 

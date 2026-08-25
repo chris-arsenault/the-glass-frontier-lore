@@ -8,6 +8,28 @@ faction :clarisant do
   tags :resonance, :training, :governance, :"social-structure"
   prominence :recognized
 
+  descriptive_identity(
+    ideology:
+      "Resonance work should be safe, examined, and answerable — a " \
+      "credential in the service of public safety, structurally hostile to " \
+      "dogma. Independence is the product: the guild must always be able to " \
+      "afford to say no.",
+    methods:
+      "Certification, inspection, and malpractice hearings funded by fees " \
+      "small per item and large in aggregate. Chapters dispatch the work, " \
+      "the Pelhari academy controls the standards, and neither side can " \
+      "win their standing argument outright.",
+    presence:
+      "No uniform — a Tuner dresses for the work and the weather. The marks " \
+      "are a tuned ringglass pin any Clarisant Tuner can verify in seconds " \
+      "and a casebook logging every job worked.",
+    attitude:
+      "Colleagues without credentials is the official line on folk Tuners; " \
+      "the unofficial line varies by chapter. Toward clients the guild is " \
+      "civil, unhurried, and willing to tell a paying hab council its " \
+      "arrays are unsafe."
+  )
+
   prose <<~PROSE
     The professional guild of #{ref :tuners, "Tuners"}. The Clarisant trains, certifies, and disciplines the practitioners who shape the system's working relationship with #{ref :resonance, "resonance"}. It is not a government, not a religion, and not an order. It is closer to a medical board — gatekeeping in the service of public safety, supported by fees, and structurally hostile to dogma.
 
@@ -78,6 +100,18 @@ relate :rel_clarisant_on_surface_pelhari, :on_surface_of, :clarisant, :pelhari d
 end
 relate :rel_clarisant_cooperates_displacement_council, :cooperates_with, :clarisant, :displacement_council, since: 2384 do
   prose "It lends certified Tuners to the #{ref :displacement_council, "Displacement Council"} for containment work, under strict exposure limits the Council is glad to honour."
+  descriptive_identity(
+    basis:
+      "Cordon buoy work sits squarely in the mid-bandwidth range a " \
+      "certified Tuner is trained for, and the chapters that take it — " \
+      "Glasswake's takes Bloom commissions nobody else will — assemble " \
+      "the crews job by job from their own rosters.",
+    limits:
+      "The guild's product is its independence, so the Tuners remain " \
+      "chapter people on loan: their casebooks, their malpractice " \
+      "hearings, and their right to call a site unsafe stay with the " \
+      "Clarisant, not the Council."
+  )
 end
 
 # --- history (moments) ---

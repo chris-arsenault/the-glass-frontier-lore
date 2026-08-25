@@ -9,6 +9,36 @@ installation :hinge_six do
   position frame: :kaleidos_system_chart, relative_to: :kaleidos,
            radial_offset: 0.55, angle_offset_deg: 18
 
+  descriptive_identity(
+    setting:
+      "A small waystation where the Keel branches outward toward Korvath " \
+      "and Ashvane: a still beacon house, one slowly rotating habitation " \
+      "drum of twelve bunks, four docking collars on crossed trusses, " \
+      "and an exterior freight frame holding up to six separated loads. " \
+      "The passage between drum and beacon house has a floor that " \
+      "gradually becomes a wall.",
+    activity:
+      "Most vessels pause only to trade route records and confirm their " \
+      "receiving port, while five keepers and mechanics run overlapping " \
+      "watches and passing crews cook, clean, and shift cargo to earn " \
+      "water or bunk space. News crosses the station faster than " \
+      "freight — port conditions, prices, and ships seen beyond the " \
+      "last common beacon.",
+    access:
+      "The route room prints a joined strip reconciling inner-corridor " \
+      "marks with the outer branch; a pilot may refuse it and keep their " \
+      "own records, but must still name which port expects them. A " \
+      "vessel without that answer stays at the collars or departs as " \
+      "unreceived traffic, outside the ordinary rescue pools.",
+    hazards:
+      "Since Ironwhistle returned to the branch routes, outer strips " \
+      "carry a disputed predator surcharge, and one collar is held by a " \
+      "tug refusing release until the fee comes off — two passenger " \
+      "craft stacked behind it. When an outer port closes late, the " \
+      "drum overfills and stranded passengers sleep in the route room " \
+      "behind privacy cloth."
+  )
+
   prose <<~PROSE
     Hinge Six is a small waystation on the branch of #{ref :keel, "the Keel"} where traffic from Kaleidos turns outward toward Korvath and Ashvane. It consists of a beacon house, one rotating habitation drum, four docking collars, and a freight frame that can hold six separated loads. Most vessels stop only long enough to exchange route records and confirm the next receiving port.
 

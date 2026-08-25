@@ -8,6 +8,25 @@ faction :split_wake do
   status :complete
   omit_facts :leaders, :headquarters, :predecessors
 
+  descriptive_identity(
+    ideology:
+      "Take what has already been refined and leave the raw field alone " \
+      "— which meant its victims were always the people who had done the " \
+      "work, down to a loaded transfer skiff drawing away from " \
+      "Shardfall.",
+    methods:
+      "Three armed cutters and a fast loader approached on diverging " \
+      "thrust lines, crossed the convoy's wake, and struck whichever " \
+      "vessel turned to meet one of the threats. Pilots named the " \
+      "pattern before the crews adopted it as their own.",
+    presence:
+      "Nothing has flown under the name since 2348. It survives as a " \
+      "maneuver Shear convoy pilots still call out when they see it " \
+      "forming behind them, and as drive records — pulled before the " \
+      "surrendered ships were cut apart — that anchor every account of " \
+      "the Shardfall battle."
+  )
+
   prose <<~PROSE
     Split Wake was a mobile pirate crew of three armed cutters and a fast loader during the Contested Reach. Its ships approached on diverging thrust lines, crossed a convoy's wake, and struck the vessel that turned toward either threat. Pilots named the pattern first; the crews adopted it.
 
@@ -30,6 +49,21 @@ relate :rel_split_wake_operated_shear, :operates_in, :split_wake, :the_shear, si
 end
 relate :rel_split_wake_participated_shardfall, :participated_in, :split_wake, :shardfall do
   prose "Split Wake attacked loaded vessels during the claim standoff and was broken in the resulting battle."
+  descriptive_identity(
+    aims:
+      "It came for the loaded material only — ringglass already in the " \
+      "Cutters' barges and Drossmark's skiffs — leaving the raw field " \
+      "to the people fighting over it.",
+    conduct:
+      "Its ships approached on diverging thrust lines during the " \
+      "standoff and opened fire on a transfer skiff drawing away from " \
+      "the field, which set the escorts shooting across the marked work " \
+      "line.",
+    cost:
+      "Two cutters destroyed, the loader holed in the cascade, nine " \
+      "dead, fourteen taken into Brake custody — and nothing has flown " \
+      "under the name since."
+  )
 end
 relate :rel_shardfall_destroyed_split_wake, :destroyed, :shardfall, :split_wake do
   prose "Two ships were destroyed, two surrendered, and the pirate crew never operated again."

@@ -7,6 +7,35 @@ installation :thornvault do
   tags :surface, :archives, :resonance, :"signal-freq", :governance
   prominence :recognized
 
+  descriptive_identity(
+    setting:
+      "A bridge-castle on a single arch of pale pre-Glassfall stone, " \
+      "spanning four hundred meters of canyon nearly a kilometer above " \
+      "the Echo River. Reading galleries ride the upper surface; archive " \
+      "halls hang beneath on buttresses grown downward like roots, and " \
+      "crystal inlays throw the canyon's reflected light through the " \
+      "halls in patterns that change with the day.",
+    activity:
+      "Morning work fills the east-facing galleries and afternoon work " \
+      "the west, with the Conclave's decisions and hardest conversations " \
+      "saved for the long horizontal light late in the day. Down at the " \
+      "river-facing halls, listening posts run in shifts around the " \
+      "clock, because the water surfaces material on no schedule.",
+    access:
+      "The high road runs a half-day along the eastern rim from " \
+      "Ledgerfall to the formal entrance; a patrolled, unsignposted " \
+      "stair on the western wall serves archivists and Conclave craft " \
+      "at the river landing. There is no third way in — the walls are " \
+      "unclimbable and the canyon's airspace unsettles kite pilots " \
+      "enough that they refuse it.",
+    hazards:
+      "Nothing below the mid-galleries opens without specific " \
+      "authorization and a senior archivist walking beside you. Urgent " \
+      "business arriving in the morning is fed, housed, and made to " \
+      "wait, since contested matters are settled only when the western " \
+      "galleries fill with light."
+  )
+
   prose <<~PROSE
     The headquarters of the #{ref :echo_ledger_conclave, "Echo Ledger Conclave"}. A literal bridge-castle: a single immense stone span across the deepest canyon in the #{ref :sable_crescent, "Sable Crescent"}, with the Conclave's halls, archives, and residences built into and across the span itself. The #{ref :echo_rivers, "Echo River"} runs at the canyon's base. The Vault listens down into the water.
 

@@ -136,6 +136,17 @@ module Lorecraft
           for that entry. Missing values should stay missing until known.
         TEXT
       },
+      "identity" => {
+        summary: "Inspect descriptive identity sources, resolution, and coverage.",
+        usage: "identity [ID] [--at now|YEAR] [--audience all|player] [--format text|json] [--world ID]",
+        body: <<~TEXT,
+          Give an entity or named relationship id to see its declared source
+          slots, local extend or override operations, resolved key-to-text
+          dictionary, and per-key provenance at the selected year. Without an id,
+          report coverage for every participating entry and relationship. Source
+          references remain canonical; the resolved dictionary is a snapshot.
+        TEXT
+      },
       "gm-notes" => {
         summary: "Report GM-note coverage and repetition across the world.",
         usage: "gm-notes [ID] [--format text|json] [--world ID]",
@@ -415,6 +426,8 @@ module Lorecraft
           extend_kind :npc do
             field :born, type: :year
             relation_field :based_in, relation: :located_in, cardinality: :many
+            identity_key :visual
+            identity_source :species, kinds: :species, keys: :visual
             subkind :official do
               field :jurisdiction, type: :text, expected: false
             end
@@ -429,12 +442,19 @@ module Lorecraft
                                    maximum_exclusive: 360, requires: :frame
           end
 
+        identity_key declares one stable output key. identity_source declares a
+        named, typed source slot and the keys it projects. Source values name
+        complete canonical entries. no_identity_sources makes the absence of
+        sources explicit. A world calls require_descriptive_identities! after
+        every participating kind has a settled contract.
+
         The shared schema declares kinds, subkinds, reusable fact fields, effect
         verbs, and relation types. A world's schema adds its controlled tags,
-        sections, fields, and setting-specific relations. Relation blocks can
-        declare typed edge properties. Validation rejects unknown ids, invalid
-        typed facts or relation properties, unknown subkinds and tags, relation
-        domain or range errors, and explicitly banned generic relations.
+        sections, fields, setting-specific relations, and identity source axes.
+        Relation blocks can declare typed edge properties and descriptive
+        identity contracts. Validation rejects unknown ids, invalid typed facts
+        or relation properties, unknown subkinds and tags, relation domain or
+        range errors, and explicitly banned generic relations.
 
         spatial_frame declares a fixed schematic coordinate system. Entries use
         position for absolute or relative placement and route_geometry for named
@@ -475,8 +495,8 @@ module Lorecraft
 
         Use search to find the stable id, page to inspect present-day resolved
         prose, and connections to inspect its typed neighborhood at a selected
-        year. facts, queue, provenance, timeline, log, and placement all accept
-        the same id when that dimension matters.
+        year. facts, identity, queue, provenance, timeline, log, and placement
+        all accept the same id when that dimension matters.
 
         The entity's Ruby file remains canonical. Read it before editing because
         rendered prose omits DSL fields, questions, logs, and source placement.
@@ -490,9 +510,9 @@ module Lorecraft
 
         Canon stores dated events and interval boundaries. Moment effects and
         named relations produce state at a selected year. search, connections,
-        path, facts, graph, render, and wiki support --at. page always renders
-        the present, while timeline reports every effect rather than one year's
-        state.
+        path, facts, identity, graph, render, and wiki support --at.
+        page always renders the present, while timeline reports every effect
+        rather than one year's state.
 
         Prose derives spans with elapsed and absolute dates with year. Use
         duration only for a length that has no chronological anchor. A missing

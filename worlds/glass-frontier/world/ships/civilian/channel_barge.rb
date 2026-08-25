@@ -7,6 +7,21 @@ transport :channel_barge do
   tags :transport, :trade, :"outer-system", :resonance, :ecology
   prominence :recognized
 
+  descriptive_identity(
+    appearance: "Broad, shallow, and plain below the waterline, timber over ceramic ribs, loaded so it can cross " \
+                "water little above a pilot's knee. Deck houses, cargo rails, and shelters move between sockets, so " \
+                "the same hull reads as grain carrier, passenger boat, or flood ferry depending on the season. At " \
+                "night small lamps hang low over both sides so another pilot can read its draft.",
+    aboard: "The deck house holds bunks, a stove, record shelves, and a dry locker for route tallies, often with " \
+            "several generations living around the work. Children handle lines and landings before they ever take a " \
+            "pole, and the oldest pilot aboard may run the route from memory without touching cargo.",
+    behavior: "A small stern drive serves deep water; in the narrow channels the pilot works with poles, tow lines, " \
+              "or a bank crew, sounding the bottom through a metal-shod pole whose returned tone tells silt from " \
+              "buried iron sand. It settles on mud without damage and backs away when a channel closes ahead. A " \
+              "barge with damaged ceramic ribs starts answering the river's resonance through its fittings and can " \
+              "turn sideways under an otherwise manageable load."
+  )
+
   prose <<~PROSE
     Channel barges carry people and goods through Korvath's #{ref :dovra, "Dovra"}. Their hulls are broad, shallow, and plain below the waterline. A loaded vessel can cross water that reaches little above a pilot's knee, settle on mud without damage, and back away after a channel closes ahead. Most belong to a household, village, mill, or water board rather than a long-haul carrier.
 

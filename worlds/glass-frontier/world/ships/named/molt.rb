@@ -7,6 +7,18 @@ transport :molt do
   tags :transport, :ecology, :trade, :"kinetic-freq"
   prominence :marginal
 
+  descriptive_identity(
+    appearance: "A low collection vessel whose name runs in broad white letters along a hull plated with old " \
+                "flight-comb roots. Four open racks trail behind the cabin and flex as each load enters the " \
+                "field.",
+    aboard: "Six crew and twelve line workers share the cabin and the trailing rack line; at present the racks " \
+            "hold observation frames instead of comb, and an open recovery cradle stands ready for anything " \
+            "warm or bleeding that must go back to the animal readers.",
+    behavior: "It works from beneath the herd, matching a separated comb's turn before closing two padded arms " \
+              "around the mineral root while line workers fold the fan into a rack. A warm or bleeding comb " \
+              "ends the collection run — the crew breaks off and flies the recovery cradle home."
+  )
+
   prose <<~PROSE
     *Molt* is a low collection vessel built for the sarn passage at Perch. Its name appears in broad white letters along a hull plated with old flight-comb roots. Four open racks trail behind the cabin and flex as each load enters the field.
 

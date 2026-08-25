@@ -6,6 +6,20 @@ incident :pell_four do
   tags :catastrophe, :danger, :resonance, :salvage, :orbital
   prominence :recognized
 
+  descriptive_identity(
+    marks:
+      "Remote-work contracts written since 2434 isolate the rig's " \
+      "timing system, record every distant response, and name the one " \
+      "person with authority to stop a return, so crews who have never " \
+      "seen the Cut work under terms Pell wrote. The Cut itself still " \
+      "operates, under the rules drafted after the closure.",
+    stakes:
+      "The Pell Freight Assembly kept the site, paid for the cordon, " \
+      "and staffed the closure, and its members have not stopped " \
+      "arguing over that decision. The incident surfaces wherever an " \
+      "Assembly levy, route fee, or seal charge comes to a vote."
+  )
+
   prose <<~PROSE
     A short-lived reality boundary created during a synchronized extraction test at #{ref :pell_cut, "Pell Cut"} in 2434. Four remote arrays worked four separated claims on one clock. Their returns began answering one another, then continued after the arrays shut down.
 

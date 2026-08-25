@@ -10,6 +10,28 @@ installation :bay_thirty_one do
   prominence :marginal
   omit_facts :maintained_by
 
+  descriptive_identity(
+    setting:
+      "A sealed textile room behind a pressure door on Wash Four's " \
+      "dirty route, its bay number still painted overhead. The central " \
+      "table stands on ceramic feet and drains into six sampling jars, " \
+      "wall frames stretch garments to full extension under directional " \
+      "lamps, and twenty-seven trace-bearing garments currently hang " \
+      "from the ceiling with clear floor lanes beneath them.",
+    activity:
+      "Every job starts dry: tuned wooden paddles worked over the " \
+      "cloth, the strongest traces chalked, loose findings lifted into " \
+      "labeled trays, the whole map copied onto fired ceramic before " \
+      "any water enters. Overhead, a worker plays the hanging garments' " \
+      "traces in order while walking the route they describe.",
+    hazards:
+      "A garment handed in for urgent answers still spends its full dry " \
+      "pass under the paddles while the owner waits outside the " \
+      "pressure door. Anything that falls out during that pass goes to " \
+      "a tray, not back to its owner — a pocketed item comes home only " \
+      "if it was named before the wash."
+  )
+
   prose <<~PROSE
     Thirty-One is a sealed textile room on Wash Four's dirty route. The bay number remains over its pressure door, while daily work drops the first word. Its central table rests on ceramic feet and drains into six sampling jars. Wall frames hold garments at full extension while directional lamps expose residue, repairs, and stressed fibers.
 

@@ -8,6 +8,34 @@ faction :lower_routes_cooperative do
   tags :surface, :resonance, :navigation, :"social-structure", :danger
   prominence :recognized
 
+  descriptive_identity(
+    ideology:
+      "A route below the marked limit is safe when residents have walked " \
+      "it twice, and not before — no city order, no instrument reading, " \
+      "and no funding source can turn an amber approach white. Rescue " \
+      "command, permits, money, and maps are deliberately kept in " \
+      "different hands.",
+    methods:
+      "Survey pairs walk every white route on rotation, striking frames " \
+      "and rails, checking reflections at doors, and comparing a tuning " \
+      "compass against the last recorded pull; one changed measure turns a " \
+      "route amber, two matching changes close it until a Tuner joins. " \
+      "Each survey ends in a spoken handoff to the shaft steward, whose " \
+      "dispatch notes catch what a clean route form omits.",
+    presence:
+      "A steward, a board, and an emergency cache at every fixed shaft, " \
+      "with replaceable strips showing turns, level changes, and the time " \
+      "of the last walk. Between surveys, members clear stairs, test " \
+      "lamps, stock refuge rooms with air bottles and hand tools, and run " \
+      "kitchens that feed residents waiting out a long closure.",
+    attitude:
+      "Whoever uses the routes gets the board's current truth — " \
+      "shopkeepers copy strips onto delivery orders, medics ask the strip " \
+      "date before dispatch. Whoever overrides a steward's closure, " \
+      "however credentialed, loses access to the boards, and the city's " \
+      "money has never bought its transport office a say in route status."
+  )
+
   prose <<~PROSE
     A resident-run route service for the #{ref :underlayers, "Underlayers"}. The Cooperative maintains the boards at fixed shafts, verifies approaches below the marked limit, and organizes rescue when a changing connection cuts a household or workshop off from its usual street. Its members include building stewards, couriers, lift mechanics, medics, and certified #{ref :tuners, "Tuners"} from the Sithari chapter.
 
@@ -54,4 +82,16 @@ relate :rel_lower_routes_maintains_underlayers, :maintains, :lower_routes_cooper
 end
 relate :rel_lower_routes_cooperates_clarisant, :cooperates_with, :lower_routes_cooperative, :clarisant, since: 2310 do
   prose "The Cooperative supplies local route knowledge while #{ref :clarisant, "the Sithari Clarisant chapter"} supplies certified Tuners and instrument audits."
+  descriptive_identity(
+    basis:
+      "Two matching changes on a walked route close it until a Tuner " \
+      "joins the inspection, so the chapter's roster is written into " \
+      "the Cooperative's own procedure, along with the audits that " \
+      "keep every shaft's tuning compass honest.",
+    limits:
+      "The credential opens no doors below the marked limit: a route " \
+      "is safe when residents have walked it twice, and a Tuner who " \
+      "overrides a steward's closure loses access to the boards like " \
+      "anyone else."
+  )
 end

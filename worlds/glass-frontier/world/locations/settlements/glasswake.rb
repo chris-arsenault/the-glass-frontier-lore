@@ -12,6 +12,33 @@ installation :glasswake do
   position frame: :kaleidos_surface, latitude_deg: 11, longitude_deg: -75,
            size_class: :site
 
+  descriptive_identity(
+    setting:
+      "A coastal mining town on the surface of Kaleidos, pinned between " \
+      "the sea and the fused ridge of a fallen ring fragment — dark stone " \
+      "threaded with pale glass from the seaward side, exposed rooms and " \
+      "pressure doors on the inland face. Mine dust reaches every street " \
+      "near the ridge, and buildings meet it with deep awnings and grated " \
+      "entries.",
+    activity:
+      "Sorting terraces start early in the cool part of the day while " \
+      "harbor crews work the tides and repair yards bridge both " \
+      "schedules. Tourists hike the first-signal trail past Span Nine; " \
+      "at the dock fringe, Ratter crews and independent kites unload " \
+      "beside an open hiring wall.",
+    access:
+      "The harbor takes kites and carriers that would rather skip " \
+      "Sithari's fees, a surface spur connects the town to the Keel, and " \
+      "mine roads enter the ridge at several levels. Nothing becomes a " \
+      "certified mineral lot uptown until washing, grading, and a Shear " \
+      "Compact inspection say so.",
+    hazards:
+      "Removing a grade from the wreck is a structural reader's call: " \
+      "pulling the wrong seam can wake another or shift load into an " \
+      "occupied part of the fragment. On the beaches, mine crews warn " \
+      "children away from any bright patch that answers a tool strike."
+  )
+
   prose <<~PROSE
     Glasswake is a coastal mining town built around the ruins of a ring hab fragment that fell during the #{ref :the_glassfall, "Glassfall"}. The wreck forms a fused ridge along the eastern edge of town. Homes, workshops, mines, and warehouses occupy the sheltered ground between it and the sea.
 
@@ -80,4 +107,16 @@ moment :glasswake_first_signal, year: 2305, of: :glasswake do
 end
 relate :rel_glasswake_cooperates_hab_meridian, :cooperates_with, :glasswake, :hab_meridian, since: 2305 do
   prose "Its oldest tie is to #{ref :hab_meridian, "Hab Meridian"} — the hab that answered the First Signal — and the partnership has run continuously ever since."
+  descriptive_identity(
+    basis:
+      "The tie runs through ordinary channels: cross-orbit freight, " \
+      "delegation visits at the anniversaries, and a shared founding " \
+      "story that each town tells at its own scale.",
+    limits:
+      "Glasswake is the partner that moved on. Its half of the " \
+      "recording is gone, the transmitter building is a modest museum " \
+      "beside a working mine, and the town treats the fallen fragment " \
+      "as a resource where Meridian built a civilization around the " \
+      "answering call."
+  )
 end

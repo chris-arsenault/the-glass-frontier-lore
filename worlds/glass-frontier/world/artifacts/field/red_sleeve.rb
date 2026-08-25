@@ -7,6 +7,25 @@ artifact :red_sleeve do
   tags :household, :archives, :mystery, :"signal-freq"
   prominence :marginal
 
+  descriptive_identity(
+    appearance:
+      "One arm of a faded pressure coat, marked by tool abrasion, salt, " \
+      "and three repairs, kept at Wash Four. Its ringglass mordant holds " \
+      "three layers of signal apart along its length.",
+    handling:
+      "Trace washers run portable paddles against it to calibrate: a " \
+      "good reading recovers a speaking voice at the cuff, an engine " \
+      "rhythm at the elbow, and a route beacon near the shoulder seam. " \
+      "Played in wash order, the voice's short phrases give directions " \
+      "through Wash Four's clean route.",
+    risks:
+      "Each training wash weakens the quiet words first, so every " \
+      "calibration spends a little of the record. Because the sleeve " \
+      "fixes how fast a genuine trace should decay, garments measured " \
+      "against it more often fail than pass — including several whose " \
+      "voice is stronger than their treatment history permits.",
+  )
+
   prose <<~PROSE
     A faded pressure coat left the Red Sleeve at #{ref :wash_four, "Wash Four"}: one arm carrying tool abrasion, salt, three repair marks, and a speaking voice from cuff to shoulder.
 

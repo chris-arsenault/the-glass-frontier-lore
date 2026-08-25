@@ -10,6 +10,32 @@ installation :lot_forty do
   prominence :marginal
   omit_facts :maintained_by
 
+  descriptive_identity(
+    setting:
+      "Brake's largest enclosed cutting bay, named for the salvage grid " \
+      "painted across the central fragment. Two pressure doors open " \
+      "around a complete small vessel, movable walls carve the interior " \
+      "into clean work, hot cutting, quarantine, and recovered cargo, " \
+      "and overhead rails carry tools and sealed observation cabins " \
+      "above floor anchors that take a hull in nearly any orientation.",
+    activity:
+      "Hulls too dangerous to open in the clear come through here — " \
+      "leaking, contaminated, or still under power — and the bay crew's " \
+      "first question is which way up the vessel should sit before the " \
+      "walls close around it. The captured medical vessel outside the " \
+      "main doors has made Forty its supply lock and clinical staging " \
+      "area.",
+    access:
+      "The crew that brings a hull in follows it through the pressure " \
+      "doors. Inside, movement means the orange floor paths, which stay " \
+      "clear of the traveling wall sections and run to the independent " \
+      "shelters at both ends.",
+    hazards:
+      "The walls move: the room a job starts in is not the room it " \
+      "ends in, and the marked paths lead to the shelters rather than " \
+      "back to the doors anyone came in by."
+  )
+
   prose <<~PROSE
     Forty is Brake's largest enclosed cutting bay. Its official designation, Lot Forty, comes from the salvage grid painted across the central fragment. Two pressure doors open around a complete small vessel, and movable walls divide the interior into clean work, hot cutting, quarantine, and recovered cargo.
 

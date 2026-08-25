@@ -20,6 +20,31 @@ geographic_location :the_shear do
   log "2026-08-20 — Added the Pell Freight Assembly as a member-owned industrial operator and removed repeated Coremark name checks from general hazards and hidden stations."
   log "2026-08-21 — Renamed the Shear creatures Farborn, stated that the Glassfall created the Shear, and reduced the Bloom comparison to the local distinction needed by crews."
 
+  descriptive_identity(
+    setting:
+      "Pockets and layers of ringglass debris — dust to building-" \
+      "sized fragments — woven through Kaleidos orbit like damage " \
+      "through cracked glass, pressing against hab hulls on one side " \
+      "of clean space. Ambient frequencies spike, cancel, and " \
+      "interfere; Tuners call it painful noise, and people who work " \
+      "it long carry the unease it breeds — off notes in the report, " \
+      "shapes half-caught at the edge of vision.",
+    activity:
+      "Salvage drives most of the traffic, from one-crew skiffs " \
+      "grabbing at the edges to industrial rigs anchored on large " \
+      "debris masses for weeks, all of it imperfectly regulated by " \
+      "the Shear Compact. Shuttle routes thread the gaps like passes " \
+      "through mountains, and pilots carry the Compact's forecasts " \
+      "knowing they are frequently wrong and indispensable at once.",
+    hazards:
+      "A fist-sized fragment at orbital velocity goes through a hull, " \
+      "and that is only the most common death: resonance spikes " \
+      "overwhelm filters and carry sympathetic failure into a ship's " \
+      "own crystal systems, stable-looking debris masses cascade " \
+      "without warning, Farborn live in the deep pockets, and past " \
+      "the patrolled routes the only law is what a crew brings."
+  )
+
   prose <<~PROSE
     When the #{ref :the_glass_frontier, "orbital ring"} shattered, it didn't break cleanly. The habitable fragments — the #{ref :the_glass_frontier, "ring habs"} — drifted into stable or semi-stable orbits. Everything else became the Shear: the pockets and layers of debris, dust, and resonance distortion that fill the spaces between and around the surviving habs. Roughly half the volume of Kaleidos orbit is Shear.
 

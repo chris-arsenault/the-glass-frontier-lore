@@ -9,6 +9,35 @@ installation :cold_lantern do
   position frame: :kaleidos_system_chart, relative_to: :kaleidos,
            radial_offset: 0.18, angle_offset_deg: -96
 
+  descriptive_identity(
+    setting:
+      "A frame bolted to an ordinary debris mass on the outer Pell " \
+      "approach: a pressure shelter with eight seats and ceramic food " \
+      "tins, a line locker that opens from outside, a passive route " \
+      "recorder, and a dark beacon on a breakaway spar. No one lives " \
+      "here, and during routine traffic nothing is lit.",
+    activity:
+      "Outbound crews dock mechanically, read the recorder through " \
+      "physical contact, and press a fresh strip carrying vessel name, " \
+      "intended branch, people aboard, and reserve; inbound ships mark " \
+      "themselves home on the same record. Assembly watches come " \
+      "through to replenish the shelter and collect the strips.",
+    access:
+      "Any vessel can dock — the system runs on crews choosing to stop, " \
+      "since bypassing saves little travel and keeps a private claim off " \
+      "the shared strip. Rescue gear in the locker needs no approval " \
+      "during distress; each item's return tag bills its replacement to " \
+      "the next Assembly yard account.",
+    hazards:
+      "Lighting the beacon calls the whole rescue watch and tells " \
+      "anything hunting in the Deep where the waypoint is, which is why " \
+      "the call takes breaking a physical starter seal and the spar can " \
+      "carry the transmitting assembly away from the frame. The passive " \
+      "recorder currently holds a three-pulse distress pattern no ship " \
+      "admits transmitting, with an answering tone written beneath it on " \
+      "two strips."
+  )
+
   prose <<~PROSE
     Cold Lantern is an emergency waypoint on the outer Pell approach. It has no permanent population. A pressure shelter, passive route recorder, line locker, and dark beacon occupy a frame anchored to an ordinary debris mass. Crews use it as the last common check before the claim routes divide toward Deep pockets.
 

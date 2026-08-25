@@ -7,6 +7,29 @@ artifact :wurm_bit do
   tags :salvage, :ringglass, :resonance, :trade, :danger
   prominence :recognized
 
+  descriptive_identity(
+    appearance:
+      "A cleaned glasswurm mouth plate seated in a forked yoke, dark " \
+      "root against a weak ringglass driver, with witness wires along " \
+      "the yoke and a toolmaker's response marks cut into it. It leaves " \
+      "a curved, slightly ribbed bore like the wall of a wurm tunnel.",
+    handling:
+      "The operator opens a shallow notch, lets the driver sound into " \
+      "the layers, and follows the witness wires as the plate twists " \
+      "toward the clearest boundary between materials; bore dust " \
+      "returning through the grooves shows which seam it is on. Hand " \
+      "frames suit surface work, larger yokes ride remote cutters, and " \
+      "a plate that turns before touching the work gets opened and " \
+      "cleaned rather than trusted.",
+    risks:
+      "Locking the yoke for a straight cut sends every change in the " \
+      "seam into the plate until it snaps, and forcing the feed when the " \
+      "plate folds flat drives the broken pieces along different " \
+      "boundaries. The repeated bite copies part of a glasswurm's " \
+      "feeding pattern, and in ringglass-rich fragments a working bit " \
+      "can call an adult through the connected debris.",
+  )
+
   prose <<~PROSE
     A wurm-bit is a hand or cutter-mounted boring tool built around a shed #{ref :glasswurm, "glasswurm"} mouth plate. The plate changes its bite angle as the surrounding structural tone changes, letting the tool follow a seam through mixed mineral and ringglass without forcing a straight bore through both.
 

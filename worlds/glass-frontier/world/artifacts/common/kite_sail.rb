@@ -16,6 +16,29 @@ resource :kite_sail do
   operating_environments "Atmosphere, vacuum and the Shear"
   operating_limit "Requires continuous resonance input; cannot move a ring habitat"
 
+  descriptive_identity(
+    appearance:
+      "Every kite keeps its sails: surfaces carrying structural-band " \
+      "arrays for stability, kept partly because a ship without them " \
+      "does not look like a ship to anyone raised here. Under them sits " \
+      "the kinetic-band ringglass array, and a running drive gives off " \
+      "the hum of working machinery pitched just below notice.",
+    working:
+      "The array shunts every force opposing movement into a frequency " \
+      "null space, so the vehicle moves as if nothing pushes back — the " \
+      "same engine runs a surface route, lifts to orbit, and holds in " \
+      "the Shear. Arrays are tuned at manufacture; anyone who can read " \
+      "a resonance gauge keeps one flying, on ambient resonance for " \
+      "light duty and microcavity charge for heavy work.",
+    risks:
+      "The field needs continuous resonance input, and in dead space a " \
+      "ship that exhausts its stored charge does not slow — it keeps " \
+      "whatever momentum it had and goes where that points. Where the " \
+      "shunted forces go is a frequency domain nothing can track, and " \
+      "turning the field on a target works, at the cost of every crew " \
+      "who watched it done.",
+  )
+
   prose <<~PROSE
     The Kinetic Inverse Transport Engine — universally called a kite — is the general-purpose motive engine of the Kaleidos system. Kites use kinetic-band #{ref :resonance, "resonance"} to redirect opposing forces into a frequency null space, producing effectively unopposed momentum. A kite doesn't fight drag, friction, or gravity in the conventional sense — it makes the opposition happen somewhere else.
 

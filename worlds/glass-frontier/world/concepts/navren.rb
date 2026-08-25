@@ -7,6 +7,26 @@ resource :navren do
   tags :ecology, :materials, :trade, :"structural-freq"
   prominence :marginal
 
+  descriptive_identity(
+    appearance:
+      "Copper-green bark over pale wood, coppiced from named root " \
+      "stools at Noll. A worked piece holds the curve it was grown to " \
+      "and answers strain with a low audible hum, so a frame taking a " \
+      "load it was not built for says so aloud.",
+    working:
+      "Growers shape each stem while it lives — weights set the broad " \
+      "curve, grafts redirect single fibers, water-borne resonance " \
+      "settles the grain around the intended load — and the shape " \
+      "survives drying. Shipwrights brace mixed hull materials with it, " \
+      "builders set it around doors and pressure transitions, and " \
+      "instrument makers pick narrow offcuts by their growth marks.",
+    risks:
+      "Dried grain no longer answers a growth field, so forcing a " \
+      "piece into an unintended shape gets nothing. The repair means " \
+      "wood grown to that load — or a reserved stem at Noll and the " \
+      "wait through its cutting cycles.",
+  )
+
   prose <<~PROSE
     At #{ref :noll, "Noll"}, coppiced navren trees grow copper-green bark over pale wood whose fibers align with sustained pressure and a low structural tone. Cultivar plates beside the oldest surviving root stools supply the name.
 

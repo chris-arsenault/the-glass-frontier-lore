@@ -6,6 +6,13 @@ npc :venn_talis do
   tags :isolation, :diplomacy, :archives
   prominence :recognized
   occupation "Retired contact surveyor and witness to the Coriolis Breach"
+  species "human"
+  identity_source :species, :humans
+  descriptive_identity disposition:
+    "Venn engages only through written questions carried by an archive " \
+    "office, never in person and never at short notice. Each reply " \
+    "separates observation from inference and leaves unanswered what the " \
+    "record cannot support."
   omit_facts :based_in
 
   prose <<~PROSE
@@ -33,6 +40,18 @@ end
 
 relate :rel_venn_talis_cooperates_with_conclave, :cooperates_with, :venn_talis, :echo_ledger_conclave do
   prose "The Conclave's Sithari office carries Venn's complete replies to mediators and preserves their supporting record."
+  descriptive_identity(
+    basis:
+      "Written questions in, written answers out, with the archive " \
+      "office holding all four parts of the Coriolis record — " \
+      "testimony, suit telemetry, entry plan, and hatch recording — " \
+      "intact under Venn's copy conditions.",
+    limits:
+      "The office is a channel, not an agent. Venn meets no one, " \
+      "answers on no schedule, and the Conclave may not issue the " \
+      "condensed versions its readers keep requesting — the record " \
+      "travels whole or it does not travel."
+  )
 end
 
 relate :rel_venn_talis_taught_accord, :taught, :venn_talis, :tempered_accord do

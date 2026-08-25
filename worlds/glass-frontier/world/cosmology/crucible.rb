@@ -8,6 +8,30 @@ geographic_location :crucible do
   prominence :recognized
   position frame: :kaleidos_system_chart, radius: 1, angle_deg: 18
 
+  descriptive_identity(
+    setting:
+      "The system's innermost planet, a hot rocky world whose high " \
+      "latitudes hold mining settlements under reflective roofs. The " \
+      "uplands expose iron, nickel, ceramic salts, and dense clear " \
+      "crystals fused by repeated heating, and everything below ground " \
+      "is gallery, shelter, and shaded lift head.",
+    activity:
+      "Shifts open when sunward rock falls below the posted " \
+      "temperature and end before the next thermal rise, finished cut " \
+      "or not; crawler trains haul ore while foundries refine alloys " \
+      "and refractory ceramic for export. Food, medicine, and delicate " \
+      "instruments come down through orbital yards on lift windows " \
+      "rather than surface ports.",
+    hazards:
+      "Heat and charged dust exceed suit limits between the working " \
+      "windows, and rescue rules forbid a second crew from following " \
+      "workers past a closure line — the first crew reaches its paired " \
+      "shelter and waits out the hot interval, or is not reached. A " \
+      "missed lift window leaves the cargo circling overhead until the " \
+      "next safe descent, and the local clear crystal cuts like " \
+      "ringglass while holding no stable tuning."
+  )
+
   prose <<~PROSE
     Crucible is the innermost planet of the Kaleidos system, a hot rocky world mined from shielded settlements along its high latitudes. Surface crews work during short local windows, then withdraw beneath reflective roofs before heat and charged dust exceed suit limits.
 
@@ -45,4 +69,14 @@ relate :rel_crucible_part_of_system, :part_of, :crucible, :kaleidos_system do
 end
 relate :rel_crucible_supplies_ashvane, :supplies, :crucible, :ashvane do
   prose "Crucible foundries supply heat-resistant alloys used in Ashvane's cooling loops and radiator frames."
+  descriptive_identity(
+    terms:
+      "Refined alloy from foundries that hold working temperatures too " \
+      "expensive to produce elsewhere, lifted through orbital yards on " \
+      "the mining windows rather than any fixed schedule.",
+    dependence:
+      "Ashvane's law hands private cooling to the municipal return " \
+      "during a heat emergency, so the buried loops and radiator combs " \
+      "built from this stock are civic plumbing as much as trade goods."
+  )
 end

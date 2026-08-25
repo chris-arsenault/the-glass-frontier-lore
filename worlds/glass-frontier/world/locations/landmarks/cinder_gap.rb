@@ -7,6 +7,26 @@ installation :cinder_gap do
   prominence :marginal
   status :complete
 
+  descriptive_identity(
+    setting:
+      "A narrow debris gap on the contained edge of Pyre's Bloom Zone, " \
+      "its fragments coated in the pale refinery dust that named it. The " \
+      "modern stillwater wall runs across the gap, and three original " \
+      "buoy casings from the first successful containment stay mounted " \
+      "behind it.",
+    activity:
+      "Crews here are working out how to retire saturated buoys — " \
+      "remote taps and isolated samples only, under Lira Vashtenri's " \
+      "standing condition that no casing opens until someone can show " \
+      "where its stored frequencies will go.",
+    hazards:
+      "One old casing gives back a faint copy of every test tone " \
+      "applied near it, so instrument work by the mounts carries a " \
+      "second voice that new crews chase as a fault in their own gear. " \
+      "The stillwater in those vessels has absorbed more cascade " \
+      "activity than any other surviving containment."
+  )
+
   prose <<~PROSE
     The Pyre cordon section where Lira Vashtenri's first full stillwater wall held. Two expansion paths met in a narrow debris gap, allowing six experimental buoys to damp the same boundary from opposite sides. The name predates the test and comes from the pale refinery dust coating the fragments there.
   PROSE

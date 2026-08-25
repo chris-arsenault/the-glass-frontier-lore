@@ -9,6 +9,31 @@ resource :resonant_instruments do
   tags :resonance, :music
   prominence :recognized
 
+  descriptive_identity(
+    appearance:
+      "Instruments built from materials chosen for natural harmonic " \
+      "properties — particular alloys, tensioned membranes, tuned " \
+      "cavities — in forms matched to their band: horns for kinetic " \
+      "work, harps for signal, drums for structural reinforcement. " \
+      "They are contemporary-made, and the best are specialized rather " \
+      "than general.",
+    working:
+      "The player does the work the crystal does in a fixed array: " \
+      "breath, pressure, finger position, and bow angle become " \
+      "resonance at whatever frequency and bandwidth the player can " \
+      "hold. Audible sound comes off as a byproduct and cannot be " \
+      "silenced, because the vibration is the effect. It takes fine " \
+      "motor control steady enough to hold an arbitrary frequency " \
+      "while changing it in real time, and most who attempt the skill " \
+      "wash out.",
+    risks:
+      "The instrument channels whatever the player produces — there is " \
+      "no preset band and no fixed output to fall back on, so the " \
+      "capability is bounded only by skill and construction. Everyone " \
+      "in the compartment hears the work for as long as the tone " \
+      "holds.",
+  )
+
   prose <<~PROSE
     Devices that produce resonance effects without ringglass arrays. Built from materials selected for their natural harmonic properties — specific alloys, tensioned membranes, tuned cavities — resonant instruments channel ambient resonance through physical vibration rather than crystal lattice conduction. Most produce audible sound as a byproduct, which is how they got the name, but the sound is secondary. The resonance is the point.
   PROSE

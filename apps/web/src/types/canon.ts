@@ -4,6 +4,7 @@ import type {
   SpatialFrameDefinition,
   SpatialPosition,
 } from "./spatial";
+import type { DescriptiveIdentityFields, IdentityKeyDefinition, IdentitySourceDefinition, Optional } from "./identity";
 
 export type {
   RelationPropertyDefinition,
@@ -13,8 +14,8 @@ export type {
   SpatialFrameDefinition,
   SpatialPosition,
 } from "./spatial";
+export type * from "./identity";
 
-export type Optional<T> = T | undefined;
 export type Nullable<T> = T | null;
 export type TimeUnit = "year" | "tick";
 
@@ -40,7 +41,7 @@ export interface WorldSummary {
   description: string;
 }
 
-export interface EntrySummary {
+export interface EntrySummary extends DescriptiveIdentityFields {
   id: string;
   slug: string;
   title: string;
@@ -140,6 +141,9 @@ export interface KindSummary {
   id: string;
   title: string;
   count: number;
+  identity_source_policy: Optional<"declared" | "none">;
+  descriptive_identity_keys: Optional<IdentityKeyDefinition[]>;
+  identity_sources: Optional<IdentitySourceDefinition[]>;
 }
 
 export interface SubkindSummary {
@@ -147,6 +151,9 @@ export interface SubkindSummary {
   kind: string;
   title: string;
   count: number;
+  identity_source_policy: Optional<"declared" | "none">;
+  descriptive_identity_keys: Optional<IdentityKeyDefinition[]>;
+  identity_sources: Optional<IdentitySourceDefinition[]>;
 }
 
 export interface TagDefinition {
@@ -165,6 +172,9 @@ export interface RelationDefinition {
   description: Optional<string>;
   causal: boolean;
   properties: RelationPropertyDefinition[];
+  identity_source_policy: Optional<"declared" | "none">;
+  descriptive_identity_keys: Optional<IdentityKeyDefinition[]>;
+  identity_sources: Optional<IdentitySourceDefinition[]>;
 }
 
 export interface WorldIndex {
@@ -214,7 +224,7 @@ export interface CardSection extends AuthoredSectionBase {
 
 export type AuthoredSection = ProseSection | CardSection;
 
-export interface EntryConnection {
+export interface EntryConnection extends DescriptiveIdentityFields {
   direction: "outgoing" | "incoming";
   relation: string;
   relation_title: string;
@@ -267,7 +277,7 @@ export interface PageDocument extends PageSummary {
   sections: AuthoredSection[];
 }
 
-export interface GraphNode {
+export interface GraphNode extends DescriptiveIdentityFields {
   id: string;
   kind: string;
   subkind: string;
@@ -284,7 +294,7 @@ export interface GraphNode {
   path: string;
 }
 
-export interface GraphEdge {
+export interface GraphEdge extends DescriptiveIdentityFields {
   src: string;
   rel: string;
   tgt: string;
@@ -362,7 +372,7 @@ export interface ChronicleRelationshipEndpoint {
   route: string;
 }
 
-export interface ChronicleRelationship {
+export interface ChronicleRelationship extends DescriptiveIdentityFields {
   source_id: string;
   relation: string;
   source: ChronicleRelationshipEndpoint;

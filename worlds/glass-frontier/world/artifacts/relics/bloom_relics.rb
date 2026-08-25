@@ -8,6 +8,28 @@ artifact :bloom_relics do
   prominence :recognized
   log "2026-08-21 — Defined Bloom relic formation as a boundary pinning one existing physical relationship into an exposed object. The effect follows the object's prior function and local conditions; repeated activation is not required."
 
+  descriptive_identity(
+    appearance:
+      "An ordinary working object — a winch, a seal, a relay, a bearing " \
+      "— carrying some mark of the boundary that crossed it: geometry " \
+      "that should not close, crystal that holds one narrow bandwidth " \
+      "with no tuning, a machine whose changed behavior shows only under " \
+      "test. No two are alike.",
+    handling:
+      "What a relic does follows from its old job, narrowed under a " \
+      "stranger rule, so each one has to be tested separately — no " \
+      "general model predicts them. They move through the economy as " \
+      "goods of extreme value, priced by demonstrated behavior and " \
+      "credible custody, from official holdings to black-market " \
+      "catalogues.",
+    risks:
+      "Every use spends the altered material, and once it is spent no " \
+      "workshop can restore it; the effect ends where the surviving " \
+      "material stops carrying the pinned relationship. Named relics " \
+      "without a public chain of custody may be nothing but a story " \
+      "that has not yet failed examination.",
+  )
+
   prose <<~PROSE, section: :significance, heading: "Significance"
     Individually unique artifacts of exceptional power circulate through the system's economy as objects of extreme value. Some survive from before the Glassfall. Others form at active Bloom boundaries. Current workshops cannot manufacture either class on demand.
 

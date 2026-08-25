@@ -5,6 +5,12 @@ npc :kir_orm do
   occupation "Airwright and passage mapper"
   specialty "Tracing airflow through porous structural channels"
   species "human"
+  identity_source :species, :humans
+  identity_source :culture, :hab_worlder
+  descriptive_identity disposition:
+    "Orm takes work from anyone with a wall that has stopped breathing, " \
+    "and stands whoever hired her in the flow beside her before she lets " \
+    "them read an instrument."
   culture "Hab-Worlder"
   status :complete
   tags :"structural-freq", :household, :training

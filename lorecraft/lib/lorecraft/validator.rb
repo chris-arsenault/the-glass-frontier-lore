@@ -30,6 +30,7 @@ module Lorecraft
       check_playability_requirements: ["unsatisfied_playability_requirement", "schema-authoring", "Restore the declared playable coverage or choice range."],
       check_subkinds: ["invalid_subkind", "schema-authoring", "Declare and select an allowed subkind."],
       check_facts: ["invalid_fact", "schema-authoring", "Correct the fact declaration or its value."],
+      check_descriptive_identities: ["invalid_descriptive_identity", "schema-authoring", "Declare valid identity keys and full-article sources, or correct the local identity operation."],
       check_sections: ["unknown_section", "entry", "Use a section declared by the world schema."],
       check_statuses: ["invalid_status", "entry", "Use a supported authoring status."],
       check_provenance: ["invalid_provenance", "audience", "Correct the provenance value or review date."],
@@ -1250,6 +1251,171 @@ module Lorecraft
             err("#{label(node)}: fact '#{definition.name}' expects one #{definition.relation} target, got #{targets.size}")
           end
         end
+      end
+    end
+
+    def check_descriptive_identities
+      check_identity_schema_contract
+      @world.entities.each_value do |entity|
+        next if entity[:status] == :shell
+        if entity.veiled?
+          check_veiled_blank_slate(entity)
+          next
+        end
+        next unless @schema.descriptive_identities_required? || identity_configured?(entity)
+
+        check_identity_owner(entity)
+      end
+      @world.relation_instances.each_value do |relation|
+        next unless identity_configured?(relation)
+
+        check_identity_owner(relation)
+      end
+    end
+
+    def check_identity_schema_contract
+      if @schema.descriptive_identities_required?
+        @schema.kinds.each_value do |kind|
+          next if kind.identity_source_policy
+
+          @diagnostic_owner = nil
+          err("entity kind #{kind.name}: must declare identity sources or no_identity_sources")
+        end
+      end
+
+      @schema.kinds.each_value do |kind|
+        kind.subkinds.each_value do |subkind|
+          check_identity_definitions(
+            "#{kind.name}/#{subkind.name}",
+            @schema.identity_keys_for(kind.name, subkind: subkind.name),
+            @schema.identity_sources_for(kind.name, subkind: subkind.name)
+          )
+        end
+      end
+      @schema.relations.each_value do |relation|
+        check_identity_definitions(
+          "relation #{relation.name}",
+          @schema.relation_identity_keys(relation.name),
+          @schema.relation_identity_sources(relation.name)
+        )
+      end
+    end
+
+    def check_identity_definitions(label, keys, sources)
+      key_names = keys.map(&:name)
+      sources.each do |source|
+        if source.kinds.empty?
+          err("#{label}: identity source #{source.name} needs at least one allowed kind")
+        end
+        source.projection.each_value do |target_key|
+          unless key_names.include?(target_key)
+            err("#{label}: identity source #{source.name} projects unknown key #{target_key}")
+          end
+        end
+      end
+    end
+
+    # A veiled entity is a blank slate for play to establish: it declares no
+    # descriptive identity and no identity sources, and no requirement applies.
+    def check_veiled_blank_slate(owner)
+      @diagnostic_owner = owner
+      return if owner.local_identity_values.empty? && owner.identity_source_values.empty?
+
+      err("#{label(owner)}: veiled entity is a blank slate; remove its descriptive identity and identity sources")
+    end
+
+    def check_identity_owner(owner)
+      @diagnostic_owner = owner
+      keys, sources = identity_definitions(owner)
+      key_names = keys.map(&:name)
+      source_index = sources.to_h { |source| [source.name, source] }
+
+      owner.local_identity_values.each_value do |value|
+        err("#{label(owner)}: unknown descriptive identity key #{value.key}") \
+          unless key_names.include?(value.key)
+        unless value.text.is_a?(String) && !value.text.strip.empty?
+          err("#{label(owner)}: descriptive identity #{value.key} must be non-empty text")
+        end
+        unless %i[extend override].include?(value.operation)
+          err("#{label(owner)}: descriptive identity #{value.key} uses unknown operation #{value.operation}")
+        end
+      end
+
+      owner.identity_source_values.each_key do |slot|
+        definition = source_index[slot]
+        unless definition
+          err("#{label(owner)}: unknown identity source slot #{slot}")
+          next
+        end
+        if definition.relation?
+          err("#{label(owner)}: relation-backed identity source #{slot} cannot be assigned directly")
+        end
+      end
+
+      resolution = @world.resolve_identity(owner, at: :now, audience: :all)
+      resolution.sources.each do |row|
+        definition = source_index.fetch(row[:slot])
+        check_identity_source_target(owner, definition, row[:id])
+      end
+      resolution.missing_required.each do |key|
+        err("#{label(owner)}: missing required descriptive identity key #{key}")
+      end
+    rescue IdentityError => e
+      err("#{label(owner)}: #{e.message}")
+    end
+
+    def check_identity_source_target(owner, definition, id)
+      target = @world.entity(id)
+      unless target
+        err("#{label(owner)}: identity source #{definition.name} targets unknown entity #{id}")
+        return
+      end
+      unless definition.kinds.include?(target.kind)
+        err("#{label(owner)}: identity source #{definition.name} target #{id} has kind " \
+            "#{target.kind}; expected #{definition.kinds.join(', ')}")
+      end
+      unless definition.subkinds.empty? || definition.subkinds.include?(target.subkind)
+        err("#{label(owner)}: identity source #{definition.name} target #{id} has subkind " \
+            "#{target.subkind}; expected #{definition.subkinds.join(', ')}")
+      end
+      if target[:status] != :complete
+        err("#{label(owner)}: identity source #{definition.name} target #{id} must be complete")
+      end
+      if target.veiled?
+        err("#{label(owner)}: identity source #{definition.name} target #{id} cannot be veiled")
+      end
+      if target.prose_blocks.empty? || target.prose_blocks.all? { |block| block.text.strip.empty? }
+        err("#{label(owner)}: identity source #{definition.name} target #{id} needs a full article")
+      end
+      if !owner.dm? && target.dm?
+        err("#{label(owner)}: public identity cannot inherit from DM source #{id}")
+      end
+      definition.projection.each_key do |source_key|
+        source_keys = @schema.identity_keys_for(target.kind, subkind: target.subkind).map(&:name)
+        unless source_keys.include?(source_key)
+          err("#{label(owner)}: identity source #{definition.name} target #{id} " \
+              "does not declare projected key #{source_key}")
+        end
+      end
+    end
+
+    def identity_configured?(owner)
+      keys, sources = identity_definitions(owner)
+      !keys.empty? || !sources.empty? || !owner.local_identity_values.empty? ||
+        !owner.identity_source_values.empty?
+    end
+
+    def identity_definitions(owner)
+      if owner.is_a?(RelationInstance)
+        [
+          @schema.relation_identity_keys(owner.verb),
+          @schema.relation_identity_sources(owner.verb),
+        ]
+      else
+        [
+          @schema.identity_keys_for(owner.kind, subkind: owner.subkind),
+          @schema.identity_sources_for(owner.kind, subkind: owner.subkind),
+        ]
       end
     end
 

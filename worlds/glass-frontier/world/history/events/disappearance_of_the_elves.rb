@@ -8,6 +8,22 @@ incident :disappearance_of_the_elves do
   date 2305
   scale "Every publicly known elven community and individual"
 
+  descriptive_identity(
+    marks:
+      "Archives across Kaleidos, the ring habs, and the outer worlds " \
+      "carry the same kind of gap: procedures kept and authors lost, " \
+      "decisions preserved with whole departments omitted, named " \
+      "participants replaced by generic descriptions. In the Echo " \
+      "Rivers, conversations cut to silence and voice signatures " \
+      "flatten into harmonic hum. The ring's broad elven history " \
+      "survives; the names, family lines, and locations do not.",
+    stakes:
+      "The Echo Ledger Conclave has not settled whether the pattern " \
+      "records deliberate removal or an unknown failure concentrated " \
+      "around elven signals, and each deep fragment the alteration " \
+      "never reached reopens the argument."
+  )
+
   prose <<~PROSE
     When communication returned after #{elapsed :the_glassfall, :the_rekindling} of Signal Famine, no elven community answered. No settlement reported an elven population and no individual came forward. Elven lifespans rule out ordinary attrition. The disappearance remains a recognized event whose course is reconstructed from absence and damaged records.
   PROSE

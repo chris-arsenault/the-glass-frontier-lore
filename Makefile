@@ -1,4 +1,4 @@
-.PHONY: validate lint check check-all wiki site-data graph stats topology focus worlds test provenance facts gm-notes queue web reader-dev reader-build review-check backend-check app-check clean
+.PHONY: validate lint check check-all wiki site-data graph stats topology focus worlds test provenance facts identity gm-notes queue web reader-dev reader-build review-check backend-check app-check clean
 
 # Content targets run against one world unless their name says otherwise.
 # Override with WORLD=<id>; `make worlds` lists what is available. The default
@@ -68,6 +68,9 @@ provenance:
 # Which expected kind facts are known, grouped by entity kind and entry.
 facts:
 	@$(LC) facts
+# Resolved descriptive identity, normalized sources, and per-key provenance.
+identity:
+	@$(LC) identity
 # GM-note coverage, plus the repetition findings bulk writing produces.
 gm-notes:
 	@$(LC) gm-notes

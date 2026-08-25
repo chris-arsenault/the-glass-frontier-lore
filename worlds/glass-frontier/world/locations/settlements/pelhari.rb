@@ -7,6 +7,32 @@ installation :pelhari do
   tags :"outer-system", :training, :resonance, :trade, :"ring-era"
   prominence :recognized
 
+  descriptive_identity(
+    setting:
+      "A vertical city carved down the wall of a crater two kilometers " \
+      "across and nearly as deep, terraces stacked on terraces — the " \
+      "broad bright rim holding the Academy and observatory, workshops " \
+      "and markets spiraling below, ice lifts and freight yards at the " \
+      "floor. Overhead, the banded face of the parent planet fills a " \
+      "fifth of the sky and turns slowly through colors the locals name.",
+    activity:
+      "Examinations and observatory practice run on the upper terraces, " \
+      "wright shops turn out tuned ringglass instruments, miners work " \
+      "ice veins that reach kilometers into the moon, and the dock " \
+      "houses handle Span Nine's traffic. Weddings, commissions, and " \
+      "exams are all scheduled by the gas giant's storm-faces.",
+    access:
+      "Span Nine's terminus lands on the outer-rim dock complex with its " \
+      "customs and signal bureaucracy, and public lifts connect every " \
+      "terrace from rim to floor.",
+    hazards:
+      "The upper terraces are resonance-quiet enough that a cracked " \
+      "array, a tuned pin, or undeclared ringglass in a bag reads " \
+      "plainly to anyone attuned walking past. Which terrace a visitor " \
+      "sleeps on is what the Pelharin read them by, and nobody says so " \
+      "aloud."
+  )
+
   prose <<~PROSE
     A moon of the seventh planet, the outer-system #{ref :kaleidos_system, "water giant"}. Pelhari is a single vertical city carved down the wall of a kilometers-deep crater — terraces stacked on terraces, gas-giant-facing terraces brightest, shadow-side terraces densest. The crater opens to a sky dominated by the banded face of the parent planet, which fills a fifth of the upper hemisphere and turns slowly through colors that the locals know by name.
 

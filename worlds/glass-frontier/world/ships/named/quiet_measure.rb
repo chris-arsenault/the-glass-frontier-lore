@@ -7,6 +7,23 @@ transport :quiet_measure do
   tags :transport, :salvage, :orbital, :danger, :resonance
   prominence :recognized
 
+  descriptive_identity(
+    appearance: "A long central hull, once a short-haul ore carrier, with a receiving lock at the bow and paired " \
+                "towing forks at the stern. Two soft capture loops and a telescoping passage deploy toward a " \
+                "casualty instead of a rigid docking collar.",
+    aboard: "Orange shutters cut the interior into short sections, every handle workable from either side, with " \
+            "two pressure-independent treatment rooms amidships running their own air, clocks, and power. In the " \
+            "main rescue lock one blackened frame from the old receiver fire stays exposed behind clear sealant " \
+            "as a quick visual check on any new twist in the hull. Colored ties along the boarding passage point " \
+            "the way home through smoke or darkness.",
+    behavior: "It approaches a casualty on passive instruments and takes a quiet interval before opening anything: " \
+              "drives idle, cutters cold, sounders listening. Rescue workers cross in pairs; casualties surrender " \
+              "energized tools and pass a sounding frame before treatment. Each stern fork carries its own field, " \
+              "breaker, and physical release, so a towed craft whose drive starts answering the tender can be " \
+              "dropped without losing the other connection. To a ship whose hull returns coherently from somewhere " \
+              "else, it sends a line and takes people one at a time, never docking."
+  )
+
   prose <<~PROSE
     *Quiet Measure* is a rescue tender stationed at #{ref :pell_cut, "Pell Cut"} and maintained by the #{ref :pell_freight_assembly, "Pell Freight Assembly"}. Its long central hull carries a receiving lock at the bow, paired towing forks at the stern, and two pressure-independent treatment rooms between them. Orange shutters divide the interior into short sections. Every handle can be worked from either side.
 

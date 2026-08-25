@@ -4,6 +4,13 @@ npc :dez_morrn do
   subkind :dissident
   occupation "Trumpeter and organizer of Fermata's free-jazz movement"
   species "human"
+  identity_source :species, :humans
+  identity_source :culture, :hab_worlder
+  descriptive_identity disposition:
+    "Dez starts anyone interested on one sustained tone and moves nowhere " \
+    "until every player in the room can name where it came back through " \
+    "the deck. Performers who break something to prove they are serious " \
+    "are expelled on the spot."
   culture "Hab-Worlder"
   tags :music, :activism, :governance, :resonance
   prominence :forgotten
@@ -43,7 +50,28 @@ relate :rel_dez_located_in_fermata, :located_in, :dez_morrn, :fermata_station do
 end
 relate :rel_dez_participates_in_open, :participated_in, :dez_morrn, :the_fermata_open do
   prose "Dez uses the #{ref :the_fermata_open, "Fermata Open"} to bring unfamiliar players into arguments the resident Session has learned to contain."
+  descriptive_identity(
+    aims:
+      "Her submitted piece is aimed at Fermata's law-making channel — a " \
+      "composition the Closing Session takes up becomes available as " \
+      "future law, and hers withholds the fixed resolution the " \
+      "Standards assume.",
+    conduct:
+      "She teaches visitors the political weight of the Standards and " \
+      "then asks them to play what they heard before she explained it."
+  )
 end
 relate :rel_dez_cooperates_with_goruth, :cooperates_with, :dez_morrn, :goruth, since: 2435 do
   prose "Goruth has joined Dez's proposed Closing Session work and will hold the central hall if its separated parts lose contact."
+  descriptive_identity(
+    basis:
+      "Her piece needs players who can hear one another through the " \
+      "station's structure, and Goruth reads the deck barefoot — if " \
+      "the separated rooms drift apart, his chords in the central hall " \
+      "are what they find their way back to.",
+    limits:
+      "He has agreed to be there, not to what he will play. Goruth " \
+      "refuses to settle in advance that any transition must resolve, " \
+      "which for a work that withholds its resolution cuts both ways."
+  )
 end

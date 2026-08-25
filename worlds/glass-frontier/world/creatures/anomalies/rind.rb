@@ -5,6 +5,21 @@ creature :rind do
   tags :ecology, :resonance, :orbital, :danger, :mystery
   prominence :marginal
 
+  descriptive_identity(
+    appearance: "Roughly the size of a small courier kite, most of its body enclosed in an opaque pale-grey " \
+                "carapace whose irregular crystal inclusions catch bands of light for Tuners and look dull to " \
+                "everyone else. Dozens of hair-fine filaments trail ten to fifteen meters behind the shell, " \
+                "drifting independently and giving off a harmonic at the edge of hearing.",
+    behavior: "It advances along a sustained resonance gradient at walking speed or slower, holds position for " \
+              "days when the source stays steady, and circles outward hunting the line when the source " \
+              "weakens. It shows no aggression toward ships or people, and deep-runners move one with a " \
+              "counter-tone placed beyond the route they want it to take.",
+    threat: "A filament brushing active ringglass sets up a sympathetic response through both materials — the " \
+            "animal is unharmed and the array mount can stay out of calibration for hours, and the drifting " \
+            "strands reach tuned equipment well beyond a comfortable distance. Striking the shell scatters the " \
+            "filaments, and every scattered strand is another contact."
+  )
+
   prose <<~PROSE
     A large Deep Shear animal that follows sustained resonance gradients. Deep-runners call it a rind for the pale shell enclosing most of its body. The specimen now holding near #{ref :outside, "Outside"} is the first recorded beside an active Bloom cordon.
 

@@ -11,6 +11,26 @@ faction :tempered_accord do
   mandate "Mediate disputes and maintain shared standards between settlements"
   authority "Reputation, trade access and member enforcement"
 
+  descriptive_identity(
+    ideology:
+      "Disputes go to a hearing, standards get written down, and the memory " \
+      "of the Bitter Reach is reason enough to keep both habits. The Accord " \
+      "holds that no faction may force entry on a hab that refuses contact.",
+    methods:
+      "Mediation on a schedule measured in months, standards adopted by " \
+      "member vote, and no power to order any government to act. Its " \
+      "sanction is expulsion, which strips a member of Compact mediation, " \
+      "Vantara's routes, and enforceable contracts.",
+    presence:
+      "Uniformed secretariat staff and formally seated delegations, " \
+      "conducted in Sitharian legal language among hearing rooms, rosters, " \
+      "and published records. Nothing about it is armed.",
+    attitude:
+      "Patient, procedural, and open to any party willing to file — with " \
+      "the standing Sitharian assumption of being the adults in the room. " \
+      "Nobody fights it openly; plenty shirk its reign in the shadows."
+  )
+
   prose <<~PROSE
     The system's governance framework is a mediation structure and a set of shared norms that most settlements have agreed to honor most of the time. The memory of the Bitter Reach gives its members a common reason to preserve it.
 
@@ -58,4 +78,15 @@ end
 
 relate :rel_tempered_accord_regulates_shuttered_habs, :regulates, :tempered_accord, :shuttered_habs do
   prose "Its sovereignty provisions legally permit the #{ref :shuttered_habs, "shuttered habs"} to refuse contact — the hard-won principle, born at Coriolis, that no faction may force entry."
+  descriptive_identity(
+    reach:
+      "The protection attaches to the hab rather than to its consent: " \
+      "it holds for communities that have never heard of the Accord and " \
+      "for interiors where nobody remains who could recognize a law.",
+    enforcement:
+      "Enforcement points at the sponsor — whoever mounts an entry " \
+      "answers for it no matter what the entry finds — while the " \
+      "appetite for the space and resources behind the sealed doors " \
+      "has never fully gone away."
+  )
 end

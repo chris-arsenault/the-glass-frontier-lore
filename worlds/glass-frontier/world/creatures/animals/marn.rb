@@ -6,6 +6,22 @@ creature :marn do
   tags :surface, :ecology, :trade, :resonance
   prominence :recognized
 
+  descriptive_identity(
+    appearance: "A grazing animal standing chest-high on a human, deep-bodied, its coat dense along the spine " \
+                "and sparse around the legs. Each broad foot splits into two hard inner toes inside a flexible " \
+                "pad that leaves a shallow crescent print in wet clay. Ownership marks are cut into the horn " \
+                "sheaths behind the jaw, which shed as the animal matures.",
+    behavior: "It grazes steppe grass, scrub, and harvest leavings between ridge shelter and open ground, " \
+              "patient on firm stone and reluctant on glass-bearing clay. Stiffening hair between the foot " \
+              "pads gives it a continuous sense of ground vibration: a herd notices a loaded caravan beyond a " \
+              "ridge before the bells carry, learns the rhythm of the machine it lives beside, and refuses " \
+              "ground beginning to slip under a repeated load.",
+    threat: "Not a hunter, but a kinetic correction through the ground — a flitter settling close, a changed " \
+            "bearing in a familiar pump — can make a tethered group pull at once. One animal planting all " \
+            "four feet and lowering its head is temperament; twenty facing the same empty hollow is a reason " \
+            "to move the caravan."
+  )
+
   prose <<~PROSE
     Marn are broad-footed grazing animals kept across #{ref :avar, "Avar"} for wool, milk, hides, and meat. A mature animal stands chest-high on a human and carries a deep body under a coat that grows dense along the spine and sparse around the legs. Herding families move them between ridge shelter and open grass as water and road conditions change.
 

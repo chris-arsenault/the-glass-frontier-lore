@@ -7,6 +7,26 @@ resource :velin do
   tags :ecology, :materials, :trade, :resonance
   prominence :marginal
 
+  descriptive_identity(
+    appearance:
+      "Pale living fiber grown across warm nutrient mesh, harvested in " \
+      "sheets, rolled around wet ceramic rods, and shipped in warm " \
+      "cases that carry the chamber pulse. Dye set during cultivation " \
+      "marks each layer's age and the direction of growth.",
+    working:
+      "Clinics cut grafts along the visible fibers — the dye lines are " \
+      "read first, since a strip cut across them bridges nothing. A " \
+      "prepared strip carries sensation end to end and spans damaged " \
+      "nerve tissue while the patient's own cells grow through it.",
+    risks:
+      "The cool-chamber form binds to living bark and answers as one: " \
+      "a cut on a single bound root contracts every neighboring plant " \
+      "in the room, and has silenced grafts across a transfer room. " \
+      "With Olven's first harvest withheld, velin sold outside the " \
+      "chambers travels without the lineage record clinics normally " \
+      "demand — and gets bought anyway.",
+  )
+
   prose <<~PROSE
     Olven's humid chambers grow pale velin across warm nutrient mesh. A slow kinetic pulse aligns its fibers. Prepared strips carry sensation from one end to the other and bridge damaged nerve tissue while a patient's own cells grow through them.
 

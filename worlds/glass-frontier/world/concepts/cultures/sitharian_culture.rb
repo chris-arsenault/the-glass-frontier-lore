@@ -13,6 +13,26 @@ culture :sitharian_culture do
   formal_register "The default language of diplomacy, law and system-wide trade"
   aesthetic "Clean lines, muted natural tones and precise accents"
 
+  descriptive_identity(
+    appearance:
+      "Raised under open sky and full surface gravity, Sitharians stand and " \
+      "move like it — unhurried in large spaces, at ease with distance.",
+    attire:
+      "Clean lines, layered clothing, muted natural tones with precise " \
+      "accents; the fabric is high-quality and the tailoring exact. The " \
+      "signal is effortlessness achieved through meticulous effort, and a " \
+      "Sitharian repair is meant not to show.",
+    manner:
+      "Measured cadence and full clause structure even when pressed, " \
+      "disagreement conducted through procedure, and the standing assumption " \
+      "of being the adults in the room — generously and condescendingly " \
+      "applied.",
+    hospitality:
+      "Formally generous and precisely bounded: invitations name their " \
+      "hours, the table is excellent, and a guest's standing can be read " \
+      "from how the invitation was worded."
+  )
+
   prose <<~PROSE
     The culture that grew from #{ref :sithari, "Sithari"}, the system's de facto capital, and radiated outward. Sitharian identity is the system's prestige culture: cosmopolitan, multilingual, politically connected, and acutely aware of its own significance. Being Sitharian means carrying the weight of the old world — the planet the ring was built around, the city where civilization was first re-established after the Signal Famine, the center that still considers itself the center even as the system outgrows it.
   PROSE

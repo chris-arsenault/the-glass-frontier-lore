@@ -7,6 +7,27 @@ artifact :nineteen do
   tags :training, :transport, :resonance, :"kinetic-freq"
   prominence :marginal
 
+  descriptive_identity(
+    appearance:
+      "Belt and shoulder segments recovered together from a sealed Kesh " \
+      "junction locker, each set with two flexible ringglass ribs and " \
+      "joined to its neighbors by broad sliding loops. Shared straps fit " \
+      "the whole run to a forty-person formation.",
+    handling:
+      "Wearers move on a single count; the ribs pass every shift of load " \
+      "and balance around the harness, so a person at the rear feels a " \
+      "front foot lift before the weight arrives. The loops let the line " \
+      "bend, kneel, and take a narrow turn without breaking contact, and " \
+      "segments come off mid-formation only by dropping the count.",
+    risks:
+      "A wearer who breaks stride sends that motion around the ribs " \
+      "before their own movement finishes, and the line bends with it or " \
+      "loses contact. With forty people in it the harness reports twenty " \
+      "positions, and the extra one moves from the front pair toward the " \
+      "center each turn of the spoke chamber, putting load through " \
+      "whoever it crosses from a body that is not there.",
+  )
+
   prose <<~PROSE
     Nineteen links the belt and shoulder segments found together in a sealed Kesh junction locker. Each segment carries two flexible ringglass ribs and joins its neighbors through broad sliding loops. When wearers move on one count, the ribs carry changes in load and balance around the complete harness. A person at the rear can feel a front foot lift before the weight reaches them, while the loops let the formation bend, kneel, and pass through a narrow turn without losing contact.
 

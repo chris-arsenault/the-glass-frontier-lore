@@ -8,6 +8,25 @@ resource :ravel_water do
   tags :materials, :resonance, :orbital, :mystery
   prominence :marginal
 
+  descriptive_identity(
+    appearance:
+      "A clear liquid in six sealed trays, warm to the room and still " \
+      "fluid at temperatures that freeze ordinary water beside it. It " \
+      "carries the plume's mineral salts and a chain of complex carbon " \
+      "compounds no earlier catch contained.",
+    working:
+      "Handling is separation: pressure cells keep every sample more " \
+      "than a meter from the next, in metal or ringglass, the only " \
+      "containers that hold it still. Study runs through recorded " \
+      "passages — temperature, pressure, distance, and signal tone " \
+      "logged while a tray rides the plume crossing.",
+    risks:
+      "Within a meter of each other, thin films climb the ceramic " \
+      "toward the other sample; brought together, two samples spread " \
+      "into one moving sheet and sound a cluster of high-band tones " \
+      "loud enough on a signal sounder to bring the watch.",
+  )
+
   prose <<~PROSE
     Six sealed trays hold the clear liquid called Ravel Water, recovered from two outer collector panels at #{ref :ravel, "Ravel"}. It remains fluid at temperatures that freeze ordinary water in the same room. Two samples brought together spread into one moving sheet and produce a cluster of high-band tones.
 

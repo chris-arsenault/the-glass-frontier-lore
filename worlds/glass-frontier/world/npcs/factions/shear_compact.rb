@@ -7,6 +7,31 @@ faction :shear_compact do
   tags :salvage, :ringglass, :trade, :governance
   prominence :recognized
 
+  descriptive_identity(
+    ideology:
+      "Nothing that happened at Pyre gets to happen again: minimum " \
+      "standards, extraction limits, and mediated claims are worth more " \
+      "than any single haul. Its authority rests on that memory rather " \
+      "than on force — the Compact keeps no armed arm at all.",
+    methods:
+      "Certification by equipment inspection, crew competency assessment, " \
+      "and compliance with extraction limits; a Shear weather service " \
+      "tracking debris, resonance tides, and drift events; mediation of " \
+      "salvage disputes before anything reaches the Tempered Accord; and " \
+      "fines sized to deter casual corner-cutting, which determined " \
+      "violators simply pay as a cost of business.",
+    presence:
+      "Its people come as inspectors, assessors, and mediators, never as " \
+      "muscle. Where a crew feels the Compact daily is the forecast — " \
+      "debris, tides, drift — which is frequently wrong, the best " \
+      "available, and read aloud with complaint before every crossing.",
+    attitude:
+      "An uncertified operator is stopped by nobody and pursued by " \
+      "paperwork: the fine follows, and the crew forfeits the mediation " \
+      "that settles disputed finds. Independent crews it would rather " \
+      "license than chase, with uneven success."
+  )
+
   prose <<~PROSE
     The system's regulatory body for #{ref :the_shear, "Shear"} salvage operations. Not an enforcement agency — a standards board. The Compact sets safety requirements, certifies operators, maintains forecasting services, and issues fines when people cut corners. It has no armed enforcement arm. Its authority comes from the fact that most people, at this point, recognize the value of not repeating what happened at #{ref :pyre, "Pyre"}.
   PROSE
@@ -32,9 +57,33 @@ end
 
 relate :rel_shear_compact_regulates_the_shear, :regulates, :shear_compact, :the_shear, since: 2383 do
   prose "The Compact exists to regulate the #{ref :the_shear, "Shear"} — charting working zones, certifying operators, and trying to make a lethal industry survivable."
+  descriptive_identity(
+    reach:
+      "Certification and extraction limits bind whoever wants legal " \
+      "standing in the Shear; Coremark works the same volumes without " \
+      "either, and the limits themselves sit under steady pressure from " \
+      "buyers the certified rate cannot supply.",
+    enforcement:
+      "No armed arm and no pursuit — a violation draws a fine sized for " \
+      "deterrence and paid by determined operators as a business cost, " \
+      "while the heavier penalty is losing the mediation that keeps a " \
+      "disputed find yours."
+  )
 end
 relate :rel_shear_compact_regulates_ratters, :regulates, :shear_compact, :ratters, since: 2383 do
   prose "That includes the #{ref :ratters, "ratters"}, the independent crews it would rather license than chase, with uneven success."
+  descriptive_identity(
+    reach:
+      "A working Ratter is licensed in practice whatever the flotilla's " \
+      "politics: claim ledgers, cutter inspection records, cargo " \
+      "grades, and declared rescue coverage are what keep a crew flying " \
+      "and a haul sellable.",
+    enforcement:
+      "The Compact has no way to chase a skiff and little need to — a " \
+      "clean ledger lets a crew refuse a bad buyer, so most keep the " \
+      "forms that keep them flying, and the ones that do not meet the " \
+      "Compact only when a disputed claim turns expensive."
+  )
 end
 
 # --- history (moments) ---

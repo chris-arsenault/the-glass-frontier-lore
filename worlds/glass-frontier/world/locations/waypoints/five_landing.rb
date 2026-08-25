@@ -8,6 +8,32 @@ installation :five_landing do
   prominence :marginal
   omit_facts :maintained_by
 
+  descriptive_identity(
+    setting:
+      "The broadest continuous deck in Holl, floored with colored bands " \
+      "that run from each of its five routes out through the crowd. " \
+      "Freight sits in the center under a traveling hoist; food stalls, " \
+      "repair tables, and water taps line the wall; removable benches " \
+      "ride the outer rail between lift loads.",
+    activity:
+      "Market trade, freight handling, and public meetings share the " \
+      "floor by turns, and lately survey crews and curious residents " \
+      "stream through on the temporary stair to the chamber above, " \
+      "under awnings the sellers have already staked over unpainted " \
+      "floor.",
+    access:
+      "Five ways in, each with its band: the upper cargo lift, two " \
+      "spring-level ladders, the lower cable gallery, and the narrow " \
+      "bridge across the open wall. Following the wrong color delivers " \
+      "you somewhere else entirely.",
+    hazards:
+      "When the hoist operator rings the bell the outer rail clears for " \
+      "a lift load — benches off, meetings stopped mid-sentence, " \
+      "business pushed to the water taps until the freight is down. The " \
+      "new stair lands beside the blue route on floor no band has been " \
+      "painted across."
+  )
+
   prose <<~PROSE
     Five Landing is the broadest continuous deck in #{ref :holl, "Holl"}. Its name comes from the five routes that meet there: the upper cargo lift, two spring-level ladders, the lower cable gallery, and a narrow bridge across the open wall. Colored bands continue from each route across the floor, so a traveler can follow one through a crowd.
 

@@ -9,6 +9,33 @@ resource :tuning_compass do
   tags :resonance, :navigation, :ringglass, :household
   prominence :renowned
 
+  descriptive_identity(
+    appearance:
+      "The pocket model fits in one hand: three paired reeds around a " \
+      "clear ringglass bead, one pair per known band, in a housing that " \
+      "rotates without moving the bead, with comparison marks engraved " \
+      "around the case. Survey versions travel in padded cases with " \
+      "longer reeds and a base that bolts to stone or ring structure; " \
+      "hull-mounted ones trade sensitivity for legibility through " \
+      "engine vibration.",
+    working:
+      "The fixed reed carries the maker's reference tone while its free " \
+      "partner answers the environment, and their disagreement shows as " \
+      "a visible beat — a steady lean marks a gradient, a widening " \
+      "shiver marks drift, reeds hanging still mean the field has gone " \
+      "quiet. The user turns the housing to follow the strongest " \
+      "response; Tuners read the beat against what they feel through " \
+      "hands or feet, and crews pause when the two disagree.",
+    risks:
+      "It reads gradients, not causes: a sound wall, a stressed wall " \
+      "overcompensating, and an active array beyond it all look alike. " \
+      "Strong narrow-band effects can bend all three reeds out of " \
+      "calibration, reflected fields in the deep Shear point toward " \
+      "empty space, and during a drawdown the compass leans toward " \
+      "whatever still carries load — often the neighbor of the thing " \
+      "that failed.",
+  )
+
   prose <<~PROSE
     A tuning compass is a portable reference for the local resonance field. Mechanics set one beside an open array. Kite crews fix one near the pilot's sightline. Surveyors carry larger versions in padded cases and place them on the ground before cutting or drilling. The compass shows which known band dominates, where its strength changes most sharply, and whether that reading holds steady long enough to trust.
 

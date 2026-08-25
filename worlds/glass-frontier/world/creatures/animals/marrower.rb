@@ -6,6 +6,19 @@ creature :marrower do
   tags :ecology, :resonance, :"ring-hab"
   prominence :marginal
 
+  descriptive_identity(
+    appearance: "A six-legged scavenger the length of a forearm, with a narrow head, folding shoulder plates " \
+                "for squeezing into fluid channels, and a hard resonant plate along the belly.",
+    behavior: "It eats mineral crust, dead tissue, and the pale worms around warm blockages inside Orra's dead " \
+              "carrier, tapping its belly plate against the surrounding tissue in quick pulses that nearby " \
+              "marrowers repeat. Trained pairs ride in padded cases, go in at survey ports, and come back for " \
+              "bitter fungal paste; one that stays inside has found a fresh warm pocket.",
+    threat: "Any struck tissue, tapped tool, or worked metal gets echoed by every marrower in earshot, and an " \
+            "untrained colony will follow the sound into the room that made it to defend its warm pockets. An " \
+            "accelerating rhythm is the warning: trapped animals tapping faster until the tissue contracts, " \
+            "which can open a fluid pocket or push sweet gas into a service passage full of people."
+  )
+
   prose <<~PROSE
     Marrowers are six-legged scavengers that live inside the dead carrier at #{ref :orra, "Orra"}. Adults reach the length of a forearm. A narrow head and folding shoulder plates let them enter the carrier's fluid channels, where they eat mineral crust, dead tissue, and the pale worms that gather around warm blockages.
 

@@ -14,6 +14,34 @@ installation :noll do
   access "Three Arms Yard contract carrier to two shaded docks, then a narrow freight throat beside the root galleries"
   omit_facts :maintained_by
 
+  descriptive_identity(
+    setting:
+      "A forested crescent under old transparent hull panels, where " \
+      "trees rise from deep troughs along the inner curve and houses " \
+      "stand on woven platforms above the root galleries. Moving shades " \
+      "cross the outer hull to make short seasons around each stand, " \
+      "and a low structural tone runs through the water beneath the " \
+      "soil.",
+    activity:
+      "Growers tend timber toward shapes sold years before cutting — " \
+      "branches held under tension, roots grafted across damaged " \
+      "troughs, weights set to a shipwright's rib template or an " \
+      "instrument maker's twist. Harvest crews mark every cut with " \
+      "stool, shade season, imposed load, and grower's hand.",
+    access:
+      "Getting here means a Three Arms Yard contract carrier to one of " \
+      "two shaded docks, then a narrow freight throat beside the root " \
+      "galleries — arrivals and departures run on the yard's timetable. " \
+      "Buying timber means joining a queue; the stems are reserved " \
+      "while still growing, leaving visitors the dock-market offcuts.",
+    hazards:
+      "Shoots across three stands have turned toward a sealed root " \
+      "gallery, pressing on floors and a drainage wall shared by three " \
+      "household troughs, and the turn has pulled two contracted spars " \
+      "off their templates. Opening the gallery could save the stools " \
+      "and ruin the ordered shapes; waiting lets the pressure climb."
+  )
+
   prose <<~PROSE
     Trees rise from deep troughs along the inner curve. Houses and workshops stand on woven platforms above the root galleries, where pumps, fungal beds, and structural sounding lines run beneath the soil. Moving shades cross the outer hull to create short seasons around each stand.
 
@@ -47,10 +75,31 @@ end
 
 relate :rel_noll_supplies_rib, :supplies, :noll, :rib, since: 2435 do
   prose "Noll grows curved navren frames for Rib's doors and new passages through the pressure reef."
+  descriptive_identity(
+    terms:
+      "Frames reserved seasons ahead and grown to Rib's templates, each " \
+      "cut marked with stool, shade season, imposed load, and grower's " \
+      "hand so a reef cutter can orient the wood as it grew.",
+    dependence:
+      "A new terrace at Rib begins as a channel held open by navren " \
+      "while the reef closes around it; without the pre-shaped timber " \
+      "there is no way to open a room and keep it a room."
+  )
 end
 
 relate :rel_noll_supplies_three_arms_yard, :supplies, :noll, :three_arms_yard, since: 2435 do
   prose "Three Arms Yard orders paired navren spars for kite frames that must flex across separate loads."
+  descriptive_identity(
+    terms:
+      "Paired spars raised under matched tension on the yard's own rib " \
+      "templates, sold as reservations on standing trees rather than as " \
+      "stock from a rack.",
+    dependence:
+      "The yard's flexible-frame repairs assume timber that carries a " \
+      "structural tone evenly through a bend — and two of its contracted " \
+      "spars have already been pulled off their templates by the shoots " \
+      "turning toward Noll's sealed gallery."
+  )
 end
 
 relate :rel_rib_depends_on_navren, :depends_on, :rib, :navren do

@@ -9,6 +9,33 @@ installation :threshold_station do
   position frame: :kaleidos_system_chart, relative_to: :kaleidos,
            radial_offset: -0.12, angle_offset_deg: 0
 
+  descriptive_identity(
+    setting:
+      "A white, seemingly seamless spindle kilometers long, aligned " \
+      "along the sun-line at the balance point between Kaleidos and the " \
+      "sun. A spinal corridor runs its accessible length through " \
+      "gradients of light — burning unfiltered sun at the sealed end, " \
+      "deep stars and the small disc of home at the other — and it is " \
+      "quiet in a way hard to describe to anyone who has not walked it.",
+    activity:
+      "The Synod works its proxy halls in the central band, envoys from " \
+      "four powers collect outputs and argue among themselves, the " \
+      "terminus crew runs the dock and the Span relay as their families " \
+      "have for generations, and Warden patrols walk the seam between " \
+      "the active station and the sealed sectors.",
+    access:
+      "Visiting traffic enters at the Kaleidos-facing end, beside the " \
+      "Span Nine terminus. There is no pilgrim trade and no scholar " \
+      "class, so anyone without stated business is conspicuous within a " \
+      "shift.",
+    hazards:
+      "A list of hard-sealed sectors — welded bulkheads, life support " \
+      "cut, monitoring installed — covers the old command spine, the " \
+      "whole sun-facing terminus, and several volumes named for the " \
+      "expeditions lost proving them dangerous. Only the Wardens may " \
+      "open a seal, and the permits come from the Wardens alone."
+  )
+
   prose <<~PROSE
     A pre-Glassfall station at the inner Lagrange point between #{ref :kaleidos_system, "Kaleidos"} and the system's sun. Threshold is a vast spindle aligned along the sun-line — kilometers long, narrow at the ends, broader through the middle — and has held station at the L1 point since before any living memory begins. The #{ref :lattice_proxy_synod, "Lattice Proxy Synod"} operates from the spindle's central band. #{ref :span_nine, "Span Nine"} terminates at the Kaleidos-facing end. The sun-facing end is sealed and has been for as long as the Synod has occupied the station.
 

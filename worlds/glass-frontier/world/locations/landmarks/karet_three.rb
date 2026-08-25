@@ -9,6 +9,32 @@ geographic_location :karet_three do
   first_recorded 2426
   containment_status "Stable under a permanent cordon at Outside"
 
+  descriptive_identity(
+    setting:
+      "From Outside, the evacuated freight hab reads as a shimmer " \
+      "around a fixed patch of debris in the outer Shear, its interior " \
+      "no longer agreeing with its hull. The geometry changes slowly — " \
+      "a docking arm stays straight for hours, then seems to pass " \
+      "behind itself without moving — and details refuse attention " \
+      "the longer anyone looks: windows where bulkheads should be, " \
+      "markings that lose their order.",
+    activity:
+      "Displacement Council contractors rotate through the permanent " \
+      "cordon while the twelve evacuated families on the platform " \
+      "below keep the casualty wall, the hab's old shift calendar, " \
+      "and the only workable memory of which structures belonged " \
+      "together. Survey teams consult them before every boundary " \
+      "walk, and the Council is testing remote recovery from the " \
+      "stable edge rather than sending anyone across.",
+    hazards:
+      "The boundary's low hum keeps one frequency and changes only " \
+      "the intervals between its pulses — that shift is the entire " \
+      "warning before the geometry inside moves. The wall array needs " \
+      "more recalibration than a stable zone its size should, and a " \
+      "rind drawn along the array's resonance gradient now muddles " \
+      "zone movement with animal interference."
+  )
+
   prose <<~PROSE
     A #{ref :bloom_zones, "Bloom Zone"} occupying the remains of Karet's third freight habitat in the outer Shear. The habitat was evacuated when its docking spine began returning cargo crews to compartments they had already left. Within a day, the hab's interior volume no longer agreed with its hull.
 

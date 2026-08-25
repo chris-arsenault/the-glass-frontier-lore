@@ -14,6 +14,31 @@ installation :olven do
   access "Scheduled clean-stock carriers from Seren at three freight docks, each opening into a separate climate band"
   omit_facts :maintained_by
 
+  descriptive_identity(
+    setting:
+      "Hundreds of climate chambers wrapped around a warm ring conduit, " \
+      "each band holding its own air, moisture, light, soil, and " \
+      "gravity — steamy fruit rooms a door away from cool root stores — " \
+      "with the conduit walk running through them as a market street.",
+    activity:
+      "Warm chambers grow vat fungi, climbing fruit, dyes, and " \
+      "medicinal cultures while cool ones keep roots, slow grains, and " \
+      "voyage food; every chamber maintains a lineage book of its air, " \
+      "soil, tools, and resident organisms, and growers record each " \
+      "transfer across a climate boundary.",
+    access:
+      "Scheduled clean-stock carriers from Seren call at three freight " \
+      "docks, each opening into a separate climate band. Every door " \
+      "between bands is a transfer room where clothing, tools, and " \
+      "resident microbes are exchanged for the next chamber's.",
+    hazards:
+      "Whatever crosses a transfer room gets written into the receiving " \
+      "chamber's lineage book, visitor and cargo alike. The bound-root " \
+      "stall stands closed with orders still posted, and the root " \
+      "keepers and the clinic buyers each want a stranger's hands on " \
+      "their side of the argument."
+  )
+
   prose <<~PROSE
     Each band has its own weather and work day. Warm chambers grow vat fungi, climbing fruit, dyes, and medicinal cultures. Cool chambers hold roots, slow grains, binding moss, and food kept for long voyages. Doors between bands open through transfer rooms where people change clothing, tools, and resident microbes.
 

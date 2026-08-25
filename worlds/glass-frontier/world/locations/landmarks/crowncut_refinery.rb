@@ -8,6 +8,26 @@ installation :crowncut_refinery do
   status :complete
   omit_facts :maintained_by
 
+  descriptive_identity(
+    setting:
+      "A stripped refinery fixed inside a split debris mass in the Deep " \
+      "Shear, its two halves fed by the same local resonance field. The " \
+      "processing halls are bare; only the paired array beds remain, " \
+      "left in place because removing either changes the load on the " \
+      "other.",
+    activity:
+      "Survey teams come out on rotation with students and instruments " \
+      "to teach coupled-field inspection on the beds, then leave " \
+      "everything exactly where it stands. A crew expecting an empty " \
+      "wreck may find a class in session, taking notes on the visitors " \
+      "as well as the field.",
+    hazards:
+      "The two halves answer each other: adjust a line on one side and " \
+      "machinery hundreds of meters away takes the load. Cutting a bed " \
+      "free would throw everything onto its partner, which is exactly " \
+      "why nobody has."
+  )
+
   prose <<~PROSE
     The abandoned Coremark refinery where #{ref :lira_vashtenri, "Lira Vashtenri"} learned deep-Shear array work. Crowncut was fixed inside a split debris mass whose two halves drew from the same local resonance field. Adjusting one processing line could move load into machinery hundreds of meters away.
   PROSE

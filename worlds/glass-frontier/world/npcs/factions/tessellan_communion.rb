@@ -10,6 +10,30 @@ faction :tessellan_communion do
   status :complete
   omit_facts :leaders, :predecessors
 
+  descriptive_identity(
+    ideology:
+      "A claim must show how it closes and what carries its load. The " \
+      "complete triptych — including the panel some houses refuse to sound " \
+      "— must be preserved and shown, with disputed lines kept by the " \
+      "house that holds them. Whether the One Truth can be reached or only " \
+      "named is a live argument, not a settled one.",
+    methods:
+      "Open houses copy, compare, and teach the figures through handwork, " \
+      "sound, and recitation of the shared lines; study circles trace the " \
+      "lattice figures by hand before any frame is sounded. Keepers " \
+      "witness contracts and reconciliations, certifying that a statement " \
+      "is complete, never that it was wise.",
+    presence:
+      "Keepers at three flat frames — a gold tetrahedron braced with " \
+      "weighted cords, a red triangulum turned through its measured arc, " \
+      "the third frame open — with a row of loose crystal slips answering " \
+      "between them, and every joint offered for inspection first.",
+    attitude:
+      "Anyone may study without joining and anyone may ask for a witness. " \
+      "Between houses, disagreement travels politely from door to door " \
+      "with the keepers who carry it."
+  )
+
   prose <<~PROSE
     The Tessellan Communion keeps the devotional tradition of #{ref :the_three_forms, "the Three Forms"}. Its houses preserve complete triptychs, teach the figures through handwork and sound, and receive anyone who wants to study the tradition without entering an order. Members are called keepers because their first duty is to maintain an accurate copy and make it available.
 
@@ -50,4 +74,16 @@ relate :rel_tessellan_communion_studies_false_form, :studies, :tessellan_communi
 end
 relate :rel_tessellan_communion_cooperates_clarisant, :cooperates_with, :tessellan_communion, :clarisant, since: 2310 do
   prose "Clarisant chapters inspect the powered arrays used in Communion teaching without recognizing the exercises as professional training."
+  descriptive_identity(
+    basis:
+      "The principal house shares the Old Campus with the Sithari " \
+      "chapter, close enough to borrow instruments and trade " \
+      "arguments, and the houses that teach with guarded arrays accept " \
+      "the chapter's inspections as the price of running them.",
+    limits:
+      "A closed array stays closed if it exceeds public teaching " \
+      "limits, no devotional exercise counts toward a credential, and " \
+      "whether a novice may sound the lawful figures before holding " \
+      "one is a question each house answers beside its own triptych."
+  )
 end

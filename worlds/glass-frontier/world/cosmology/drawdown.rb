@@ -7,6 +7,31 @@ phenomenon :drawdown do
   tags :resonance, :ringglass, :danger, :household
   prominence :recognized
 
+  descriptive_identity(
+    signs:
+      "Broad-band devices give way first: water heats slowly, a " \
+      "lantern dims, a signal set sheds distance. A depleted place " \
+      "gets called flat, thin, or quiet — an attuned worker feels an " \
+      "expected pressure leave a wall, a mechanic misses the second " \
+      "tone a machine carries through its ringglass, and a tuning " \
+      "compass swings toward the strongest remaining gradient and then " \
+      "stops moving.",
+    effects:
+      "The crystal keeps its tuning while its response weakens, " \
+      "sometimes leaving one known band silent while the others still " \
+      "work. Depletion follows conductive material rather than a " \
+      "radius, so the first visible failure can sit streets away from " \
+      "the machine doing the drawing, and recovery runs from hours in " \
+      "a rich field to much longer in a sparse or heavily drained one.",
+    hazards:
+      "The dangerous systems are those whose physical load stays when " \
+      "the supply thins: a kite keeps its momentum after the kinetic " \
+      "band fades, a reinforced span keeps its traffic, a transmitter " \
+      "keeps talking nearby while silently losing distant receivers. " \
+      "Saturation resembles drawdown at first, and feeding a saturated " \
+      "field turns the wrong diagnosis into a destructive spike."
+  )
+
   prose <<~PROSE
     Drawdown occurs when use drains a local ambient field faster than it recovers. The ringglass remains physically present and retains its tuning, but its response weakens. Broad-band devices lose output first: a heater cools, a lantern dims, a signal set sheds distance. Continued draw can leave one known band effectively silent while the others remain usable.
 

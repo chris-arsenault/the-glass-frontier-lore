@@ -7,6 +7,30 @@ artifact :counterweight_road_rig do
   tags :surface, :transport, :"structural-freq", :"kinetic-freq", :training
   prominence :recognized
 
+  descriptive_identity(
+    appearance:
+      "Two cargo kites' worth of numbered equipment: lifting frames, " \
+      "edge-numbered steel mats, timber cribbing, jointed pressure " \
+      "sleds, sounding stakes with replaceable ringglass cores, warning " \
+      "shackles, and a squat ceramic bridge box with paper transfer " \
+      "cards tied inside its lid. Some pieces still carry Ladderwell's " \
+      "marks from the 2434 chain-house move.",
+    handling:
+      "The set is packed, inspected, and called as one machine — the " \
+      "unloading order is the order a safe load path can be built. Mats " \
+      "and cribbing carry the building forward in short lifts onto " \
+      "resting towers, three singing stakes and a measured chain read " \
+      "the ground ahead, and the engine hand closes the bridge box's " \
+      "changeover bars only after both power feeds hold the same beat.",
+    risks:
+      "A sounding shackle is an alarm, not a measurement: it may be " \
+      "answering heat, and a quiet one can stand beside a failing mat, " \
+      "so no tone becomes a lift decision before the caller checks it " \
+      "against a tuning compass, the jack heights, and the road marks. " \
+      "Parts do not separate — a jack without its mat is simply not " \
+      "available.",
+  )
+
   prose <<~PROSE
     The Counterweight Road Rig is the travelling equipment set used by #{ref :counterweight, "the Counterweight"} to move buildings that cannot stop working. It fills two cargo kites when packed: lifting frames, steel mats, timber cribbing, pressure sleds, temporary service lines, spare drives, sounding stakes, numbered warning shackles, and the bridge box that keeps a second power path ready before the first is cut.
 

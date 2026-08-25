@@ -7,6 +7,30 @@ geographic_location :dovra do
   tags :"outer-system", :ecology, :trade, :resonance, :transport
   prominence :recognized
 
+  descriptive_identity(
+    setting:
+      "Low tidal river country on Korvath's middle sea, where " \
+      "hundreds of channels divide around wooded islands across a " \
+      "coast wider than some provinces. The shore moves every season " \
+      "— silt closes one mouth, storms open another — and towns stand " \
+      "on rises, old levees, and driven piles, facing water in " \
+      "several directions.",
+    activity:
+      "Family channel barges collect rice, fruit, reeds, and fish " \
+      "from landing stairs and run them to Lowbank, piloted by people " \
+      "who read current color, reed direction, and the tone a pole " \
+      "returns off buried iron sand. Water boards keep thousands of " \
+      "small gates and spillways, and flood labor is compulsory for " \
+      "anyone able to give it.",
+    hazards:
+      "A chart a few seasons old routes through channels that are now " \
+      "orchard boundaries. During flood, two gates tuned too closely " \
+      "can answer each other through saturated ground and release " \
+      "together, a pole-thief near the reed banks can fake a " \
+      "convincing bottom strike, and the maze of channels draws " \
+      "smuggled cargo that brings inspections down on honest pilots."
+  )
+
   prose <<~PROSE
     Dovra is a low river country on Korvath's middle sea. Older maps give the name to one of its five major rivers. That mouth divided and moved so many times that later charts applied Dovra to the whole tidal plain. Hundreds of smaller channels cross it, divide around wooded islands, and meet the tide through a coast wider than some provinces. The shore moves every season. Silt closes one mouth, storms open another, and a channel that carried barges can become an orchard boundary within a generation.
 

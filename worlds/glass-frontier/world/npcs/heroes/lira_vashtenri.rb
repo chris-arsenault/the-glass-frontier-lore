@@ -14,6 +14,13 @@ npc :lira_vashtenri do
   log "2026-08-21 — Named Crowncut Refinery, her foreman Pera Soll, and the first wall site at Cinder Gap. Her present work retires saturated damping buoys before their stored load fails into the cordon."
   narrative_role "viewpoint"
   species "gnome"
+  identity_source :species, :gnomes
+  identity_source :culture, :sitharian_culture
+  descriptive_identity disposition:
+    "Asked why the containment holds, Lira walks the questioner to a mount " \
+    "and has them feel a load cycle through it instead of explaining. Any " \
+    "errand that would take her off the cordon gets weighed aloud against " \
+    "a buoy saturating on its own schedule."
   culture "sithari"
 
   prose <<~PROSE
@@ -45,10 +52,20 @@ relate :rel_lira_designed_liras_wall, :designed, :lira_vashtenri, :liras_wall do
 end
 relate :rel_lira_member_of_displacement_council, :member_of, :lira_vashtenri, :displacement_council, since: 2384 do
   prose "She built her containment operation into what became the #{ref :displacement_council, "Displacement Council"}, and has run inside it ever since."
+  descriptive_identity standing:
+    "She founded the containment operations and never led the Council — " \
+    "the office went to Oram Sells and then Dern Talish while the " \
+    "methodology remained hers, passed on through the training program " \
+    "she built."
 end
 
 relate :rel_lira_employed_by_coremark, :employed_by, :lira_vashtenri, :coremark, till: 2378 do
   prose "Before the Bloom she maintained ringglass arrays at a #{ref :coremark, "Coremark"} refinery — overlooked, blue collar, and the most quietly competent hand in the deep #{ref :the_shear, "Shear"}."
+  descriptive_identity standing:
+    "Her employment shows in the record rather than in any title: " \
+    "Crowncut was the one deep-Shear refinery that never reported the " \
+    "chronic failures, and nobody above her asked why until the Bloom " \
+    "Coalition traced the maintenance sheets to her hands."
 end
 relate :rel_lira_operated_crowncut, :operates_in, :lira_vashtenri, :crowncut_refinery, till: 2378 do
   prose "She maintained Crowncut's coupled arrays under Pera Soll."

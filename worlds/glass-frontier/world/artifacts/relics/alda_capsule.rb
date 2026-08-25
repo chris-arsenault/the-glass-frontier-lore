@@ -7,6 +7,27 @@ artifact :alda_capsule do
   tags :archives, :transport, :"signal-freq", :mystery
   prominence :marginal
 
+  descriptive_identity(
+    appearance:
+      "A ceramic message carrier, dry and pressurized, one side abraded " \
+      "from repeated gate contact and dusted with fresh ceramic from its " \
+      "last junction. It arrived still warm from travel, its mechanical " \
+      "clock reading forty-three minutes for a trip launched in 2305 " \
+      "and delivered in 2434.",
+    handling:
+      "Its trip card asks for a pressure crew at a failing nursery seal " \
+      "and lists nine tube junctions past Tanel's surviving network; " \
+      "crews follow the recorded route while the capsule sits beside the " \
+      "Tube Room Six rack. Tube crews lend it out for stuck junctions, " \
+      "because its closure ring turns freely in a gate whose other " \
+      "moving parts are seized.",
+    risks:
+      "The clock, the fresh dust, and the gap between launch and " \
+      "delivery do not resolve into one account of where the capsule " \
+      "has been, and its card points down a line whose far junctions no " \
+      "current hull plan covers.",
+  )
+
   prose <<~PROSE
     In 2434, #{ref :tanel, "Tanel"} received a ceramic message carrier dispatched from the Alda residential module in 2305. Its trip card requests a pressure crew for a failing nursery seal and lists nine tube junctions beyond Tanel's surviving network. The capsule arrived dry, pressurized, and warm from travel. Its mechanical clock recorded forty-three minutes between launch and delivery, while one side carried abrasion from repeated gate contact and fresh ceramic dust from the final junction.
 

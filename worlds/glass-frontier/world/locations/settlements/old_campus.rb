@@ -11,6 +11,32 @@ installation :old_campus do
   tags :surface, :governance, :archives, :resonance, :"ring-era"
   prominence :recognized
 
+  descriptive_identity(
+    setting:
+      "The ring-era complex at Sithari's center, its broad hardened " \
+      "buildings carrying inserted floors and partitions inside high " \
+      "original clearances. The old campus wall turns up everywhere — " \
+      "the back of a shop here, crossing a plaza at waist height there " \
+      "— and laundry lines hang against walls that appear in Glassfall " \
+      "histories.",
+    activity:
+      "The district's work is government, law, education, archives, and " \
+      "medicine: the assembly meets in a rebuilt lecture hall, courts " \
+      "and press offices line the square, colleges hold the quieter " \
+      "northern wards, and copy houses prepare records in the formats " \
+      "accepted across the system.",
+    access:
+      "City rail and pedestrian streets serve the district above " \
+      "ground, with controlled service descents leading down into the " \
+      "Underlayers; many buildings keep doors into both.",
+    hazards:
+      "No opening may be cut in old material until a survey identifies " \
+      "every active path through it — skip that, and a load moves in a " \
+      "building several streets away. Active wall panels sharpen before " \
+      "a load shifts, and one lighting out of sequence means a blocked " \
+      "path, an unrecorded tie, or a ring-era room back in the field."
+  )
+
   prose <<~PROSE
     The Old Campus is the surviving ring-era complex around which #{ref :sithari, "Sithari"} formed. Its hardened workshops and laboratories held power through the #{ref :the_glassfall, "Glassfall"}; its stores and walls sheltered the first post-Glassfall settlement. The modern district contains government offices, courts, colleges, archives, clinics, apartment courts, and public rooms fitted into structures built for purposes their current occupants only partly understand.
 

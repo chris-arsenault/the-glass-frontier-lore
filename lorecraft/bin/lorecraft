@@ -399,6 +399,19 @@ when "facts"
   rescue Lorecraft::Error => e
     abort e.message
   end
+when "identity"
+  id = ARGV.shift
+  begin
+    query = Lorecraft::IdentityAudit.new(
+      load_world,
+      owner: id&.tr("-", "_")&.to_sym,
+      at: at,
+      audience: audience,
+    )
+    emit(query, format)
+  rescue Lorecraft::Error => e
+    abort e.message
+  end
 when "gm-notes"
   id = ARGV.shift
   begin

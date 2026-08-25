@@ -23,6 +23,19 @@ concept :life_in_the_system do
 
     Construction uses ringglass-reinforced materials as a default. Structural-band resonance makes walls harder, foundations more resilient, pressure seals more reliable. This is not advanced technology — it is the baseline. Buildings that don't use resonance reinforcement are either very old, very cheap, or very far from a ringglass supply.
   PROSE
+  prose <<~PROSE, section: :how_it_works, heading: "Paying for Things"
+    Standard credits move most trade because they keep things easy: the same figure clears a dock fee at #{ref :glasswake, "Glasswake"}, a berth at a ring hab, and a grain contract written in Sitharian form. Barter runs alongside credits nearly everywhere — a repair for a meal, cargo space for route knowledge — and no one treats it as a lesser way of settling. The more esoteric habs may honor neither; a traveler bound somewhere unusual asks what the place accepts before assuming anything does.
+  PROSE
+  prose <<~PROSE, section: :how_it_works, heading: "Mended Things"
+    Nearly everything in daily use has been repaired, and the repair is the style. Status shows in the quality of the mending rather than in newness, and each trade mends in its own recognizable way — a keel crew's graft-joins do not look like a Tuner's seam-work. Components salvaged from the ring era are built into ordinary equipment and worn openly.
+
+    Working technology carries a hum just below perception; a room full of running devices feels occupied even in silence. Craft that survives from before the #{ref :the_glassfall, "Glassfall"} is different in the hand — too smooth and too fractal at the same time, finished at every scale a person can examine and at several they cannot.
+  PROSE
+  prose <<~PROSE, section: :culture, heading: "Whose Writ Runs"
+    Beyond #{ref :sithari, "Sithari"} and the #{ref :tempered_accord, "Tempered Accord"} framework it anchors, there is no central authority. The city's reach runs strong through the core routes and thins with distance until it becomes a polite fiction, and far more habs exist than any register names — most of them ordinary, some of them strange, many outside every framework.
+
+    Where authority is contested, the contest is rarely open. It looks like paperwork wars between offices claiming the same jurisdiction, rival patrols keeping to their own sides of a dock, the same cargo taxed twice under two seals, and quiet intimidation where no seal applies. Nobody fights the Accord directly; plenty shirk its reign in the shadows.
+  PROSE
   prose <<~PROSE, section: :applications, heading: "Getting Around"
     #{ref :kite_sail, "Kites"} are everywhere. #{ref :flitter, "Flitters"} handle local passengers and light cargo, while road haulers, barges, and larger vessels carry loads whose routes or mass do not justify a flight. Booking passage between major settlements is routine. Interplanetary travel takes days, not months, and most people in the inner system have visited at least one other world.
 

@@ -6,6 +6,30 @@ artifact :echo_strip do
   tags :archives, :"signal-freq", :resonance, :trade, :household
   prominence :recognized
 
+  descriptive_identity(
+    appearance:
+      "A hand-length sheet of dark foil — powdered ringglass in " \
+      "stillwater resin — with a scored start line at one end and no " \
+      "controls at all. Field workers keep them in rigid sleeves with " \
+      "the start line exposed; archived records are cut into " \
+      "distinctive outlines so used foil cannot pass as blank stock.",
+    handling:
+      "Bend the start line to begin recording, fold the other end over " \
+      "it to stop; the crease seals the pattern until a playback frame " \
+      "flattens the foil and turns the grain pattern into vibration, " \
+      "light, or instrument data. It takes resonance, not ordinary " \
+      "sound — speech survives only when a signal-bearing wall, " \
+      "instrument, or trained voice carries it.",
+    risks:
+      "The foil keeps the strongest coherent pattern reaching it, " \
+      "pushing everything weaker to the margins, so a deposition taken " \
+      "beside an active lift preserves the lift and loses the witness. " \
+      "Flattening without a frame bleeds the record into the nearest " \
+      "responsive material, heat softens the resin, and each playback " \
+      "copy keeps the words while erasing the edge structure that " \
+      "places the original.",
+  )
+
   prose <<~PROSE
     An echo strip is a hand-length sheet of dark foil that records the strongest coherent resonance pattern touching it. The strip has no controls. An operator bends one end along a scored line to begin the record and folds the other end over it to stop. The finished crease seals the captured pattern until the foil is flattened inside a playback frame.
 

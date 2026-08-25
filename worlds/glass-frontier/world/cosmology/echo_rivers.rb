@@ -12,6 +12,29 @@ phenomenon :echo_rivers do
   content "Fragments of pre-Glassfall signal and speech"
   hazard "Headaches, disorientation and identity drift after prolonged exposure"
 
+  descriptive_identity(
+    signs:
+      "At a spring, a sinkhole, a cave mouth, or a wet cliff face " \
+      "where the crystal-bearing rock lies open, faint voices layer " \
+      "over one another — mostly unintelligible, occasionally " \
+      "heartbreakingly clear — and they begin before anyone thinks to " \
+      "ask a question.",
+    effects:
+      "What surfaces is unchosen: routine ring-station traffic, " \
+      "someone calling home, strings of calibration numbers, and on " \
+      "rare occasions a fragment from the days around the Glassfall " \
+      "itself, which the Echo Ledger Conclave claims custodianship " \
+      "over. The rivers replay nothing on demand; a listener stands, " \
+      "listens, and takes what comes.",
+    hazards:
+      "Signal-band resonance in quantity brings headaches and " \
+      "disorientation, and long exposure can open a waking dream in " \
+      "which the listener loses track of which voice is theirs and " \
+      "which belongs to the water. The Conclave files this as drift " \
+      "and counts it an occupational hazard; others treat it as reason " \
+      "enough to stay away."
+  )
+
   prose <<~PROSE
     Beneath the surface of Kaleidos, water moves through rock that's been saturated with crystal dust from #{elapsed :the_glassfall, approx: true} of #{ref :the_glassfall, "Glassfall"} debris. As it flows through these mineral-laced channels, it picks up #{ref :resonance, "resonance"} — specifically, the signal-band frequencies that once carried data through the orbital rings.
 

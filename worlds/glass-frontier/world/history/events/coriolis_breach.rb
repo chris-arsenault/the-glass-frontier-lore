@@ -8,6 +8,22 @@ incident :coriolis_breach do
   tags :governance, :"ring-hab", :military
   prominence :recognized
 
+  descriptive_identity(
+    marks:
+      "Hab Coriolis sits sealed to this day, the breach closed from " \
+      "outside after the lone survivor got clear, and the Tempered " \
+      "Accord's sovereignty provisions — a hab may refuse contact, and " \
+      "no faction may force entry — stand in law because of it. Accord " \
+      "mediators still read Venn Talis's testimony before working with " \
+      "any community that limits contact.",
+    stakes:
+      "Every proposal to open a sealed hab now argues against this " \
+      "incident: refusing entry can mean leaving people to die of " \
+      "something a visiting crew could treat, and no report since the " \
+      "sealing says whether the community inside ever learned the " \
+      "outside world exists."
+  )
+
   prose <<~PROSE
     A forced-entry incident during the Contested Reach. A faction broke into a #{ref :shuttered_habs, "shuttered hab"} expecting a rescue mission and encountered a community that had been sealed for generations. The contact team was slaughtered. One survivor returned.
   PROSE
@@ -43,4 +59,20 @@ relate :rel_coriolis_breach_caused_tempered_accord, :caused, :coriolis_breach, :
 end
 relate :rel_venn_talis_participated_in_coriolis_breach, :participated_in, :venn_talis, :coriolis_breach do
   prose "#{ref :venn_talis, "Venn Talis"} was the sole survivor of the contact team — and whose testimony, devastating because the reverted community was coherent rather than savage, is now studied in diplomatic training."
+  descriptive_identity(
+    aims:
+      "Venn entered believing the mission was a rescue; the entry plan " \
+      "had already described the inhabitants as stranded people unable " \
+      "to consent.",
+    conduct:
+      "The complete statement was given once, to a public inquiry, and " \
+      "Venn has required every later copy to carry all four parts — " \
+      "testimony, suit telemetry, entry plan, and outer-hatch recording " \
+      "— refusing condensed versions that turn Coriolis into a warning " \
+      "about hostile habs.",
+    cost:
+      "Venn left survey work, refused every office offered afterward, " \
+      "and stopped attending the commemorations held in the dead " \
+      "team's name."
+  )
 end

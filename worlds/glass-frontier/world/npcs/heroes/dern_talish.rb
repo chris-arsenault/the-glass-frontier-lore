@@ -11,6 +11,12 @@ npc :dern_talish do
   log "2026-08-21 — Named Dern's lost hab, long-term cordon station, field colleague, and the three organizations whose convoys she turned away. Oram Sells is the third First Threshold, serving from 2421 to 2432."
   narrative_role "viewpoint"
   species "human"
+  identity_source :species, :humans
+  identity_source :culture, :hab_worlder
+  descriptive_identity disposition:
+    "Talish listens more than she speaks and never raises her voice. She " \
+    "asks a party what it needs and what it can give, works the gap " \
+    "between the two, and accepts water but never a meal."
   culture "hab-worlder"
 
   prose <<~PROSE
@@ -95,6 +101,18 @@ relate :rel_dern_talish_located_in_gray_line, :located_in, :dern_talish, :gray_l
 end
 relate :rel_dern_talish_cooperates_iro_senn, :cooperates_with, :dern_talish, :iro_senn, since: 2412 do
   prose "#{ref :iro_senn, "Iro Senn"} is her oldest cordon colleague and still sends her Gray Line's unsoftened reports."
+  descriptive_identity(
+    basis:
+      "Twenty years of perimeter patrol together at Gray Line, kept " \
+      "alive as shift notes, blunt private reports she asked him never " \
+      "to improve, and the one shared meal she allows anyone — his, " \
+      "whenever she visits the station.",
+    limits:
+      "Senn stayed at the wall when she rose, and their arguments over " \
+      "exposure limits are real arguments; his reports reach her " \
+      "outside the Council's channels precisely so the friendship " \
+      "never has to pass through headquarters."
+  )
 end
 relate :rel_dern_talish_cooperates_with_elves, :cooperates_with, :dern_talish, :elves, since: 2432, dm: true do
   prose "She is the single human point of contact with the hidden #{ref :elves, "elves"} — the loneliest cooperation in the system, conducted through a shard she never lets out of her reach."

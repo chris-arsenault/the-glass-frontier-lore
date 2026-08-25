@@ -16,6 +16,35 @@ installation :mareth do
   access "Managed Keel branch to the holding lanes, then through the aperture on gate days or two permanent side locks"
   omit_facts :maintained_by
 
+  descriptive_identity(
+    setting:
+      "A town built inside a vast Ring-era freight gate spanning the " \
+      "gap between two heavy fragments: habitation galleries in the " \
+      "frame, streets running through latch housings, cargo crews in " \
+      "the service trenches. When the segmented leaves close, the " \
+      "aperture face becomes a broad public square with market frames " \
+      "unfolding from the leaf edges.",
+    activity:
+      "Life runs on the gate's cycle rather than any clock. As the low " \
+      "tones build toward an opening, shops roll their counters toward " \
+      "the aperture and rooms against the moving leaves pull furniture " \
+      "behind painted lines; at closure, children race the joint lines " \
+      "while crews service the exposed guide teeth.",
+    access:
+      "A managed Keel branch delivers traffic to marked holding lanes, " \
+      "and passage goes through the aperture on gate days — under the " \
+      "kinetic field, with steady pressure through bodies and cargo — " \
+      "or through two permanent side locks between them. Travelers " \
+      "sleep and sort freight in Latchhouse while the frame builds " \
+      "toward its sequence.",
+    hazards:
+      "A fifth structural tone has entered the opening sequence, and " \
+      "the last cycle held the gate open six extra leaf crossings. " \
+      "Anyone in the aperture is betting on an interval nobody can " \
+      "predict; an extension during closure would leave the waiting " \
+      "Keel convoy between moving leaves."
+  )
+
   prose <<~PROSE
     The gate opens when structural tension across the two fragments falls into balance. That interval arrives after a repeating series of low tones through the frame. Pilots gather in marked holding lanes as the sequence approaches. Shops roll counters toward the aperture, cargo crews fill the service trenches, and every room touching a moving leaf retracts its furniture behind painted clear lines.
 

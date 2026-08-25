@@ -9,6 +9,30 @@ installation :pyre do
   tags :orbital, :salvage, :danger, :resonance
   prominence :recognized
 
+  descriptive_identity(
+    setting:
+      "The burned-out shell of a ringglass refinery in the mid-drift " \
+      "Shear, holding a dead orbit inside one of the worst Bloom Zones in " \
+      "the system. From outside the cordon the structure still reads as a " \
+      "refinery; past it, space is badly warped and the interior keeps no " \
+      "consistent geometry.",
+    activity:
+      "Containment crews work the cordon at all hours — their job is the " \
+      "wall, not the wreck — while salvage runs slip into the periphery " \
+      "guided by people who walked the refinery floor before it burned. " \
+      "Duskgrain and Bloom relics leave the site at extraordinary prices.",
+    access:
+      "Every run in has to pass the Displacement Council crews holding " \
+      "the boundary, and past the cordon line a guide's remembered layout " \
+      "carries only so far inward before it stops matching anything. " \
+      "Guides price the trip by where their knowledge ends.",
+    hazards:
+      "Spatial relationships inside are unreliable and resonance " \
+      "frequencies stack in ways nobody can predict, so the distortion " \
+      "that makes the relics also kills the careless. The boundary itself " \
+      "holds only under constant containment."
+  )
+
   prose <<~PROSE
     The ruin of a #{ref :coremark, "Coremark"} ringglass refinery in the mid-drift #{ref :the_shear, "Shear"}, and the origin point of the #{ref :the_silent_bloom, "Silent Bloom"} resonance cascade. Pyre sits inside a #{ref :bloom_zones, "Bloom Zone"} now — one of the worst ones. Space is badly warped. The refinery's structure is still recognizable from outside the containment cordon, but what's inside doesn't follow consistent geometry anymore.
   PROSE

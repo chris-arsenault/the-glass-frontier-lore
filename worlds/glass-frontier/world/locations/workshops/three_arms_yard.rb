@@ -8,6 +8,36 @@ installation :three_arms_yard do
   tags :transport, :ringglass, :resonance, :trade, :surface
   prominence :marginal
 
+  descriptive_identity(
+    setting:
+      "A circular service floor where Glasswake's old collection wells " \
+      "meet the inner kite field, ringed by three lifting arms on " \
+      "separate foundations cut off from each other by ceramic " \
+      "trenches. The floor drains into a covered wash well, colored " \
+      "weights on the control ropes show which arm holds hull, drive, " \
+      "or catch assembly, and a dark-shuttered loft stores the catch " \
+      "cloth overhead.",
+    activity:
+      "Returning survey kites are washed, their impacts marked, and " \
+      "their flexible spars run through slow corrections between two " \
+      "arms while the third follows empty. Apprentices grade debris by " \
+      "hand in the wash well, recovered lamps and sounders wait on the " \
+      "dead bench for their records to be read, and workers sign each " \
+      "repair with small cuts inside a service cover.",
+    access:
+      "The queue is published on the outer gate. Prismwell crews jump " \
+      "it whenever a forecast is active; independent pilots pay the " \
+      "posted rate or buy their place with a wash shift or night watch, " \
+      "which puts them in the well beside the apprentices.",
+    hazards:
+      "A tired spar that returns by the wrong path holds a twist that " \
+      "grows in the next front, so nothing hidden under fused dust is " \
+      "opened until a structural reader has seen which frame took the " \
+      "load. Right now one arm and the dead bench belong to the marker " \
+      "that beat Rainline home, and ordinary repairs stack outside the " \
+      "gate while their crews trade rumors for queue positions."
+  )
+
   prose <<~PROSE
     Three Arms Yard is a Prismwell repair shop in #{ref :glasswake, "Glasswake"}, built where the old collection wells meet the inner kite field. Three independent lifting arms stand around a circular service floor. They can hold the separate frames of a survey kite without forcing them into one alignment, allowing workers to inspect the joints that let a craft yield across a Glassfall stream.
 

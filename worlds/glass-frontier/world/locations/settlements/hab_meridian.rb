@@ -7,6 +7,32 @@ installation :hab_meridian do
   tags :"ring-hab", :archives, :trade, :rebuilding, :"social-structure"
   prominence :recognized
 
+  descriptive_identity(
+    setting:
+      "A ring torus split into two arcs by old structural seams. One " \
+      "arc is kept in 2305-era condition down to the lighting, the " \
+      "signage, and the standing background hum of its resonance " \
+      "environment; the other holds the modern docks, council, clinics, " \
+      "and dormitories that keep the museum running.",
+    activity:
+      "Inside the Period Arc, four thousand residents in period dress " \
+      "run markets, workshops, schools, and a civic council on the " \
+      "arc's own schedule, and the forty-three-minute first-contact " \
+      "recording is played daily in the radio room where it was taken. " \
+      "School groups, Conclave researchers, and tourists come through " \
+      "by the thousand each month.",
+    access:
+      "Visitors arrive through the Outer, where the dormitories and " \
+      "guest quarters sit, and enter the Period Arc only through the " \
+      "single transition gate at the segment boundary.",
+    hazards:
+      "Every decision comes out of the Outer — council, doctors, " \
+      "visitor arrangements — while what is at issue usually sits " \
+      "inside the Period Arc, and the two populations work together " \
+      "professionally and sometimes resentfully. Hearing the full " \
+      "recording means booking a scheduled slot."
+  )
+
   prose <<~PROSE
     The ring hab that first reconnected with #{ref :glasswake, "Glasswake"} has built its civic identity around that founding moment. Hab Meridian today is a living-history hab — a working museum operating at hab scale, where one full segment of the ring's habitable arc is preserved in early-Rekindling period, staffed by residents who have made the reconnection era their life's work, and visited by anyone in the system curious about what those years actually felt like.
 
@@ -75,6 +101,18 @@ relate :rel_hab_meridian_part_of_glass_frontier, :part_of, :hab_meridian, :the_g
 end
 relate :rel_hab_meridian_cooperates_glasswake, :cooperates_with, :hab_meridian, :glasswake, since: 2305 do
   prose "Its first formal tie was to #{ref :glasswake, "Glasswake"} — the embassy exchange that became a model for how a ring hab and a surface settlement could deal as equals."
+  descriptive_identity(
+    basis:
+      "Free trade, delegations crossing at the major civic " \
+      "anniversaries, and children on each side studying the other's " \
+      "history as a matter of course — the working shape of the " \
+      "partnership the First Signal started.",
+    limits:
+      "The commemorating is done at home: Meridian keeps its memory in " \
+      "the Period Arc and holds the formal relationship to trade, " \
+      "education, and civic exchange, since the Glasswake side of the " \
+      "recording did not survive."
+  )
 end
 
 # --- history (moment) ---

@@ -17,6 +17,31 @@ geographic_location :kaleidos do
   custom_fact :resonance_environment, "Uneven ringglass deposits through soil, water and old foundations",
               label: "Resonance Environment"
 
+  descriptive_identity(
+    setting:
+      "An inhabited world of oceans and old continental stone under a " \
+      "sky crossed by its broken ring: hard-edged slivers pass in " \
+      "daylight while fine debris brightens whole reaches of sky and " \
+      "casts moving colors on the ground. Ringglass lies unevenly " \
+      "through soil and water, so the land itself answers — a spring " \
+      "that carries voices, a grove that hums through its roots, two " \
+      "buildings a street apart standing in different fields.",
+    activity:
+      "Most people live and work on the surface — coastal towns, river " \
+      "settlements, steppe farms, grove basins, mountain communities — " \
+      "moving goods by road, rail, river, and coastal vessel, with " \
+      "kites for the long crossings. Builders sound a site before " \
+      "raising anything on it, and route keepers publish closures with " \
+      "the same authority as storm warnings.",
+    hazards:
+      "Glassfall showers still bring dust and larger pieces into the " \
+      "atmosphere, closing air lanes and dusting exposed machinery. " \
+      "Heavy rain softens shallow crystal beds, a strong orbital " \
+      "alignment can make an old road pull a vehicle toward a buried " \
+      "seam, and irrigation gates opened on the same response can " \
+      "couple through wet ground."
+  )
+
   prose <<~PROSE
     Kaleidos is an inhabited world of oceans, old continental stone, and a sky crossed by the remains of its ring. Most of its people live on the surface. #{ref :sithari, "Sithari"} is the largest city, but it does not contain the planet's population or set every local custom. Coastal towns, river settlements, upland farms, grove basins, and high mountain communities survived the #{ref :signal_famine, "Signal Famine"} with little contact between them. Reconnection made travel easier without making those places alike.
 

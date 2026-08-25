@@ -7,6 +7,34 @@ installation :folded_annex do
   tags :surface, :resonance, :"ring-era", :archives, :danger, :"fluid-reality"
   prominence :recognized
 
+  descriptive_identity(
+    setting:
+      "A buried ring-era archive deep in the Underlayers: an entry hall, " \
+      "two record galleries, and an instrument well that keep their " \
+      "internal arrangement while their position against the city does " \
+      "not. Gallery windows look into test rooms across distances larger " \
+      "than the complex, cabinet fronts show instruments that still move, " \
+      "and the licensed way in is a reinforced descent gate below the Old " \
+      "Campus service level.",
+    activity:
+      "Licensed parties work slowly: passive reflectors set at every " \
+      "turn and compared by sight, records copied where they lie, loose " \
+      "objects numbered for a later permit, and each member checking a " \
+      "plain wound clock against the others before any new door.",
+    access:
+      "The gate opens only while the surrounding field sits in a narrow " \
+      "range; at other times it faces a shallow recess of blank stone, " \
+      "permits or no permits. A party must include a route surveyor, a " \
+      "certified Tuner, and an archive specialist, and nothing leaves on " \
+      "the visit it was found.",
+    hazards:
+      "The Annex has never hurt a crew by violence or collapse — it " \
+      "takes the route instead. Once return indicators diverge, a person " \
+      "can stay visible through a window while no adjacent door reaches " \
+      "them; repeaters have answered from galleries they had not been " \
+      "carried to, and three informal entrants remain missing."
+  )
+
   prose <<~PROSE
     A ring-era archive and experimental suite in the deep #{ref :underlayers, "Underlayers"}. Surviving wall labels identify it as an annex for calibrating rooms joined through structural resonance. Its current name came from the first modern survey, which reached the same entry hall through three doors separated by nearly a kilometer of buried city.
 

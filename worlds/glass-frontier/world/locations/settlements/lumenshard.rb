@@ -12,6 +12,36 @@ installation :lumenshard do
   tags :surface, :ecology, :resonance, :ringglass, :trade
   prominence :recognized
 
+  descriptive_identity(
+    setting:
+      "Stone terraces around Miraeth's largest basin, the old southern " \
+      "wards roofed by a living canopy whose crystal-veined branches meet " \
+      "over the streets — green light by day, veins glowing after dusk, " \
+      "brightest after a shower. Trunks rise through courtyards and " \
+      "workshop floors, six channels thread the orchards toward a reed " \
+      "lake, and the kilns, saw frames, and kite field keep to bare stone " \
+      "on the north ridge.",
+    activity:
+      "This is a farm market first: grain milling, fruit preserving, " \
+      "timber cutting, channel work, and evening markets gathered beside " \
+      "the public ovens while neighboring wards rest dark on their quiet " \
+      "turn. Graftwood carpenters keep cut limbs fed until installation, " \
+      "and freight comes down the inclined rail to the market yards.",
+    access:
+      "The town is reached by the mountain road, the basin canals, or " \
+      "the shower-rated kite field on the ridge. Off-town traders — " \
+      "Glasswake pilots, Kyther carriers, Sable Crescent houses — keep " \
+      "permanent quarters near the north yards, wider and louder streets " \
+      "than the shaded basin wards.",
+    hazards:
+      "An unauthorized draw writes its own confession: a bright path " \
+      "through the roots straight to the device, empty young veins " \
+      "beyond it, and a fine for replanting — or loss of channel access " \
+      "if it was hidden. This season's thin showers have left the " \
+      "graftwood short, orders late, and buyers bidding against each " \
+      "other for existing stock."
+  )
+
   prose <<~PROSE
     Lumenshard occupies the terraces around the largest basin in #{ref :miraeth, "Miraeth"}. Its oldest streets run beneath a canopy whose clear-veined branches meet over the roofs. Newer wards climb the bare northern ridge, where the kite field and heavy workshops can draw power without pulling the central root mat out of balance.
 
