@@ -2,7 +2,9 @@ installation :accord_shore do
   name "Accord Shore"
   summary "Accord Shore is a civic district of Sithari around an artificial lake west of the Old Campus, built to house the Tempered Accord's delegations and hearings."
   playable_as :chronicle_location
+  context_tags :"realm:surface"
   subkind :settlement
+  type_of :settlement
   population 32_000
   population_band "About thirty-two thousand residents, with several thousand visiting delegates and staff"
   role "Diplomatic quarter and standing seat of the Tempered Accord"
@@ -88,7 +90,4 @@ relate :rel_accord_shore_located_in_sithari, :located_in, :accord_shore, :sithar
 end
 relate :rel_accord_shore_hosts_tempered_accord, :hosts, :accord_shore, :tempered_accord, since: 2423 do
   prose "The inner shore contains the standing hearing rooms, delegation houses and records hall of the #{ref :tempered_accord, "Tempered Accord"}."
-end
-relate :rel_accord_shore_depends_on_resonance, :depends_on, :accord_shore, :resonance do
-  prose "Submerged ringglass baffles use #{ref :resonance, "resonance"} to keep the inner hearing rooms from sharing signal-band traces."
 end

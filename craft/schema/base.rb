@@ -12,6 +12,96 @@
 schema do
   require_explicit_subkinds!
 
+  encyclopedia_type :lifeform,
+                    description: "A reusable kind of living or anomalously living organism." do
+    field :origin, type: :text, expected: false
+    field :biology, type: :text, expected: false
+    field :lifespan, type: :text, expected: false
+    identity_key :appearance
+    identity_key :behavior
+    identity_key :threat
+    identity_key :senses
+    identity_key :working
+    identity_key :risks
+  end
+  encyclopedia_type :culture,
+                    description: "Distributed learned traditions, norms, and material life." do
+    field :integration, type: :text, expected: false
+    field :formal_register, type: :text, label: "Formal Register", expected: false
+    field :aesthetic, type: :text, expected: false
+    identity_key :appearance
+    identity_key :attire
+    identity_key :manner
+    identity_key :hospitality
+  end
+  encyclopedia_type :role,
+                    description: "An ordinary unnamed person defined by work or social function." do
+    identity_key :attire
+    identity_key :tools
+    identity_key :manner
+  end
+  encyclopedia_type :practice,
+                    description: "A discrete learned technique or action a person can perform." do
+    field :function, type: :text, expected: false
+    identity_key :attire
+    identity_key :tools
+    identity_key :manner
+    identity_key :signs
+    identity_key :effect
+    identity_key :limits
+  end
+  encyclopedia_type :doctrine,
+                    description: "A reusable belief, rule, measure, prohibition, or interpretive framework." do
+    field :function, type: :text, expected: false
+    identity_key :tenets
+    identity_key :obligations
+    identity_key :prohibitions
+    identity_key :interpretation
+  end
+  encyclopedia_type :ability,
+                    description: "A discrete extraordinary effect expressed at one or more ordered power tiers." do
+    field :function, type: :text, expected: false
+    identity_key :signs
+    identity_key :effect
+    identity_key :limits
+  end
+  encyclopedia_type :institution,
+                    description: "A reusable form of organized membership, authority, or mutual obligation."
+  encyclopedia_type :technology,
+                    description: "A reusable designed device, tool, vehicle, instrument, or technical system." do
+    field :function, type: :text, expected: false
+    field :classes, type: :text, expected: false
+    field :operating_environments, type: :text, label: "Operating Environments", expected: false
+    field :operating_limit, type: :text, label: "Operating Limit", expected: false
+    field :capacity, type: :text, expected: false
+    identity_key :appearance
+    identity_key :working
+    identity_key :risks
+    identity_key :aboard
+    identity_key :behavior
+    identity_key :handling
+  end
+  encyclopedia_type :resource,
+                    description: "A reusable material, commodity, food, medicine, fuel, or useful body of data." do
+    field :function, type: :text, expected: false
+    field :grades, type: :text, expected: false
+    field :availability, type: :text, expected: false
+    identity_key :appearance
+    identity_key :working
+    identity_key :risks
+  end
+  encyclopedia_type :phenomenon,
+                    description: "A recurring physical, ecological, weather, social, or anomalous condition." do
+    field :medium, type: :text, expected: false
+    field :content, type: :text, expected: false
+    field :hazard, type: :text, expected: false
+    identity_key :signs
+    identity_key :effects
+    identity_key :hazards
+  end
+  encyclopedia_type :place_feature,
+                    description: "A recurring component or arrangement of a place that can enter a scene."
+
   entity_type :ability, :artifact, :concept, :conflict, :creature, :culture, :era, :faction,
               :geographic_location, :incident, :installation, :npc, :phenomenon, :resource,
               :rumor, :species, :transport, :edict
@@ -83,6 +173,8 @@ schema do
   relation :cooperates_with, category: :social, temporal: true
   relation :inhabits, category: :social, temporal: true
   relation :maintains, category: :social, temporal: true
+  relation :bears, category: :social, temporal: true,
+                   description: "A current or former bearer holds a named mantle or designation"
   relation :possesses, category: :social, temporal: true
   relation :practiced_by, category: :social, temporal: true
   relation :studies, category: :social, temporal: true
@@ -190,11 +282,11 @@ schema do
   # atlas. Their fields follow the kind fields and may replace a broad
   # expectation when it does not fit that narrower class.
   extend_kind :ability do
-    subkind :learned_ability do
-      relation_field :teachers, relation: :taught, direction: :incoming,
-                                cardinality: :many, label: "Teachers", expected: false
-    end
-    subkind :innate_ability
+    field :qualification, type: :text, label: "Qualification", expected: false
+    field :succession, type: :text, label: "Succession", expected: true
+    field :cost, type: :text, label: "Cost", expected: true
+    relation_field :bearers, relation: :bears, direction: :incoming,
+                             cardinality: :many, label: "Bearers", expected: false
   end
 
   extend_kind :artifact do
@@ -463,6 +555,12 @@ schema do
   end
 
   extend_kind :phenomenon do
+    field :trigger, type: :text, label: "Trigger", expected: true
+    field :effect, type: :text, label: "Effect", expected: true
+    field :recurrence, type: :text, label: "Recurrence", expected: true
+    field :ending, type: :text, label: "Ending", expected: false
+    field :mitigation, type: :text, label: "Mitigation", expected: false
+    field :anchor_behavior, type: :text, label: "Anchor Behavior", expected: false
     subkind :physical_phenomenon do
       relation_field :caused_by, relation: :caused, direction: :incoming,
                                   cardinality: :many, label: "Caused By", expected: false
@@ -558,6 +656,7 @@ schema do
   end
 
   extend_kind :transport do
+    subkind :route
     subkind :vessel do
       field :capacity, type: :text, expected: false
     end

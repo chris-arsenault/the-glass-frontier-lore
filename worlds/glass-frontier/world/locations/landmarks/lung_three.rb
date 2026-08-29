@@ -2,7 +2,9 @@ installation :lung_three do
   name "Lung Three"
   summary "Lung Three is a tall ceramic airflow chamber inside Vey that divides the settlement's thermal return among four residential wards."
   playable_as :chronicle_location
+  context_tags :"realm:ring_habitat"
   subkind :infrastructure
+  type_of :infrastructure
   function "Divides Vey's main thermal airflow among four residential wards"
   status :complete
   tags :"structural-freq", :household, :training, :"ring-hab"
@@ -49,7 +51,6 @@ relate :rel_lung_three_located_in_vey, :located_in, :lung_three, :vey, since: 24
   prose "Lung Three distributes Vey's passive airflow through four residential wards."
 end
 
-
-relate :rel_lung_three_depends_on_resonance, :depends_on, :lung_three, :resonance do
-  prose "Structural resonance keeps Lung Three's narrowest ceramic passages open through each thermal cycle."
+relate :rel_merren_operates_in_lung_three, :operates_in, :merren, :lung_three, since: 2435 do
+  prose "Return from Merren's central-atmosphere trial now reaches Lung Three and has moved condensation onto its highest bridge."
 end

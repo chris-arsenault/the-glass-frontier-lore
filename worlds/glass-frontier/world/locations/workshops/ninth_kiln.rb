@@ -2,7 +2,9 @@ installation :ninth_kiln do
   name "Ninth Kiln"
   summary "Ninth Kiln is a municipal ceramic yard on Lowbank's eastern boatbuilding mound, firing isolation blocks, barge ribs, flood fittings, and household ware."
   playable_as :chronicle_location
+  context_tags :"realm:outer_system"
   subkind :workshop
+  type_of :workshop
   function "Fires ceramic isolation blocks, barge ribs, and flood-resistant fittings"
   status :complete
   tags :"outer-system", :trade, :transport, :resonance, :rebuilding
@@ -93,7 +95,7 @@ end
 relate :rel_ninth_kiln_depends_korvath, :depends_on, :ninth_kiln, :korvath do
   prose "The kiln's isolation ceramic answers Korvath's broad native field by breaking resonance paths through working structures."
 end
-relate :rel_ninth_kiln_resonates_channel_barge, :resonates_with, :ninth_kiln, :channel_barge do
+relate :rel_ninth_kiln_resonates_channel_barge, :resonates_with, :ninth_kiln, :low_lamp do
   prose "Long side chambers fire the ceramic ribs that isolate channel-barge drives."
 end
 relate :rel_ninth_kiln_resonates_nine_holds, :resonates_with, :ninth_kiln, :nine_holds do

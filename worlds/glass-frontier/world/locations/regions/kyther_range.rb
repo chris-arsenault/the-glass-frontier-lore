@@ -2,7 +2,9 @@ geographic_location :kyther_range do
   name "Kyther Range"
   summary "The Kyther Range is a long mountain chain east of Avar on Kaleidos, with dark peaks, settled valleys, glaciers, and crystal-bearing seams."
   playable_as :chronicle_location
+  context_tags :"realm:surface"
   subkind :region
+  type_of :region
   status :complete
   tags :surface, :resonance, :navigation, :materials, :danger
   prominence :recognized
@@ -78,26 +80,9 @@ relate :rel_kyther_range_on_kaleidos, :on_surface_of, :kyther_range, :kaleidos d
 end
 relate :rel_kyther_supplies_miraeth, :supplies, :kyther_range, :miraeth do
   prose "Kyther rain and meltwater feed the channels and root mats of #{ref :miraeth, "Miraeth"}."
-  descriptive_identity(
-    terms:
-      "Water on the mountain's schedule, not anyone's: meltwater follows " \
-      "the ringglass bands in the ice, and a spring can change valleys " \
-      "after a warm season when an active seam shifts its path.",
-    dependence:
-      "Each basin's ward assemblies budget irrigation turns and quiet " \
-      "periods around what comes down from the foothills; a moved " \
-      "spring redraws those postings for a whole watershed."
-  )
 end
 relate :rel_kyther_supplies_sable_crescent, :supplies, :kyther_range, :sable_crescent do
   prose "The range's southern rivers carry water and mineral sediment toward the #{ref :sable_crescent, "Sable Crescent"}."
-  descriptive_identity(
-    terms:
-      "The southern rivers deliver more than volume — their sediment " \
-      "crosses crystal-laced ground on the way down, and what surfaces " \
-      "in the basin's traps after a flood is washed for low-grade " \
-      "ringglass."
-  )
 end
 relate :rel_kyther_adjacent_miraeth, :adjacent_to, :kyther_range, :miraeth,
        props: { frame: :kaleidos_surface, bearing_deg: 225 } do

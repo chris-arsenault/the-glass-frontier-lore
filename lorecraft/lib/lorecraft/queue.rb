@@ -15,12 +15,15 @@ module Lorecraft
     def initialize(world, findings: nil, entity: nil)
       @world = world
       @findings = findings
-      @entity = entity && (world.entity(entity.to_sym) || raise(Error, "unknown entity: #{entity}"))
+      @entity = entity && (
+        world.entity(entity.to_sym) || world.encyclopedia_entry(entity.to_sym) ||
+          raise(Error, "unknown Atlas or Encyclopedia entry: #{entity}")
+      )
     end
 
     # Declared questions, entity by entity, in load order.
     def questions
-      entities = @entity ? [@entity] : @world.entities.values
+      entities = @entity ? [@entity] : @world.entities.values + @world.encyclopedia_entries.values
       entities
             .reject { |e| e.questions.empty? }
             .sort_by { |e| e.id.to_s }
@@ -38,7 +41,7 @@ module Lorecraft
       id = Regexp.escape(@entity.id.to_s)
       found.select do |finding|
         path = finding.respond_to?(:object_path) && finding.object_path
-        path == @entity.id.to_s ||
+        path == @entity.id.to_s || path == "encyclopedia:#{@entity.id}" ||
           (!path && finding.message.match?(/(?<![a-z0-9_])#{id}(?![a-z0-9_])/))
       end
     end

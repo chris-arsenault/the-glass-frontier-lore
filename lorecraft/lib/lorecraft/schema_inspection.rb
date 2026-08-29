@@ -4,7 +4,10 @@ module Lorecraft
   # A live, bounded view of the schema assembled from the shared craft layer and
   # the selected world's extensions.
   class SchemaInspection
-    TOPICS = %w[kinds kind relations relation frames frame tags sections].freeze
+    TOPICS = %w[
+      kinds kind relations relation reference-kinds reference-kind
+      context-tags frames frame tags sections
+    ].freeze
 
     def initialize(world, topic: "kinds", name: nil)
       @schema = world.schema
@@ -20,6 +23,9 @@ module Lorecraft
       when "kind" then { query: "kind", kind: kind_detail(required_name("kind")) }
       when "relations" then { query: "relations", relations: relation_list }
       when "relation" then { query: "relation", relation: relation_detail(required_name("relation")) }
+      when "reference-kinds" then { query: "reference-kinds", kinds: reference_kind_list }
+      when "reference-kind" then { query: "reference-kind", kind: reference_kind_detail(required_name("reference kind")) }
+      when "context-tags" then { query: "context-tags", tags: context_tag_list }
       when "frames" then { query: "frames", frames: frame_list }
       when "frame" then { query: "frame", frame: frame_detail(required_name("frame")) }
       when "tags" then { query: "tags", tags: named_vocabulary(@schema.tags) }
@@ -34,6 +40,9 @@ module Lorecraft
       when "kind" then report_kind(result[:kind])
       when "relations" then report_relations(result[:relations])
       when "relation" then report_relation(result[:relation])
+      when "reference-kinds" then report_reference_kinds(result[:kinds])
+      when "reference-kind" then report_reference_kind(result[:kind])
+      when "context-tags" then report_context_tags(result[:tags])
       when "frames" then report_frames(result[:frames])
       when "frame" then report_frame(result[:frame])
       when "tags" then report_vocabulary("Tags", result[:tags])
@@ -63,8 +72,6 @@ module Lorecraft
         reader: kind.wiki == true,
         facts: kind.facts.map { |fact| fact_data(fact) },
         identity_keys: kind.identity_keys.map { |key| identity_key_data(key) },
-        identity_sources: kind.identity_sources.map { |source| identity_source_data(source) },
-        identity_source_policy: kind.identity_source_policy,
         subkinds: kind.subkinds.values.sort_by { |subkind| subkind.name.to_s }.map do |subkind|
           {
             name: subkind.name,
@@ -73,16 +80,6 @@ module Lorecraft
             omitted_facts: subkind.omitted_facts,
             facts: subkind.facts.map { |fact| fact_data(fact) },
             resolved_facts: @schema.facts_for(kind.name, subkind: subkind.name).map { |fact| fact_data(fact) },
-            identity_source_policy: subkind.identity_source_policy || kind.identity_source_policy,
-            omitted_identity_sources: subkind.omitted_identity_sources,
-            identity_keys: subkind.identity_keys.map { |key| identity_key_data(key) },
-            identity_sources: subkind.identity_sources.map { |source| identity_source_data(source) },
-            resolved_identity_keys: @schema.identity_keys_for(
-              kind.name, subkind: subkind.name
-            ).map { |key| identity_key_data(key) },
-            resolved_identity_sources: @schema.identity_sources_for(
-              kind.name, subkind: subkind.name
-            ).map { |source| identity_source_data(source) },
           }
         end,
       }
@@ -116,14 +113,44 @@ module Lorecraft
         properties: relation.properties.values.sort_by { |property| property.name.to_s }.map do |property|
           property_data(property)
         end,
-        identity_source_policy: relation.identity_source_policy,
-        identity_keys: @schema.relation_identity_keys(relation.name).map do |key|
-          identity_key_data(key)
-        end,
-        identity_sources: @schema.relation_identity_sources(relation.name).map do |source|
-          identity_source_data(source)
-        end,
       }.compact
+    end
+
+    def reference_kind_list
+      @schema.encyclopedia_kinds.values.sort_by { |kind| kind.name.to_s }.map do |kind|
+        {
+          name: kind.name,
+          description: kind.description,
+          fields: kind.fields.map { |field| fact_data(field) },
+          identity_keys: kind.identity_keys.map { |key| identity_key_data(key) },
+          tiers: kind.tiers.map { |tier| ability_tier_data(tier) },
+        }.compact
+      end
+    end
+
+    def reference_kind_detail(name)
+      kind = @schema.encyclopedia_kinds[name]
+      raise Error, "unknown encyclopedia kind: #{name}" unless kind
+
+      {
+        name: kind.name,
+        description: kind.description,
+        fields: kind.fields.map { |field| fact_data(field) },
+        identity_keys: kind.identity_keys.map { |key| identity_key_data(key) },
+        tiers: kind.tiers.map { |tier| ability_tier_data(tier) },
+      }.compact
+    end
+
+    def context_tag_list
+      @schema.context_tags.values.sort_by { |tag| tag.name.to_s }.map do |tag|
+        {
+          name: tag.name,
+          description: tag.description,
+          scopes: tag.scopes,
+          parent: tag.parent,
+          compatible_with: tag.compatible_with,
+        }.compact
+      end
     end
 
     def property_data(property)
@@ -181,26 +208,11 @@ module Lorecraft
     end
 
     def identity_key_data(key)
-      {
-        name: key.name,
-        required: key.required?,
-        merge: key.merge,
-        separator: key.separator,
-      }
+      { name: key.name }
     end
 
-    def identity_source_data(source)
-      {
-        name: source.name,
-        relation: source.relation,
-        direction: source.direction,
-        cardinality: source.cardinality,
-        required: source.required?,
-        kinds: source.kinds,
-        subkinds: source.subkinds,
-        projection: source.projection,
-        precedence: source.precedence,
-      }.compact
+    def ability_tier_data(tier)
+      { name: tier.name, rank: tier.rank, description: tier.description }.compact
     end
 
     def named_vocabulary(values)
@@ -230,7 +242,7 @@ module Lorecraft
     def report_kind(kind)
       lines = ["Kind — #{kind[:name]} (#{kind[:reader] ? 'reader' : 'non-reader'})"]
       lines.concat(fact_lines("Kind facts", kind[:facts]))
-      lines.concat(identity_lines(kind[:identity_keys], kind[:identity_sources], kind[:identity_source_policy]))
+      lines.concat(identity_lines(kind[:identity_keys]))
       lines << "Subkinds:"
       kind[:subkinds].each do |subkind|
         marker = subkind[:default] ? " (default)" : ""
@@ -240,15 +252,6 @@ module Lorecraft
           lines << "    no added or overridden facts"
         else
           subkind[:facts].each { |fact| lines << "    #{format_fact(fact)}" }
-        end
-        unless subkind[:resolved_identity_keys].empty?
-          lines << "    identity keys: #{subkind[:resolved_identity_keys].map { |key| key[:name] }.join(', ')}"
-        end
-        if subkind[:identity_source_policy] == :none
-          lines << "    identity sources: none"
-        elsif !subkind[:resolved_identity_sources].empty?
-          lines << "    identity sources: " \
-                   "#{subkind[:resolved_identity_sources].map { |source| source[:name] }.join(', ')}"
         end
       end
       lines.join("\n")
@@ -271,24 +274,8 @@ module Lorecraft
       "#{fact[:name]} (#{fact[:label]}): #{attributes.join(', ')}"
     end
 
-    def identity_lines(keys, sources, policy)
-      lines = []
-      lines << if keys.empty?
-                 "Identity keys: none"
-               else
-                 "Identity keys: " + keys.map do |key|
-                   requirement = key[:required] ? "required" : "optional"
-                   "#{key[:name]} (#{requirement}, #{key[:merge]})"
-                 end.join(", ")
-               end
-      lines << if policy == :none
-                 "Identity sources: none"
-               elsif sources.empty?
-                 "Identity sources: undeclared"
-               else
-                 "Identity sources: #{sources.map { |source| source[:name] }.join(', ')}"
-               end
-      lines
+    def identity_lines(keys)
+      [keys.empty? ? "Identity keys: none" : "Identity keys: #{keys.map { |key| key[:name] }.join(', ')}"]
     end
 
     def report_relations(relations)
@@ -316,9 +303,6 @@ module Lorecraft
       exclusions = relation[:exclusive_with]
       lines << "  exclusive with: #{exclusions&.join(', ') || 'none'}"
       lines << "  description: #{relation[:description]}" if relation[:description]
-      lines.concat(identity_lines(
-        relation[:identity_keys], relation[:identity_sources], relation[:identity_source_policy]
-      ).map { |line| "  #{line}" })
       unless relation[:properties].empty?
         lines << "  properties:"
         relation[:properties].each do |property|
@@ -333,6 +317,42 @@ module Lorecraft
           details << "exclusive_with=#{property[:exclusive_with].join('|')}" if property[:exclusive_with]
           lines << "    #{property[:name]}: #{details.join(', ')}"
         end
+      end
+      lines.join("\n")
+    end
+
+    def report_reference_kinds(kinds)
+      lines = ["Encyclopedia kinds (#{kinds.size}):"]
+      kinds.each do |kind|
+        suffix = kind[:description] ? ": #{kind[:description]}" : ""
+        lines << "  #{kind[:name]}#{suffix}"
+      end
+      lines.join("\n")
+    end
+
+    def report_reference_kind(kind)
+      lines = ["Encyclopedia kind — #{kind[:name]}"]
+      lines << kind[:description] if kind[:description]
+      unless kind[:tiers].empty?
+        lines << "Tiers:"
+        kind[:tiers].each do |tier|
+          description = tier[:description] ? " — #{tier[:description]}" : ""
+          lines << "  #{tier[:rank]}. #{tier[:name]}#{description}"
+        end
+      end
+      lines.join("\n")
+    end
+
+    def report_context_tags(tags)
+      return "Context tags: none" if tags.empty?
+
+      lines = ["Context tags (#{tags.size}):"]
+      tags.each do |tag|
+        detail = "scopes=#{tag[:scopes].join('|')}"
+        detail += " parent=#{tag[:parent]}" if tag[:parent]
+        detail += " compatible=#{tag[:compatible_with].join('|')}" unless tag[:compatible_with].empty?
+        lines << "  #{tag[:name]}: #{detail}"
+        lines << "    #{tag[:description]}" if tag[:description]
       end
       lines.join("\n")
     end

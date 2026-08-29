@@ -2,7 +2,9 @@ installation :cinder_gap do
   name "Cinder Gap"
   summary "Cinder Gap is a cordon section on the contained edge of Pyre's Bloom Zone, where the first full stillwater wall stopped two expansion paths."
   playable_as :chronicle_location
+  context_tags :"realm:orbital"
   subkind :border_post
+  type_of :cordon_station
   tags :orbital, :danger, :resonance
   prominence :marginal
   status :complete
@@ -20,11 +22,8 @@ installation :cinder_gap do
       "standing condition that no casing opens until someone can show " \
       "where its stored frequencies will go.",
     hazards:
-      "One old casing gives back a faint copy of every test tone " \
-      "applied near it, so instrument work by the mounts carries a " \
-      "second voice that new crews chase as a fault in their own gear. " \
-      "The stillwater in those vessels has absorbed more cascade " \
-      "activity than any other surviving containment."
+      "The stillwater in the three original vessels has absorbed more " \
+      "cascade activity than any other surviving containment."
   )
 
   prose <<~PROSE
@@ -32,13 +31,10 @@ installation :cinder_gap do
   PROSE
 
   prose <<~PROSE, section: :present_day, heading: "The Oldest Buoys"
-    Three original casings remain mounted behind the current wall. Their stillwater has absorbed more cascade activity than any other surviving containment vessel. One no longer accepts calibration and another returns a faint version of every test tone applied to it.
-
-    Lira now uses Cinder Gap to develop a retirement procedure for saturated buoys. The work begins with remote taps and isolated samples. Opening a casing remains prohibited until the crew can show where its stored frequencies will go.
+    #{embed :returning_casing}
   PROSE
 
-  gm_note :appears, "Instrument work anywhere near the old mounts picks up a second voice, because one of the three original casings returns a faint version of every test tone applied to it. Crews new to the section read that as a fault in their own equipment and lose an hour chasing it."
-  gm_note :triggered_by, "Proposing to open a saturated casing gets a condition rather than a refusal: #{ref :lira_vashtenri, "Lira Vashtenri"} requires the crew to show where the stored frequencies will go once the vessel is breached. Nobody has produced that answer, so the work stays at remote taps and isolated samples."
+  gm_note :appears, "Instrument work anywhere near #{ref :returning_casing, 'the Returning Casing'} picks up a second voice, and crews new to the section read it as a fault in their own equipment."
 end
 
 relate :rel_cinder_gap_located_in_bloom_zones, :located_in, :cinder_gap, :bloom_zones do

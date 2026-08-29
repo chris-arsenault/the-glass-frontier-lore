@@ -2,6 +2,7 @@ faction :four_span_mutual do
   name "Four-Span Mutual"
   summary "Four-Span Mutual is a route-aid society that caches food, cable, and relay glass at four surviving stations."
   subkind :mutual_aid
+  type_of :mutual_aid_network
   status :complete
   prominence :marginal
   veiled "Four-Span Mutual keeps food, cable, and spare relay glass cached at every surviving station on its route."

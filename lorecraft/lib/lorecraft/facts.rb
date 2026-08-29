@@ -51,15 +51,19 @@ module Lorecraft
         values = node.respond_to?(:fact_values) ? node.fact_values : node.static_attrs
         values[definition.name]
       when :relation
-        state = @world.at(year)
-        targets = if definition.direction == :incoming
-                    state.in(node.id, definition.relation, audience: audience)
-                  else
-                    state.out(node.id, definition.relation, audience: audience)
-                  end
+        targets = atlas_relation_targets(node, definition, year: year, audience: audience)
         definition.cardinality == :one ? targets.first : targets
       when :calculated
         calculate(node, definition, year: year, audience: audience)
+      end
+    end
+
+    def atlas_relation_targets(node, definition, year:, audience:)
+      state = @world.at(year)
+      if definition.direction == :incoming
+        state.in(node.id, definition.relation, audience: audience)
+      else
+        state.out(node.id, definition.relation, audience: audience)
       end
     end
 

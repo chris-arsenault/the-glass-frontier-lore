@@ -3,6 +3,7 @@ faction :merren do
   summary "Merren is a Vey-founded manufacturer of pumps, shutters, heat exchangers, and atmosphere machinery for structurally linked habitats."
   aka "Merren Works"
   subkind :company
+  type_of :company
   founded 2429
   status :complete
   tags :household, :trade, :resonance, :"structural-freq"

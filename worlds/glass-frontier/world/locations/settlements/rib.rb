@@ -2,7 +2,9 @@ installation :rib do
   name "Rib"
   summary "Rib is a small settlement inside a living pressure reef in the Glass Frontier, built along one exposed ring support and maintained through the reef's pulse."
   playable_as :chronicle_location
+  context_tags :"realm:ring_habitat"
   subkind :settlement
+  type_of :settlement
   status :complete
   tags :"ring-hab", :ecology, :resonance, :"structural-freq", :materials
   prominence :marginal
@@ -40,7 +42,7 @@ installation :rib do
   prose <<~PROSE
     Work follows the pulse. Shell cutters open passages during the long low note, when new mineral lies soft around its channels. Filter crews climb during the short rising pattern that drives trapped grit toward the outer surface. Meals gather on the terraces during the quiet interval while the reef redistributes water.
 
-    Houses occupy narrow terraces cut between old alloy and living stone. Their walls admit air through soft filter mouths that contract when dust or spores enter. Low structural pulses travel along the curved ring support at the settlement's center. Residents hear them through floors, pipes, and the hard plates of the #{ref :sorel, "sorel"} that graze the shell.
+    Houses occupy narrow terraces cut between old alloy and living stone. Their walls admit air through soft filter mouths that contract when dust or spores enter. Low structural pulses travel along the curved ring support at the settlement's center. Residents hear them through floors, pipes, and the hard plates of #{ref :rib_sorel_herds, "the grazing herds"}.
   PROSE
 
   prose <<~PROSE, section: :history, heading: "The Pressure Reef"
@@ -66,6 +68,6 @@ relate :rel_rib_located_in_frontier, :located_in, :rib, :the_glass_frontier, sin
   prose "Rib grows around a curved support of the broken ring."
 end
 
-relate :rel_rib_depends_on_sorel, :depends_on, :rib, :sorel do
+relate :rel_rib_depends_on_sorel_herds, :depends_on, :rib, :rib_sorel_herds do
   prose "Rib relies on sorel herds to expose growth lines before cutters open or brace a passage."
 end

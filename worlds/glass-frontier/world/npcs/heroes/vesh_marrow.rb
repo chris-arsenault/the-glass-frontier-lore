@@ -5,15 +5,13 @@ npc :vesh_marrow do
   born 2358
   occupation "Retired Hand of the Bloom Coalition and adviser on Accord emergency charters"
   jurisdiction "Cross-faction emergency command"
-  species "human"
-  identity_source :species, :humans
-  identity_source :culture, :sitharian_culture
+  type_of :humans
+  belongs_to :culture, :sitharian_culture
   descriptive_identity disposition:
     "Marrow meets a request for emergency authority with three questions: " \
     "who can end it, which records stay public, and what happens to " \
     "whoever refuses an order. His weight arrives as annotations in the " \
     "margins of a draft, not from a chair or a seat."
-  culture "Sithari"
   tags :governance, :diplomacy, :resonance, :rebuilding
   prominence :recognized
   status :complete
@@ -41,39 +39,13 @@ relate :rel_vesh_marrow_led_bloom_coalition, :leads, :vesh_marrow, :bloom_coalit
 end
 relate :rel_vesh_marrow_participated_silent_bloom, :participated_in, :vesh_marrow, :the_silent_bloom, since: 2378 do
   prose "He entered the Silent Bloom response as a cordon operator and remained in cross-faction command after the immediate evacuation."
-  descriptive_identity conduct:
-    "He ran landing windows at the outer Pyre cordon and reported " \
-    "losses and shortages at their real size; within three months the " \
-    "factions that had been supplying him put him over their own " \
-    "operations."
 end
 relate :rel_vesh_marrow_located_accord_shore, :located_in, :vesh_marrow, :accord_shore, since: 2423 do
   prose "He keeps rooms near the Accord records hall and works there when a delegation requests his advice."
 end
 relate :rel_vesh_marrow_cooperates_tempered_accord, :cooperates_with, :vesh_marrow, :tempered_accord, since: 2423 do
   prose "Accord delegations consult him on emergency charters and the authority needed to close them."
-  descriptive_identity(
-    basis:
-      "Sixteen years of Coalition command distilled into three " \
-      "questions he puts to every draft: who can end the authority, " \
-      "which records stay public, and what happens to whoever refuses " \
-      "an order.",
-    limits:
-      "He holds no seat, declines to chair, and his marked copy of a " \
-      "proposal circulates instead of him — a delegation that wins " \
-      "Marrow over still has to find the votes itself."
-  )
 end
 relate :rel_vesh_marrow_cooperates_displacement_council, :cooperates_with, :vesh_marrow, :displacement_council, since: 2384 do
   prose "The Council still asks Marrow to review cordon handoffs that divide authority between field commands."
-  descriptive_identity(
-    basis:
-      "The Council inherited the Coalition's physical cordons on his " \
-      "watch, along with his standing rule that every order carries an " \
-      "end condition and a named person responsible for reversing it.",
-    limits:
-      "Review is all he gives: the boundaries belong to the Council " \
-      "now, and Marrow reads a handoff for where authority could go " \
-      "unclaimed between two field commands, then hands it back."
-  )
 end

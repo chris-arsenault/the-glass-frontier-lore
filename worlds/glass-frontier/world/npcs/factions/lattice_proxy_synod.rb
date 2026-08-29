@@ -2,6 +2,7 @@ faction :lattice_proxy_synod do
   name "Lattice Proxy Synod"
   summary "The Lattice Proxy Synod is the Threshold Station research body that communicates with surviving ring-era AI custodians."
   subkind :research_body
+  type_of :research_institution
   path "player/npcs/factions/lattice-proxy-synod.md"
   reviewed "2026-03-18"
   tags :"ring-era", :AI, :governance, :resonance
@@ -32,7 +33,7 @@ faction :lattice_proxy_synod do
   prose <<~PROSE
     The Synod talks to the old machines, and the old machines — sometimes — talk back.
 
-    Headquartered at #{ref :threshold_station, "Threshold Station"}, a mostly intact pre-Glassfall facility at the Kaleidos-sun Lagrange point, the Lattice Proxy Synod is the system's interface with surviving ring-era AI custodians. The custodians are autonomous minds built when the #{ref :elves, "elves"} were the dominant civilization. They use cognitive architectures that living researchers can observe only through their outputs and process information across dimensional frameworks beyond contemporary mathematics.
+    Headquartered at #{ref :threshold_station, "Threshold Station"}, a mostly intact pre-Glassfall facility at the Kaleidos-sun Lagrange point, the Lattice Proxy Synod is the system's interface with surviving ring-era AI custodians. The custodians are autonomous minds built when the #{encyclopedia_ref :elves, "elves"} were the dominant civilization. They use cognitive architectures that living researchers can observe only through their outputs and process information across dimensional frameworks beyond contemporary mathematics.
 
     The Synod translates those outputs into navigation, governance, and resonance services used across the system.
   PROSE
@@ -80,15 +81,11 @@ relate :rel_lps_operates_tempered_accord, :operates_in, :lattice_proxy_synod, :t
 end
 relate :rel_lps_member_of_bloom_coalition, :member_of, :lattice_proxy_synod, :bloom_coalition, since: 2380, till: 2396 do
   prose "It joined the #{ref :bloom_coalition, "Bloom Coalition"} during the emergency, its custodian archives contributing to containment work until the coalition came apart."
-  descriptive_identity standing:
-    "Its custodian telemetry could see the cascade propagating before " \
-    "surface instruments detected it, and the seat that work earned at " \
-    "the crisis response table outlived the Coalition itself."
 end
 
 # --- history (moments) ---
 moment :lattice_proxy_synod_formed, year: 2308, of: :lattice_proxy_synod do
   summary "Researchers formed the Lattice Proxy Synod at Threshold Station in 2308 after accidental contact with its AI custodians."
-  prose "A long-range survey crew stumbled on #{ref :threshold_station, "Threshold Station"} during the Rekindling — a near-intact pre-Glassfall traffic node whose AI custodians had kept running, powerless to reach a network that no longer existed but never shut down. First contact was accidental and terrifying: a terminal answered in eighteen-dimensional relational structures the #{ref :elves, "elves"} had designed for and human cognition bounces off. The Synod grew from the people who stayed and tried to make sense of it."
+  prose "A long-range survey crew stumbled on #{ref :threshold_station, "Threshold Station"} during the Rekindling — a near-intact pre-Glassfall traffic node whose AI custodians had kept running, powerless to reach a network that no longer existed but never shut down. First contact was accidental and terrifying: a terminal answered in eighteen-dimensional relational structures the #{encyclopedia_ref :elves, "elves"} had designed for and human cognition bounces off. The Synod grew from the people who stayed and tried to make sense of it."
   effects { set :lattice_proxy_synod, standing: :active }
 end

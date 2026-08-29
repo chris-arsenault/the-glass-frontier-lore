@@ -2,8 +2,10 @@ installation :noll do
   name "Noll"
   summary "Noll is a forested ring-hab settlement of twenty-three hundred people in the Glass Frontier, cultivating resonant structural timber beneath a transparent hull."
   playable_as :chronicle_location
+  context_tags :"realm:ring_habitat"
   aka "Nol-Avaren"
   subkind :settlement
+  type_of :settlement
   status :complete
   tags :"ring-hab", :"ring-era", :ecology, :materials, :trade, :"structural-freq"
   prominence :recognized
@@ -51,7 +53,7 @@ installation :noll do
   prose <<~PROSE, section: :economy, heading: "A Forest Sold by Future Shape"
     Buyers reserve stems while they are still growing. A shipwright brings a rib template, a builder specifies an arch, or an instrument maker asks for a narrow twist. Noll workers set weights and grafts around the young wood, then tend it through several cutting cycles. Ring-era grafting plates call the cultivar and its crescent Nol-Avaren; dock manifests shortened both to Noll.
 
-    #{ref :navren, "Navren"} commands the longest reservations. Its fibers carry a structural tone evenly through bends and joints, making it useful for hull braces, pressure frames, and large instruments. Offcuts become tool handles and sounding wedges sold from the dock markets.
+    #{encyclopedia_ref :navren, "Navren"} commands the longest reservations. Its fibers carry a structural tone evenly through bends and joints, making it useful for hull braces, pressure frames, and large instruments. Offcuts become tool handles and sounding wedges sold from the dock markets.
 
     Harvest crews mark every cut with the stool, shade season, imposed load, and grower's hand. Navren carries no ringglass vein. Once the cut wood dries, its living response closes and the imposed grain holds one stable curve. Those marks remain on finished pieces so later repairers can orient it as it grew.
   PROSE
@@ -66,7 +68,7 @@ installation :noll do
 
   gm_note :appears, "Reaching Noll takes a #{ref :three_arms_yard, "Three Arms Yard"} contract carrier to one of two shaded docks and then a narrow freight throat beside the root galleries, so a party arrives and leaves on the yard's timetable instead of its own."
   gm_note :triggered_by, "Asking to buy timber gets an offer of a place in a queue. Stems are reserved while still growing and shaped to one named buyer's template, which leaves a visitor the dock-market offcuts or somebody else's reservation to buy out."
-  gm_note :complicates, "Every cut carries the stool, shade season, imposed load, and grower's hand, and the marks stay on the finished brace so a repairer can orient it as it grew. A salvaged or stolen #{ref :navren, "navren"} frame therefore names the stand it came out of."
+  gm_note :complicates, "Every cut carries the stool, shade season, imposed load, and grower's hand, and the marks stay on the finished brace so a repairer can orient it as it grew. A salvaged or stolen #{ref :noll_navren_stands, "navren stand"} therefore names where the frame came from."
 end
 
 relate :rel_noll_located_in_frontier, :located_in, :noll, :the_glass_frontier, since: 2305 do
@@ -75,33 +77,12 @@ end
 
 relate :rel_noll_supplies_rib, :supplies, :noll, :rib, since: 2435 do
   prose "Noll grows curved navren frames for Rib's doors and new passages through the pressure reef."
-  descriptive_identity(
-    terms:
-      "Frames reserved seasons ahead and grown to Rib's templates, each " \
-      "cut marked with stool, shade season, imposed load, and grower's " \
-      "hand so a reef cutter can orient the wood as it grew.",
-    dependence:
-      "A new terrace at Rib begins as a channel held open by navren " \
-      "while the reef closes around it; without the pre-shaped timber " \
-      "there is no way to open a room and keep it a room."
-  )
 end
 
 relate :rel_noll_supplies_three_arms_yard, :supplies, :noll, :three_arms_yard, since: 2435 do
   prose "Three Arms Yard orders paired navren spars for kite frames that must flex across separate loads."
-  descriptive_identity(
-    terms:
-      "Paired spars raised under matched tension on the yard's own rib " \
-      "templates, sold as reservations on standing trees rather than as " \
-      "stock from a rack.",
-    dependence:
-      "The yard's flexible-frame repairs assume timber that carries a " \
-      "structural tone evenly through a bend — and two of its contracted " \
-      "spars have already been pulled off their templates by the shoots " \
-      "turning toward Noll's sealed gallery."
-  )
 end
 
-relate :rel_rib_depends_on_navren, :depends_on, :rib, :navren do
+relate :rel_rib_depends_on_noll_navren_stands, :depends_on, :rib, :noll_navren_stands do
   prose "Rib uses pre-shaped navren frames to hold new doors and passages while its pressure reef grows around them."
 end

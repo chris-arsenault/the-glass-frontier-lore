@@ -2,6 +2,7 @@ npc :dora_melith do
   name "Dora Melith"
   summary "Dora Melith is a maintenance worker who cleans the hearing pools at Accord Shore."
   subkind :worker
+  type_of :person
   status :complete
   prominence :marginal
   veiled "Dora Melith cleans Accord hearing pools and pockets the metal petitions that sink before they are read."end

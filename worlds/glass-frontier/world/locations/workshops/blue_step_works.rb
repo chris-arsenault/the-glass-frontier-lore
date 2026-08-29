@@ -2,7 +2,9 @@ installation :blue_step_works do
   name "Blue Step Works"
   summary "Blue Step Works is a heavy repair shop on Ladderwell's second bench, building pump frames, road gear, bridge fittings, and structural clamps for Avar."
   playable_as :chronicle_location
+  context_tags :"realm:surface"
   subkind :workshop
+  type_of :workshop
   function "Builds and tests portable structural clamps, pump frames, and road-moving gear"
   status :complete
   tags :surface, :rebuilding, :resonance, :"structural-freq", :trade
@@ -40,7 +42,7 @@ installation :blue_step_works do
   )
 
   prose <<~PROSE
-    Blue Step Works is a heavy repair shop on the second bench of #{ref :ladderwell, "Ladderwell"}. It builds pump frames, pressure-sled parts, bridge fittings, and #{ref :stillweight, "stillweights"} for the roads and settlements of Avar. A broad blue-painted step crosses the entrance. Incoming machinery rests there until its old load has been marked and released.
+    Blue Step Works is a heavy repair shop on the second bench of #{ref :ladderwell, "Ladderwell"}. It builds pump frames, pressure-sled parts, bridge fittings, and #{encyclopedia_ref :stillweight, "stillweights"} for the roads and settlements of Avar. A broad blue-painted step crosses the entrance. Incoming machinery rests there until its old load has been marked and released.
 
     The #{ref :counterweight, "Counterweight"} maintains the shop and keeps its road rig in the outer court between moves. Municipal work receives the same benches as private work and a separate line in the ledger.
   PROSE
@@ -89,7 +91,7 @@ end
 relate :rel_counterweight_maintains_blue_step, :maintains, :counterweight, :blue_step_works do
   prose "The Counterweight maintains the load pads, core room, and road-rig court."
 end
-relate :rel_blue_step_resonates_stillweight, :resonates_with, :blue_step_works, :stillweight do
+relate :rel_blue_step_resonates_stillweight, :resonates_with, :blue_step_works, :blue_core_stillweights do
   prose "The shop builds and tests stillweights against isolated structural loads."
 end
 relate :rel_blue_step_resonates_counterweight_rig, :resonates_with, :blue_step_works, :counterweight_road_rig do

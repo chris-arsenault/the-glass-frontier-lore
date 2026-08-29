@@ -1,6 +1,7 @@
 geographic_location :kaleidos do
   name "Kaleidos"
   summary "Kaleidos is the inhabited world beneath the Glass Frontier, with oceans, old continents, and ringglass scattered through its soil, water, and foundations."
+  type_of :celestial_body
   log "2026-08-22 — Excluded as a chronicle location because the whole world is too broad to anchor a starting focus."
   subkind :celestial_body
   status :complete
@@ -45,7 +46,7 @@ geographic_location :kaleidos do
   prose <<~PROSE
     Kaleidos is an inhabited world of oceans, old continental stone, and a sky crossed by the remains of its ring. Most of its people live on the surface. #{ref :sithari, "Sithari"} is the largest city, but it does not contain the planet's population or set every local custom. Coastal towns, river settlements, upland farms, grove basins, and high mountain communities survived the #{ref :signal_famine, "Signal Famine"} with little contact between them. Reconnection made travel easier without making those places alike.
 
-    The broken ring remains visible in daylight. Large fragments pass as hard-edged slivers; fine debris brightens broad reaches of sky and casts moving colors across the ground. #{ref :glassfall_showers, "Glassfall showers"} still bring dust and occasional larger pieces into the atmosphere. A farmer covers a cistern, a pilot folds a sail, and a child lays out catch cloth for the same approaching front.
+    The broken ring remains visible in daylight. Large fragments pass as hard-edged slivers; fine debris brightens broad reaches of sky and casts moving colors across the ground. #{encyclopedia_ref :glassfall_showers, "Glassfall showers"} still bring dust and occasional larger pieces into the atmosphere. A farmer covers a cistern, a pilot folds a sail, and a child lays out catch cloth for the same approaching front.
   PROSE
   prose <<~PROSE, section: :geography, heading: "The Settled Belts"
     Sithari stands on an equatorial tableland above a ring-era campus. The city's eastern port fields open toward long, dry ridges where surface roads and freight lines spread into the interior. Westward, older roads descend through farm country to a warm inland sea. The capital's reach follows those routes, thinning from municipal rail to hired carriers and then to weekly carts and kites.
@@ -61,7 +62,7 @@ geographic_location :kaleidos do
 
     Surface construction begins with sounding the site. Builders strike shallow stakes, run a reference tone through the proposed foundation, and listen for a response from buried crystal. A clean, short answer supports ordinary work. A returning beat can mark a second layer, moving water, or an old structure below. Large foundations are divided by breaks so that one active seam cannot pull the whole building with it.
 
-    The same local variation enters household life. Wells acquire voices after heavy rain. Roof gardens catch fresh crystal dust and must be tested before the material reaches compost or drains. Irrigation gates are tuned separately because opening two on the same response can couple them through wet ground. People who never call themselves #{ref :tuners, "Tuners"} learn the few readings their home requires.
+    The same local variation enters household life. Wells acquire voices after heavy rain. Roof gardens catch fresh crystal dust and must be tested before the material reaches compost or drains. Irrigation gates are tuned separately because opening two on the same response can couple them through wet ground. People who never call themselves #{encyclopedia_ref :tuners, "Tuners"} learn the few readings their home requires.
   PROSE
   prose <<~PROSE, section: :people, heading: "Surface Peoples"
     Surface identity is local before it is planetary. Sitharians share a language of forms, schools, and contracts. Glasswake families count their town's history from the first signal and work around a wreck that is mine, shelter, and monument at once. Crescent communities build above floods and hear old speech in their water. Steppe towns judge distance by wells and safe crossings, while grove settlements rotate work around the condition of their living crystal beds.
@@ -73,7 +74,7 @@ geographic_location :kaleidos do
   prose <<~PROSE, section: :access, heading: "Across the Surface"
     Kites make long crossings possible, but most people and goods still move by road, rail, river, and coastal vessel. A kite can clear a mountain range in hours and still be the wrong way to carry grain, stone, livestock, or a household. Surface routes gather at landing fields rather than yielding to them.
 
-    Travel forecasts combine weather with resonance. Glassfall showers close air lanes and dust exposed machinery. Heavy rain strengthens some signal-bearing channels and softens the steppe's shallow crystal beds. Strong orbital alignments can make an old road pull a vehicle toward a buried seam. Route keepers publish closures with the same authority as storm warnings, and experienced drivers carry a #{ref :tuning_compass, "tuning compass"} beside their map.
+    Travel forecasts combine weather with resonance. Glassfall showers close air lanes and dust exposed machinery. Heavy rain strengthens some signal-bearing channels and softens the steppe's shallow crystal beds. Strong orbital alignments can make an old road pull a vehicle toward a buried seam. Route keepers publish closures with the same authority as storm warnings, and experienced drivers carry a #{encyclopedia_ref :tuning_compass, "tuning compass"} beside their map.
 
     The orbital ring dominates accounts written elsewhere in the system. On Kaleidos, weather services track its debris, towns collect its dust, and builders work the fallen material into walls, roads, fields, and drainage beds.
   PROSE

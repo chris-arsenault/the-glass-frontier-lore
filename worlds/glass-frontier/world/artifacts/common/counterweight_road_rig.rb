@@ -2,6 +2,7 @@ artifact :counterweight_road_rig do
   name "Counterweight Road Rig"
   summary "The Counterweight Road Rig is a two-kite equipment set for moving occupied or operating buildings across temporary load paths. The Counterweight carries its lifting frames, pressure sleds, service lines, and warning instruments between jobs."
   subkind :machine
+  type_of :field_machine
   function "Moves an occupied or operating structure across a temporary load path"
   status :complete
   tags :surface, :transport, :"structural-freq", :"kinetic-freq", :training
@@ -48,7 +49,7 @@ artifact :counterweight_road_rig do
   prose <<~PROSE, section: :mechanics, heading: "Stakes and Shackles"
     Three singing stakes and a measured chain compare the structure, the temporary road, and the ground ahead. Each stake carries a replaceable ringglass core held below its striking head. A broad answer moving through all three usually comes from the local field. One interval widening while the others hold indicates movement within the load path.
 
-    Warning shackles sit at selected joints in the lifting frame. Their numbered cores sound as strain approaches the limit recorded for that shackle. The tone is an alarm, not a measurement of the whole structure. A quiet shackle can stand beside a failing mat, and a sounding one may be reacting to heat rather than excess load. The route caller compares them with a #{ref :tuning_compass, "tuning compass"}, the jack heights, and the marks on the road before choosing the next lift.
+    Warning shackles sit at selected joints in the lifting frame. Their numbered cores sound as strain approaches the limit recorded for that shackle. The tone is an alarm, not a measurement of the whole structure. A quiet shackle can stand beside a failing mat, and a sounding one may be reacting to heat rather than excess load. The route caller compares them with a #{encyclopedia_ref :tuning_compass, "tuning compass"}, the jack heights, and the marks on the road before choosing the next lift.
 
     Retired cores are cut open in front of local trainees. Heat cracks, loose seats, contaminated crystal, and permanent drift each leave a different fault. The Counterweight leaves the opened core with the settlement because a warning device teaches more after failure when people can see why it stopped being trusted.
   PROSE
@@ -81,6 +82,6 @@ end
 relate :rel_counterweight_designed_road_rig, :designed, :counterweight, :counterweight_road_rig do
   prose "The four-person crew arranged common lifting equipment into one repeatable packing, inspection, and stop-call system."
 end
-relate :rel_road_rig_depends_on_tuning_compass, :depends_on, :counterweight_road_rig, :tuning_compass do
-  prose "The rig's stakes and warning shackles are checked against an external #{ref :tuning_compass, "tuning compass"} before a changed tone becomes a lift decision."
+relate :rel_road_rig_depends_on_tuning_compass, :depends_on, :counterweight_road_rig, :shared_reference do
+  prose "The rig's stakes and warning shackles are checked against the Shared Reference before a changed tone becomes a lift decision."
 end

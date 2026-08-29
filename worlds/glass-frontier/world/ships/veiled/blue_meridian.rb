@@ -2,6 +2,7 @@ transport :blue_meridian do
   name "Blue Meridian"
   summary "Blue Meridian is a soil-transport vessel serving Hab Meridian, Miraeth, and Lumenshard. Twelve separately tuned holds keep living soil stable between habitats."
   subkind :vessel
+  type_of :heavy_hauler
   status :complete
   prominence :marginal
   veiled "Blue Meridian carries live soil between Hab Meridian and Miraeth in twelve separately tuned holds."

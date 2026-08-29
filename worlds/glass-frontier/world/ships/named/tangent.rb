@@ -2,6 +2,7 @@ transport :tangent do
   name "Tangent"
   summary "Tangent is a retrieval vessel that patrols Clearance Eight's release bundles and custody approaches. Its articulated cradle carries rigid cargo, while a flexible net preserves fractured objects and pressure suits."
   subkind :vessel
+  type_of :utility_vessel
   capacity "Five crew, one claim reader, and two external capture cradles"
   status :complete
   tags :transport, :navigation, :salvage, :"kinetic-freq"

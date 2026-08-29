@@ -4,15 +4,13 @@ npc :pera_soll do
   subkind :specialist
   occupation "Retired ringglass array foreman"
   specialty "Coupled-field maintenance"
-  species "human"
-  identity_source :species, :humans
-  identity_source :culture, :hab_worlder
+  type_of :humans
+  belongs_to :culture, :hab_worlder
   descriptive_identity disposition:
     "Soll reads the original sheets aloud and explains what the gauges " \
     "missed; the paper never leaves the room. When someone attuned " \
     "reports a drifting array, he asks for a description, writes it down, " \
     "and clears the maintenance time to act on it."
-  culture "Hab-Worlder"
   tags :resonance, :ringglass, :salvage
   prominence :marginal
   status :complete
@@ -34,12 +32,6 @@ end
 
 relate :rel_pera_soll_employed_by_coremark, :employed_by, :pera_soll, :coremark, till: 2372 do
   prose "He ran Crowncut's array crews for Coremark until his retirement."
-  descriptive_identity standing:
-    "Under his foremanship Crowncut kept the cleanest service books in " \
-    "the deep Shear, because he recorded an attuned mechanic's " \
-    "corrections instead of folding them into shift work; the original " \
-    "sheets retired with him, and Coremark's offers for them keep being " \
-    "refused."
 end
 
 relate :rel_pera_soll_taught_lira, :taught, :pera_soll, :lira_vashtenri do

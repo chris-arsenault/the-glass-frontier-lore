@@ -26,6 +26,20 @@ module Lorecraft
           shells, and non-reader kinds. The default limit is 12; the maximum is 100.
         TEXT
       },
+      "reference" => {
+        summary: "Search, open, or match entries in the Encyclopedia.",
+        usage: "reference [list | search QUERY | page ID | match] [--kind KIND] [--topic TOPIC] [--context SCOPE=TAG] [--encyclopedia SCOPE=ID] [--limit N] [--audience all|player] [--format text|json] [--world ID]",
+        body: <<~TEXT,
+          This is the separate read path for reusable world material. list and
+          search return bounded Encyclopedia results; page opens one entry and
+          lists Atlas instances that declare it as a type. match accepts repeated
+          context tags and Encyclopedia identities, such as
+          --context place=realm:surface or --encyclopedia participant=sitharian,
+          and reports selector evidence. Existing search, page, connections,
+          path, and graph commands remain Atlas-only; type links are attributes,
+          not graph relationships.
+        TEXT
+      },
       "connections" => {
         summary: "Show every typed edge touching one entity.",
         usage: "connections ID [--at now|YEAR] [--audience all|player] [--format text|json] [--world ID]",
@@ -50,13 +64,15 @@ module Lorecraft
       },
       "schema" => {
         summary: "Inspect the selected world's loaded schema.",
-        usage: "schema [kinds | kind NAME | relations | relation NAME | frames | frame NAME | tags | sections] [--format text|json] [--world ID]",
+        usage: "schema [kinds | kind NAME | relations | relation NAME | reference-kinds | reference-kind NAME | context-tags | frames | frame NAME | tags | sections] [--format text|json] [--world ID]",
         body: <<~TEXT,
           Query the ontology that validation will enforce after shared craft and
           world extensions are loaded. Kind detail includes subkinds and fact
           shapes. Relation detail includes category, domain, range, cardinality,
           time behavior, inverse, symmetry, typed properties, and exclusions when
-          declared. Frame queries show fixed coordinate systems and their nesting.
+          declared. Reference queries show the separate Encyclopedia kinds and
+          contextual vocabulary. Frame queries show fixed coordinate systems
+          and their nesting.
         TEXT
       },
       "guide" => {
@@ -137,14 +153,13 @@ module Lorecraft
         TEXT
       },
       "identity" => {
-        summary: "Inspect descriptive identity sources, resolution, and coverage.",
+        summary: "Inspect local descriptive identity strings and kind-level keys.",
         usage: "identity [ID] [--at now|YEAR] [--audience all|player] [--format text|json] [--world ID]",
         body: <<~TEXT,
-          Give an entity or named relationship id to see its declared source
-          slots, local extend or override operations, resolved key-to-text
-          dictionary, and per-key provenance at the selected year. Without an id,
-          report coverage for every participating entry and relationship. Source
-          references remain canonical; the resolved dictionary is a snapshot.
+          Give an Atlas entity id to see its kind's stable keys and the strings
+          authored on that entity. Without an id, report how many Atlas and
+          Encyclopedia entries use their declared keys. Descriptive identity has
+          no sources, inheritance, relation lookup, merge rules, or provenance.
         TEXT
       },
       "gm-notes" => {
@@ -270,7 +285,10 @@ module Lorecraft
       },
     }.freeze
 
-    TOPICS = %w[model workflow authoring schema-authoring markers entry time audience composition review].freeze
+    TOPICS = %w[
+      model workflow authoring schema-authoring encyclopedia markers entry time
+      audience composition review
+    ].freeze
 
     module_function
 
@@ -299,7 +317,7 @@ module Lorecraft
         worlds.yml. Command help lists the selectors each command uses.
 
         Read only the context the task needs:
-          discover       worlds, guide, search, schema
+          discover       worlds, guide, search, reference, schema
           inspect entry  page, connections, timeline, log, facts, placement
           read history   chronicle, era-narrative
           inspect graph  path, topology, web, graph, stats
@@ -315,6 +333,7 @@ module Lorecraft
           workflow     a context-efficient editing sequence
           authoring    entry and relationship shapes
           schema-authoring  declaring kinds, subkinds, facts, and relations
+          encyclopedia  reusable entries, context, prevalence, and associations
           markers      references, composition, and computed time
           entry        one entry's canonical shape and local queries
           time         dated facts, effects, and computed spans
@@ -427,7 +446,6 @@ module Lorecraft
             field :born, type: :year
             relation_field :based_in, relation: :located_in, cardinality: :many
             identity_key :visual
-            identity_source :species, kinds: :species, keys: :visual
             subkind :official do
               field :jurisdiction, type: :text, expected: false
             end
@@ -442,17 +460,17 @@ module Lorecraft
                                    maximum_exclusive: 360, requires: :frame
           end
 
-        identity_key declares one stable output key. identity_source declares a
-        named, typed source slot and the keys it projects. Source values name
-        complete canonical entries. no_identity_sources makes the absence of
-        sources explicit. A world calls require_descriptive_identities! after
-        every participating kind has a settled contract.
+        identity_key declares one stable string key on a kind. Entries may supply
+        local values with descriptive_identity. Subkinds and relations cannot
+        declare identity keys, and no value is inherited from another entry.
 
         The shared schema declares kinds, subkinds, reusable fact fields, effect
         verbs, and relation types. A world's schema adds its controlled tags,
-        sections, fields, setting-specific relations, and identity source axes.
-        Relation blocks can declare typed edge properties and descriptive
-        identity contracts. Validation rejects unknown ids, invalid typed facts
+        sections, fields, and setting-specific relations. A migrated world can
+        use restrict_entity_kinds! to expose only its active subset of shared
+        Atlas kinds without removing those definitions from other worlds.
+        Relation blocks can
+        declare typed edge properties. Validation rejects unknown ids, invalid typed facts
         or relation properties, unknown subkinds and tags, relation domain or
         range errors, and explicitly banned generic relations.
 
@@ -486,6 +504,41 @@ module Lorecraft
         knows the world, audience, and year. Use ref for an existing node, future
         for a missing one, and embed when another entry owns the passage. Never
         copy timeline arithmetic into prose.
+      TEXT
+    end
+
+    def encyclopedia
+      <<~TEXT
+        Encyclopedia authoring
+
+        The Encyclopedia holds reusable world material in a namespace separate
+        from Atlas entities and their temporal graph. Declare an entry with
+        encyclopedia :id, then give it a title, kind, subkind, status, summary,
+        registered topics, prevalence, availability, usage records, and prose.
+        A structural shell instead contains only title, kind, subkind, and
+        status :shell; player queries and exports omit it.
+
+        prevalence is common, uncommon, or rare. It measures frequency where the
+        subject applies. Atlas prominence measures awareness of one particular
+        named entity; neither field appears in the other namespace.
+
+        available_globally gives unconditional availability. appears_when adds
+        an alternative selector whose all, any, and none groups contain terms at
+        world, place, scene, or participant scope. Context tags must be registered
+        with context_tag. Use encyclopedia_reference(:id) when a selector depends
+        on another Encyclopedia identity rather than a tag.
+
+        A complete entry needs two cues, one affordance, one pressure, two
+        variations, prose, and availability. The Encyclopedia has no relationship
+        graph. An Atlas entity may declare one primary type_of target. Use
+        belongs_to :culture, :sitharian for other kind-qualified memberships;
+        culture :sitharian is equivalent shorthand. These classifications never
+        enter the Atlas graph or populate descriptive identity.
+        A world can require complete primary classification for selected Atlas
+        kinds with require_encyclopedia_types! kinds: [...].
+
+        Use reference list, search, page, and match to inspect the catalog. See
+        craft/encyclopedia.md for the writing rules.
       TEXT
     end
 

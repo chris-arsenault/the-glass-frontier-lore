@@ -2,7 +2,9 @@ installation :holl do
   name "Holl"
   summary "Holl is a settlement of about sixty-two hundred people beneath the overhanging face of a split ring wall in the Glass Frontier."
   playable_as :chronicle_location
+  context_tags :"realm:ring_habitat"
   subkind :settlement
+  type_of :settlement
   status :complete
   tags :"ring-hab", :transport, :governance, :"structural-freq", :household
   prominence :marginal
@@ -77,28 +79,8 @@ end
 
 relate :rel_holl_supplies_eleven_flow_measurements, :supplies, :holl, :eleven, since: 2435 do
   prose "Holl sends gravity-flow measurements from its moving wall to Eleven's source-line readers."
-  descriptive_identity(
-    terms:
-      "Seep-by-seep readings from a wall that shifts a few millimeters " \
-      "every orbit, carried down the local carrier leg with the water " \
-      "crews' painted color codes attached.",
-    dependence:
-      "Orr Senn's wall charts need an outside case where gravity does " \
-      "the lifting; Holl's records show him what a flow change looks " \
-      "like before any pump is involved."
-  )
 end
 
 relate :rel_eleven_supplies_holl_pipe_designs, :supplies, :eleven, :holl, since: 2435 do
   prose "Eleven sends flexible-pipe designs proven along its long water spine to Holl's cistern crews."
-  descriptive_identity(
-    terms:
-      "Joint patterns and fittings that have already survived years of " \
-      "thermal cycling on the eleven-shaft line, drawn up for crews who " \
-      "assemble them on ledges rather than in a workshop.",
-    dependence:
-      "Every pipe in Holl must flex or fail — a hard-mounted run sings " \
-      "a rising structural note for days and then tears free — so the " \
-      "proven designs are the difference between plumbing and debris."
-  )
 end

@@ -94,7 +94,24 @@ The test: a reader executing the document should finish without having learned a
 
 ## Entry Format
 
-An entity is one `.rb` file under `worlds/<id>/world/<kind>/<id>.rb`. Static facts are attributes; prose lives in `prose` blocks; cross-links are `#{ref :other_id}`; things with no entity yet are `#{future "Name"}`.
+An Atlas entity is one `.rb` file under `worlds/<id>/world/<kind>/<id>.rb`.
+Static facts are attributes; prose lives in `prose` blocks; Atlas cross-links
+are `#{ref :other_id}`; Encyclopedia cross-links are
+`#{encyclopedia_ref :other_id}`; things with no entry yet are
+`#{future "Name"}`. Embeds stay within their owner's namespace.
+
+The Encyclopedia is a separate store for reusable types and patterns. It has
+no relationship graph. A particular Atlas entity may declare one primary
+`type_of :encyclopedia_id`. It may also declare repeatable, kind-qualified
+memberships with `belongs_to :culture, :sitharian`; `culture :sitharian` is
+equivalent shorthand. The engine derives reverse lists without adding graph
+edges. Neither form supplies descriptive identity. See `craft/encyclopedia.md`.
+
+Veiled status is not an exception to this division. A veiled Atlas entry must
+name a major particular story subject. When the withheld material is a reusable
+type, put the type in the Encyclopedia and put a distinctly named instance in
+the Atlas; the instance retains the veil and graph position and may declare
+`type_of`. Never leave the generic type itself as the veiled Atlas node.
 
 ### Never type an elapsed span
 
@@ -126,7 +143,7 @@ When two entries need the same passage, one owns it and the other transcludes:
 #{embed :tempered_accord, :structure}  # one named section of it
 ```
 
-The owner is whichever entity the fact is *about* — the Accord's seat belongs to the Accord, and Sithari embeds it. Every embed derives an `embeds` edge, so the composition shows up in `make topology` and counts as a connection for prominence reach. The validator rejects an embed of a missing entity, a shell, a section with no prose, or DM prose from a public entry; the linter fails the build on a cycle.
+The owner is whichever entry the fact is *about* — the Accord's seat belongs to the Accord, and Sithari embeds it. An Atlas embed derives an `embeds` edge, so the composition shows up in `make topology` and counts as a connection for prominence reach. An Encyclopedia embed stays within the Encyclopedia and creates no graph edge. The validator rejects an embed across namespaces, of a missing entry, of a shell, of a section with no prose, or of DM prose from a public entry; the linter fails the build on a cycle.
 
 Restating instead of embedding is the most common way this corpus goes wrong: two copies of a sentence drift, and the reader meets both.
 
@@ -151,8 +168,9 @@ Broad condition, specific consequence: the condition is something an ordinary sc
 - `tags` — optional. Topics and themes this entry involves. **Controlled vocabulary** — only tags declared in the world's `world/schema.rb` (`tag :name, "meaning"`). Add a tag there before using it. Tags describe what an entry is *about* (`governance`, `resonance`, `trade`), not what it is *related to*.
 - `prominence` — optional but encouraged. How widely known this entity is: `forgotten`, `marginal`, `recognized`, `renowned`, `mythic`. NOT power or importance — only awareness. Gates how far references should reach in the knowledge graph.
 - `narrative_role` — optional. `viewpoint` or `titan`, for NPCs with elevated narrative functions. See `craft/narrative-roles.md`. Most NPCs don't have this.
-- `descriptive_identity` — local key-to-text details that extend identity inherited from the kind's declared source slots. Use `override_identity` when an inherited value does not apply to this entity.
-- `identity_source` — a typed reference assigned to one source slot declared by the entity's kind or subkind. Source entries own reusable identity; never copy their values into consumers.
+- `descriptive_identity` — local string values for stable keys declared on the entry's kind. Values are never inherited or looked up.
+- `type_of` — optional and singular. Names the primary Encyclopedia type instantiated by this particular Atlas entity. It is an attribute, not a relationship.
+- `belongs_to` — optional and repeatable. Names an Encyclopedia kind and entry that classify the Atlas entity without making that entry its primary type. An Encyclopedia-kind method is shorthand: `culture :sitharian` means `belongs_to :culture, :sitharian`.
 - `alias` — optional. Common alternative name(s).
 - `status` — `complete`, `draft`, `shell`, `needs_refinement`.
 - Additional fields as needed (`region`, `era`, …). Add only when they carry real information.
@@ -202,17 +220,12 @@ come from typed edges, and calculated facts come from canonical values. Reader
 pages omit missing facts; `make facts WORLD=<id>` reports coverage by kind and
 subkind. Do not fill a gap with `unknown`, `none recorded`, or a guessed value.
 
-Descriptive identity composes separately from fact cards. A kind declares
-stable keys with `identity_key` and named source slots with `identity_source`.
-Every source value names a complete canonical entry with prose and its own
-complete identity. `descriptive_identity` extends inherited values;
-`override_identity` suppresses inherited contributions for that key on one
-entity. Only declared slots transfer identity, including slots backed by a
-named live relationship. Use `no_identity_sources` when a kind genuinely has
-none, and enable complete world coverage with `require_descriptive_identities!`
-only after every kind's source axes are settled. `lorecraft identity [ID]`
-shows the resolved dictionary and provenance without stamping source text into
-the consumer.
+Descriptive identity is separate from fact cards and classification. A kind
+declares stable keys with `identity_key`; subkinds and relations cannot add
+keys. An entry supplies string values with `descriptive_identity`. Missing keys
+stay missing. There are no sources, inheritance, merges, overrides, relation
+lookups, or cross-namespace lookups. `lorecraft identity [ID]` shows the local
+dictionary and the kind keys that remain unfilled.
 
 A world may declare `require_fact_cards! from: :renowned, minimum: 4`. Its
 public entries at that prominence and above must resolve that many facts or lint
@@ -235,10 +248,13 @@ When writing a new entry, check the prominence of what you link to. A world-span
 Kinds are declared once for every world in `craft/schema/base.rb`, grouped into three categories. Relationship budgets are in `craft/graph-topology.md`.
 
 **World Atlas** (named entities — the primary graph):
-`npc`, `geographic_location`, `installation`, `faction`, `artifact`, `creature`, `transport`, `incident`, `conflict`, `rumor`, `edict`
+`npc`, `geographic_location`, `installation`, `faction`, `artifact`, `creature`, `transport`, `incident`, `conflict`, `rumor`, `edict`, `resource`, `ability`, `phenomenon`
 
-**Player Reference** (general knowledge — highly connected hubs):
-`species`, `culture`, `ability`, `resource`, `phenomenon`, `concept`
+**Encyclopedia** (general knowledge — outside the Atlas graph):
+`lifeform`, `culture`, `role`, `practice`, `doctrine`, `ability`, `institution`, `technology`, `resource`, `phenomenon`, `place_feature`
+
+`species`, `culture`, and `concept` remain transitional Atlas kinds only while
+older worlds are migrated. Do not create new Atlas entries of those kinds.
 
 **Structural** (engine mechanics):
 `era`, `thread`, `loop`, `theme`
@@ -373,7 +389,7 @@ JSON from the same typed result; validation and lint use diagnostic records.
 | `log [<id>]` | The entries' own history — why a fact changed, what a correction rests on. Not world content. |
 | `provenance [<id>]` | Global or entry-owned blocks: who drafted them, who read them, and whose read expired. |
 | `facts [<id>]` | Global expected-fact coverage or one entry's resolved and missing values. |
-| `identity [<id>]` | Global descriptive-identity coverage or one entity/relationship's sources, local operations, resolved dictionary, and provenance. |
+| `identity [<id>]` | Global descriptive-identity coverage or one Atlas entity's local strings and unfilled kind keys. |
 | `placement [<id>]` | Spatial-frame coverage or one entry's positions and route paths. |
 | `queue [<id>]` | Global or entry-scoped `question` declarations plus computed findings. A render, not a file. |
 | `page <id>` | One entity's rendered page on stdout. What the review app shows as prose. |

@@ -1,6 +1,7 @@
 rumor :twelve_kiln_road do
   name "The Twelve-Kiln Road"
   summary "The Twelve-Kiln Road is an Avar haulers' rumor that one Marker House stone came from Ninth Kiln and points toward Korvath at dusk."
+  type_of :local_rumor
   subkind :rumor
   status :complete
   prominence :marginal

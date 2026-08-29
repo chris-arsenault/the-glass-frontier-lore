@@ -23,6 +23,9 @@ module Lorecraft
       check_cardinality: ["relation_cardinality", "schema-authoring", "Remove the overlapping target or change the declared cardinality."],
       check_exclusivity: ["relation_exclusivity", "schema-authoring", "Remove one of the mutually exclusive live relations."],
       check_tags: ["unknown_tag", "entry", "Declare the tag in the world schema or remove it from the entry."],
+      check_context_tags: ["invalid_context_tag", "encyclopedia", "Declare the context tag for its authored scopes or remove it."],
+      check_encyclopedia_classifications: ["invalid_encyclopedia_classification", "encyclopedia", "Point type_of and belongs_to at known, compatible Encyclopedia entries."],
+      check_encyclopedia: ["invalid_encyclopedia_entry", "encyclopedia", "Complete the reusable-reference fields or correct its availability."],
       check_prominence: ["invalid_prominence", "entry", "Use a prominence level declared by the schema."],
       check_narrative_roles: ["invalid_narrative_role", "entry", "Use an allowed narrative role on an NPC."],
       check_canonical_metadata: ["invalid_canonical_metadata", "entry", "Correct the article, playability, origin, or veiled declaration."],
@@ -30,7 +33,7 @@ module Lorecraft
       check_playability_requirements: ["unsatisfied_playability_requirement", "schema-authoring", "Restore the declared playable coverage or choice range."],
       check_subkinds: ["invalid_subkind", "schema-authoring", "Declare and select an allowed subkind."],
       check_facts: ["invalid_fact", "schema-authoring", "Correct the fact declaration or its value."],
-      check_descriptive_identities: ["invalid_descriptive_identity", "schema-authoring", "Declare valid identity keys and full-article sources, or correct the local identity operation."],
+      check_descriptive_identities: ["invalid_descriptive_identity", "schema-authoring", "Use a kind-declared identity key with a non-empty local string."],
       check_sections: ["unknown_section", "entry", "Use a section declared by the world schema."],
       check_statuses: ["invalid_status", "entry", "Use a supported authoring status."],
       check_provenance: ["invalid_provenance", "audience", "Correct the provenance value or review date."],
@@ -82,6 +85,7 @@ module Lorecraft
     def diagnostic_path(owner)
       case owner
       when Entity then owner.id.to_s
+      when EncyclopediaEntry then "encyclopedia:#{owner.id}"
       when Moment then "moment:#{owner.id}"
       when RelationInstance then "relation:#{owner.id}"
       when Page then "page:#{owner.id}"
@@ -106,6 +110,316 @@ module Lorecraft
     end
 
     def known?(id) = @world.known_id?(id)
+
+    def check_context_tags
+      @schema.context_tags.each_value do |definition|
+        if definition.parent && !@schema.context_tags.key?(definition.parent)
+          err("context tag #{definition.name}: parent #{definition.parent} is unknown")
+        end
+        definition.compatible_with.each do |name|
+          unless @schema.context_tags.key?(name)
+            err("context tag #{definition.name}: compatible tag #{name} is unknown")
+          end
+        end
+      end
+
+      @schema.context_tags.each_key do |name|
+        seen = []
+        current = name
+        while current
+          if seen.include?(current)
+            err("context tag #{name}: parent chain contains a cycle")
+            break
+          end
+          seen << current
+          current = @schema.context_tags[current]&.parent
+        end
+      end
+
+      @world.entities.each_value do |entity|
+        @diagnostic_owner = entity
+        entity.context_tags.each do |name|
+          definition = @schema.context_tags[name]
+          unless definition
+            err("#{label(entity)}: context tag #{name} is not registered")
+            next
+          end
+
+          allowed_scope = if @schema.location_kind?(entity.kind)
+                            :place
+                          else
+                            :participant
+                          end
+          unless definition.scopes.include?(allowed_scope)
+            err("#{label(entity)}: context tag #{name} is not allowed for #{allowed_scope} context")
+          end
+        end
+      end
+
+      @schema.context_tag_required_roles.each do |role|
+        @world.entities.each_value do |entity|
+          next unless entity.playable_as?(role)
+          next unless entity.context_tags.empty?
+
+          @diagnostic_owner = entity
+          err("#{label(entity)}: playable role #{role} requires at least one context tag")
+        end
+      end
+    end
+
+    def check_encyclopedia_classifications
+      @world.entities.each_value do |entity|
+        @diagnostic_owner = entity
+        if @schema.encyclopedia_type_required_kinds.include?(entity.kind) &&
+           entity.encyclopedia_type.nil?
+          err("#{label(entity)}: Atlas entry requires type_of")
+        end
+        if entity.veiled? && @world.encyclopedia_entry(entity.id)
+          err("#{label(entity)}: veiled Atlas id duplicates Encyclopedia type #{entity.id}; " \
+              "use a distinct named Atlas instance with type_of #{entity.id}")
+        end
+        if entity.kind == :npc && entity.static_attrs.key?(:species)
+          err("#{label(entity)}: species is a legacy string classification; use type_of")
+        end
+        if (id = entity.encyclopedia_type)
+          target = @world.encyclopedia_entry(id)
+          if !target
+            err("#{label(entity)}: type_of targets unknown Encyclopedia entry #{id}")
+          elsif !entity.dm? && target.dm?
+            err("#{label(entity)}: public entity cannot use DM-only Encyclopedia type #{id}")
+          elsif (required_kind = @schema.encyclopedia_type_kind_requirements[entity.kind]) &&
+                target.kind != required_kind
+            err("#{label(entity)}: type_of must target Encyclopedia kind #{required_kind}, " \
+                "not #{target.kind}")
+          end
+        end
+
+        entity.encyclopedia_memberships.each do |membership|
+          unless @schema.encyclopedia_kind?(membership.kind)
+            err("#{label(entity)}: belongs_to uses unknown Encyclopedia kind #{membership.kind}")
+            next
+          end
+
+          target = @world.encyclopedia_entry(membership.entry)
+          unless target
+            err("#{label(entity)}: belongs_to #{membership.kind} targets unknown Encyclopedia entry " \
+                "#{membership.entry}")
+            next
+          end
+          if target.kind != membership.kind
+            err("#{label(entity)}: belongs_to #{membership.kind}:#{membership.entry} targets " \
+                "Encyclopedia kind #{target.kind}")
+          end
+          if !entity.dm? && target.dm?
+            err("#{label(entity)}: public entity cannot belong to DM-only Encyclopedia entry " \
+                "#{membership.entry}")
+          end
+        end
+      end
+    end
+
+    def check_encyclopedia
+      duplicate_sources = @world.encyclopedia_entries.values.map(&:source_id)
+                                .tally.select { |_id, count| count > 1 }.keys
+      duplicate_sources.each do |id|
+        err("encyclopedia source id #{id} is declared more than once")
+      end
+
+      @world.encyclopedia_entries.each_value do |entry|
+        @diagnostic_owner = entry
+        err("#{label(entry)}: title is required") if entry[:title].to_s.strip.empty?
+        if entry[:source_id] && entry[:source_id].to_s.strip.empty?
+          err("#{label(entry)}: source id cannot be empty")
+        end
+        entry.aliases.each do |alias_name|
+          err("#{label(entry)}: alias cannot be empty") if alias_name.strip.empty?
+        end
+        entry.aliases.tally.each do |alias_name, count|
+          err("#{label(entry)}: repeats alias #{alias_name.inspect}") if count > 1
+        end
+        unless @schema.encyclopedia_kind?(entry.kind)
+          err("#{label(entry)}: kind #{entry.kind.inspect} is not declared")
+        end
+        if entry[:subkind].nil?
+          err("#{label(entry)}: subkind is required")
+        end
+        unless Schema::ENCYCLOPEDIA_STATUSES.include?(entry.status)
+          err("#{label(entry)}: status must be shell, draft, or complete")
+        end
+        if entry.status == :shell
+          validate_encyclopedia_shell(entry)
+          next
+        end
+        err("#{label(entry)}: summary is required") if entry.summary.to_s.strip.empty?
+        unless Schema::ENCYCLOPEDIA_PREVALENCE_LEVELS.include?(entry.prevalence)
+          err("#{label(entry)}: prevalence must be common, uncommon, or rare")
+        end
+        entry.topics.each do |topic|
+          err("#{label(entry)}: topic #{topic} is not registered") unless @schema.tags.key?(topic)
+        end
+        entry.prose_blocks.each do |block|
+          err("#{label(entry)}: prose block is empty") if block.text.strip.empty?
+          Markers.scan(block.text) do |_match, marker|
+            if marker.kind == :rel
+              err("#{label(entry)}: Encyclopedia prose cannot use an Atlas relationship marker")
+            end
+          end
+        end
+        entry.usage.each do |item|
+          err("#{label(entry)}: #{item.kind} is empty") if item.text.strip.empty?
+        end
+        entry.fact_values.each do |name, value|
+          definition = @schema.encyclopedia_field_def(entry.kind, name)
+          unless definition
+            err("#{label(entry)}: field '#{name}' is not declared for #{entry.kind}")
+            next
+          end
+          check_fact_value(entry, definition, value)
+        end
+        validate_ability_tiers(entry)
+        validate_encyclopedia_role(entry)
+        validate_availability(entry)
+        validate_complete_encyclopedia_entry(entry) if entry.status == :complete
+      end
+    end
+
+    def validate_encyclopedia_shell(entry)
+      err("#{label(entry)}: a shell cannot have a summary") unless entry.summary.nil?
+      err("#{label(entry)}: a shell cannot have topics") unless entry.topics.empty?
+      err("#{label(entry)}: a shell cannot have prevalence") unless entry.prevalence.nil?
+      err("#{label(entry)}: a shell cannot have availability") unless entry.availability_mode.nil?
+      err("#{label(entry)}: a shell cannot have a character role") unless entry.character_role.nil?
+      err("#{label(entry)}: a shell cannot have an origin blurb") unless entry.origin_blurb.nil?
+      err("#{label(entry)}: a shell cannot have facts") unless entry.fact_values.empty?
+      err("#{label(entry)}: a shell cannot have descriptive identity") unless entry.descriptive_identity_values.empty?
+      err("#{label(entry)}: a shell cannot have usage") unless entry.usage.empty?
+      err("#{label(entry)}: a shell cannot have prose") unless entry.prose_blocks.empty?
+      err("#{label(entry)}: a shell cannot have ability tiers") unless entry.ability_tiers.empty?
+    end
+
+    def validate_ability_tiers(entry)
+      unless entry.kind == :ability
+        err("#{label(entry)}: only Encyclopedia abilities can declare tiers") unless entry.ability_tiers.empty?
+        return
+      end
+
+      if entry.ability_tiers.empty?
+        err("#{label(entry)}: an Encyclopedia ability needs at least one declared tier")
+        return
+      end
+
+      entry.ability_tiers.each do |expression|
+        unless @schema.encyclopedia_tier_def(:ability, expression.tier)
+          err("#{label(entry)}: unknown ability tier #{expression.tier}")
+        end
+        if expression.effect.to_s.strip.empty?
+          err("#{label(entry)}: ability tier #{expression.tier} needs an effect")
+        end
+        next unless entry.status == :complete && expression.cost.to_s.strip.empty?
+
+        err("#{label(entry)}: complete ability tier #{expression.tier} needs a cost")
+      end
+    end
+
+    def validate_encyclopedia_role(entry)
+      role = entry.character_role
+      return unless role
+
+      unless Schema::ENCYCLOPEDIA_CHARACTER_ROLES.include?(role)
+        err("#{label(entry)}: character role must be species or culture")
+        return
+      end
+      if role == :species && entry.kind != :lifeform
+        err("#{label(entry)}: species character role requires the lifeform kind")
+      elsif role == :culture && entry.kind != :culture
+        err("#{label(entry)}: culture character role requires the culture kind")
+      end
+      blurb = entry.origin_blurb
+      if blurb.nil?
+        err("#{label(entry)}: character role needs an origin_blurb")
+      elsif !blurb.is_a?(String) || blurb.strip.empty?
+        err("#{label(entry)}: origin_blurb must be non-empty text")
+      elsif blurb.length > 140
+        err("#{label(entry)}: origin_blurb exceeds 140 characters")
+      elsif blurb.match?(/[\r\n]/)
+        err("#{label(entry)}: origin_blurb must fit on one line")
+      end
+    end
+
+    def validate_availability(entry)
+      case entry.availability_mode
+      when :global
+        err("#{label(entry)}: global availability cannot have selectors") unless entry.selectors.empty?
+      when :contextual
+        err("#{label(entry)}: contextual availability needs a selector") if entry.selectors.empty?
+      else
+        err("#{label(entry)}: availability must be global or contextual")
+      end
+
+      entry.selectors.each_with_index do |selector, index|
+        terms = selector.all + selector.any + selector.none
+        if terms.empty?
+          err("#{label(entry)}: selector #{index + 1} has no terms")
+          next
+        end
+        %i[all any none].each do |group|
+          values = selector.public_send(group)
+          duplicates = values.map { |term| [term.scope, term.type, term.value] }
+                             .tally.select { |_term, count| count > 1 }.keys
+          duplicates.each do |scope, type, value|
+            err("#{label(entry)}: selector #{index + 1} repeats #{scope} #{type} #{value} in #{group}")
+          end
+        end
+        all_terms = selector.all.map { |term| [term.scope, term.type, term.value] }
+        none_terms = selector.none.map { |term| [term.scope, term.type, term.value] }
+        (all_terms & none_terms).each do |scope, type, value|
+          err("#{label(entry)}: selector #{index + 1} both requires and excludes #{scope} #{type} #{value}")
+        end
+        terms.each { |term| validate_context_term(entry, index, term) }
+      end
+    end
+
+    def validate_context_term(entry, index, term)
+      unless Schema::CONTEXT_SCOPES.include?(term.scope)
+        err("#{label(entry)}: selector #{index + 1} uses unknown scope #{term.scope}")
+        return
+      end
+
+      if term.type == :tag
+        definition = @schema.context_tags[term.value]
+        unless definition
+          err("#{label(entry)}: selector #{index + 1} uses unregistered context tag #{term.value}")
+          return
+        end
+        unless definition.scopes.include?(term.scope)
+          err("#{label(entry)}: context tag #{term.value} is not allowed for #{term.scope}")
+        end
+      elsif term.type == :encyclopedia
+        reference = @world.encyclopedia_entry(term.value)
+        if !reference
+          err("#{label(entry)}: context Encyclopedia entry #{term.value} is unknown")
+        elsif !entry.dm? && reference.dm?
+          err("#{label(entry)}: public availability references DM-only Encyclopedia entry #{term.value}")
+        end
+      else
+        err("#{label(entry)}: selector #{index + 1} uses unknown term type #{term.type}")
+      end
+    end
+
+    def validate_complete_encyclopedia_entry(entry)
+      visible_usage = entry.dm? ? entry.usage : entry.usage.reject(&:dm?)
+      requirements = { cue: 2, affordance: 1, pressure: 1, variation: 2 }
+      requirements.each do |kind, minimum|
+        count = visible_usage.count { |item| item.kind == kind && !item.text.strip.empty? }
+        if count < minimum
+          err("#{label(entry)}: complete entry needs at least #{minimum} #{kind}#{minimum == 1 ? '' : 's'}")
+        end
+      end
+      visible_blocks = entry.dm? ? entry.prose_blocks : entry.prose_blocks.reject(&:dm?)
+      if visible_blocks.empty? || visible_blocks.all? { |block| block.text.strip.empty? }
+        err("#{label(entry)}: complete entry needs prose")
+      end
+    end
 
     def check_narrative_documents
       duplicate_entity_sources = @world.entities.values.map(&:source_id)
@@ -383,15 +697,26 @@ module Lorecraft
     def on_ref(marker)
       return if marker.id.nil? # path-only ref to a non-entity page
 
-      unless known?(marker.id)
-        err("#{label(@owner)}: prose ref → unknown id #{marker.id}")
+      target = @world[marker.id]
+      unless target
+        err("#{label(@owner)}: prose ref → unknown Atlas id #{marker.id}")
         return
       end
       return if @dm_context
 
-      target = @world[marker.id]
       err("#{label(@owner)}: public prose references DM-only entity #{marker.id}") \
         if target.respond_to?(:dm?) && target.dm?
+    end
+
+    def on_encyclopedia_ref(marker)
+      target = @world.encyclopedia_entry(marker.id)
+      unless target
+        err("#{label(@owner)}: encyclopedia_ref → unknown Encyclopedia id #{marker.id}")
+        return
+      end
+      return if @dm_context
+
+      err("#{label(@owner)}: public prose references DM-only Encyclopedia entry #{marker.id}") if target.dm?
     end
 
     def on_rel(marker)
@@ -407,7 +732,11 @@ module Lorecraft
     # A silently empty transclusion is worse than a link — the sentence around it
     # loses its subject with nothing to show that it did.
     def on_embed(marker)
-      target = @world.entity(marker.id)
+      target = if @owner.is_a?(EncyclopediaEntry)
+                 @world.encyclopedia_entry(marker.id)
+               else
+                 @world.entity(marker.id)
+               end
       return err("#{label(@owner)}: embed → unknown id #{marker.id}") unless target
 
       if target.respond_to?(:dm?) && target.dm? && !@dm_context
@@ -1070,7 +1399,6 @@ module Lorecraft
       end
       err("#{label(entity)}: a veiled entry cannot be DM-only") if entity.dm?
       err("#{label(entity)}: a veiled entry cannot be structural") if entity.structural?
-      err("#{label(entity)}: a veiled entry cannot be a location") if @schema.location_kind?(entity.kind)
       err("#{label(entity)}: a shell cannot be veiled") if entity[:status] == :shell
       err("#{label(entity)}: a veiled entry cannot declare playable roles") unless accepted.empty?
       unless entity.content_blocks.empty? && entity.fact_values.empty? && entity.custom_fact_defs.empty?
@@ -1189,7 +1517,8 @@ module Lorecraft
         end
 
         candidates = @world.entities.values.select do |entity|
-          requirement.kinds.include?(entity.kind) && entity[:status] != :shell && !entity.article?
+          requirement.kinds.include?(entity.kind) && entity[:status] != :shell &&
+            !entity.article? && !entity.veiled?
         end
         candidates.each do |entity|
           @diagnostic_owner = entity
@@ -1212,7 +1541,10 @@ module Lorecraft
       end
 
       @schema.playable_count_requirements.each do |requirement|
-        selected = @world.entities.values.count { |entity| entity.playable_as?(requirement.role) }
+        selected = @world.entities.values.count { |entity| entity.playable_as?(requirement.role) } +
+                   @world.encyclopedia_entries.values.count do |entry|
+                     entry.character_role == requirement.role
+                   end
         within_minimum = selected >= requirement.minimum
         within_maximum = requirement.maximum.nil? || selected <= requirement.maximum
         next if within_minimum && within_maximum
@@ -1241,12 +1573,8 @@ module Lorecraft
         effective_facts(node).select { |definition| definition.source == :relation }.each do |definition|
           next unless definition.cardinality == :one
 
-          state = @world.at(:now)
-          targets = if definition.direction == :incoming
-                      state.in(node.id, definition.relation)
-                    else
-                      state.out(node.id, definition.relation)
-                    end
+          row = Facts.new(@world).rows(node).find { |candidate| candidate.definition == definition }
+          targets = Array(row&.value)
           if targets.size > 1
             err("#{label(node)}: fact '#{definition.name}' expects one #{definition.relation} target, got #{targets.size}")
           end
@@ -1255,167 +1583,41 @@ module Lorecraft
     end
 
     def check_descriptive_identities
-      check_identity_schema_contract
       @world.entities.each_value do |entity|
         next if entity[:status] == :shell
         if entity.veiled?
           check_veiled_blank_slate(entity)
           next
         end
-        next unless @schema.descriptive_identities_required? || identity_configured?(entity)
-
         check_identity_owner(entity)
       end
-      @world.relation_instances.each_value do |relation|
-        next unless identity_configured?(relation)
-
-        check_identity_owner(relation)
-      end
-    end
-
-    def check_identity_schema_contract
-      if @schema.descriptive_identities_required?
-        @schema.kinds.each_value do |kind|
-          next if kind.identity_source_policy
-
-          @diagnostic_owner = nil
-          err("entity kind #{kind.name}: must declare identity sources or no_identity_sources")
-        end
-      end
-
-      @schema.kinds.each_value do |kind|
-        kind.subkinds.each_value do |subkind|
-          check_identity_definitions(
-            "#{kind.name}/#{subkind.name}",
-            @schema.identity_keys_for(kind.name, subkind: subkind.name),
-            @schema.identity_sources_for(kind.name, subkind: subkind.name)
-          )
-        end
-      end
-      @schema.relations.each_value do |relation|
-        check_identity_definitions(
-          "relation #{relation.name}",
-          @schema.relation_identity_keys(relation.name),
-          @schema.relation_identity_sources(relation.name)
-        )
-      end
-    end
-
-    def check_identity_definitions(label, keys, sources)
-      key_names = keys.map(&:name)
-      sources.each do |source|
-        if source.kinds.empty?
-          err("#{label}: identity source #{source.name} needs at least one allowed kind")
-        end
-        source.projection.each_value do |target_key|
-          unless key_names.include?(target_key)
-            err("#{label}: identity source #{source.name} projects unknown key #{target_key}")
-          end
-        end
+      @world.encyclopedia_entries.each_value do |entry|
+        check_identity_owner(entry)
       end
     end
 
     # A veiled entity is a blank slate for play to establish: it declares no
-    # descriptive identity and no identity sources, and no requirement applies.
+    # descriptive identity, and no requirement applies.
     def check_veiled_blank_slate(owner)
       @diagnostic_owner = owner
-      return if owner.local_identity_values.empty? && owner.identity_source_values.empty?
+      return if owner.descriptive_identity_values.empty?
 
-      err("#{label(owner)}: veiled entity is a blank slate; remove its descriptive identity and identity sources")
+      err("#{label(owner)}: veiled entity is a blank slate; remove its descriptive identity")
     end
 
     def check_identity_owner(owner)
       @diagnostic_owner = owner
-      keys, sources = identity_definitions(owner)
+      keys = if owner.is_a?(EncyclopediaEntry)
+               @schema.encyclopedia_identity_keys_for(owner.kind)
+             else
+               @schema.identity_keys_for(owner.kind)
+             end
       key_names = keys.map(&:name)
-      source_index = sources.to_h { |source| [source.name, source] }
-
-      owner.local_identity_values.each_value do |value|
-        err("#{label(owner)}: unknown descriptive identity key #{value.key}") \
-          unless key_names.include?(value.key)
-        unless value.text.is_a?(String) && !value.text.strip.empty?
-          err("#{label(owner)}: descriptive identity #{value.key} must be non-empty text")
+      owner.descriptive_identity_values.each do |key, text|
+        err("#{label(owner)}: unknown descriptive identity key #{key}") unless key_names.include?(key)
+        unless text.is_a?(String) && !text.strip.empty?
+          err("#{label(owner)}: descriptive identity #{key} must be a non-empty string")
         end
-        unless %i[extend override].include?(value.operation)
-          err("#{label(owner)}: descriptive identity #{value.key} uses unknown operation #{value.operation}")
-        end
-      end
-
-      owner.identity_source_values.each_key do |slot|
-        definition = source_index[slot]
-        unless definition
-          err("#{label(owner)}: unknown identity source slot #{slot}")
-          next
-        end
-        if definition.relation?
-          err("#{label(owner)}: relation-backed identity source #{slot} cannot be assigned directly")
-        end
-      end
-
-      resolution = @world.resolve_identity(owner, at: :now, audience: :all)
-      resolution.sources.each do |row|
-        definition = source_index.fetch(row[:slot])
-        check_identity_source_target(owner, definition, row[:id])
-      end
-      resolution.missing_required.each do |key|
-        err("#{label(owner)}: missing required descriptive identity key #{key}")
-      end
-    rescue IdentityError => e
-      err("#{label(owner)}: #{e.message}")
-    end
-
-    def check_identity_source_target(owner, definition, id)
-      target = @world.entity(id)
-      unless target
-        err("#{label(owner)}: identity source #{definition.name} targets unknown entity #{id}")
-        return
-      end
-      unless definition.kinds.include?(target.kind)
-        err("#{label(owner)}: identity source #{definition.name} target #{id} has kind " \
-            "#{target.kind}; expected #{definition.kinds.join(', ')}")
-      end
-      unless definition.subkinds.empty? || definition.subkinds.include?(target.subkind)
-        err("#{label(owner)}: identity source #{definition.name} target #{id} has subkind " \
-            "#{target.subkind}; expected #{definition.subkinds.join(', ')}")
-      end
-      if target[:status] != :complete
-        err("#{label(owner)}: identity source #{definition.name} target #{id} must be complete")
-      end
-      if target.veiled?
-        err("#{label(owner)}: identity source #{definition.name} target #{id} cannot be veiled")
-      end
-      if target.prose_blocks.empty? || target.prose_blocks.all? { |block| block.text.strip.empty? }
-        err("#{label(owner)}: identity source #{definition.name} target #{id} needs a full article")
-      end
-      if !owner.dm? && target.dm?
-        err("#{label(owner)}: public identity cannot inherit from DM source #{id}")
-      end
-      definition.projection.each_key do |source_key|
-        source_keys = @schema.identity_keys_for(target.kind, subkind: target.subkind).map(&:name)
-        unless source_keys.include?(source_key)
-          err("#{label(owner)}: identity source #{definition.name} target #{id} " \
-              "does not declare projected key #{source_key}")
-        end
-      end
-    end
-
-    def identity_configured?(owner)
-      keys, sources = identity_definitions(owner)
-      !keys.empty? || !sources.empty? || !owner.local_identity_values.empty? ||
-        !owner.identity_source_values.empty?
-    end
-
-    def identity_definitions(owner)
-      if owner.is_a?(RelationInstance)
-        [
-          @schema.relation_identity_keys(owner.verb),
-          @schema.relation_identity_sources(owner.verb),
-        ]
-      else
-        [
-          @schema.identity_keys_for(owner.kind, subkind: owner.subkind),
-          @schema.identity_sources_for(owner.kind, subkind: owner.subkind),
-        ]
       end
     end
 
@@ -1514,7 +1716,7 @@ module Lorecraft
     # is a typo that would quietly drop the block out of the audit, and a review
     # date nobody can compare against is not a record of anything.
     def check_provenance
-      @world.entities.each_value do |e|
+      (@world.entities.values + @world.encyclopedia_entries.values).each do |e|
         @diagnostic_owner = e
         next if e[:reviewed].nil? || e[:reviewed].to_s.match?(/\A\d{4}-\d{2}-\d{2}\z/)
 
@@ -1587,6 +1789,7 @@ module Lorecraft
     def label(owner)
       case owner
       when Entity then "#{owner.kind} #{owner.id}"
+      when EncyclopediaEntry then "encyclopedia #{owner.id}"
       when Moment then "moment #{owner.id}"
       when RelationInstance then "relation #{owner.id}"
       when Page then "page #{owner.id}"

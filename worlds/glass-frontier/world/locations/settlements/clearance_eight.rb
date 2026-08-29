@@ -2,8 +2,10 @@ installation :clearance_eight do
   name "Clearance Eight"
   summary "Clearance Eight is a traffic settlement in the Glass Frontier, built on a capture frame that clears passage between two narrow ring fragments."
   playable_as :chronicle_location, :homeland
+  context_tags :"realm:ring_habitat"
   origin_blurb "A debris-capture settlement where eight public desks decide what may pass, be claimed, or be cut."
   subkind :settlement
+  type_of :settlement
   status :complete
   tags :"ring-hab", :transport, :navigation, :salvage, :governance, :"kinetic-freq"
   prominence :recognized
@@ -49,7 +51,7 @@ installation :clearance_eight do
   PROSE
 
   prose <<~PROSE, section: :governance, heading: "Eight Desks and a Seal"
-    Eight public desks settle recovery and hazard, identity and route, ownership and debt, then salvage value and release. Each adds one impression to #{ref :eighth_seal, "the Eighth Seal"} fixed to the object. The completed sequence lets a tuned reader recover the evidence behind the final color instead of receiving only the disposition.
+    Eight public desks settle recovery and hazard, identity and route, ownership and debt, then salvage value and release. Each adds one impression to #{encyclopedia_ref :eighth_seal, "the Eighth Seal"} fixed to the object. The completed sequence lets a tuned reader recover the evidence behind the final color instead of receiving only the disposition.
 
     Claimants can accompany an object and answer the readers directly. A disputed machine remains powered in custody while its route and ownership impressions stay open. Household goods wait in sealed rooms arranged by recovery route. Market buyers inspect a lot only after the ownership desk closes its part of the seal.
 
@@ -69,16 +71,4 @@ end
 
 relate :rel_clearance_eight_supplies_brake, :supplies, :clearance_eight, :brake, since: 2435 do
   prose "Clearance Eight sends unclaimed hull sections and intact machinery to Brake with the full custody record attached."
-  descriptive_identity(
-    terms:
-      "Material released only after all eight desks have closed their " \
-      "impressions on the seal, then hauled the one tug shift down the " \
-      "lane with the readings that put it in a salvage lot rather than " \
-      "a claim room.",
-    dependence:
-      "Brake's cutting lots trace every piece back to its vessel and " \
-      "deck, and a hull arriving with the Eighth Seal already complete " \
-      "is one the yards can open without waiting out an ownership " \
-      "dispute of their own."
-  )
 end

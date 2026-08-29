@@ -2,8 +2,10 @@ installation :brake do
   name "Brake"
   summary "Brake is a salvage settlement of about nine thousand people in the Glass Frontier, built across a reinforced ring fragment and eleven anchored wrecks."
   playable_as :chronicle_location, :homeland
+  context_tags :"realm:ring_habitat"
   origin_blurb "A free-cutting hab built around derelict recovery, shared claims, and hard rescue rules."
   subkind :settlement
+  type_of :settlement
   status :complete
   tags :"ring-hab", :salvage, :transport, :trade, :materials
   prominence :recognized
@@ -75,10 +77,6 @@ end
 
 relate :rel_brake_located_in_frontier, :located_in, :brake, :the_glass_frontier, since: 2305 do
   prose "Brake anchors derelicts around a reinforced fragment of the inhabited ring."
-end
-
-relate :rel_ratters_operate_in_brake, :operates_in, :ratters, :brake, since: 2435 do
-  prose "Ratter crews use Brake's capture lanes and lots for derelicts that remain safe to cut by hand."
 end
 
 relate :rel_ira_voss_operates_lot_forty, :operates_in, :ira_voss, :lot_forty, since: 2435 do

@@ -27,7 +27,10 @@ module Lorecraft
       @world = world
       @default_drafter = world.schema.default_drafter
       @changed_at = changed_at || (root ? git_history(root) : ->(_owner) { nil })
-      @entity = entity && (world.entity(entity.to_sym) || raise(Error, "unknown entity: #{entity}"))
+      @entity = entity && (
+        world.entity(entity.to_sym) || world.encyclopedia_entry(entity.to_sym) ||
+          raise(Error, "unknown Atlas or Encyclopedia entry: #{entity}")
+      )
     end
 
     def rows
@@ -112,6 +115,7 @@ module Lorecraft
       return :page if owner.is_a?(Page)
       return :moment if owner.is_a?(Moment)
       return :relationship if owner.is_a?(RelationInstance)
+      return :encyclopedia if owner.is_a?(EncyclopediaEntry)
 
       :entity
     end

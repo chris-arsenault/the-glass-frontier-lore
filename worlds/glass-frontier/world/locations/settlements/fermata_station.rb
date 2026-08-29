@@ -2,8 +2,10 @@ installation :fermata_station do
   name "Fermata Station"
   summary "Fermata Station is a ring habitat around Kaleidos where public jazz Sessions produce binding civic decisions."
   playable_as :chronicle_location, :homeland
+  context_tags :"realm:ring_habitat"
   origin_blurb "A ring hab where public Sessions turn musical improvisation into binding civic decisions."
   subkind :settlement
+  type_of :settlement
   path "player/locations/settlements/fermata-station.md"
   status :complete
   reviewed "2026-03-19"
@@ -73,7 +75,7 @@ installation :fermata_station do
 
     **The Audience** is everyone else. Citizens with full access to station resources but no voice in Session. Some by choice. Some because they failed their Sit-In and carry that quietly for the rest of their lives. Some because they never tried, which is perceived as a different and less sympathetic category of silence.
 
-    **The Drone** — musicians who maintain the station's #{ref :resonance, "resonant frequencies"} around the clock. Sound has structural consequences on this fragment; certain chord voicings physically hold the station together. The Drone is simultaneously the most essential function on the station and the least politically powerful, because its members can't leave their post to attend Session. Culturally revered. Practically ignored.
+    **The Drone** — musicians who maintain the station's #{encyclopedia_ref :resonance, "resonant frequencies"} around the clock. Sound has structural consequences on this fragment; certain chord voicings physically hold the station together. The Drone is simultaneously the most essential function on the station and the least politically powerful, because its members can't leave their post to attend Session. Culturally revered. Practically ignored.
   PROSE
   prose <<~PROSE, section: :people, heading: "Notable Figures"
     | Name | Species | Role | Notes |
@@ -111,7 +113,7 @@ installation :fermata_station do
   prose <<~PROSE, section: :mechanics, heading: "Physics"
     The #{ref :the_glass_frontier, "Glass Frontier's"} loosened physics manifests on this fragment as a material relationship between sound and structure. This is not metaphor.
 
-    **#{ref :resonance, "Resonance"}** — certain frequencies and chord voicings have load-bearing properties. The Drone exists because if they stop playing, bulkheads fail. The fragment's #{ref :ringglass, "ringglass"} structure responds to sustained harmonic input in the signal-frequency range, and #{elapsed :fermata_station, approx: true} of continuous music have tuned the station's crystal lattice to depend on it.
+    **#{encyclopedia_ref :resonance, "Resonance"}** — certain frequencies and chord voicings have load-bearing properties. The Drone exists because if they stop playing, bulkheads fail. The fragment's #{encyclopedia_ref :ringglass, "ringglass"} structure responds to sustained harmonic input in the signal-frequency range, and #{elapsed :fermata_station, approx: true} of continuous music have tuned the station's crystal lattice to depend on it.
 
     **Dissonance** — unresolved harmonic tension causes material stress. Minor at small scale (a bad practice session might crack a window). Catastrophic at volume (a coordinated free jazz action could breach a hull).
 
@@ -133,11 +135,12 @@ end
 relate :rel_fermata_in_orbit_of_kaleidos, :in_orbit_of, :fermata_station, :kaleidos do
   prose "Fermata holds a quiet orbit of #{ref :kaleidos, "Kaleidos"}, far enough from the busy lanes that its strange internal life goes mostly unwatched."
 end
-relate :rel_fermata_depends_on_ringglass, :depends_on, :fermata_station, :ringglass do
-  prose "Like any hab it depends on #{ref :ringglass, "ringglass"} for power and structure, traded in through the same routes that bring everything else."
-end
 relate :rel_fermata_located_in_tgf, :located_in, :fermata_station, :the_glass_frontier, since: 2140 do
   prose "It is one of the surviving fragments of the #{ref :the_glass_frontier, "Glass Frontier"} — a hab that came through the Glassfall intact and went its own way during the long silence that followed."
+end
+
+relate :rel_glassfall_manifests_at_fermata, :manifests_at, :the_glassfall, :fermata_station do
+  prose "Fermata survives on an intact ring fragment whose isolation began when the Glassfall broke the surrounding ring."
 end
 
 # --- history (moments) ---

@@ -2,7 +2,9 @@ installation :folded_annex do
   name "The Folded Annex"
   summary "The Folded Annex is a ring-era archive and experimental suite in Sithari's deep Underlayers, built from rooms joined through structural resonance."
   playable_as :chronicle_location
+  context_tags :"realm:surface"
   subkind :archive
+  type_of :archive_facility
   holdings "Ring-era spatial calibration records, test rooms and sealed instrument stores"
   tags :surface, :resonance, :"ring-era", :archives, :danger, :"fluid-reality"
   prominence :recognized
@@ -48,7 +50,7 @@ installation :folded_annex do
     Modern plans label only observed connections. They do not draw walls around the whole installation. Each attempt to infer an exterior volume has placed part of the Annex inside occupied neighborhoods or beyond the original campus boundary.
   PROSE
   prose <<~PROSE, section: :operations, heading: "Entry Work"
-    A licensed party includes a route surveyor, a certified #{ref :tuners, "Tuner"}, and an archive specialist. The route surveyor owns the return path. The Tuner records the field and watches for coupling between the Annex and city systems. The archivist decides what can be handled or copied without disturbing an arrangement whose purpose remains partly legible.
+    A licensed party includes a route surveyor, a certified #{encyclopedia_ref :tuners, "Tuner"}, and an archive specialist. The route surveyor owns the return path. The Tuner records the field and watches for coupling between the Annex and city systems. The archivist decides what can be handled or copied without disturbing an arrangement whose purpose remains partly legible.
 
     Teams place passive reflectors at every turn and compare them by sight. Signal repeaters are not trusted inside: on two visits a repeater answered from the next gallery before it had been carried there. Each person also carries a plain wound clock. If the clocks differ by more than a minute, the party returns without opening another door.
 
@@ -75,9 +77,6 @@ end
 
 relate :rel_folded_annex_located_in_underlayers, :located_in, :folded_annex, :underlayers do
   prose "Licensed access to the Folded Annex begins below the marked limit of the #{ref :underlayers, "Underlayers"}."
-end
-relate :rel_elves_built_folded_annex, :built, :elves, :folded_annex do
-  prose "Ring-era wall records identify the Annex as an #{ref :elves, "elven"} spatial-calibration facility within the original campus."
 end
 relate :rel_synod_studies_folded_annex, :studies, :lattice_proxy_synod, :folded_annex, since: 2321 do
   prose "The #{ref :lattice_proxy_synod, "Lattice Proxy Synod"} compares the Annex's changing field with custodian records from Threshold Station."

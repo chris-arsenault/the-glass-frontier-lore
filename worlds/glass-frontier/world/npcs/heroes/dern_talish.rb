@@ -10,14 +10,12 @@ npc :dern_talish do
   occupation "Fourth First Threshold of the Displacement Council"
   log "2026-08-21 — Named Dern's lost hab, long-term cordon station, field colleague, and the three organizations whose convoys she turned away. Oram Sells is the third First Threshold, serving from 2421 to 2432."
   narrative_role "viewpoint"
-  species "human"
-  identity_source :species, :humans
-  identity_source :culture, :hab_worlder
+  type_of :humans
+  belongs_to :culture, :hab_worlder
   descriptive_identity disposition:
     "Talish listens more than she speaks and never raises her voice. She " \
     "asks a party what it needs and what it can give, works the gap " \
     "between the two, and accepts water but never a meal."
-  culture "hab-worlder"
 
   prose <<~PROSE
     *First Threshold of the Displacement Council.*
@@ -101,21 +99,6 @@ relate :rel_dern_talish_located_in_gray_line, :located_in, :dern_talish, :gray_l
 end
 relate :rel_dern_talish_cooperates_iro_senn, :cooperates_with, :dern_talish, :iro_senn, since: 2412 do
   prose "#{ref :iro_senn, "Iro Senn"} is her oldest cordon colleague and still sends her Gray Line's unsoftened reports."
-  descriptive_identity(
-    basis:
-      "Twenty years of perimeter patrol together at Gray Line, kept " \
-      "alive as shift notes, blunt private reports she asked him never " \
-      "to improve, and the one shared meal she allows anyone — his, " \
-      "whenever she visits the station.",
-    limits:
-      "Senn stayed at the wall when she rose, and their arguments over " \
-      "exposure limits are real arguments; his reports reach her " \
-      "outside the Council's channels precisely so the friendship " \
-      "never has to pass through headquarters."
-  )
-end
-relate :rel_dern_talish_cooperates_with_elves, :cooperates_with, :dern_talish, :elves, since: 2432, dm: true do
-  prose "She is the single human point of contact with the hidden #{ref :elves, "elves"} — the loneliest cooperation in the system, conducted through a shard she never lets out of her reach."
 end
 relate :rel_dern_talish_possesses_communication_shard, :possesses, :dern_talish, :communication_shard, since: 2432, dm: true do
   prose "The #{ref :communication_shard, "communication shard"} — a pre-Glassfall artifact keyed to an impossible frequency — is her only channel to them, and irreplaceable if lost."
@@ -143,5 +126,5 @@ moment :dern_talish_becomes_first_threshold, year: 2432, of: :dern_talish do
 end
 moment :dern_talish_read_in, year: 2432, of: :dern_talish, dm: true do
   summary "Oram Sells disclosed the hidden elven conflict to Dern Talish at Gray Line in 2432, and she confirmed it through the communication shard."
-  prose "Three months before he died of Bloom-exposure complications, her predecessor #{ref :oram_sells, "Oram Sells"} read her in — the #{ref :elves, "elves"}, the Adversary, the reality tears, the hidden war — in a single conversation in a sealed room at #{ref :gray_line, "Cordon Station Nine"}. She did not believe him until he showed her the #{ref :communication_shard, "contact protocol"} and she activated it, and an elf answered. She has not slept a full night since."
+  prose "Three months before he died of Bloom-exposure complications, her predecessor #{ref :oram_sells, "Oram Sells"} read her in — the #{encyclopedia_ref :elves, "elves"}, the Adversary, the reality tears, the hidden war — in a single conversation in a sealed room at #{ref :gray_line, "Cordon Station Nine"}. She did not believe him until he showed her the #{ref :communication_shard, "contact protocol"} and she activated it, and an elf answered. She has not slept a full night since."
 end

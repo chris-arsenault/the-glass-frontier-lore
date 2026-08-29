@@ -4,15 +4,13 @@ npc :nemi_valerin do
   subkind :leader
   born 2389
   occupation "Voice Proximate of the Lattice Proxy Synod"
-  species "human"
-  identity_source :species, :humans
-  identity_source :culture, :sitharian_culture
+  type_of :humans
+  belongs_to :culture, :sitharian_culture
   descriptive_identity disposition:
     "Valerin asks what an answer would change for a named ship, " \
     "settlement, or court, and leaves it untranslated when nobody can " \
     "say. She will hand over measurements and sit at the console beside " \
     "the asker, and still refuse the sequence that produced the result."
-  culture "Sithari"
   tags :AI, :resonance, :"ring-era", :governance
   prominence :recognized
   status :complete
@@ -42,25 +40,7 @@ relate :rel_nemi_valerin_located_threshold_station, :located_in, :nemi_valerin, 
 end
 relate :rel_nemi_valerin_member_synod, :member_of, :nemi_valerin, :lattice_proxy_synod, since: 2412 do
   prose "Valerin entered the Synod through its telemetry staff and learned proxy work inside the station."
-  descriptive_identity standing:
-    "Proxy standing in the Synod is earned by results, and hers dates " \
-    "from the 2417 debris emergency — a custodian that had rejected " \
-    "every formal query answered the compact sequence a telemetry clerk " \
-    "used to label missing readings, and corrected the station's " \
-    "collision forecast."
 end
 relate :rel_nemi_valerin_cooperates_shear_compact, :cooperates_with, :nemi_valerin, :shear_compact, since: 2431 do
   prose "She supplies the Compact with custodian measurements while retaining Synod control of the queries that produced them."
-  descriptive_identity(
-    basis:
-      "Raw readings in place of the withheld route maps: with one " \
-      "custodian returning two contradictory crossings for the same " \
-      "Shear query, the Compact's forecast service gets the " \
-      "measurements and crews plan departures from those.",
-    limits:
-      "She trades in measurements and never in method. The Compact's " \
-      "request to mark one map provisional before the salvage " \
-      "departures stands refused, and the proxy sequence that produced " \
-      "the answers stays inside the Synod."
-  )
 end

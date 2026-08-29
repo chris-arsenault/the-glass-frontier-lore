@@ -2,6 +2,7 @@ npc :rings_twice do
   name "Rings-Twice"
   summary "Rings-Twice is an itinerant storyteller and parts trader working between Wash Four and Carom."
   subkind :npc
+  type_of :person
   status :complete
   prominence :marginal
   veiled "Rings-Twice trades stories for spare parts and repeats each story differently at Wash Four and Carom."end

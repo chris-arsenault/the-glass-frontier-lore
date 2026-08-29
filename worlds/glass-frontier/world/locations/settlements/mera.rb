@@ -2,7 +2,9 @@ installation :mera do
   name "Mera"
   summary "Mera is a settlement of about six thousand people on a slow-tumbling fragment of the Glass Frontier, where a long shaded season supports ice-grown water storage."
   playable_as :chronicle_location
+  context_tags :"realm:ring_habitat"
   subkind :settlement
+  type_of :settlement
   status :complete
   tags :"ring-hab", :ecology, :household, :materials, :resonance
   prominence :marginal
@@ -32,9 +34,7 @@ installation :mera do
     hazards:
       "An address moves with the season — winter terraces and spring " \
       "courts occupy the same ground, and only the painted depth lines " \
-      "and permanent ceramic stairs hold through both. This thaw, two " \
-      "water wards are filing claims against each other over a furnished " \
-      "Ring Age apartment melting free of the Fourth Column."
+      "and permanent ceramic stairs hold through both."
   )
 
   prose <<~PROSE
@@ -44,7 +44,7 @@ installation :mera do
   PROSE
 
   prose <<~PROSE, section: :operations, heading: "Growing the Columns"
-    Water rises through pipes inside a framework of #{ref :thawglass, "thawglass"}. Fine spray freezes onto the frame and builds outward. Crews redirect the nozzles through the cold weeks, producing broad bases, hollow storage rooms, and shaded faces that melt in a chosen order.
+    Water rises through pipes inside a framework of #{encyclopedia_ref :thawglass, "thawglass"}. Fine spray freezes onto the frame and builds outward. Crews redirect the nozzles through the cold weeks, producing broad bases, hollow storage rooms, and shaded faces that melt in a chosen order.
 
     Each column belongs to a water ward. The first melt fills drinking tanks. Later flow reaches gardens and process lines. Public columns carry stairs, cold rooms, and market platforms while they stand. Smaller household columns keep food and release water into local cisterns.
 
@@ -56,17 +56,13 @@ installation :mera do
 
     Rooms buried inside a public column open as doors melt free. Winter stores become spring stalls. Musicians use the narrowing chambers for performances whose tone changes every day. Children race leaf-sized floats through the first open channels.
 
-    This thaw has exposed a complete apartment inside the Fourth Column, furnished with Ring Age chairs and a sealed interior door. The thawglass frame passes through its walls as though the room stood there before the column grew. Mera has diverted the next spill channel around it.
-
-    The diversion sends one water ward's garden share through another ward's public column. Both have filed claims before the apartment finishes melting free: one for the lost spring flow, the other for the room now occupying its frame. The bright-season market has moved onto the surrounding stairs, where ward readers post the falling water level beside each claim.
+    #{embed :room_before_the_ice}
   PROSE
 
   gm_note :appears, "An address in Mera sits on a frozen terrace through the cold season and on an open court floor after the melt. " \
                     "Painted depth lines and the permanent ceramic stairs hold through both phases; a visitor navigating by anything else arrives on the wrong level."
   gm_note :triggered_by, "Anything cut into a public column's clear outer layer stays legible until meltwater reaches it from below and blurs it upward. " \
                          "A promise meant to outlast the season goes on the ceramic panels fixed to the court walls."
-  gm_note :complicates, "The Fourth Column apartment has two water wards filing against each other, with ward readers posting the falling water level beside each claim. " \
-                        "Business done on the bright-season market stairs is watched by both wards and expires when the column does."
 end
 
 relate :rel_mera_located_in_frontier, :located_in, :mera, :the_glass_frontier, since: 2140 do
@@ -75,10 +71,8 @@ end
 
 relate :rel_mera_supplies_keelward, :supplies, :mera, :keelward, since: 2435 do
   prose "Mera ships thawglass frames to Keelward for seasonal cold rooms and temporary water stores."
-  descriptive_identity(
-    terms:
-      "Frames recovered from inside the columns when the spray court " \
-      "closes, loaded once a season at the single axial dock while the " \
-      "ice-court locks stand open."
-  )
+end
+
+relate :rel_glassfall_manifests_at_mera, :manifests_at, :the_glassfall, :mera do
+  prose "Mera occupies a surviving ring fragment whose seasonal courts grow around ringglass-bearing thawglass frames."
 end

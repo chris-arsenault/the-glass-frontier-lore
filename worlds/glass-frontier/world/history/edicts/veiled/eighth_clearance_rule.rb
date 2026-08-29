@@ -2,6 +2,7 @@ edict :eighth_clearance_rule do
   name "The Eighth Clearance Rule"
   summary "The Eighth Clearance Rule gives disabled vessels the center line at Clearance Eight and Mareth and requires powered craft to yield outward."
   subkind :edict
+  type_of :traffic_priority_rule
   status :complete
   prominence :marginal
   veiled "The Eighth Clearance Rule gives disabled vessels the center line and makes every powered craft yield outward."

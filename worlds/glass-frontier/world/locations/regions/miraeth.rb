@@ -2,7 +2,9 @@ geographic_location :miraeth do
   name "Miraeth"
   summary "Miraeth is a chain of wooded basins along the wet foothills of the Kyther Range, where ringglass veins connect old forests through their roots."
   playable_as :chronicle_location
+  context_tags :"realm:surface"
   subkind :region
+  type_of :region
   status :complete
   tags :surface, :ecology, :resonance, :ringglass, :trade
   prominence :recognized
@@ -35,7 +37,7 @@ geographic_location :miraeth do
   )
 
   prose <<~PROSE
-    Miraeth is a chain of wooded basins along the wet foothills of the #{ref :kyther_range, "Kyther Range"}. Pre-Glassfall water records use the name for the whole chain. Basin speech kept it through the Famine while the watersheds developed separate rules and dialects. Each basin holds deep soil, steady water, and centuries of fine ringglass deposited by #{ref :glassfall_showers, "Glassfall showers"}. Plants incorporated the grains as they grew. Clear veins now run through old trunks and roots, linking whole stands through broad structural fields.
+    Miraeth is a chain of wooded basins along the wet foothills of the #{ref :kyther_range, "Kyther Range"}. Pre-Glassfall water records use the name for the whole chain. Basin speech kept it through the Famine while the watersheds developed separate rules and dialects. Each basin holds deep soil, steady water, and centuries of fine ringglass deposited by #{encyclopedia_ref :glassfall_showers, "Glassfall showers"}. Plants incorporated the grains as they grew. Clear veins now run through old trunks and roots, linking whole stands through broad structural fields.
 
     The name covers several separate watersheds rather than one continuous forest. High saddles and bare ridges lie between them. Every basin has its own villages, water rules, cultivated beds, and areas left to unmanaged growth. #{ref :lumenshard, "Lumenshard"} is the largest settlement and the principal market for the living crystal wood produced throughout the region.
   PROSE

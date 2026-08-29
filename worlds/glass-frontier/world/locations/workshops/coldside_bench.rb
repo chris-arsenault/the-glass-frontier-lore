@@ -2,7 +2,9 @@ installation :coldside_bench do
   name "Coldside Bench"
   summary "Coldside Bench is a shaded public repair hall on a lower Shadewell terrace, rebuilding heat-rated pumps, radiator controls, and road-hauler gear."
   playable_as :chronicle_location
+  context_tags :"realm:outer_system"
   subkind :workshop
+  type_of :workshop
   function "Rebuilds heat-rated pumps, radiator controls, and road-hauler running gear"
   status :complete
   tags :"outer-system", :trade, :transport, :resonance, :rebuilding
@@ -78,7 +80,7 @@ installation :coldside_bench do
   gm_note :triggered_by, "Asking for a rebuild certified for the port alone gets the part refused. The hall writes " \
                          "the port account and the road account on the same card and will not fit an assembly that " \
                          "a neighboring shop cannot open."
-  gm_note :complicates, "Cooling lines the culvert #{ref :cinderback, "cinderbacks"} tore open outrank commercial " \
+  gm_note :complicates, "Cooling lines #{ref :keel_yard_herd, "the culvert herd"} tore open outrank commercial " \
                         "work, so a Keel crane controller, two road pumps, and a hauler drive sit unopened on the " \
                         "sand. Machines now cool through more than one giant-shade and the terrace road outside is " \
                         "full of parked haulers."
@@ -90,9 +92,9 @@ end
 relate :rel_shadewell_maintains_coldside, :maintains, :shadewell, :coldside_bench do
   prose "The city maintains the public receiving bays, water wall, and repair queue."
 end
-relate :rel_coldside_resonates_heat_hauler, :resonates_with, :coldside_bench, :heat_road_hauler do
+relate :rel_coldside_resonates_heat_hauler, :resonates_with, :coldside_bench, :third_radiator do
   prose "The hall rebuilds heat-road running gear and holds parked haulers while their assemblies cool."
 end
-relate :rel_coldside_resonates_cinderback, :resonates_with, :coldside_bench, :cinderback do
+relate :rel_coldside_resonates_keel_yard_herd, :resonates_with, :coldside_bench, :keel_yard_herd do
   prose "Damage from the port's culvert herd has placed public cooling-line repairs ahead of commercial work."
 end

@@ -2,6 +2,7 @@ npc :brace_two do
   name "Brace Two"
   summary "Brace Two is a rail worker who replaces traffic rails at Clearance Eight and Clearance Ten."
   subkind :worker
+  type_of :person
   status :complete
   prominence :marginal
   veiled "Brace Two replaces Clearance traffic rails while loaded kites continue passing an arm's length away."end

@@ -32,8 +32,8 @@ module Lorecraft
   # its existence interval (used before create / after destroy).
   class CausalityError < Error; end
 
-  # Raised when a descriptive identity cannot be resolved from its declared
-  # source slots at the selected snapshot.
+  # Raised when a requested local descriptive-identity owner is unavailable to
+  # the selected audience.
   class IdentityError < Error; end
 
   # A requested source edit could not be addressed or would not produce a

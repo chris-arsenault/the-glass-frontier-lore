@@ -43,6 +43,12 @@ module Lorecraft
     def plain = @attrs[:text] || id&.to_s || @attrs[:path] || ""
   end
 
+  class EncyclopediaRefMarker < Marker
+    KIND = :encyclopedia_ref
+    def resolve(resolver) = resolver.on_encyclopedia_ref(self)
+    def plain = @attrs[:text] || id&.to_s || ""
+  end
+
   class RelMarker < Marker
     KIND = :rel
     def verb = @attrs[:verb]
@@ -109,7 +115,8 @@ module Lorecraft
     def plain = "[duration:#{years}]"
   end
 
-  # Prose carries inline bindings — `ref` (a cross-reference to another entity),
+  # Prose carries inline bindings — `ref` (an Atlas cross-reference),
+  # `encyclopedia_ref` (an Encyclopedia cross-reference),
   # `rel` (the live target(s) of one of the owner's relations at the render
   # era), and `future` (a placeholder for a not-yet-written entity). Because
   # prose is authored as ordinary interpolated strings
@@ -124,6 +131,7 @@ module Lorecraft
   module Markers
     SEP = ""
     REF = "#{SEP}REF#{SEP}".freeze
+    EREF = "#{SEP}EREF#{SEP}".freeze
     REL = "#{SEP}REL#{SEP}".freeze
     FUT = "#{SEP}FUT#{SEP}".freeze
     EMB = "#{SEP}EMB#{SEP}".freeze
@@ -139,6 +147,12 @@ module Lorecraft
     def ref(target = nil, text = nil, path: nil, anchor: nil)
       id = target.nil? ? "" : target.to_s
       [REF, id, FIELD, text, FIELD, path, FIELD, anchor, ENDM].join
+    end
+
+    # A cross-reference into the separate Encyclopedia namespace. Encyclopedia
+    # entries are not Atlas graph nodes, so this marker never derives an edge.
+    def encyclopedia_ref(target, text = nil)
+      [EREF, target.to_s, FIELD, text, FIELD, nil, FIELD, nil, ENDM].join
     end
 
     # The live value(s) of one of the owning entity's relations at the render
@@ -157,9 +171,9 @@ module Lorecraft
 
     # TRANSCLUSION: render another entity's prose in place, or one named section
     # of it. This is how a fact gets stated once — the entity that owns it writes
-    # it, and every entry that needs it embeds. Every embed also becomes a
-    # derived `embeds` edge, so the composition web is in the graph without
-    # anyone declaring it.
+    # it, and every entry that needs it embeds. An Atlas embed also becomes a
+    # derived `embeds` edge. An Encyclopedia embed stays within that separate
+    # store and is tracked only to validate composition and reject cycles.
     #
     #   #{embed :bloom_coalition}              — the target's :main prose
     #   #{embed :bloom_coalition, :tensions}   — one section of it
@@ -214,7 +228,8 @@ module Lorecraft
     ELA_RE = /#{Regexp.escape(ELA)}(.*?)#{F}(.*?)#{F}(.*?)#{F}(.*?)#{F}(.*?)#{F}(.*?)#{E}/m
     YER_RE = /#{Regexp.escape(YER)}(.*?)#{E}/m
     DUR_RE = /#{Regexp.escape(DUR)}(.*?)#{E}/m
-    ANY_RE = /#{REF_RE}|#{REL_RE}|#{FUT_RE}|#{EMB_RE}|#{ELA_RE}|#{YER_RE}|#{DUR_RE}/m
+    EREF_RE = /#{Regexp.escape(EREF)}(.*?)#{F}(.*?)#{F}(.*?)#{F}(.*?)#{E}/m
+    ANY_RE = /#{REF_RE}|#{REL_RE}|#{FUT_RE}|#{EMB_RE}|#{ELA_RE}|#{YER_RE}|#{DUR_RE}|#{EREF_RE}/m
 
     # Parse every binding in a blob of assembled prose, in document order.
     # Yields the full matched substring and the Marker describing the binding.
@@ -243,6 +258,9 @@ module Lorecraft
       },],
       [YER, ->(m) { YearMarker.new(m[0], at: anchor(m[16]) || :now) }],
       [DUR, ->(m) { DurationMarker.new(m[0], years: m[17].to_i) }],
+      [EREF, lambda { |m|
+        EncyclopediaRefMarker.new(m[0], id: sym(m[18]), text: str(m[19]))
+      },],
     ].freeze
 
     # Turn one regexp match into the Marker subclass that models it.

@@ -2,6 +2,7 @@ transport :quiet_measure do
   name "Quiet Measure"
   summary "Quiet Measure is a rescue tender stationed at Pell Cut and maintained by the Pell Freight Assembly. Its receiving lock, paired tow forks, and separate treatment rooms serve vessels beyond ordinary port reach."
   subkind :vessel
+  type_of :utility_vessel
   status :complete
   capacity "Eighteen crew, twenty-four rescued passengers, and two disabled-craft tow points"
   tags :transport, :salvage, :orbital, :danger, :resonance
@@ -74,7 +75,7 @@ end
 relate :rel_quiet_measure_operates_pell_cut, :operates_in, :quiet_measure, :pell_cut do
   prose "*Quiet Measure* covers claim routes and conditional corridors from its berth at #{ref :pell_cut, "Pell Cut"}."
 end
-relate :rel_quiet_measure_depends_claim_rigs, :depends_on, :quiet_measure, :claim_rig do
+relate :rel_quiet_measure_depends_claim_rigs, :depends_on, :quiet_measure, :four_shutters do
   prose "The tender's locks and treatment rooms follow the isolated layout developed for claim rigs."
 end
 relate :rel_quiet_measure_active_corridor_disputes, :active_during, :quiet_measure, :the_corridor_disputes do

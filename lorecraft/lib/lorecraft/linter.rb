@@ -113,6 +113,7 @@ module Lorecraft
     def diagnostic_path(owner)
       case owner
       when Entity then owner.id.to_s
+      when EncyclopediaEntry then "encyclopedia:#{owner.id}"
       when Moment then "moment:#{owner.id}"
       when RelationInstance then "relation:#{owner.id}"
       when Page then "page:#{owner.id}"
@@ -129,6 +130,8 @@ module Lorecraft
 
     def entities = @world.entities.values
     def pages = entities.reject { |e| shell?(e) }
+    def encyclopedia_pages = @world.encyclopedia_entries.values
+    def prose_quality_pages = pages + encyclopedia_pages
     def rendered_pages = @world.pages.reject { |page| shell?(page) }
     def shell?(e) = e[:status].to_s == "shell"
     def label(e) = "#{e.kind} #{e.id}"
@@ -159,7 +162,7 @@ module Lorecraft
     end
 
     def check_dm_phrase_leakage
-      pages.each do |e|
+      prose_quality_pages.each do |e|
         next if e.dm? || e[:contains_dm].to_s == "true"
 
         # A published import was already reader-visible at its source. Keep the
@@ -176,7 +179,7 @@ module Lorecraft
     # The linter is a marker resolver too: each `on_*` reports on the marker
     # instead of rendering it. `@owner` and `@root` carry the context.
     def check_markers
-      (pages + @world.moments.values).each do |owner|
+      (prose_quality_pages + @world.moments.values).each do |owner|
         @owner = owner
         owner.authored_blocks.each do |b|
           b.text_fragments.each do |text|
@@ -209,6 +212,8 @@ module Lorecraft
 
       err("#{@owner.id}: ref path → missing file #{path}") unless (@root + path).exist?
     end
+
+    def on_encyclopedia_ref(_marker) = nil
 
     # Relation verbs are the validator's business, not the linter's.
     def on_rel(_marker) = nil
@@ -332,7 +337,8 @@ module Lorecraft
       counts = result[:veiled_kind_distribution]
       requirement.veiled_required_kinds.each do |kind|
         count = counts.fetch(kind, 0)
-        owner = @world.entity(memberships.find { |membership| membership[:kind] == kind }&.dig(:id))
+        owner_id = memberships.find { |membership| membership[:kind] == kind }&.dig(:id)
+        owner = @world.entity(owner_id) if owner_id
         if requirement.veiled_kind_minimum && count < requirement.veiled_kind_minimum
           err("veiled kind #{kind} has #{count} entries; requires at least #{requirement.veiled_kind_minimum}",
               owner: owner)
@@ -391,7 +397,7 @@ module Lorecraft
     /xi
 
     def check_typed_spans
-      (pages + @world.moments.values).each do |owner|
+      (prose_quality_pages + @world.moments.values).each do |owner|
         text = prose_text(owner)
         text.scan(TYPED_SPAN) do
           info("#{owner.id}: span typed by hand ('#{Regexp.last_match[0].strip}') — " \
@@ -406,7 +412,7 @@ module Lorecraft
     # question has come unstuck from what it is about, which is the failure mode
     # of every review comment stored away from its text.
     def check_question_anchors
-      pages.each do |e|
+      prose_quality_pages.each do |e|
         next if e.questions.empty?
 
         # Matched against the prose as a reader sees it. A marker interpolates
@@ -423,7 +429,7 @@ module Lorecraft
     end
 
     def check_double_article
-      pages.each do |e|
+      prose_quality_pages.each do |e|
         warn("#{label(e)}: double article ('the The …')", owner: e) if prose_text(e).match?(/\b[Tt]he\s+The\s+/)
       end
     end
@@ -436,7 +442,7 @@ module Lorecraft
       bans = @world.schema.banned_phrases
       return if bans.empty?
 
-      (pages + @world.moments.values).each do |owner|
+      (prose_quality_pages + @world.moments.values).each do |owner|
         text = prose_text(owner).downcase
         bans.each do |phrase, reason|
           next unless text.include?(phrase)
@@ -447,7 +453,7 @@ module Lorecraft
     end
 
     def check_resonance_vocab
-      pages.each do |e|
+      prose_quality_pages.each do |e|
         text = prose_text(e).downcase
         if text.match?(/(?:high|low)-band\s+(?:frequenc|resonance)/)
           err("#{label(e)}: non-standard resonance term — use structural/kinetic/signal + broad/mid/narrow", owner: e)
@@ -483,6 +489,17 @@ module Lorecraft
     def check_embed_cycles
       cyc = find_cycle(edges_of(%i[embeds]))
       err("embed cycle: #{cyc.join(' → ')}", owner: @world.entity(cyc&.first)) if cyc
+      encyclopedia_adjacency = Hash.new { |hash, id| hash[id] = [] }
+      @world.encyclopedia_embed_edges.each do |source, _relation, target|
+        encyclopedia_adjacency[source] << target
+      end
+      encyclopedia_cycle = find_cycle(encyclopedia_adjacency)
+      if encyclopedia_cycle
+        err(
+          "encyclopedia embed cycle: #{encyclopedia_cycle.join(' → ')}",
+          owner: @world.encyclopedia_entry(encyclopedia_cycle.first)
+        )
+      end
     end
 
     def check_antisymmetry

@@ -4,7 +4,8 @@ import type {
   SpatialFrameDefinition,
   SpatialPosition,
 } from "./spatial";
-import type { DescriptiveIdentityFields, IdentityKeyDefinition, IdentitySourceDefinition, Optional } from "./identity";
+import type { DescriptiveIdentityFields, IdentityKeyDefinition, Optional } from "./identity";
+import type { ContextTagDefinition, EncyclopediaBundle, EncyclopediaMembership } from "./encyclopedia";
 
 export type {
   RelationPropertyDefinition,
@@ -15,6 +16,7 @@ export type {
   SpatialPosition,
 } from "./spatial";
 export type * from "./identity";
+export type * from "./encyclopedia";
 
 export type Nullable<T> = T | null;
 export type TimeUnit = "year" | "tick";
@@ -37,6 +39,7 @@ export interface WorldSummary {
   page_count: number;
   chronicle_count: number;
   era_narrative_count: number;
+  encyclopedia_entry_count: number;
   home: Nullable<string>;
   description: string;
 }
@@ -49,6 +52,9 @@ export interface EntrySummary extends DescriptiveIdentityFields {
   subkind: Optional<string>;
   section: Optional<string>;
   tags: string[];
+  context_tags: string[];
+  encyclopedia_type: Optional<string>;
+  encyclopedia_memberships: EncyclopediaMembership[];
   prominence: Optional<string>;
   aliases: string[];
   status: Optional<string>;
@@ -141,9 +147,7 @@ export interface KindSummary {
   id: string;
   title: string;
   count: number;
-  identity_source_policy: Optional<"declared" | "none">;
   descriptive_identity_keys: Optional<IdentityKeyDefinition[]>;
-  identity_sources: Optional<IdentitySourceDefinition[]>;
 }
 
 export interface SubkindSummary {
@@ -151,9 +155,6 @@ export interface SubkindSummary {
   kind: string;
   title: string;
   count: number;
-  identity_source_policy: Optional<"declared" | "none">;
-  descriptive_identity_keys: Optional<IdentityKeyDefinition[]>;
-  identity_sources: Optional<IdentitySourceDefinition[]>;
 }
 
 export interface TagDefinition {
@@ -172,9 +173,6 @@ export interface RelationDefinition {
   description: Optional<string>;
   causal: boolean;
   properties: RelationPropertyDefinition[];
-  identity_source_policy: Optional<"declared" | "none">;
-  descriptive_identity_keys: Optional<IdentityKeyDefinition[]>;
-  identity_sources: Optional<IdentitySourceDefinition[]>;
 }
 
 export interface WorldIndex {
@@ -192,6 +190,8 @@ export interface WorldIndex {
   kinds: KindSummary[];
   subkinds: SubkindSummary[];
   tags: TagDefinition[];
+  context_tags: ContextTagDefinition[];
+  encyclopedia: EncyclopediaBundle;
   relations: RelationDefinition[];
   spatial_frames: SpatialFrameDefinition[];
 }
@@ -224,7 +224,7 @@ export interface CardSection extends AuthoredSectionBase {
 
 export type AuthoredSection = ProseSection | CardSection;
 
-export interface EntryConnection extends DescriptiveIdentityFields {
+export interface EntryConnection {
   direction: "outgoing" | "incoming";
   relation: string;
   relation_title: string;
@@ -294,7 +294,7 @@ export interface GraphNode extends DescriptiveIdentityFields {
   path: string;
 }
 
-export interface GraphEdge extends DescriptiveIdentityFields {
+export interface GraphEdge {
   src: string;
   rel: string;
   tgt: string;
@@ -372,7 +372,7 @@ export interface ChronicleRelationshipEndpoint {
   route: string;
 }
 
-export interface ChronicleRelationship extends DescriptiveIdentityFields {
+export interface ChronicleRelationship {
   source_id: string;
   relation: string;
   source: ChronicleRelationshipEndpoint;

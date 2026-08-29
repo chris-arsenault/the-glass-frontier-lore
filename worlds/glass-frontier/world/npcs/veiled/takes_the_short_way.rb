@@ -2,6 +2,7 @@ npc :takes_the_short_way do
   name "Takes-the-Short-Way"
   summary "Takes-the-Short-Way is a cutter captain who leads four independent crews through uncertified lanes beyond Far Bell."
   subkind :leader
+  type_of :person
   status :complete
   prominence :marginal
   veiled "Takes-the-Short-Way leads four independent cutters through debris lanes that Far Bell has stopped certifying."end

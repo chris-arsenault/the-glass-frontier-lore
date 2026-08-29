@@ -1,6 +1,7 @@
 resource :ravel_water do
   name "Ravel Water"
   summary "Ravel Water is a warm resonant condensate collected from Ravel's outer nets and held in six separated trays because nearby samples pull themselves together."
+  type_of :resonant_condensate
   subkind :material
   function "Warm resonant condensate collected from the center of Ravel's outer nets"
   availability "Held in six sealed trays from three plume passages"
@@ -45,8 +46,4 @@ end
 
 relate :rel_nera_doss_carries_ravel_water, :carries, :nera_doss, :ravel_water, since: 2435 do
   prose "Nera Doss carries one sealed tray through Ravel's next plume passage."
-end
-
-relate :rel_ravel_water_attuned_to_resonance, :attuned_to, :ravel_water, :resonance do
-  prose "Separated samples answer one another with high-band tones and directed movement."
 end

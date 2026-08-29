@@ -2,6 +2,7 @@ incident :coriolis_breach do
   name "Coriolis Breach"
   summary "The Coriolis Breach was a forced entry into a sealed habitat during the Contested Reach that killed all but one member of the contact team."
   subkind :dispute
+  type_of :forced_entry_disaster
   path "player/history/events/coriolis-breach.md"
   status :complete
   reviewed "2026-03-19"
@@ -25,7 +26,7 @@ incident :coriolis_breach do
   )
 
   prose <<~PROSE
-    A forced-entry incident during the Contested Reach. A faction broke into a #{ref :shuttered_habs, "shuttered hab"} expecting a rescue mission and encountered a community that had been sealed for generations. The contact team was slaughtered. One survivor returned.
+    A forced-entry incident during the Contested Reach. A faction broke into #{ref :hab_coriolis, "Hab Coriolis"}, one of the system's #{encyclopedia_ref :shuttered_habs, "shuttered habs"}, expecting a rescue mission and encountered a community that had been sealed for generations. The contact team was slaughtered. One survivor returned.
   PROSE
   prose <<~PROSE, section: :cause, heading: "Cause"
     Hab Coriolis was a garden hab — an enclosed environment where the original life-support systems had drifted, the interior had rewilded into dense pre-technological biome, and the inhabitants had adapted by abandoning technology entirely over the course of the Signal Famine. By the Rekindling, the community inside was tribal, self-sufficient, and had no framework for understanding the world outside their walls.
@@ -59,20 +60,4 @@ relate :rel_coriolis_breach_caused_tempered_accord, :caused, :coriolis_breach, :
 end
 relate :rel_venn_talis_participated_in_coriolis_breach, :participated_in, :venn_talis, :coriolis_breach do
   prose "#{ref :venn_talis, "Venn Talis"} was the sole survivor of the contact team — and whose testimony, devastating because the reverted community was coherent rather than savage, is now studied in diplomatic training."
-  descriptive_identity(
-    aims:
-      "Venn entered believing the mission was a rescue; the entry plan " \
-      "had already described the inhabitants as stranded people unable " \
-      "to consent.",
-    conduct:
-      "The complete statement was given once, to a public inquiry, and " \
-      "Venn has required every later copy to carry all four parts — " \
-      "testimony, suit telemetry, entry plan, and outer-hatch recording " \
-      "— refusing condensed versions that turn Coriolis into a warning " \
-      "about hostile habs.",
-    cost:
-      "Venn left survey work, refused every office offered afterward, " \
-      "and stopped attending the commemorations held in the dead " \
-      "team's name."
-  )
 end

@@ -68,7 +68,7 @@ thread :reconnection do
     ---
 
     ### Beat 5: The Shock of Difference
-    **Era:** ~2310s–2330s | **Filled by:** #{ref :verathi_exchange, "Verathi Exchange"}, #{ref :shuttered_habs, "Shuttered habs"}
+    **Era:** ~2310s–2330s | **Filled by:** #{ref :verathi_exchange, "Verathi Exchange"}, #{encyclopedia_ref :shuttered_habs, "Shuttered habs"}
 
     Surface communities reach ring habs. The cultural divergence is staggering. Communities that evolved in isolation for #{elapsed :the_glassfall, :the_rekindling} are unrecognizable. Some welcome contact — the resource-starved celebrate. Some refuse — the shuttered habs.
 
@@ -81,7 +81,7 @@ thread :reconnection do
     ---
 
     ### Beat 6: Trade Resumes
-    **Era:** ~2310s–2330s | **Filled by:** #{ref :meridian_crop_failure, "Meridian Crop Failure"}, #{ref :ratters, "Ratters"}, #{ref :coremark, "Coremark"}, #{ref :vantara, "Vantara"}, #{ref :keel, "The Keel"}
+    **Era:** ~2310s–2330s | **Filled by:** #{ref :meridian_crop_failure, "Meridian Crop Failure"}, #{encyclopedia_ref :ratters, "Ratters"}, #{ref :coremark, "Coremark"}, #{ref :vantara, "Vantara"}, #{ref :keel, "The Keel"}
 
     Salvage begins. Trade networks form. Vantara is founded to handle the boring essential work of logistics. The Keel is established as the primary orbital trade lane.
 
@@ -156,9 +156,7 @@ relate :rel_rc_fills_continuity, :fills_beat, :reconnection, :the_continuity do 
 relate :rel_rc_fills_glasswake, :fills_beat, :reconnection, :glasswake do prose "#{ref :glasswake, "Glasswake"} fills the First Signal beat: the salvage crew that made a dead transmitter talk." end
 relate :rel_rc_fills_hab_meridian, :fills_beat, :reconnection, :hab_meridian do prose "#{ref :hab_meridian, "Hab Meridian"} fills the First Signal beat: the hab that answered." end
 relate :rel_rc_fills_span_nine, :fills_beat, :reconnection, :span_nine do prose "#{ref :span_nine, "Span Nine"} fills the Span beat: pre-Glassfall hardline that handed Sithari a broadband advantage." end
-relate :rel_rc_fills_shuttered_habs, :fills_beat, :reconnection, :shuttered_habs do prose "The #{ref :shuttered_habs, "shuttered habs"} fill the Shock-of-Difference beat: communities that refused contact when it came." end
 relate :rel_rc_fills_verathi_exchange, :fills_beat, :reconnection, :verathi_exchange do prose "The #{ref :verathi_exchange, "Verathi Exchange"} fills the willing-contact dispute: reciprocal recognition replaced Sithari's claim of inherited jurisdiction." end
-relate :rel_rc_fills_ratters, :fills_beat, :reconnection, :ratters do prose "The #{ref :ratters, "ratters"} fill the Trade-Resumes beat: salvage crews reopening the networks." end
 relate :rel_rc_fills_coremark, :fills_beat, :reconnection, :coremark do prose "#{ref :coremark, "Coremark"} fills the Trade-Resumes beat: an early extraction operator in the reconnection boom." end
 relate :rel_rc_fills_vantara, :fills_beat, :reconnection, :vantara do prose "#{ref :vantara, "Vantara"} fills the Trade-Resumes beat: founded to handle the logistics of the reopening networks." end
 relate :rel_rc_fills_keel, :fills_beat, :reconnection, :keel do prose "#{ref :keel, "the Keel"} fills the Trade-Resumes beat: established as the primary orbital trade lane." end

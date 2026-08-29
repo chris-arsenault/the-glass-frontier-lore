@@ -2,7 +2,9 @@ installation :the_dry_net do
   name "The Dry Net"
   summary "The Dry Net is a lodging house and hiring room on Glasswake's dock fringe, used by Ratter crews, steppe carriers, and cargo hands."
   playable_as :chronicle_location
+  context_tags :"realm:surface"
   subkind :installation
+  type_of :lodging_house
   status :complete
   tags :trade, :salvage, :transport, :household, :surface
   prominence :marginal
@@ -77,7 +79,7 @@ installation :the_dry_net do
   gm_note :triggered_by, "Settling terms in a side room instead of the open hall is allowed, and the house then declines to help when the pay, an injury, or the cargo class turns out otherwise. " \
                          "The clerk states that boundary once and goes back to witnessing the wall."
   gm_note :complicates, "Energized tools, ringglass samples, and remote-cut goods belong in the cellar bays until a yard has sounded them, and the house is refusing that store to the locked cases of " \
-                        "#{ref :glasswurm, "glasswurm"} plate now arriving from Pell. Those cases sleep upstairs with hired guards."
+                        "#{ref :pell_stockpile_colony, "glasswurm"} plate now arriving from Pell. Those cases sleep upstairs with hired guards."
 end
 
 relate :rel_dry_net_located_glasswake, :located_in, :the_dry_net, :glasswake do
@@ -86,9 +88,6 @@ end
 relate :rel_pell_assembly_maintains_dry_net, :maintains, :pell_freight_assembly, :the_dry_net do
   prose "The Assembly maintains the hiring boards, equipment store, and work-credit desk while resident tenants run the lodging rooms and kitchen."
 end
-relate :rel_dry_net_resonates_ratters, :resonates_with, :the_dry_net, :ratters do
-  prose "Ratter crews use its hiring wall, sealed equipment store, and cheap bays between claims."
-end
-relate :rel_dry_net_resonates_glasswurm, :resonates_with, :the_dry_net, :glasswurm do
+relate :rel_dry_net_resonates_pell_stockpile_colony, :resonates_with, :the_dry_net, :pell_stockpile_colony do
   prose "Pell's glasswurm colony has brought shoring crews, plate buyers, and questionable harvest offers into the house."
 end

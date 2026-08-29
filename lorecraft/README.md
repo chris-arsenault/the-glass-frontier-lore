@@ -53,6 +53,7 @@ ruby lorecraft/bin/lorecraft help audience    # public, DM, and editorial bounda
 ruby lorecraft/bin/lorecraft help composition # prose ownership and transclusion
 ruby lorecraft/bin/lorecraft help review      # questions, logs, and human review
 ruby lorecraft/bin/lorecraft help search      # discover an entry id
+ruby lorecraft/bin/lorecraft help reference   # reusable-reference queries
 ruby lorecraft/bin/lorecraft help schema      # live schema command arguments
 ruby lorecraft/bin/lorecraft help page        # one command in detail
 ```
@@ -78,6 +79,8 @@ Every content/query command selects one world through `--world ID`,
 |---|---|---|
 | discover worlds | `worlds` | manifest ids and status |
 | find an entry id | `search QUERY` | ranked ids, types, sources, and summaries |
+| find reusable material | `reference search QUERY` | ranked Encyclopedia entries without Atlas results |
+| match reusable material to context | `reference match` | applicable entries with matching selector terms |
 | inspect the live ontology | `schema kind NAME` / `schema relation NAME` | allowed facts and edges |
 | read authoritative guidance | `guide list` / `guide NAME` | one current craft or world Markdown source |
 | choose work | `queue [ID]` | global or entry-scoped questions and findings |
@@ -89,7 +92,7 @@ Every content/query command selects one world through `--world ID`,
 | inspect one entity's changes | `timeline ID` | chronological effect strip |
 | recover settled editorial reasoning | `log ID` | non-reader entry history |
 | find missing structured facts | `facts [ID]` | global coverage or one entry's values |
-| inspect descriptive identity | `identity [ID]` | resolved keys, sources, local operations, and provenance |
+| inspect descriptive identity | `identity [ID]` | local strings and unfilled kind-level keys |
 | write instructions for running an entry | `gm-notes [ID]` | note coverage plus duplicate, opening, and echo findings |
 | inspect fixed map data | `placement [ID]` | frame coverage or one entry's positions and route paths |
 | measure local graph coverage | `topology` | typed degree and thin entries |
@@ -194,6 +197,111 @@ Production worlds require a declared subkind. Common facts come from the shared
 kind and subkind schema; a world can extend them, and a single entity can append
 an exceptional `custom_fact`. Do not fill a missing expected fact with a guess
 or an `unknown` placeholder. `facts` reports the absence outside reader prose.
+When one world no longer uses part of the shared Atlas vocabulary, declare its
+active subset with `restrict_entity_kinds! to: [...]`; other worlds retain the
+complete shared definitions.
+
+## Authoring an Encyclopedia entry
+
+The Encyclopedia holds reusable types and patterns outside the Atlas entity and
+relationship graph. Its eleven kinds are `lifeform`, `culture`, `role`,
+`practice`, `doctrine`, `ability`, `institution`, `technology`, `resource`,
+`phenomenon`, and `place_feature`. The shared schema declares kinds. An entry's required
+`subkind` is authored classification and does not define another schema layer.
+Kinds may declare typed fields and descriptive-identity keys; those declarations
+apply to every subkind of that kind.
+
+```ruby
+encyclopedia_type :lifeform do
+  field :lifespan, type: :text, expected: false
+  identity_key :appearance
+end
+```
+
+```ruby
+encyclopedia :marn do
+  title "Marn"
+  kind :lifeform
+  subkind :animal
+  status :complete
+  summary "Broad-footed herd animals kept along settled surface routes."
+  topics :ecology, :trade
+  prevalence :common
+  descriptive_identity appearance: "A deep-bodied grazer with broad flexible feet."
+
+  appears_when(
+    all: { place: [:"realm:surface", :"biome:steppe"] },
+    any: { place: [:"land_use:pastoral", :"population:sparse"] }
+  )
+
+  cue "A whole tether line turns toward the same patch of empty ground."
+  cue "Broad flexible feet leave shallow crescent prints."
+  affordance "Herders read herd movement as an early warning."
+  pressure "A changed machine rhythm can unsettle every animal in a pen."
+  variation "Road herds carry household marks on shedding horn."
+  variation "Market animals know machinery better than open routes."
+
+  prose "Marn travel in tethered herds along the settled roads."
+end
+
+creature :ironwhistle do
+  title "Ironwhistle"
+  type_of :marn
+  prose "Ironwhistle is a named #{encyclopedia_ref :marn, "herd animal"}."
+end
+```
+
+`available_globally` replaces `appears_when` for material that fits every
+context. Selectors use registered context tags at `world`, `place`, `scene`, or
+`participant` scope. Use `encyclopedia_reference(:id)` as a selector value when
+applicability depends on a particular Encyclopedia identity rather than a tag.
+
+`prevalence` is required and accepts `common`, `uncommon`, or `rare`. It says
+how often a reusable subject occurs when applicable. Atlas `prominence` says
+how widely a particular named entity is known; neither field substitutes for
+the other.
+
+When classification must precede article authoring, declare an Encyclopedia
+shell with only `title`, `kind`, `subkind`, and `status :shell`. Player queries
+and exports omit shells. A world can require `type_of` on selected Atlas kinds
+with `require_encyclopedia_types! kinds: [...]`; the requirement includes Atlas
+shells of those kinds. Structural kinds outside that list remain exempt.
+
+An Encyclopedia entry may declare scalar `text`, `integer`, or `year` fields
+and local identity keys on its kind. Its fields do not point to Atlas or other
+Encyclopedia entries. Descriptive identity is always local string data and does
+not follow any classification or reference.
+
+`character_role :species` and `character_role :culture` make complete entries
+available to character-origin selectors and require an `origin_blurb`.
+
+Completed entries require two cues, one affordance, one pressure, two
+variations, prose, and an availability declaration. Topics use the ordinary
+world tag registry for subject classification. Atlas entities use the separate
+`context_tags` field for properties that selectors may match:
+
+```ruby
+schema do
+  context_tag :"realm:surface", "Planetary surface", scopes: :place
+end
+
+geographic_location :avar do
+  context_tags :"realm:surface"
+end
+```
+
+The Encyclopedia has no relationship graph. A particular Atlas entity may name
+one primary Encyclopedia type with `type_of`. It may also use
+`belongs_to :culture, :sitharian` for repeatable, kind-qualified memberships;
+`culture :sitharian` is equivalent shorthand. `reference page ID` derives the
+primary instance list and the membership list. Neither attribute enters
+`graph`, `path`, or `connections`. Use `reference list`, `reference search`,
+`reference page`, and `reference match` to read the catalog. The full rules are in
+[`craft/encyclopedia.md`](../craft/encyclopedia.md).
+
+`type_of` and `belongs_to` are classification attributes, not relationships.
+They do not populate descriptive identity. Prose uses `ref` for Atlas and
+`encyclopedia_ref` for Encyclopedia; embeds remain within the owner's namespace.
 
 ### Reader and play metadata
 
@@ -203,8 +311,9 @@ concept :species do
   article!
 end
 
-species :humans do
-  playable_as :species
+encyclopedia :humans do
+  kind :lifeform
+  character_role :species
   origin_blurb "Adaptable communities live throughout the inhabited system."
 end
 
@@ -297,7 +406,7 @@ relation :located_in,
 
 Fact types are `text`, `integer`, `year`, `entity`, and `entities`. Fields can
 read an authored value, derive a supported calculation, or query incoming or
-outgoing typed relationships at the selected year. Subkind fields follow kind
+outgoing typed Atlas relationships at the selected year. Subkind fields follow kind
 fields and can replace a broad definition with a narrower one. A subkind may
 use `omit_facts :field_name` when that inherited field does not apply to any
 member of the narrower class. A missing value is not a reason to omit a field.
@@ -311,62 +420,36 @@ metadata; authors still declare the stored direction explicitly.
 
 ## Descriptive identity
 
-Descriptive identity is a stable key-to-text dictionary assembled from complete
-canonical source entries. A kind declares its keys and named source slots:
+Descriptive identity is a local key-to-string dictionary. A kind declares its
+stable keys:
 
 ```ruby
 extend_kind :species do
   identity_key :visual
-  no_identity_sources
-end
-
-extend_kind :culture do
-  identity_key :bearing
-  no_identity_sources
 end
 
 extend_kind :npc do
   identity_key :visual
   identity_key :bearing
-  identity_source :species, kinds: :species, keys: :visual
-  identity_source :culture, kinds: :culture, keys: :bearing
 end
 ```
-
-Each source slot declares `one` or `many` cardinality, allowed kinds and optional
-subkinds, projected keys, and precedence. A projection may rename a key with a
-hash such as `keys: { physical_form: :visual }`. A slot can instead read a live
-typed edge by declaring `relation:` and `direction:`. Only that named slot
-transfers identity; unrelated graph neighbors never participate.
 
 ```ruby
 species :orcs do
-  status :complete
   descriptive_identity visual: "Orcs are usually physically beautiful."
-  prose "Orcs are a people found throughout the settled worlds."
 end
 
-npc :ugly_orc do
-  identity_source :species, :orcs
-  override_identity visual: "Contrary to most orcs, this one is remarkably ugly."
+npc :scarred_orc do
+  descriptive_identity visual: "A pale scar crosses one cheek."
 end
 ```
 
-`descriptive_identity` extends source text. `override_identity` suppresses prior
-contributions for that key on this owner only. Source references and local
-operations remain canonical; `World#resolve_identity` compiles the resolved
-dictionary at one year and retains active and suppressed provenance. Named
-relationship instances use the same authoring methods when their relation kind
-declares identity keys and sources.
-
-A source entry must be complete, non-veiled, have prose, and resolve every
-required identity key. Public entries cannot inherit DM-only identity. The
-validator rejects missing or incorrectly typed sources, undeclared keys or
-slots, empty values, cardinality errors, source cycles, and missing required
-resolved keys. `require_descriptive_identities!` additionally requires every
-kind to declare source slots or `no_identity_sources`; unresolved shells are the
-only entities allowed to defer the contract. Use `identity [ID]` for sources,
-local operations, resolved values, and provenance, or `identity` for coverage.
+Identity keys are declared only on kinds, not subkinds or relations. Values must
+be non-empty strings. Missing keys remain absent. There are no source slots,
+inheritance, merge rules, overrides, relation lookups, or provenance records.
+`type_of` and `belongs_to` do not copy identity from Encyclopedia entries; a GM
+may interpret those classifications during play. Use `identity [ID]` for one
+Atlas entry's values and unfilled kind keys, or `identity` for coverage.
 
 ## Fixed spatial data
 
@@ -562,15 +645,20 @@ trusted-loopback boundary, revision checks, and permitted declarations.
 - `make site-data` builds `build/site` for players and `build/site-internal` for
   authenticated editorial access. The public bundle never contains questions,
   entry logs, provenance, missing expected facts, or DM entries.
+  Each world index carries Atlas `context_tags`, the registered context-tag
+  definitions, and a separate `encyclopedia` bundle. Atlas entry summaries
+  carry singular `encyclopedia_type` and repeatable `encyclopedia_memberships`;
+  Encyclopedia entries carry separate derived Atlas instance and membership
+  lists. None appears as an Atlas graph edge.
 - `SITE_WORLD=<id> make site-data` builds one named world, including a
   scaffold, for a local reader preview without publishing it.
 - `make wiki WORLD=<id>` builds a flat, player-only Markdown export with
   authored pages, entry pages, indexes, tags, timeline, causality, and sidebar.
 - `graph` emits game-world node and relationship intervals as JSON.
   `live_at_render` marks state at the requested year; positions, route geometry,
-  edge properties, descriptive identity, normalized source references, local
-  operations, and provenance accompany their owners. Reference articles are
-  excluded as graph nodes but remain addressable identity sources in entry data.
+  edge properties, and local descriptive identity accompany their owners.
+  Encyclopedia entries are excluded as graph nodes and remain available through
+  the separate reference queries and bundle.
 - `render` emits a directory-shaped Markdown compatibility view. Its default
   audience is `all`; pass `--audience player` before sharing it.
 

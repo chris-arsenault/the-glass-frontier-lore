@@ -2,8 +2,10 @@ installation :sithari do
   name "Sithari"
   summary "Sithari is the largest city in the Kaleidos system, an equatorial surface capital built in layers above a surviving ring-era research campus."
   playable_as :chronicle_location, :homeland
+  context_tags :"realm:surface"
   origin_blurb "A surface capital where law, trade, and old institutions shape daily life."
   subkind :settlement
+  type_of :settlement
   path "player/locations/settlements/sithari.md"
   status :complete
   reviewed "2026-03-19"
@@ -100,20 +102,29 @@ end
 relate :rel_sithari_on_surface_of_kaleidos, :on_surface_of, :sithari, :kaleidos do
   prose "Sithari is the largest surface settlement on #{ref :kaleidos, "Kaleidos"} and the system's principal prestige register."
 end
-relate :rel_sithari_depends_on_ringglass, :depends_on, :sithari, :ringglass do
-  prose "Sithari grades, finances, certifies, and trades much of the #{ref :ringglass, "ringglass"} recovered from the Shear."
-end
-relate :rel_sithari_depends_on_resonance, :depends_on, :sithari, :resonance do
-  prose "#{ref :resonance, "Resonance"} powers Sithari's transit, civic infrastructure, buried campus systems, and instrument trades."
-end
 relate :rel_sithari_hosts_tempered_accord, :hosts, :sithari, :tempered_accord, since: 2423 do
   prose "Since the Accord's founding, Sithari has hosted the #{ref :tempered_accord, "Tempered Accord"} at Accord Shore and supplied the district's city services."
+end
+relate :rel_clarisant_operates_in_sithari, :operates_in, :clarisant, :sithari, since: 2310 do
+  prose "The #{ref :clarisant, "Clarisant"} maintains a Sithari chapter that certifies installation work and supplies Tuners for the city's buried routes."
+end
+
+relate :rel_glassfall_manifests_at_sithari, :manifests_at, :the_glassfall, :sithari do
+  prose "Sithari formed around the hardened campus that retained power and shelter after the Glassfall."
+end
+
+relate :rel_echo_ledger_conclave_operates_in_sithari, :operates_in, :echo_ledger_conclave, :sithari do
+  prose "The Echo Ledger Conclave maintains a Sithari office for political, legal, and archive access."
+end
+
+relate :rel_tessellan_communion_operates_in_sithari, :operates_in, :tessellan_communion, :sithari do
+  prose "The Tessellan Communion keeps its principal comparison archive in Sithari's Old Campus."
 end
 
 # --- history (moments) ---
 moment :sithari_held_the_glassfall, year: 2140, of: :sithari do
   summary "Sithari's hardened research campus retained power and shelter through the Glassfall in 2140, drawing survivors inside its walls."
-  prose "Before the #{ref :the_glassfall, "Glassfall"}, the site was a ring-era #{ref :resonance, "resonance"} research complex with hardened walls, independent power, and sealed laboratories. The campus retained power and shelter after the ring broke. People from the surrounding region began consolidating within its walls in the following weeks."
+  prose "Before the #{ref :the_glassfall, "Glassfall"}, the site was a ring-era #{encyclopedia_ref :resonance, "resonance"} research complex with hardened walls, independent power, and sealed laboratories. The campus retained power and shelter after the ring broke. People from the surrounding region began consolidating within its walls in the following weeks."
   effects { set :sithari, standing: :surviving_complex }
 end
 moment :sithari_becomes_capital, year: 2305, of: :sithari do

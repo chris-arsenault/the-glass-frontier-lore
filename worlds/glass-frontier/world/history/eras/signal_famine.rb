@@ -26,9 +26,6 @@ era :signal_famine do
   PROSE
 end
 
-relate :rel_signal_famine_caused_tuners, :caused, :signal_famine, :tuners do
-  prose "Isolated communities rebuilt resonance work as local crafts, producing the lineages now called Tuners."
-end
 relate :rel_signal_famine_caused_fermata_station, :caused, :signal_famine, :fermata_station do
   prose "Fermata's governing music and permanent Drone developed during #{elapsed :the_glassfall, :the_rekindling} without outside authority or replacement systems."
 end

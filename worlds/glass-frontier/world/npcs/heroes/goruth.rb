@@ -3,14 +3,12 @@ npc :goruth do
   summary "Goruth is the guitarist who accompanies Fermata Station's governing Sessions and shapes the harmonic ground beneath proposals."
   subkind :npc
   occupation "Comp guitarist in Fermata Station's governing Sessions"
-  species "orc"
-  identity_source :species, :orcs
-  identity_source :culture, :hab_worlder
+  type_of :orcs
+  belongs_to :culture, :hab_worlder
   descriptive_identity disposition:
     "A case made to Goruth in words gets a polite hearing and no promise; " \
     "his support is won by picking up an instrument and playing with him. " \
     "When he refuses, the refusal is a chord left out, not anything said."
-  culture "Hab-Worlder"
   tags :music, :governance, :resonance, :"ring-hab"
   prominence :forgotten
 
@@ -49,13 +47,6 @@ relate :rel_goruth_located_in_fermata, :located_in, :goruth, :fermata_station do
 end
 relate :rel_goruth_participates_in_open, :participated_in, :goruth, :the_fermata_open do
   prose "At the #{ref :the_fermata_open, "Fermata Open"}, Goruth supplies visiting players with accompaniment that lets their unfamiliar practice remain audible."
-  descriptive_identity conduct:
-    "He spends the week's early days in small rooms learning where an " \
-    "unfamiliar instrument places its weight in a phrase, so that by the " \
-    "Closing Session he can carry a visitor's idiom without smoothing " \
-    "it. This year he has also agreed to hold the central hall if the " \
-    "separated parts of the proposed closing work stop hearing one " \
-    "another."
 end
 relate :rel_goruth_attuned_to_fermata, :attuned_to, :goruth, :fermata_station do
   prose "Goruth is attuned to the station's frame through his instrument and the deck beneath his bare feet."

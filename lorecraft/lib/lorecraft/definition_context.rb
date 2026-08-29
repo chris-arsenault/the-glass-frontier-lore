@@ -8,6 +8,8 @@ module Lorecraft
   # `location`, ...), `moment`, `genesis`, and `relate` — and forwards each to
   # the World registry.
   class DefinitionContext
+    include Markers
+
     def initialize(world)
       @world = world
     end
@@ -116,10 +118,18 @@ module Lorecraft
       )
     end
 
+    def encyclopedia(id, &block)
+      @world.define_encyclopedia_entry(
+        id: id,
+        source_line: caller_locations(1, 1).first.lineno,
+        &block
+      )
+    end
+
     # Entity-kind constructors are resolved dynamically against the schema, so
     # any kind declared in `schema do … end` becomes a usable top-level method.
     def method_missing(name, id = nil, **opts, &block)
-      if @world.schema.kind?(name)
+      if @world.schema.declared_kind?(name)
         @world.define_entity(
           kind: name, id: id, source_line: caller_locations(1, 1).first.lineno,
           **opts, &block
@@ -130,8 +140,9 @@ module Lorecraft
     end
 
     def respond_to_missing?(name, include_private = false)
-      @world.schema.kind?(name) || super
+      @world.schema.declared_kind?(name) || super
     end
+
   end
 
   # The body of an `moment`/`genesis` block.

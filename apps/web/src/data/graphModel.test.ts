@@ -22,22 +22,19 @@ const graph: GraphDocument = {
     positions: undefined,
     route_geometry: undefined,
     descriptive_identity: undefined,
-    identity_sources: undefined,
-    identity_local: undefined,
-    identity_provenance: undefined,
     dm: false,
     path: `${id}.md`,
   })),
   edges: [
-    { src: "a", rel: "causes", tgt: "b", from: 0, to: null, dm: false, props: undefined, live_at_render: true, descriptive_identity: undefined, identity_sources: undefined, identity_local: undefined, identity_provenance: undefined },
-    { src: "b", rel: "knows", tgt: "c", from: 5, to: null, dm: false, props: undefined, live_at_render: true, descriptive_identity: undefined, identity_sources: undefined, identity_local: undefined, identity_provenance: undefined },
-    { src: "c", rel: "knows", tgt: "d", from: 20, to: null, dm: false, props: undefined, live_at_render: false, descriptive_identity: undefined, identity_sources: undefined, identity_local: undefined, identity_provenance: undefined },
+    { src: "a", rel: "causes", tgt: "b", from: 0, to: null, dm: false, props: undefined, live_at_render: true },
+    { src: "b", rel: "knows", tgt: "c", from: 5, to: null, dm: false, props: undefined, live_at_render: true },
+    { src: "c", rel: "knows", tgt: "d", from: 20, to: null, dm: false, props: undefined, live_at_render: false },
   ],
 };
 
 const relations: RelationDefinition[] = [
-  { id: "causes", title: "Causes", category: "causal", temporal: true, symmetric: false, inverse: undefined, description: undefined, causal: true, properties: [], identity_source_policy: undefined, descriptive_identity_keys: undefined, identity_sources: undefined },
-  { id: "knows", title: "Knows", category: "social", temporal: true, symmetric: false, inverse: undefined, description: undefined, causal: false, properties: [], identity_source_policy: undefined, descriptive_identity_keys: undefined, identity_sources: undefined },
+  { id: "causes", title: "Causes", category: "causal", temporal: true, symmetric: false, inverse: undefined, description: undefined, causal: true, properties: [] },
+  { id: "knows", title: "Knows", category: "social", temporal: true, symmetric: false, inverse: undefined, description: undefined, causal: false, properties: [] },
 ];
 
 describe("graphElements", () => {

@@ -2,6 +2,7 @@ conflict :crowncut_recovery do
   name "Crowncut Recovery"
   summary "Crowncut Recovery is a campaign by rival crews to stabilize drifting refinery sections before their salvage claims expire."
   subkind :campaign
+  type_of :salvage_competition
   status :complete
   prominence :marginal
   veiled "Crowncut Recovery crews compete to stabilize the same drifting refinery sections before their claims expire."

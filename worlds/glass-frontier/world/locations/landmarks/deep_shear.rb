@@ -2,7 +2,9 @@ geographic_location :deep_shear do
   name "Deep Shear"
   summary "The Deep Shear is a set of scattered pockets within the Shear where resonance distortion disrupts distance, angle, and volume."
   playable_as :chronicle_location
+  context_tags :"realm:orbital"
   subkind :hazardous_zone
+  type_of :hazardous_zone
   path "player/locations/landmarks/deep-shear.md"
   tags :orbital, :danger, :resonance, :salvage
   prominence :recognized
@@ -39,7 +41,7 @@ geographic_location :deep_shear do
     The Deep Shear is the source of the most valuable salvage in the system and the destination of more lost ships than any other identifiable hazard. Both facts are responsible for its traffic.
   PROSE
   prose <<~PROSE, section: :atmosphere, heading: "The Hush"
-    The Shear is a loud environment by resonance standards — ambient distortion at high amplitudes, spikes, tides, the constant interference of debris masses crossing each other's fields. The Deep Shear is quiet. The boundary between ordinary Shear and Deep Shear is marked, for #{ref :tuners, "Tuners"}, by a sudden hush: the ambient noise drops, the instruments lag for minutes before their telemetry catches up, and the crew's resonance-sensitive members go still in a way that experienced captains learn to watch for.
+    The Shear is a loud environment by resonance standards — ambient distortion at high amplitudes, spikes, tides, the constant interference of debris masses crossing each other's fields. The Deep Shear is quiet. The boundary between ordinary Shear and Deep Shear is marked, for #{encyclopedia_ref :tuners, "Tuners"}, by a sudden hush: the ambient noise drops, the instruments lag for minutes before their telemetry catches up, and the crew's resonance-sensitive members go still in a way that experienced captains learn to watch for.
 
     The hush is the only reliable boundary marker. Instruments do not detect the crossing in time to act on it. A Tuner on the bridge feels it within seconds. A Tuner-less crew finds out by inference — when the clocks start disagreeing, or the parallax stops behaving, or the navigation system reports that the same debris mass is now in two places. By then the crew is already in.
 
@@ -61,9 +63,9 @@ geographic_location :deep_shear do
 
     **Intact pre-Glassfall components.** Most of the original #{ref :the_glass_frontier, "orbital ring"} shattered. Some did not. The Deep Shear is where the un-shattered fragments tend to accumulate — sections of ring structure that retained their pre-Glassfall tuning, ring-era machinery that still functions, occasionally whole subsystems that can be extracted and resold to buyers who do not ask where the component came from. A single intact pre-Glassfall navigation array is worth more than a year's ordinary salvage. A working ring-era resonance generator is worth a generation's. The market is small and the buyers are discreet.
 
-    **Resonance-distorted matter.** Material that has spent decades soaking in Deep Shear distortion comes out altered in useful ways. #{ref :ringglass, "Ringglass"} recovered from the Deep holds its tune across larger distances than ordinary stock. Certain metals conduct resonance where they ordinarily would not. Some substances have no analogue elsewhere in the system and have only recently begun to acquire names. The materials trade in Deep-shifted matter is small, expensive, and supports a research economy that the #{ref :echo_ledger_conclave, "Echo Ledger Conclave"} takes a quiet interest in.
+    **Resonance-distorted matter.** Material that has spent decades soaking in Deep Shear distortion comes out altered in useful ways. #{encyclopedia_ref :ringglass, "Ringglass"} recovered from the Deep holds its tune across larger distances than ordinary stock. Certain metals conduct resonance where they ordinarily would not. Some substances have no analogue elsewhere in the system and have only recently begun to acquire names. The materials trade in Deep-shifted matter is small, expensive, and supports a research economy that the #{ref :echo_ledger_conclave, "Echo Ledger Conclave"} takes a quiet interest in.
 
-    **Farborn biology.** The #{ref :farborn, "Farborn"} of the Deep Shear are not the same population as those of the ordinary Shear. They are stranger, larger, and harder to find. Their tissue, shells, fluids, and shed parts are valuable for instruments, medicine, and weapons. The harvesting is its own dangerous craft. The biology does not always remain biology after removal from the distortion that produced it, which has surprised more than one buyer.
+    **Farborn biology.** The #{encyclopedia_ref :farborn, "Farborn"} of the Deep Shear are not the same population as those of the ordinary Shear. They are stranger, larger, and harder to find. Their tissue, shells, fluids, and shed parts are valuable for instruments, medicine, and weapons. The harvesting is its own dangerous craft. The biology does not always remain biology after removal from the distortion that produced it, which has surprised more than one buyer.
 
     The economics of the Deep run on these three categories. A successful Deep run can fund a flotilla for a year. An unsuccessful Deep run can end the flotilla. Most crews who work the Deep make their living on the outer band and trade in stories about the middle band.
   PROSE
@@ -74,7 +76,7 @@ geographic_location :deep_shear do
 
     The #{ref :pell_freight_assembly, "Pell Freight Assembly"} occupies the space between corporate rigs and single-crew claims. Its members share receiving yards, rescue coverage, and hauler capacity while retaining their vessels and claims. The pooled loss fund lets them work at industrial scale, but a failure is still charged to people who vote in the same yard where the damaged ship returns.
 
-    The **Deep-runners** — senior #{ref :ratters, "Ratter"} flotillas who specialize in the Deep — operate at the other end of the spectrum. Small crews, careful ships, decades of accumulated knowledge of specific Deep pockets, and an informal cross-flotilla society that shares charts and warnings. The Deep-runners are not an organization. They are a recognizable population. Outsiders call them by the name and the name has stuck. The senior Deep-runners are some of the most experienced operators in the system and are treated as such by everyone who has reason to know them.
+    The **Deep-runners** — senior #{encyclopedia_ref :ratters, "Ratter"} flotillas who specialize in the Deep — operate at the other end of the spectrum. Small crews, careful ships, decades of accumulated knowledge of specific Deep pockets, and an informal cross-flotilla society that shares charts and warnings. The Deep-runners are not an organization. They are a recognizable population. Outsiders call them by the name and the name has stuck. The senior Deep-runners are some of the most experienced operators in the system and are treated as such by everyone who has reason to know them.
 
     Beyond Coremark and the Deep-runners, the Deep sees a steady trickle of small specialized crews — beast-hunters, researchers on Conclave contracts, the occasional Clarisant survey, the desperate, the curious, and the people who have run out of other options. The death rate is high. The economics work just often enough to keep the trickle flowing.
 
@@ -99,16 +101,12 @@ relate :rel_deep_shear_part_of_the_shear, :part_of, :deep_shear, :the_shear do
 end
 relate :rel_shear_compact_regulates_deep_shear, :regulates, :shear_compact, :deep_shear, since: 2383 do
   prose "The Compact applies ordinary Shear certification and extraction standards to the Deep, despite repeated petitions from crews who work beyond those standards' useful limits."
-  descriptive_identity(
-    reach:
-      "The standards address equipment and procedure, and what kills " \
-      "crews in the Deep is neither; the 2420 petition for Deep rules — " \
-      "isolated clocks and declared rescue coverage from the moment " \
-      "bridge clocks disagree with a Tuner — was refused because the " \
-      "boundary can be identified only after a vessel has crossed it.",
-    enforcement:
-      "Certification is checked at the yards, not in the Deep. Nothing " \
-      "follows a crew past the outer band, and both the crews and the " \
-      "Compact know the inspection ends where the danger begins."
-  )
+end
+
+relate :rel_pell_freight_assembly_operates_in_deep_shear, :operates_in, :pell_freight_assembly, :deep_shear do
+  prose "The Pell Freight Assembly equips remote claims in the Deep and pools receiving yards, rescue coverage, and hauler capacity for its member crews."
+end
+
+relate :rel_echo_ledger_conclave_studies_deep_shear, :studies, :echo_ledger_conclave, :deep_shear do
+  prose "The Echo Ledger Conclave follows altered matter and intact ring-era machinery recovered from Deep Shear claims."
 end

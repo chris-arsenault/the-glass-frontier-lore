@@ -2,7 +2,9 @@ installation :keel do
   name "The Keel"
   summary "The Keel is the Kaleidos system's main trade route, linking surface ports, ring habitats, Shear industry, Korvath, and Ashvane."
   playable_as :chronicle_location
+  context_tags :"realm:orbital"
   subkind :infrastructure
+  type_of :infrastructure
   function "Connects the system's major ringglass, trade and settlement nodes"
   path "player/locations/landmarks/keel.md"
   status :complete
@@ -59,7 +61,7 @@ installation :keel do
   )
 
   prose <<~PROSE
-    The system's primary trade lane — an orbital route connecting #{ref :ringglass, "ringglass"} production zones in #{ref :the_shear, "The Shear"}, major refinement facilities, #{ref :sithari, "Sithari"}, and #{ref :ashvane, "Ashvane"} at the far end. It remains the single most important corridor for bulk commerce in the Kaleidos system.
+    The system's primary trade lane — an orbital route connecting #{encyclopedia_ref :ringglass, "ringglass"} production zones in #{ref :the_shear, "The Shear"}, major refinement facilities, #{ref :sithari, "Sithari"}, and #{ref :ashvane, "Ashvane"} at the far end. It remains the single most important corridor for bulk commerce in the Kaleidos system.
 
     The name comes from its shape on a navigation chart — a long central spine with subsidiary routes branching off like ribs. A ship on the Keel is following the spine. A ship heading to a secondary destination peels off at one of the branch points.
   PROSE
@@ -67,7 +69,7 @@ installation :keel do
     The Keel is not a road. It's a corridor through orbital space — a navigable path through the ring, skirting Shear zones, connecting the major nodes where things are produced, refined, and consumed. The route threads between ring habs, passes through managed Shear corridors where debris has been cleared or stabilized, and includes several transition points between orbital and surface-access zones.
 
     Key nodes along the Keel:
-    - **Shear production zones** — where #{ref :ratters, "Ratters"} and industrial operations harvest raw ringglass from the debris field
+    - **Shear production zones** — where #{encyclopedia_ref :ratters, "Ratters"} and industrial operations harvest raw ringglass from the debris field
     - **Refinement habs** — ring habs that specialize in cutting, tuning, and processing ringglass from aggregate to refined grade
     - **#{ref :keelward, "Keelward"}** — Sithari's surface terminal, where freight enters the financial and regulatory center
     - **#{ref :ashvane, "Ashvane"}** — the far terminus; an inhabited moon whose Shadewell port anchors the route's other end

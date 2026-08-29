@@ -15,7 +15,7 @@ page :home, title: "The Glass Frontier", wiki: "Home" do
   MD
 
   prose <<~MD, heading: "Start Here"
-    - [[Cosmology Index]] — the rings, #{ref :resonance}, the physical world
+    - [[Cosmology Index]] — the rings, #{encyclopedia_ref :resonance}, the physical world
     - [[Concepts Index]] — systems, species, cultures, technology
     - [[Locations Index]] — regions, settlements, landmarks
     - [[NPCs Index]] — factions and the people who run them

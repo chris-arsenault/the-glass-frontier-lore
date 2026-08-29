@@ -71,8 +71,6 @@ loop :knowledge_decay do
   PROSE
 end
 
-relate :rel_kd_stage_resonance, :has_stage, :knowledge_decay, :resonance do prose "System-scale instance: #{ref :resonance, "resonance"} is the knowledge built and lost — elven deep-band science, now reinvented in fragments." end
-relate :rel_kd_stage_tuners, :has_stage, :knowledge_decay, :tuners do prose "Reinvention stage: the #{ref :tuners, "Tuners"} rebuilt resonance practice from fragments, sometimes outperforming recovered theory." end
 relate :rel_kd_stage_synod, :has_stage, :knowledge_decay, :lattice_proxy_synod do prose "Faction instance: the #{ref :lattice_proxy_synod, "Lattice Proxy Synod"} reinvented AI contact as ritual — results without understanding." end
 relate :rel_kd_stage_liras_wall, :has_stage, :knowledge_decay, :liras_wall do prose "Reinvention stage of the Bloom instance: #{ref :liras_wall, "Lira's Wall"} is containment built without restored ecological understanding." end
 relate :rel_kd_stage_displacement_council, :has_stage, :knowledge_decay, :displacement_council do prose "Reinvention stage: the #{ref :displacement_council, "Displacement Council"} understands containment, not the ring-builders' resonance ecology." end

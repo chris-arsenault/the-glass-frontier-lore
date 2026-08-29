@@ -2,6 +2,7 @@ faction :bloom_coalition do
   name "Bloom Coalition"
   summary "The Bloom Coalition was the unified containment command that operated from 2380 to 2396 against the Silent Bloom."
   subkind :civic_body
+  type_of :civic_body
   path "player/npcs/factions/bloom-coalition.md"
   tags :governance, :diplomacy, :resonance, :danger, :rebuilding
   prominence :renowned
@@ -45,11 +46,11 @@ faction :bloom_coalition do
     The Coalition is not active in the present day. Its successor for cordon operations is the #{ref :displacement_council, "Displacement Council"}. Its successor for cross-faction emergency coordination is, in spirit if not in name, the #{ref :tempered_accord, "Tempered Accord"}.
   PROSE
   prose <<~PROSE, section: :origin, heading: "Formation"
-    The Bloom ignited in 2378 at the #{ref :pyre, "Pyre"} refinery. Within weeks the affected zone had expanded past the boundaries that any single faction could contain. Within months the #{ref :displacement, "Displacement"} was underway — tens of thousands of #{ref :hab_worlder, "Hab-Worlders"} evacuating habs that were structurally failing under uncontrolled resonance amplification.
+    The Bloom ignited in 2378 at the #{ref :pyre, "Pyre"} refinery. Within weeks the affected zone had expanded past the boundaries that any single faction could contain. Within months the #{ref :displacement, "Displacement"} was underway — tens of thousands of #{encyclopedia_ref :hab_worlder, "Hab-Worlders"} evacuating habs that were structurally failing under uncontrolled resonance amplification.
 
     The first emergency response was improvised: #{ref :vantara, "Vantara"} was running evacuation logistics, the #{ref :lattice_proxy_synod, "Lattice Proxy Synod"} was providing telemetry, the #{ref :echo_ledger_conclave, "Echo Ledger Conclave"} was doing on-the-fly resonance analysis, and surviving #{ref :coremark, "Coremark"} crews — the ones who had not been at Pyre and who still had operational ships — were running supply into the cordon zones. The improvisation worked. It also produced contradictory orders, duplicated effort, and the kind of casualties that come from uncoordinated parallel operations in a lethal environment.
 
-    By 2380 the participating factions had agreed that the response needed a single operational head. The Coalition's founding charter — five pages, written in two weeks, signed at a meeting in #{ref :sithari, "Sithari"} that nobody recorded the minutes of — established the Coalition as a unified command with personnel seconded from member factions for the duration of containment work. The signatories were Sithari, the Synod, the Conclave, #{ref :vantara, "Vantara"}, the #{ref :tuners, "Tuners"} (then not yet formalized through the #{ref :clarisant, "Clarisant"}, which lent personnel as individuals), the affected #{ref :hab_worlder, "Hab-Worlder"} communities, and, conspicuously, the major surviving ringglass operators including what remained of Coremark.
+    By 2380 the participating factions had agreed that the response needed a single operational head. The Coalition's founding charter — five pages, written in two weeks, signed at a meeting in #{ref :sithari, "Sithari"} that nobody recorded the minutes of — established the Coalition as a unified command with personnel seconded from member factions for the duration of containment work. The signatories were Sithari, the Synod, the Conclave, #{ref :vantara, "Vantara"}, the #{encyclopedia_ref :tuners, "Tuners"} (then not yet formalized through the #{ref :clarisant, "Clarisant"}, which lent personnel as individuals), the affected #{encyclopedia_ref :hab_worlder, "Hab-Worlder"} communities, and, conspicuously, the major surviving ringglass operators including what remained of Coremark.
 
     The charter contained one structural feature that proved load-bearing: a dissolution clause. The Coalition existed for as long as the containment mission required a unified command. When the standing institutions of the system had absorbed the operational functions, the Coalition would dissolve. The clause was insisted on by Sithari and the Synod. The smaller member factions accepted it on the understanding that without it the Coalition would not have been ratified.
   PROSE

@@ -1,6 +1,7 @@
 rumor :fourth_crane do
   name "The Fourth Crane"
   summary "The Fourth Crane is a Three Arms Yard rumor about an unseen crane moving tools above an empty rail."
+  type_of :local_rumor
   subkind :rumor
   status :complete
   prominence :marginal

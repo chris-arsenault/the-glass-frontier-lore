@@ -7,15 +7,13 @@ npc :ol_dent do
   prominence :forgotten
   occupation "Drone lead at Fermata Station"
   specialty "Reading and correcting the station's structural drone"
-  species "gnome"
-  identity_source :species, :gnomes
-  identity_source :culture, :hab_worlder
+  type_of :gnomes
+  belongs_to :culture, :hab_worlder
   descriptive_identity disposition:
     "Ol'dent settles business on the structural decks between shifts, " \
     "hands on the saxophone or flat against a brace, and will not come up " \
     "to a Session on the terms offered. Where the Drone cannot support a " \
     "plan, he states the limit and leaves the Players to hear it."
-  culture "Hab-Worlder"
 
   prose <<~PROSE
     Ol'dent leads the Drone rotation beneath #{ref :fermata_station, "Fermata Station"}'s central hall. He plays baritone saxophone when his hands are free and listens through the deck when they are not. A shortening beat marks a brace taking load; a clean fifth that sours only at one hatch points to a seal or hinge rather than the hull.

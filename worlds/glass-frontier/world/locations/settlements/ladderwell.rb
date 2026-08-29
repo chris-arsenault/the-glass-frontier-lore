@@ -2,7 +2,9 @@ installation :ladderwell do
   name "Ladderwell"
   summary "Ladderwell is a town of twenty-eight thousand people on stone benches at Avar's eastern edge, above a deep aquifer at the foot of the Kyther Range."
   playable_as :chronicle_location
+  context_tags :"realm:surface"
   subkind :settlement
+  type_of :settlement
   status :complete
   population 28_000
   population_band "About twenty-eight thousand in the town and its outlying farms"
@@ -82,8 +84,9 @@ end
 relate :rel_ladderwell_in_avar, :located_in, :ladderwell, :avar, since: 2176 do
   prose "#{ref :ladderwell, "Ladderwell"} occupies the eastern steppe where the first Kyther roads reach dependable water."
 end
-relate :rel_ladderwell_depends_on_resonance, :depends_on, :ladderwell, :resonance do
-  prose "Its pumps, foundation surveys, and water sorting all depend on local readings of #{ref :resonance, "resonance"}."
+
+relate :rel_counterweight_road_rig_operates_in_ladderwell, :operates_in, :counterweight_road_rig, :ladderwell, since: 2434 do
+  prose "The Counterweight road rig moved Ladderwell's operating chain house onto firm stone without interrupting its water service."
 end
 
 moment :ladderwell_pump_house_moved, year: 2434, of: :ladderwell do

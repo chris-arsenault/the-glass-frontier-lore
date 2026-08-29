@@ -2,6 +2,7 @@ resource :outer_ballast_share do
   name "Outer Ballast Share"
   summary "Outer Ballast Share is a common reserve of dense stone held across Korvath, Crucible, Vitrael, and Vastine. A stranded vessel may borrow from it and replace the mass later."
   subkind :resource
+  type_of :ballast_reserve
   status :complete
   prominence :marginal
   veiled "Outer Ballast Share is a common stock of dense stone that any stranded vessel may borrow and later replace."

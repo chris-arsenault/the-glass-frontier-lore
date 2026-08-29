@@ -75,7 +75,7 @@ thread :bloom_containment do
 
     Mass evacuation. Hab-Worlders who defined themselves by their sealed environment lose the thing that made them who they are. The exit-checking, air-listening, load-bearing social awareness — all built for a specific hab. In a refugee camp on the surface, those instincts have no object.
 
-    **Callback ← Hab-Worlder:** The #{ref :hab_worlder, "Hab-Worlder"} entry describes the identity. This beat tests it — what happens when the identity's foundation is removed?
+    **Callback ← Hab-Worlder:** The #{encyclopedia_ref :hab_worlder, "Hab-Worlder"} entry describes the identity. This beat tests it — what happens when the identity's foundation is removed?
 
     **Downstream → Displacement Council:** The Council recruits from Bloom diaspora communities. They have expertise in the resonance environment that broke, and personal motivation to contain it.
 

@@ -1,5 +1,7 @@
 transport :rainline do
   name "Rainline"
+  type_of :flitter
+  technology :kite_sail
   summary "Rainline is a narrow Prismwell survey kite built to enter the leading edge of Glassfall showers. Its flank sounders, marker lamps, and sample frame find where a forecast stops being true."
   subkind :vessel
   status :complete
@@ -24,7 +26,7 @@ transport :rainline do
   )
 
   prose <<~PROSE
-    *Rainline* is a narrow Prismwell survey kite built to enter the leading edge of a #{ref :glassfall_showers, "Glassfall shower"}. Its job is to discover where a forecast stops being true. The ship carries field sounders along both flanks, disposable marker lamps under the keel, and a folded catch frame behind the cabin for taking a physical sample of the dust it has measured.
+    *Rainline* is a narrow Prismwell survey kite built to enter the leading edge of a #{encyclopedia_ref :glassfall_showers, "Glassfall shower"}. Its job is to discover where a forecast stops being true. The ship carries field sounders along both flanks, disposable marker lamps under the keel, and a folded catch frame behind the cabin for taking a physical sample of the dust it has measured.
 
     The #{ref :prismwell_kite_guild, "Prismwell Kite Guild"} keeps faster craft and larger collectors. *Rainline* is the vessel pilots ask about because its readings have opened routes through several difficult fronts and because its repaired port spar is visible in every Glasswake yard. A pale brace crosses the darker original frame like a bone set under the skin.
   PROSE
@@ -53,11 +55,7 @@ transport :rainline do
     The accident changed guild practice. Survey vessels now fold their catches before crossing a registered grove, and ground watchers receive the ship's retreat line before the first sample opens.
   PROSE
 
-  prose <<~PROSE, section: :present_day, heading: "The Spreading Front"
-    *Rainline* is charting the shower stream that has moved traffic from Keelward's inner fields. Its markers show a passable lane during the cool part of the surface cycle, followed by a sudden lateral spread as the upper atmosphere warms. Prismwell publishes both observations and has shortened the lane's open mark.
-
-    One lamp from the latest string has returned to Glasswake ahead of the ship that dropped it. Its casing is intact, its clock agrees with the yard, and its record shows an ordinary deployment followed by a second release from a point inside the mid-drift. *Rainline* carries the replacement marker on its next survey.
-  PROSE
+  prose "#{embed :spreading_front}", section: :present_day, heading: "The Spreading Front"
 
   gm_note :appears, "Anyone new aboard is clipped in before the first turn and told to read the colored band around a doorway before stepping through it, because seats, lockers, and instrument faces belong to three separately correcting rings. " \
                     "Dropped gear can appear to roll uphill."
@@ -70,14 +68,11 @@ end
 relate :rel_prismwell_maintains_rainline, :maintains, :prismwell_kite_guild, :rainline do
   prose "Prismwell's Glasswake yards maintain *Rainline* and issue its shower forecasts."
 end
-relate :rel_rainline_operates_glassfall_showers, :operates_in, :rainline, :glassfall_showers do
-  prose "*Rainline* enters moving shower fronts to lay temporary marker strings and collect samples."
+relate :rel_rainline_operates_spreading_front, :operates_in, :rainline, :spreading_front do
+  prose "*Rainline* enters the Spreading Front to lay temporary marker strings and collect samples."
 end
 relate :rel_rainline_operates_glasswake, :operates_in, :rainline, :glasswake do
   prose "The survey kite flies from the old collection wells at #{ref :glasswake, "Glasswake"}."
-end
-relate :rel_rainline_depends_kite, :depends_on, :rainline, :kite_sail do
-  prose "Three flexibly joined kite frames let the survey vessel correct across a debris stream."
 end
 relate :rel_rainline_resonates_miraeth, :resonates_with, :rainline, :miraeth do
   prose "Its rebuilt port spar carries living-crystal laminate made after a failed panel fell near Miraeth."

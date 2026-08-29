@@ -2,6 +2,7 @@ edict :white_line_claim do
   name "The White-Line Claim"
   summary "The White-Line Claim reserves a newly exposed ring conduit for the first four settlements that restore its signal."
   subkind :edict
+  type_of :salvage_claim_rule
   status :complete
   prominence :marginal
   veiled "The White-Line Claim reserves any newly exposed ring conduit for the first four settlements that restore its signal."

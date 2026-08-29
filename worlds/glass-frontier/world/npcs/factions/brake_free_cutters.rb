@@ -4,6 +4,7 @@ faction :brake_free_cutters do
   playable_as :allegiance
   origin_blurb "Independent cutters pool claims, rescue stores, tools, and hard-won authority around Brake."
   subkind :mutual_aid
+  type_of :mutual_aid_network
   founded 2336
   tags :salvage, :trade, :"ring-hab", :materials
   prominence :marginal
@@ -66,35 +67,7 @@ relate :rel_brake_free_cutters_operate_shear, :operates_in, :brake_free_cutters,
 end
 relate :rel_brake_free_cutters_supply_brake, :supplies, :brake_free_cutters, :brake, since: 2336 do
   prose "Their graded salvage feeds Brake's repair yards and cutting lots."
-  descriptive_identity(
-    terms:
-      "Dangerous hulls come home under tow instead of being opened " \
-      "where they lie, logged on the common board with the claim that " \
-      "produced them, and the town's intake teams take it from there.",
-    dependence:
-      "Brake has eaten from this arrangement before: the last " \
-      "intact-grade load after Shardfall paid for the hab's pressure " \
-      "repairs, and the rescue stores beside the capture lanes stand " \
-      "stocked because Cutter families keep them so."
-  )
 end
 relate :rel_brake_free_cutters_participated_shardfall, :participated_in, :brake_free_cutters, :shardfall do
   prose "The Cutters defended their prior claim, pulled damaged vessels toward Brake, and later stabilized the field."
-  descriptive_identity(
-    aims:
-      "The claim was theirs by every rule they keep — buoys set, assay " \
-      "cuts made, notice on Brake's record — and the field sat close " \
-      "enough to threaten their home that abandoning it to a stronger " \
-      "company was never on the table.",
-    conduct:
-      "They powered down when the hab ordered work stopped, fired only " \
-      "when an escort tried to hold one of their barges in the field, " \
-      "and severed the nearest array tether while Brake's crews cut the " \
-      "arrestor feeds.",
-    cost:
-      "Nine Cutters died. Three years of single-vessel cuts stabilized " \
-      "the field, and its last load went to Brake's pressure repairs, " \
-      "household shares for the dead, and the rescue stores that now " \
-      "wait at the capture lanes."
-  )
 end

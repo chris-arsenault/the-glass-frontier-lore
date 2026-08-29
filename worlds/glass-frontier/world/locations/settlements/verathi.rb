@@ -2,7 +2,9 @@ installation :verathi do
   name "Verathi"
   summary "Verathi is an eighteen-thousand-person ring habitat on the outer inhabited arc of the Glass Frontier, with a complete civil registry preserved through the Signal Famine."
   playable_as :chronicle_location
+  context_tags :"realm:ring_habitat"
   subkind :settlement
+  type_of :settlement
   tags :"ring-hab", :governance, :divergence, :diplomacy
   prominence :recognized
   position frame: :kaleidos_system_chart, relative_to: :kaleidos,
@@ -79,15 +81,4 @@ end
 
 relate :rel_verathi_cooperates_with_sithari, :cooperates_with, :verathi, :sithari, since: 2311 do
   prose "Reciprocal missions have linked Verathi and Sithari since the Verathi Exchange."
-  descriptive_identity(
-    basis:
-      "A narrow Verathi building at Accord Shore and Sithari staff " \
-      "quartered beside the hab's public docking crescent, trading " \
-      "technical records and consular work in both directions.",
-    limits:
-      "Neither mission governs a citizen of its host, and Sithari's " \
-      "people stay clear of local rulings — a lesson set early, since " \
-      "the two polities' first dispute was over the terms of contact " \
-      "rather than whether to have it."
-  )
 end

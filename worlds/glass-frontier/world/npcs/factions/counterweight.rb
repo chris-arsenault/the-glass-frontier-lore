@@ -4,6 +4,7 @@ faction :counterweight do
   playable_as :allegiance
   origin_blurb "Mobile riggers help settlements move structures that local hands cannot shift safely alone."
   subkind :mutual_aid
+  type_of :crew
   status :complete
   founded 2429
   tags :surface, :"structural-freq", :"kinetic-freq", :transport, :training
@@ -81,19 +82,7 @@ relate :rel_counterweight_operates_avar, :operates_in, :counterweight, :avar, si
 end
 relate :rel_counterweight_cooperates_ladderwell, :cooperates_with, :counterweight, :ladderwell, since: 2434 do
   prose "Its move of #{ref :ladderwell, "Ladderwell"}'s operating chain house left the town with a permanent rigging cache and trained local crew."
-  descriptive_identity(
-    basis:
-      "The job that made the crew's name beyond the steppe: an " \
-      "operating pump house carried onto firm stone with the drinking " \
-      "taps flowing throughout, hundreds of local hands working under " \
-      "four calls, and the contract's training clause honored in full.",
-    limits:
-      "What remains is reciprocal storage, not a garrison — Ladderwell " \
-      "holds replacement timber and iron against the crew's next call, " \
-      "and by the time that call comes the cache has usually been " \
-      "argued back out of whatever the town built with it."
-  )
 end
-relate :rel_counterweight_uses_tuning_compass, :depends_on, :counterweight, :tuning_compass do
-  prose "The crew compares its load stakes with a #{ref :tuning_compass, "tuning compass"} so a local field shift is not mistaken for structural movement."
+relate :rel_counterweight_uses_tuning_compass, :depends_on, :counterweight, :shared_reference do
+  prose "The crew compares its load stakes with the Shared Reference so a local field shift is not mistaken for structural movement."
 end

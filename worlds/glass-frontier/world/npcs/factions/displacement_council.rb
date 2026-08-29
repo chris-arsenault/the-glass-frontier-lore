@@ -2,6 +2,7 @@ faction :displacement_council do
   name "Displacement Council"
   summary "The Displacement Council is a neutral containment order that maintains Bloom Zone cordons and supports displaced communities."
   subkind :civic_body
+  type_of :order
   path "player/npcs/factions/displacement-council.md"
   reviewed "2026-03-19"
   tags :governance, :resonance, :danger
@@ -37,14 +38,14 @@ faction :displacement_council do
     A neutral containment order born from the #{ref :displacement, "Displacement"} refugee crisis. The Council maintains #{ref :bloom_zones, "Bloom Zone"} containment cordons, provides humanitarian support to displaced communities, and serves as a trusted mediator precisely because they refused to take sides during the Bitter Reach.
   PROSE
   prose <<~PROSE, section: :operations, heading: "Operations"
-    **Containment.** The Council's primary mission. Cordon stations around every known #{ref :bloom_zones, "Bloom Zone"}, crewed by rotating teams who monitor the zones' boundaries and deploy damping buoys when expansion threatens. The containment technology is based on #{ref :liras_wall, "Lira's Wall"} — #{ref :stillwater, "stillwater"} resonance dampers that calm the cascade frequencies along zone boundaries. Each buoy represents #{ref :stillwater, "stillwater"} that the #{ref :echo_ledger_conclave, "Echo Ledger Conclave"} wishes were storing history instead of holding back reality tears.
+    **Containment.** The Council's primary mission. Cordon stations around every known #{ref :bloom_zones, "Bloom Zone"}, crewed by rotating teams who monitor the zones' boundaries and deploy damping buoys when expansion threatens. The containment technology is based on #{ref :liras_wall, "Lira's Wall"} — #{encyclopedia_ref :stillwater, "stillwater"} resonance dampers that calm the cascade frequencies along zone boundaries. Each buoy represents #{encyclopedia_ref :stillwater, "stillwater"} that the #{ref :echo_ledger_conclave, "Echo Ledger Conclave"} wishes were storing history instead of holding back reality tears.
 
     **Humanitarian.** The Council still supports displaced communities — settlement integration, resource advocacy, cultural preservation for Bloom diaspora populations.
 
-    **Recruitment.** The Council draws from Bloom survivors, #{ref :tuners, "Tuners"} willing to work in extreme resonance conditions, and #{ref :fae, "fae"} whose spatial dislocation management skills translate directly to Bloom Zone operations. #{ref :gnomes, "Gnomes"} are valuable for calibration but strictly exposure-limited.
+    **Recruitment.** The Council draws from Bloom survivors, #{encyclopedia_ref :tuners, "Tuners"} willing to work in extreme resonance conditions, and #{encyclopedia_ref :fae, "fae"} whose spatial dislocation management skills translate directly to Bloom Zone operations. #{encyclopedia_ref :gnomes, "Gnomes"} are valuable for calibration but strictly exposure-limited.
   PROSE
   prose <<~PROSE, section: :operations, heading: "Remote Reach"
-    Since #{ref :pell_four, "Pell Four"}, the Council has adapted #{ref :remote_cutting, "remote cutters"} for containment work. A cutter can place an instrument, move damping mass, or recover a damaged buoy from a boundary that would be lethal to an EVA team.
+    Since #{ref :pell_four, "Pell Four"}, the Council has adapted #{encyclopedia_ref :remote_cutting, "remote cutters"} for containment work. A cutter can place an instrument, move damping mass, or recover a damaged buoy from a boundary that would be lethal to an EVA team.
 
     Council cutters work one boundary section at a time. Each has an isolated clock, a named field operator, and a stop condition agreed before launch. The recovery route is planned with the same care as the outward cut. If a remote tool cannot be brought home, the crew must know what signal and material it leaves inside the zone.
 
@@ -81,35 +82,14 @@ end
 relate :rel_dc_maintains_karet_three, :maintains, :displacement_council, :karet_three, since: 2426 do
   prose "Its cordon keeps #{ref :karet_three, "Karet-3"} inside a stable boundary."
 end
-relate :rel_dc_maintains_remote_cutting, :maintains, :displacement_council, :remote_cutting, since: 2434 do
-  prose "The Council maintains modified remote cutters for work beyond unsafe cordon boundaries."
-end
 relate :rel_dc_studies_pell_answer, :studies, :displacement_council, :pell_answer, since: 2434 do
   prose "Pell's sealed array records remain under Council study, with each fragment of the Answer stored and played separately."
 end
 relate :rel_dc_participated_pell_four, :participated_in, :displacement_council, :pell_four do
   prose "Council teams raised the Pell cordon, separated its four receivers, and closed the new boundary."
-  descriptive_identity conduct:
-    "The closure used the same remote system that had formed the event " \
-    "— a changed cutter cadence, quiet mass fed to each receiver on its " \
-    "own clock — while Council Tuners kept the new boundary off the " \
-    "central yard, and the final cordon team came home with nobody " \
-    "left inside."
 end
 relate :rel_dc_cooperates_pell_assembly, :cooperates_with, :displacement_council, :pell_freight_assembly, since: 2434 do
   prose "The Assembly supplies crews, haulers, and site access for continued Council work at Pell Cut."
-  descriptive_identity(
-    basis:
-      "When Pell Four opened, the Assembly did not argue jurisdiction: " \
-      "it closed the affected routes, surrendered its array records, " \
-      "and put its repair crews under Council direction until the " \
-      "boundary was gone. The working relationship kept that shape.",
-    limits:
-      "Assembly crews answer to their own route factors and safety " \
-      "rules, and since the Emergence their on-site Tuner can stop the " \
-      "work alone — cooperation runs to the boundary, not into the " \
-      "member votes."
-  )
 end
 
 # --- history (moments) ---

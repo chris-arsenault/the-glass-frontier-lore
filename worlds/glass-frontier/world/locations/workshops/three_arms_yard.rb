@@ -2,7 +2,9 @@ installation :three_arms_yard do
   name "Three Arms Yard"
   summary "Three Arms Yard is a Prismwell repair shop in Glasswake, where three lifting arms hold flexible survey kites without forcing their frames into alignment."
   playable_as :chronicle_location
+  context_tags :"realm:surface"
   subkind :workshop
+  type_of :workshop
   function "Repairs flexible-frame survey kites and shower-catch equipment"
   status :complete
   tags :transport, :ringglass, :resonance, :trade, :surface
@@ -91,6 +93,10 @@ end
 relate :rel_three_arms_resonates_rainline, :resonates_with, :three_arms_yard, :rainline do
   prose "The yard fitted Rainline's pale port brace and services its independent frame rings."
 end
-relate :rel_three_arms_depends_glassfall, :depends_on, :three_arms_yard, :glassfall_showers do
+relate :rel_three_arms_depends_spreading_front, :depends_on, :three_arms_yard, :spreading_front do
   prose "Its wash, cloth store, and flexible-frame work exist for craft exposed to Glassfall streams."
+end
+
+relate :rel_glassfall_manifests_at_three_arms_yard, :manifests_at, :the_glassfall, :three_arms_yard do
+  prose "The yard's catch-cloth loft, wash well, and separated lifting arms exist to repair craft exposed to falling ring debris."
 end

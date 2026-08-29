@@ -2,6 +2,7 @@ artifact :communication_shard do
   name "Communication Shard"
   summary "The Communication Shard is a thumb-length ringglass device that opens a private signal channel between Dern Talish and a hidden elven relay. It recognizes Talish and works only near a Bloom cordon or pre-Glassfall signal lattice."
   subkind :machine
+  type_of :field_instrument
   status :complete
   tags :resonance, :"signal-freq", :"ring-era", :mystery
   prominence :forgotten
@@ -46,9 +47,6 @@ artifact :communication_shard do
   PROSE
 end
 
-relate :rel_elves_created_communication_shard, :created, :elves, :communication_shard, dm: true do
-  prose "The hidden elves made the shard as a single controlled channel between their Bloom operations and the First Threshold."
-end
 relate :rel_oram_sells_possessed_communication_shard, :possesses, :oram_sells, :communication_shard, since: 2421, till: 2432, dm: true do
   prose "Oram Sells held the shard as First Threshold and transferred its contact sequence to Dern Talish before his death."
 end

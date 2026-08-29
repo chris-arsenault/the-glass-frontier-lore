@@ -4,6 +4,7 @@ faction :vantara do
   playable_as :allegiance
   origin_blurb "The system's largest travel company runs carriers, waystations, lodging, and the contracts behind them."
   subkind :company
+  type_of :company
   path "player/npcs/factions/vantara.md"
   reviewed "2026-03-18"
   tags :trade, :transport, :governance
@@ -38,7 +39,7 @@ faction :vantara do
   prose <<~PROSE
     *"Every journey, elevated."*
 
-    The system's largest travel and logistics corporation. Vantara operates #{ref :kite_sail, "KITE"} fleets, manages trade route infrastructure, runs hospitality venues across the ring and major surface settlements, and generally positions itself as the entity that makes moving through the Kaleidos system comfortable, reliable, and — if you pay for the premium tier — pleasant.
+    The system's largest travel and logistics corporation. Vantara operates #{encyclopedia_ref :kite_sail, "KITE"} fleets, manages trade route infrastructure, runs hospitality venues across the ring and major surface settlements, and generally positions itself as the entity that makes moving through the Kaleidos system comfortable, reliable, and — if you pay for the premium tier — pleasant.
 
     The name is corporate-smooth by design.
   PROSE
@@ -50,7 +51,7 @@ faction :vantara do
     Vantara is publicly traded, politically neutral, and genuinely multinational — operations span surface settlements, ring habs, outer-system stations, and #{ref :keel, "the Keel"} trade lane. Their neutrality is economic, not ideological. They don't take sides because taking sides is bad for business. This makes them useful to the #{ref :tempered_accord, "Tempered Accord"} as a logistics backbone that everyone can work with.
   PROSE
   prose <<~PROSE, section: :operations, heading: "Operations"
-    **Transport.** Vantara operates the largest civilian kite fleet in the system: cargo haulers, passenger vessels, fast couriers, and #{ref :flitter, "flitters"} assigned to public routes in major settlements. Municipal fleets, cooperatives, employers, guild carriers, and independent pilots operate alongside it.
+    **Transport.** Vantara operates the largest civilian kite fleet in the system: cargo haulers, passenger vessels, fast couriers, and #{encyclopedia_ref :flitter, "flitters"} assigned to public routes in major settlements. Municipal fleets, cooperatives, employers, guild carriers, and independent pilots operate alongside it.
 
     **Hospitality.** Waystations along major routes, hotels in settlements, crew rest facilities at ring hab docking ports. The quality is consistent and consistently average — not bad, not memorable, reliably clean and functional. Some people find this comforting. Others call it soulless. Vantara's branding team considers both reactions acceptable.
 
@@ -63,7 +64,7 @@ faction :vantara do
 
     The criticism — that Vantara desaturates everything it touches into corporate-average quality — is probably fair. The counterargument — that before Vantara, long-haul trade routes had no rest facilities, no rescue coverage, and no reliable scheduling — is also fair. Both assessments hold weight.
 
-    The #{ref :ratters, "Ratters"} and independent operators view Vantara with the mix of resentment and grudging reliance that independent operators everywhere feel toward large companies that provide infrastructure they can't build themselves. Vantara's route beacons and rescue coverage keep independents alive. Vantara's pricing squeezes independents' margins. The relationship is stable and unhappy.
+    The #{encyclopedia_ref :ratters, "Ratters"} and independent operators view Vantara with the mix of resentment and grudging reliance that independent operators everywhere feel toward large companies that provide infrastructure they can't build themselves. Vantara's route beacons and rescue coverage keep independents alive. Vantara's pricing squeezes independents' margins. The relationship is stable and unhappy.
   PROSE
   prose <<~PROSE, section: :present_day, heading: "Present Day"
     Vantara is secure, profitable, and expanding. The Accord era has been good for them — stability means more trade, more travel, more demand for reliable logistics. Their fleet is growing. Their waystation network is extending into newly contacted far-drift ring habs. Their Chief Experience Officer is on a media tour promoting Vantara's new luxury cruise line through the scenic segments of #{ref :the_shear, "The Shear"}, which is either visionary or reckless depending on your risk tolerance.
@@ -84,11 +85,6 @@ relate :rel_vantara_operates_keel, :operates_in, :vantara, :keel, since: 2330 do
 end
 relate :rel_vantara_member_of_bloom_coalition, :member_of, :vantara, :bloom_coalition, since: 2380, till: 2396 do
   prose "It carried the #{ref :bloom_coalition, "Bloom Coalition"}'s logistics through the containment years, moving people and material the cordons couldn't."
-  descriptive_identity standing:
-    "Vantara was already running the evacuation lifts in the improvised " \
-    "response before the charter existed; signing it placed the " \
-    "company's ships and schedules under the Coalition's single chain " \
-    "of command for as long as containment required one."
 end
 
 # --- history (moments) ---

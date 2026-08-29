@@ -11,7 +11,7 @@ module Lorecraft
     # player knowledge. Questions, entry logs and drafting records go into a
     # separate document intended for the authenticated editorial API.
     class Site < Base
-      SCHEMA_VERSION = 10
+      SCHEMA_VERSION = 12
       CAUSAL_RELATIONS = %w[causes caused caused_by].freeze
 
       def initialize(world, root: Dir.pwd)
@@ -74,6 +74,7 @@ module Lorecraft
           page_count: pages.size,
           chronicle_count: chronicles.size,
           era_narrative_count: era_narratives.size,
+          encyclopedia_entry_count: public_encyclopedia_entries.size,
           home: public_authored_pages.any? { |page| page.id == :home } ? "home" : nil,
           description: world_description(entries),
         }
@@ -92,6 +93,14 @@ module Lorecraft
         text = marker[:text] || node.title
         anchor = marker[:anchor] ? "##{marker[:anchor]}" : ""
         "[#{text}](#{entry_route(node.id)}#{anchor})"
+      end
+
+      def on_encyclopedia_ref(marker)
+        entry = marker.id && @world.encyclopedia_entry(marker.id)
+        return marker[:text] || marker.id.to_s unless entry
+        return marker[:text] || marker.id.to_s if @audience == :player && entry.dm?
+
+        marker[:text] || entry.title
       end
 
       def on_rel(marker)
@@ -124,20 +133,24 @@ module Lorecraft
         end
       end
 
-      def resolve_site_text(text, subject:, audience:, stack: [])
-        previous = [@subject, @audience, @embed_stack]
+      def resolve_site_text(text, subject:, audience:, stack: [], namespace: :atlas)
+        previous = [@subject, @audience, @embed_stack, @prose_namespace]
         @subject = subject
         @audience = audience
         @embed_stack = stack
+        @prose_namespace = namespace
         rendered = text.dup
         Markers.scan(text) { |match, marker| rendered = rendered.sub(match, marker.resolve(self).to_s) }
         replace_wiki_links(rendered)
       ensure
-        @subject, @audience, @embed_stack = previous
+        @subject, @audience, @embed_stack, @prose_namespace = previous
       end
 
       def resolve_embedded(text, stack)
-        resolve_site_text(text, subject: @subject, audience: @audience, stack: stack)
+        resolve_site_text(
+          text, subject: @subject, audience: @audience, stack: stack,
+          namespace: @prose_namespace
+        )
       end
 
       def replace_wiki_links(text)
@@ -179,6 +192,8 @@ module Lorecraft
           tags: @world.schema.tags.sort_by { |name, _| name.to_s }.map do |name, description|
             { id: name.to_s, title: humanize(name), description: description }
           end,
+          context_tags: context_tag_documents,
+          encyclopedia: encyclopedia_bundle(:player),
           relations: @world.schema.relations.values.sort_by { |relation| relation.name.to_s }.map do |relation|
             relation_definition(relation)
           end,
@@ -197,6 +212,9 @@ module Lorecraft
           subkind: node.subkind.to_s,
           section: section_for(node),
           tags: node.respond_to?(:tags) ? node.tags.map(&:to_s) : [],
+          context_tags: node.respond_to?(:context_tags) ? node.context_tags.map(&:to_s) : [],
+          encyclopedia_type: encyclopedia_type_key(node),
+          encyclopedia_memberships: encyclopedia_membership_documents(node),
           prominence: node.respond_to?(:prominence) && node.prominence&.to_s,
           aliases: array_attr(node, :alias),
           status: node.respond_to?(:[]) && node[:status]&.to_s,
@@ -259,6 +277,9 @@ module Lorecraft
           kind: node.kind.to_s,
           subkind: node.subkind.to_s,
           tags: node.respond_to?(:tags) ? node.tags.map(&:to_s) : [],
+          context_tags: node.respond_to?(:context_tags) ? node.context_tags.map(&:to_s) : [],
+          encyclopedia_type: encyclopedia_type_key(node),
+          encyclopedia_memberships: encyclopedia_membership_documents(node),
           prominence: node.respond_to?(:prominence) && node.prominence&.to_s,
           aliases: array_attr(node, :alias),
           status: node.respond_to?(:[]) && node[:status]&.to_s,
@@ -555,7 +576,7 @@ module Lorecraft
           to: relation.to_year,
           props: (relation.props unless relation.props.empty?),
           source_metadata: relation.source_metadata,
-        }.merge(identity_document(relation, :player)).compact
+        }.compact
       end
 
       def chronicles_for(entity_id)
@@ -706,10 +727,6 @@ module Lorecraft
           to: edge["to"],
           live: edge["live_at_render"],
           properties: edge["props"],
-          descriptive_identity: edge["descriptive_identity"],
-          identity_sources: edge["identity_sources"],
-          identity_local: edge["identity_local"],
-          identity_provenance: edge["identity_provenance"],
         }.compact
       end
 
@@ -720,12 +737,8 @@ module Lorecraft
             id: kind,
             title: humanize(kind),
             count: members.size,
-            identity_source_policy: definition&.identity_source_policy,
             descriptive_identity_keys: Array(definition&.identity_keys).map do |key|
               identity_key_definition(key)
-            end,
-            identity_sources: Array(definition&.identity_sources).map do |source|
-              identity_source_definition(source)
             end,
           }.compact
         end.sort_by { |kind| kind[:title] }
@@ -739,15 +752,6 @@ module Lorecraft
             kind: kind,
             title: definition&.label || humanize(subkind),
             count: members.size,
-            identity_source_policy: @world.schema.identity_source_policy_for(
-              kind, subkind: subkind
-            ),
-            descriptive_identity_keys: @world.schema.identity_keys_for(
-              kind, subkind: subkind
-            ).map { |key| identity_key_definition(key) },
-            identity_sources: @world.schema.identity_sources_for(
-              kind, subkind: subkind
-            ).map { |source| identity_source_definition(source) },
           }
         end.sort_by { |subkind| [subkind[:kind], subkind[:title]] }
       end
@@ -776,62 +780,39 @@ module Lorecraft
               exclusive_with: property.exclusive_with.empty? ? nil : property.exclusive_with.map(&:to_s),
             }.compact
           end,
-          identity_source_policy: relation.identity_source_policy,
-          descriptive_identity_keys: @world.schema.relation_identity_keys(relation.name).map do |key|
-            identity_key_definition(key)
-          end,
-          identity_sources: @world.schema.relation_identity_sources(relation.name).map do |source|
-            identity_source_definition(source)
-          end,
         }.compact
       end
 
       def identity_key_definition(key)
-        {
-          id: key.name.to_s,
-          required: key.required?,
-          merge: key.merge.to_s,
-          separator: key.separator,
-        }
-      end
-
-      def identity_source_definition(source)
-        {
-          id: source.name.to_s,
-          relation: source.relation&.to_s,
-          direction: source.direction.to_s,
-          cardinality: source.cardinality.to_s,
-          required: source.required?,
-          kinds: source.kinds.map(&:to_s),
-          subkinds: source.subkinds.map(&:to_s),
-          projection: source.projection.to_h do |source_key, target_key|
-            [source_key.to_s, target_key.to_s]
-          end,
-          precedence: source.precedence,
-        }.compact
+        { id: key.name.to_s }
       end
 
       def identity_document(owner, audience)
-        return {} unless owner.is_a?(Entity) || owner.is_a?(RelationInstance)
+        return {} unless owner.is_a?(Entity)
 
         resolution = @world.resolve_identity(owner, at: @year, audience: audience)
-        return {} if resolution.descriptive_identity.empty? && resolution.sources.empty? &&
-                     resolution.local.empty?
+        return {} if resolution.descriptive_identity.empty?
 
-        {
-          descriptive_identity: stringify_identity_dictionary(resolution.descriptive_identity),
-          identity_sources: resolution.sources.map do |source|
-            source.transform_values { |value| value.is_a?(Symbol) ? value.to_s : value }
-          end,
-          identity_local: resolution.local.to_h do |key, value|
-            [key.to_s, value.transform_values { |item| item.is_a?(Symbol) ? item.to_s : item }]
-          end,
-          identity_provenance: resolution.provenance.to_h do |key, contributions|
-            [key.to_s, contributions.map do |contribution|
-              contribution.to_h.transform_values { |value| value.is_a?(Symbol) ? value.to_s : value }
-            end]
-          end,
-        }
+        { descriptive_identity: stringify_identity_dictionary(resolution.descriptive_identity) }
+      end
+
+      def encyclopedia_type_key(node)
+        return unless node.respond_to?(:encyclopedia_type) && node.encyclopedia_type
+
+        target = @world.encyclopedia_entry(node.encyclopedia_type)
+        target ? target.source_id : node.encyclopedia_type.to_s
+      end
+
+      def encyclopedia_membership_documents(node)
+        return [] unless node.respond_to?(:encyclopedia_memberships)
+
+        node.encyclopedia_memberships.map do |membership|
+          target = @world.encyclopedia_entry(membership.entry)
+          {
+            kind: membership.kind.to_s,
+            external_key: target ? target.source_id : membership.entry.to_s,
+          }
+        end
       end
 
       def stringify_identity_dictionary(dictionary)
@@ -849,6 +830,150 @@ module Lorecraft
             prime_meridian_id: frame.prime_meridian&.to_s,
           }.compact
         end
+      end
+
+      def context_tag_documents
+        @world.schema.context_tags.values.sort_by { |tag| tag.name.to_s }.map do |tag|
+          {
+            id: tag.name.to_s,
+            description: tag.description,
+            scopes: tag.scopes.map(&:to_s),
+            parent: tag.parent&.to_s,
+            compatible_with: tag.compatible_with.map(&:to_s),
+          }.compact
+        end
+      end
+
+      def public_encyclopedia_entries
+        @world.encyclopedia_entries.values.reject(&:dm?).reject { |entry| entry.status == :shell }
+      end
+
+      def encyclopedia_bundle(audience)
+        entries = @world.encyclopedia_entries.values.select do |entry|
+          audience != :player || (!entry.dm? && entry.status != :shell)
+        end
+        {
+          entries: entries.sort_by { |entry| [entry.title.downcase, entry.id.to_s] }.map do |entry|
+            encyclopedia_entry_document(entry, audience)
+          end,
+        }
+      end
+
+      def encyclopedia_entry_document(entry, audience)
+        document = {
+          external_key: entry.source_id,
+          slug: slug(entry.id),
+          title: entry.title,
+          aliases: entry.aliases,
+          kind: entry.kind&.to_s,
+          subkind: entry.subkind&.to_s,
+          status: entry.status&.to_s,
+          summary: entry.summary,
+          topics: entry.topics.map(&:to_s),
+          availability: encyclopedia_availability_document(entry),
+          prevalence: entry.prevalence&.to_s,
+          character_role: entry.character_role&.to_s,
+          origin_blurb: entry.origin_blurb,
+          facts: entry.fact_values.transform_keys(&:to_s),
+          descriptive_identity: @world.resolve_identity(
+            entry, at: @year, audience: audience
+          ).descriptive_identity.transform_keys(&:to_s),
+          tiers: entry.ability_tiers.sort_by do |expression|
+            @world.schema.encyclopedia_tier_def(:ability, expression.tier)&.rank || expression.order
+          end.map do |expression|
+            {
+              tier: expression.tier.to_s,
+              effect: expression.effect,
+              cost: expression.cost,
+            }.compact
+          end,
+          usage: encyclopedia_usage_document(entry, audience),
+          sections: encyclopedia_section_documents(entry, audience),
+          instances: @world.encyclopedia_instances(entry.id).filter_map do |entity|
+            next if audience == :player && entity.dm?
+
+            {
+              external_key: entity.source_id,
+              title: entity.title,
+              kind: entity.kind.to_s,
+              subkind: entity.subkind.to_s,
+              route: entry_route(entity.id),
+            }
+          end.sort_by { |entity| [entity[:title].downcase, entity[:external_key]] },
+          members: @world.encyclopedia_members(entry.id).filter_map do |entity|
+            next if audience == :player && entity.dm?
+
+            {
+              external_key: entity.source_id,
+              title: entity.title,
+              kind: entity.kind.to_s,
+              subkind: entity.subkind.to_s,
+              route: entry_route(entity.id),
+            }
+          end.sort_by { |entity| [entity[:title].downcase, entity[:external_key]] },
+          dm: (entry.dm? if audience != :player),
+        }.compact
+        if audience != :player
+          document[:editorial] = {
+            reviewed: entry[:reviewed],
+            questions: entry.questions.sort_by(&:order).map do |question|
+              { text: question.text, raised: question.raised, on: question.on }.compact
+            end,
+            log: entry.log_entries,
+          }.compact
+        end
+        document
+      end
+
+      def encyclopedia_availability_document(entry)
+        return { mode: "global" } if entry.availability_mode == :global
+        return nil unless entry.availability_mode == :contextual
+
+        {
+          mode: "contextual",
+          selectors: entry.selectors.map do |selector|
+            {
+              all: selector.all.map { |term| context_term_document(term) },
+              any: selector.any.map { |term| context_term_document(term) },
+              none: selector.none.map { |term| context_term_document(term) },
+            }
+          end,
+        }
+      end
+
+      def encyclopedia_usage_document(entry, audience)
+        items = audience == :player ? entry.usage.reject(&:dm?) : entry.usage
+        grouped = items.sort_by(&:order).group_by(&:kind)
+        {
+          cues: grouped.fetch(:cue, []).map(&:text),
+          affordances: grouped.fetch(:affordance, []).map(&:text),
+          pressures: grouped.fetch(:pressure, []).map(&:text),
+          variations: grouped.fetch(:variation, []).map(&:text),
+        }
+      end
+
+      def encyclopedia_section_documents(entry, audience)
+        blocks = audience == :player ? entry.prose_blocks.reject(&:dm?) : entry.prose_blocks
+        blocks.sort_by(&:order).map do |block|
+          {
+            heading: block.heading || humanize(block.section),
+            text: resolve_site_text(
+              block.text, subject: entry.id, audience: audience, namespace: :encyclopedia
+            ).strip,
+            audience: block.dm? ? "gm" : "player",
+          }
+        end
+      end
+
+      def context_term_document(term)
+        document = { scope: term.scope.to_s }
+        if term.type == :tag
+          document[:tag] = term.value.to_s
+        else
+          object = @world.encyclopedia_entry(term.value)
+          document[:encyclopedia_external_key] = object&.source_id || term.value.to_s
+        end
+        document
       end
 
       def position_documents(node)
@@ -903,6 +1028,8 @@ module Lorecraft
           title: @world_title,
           revision: @revision,
           spatial_frames: spatial_frame_documents,
+          context_tags: context_tag_documents,
+          encyclopedia: encyclopedia_bundle(:all),
           entries: entries,
           narratives: narratives,
         })
@@ -911,6 +1038,7 @@ module Lorecraft
       def provenance_owner_type(owner)
         return :moment if owner.is_a?(Moment)
         return :relationship if owner.is_a?(RelationInstance)
+        return :encyclopedia if owner.is_a?(EncyclopediaEntry)
 
         :entity
       end

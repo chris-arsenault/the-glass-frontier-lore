@@ -1,7 +1,9 @@
 geographic_location :ashenmaw do
   name "Ashenmaw"
   summary "Ashenmaw is the fifth planet of the Kaleidos system, a banded gas giant whose tides heat its inhabited moons."
+  type_of :celestial_body
   playable_as :chronicle_location
+  context_tags :"realm:outer_system"
   subkind :celestial_body
   status :complete
   tags :cosmology, :"outer-system", :navigation, :danger

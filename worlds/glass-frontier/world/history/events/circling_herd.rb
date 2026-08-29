@@ -2,6 +2,7 @@ incident :circling_herd do
   name "The Circling Herd"
   summary "The Circling Herd is a 2435 sarn passage that split at Perch, with one group still circling the settlement and shedding mapped combs."
   subkind :incident
+  type_of :animal_migration_event
   date 2435
   status :complete
   tags :ecology, :transport, :danger, :resonance, :trade
@@ -46,34 +47,12 @@ end
 
 relate :rel_pava_lorn_participated_circling_herd, :participated_in, :pava_lorn, :circling_herd do
   prose "Pava Lorn closed the collection band and reads the altered formation from Perch's pylons."
-  descriptive_identity(
-    aims:
-      "Lorn will not assign a band inside a formation she cannot read, " \
-      "and this one is inverted — old animals holding the quiet center " \
-      "where juveniles belong, younger adults carrying the strained " \
-      "outer edge.",
-    conduct:
-      "She recalled every line that crossed the circle, and when the " \
-      "pylon record cannot resolve the inner formation she rides Molt " \
-      "into the spiral she has closed to everyone else."
-  )
 end
 
 relate :rel_molt_participated_circling_herd, :participated_in, :molt, :circling_herd do
   prose "Molt tracks the oldest animals and recovers exhausted juveniles from the circle."
-  descriptive_identity(
-    conduct:
-      "Its racks trail observation frames instead of comb, and every " \
-      "pass beneath the old animals adds another line to the structural " \
-      "map; the two recovered juveniles came home in the open cradle " \
-      "kept ready for anything warm.",
-    cost:
-      "Collection is suspended while the vessel follows the circle — " \
-      "wards and buyers expecting Molt's usual graded load are getting " \
-      "survey notes."
-  )
 end
 
-relate :rel_circling_herd_caused_by_sarn, :caused_by, :circling_herd, :sarn do
+relate :rel_circling_herd_caused_by_perch_circle, :caused_by, :circling_herd, :perch_circle do
   prose "A migrating sarn herd left its recorded route and formed the circle around Perch."
 end

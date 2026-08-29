@@ -2,6 +2,7 @@ faction :lumenshard_conservatory do
   name "Lumenshard Conservatory"
   summary "The Lumenshard Conservatory is a coalition of growers, field ecologists, and resonance workers that tends Miraeth's ringglass-bearing groves."
   subkind :research_body
+  type_of :research_institution
   founded 2286
   tags :ecology, :resonance, :ringglass, :surface
   prominence :recognized
@@ -36,7 +37,7 @@ faction :lumenshard_conservatory do
   )
 
   prose <<~PROSE
-    A coalition of growers, field ecologists, and resonance workers who care for #{ref :miraeth, "Miraeth"}. These surface basins took centuries of fine ringglass from #{ref :glassfall_showers, "Glassfall showers"}. Their plants grew around the grains, drew crystal into bark and root, and joined living tissue to broad local fields. At dusk the oldest groves shine along their veins, giving the Conservatory its name.
+    A coalition of growers, field ecologists, and resonance workers who care for #{ref :miraeth, "Miraeth"}. These surface basins took centuries of fine ringglass from #{encyclopedia_ref :glassfall_showers, "Glassfall showers"}. Their plants grew around the grains, drew crystal into bark and root, and joined living tissue to broad local fields. At dusk the oldest groves shine along their veins, giving the Conservatory its name.
 
     The Conservatory treats each grove as a working ecology. Food plants, water filters, structural roots, insects, fungi, and ringglass all affect the field. Removing a clear growth for instruments can change which roots carry resonance into the soil. Running a concentrator nearby can warm one terrace and leave another too quiet for its crystal-bearing seedlings.
   PROSE
@@ -73,38 +74,14 @@ faction :lumenshard_conservatory do
                         "It answers with substrate maps and growers who read boundary changes before fixed instruments do."
 end
 
-relate :rel_lumenshard_studies_showers, :studies, :lumenshard_conservatory, :glassfall_showers, since: 2286 do
+relate :rel_lumenshard_studies_spreading_front, :studies, :lumenshard_conservatory, :spreading_front, since: 2286 do
   prose "The Conservatory studies how shower dust enters soil, water, and living tissue in Miraeth."
 end
 relate :rel_lumenshard_cooperated_bloom_coalition, :cooperates_with, :lumenshard_conservatory, :bloom_coalition, since: 2378, till: 2396 do
   prose "After its late entry, the Conservatory supplied the Bloom Coalition with living substrate maps and field ecologists."
-  descriptive_identity(
-    basis:
-      "What it brought, no one else had: growers who noticed changes " \
-      "before fixed instruments did, and a long record of how " \
-      "resonance moves through mixed crystal and living material.",
-    limits:
-      "It came late, having argued from its own recovery records that " \
-      "the zones would rebalance like an overdrawn grove — a delay " \
-      "that ended only when roots began appearing in two places at " \
-      "once, and that every political account of the Coalition still " \
-      "carries."
-  )
 end
 relate :rel_lumenshard_cooperates_displacement_council, :cooperates_with, :lumenshard_conservatory, :displacement_council, since: 2384 do
   prose "Conservatory teams grow boundary beds at Council cordons to reveal small changes between instrument surveys."
-  descriptive_identity(
-    basis:
-      "Quick-rooting beds planted outside the damping lines and read " \
-      "for where roots stop behaving as connected matter — a cheap " \
-      "living map the Council's instruments cannot match between " \
-      "surveys.",
-    limits:
-      "The plants contain nothing; they only report. The teams work " \
-      "under the Council's cordon rules like any other crew, and the " \
-      "Conservatory's center of gravity stays in Miraeth, where its " \
-      "conviction that damage can heal still holds true."
-  )
 end
 relate :rel_lumenshard_studies_bloom_zones, :studies, :lumenshard_conservatory, :bloom_zones, since: 2378 do
   prose "The Conservatory compares Bloom boundary failures with the recoverable resonance ecologies of its groves."

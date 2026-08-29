@@ -2,7 +2,9 @@ geographic_location :bloom_zones do
   name "Bloom Zones"
   summary "Bloom Zones are expanding reality tears in Kaleidos orbit and the Fracture, where physical rules and distance become inconsistent."
   playable_as :chronicle_location
+  context_tags :"realm:orbital"
   subkind :hazardous_zone
+  type_of :hazardous_zone
   path "player/locations/landmarks/bloom-zones.md"
   status :complete
   reviewed "2026-03-18"
@@ -43,7 +45,7 @@ geographic_location :bloom_zones do
   )
 
   prose <<~PROSE
-    Man-made reality tears. Places where the #{ref :resonance, "resonance"} environment has broken so thoroughly that physics stops behaving consistently. They exist in Kaleidos orbit — in the #{ref :the_shear, "Shear"}, adjacent to ring habs, and in otherwise clean orbital space — as well as in #{ref :the_fracture, "the Fracture"}'s asteroid belt. No accepted model accounts for the full distribution.
+    Man-made reality tears. Places where the #{encyclopedia_ref :resonance, "resonance"} environment has broken so thoroughly that physics stops behaving consistently. They exist in Kaleidos orbit — in the #{ref :the_shear, "Shear"}, adjacent to ring habs, and in otherwise clean orbital space — as well as in #{ref :the_fracture, "the Fracture"}'s asteroid belt. No accepted model accounts for the full distribution.
 
     They are expanding slowly and require constant containment by the #{ref :displacement_council, "Displacement Council"}. They are the system's most dangerous ongoing crisis and its most productive source of new artifacts. Each artifact's properties and risks have to be established separately because no general theory predicts what a zone will produce.
   PROSE
@@ -52,7 +54,7 @@ geographic_location :bloom_zones do
 
     In some zones, walls admit light while remaining impossible to see through, and their surfaces lose a reliable boundary. In others, sound arrives from the wrong direction. Elsewhere, spatial relationships fail: a corridor that was ten meters long becomes thirty, or three. In the worst zones, even "direction" loses a stable meaning.
 
-    #{ref :tuners, "Tuners"} describe the resonance landscape inside a zone as saturated — so dense with information that signal-to-noise collapses. #{ref :gnomes, "Gnomes"} are hit worst — their crystal-laced nervous systems pick up the distortion directly. #{ref :fae, "Fae"} have an unexpected advantage — the spatial dislocation they manage daily is exactly the skill set the zones demand.
+    #{encyclopedia_ref :tuners, "Tuners"} describe the resonance landscape inside a zone as saturated — so dense with information that signal-to-noise collapses. #{encyclopedia_ref :gnomes, "Gnomes"} are hit worst — their crystal-laced nervous systems pick up the distortion directly. #{encyclopedia_ref :fae, "Fae"} have an unexpected advantage — the spatial dislocation they manage daily is exactly the skill set the zones demand.
   PROSE
   prose <<~PROSE, section: :atmosphere, heading: "The Cordon Line"
     From a ship, a cordon edge is nothing to look at: open space, ordinary light, the boundary invisible except near a damping buoy or a #{ref :liras_wall, "Lira's Wall"} anchor. What marks it is the sign every ship's sensors register as the line approaches — the standing broadcast that a boundary is ahead and crossing is regulated.
@@ -73,7 +75,7 @@ geographic_location :bloom_zones do
   PROSE
 
   gm_note :triggered_by, "Fix one distortion per zone before the party enters and hold it: this zone bends distance, that one misplaces sound, another leaves no surface with a reliable edge. The rule does not carry to the next zone."
-  gm_note :complicates, "A #{ref :gnomes, "gnome"} in the party takes the distortion through their own nervous system while a #{ref :fae, "fae"} crosses on skills they use daily, so one walk splits a mixed group into casualties and guides."
+  gm_note :complicates, "A #{encyclopedia_ref :gnomes, "gnome"} in the party takes the distortion through their own nervous system while a #{encyclopedia_ref :fae, "fae"} crosses on skills they use daily, so one walk splits a mixed group into casualties and guides."
   gm_note :appears, "New zones open where nobody has cordoned, as one did beside #{ref :xyloathax} in 2431. Any orbit the party is standing in can become a containment site, which puts them inside a new perimeter rather than outside it."
 end
 

@@ -2,8 +2,10 @@ installation :bay_thirty_one do
   name "Thirty-One"
   summary "Thirty-One is a sealed textile workshop on Wash Four's dirty route, where workers map and preserve resonant traces carried by cloth."
   playable_as :chronicle_location
+  context_tags :"realm:ring_habitat"
   aka "Bay Thirty-One"
   subkind :workshop
+  type_of :workshop
   function "Maps, washes, and preserves resonant traces carried by textiles"
   status :complete
   tags :household, :archives, :"signal-freq", :trade

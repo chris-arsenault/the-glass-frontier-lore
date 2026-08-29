@@ -124,6 +124,13 @@ module Lorecraft
         marker[:text] && marker[:text] != node.title ? "[[#{marker[:text]}|#{node.title}]]" : "[[#{node.title}]]"
       end
 
+      def on_encyclopedia_ref(marker)
+        entry = marker.id && @world.encyclopedia_entry(marker.id)
+        return marker[:text] || marker.id.to_s unless entry && !entry.dm? && entry.status != :shell
+
+        marker[:text] || entry.title
+      end
+
       def on_rel(marker)
         @world.at(@year).out(@subject, marker.verb).filter_map do |t|
           n = @world[t]

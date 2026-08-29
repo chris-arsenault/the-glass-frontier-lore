@@ -7,8 +7,6 @@ module Lorecraft
   # its own prose. The world lowers it to ordinary set/clear effects so the
   # temporal fold treats every edge uniformly.
   class RelationInstance
-    include IdentityOwner
-
     attr_reader :id, :verb, :source, :target, :from_year, :to_year, :prose_blocks,
                 :source_file, :source_line, :source_metadata, :props
     attr_accessor :dm, :source_id
@@ -29,7 +27,6 @@ module Lorecraft
       @to_year = till ? timeline.year_for(till) : nil
       @prose_blocks = []
       @prose_order = 0
-      initialize_identity
     end
 
     def dm? = @dm == true
@@ -42,14 +39,11 @@ module Lorecraft
 
     class Builder
       include Markers
-      include IdentityBuilder
 
       def initialize(instance, world)
         @instance = instance
         @world = world
       end
-
-      private def identity_owner = @instance
 
       def source_id(value) = @instance.source_id = value.to_s
       def source_metadata(value) = @instance.source_metadata.merge!(value.to_h)

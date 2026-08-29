@@ -2,6 +2,7 @@ incident :hospital_hull_recovery do
   name "Hospital Hull Recovery"
   summary "Hospital Hull Recovery is Brake's 2435 capture of a powered medical vessel carrying twelve occupied recovery capsules."
   subkind :discovery
+  type_of :salvage_recovery
   date 2435
   status :complete
   tags :salvage, :ecology, :transport, :mystery
@@ -46,32 +47,10 @@ end
 
 relate :rel_ira_voss_participated_hospital_hull_recovery, :participated_in, :ira_voss, :hospital_hull_recovery do
   prose "Ira Voss leads the occupied-hull intake and patient-record search."
-  descriptive_identity(
-    aims:
-      "Voss is trying to join a name to a history: the capsules carry " \
-      "their patients in current Hab-Worlder script while the cabinet " \
-      "records use a Bitter Reach clinical hand, and no cabinet cleared " \
-      "so far connects the two.",
-    conduct:
-      "Claims on the hull go under the claims column of her board and " \
-      "move nothing — the vessel stays in intake for as long as a mark " \
-      "stands under people."
-  )
 end
 
 relate :rel_five_bolts_participated_hospital_hull_recovery, :participated_in, :five_bolts, :hospital_hull_recovery do
   prose "Five Bolts captured the vessel and keeps it separated from inhabited anchors."
-  descriptive_identity(
-    conduct:
-      "Its crew rotates every six hours on the one tow line approved " \
-      "for emergency separation, so cutting the hull loose is always a " \
-      "single decision away — and takes twelve sleeping patients away " \
-      "from Brake's power, water, and monitoring with it.",
-    cost:
-      "With its single tow frame committed to the medical hull, " \
-      "everything else that needs moving through Brake's capture lanes " \
-      "waits."
-  )
 end
 
 relate :rel_lot_forty_hosts_hospital_hull_recovery, :hosts, :lot_forty, :hospital_hull_recovery, since: 2435 do

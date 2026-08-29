@@ -2,6 +2,7 @@ artifact :lowbank_reed_roll do
   name "Lowbank Reed Roll"
   summary "The Lowbank Reed Roll is a ferry-debt record used around Dovra and the Reed Door. Its cuts swell shut when the account they mark is paid."
   subkind :record
+  type_of :recording_medium
   status :complete
   prominence :marginal
   veiled "The Lowbank Reed Roll preserves ferry debts as cuts that swell shut when the account is paid."

@@ -2,7 +2,9 @@ installation :pell_cut do
   name "Pell Cut"
   summary "Pell Cut is a chain of receiving and sorting yards along a navigable cut in the outer Deep Shear, processing salvage from four claim pockets."
   playable_as :chronicle_location
+  context_tags :"realm:orbital"
   subkind :infrastructure
+  type_of :infrastructure
   tags :salvage, :trade, :transport, :resonance, :orbital, :danger
   prominence :recognized
   function "Receives and separates material extracted from remote Deep Shear claims"
@@ -39,7 +41,7 @@ installation :pell_cut do
   )
 
   prose <<~PROSE
-    A chain of receiving yards fixed along a narrow navigable cut through the outer #{ref :deep_shear, "Deep Shear"}. Four anchor stations face four different claim pockets. Freight spines join them to a central sorting yard, where recovered material is separated before it moves inward on #{ref :heavy_hauler, "heavy haulers"}.
+    A chain of receiving yards fixed along a narrow navigable cut through the outer #{ref :deep_shear, "Deep Shear"}. Four anchor stations face four different claim pockets. Freight spines join them to a central sorting yard, where recovered material is separated before it moves inward on #{encyclopedia_ref :heavy_hauler, "heavy haulers"}.
 
     The #{ref :pell_freight_assembly, "Pell Freight Assembly"} built the Cut for crews that needed industrial processing without an industrial owner. Member vessels reserve an anchor, bring their own cutter, and pay for the receiving rooms by mass handled or by maintenance work.
   PROSE
@@ -69,7 +71,4 @@ end
 
 relate :rel_pell_cut_located_in_deep_shear, :located_in, :pell_cut, :deep_shear, since: 2428 do
   prose "Pell Cut sits on the outer edge of the #{ref :deep_shear, "Deep Shear"}, close enough to four unstable claim pockets for remote cutters to reach them."
-end
-relate :rel_pell_cut_depends_on_remote_cutting, :depends_on, :pell_cut, :remote_cutting do
-  prose "The yards were built around #{ref :remote_cutting, "remote cutting"}: cutter cradles outside, sacrificial receiving rooms within."
 end

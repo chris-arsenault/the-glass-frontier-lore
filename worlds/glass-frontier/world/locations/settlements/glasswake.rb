@@ -2,8 +2,10 @@ installation :glasswake do
   name "Glasswake"
   summary "Glasswake is a coastal mining town on Kaleidos, built between the sea and the fused ridge of a ring fragment that fell during the Glassfall."
   playable_as :chronicle_location, :homeland
+  context_tags :"realm:surface"
   origin_blurb "A coastal mining town built against a fallen hab whose repaired transmitter began the Rekindling."
   subkind :settlement
+  type_of :settlement
   path "player/locations/settlements/glasswake.md"
   status :complete
   reviewed "2026-03-18"
@@ -55,7 +57,7 @@ installation :glasswake do
     No surviving record identifies the original ring hab, its name, or its residents. Glasswake's town records and mining practice treat the fragment as a working resource rather than a heritage site. Miners work the ringglass deposits in the impact debris. Old hab structures serve as foundations and warehouses, and one intact service room houses a pub.
   PROSE
   prose <<~PROSE, section: :economy, heading: "Economy"
-    Mining remains the town's largest industry. The impact debris field holds a consistent volume of low-grade #{ref :ringglass, "ringglass"} aggregate, and current surveys project decades of accessible material. The work supports sorting yards, repair shops, freight crews, and the households around them.
+    Mining remains the town's largest industry. The impact debris field holds a consistent volume of low-grade #{encyclopedia_ref :ringglass, "ringglass"} aggregate, and current surveys project decades of accessible material. The work supports sorting yards, repair shops, freight crews, and the households around them.
 
     The town also sorts shower glass brought down by the #{ref :prismwell_kite_guild, "Prismwell Kite Guild"} and handles freight for western #{ref :avar, "Avar"}. Repair yards build mine fittings, kite catch frames, pumps, and road gear; #{ref :three_arms_yard, "Three Arms Yard"} handles the flexible frames used by shower scouts. The #{ref :pell_freight_assembly, "Pell Freight Assembly"} pools cargo work among independent crews based here.
 
@@ -66,7 +68,7 @@ installation :glasswake do
 
     Mine crews include cutters, surveyors, haulers, washers, and structural readers. A cutter follows the grade. A structural reader decides whether removing it will wake another seam or transfer load into an occupied part of the wreck. Apprentices begin in the wash yards, where material can be sounded without standing under it.
 
-    The dock fringe receives #{ref :ratters, "Ratter"} crews, steppe carriers, and independent kites that avoid the larger fees at Sithari. Lodging houses, chandlers, and late markets face the harbor. #{ref :the_dry_net, "The Dry Net"} combines cheap beds, sealed equipment storage, and an open hiring wall. Uptown offices handle #{ref :shear_compact, "Shear Compact"} inspections and mineral contracts. A load unloaded on the fringe may enter uptown as a certified mineral lot after washing, grading, and inspection.
+    The dock fringe receives #{encyclopedia_ref :ratters, "Ratter"} crews, steppe carriers, and independent kites that avoid the larger fees at Sithari. Lodging houses, chandlers, and late markets face the harbor. #{ref :the_dry_net, "The Dry Net"} combines cheap beds, sealed equipment storage, and an open hiring wall. Uptown offices handle #{ref :shear_compact, "Shear Compact"} inspections and mineral contracts. A load unloaded on the fringe may enter uptown as a certified mineral lot after washing, grading, and inspection.
   PROSE
   prose <<~PROSE, section: :atmosphere, heading: "Atmosphere"
     Mine dust reaches every street near the ridge. Buildings use ringglass-reinforced stone, deep awnings, and grated entries where workers can leave boots and outer clothes. The fallen hab dominates the skyline, weathered into a dark slope until an old room or structural rib emerges from it.
@@ -76,7 +78,7 @@ installation :glasswake do
     A surface-access spur connects Glasswake to #{ref :keel, "the Keel"}, the system's primary orbital trade lane. Kites descending from the Keel use the town as a minor waypoint and resupply stop.
   PROSE
 
-  gm_note :appears, "Cargo and hiring both come in at the dock fringe, where kites, #{ref :ratters, "Ratter"} crews, and steppe carriers dodge Sithari's fees; inspections and mineral contracts sit uptown. A crew can be hired at one end of that walk in the morning and audited at the other by evening."
+  gm_note :appears, "Cargo and hiring both come in at the dock fringe, where kites, #{encyclopedia_ref :ratters, "Ratter"} crews, and steppe carriers dodge Sithari's fees; inspections and mineral contracts sit uptown. A crew can be hired at one end of that walk in the morning and audited at the other by evening."
   gm_note :triggered_by, "Whatever the party brings off a claim only exists uptown after washing, grading and a #{ref :shear_compact, "Shear Compact"} inspection turn it into a certified lot. The fringe buys the same material unwashed, for less, and asks nothing about where it came from."
   gm_note :complicates, "Taking anything out of the wreck ridge is a structural reader's call rather than a cutter's, because pulling a grade can wake a second seam or shift load into an occupied part of the fragment. Crews who open a sealed face anyway learn which rooms underneath were carrying it."
 end
@@ -94,6 +96,9 @@ end
 relate :rel_glasswake_terminus_keel, :terminus_of, :glasswake, :keel do
   prose "Glasswake's surface-access spur forms one of the Keel's principal termini."
 end
+relate :rel_shear_compact_operates_in_glasswake, :operates_in, :shear_compact, :glasswake, since: 2383 do
+  prose "The #{ref :shear_compact, "Shear Compact"} keeps inspection offices in Glasswake for claims and mineral lots entering the certified trade."
+end
 
 # --- history (moments) ---
 moment :glasswake_founded, year: 2160, of: :glasswake do
@@ -107,16 +112,4 @@ moment :glasswake_first_signal, year: 2305, of: :glasswake do
 end
 relate :rel_glasswake_cooperates_hab_meridian, :cooperates_with, :glasswake, :hab_meridian, since: 2305 do
   prose "Its oldest tie is to #{ref :hab_meridian, "Hab Meridian"} — the hab that answered the First Signal — and the partnership has run continuously ever since."
-  descriptive_identity(
-    basis:
-      "The tie runs through ordinary channels: cross-orbit freight, " \
-      "delegation visits at the anniversaries, and a shared founding " \
-      "story that each town tells at its own scale.",
-    limits:
-      "Glasswake is the partner that moved on. Its half of the " \
-      "recording is gone, the transmitter building is a modest museum " \
-      "beside a working mine, and the town treats the fallen fragment " \
-      "as a resource where Meridian built a civilization around the " \
-      "answering call."
-  )
 end

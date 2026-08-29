@@ -13,6 +13,10 @@ module Lorecraft
   # `kind` is one of Schema::GM_NOTE_KINDS.
   GmNote = Struct.new(:kind, :text, :order, keyword_init: true)
 
+  # A non-graph classification of an Atlas entity by an Encyclopedia entry.
+  # `kind` makes the namespace explicit; `entry` names the entry within it.
+  EncyclopediaMembership = Struct.new(:kind, :entry, keyword_init: true)
+
   # A node in the world: a stable symbol id, a kind, static attributes, owned
   # prose, and (resolved on demand) dynamic state. Dynamic state is never stored
   # here — it is the fold of moments, computed by the Resolver. The entity only
@@ -23,7 +27,7 @@ module Lorecraft
 
     attr_reader :id, :kind, :static_attrs, :fact_values, :custom_fact_defs,
                 :content_blocks, :derives, :source_file, :source_line, :log_entries, :questions,
-                :positions, :gm_notes
+                :positions, :gm_notes, :encyclopedia_type, :encyclopedia_memberships
     attr_accessor :visibility, :public_entry, :index_note, :route_geometry
 
     def initialize(id:, kind:, source_file: nil, source_line: nil)
@@ -39,6 +43,8 @@ module Lorecraft
       @questions = []
       @gm_notes = []
       @positions = []
+      @encyclopedia_type = nil
+      @encyclopedia_memberships = []
       @route_geometry = nil
       @derives = {}
       @visibility = :public
@@ -54,6 +60,7 @@ module Lorecraft
     def summary = @static_attrs[:summary]
     def source_id = @static_attrs[:source_id] || @id.to_s
     def tags = Array(@static_attrs[:tags]).map(&:to_sym)
+    def context_tags = Array(@static_attrs[:context_tags]).map(&:to_sym)
     def prominence = @static_attrs[:prominence]
     def subkind = (@static_attrs[:subkind] || @kind).to_sym
     def article? = @static_attrs[:article] == true
@@ -71,6 +78,27 @@ module Lorecraft
     def structural? = @static_attrs[:structural] == true
 
     def [](key) = @static_attrs[key.to_sym]
+
+    def assign_encyclopedia_type(id)
+      if @encyclopedia_type
+        raise DefinitionError, "duplicate primary Encyclopedia type on #{@id}"
+      end
+
+      @encyclopedia_type = id.to_sym
+    end
+
+    def add_encyclopedia_membership(kind, entry)
+      membership = EncyclopediaMembership.new(kind: kind.to_sym, entry: entry.to_sym)
+      duplicate = @encyclopedia_memberships.any? do |existing|
+        existing.kind == membership.kind && existing.entry == membership.entry
+      end
+      if duplicate
+        raise DefinitionError,
+              "duplicate Encyclopedia membership #{membership.kind}:#{membership.entry} on #{@id}"
+      end
+
+      @encyclopedia_memberships << membership
+    end
 
     # Build via a block evaluated against an EntityBuilder, which provides the
     # authoring surface (name, tags, prominence, prose, derive, dm!, ...).
@@ -109,6 +137,9 @@ module Lorecraft
       def summary(value)   = set(:summary, value.to_s)
       def source_id(value) = set(:source_id, value.to_s)
       def tags(*values)    = set(:tags, values.flatten.map(&:to_sym))
+      def context_tags(*values) = set(:context_tags, values.flatten.map(&:to_sym).uniq)
+      def type_of(id) = @entity.assign_encyclopedia_type(id)
+      def belongs_to(kind, entry) = @entity.add_encyclopedia_membership(kind, entry)
       def prominence(value) = set(:prominence, value.to_sym)
       def aka(*values)
         v = values.flatten
@@ -296,6 +327,14 @@ module Lorecraft
         definition = @world.schema.fact_def(
           @entity.kind, name, subkind: @entity.subkind, custom: @entity.custom_fact_defs
         )
+        if @world.schema.encyclopedia_kind?(name) && args.size == 1 && args.first.is_a?(Symbol)
+          return belongs_to(name, args.first)
+        end
+        if @world.schema.encyclopedia_kind?(name) && !definition
+          raise DefinitionError,
+                "#{name} on #{@entity.id} is an Encyclopedia membership; " \
+                "use #{name} :entry or declare an Atlas fact with that name"
+        end
         return fact(name, args.size == 1 ? args.first : args) if definition
 
         set(name, args.size == 1 ? args.first : args)

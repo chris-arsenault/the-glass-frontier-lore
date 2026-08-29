@@ -2,6 +2,7 @@ transport :molt do
   name "Molt"
   summary "Molt is a low collection vessel built for the sarn passage at Perch. Its crew gathers naturally shed flight combs from beneath the herd and returns warm or bleeding material to animal readers."
   subkind :vessel
+  type_of :utility_vessel
   capacity "Six crew, twelve line workers, and four comb racks"
   status :complete
   tags :transport, :ecology, :trade, :"kinetic-freq"

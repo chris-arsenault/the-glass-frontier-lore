@@ -2,6 +2,7 @@ incident :returning_pods do
   name "The Returning Pods"
   summary "The Returning Pods are six cargo pods that arrived at Clearance Eight in 2435 carrying recently lost household objects repaired and resealed."
   subkind :discovery
+  type_of :anomalous_recovery
   date 2435
   status :complete
   tags :salvage, :governance, :transport, :mystery
@@ -44,18 +45,8 @@ end
 
 relate :rel_tangent_participated_returning_pods, :participated_in, :tangent, :returning_pods do
   prose "Tangent follows the pods' empty approach trajectory with their seal impressions aboard."
-  descriptive_identity(
-    conduct:
-      "The claim reader works behind the nose glass with the six seal " \
-      "sequences loaded, checking whatever the circuit touches against " \
-      "the impressions taken from the pod lids.",
-    cost:
-      "One of the vessel's two cradles rides empty against whatever the " \
-      "approach line yields, so a tow request now asks the crew to " \
-      "abandon the trajectory they are following."
-  )
 end
 
-relate :rel_eighth_seal_resonates_returning_pods, :resonates_with, :eighth_seal, :returning_pods do
+relate :rel_eighth_seal_resonates_returning_pods, :resonates_with, :six_returning_seals, :returning_pods do
   prose "The seals inside the pods reproduce the current tools, hands, and room tones of all eight desks."
 end

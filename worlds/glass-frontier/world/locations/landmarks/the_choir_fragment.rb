@@ -2,7 +2,9 @@ installation :the_choir_fragment do
   name "The Choir Fragment"
   summary "The Choir Fragment is a fallen ring section on the outer Pell routes whose surviving transmitter sends a changing pre-Glassfall message each week."
   playable_as :chronicle_location
+  context_tags :"realm:orbital"
   subkind :landmark
+  type_of :ring_age_site
   tags :orbital, :"ring-era", :resonance, :archives, :mystery, :salvage
   prominence :recognized
 
@@ -34,9 +36,9 @@ installation :the_choir_fragment do
   )
 
   prose <<~PROSE
-    A fallen ring fragment on the outer Pell routes whose transmitting volume still has partial power. Once each week it sends a pre-Glassfall message through an intact southern antenna deck. The content repeats, except for two words that change from one transmission to the next.
+    A fallen ring fragment on the outer Pell routes whose transmitting volume still has partial power. Once each week it sends #{ref :two_word_message, "the Two-Word Message"} through an intact southern antenna deck.
 
-    #{ref :ratters, "Ratter"} crews named the fragment for the held resonance tone inside its active corridors. The tone sits below ordinary hearing. #{ref :tuners, "Tuners"} describe it as a voice waiting for another part to enter.
+    #{encyclopedia_ref :ratters, "Ratter"} crews named the fragment for the held resonance tone inside its active corridors. The tone sits below ordinary hearing. #{encyclopedia_ref :tuners, "Tuners"} describe it as a voice waiting for another part to enter.
   PROSE
   prose <<~PROSE, section: :description, heading: "Inside"
     The Fragment is large enough that crews divide it into the long deck, the plate rooms, the cold galleries, and the southern antennae. Pale-green emergency lights remain active along the inspected route. Corridors outside it are dark.
@@ -44,9 +46,7 @@ installation :the_choir_fragment do
     The interior stays at cold-storage temperature regardless of the Fragment's position in sunlight. Deck panels and walls carry the low tone. Non-Tuners often lower their voices without knowing why. A Tuner touching the wall feels the note continue beyond the mapped structure, including through bulkheads with no passage on the surviving plans.
   PROSE
   prose <<~PROSE, section: :operations, heading: "The Weekly Signal"
-    The transmitter activates on a seven-day interval measured by its own clock. It sends a short exchange in pre-Glassfall Sitharian: a location request, an acknowledgement, and a final sentence whose middle two words vary. No receiver in the current system has answered it.
-
-    The Ratter inspection crews have recordings from fourteen consecutive years. Signal strength has not declined. Attempts to read the transmitter from outside the Fragment return only the held tone, and navigation systems on unescorted research vessels tend to route around the site before it comes into instrument range.
+    #{embed :two_word_message, :description}
   PROSE
   prose <<~PROSE, section: :geography, heading: "Maintenance Route"
     Two flotillas share a quarterly walk-through. They replace lights, mark structural movement, and keep the clear route open to the southern deck. The arrangement began as a debt to the crew that found the signal and continued because nobody wants to discover its failure a week late.
@@ -66,9 +66,6 @@ end
 
 relate :rel_choir_fragment_located_in_shear, :located_in, :the_choir_fragment, :the_shear do
   prose "The Choir Fragment drifts along the outer Pell routes through #{ref :the_shear, "the Shear"}."
-end
-relate :rel_choir_fragment_carries_transmissions, :carries, :the_choir_fragment, :pre_glassfall_transmissions do
-  prose "Its southern antenna deck emits one of the longest continuous records of #{ref :pre_glassfall_transmissions, "pre-Glassfall transmission"}."
 end
 relate :rel_choir_fragment_resonates_span_nine, :resonates_with, :the_choir_fragment, :span_nine do
   prose "Its approach produces the same observer-dependent navigation failures recorded around #{ref :span_nine, "Span Nine"}."

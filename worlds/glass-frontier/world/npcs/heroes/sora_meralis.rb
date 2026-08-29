@@ -4,15 +4,13 @@ npc :sora_meralis do
   subkind :leader
   born 2391
   occupation "Chief Ledgrist of the Echo Ledger Conclave"
-  species "human"
-  identity_source :species, :humans
-  identity_source :culture, :sitharian_culture
+  type_of :humans
+  belongs_to :culture, :sitharian_culture
   descriptive_identity disposition:
     "Meralis gives a restricted holding's title, its date, and the reason " \
     "it is closed, and not the recording. Her seals record the evidence " \
     "she examined, the evidence she refused, and where a finding rests on " \
     "interpretation."
-  culture "Sithari"
   tags :archives, :resonance, :"signal-freq", :governance
   prominence :recognized
   status :complete
@@ -30,7 +28,7 @@ npc :sora_meralis do
   PROSE
 
   gm_note :appears, "Her catalogue corrections reach the party as paperwork trouble: one holding entered under two names, a gap nobody had listed, an access rule that differs between adjoining galleries they already have permission for."
-  gm_note :triggered_by, "Ask Meralis for a restricted holding and she gives the title, the date and the reason it is closed, without the recording. Private voices and the locations of active #{ref :echo_rivers, "Echo River"} sites she refuses outright."
+  gm_note :triggered_by, "Ask Meralis for a restricted holding and she gives the title, the date and the reason it is closed, without the recording. Private voices and the locations of active #{ref :kaleidos_echo_rivers, "Echo River"} sites she refuses outright."
   gm_note :complicates, "Three senior archivists have called a vote on her office while she keeps signing releases from #{ref :thornvault, "Thornvault"}'s upper gallery. A sealed release survives her losing, so both sides of a dispute have reason to move before the ballots are counted."
 end
 
@@ -42,13 +40,7 @@ relate :rel_sora_meralis_located_thornvault, :located_in, :sora_meralis, :thornv
 end
 relate :rel_sora_meralis_member_conclave, :member_of, :sora_meralis, :echo_ledger_conclave, since: 2413 do
   prose "Meralis entered the Conclave as an authentication archivist before joining its senior ledgers."
-  descriptive_identity standing:
-    "Her standing was earned at the authentication benches, where a " \
-    "missing line could move a home or a cargo hold between claimants; " \
-    "the discipline of those years — evidence examined, evidence " \
-    "refused, interpretation marked as such — is what she now asks of " \
-    "the whole catalogue."
 end
-relate :rel_sora_meralis_studies_echo_rivers, :studies, :sora_meralis, :echo_rivers, since: 2413 do
-  prose "Her authentication work compares disputed records with dated voices recovered from the Echo Rivers."
+relate :rel_sora_meralis_studies_kaleidos_echo_rivers, :studies, :sora_meralis, :kaleidos_echo_rivers, since: 2413 do
+  prose "Her authentication work compares disputed records with dated voices recovered from the Kaleidos Echo Rivers."
 end

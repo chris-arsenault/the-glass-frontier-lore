@@ -2,6 +2,7 @@ faction :the_continuity do
   name "The Continuity"
   summary "The Continuity is the political organization that has governed Sithari through elected majorities and municipal administration since 2160."
   subkind :government
+  type_of :government
   founded 2160
   mandate "Govern Sithari through its elected assembly and municipal administration"
   authority "Repeated electoral majorities, city law and control of the executive administration"
@@ -78,43 +79,10 @@ end
 
 relate :rel_continuity_governs_sithari, :governs, :the_continuity, :sithari, since: 2160 do
   prose "The #{ref :the_continuity, "Continuity"} has held a governing majority in #{ref :sithari, "Sithari"} since the post-Glassfall administration took permanent form."
-  descriptive_identity(
-    basis:
-      "Elected majorities, renewed at every citywide contest since the " \
-      "offices took their present form, resting on long records in " \
-      "utilities, law, education, and rebuilding.",
-    reach:
-      "The writ covers the assembly, the executive, and the budgets; " \
-      "the civil service is legally separate and older than many " \
-      "Continuity offices, can refuse an unlawful instruction, and " \
-      "regularly carries a project straight through a change of " \
-      "executive personnel.",
-    legitimacy:
-      "Voters who dislike particular policies still return the party as " \
-      "protection for systems earlier generations kept alive by hand, " \
-      "and the formal opposition has never assembled a citywide " \
-      "majority trusted with the whole administration.",
-    resistance:
-      "Opposition candidates win local races in Keelward and the " \
-      "Underlayers, independent ward members currently hold up the " \
-      "capital plan, and lower-city residents resist centralized route " \
-      "control."
-  )
 end
 relate :rel_continuity_headquartered_old_campus, :headquartered_in, :the_continuity, :old_campus, since: 2160 do
   prose "The party and the city executive keep their offices in the #{ref :old_campus, "Old Campus"}."
 end
 relate :rel_continuity_cooperates_tempered_accord, :cooperates_with, :the_continuity, :tempered_accord, since: 2423 do
   prose "The Continuity supplies city services to the #{ref :tempered_accord, "Tempered Accord"} while recognizing its control of the inner #{ref :accord_shore, "Accord Shore"} compound."
-  descriptive_identity(
-    basis:
-      "Water, power, transit, and municipal administration for the " \
-      "district, delivered through the same departments and forms the " \
-      "party runs everywhere else in Sithari.",
-    limits:
-      "The compound's independence is the point of the arrangement: " \
-      "delegations that watched neutral Sithari's loans and freight " \
-      "contracts pick sides in the Bitter Reach insisted on ground the " \
-      "city government serves but does not enter."
-  )
 end

@@ -3,20 +3,18 @@ npc :daro_venn do
   summary "Daro Venn is a senior route factor of the Pell Freight Assembly and the former Ratter captain who sponsored the Pell Cut array test."
   subkind :leader
   occupation "Senior route factor of the Pell Freight Assembly"
-  species "human"
-  identity_source :species, :humans
-  identity_source :culture, :hab_worlder
+  type_of :humans
+  belongs_to :culture, :hab_worlder
   descriptive_identity disposition:
     "Daro deals in particulars — which yard can make the repair, which " \
     "master will take a hard return load, which crew has spent its " \
     "tolerance for risk — and defends a past decision sooner than he " \
     "apologizes for it."
-  culture "Hab-Worlder"
   tags :trade, :salvage, :transport, :resonance
   prominence :recognized
 
   prose <<~PROSE
-    Senior route factor of the #{ref :pell_freight_assembly, "Pell Freight Assembly"}, former #{ref :ratters, "Ratter"} captain, and the public sponsor of the four-array test at #{ref :pell_cut, "Pell Cut"}. Daro's case for the test was simple: machines should absorb the losses that crews had been carrying home.
+    Senior route factor of the #{ref :pell_freight_assembly, "Pell Freight Assembly"}, former #{encyclopedia_ref :ratters, "Ratter"} captain, and the public sponsor of the four-array test at #{ref :pell_cut, "Pell Cut"}. Daro's case for the test was simple: machines should absorb the losses that crews had been carrying home.
 
     He knew the machinery and the people who worked it. That knowledge made the proposal credible, won the vote, and left him answerable when the synchronized arrays formed a boundary.
   PROSE
@@ -26,7 +24,7 @@ npc :daro_venn do
     Route work suited him. He remembers which yard can repair an old cutter head, which master will accept a difficult return load, and which crew has already spent its tolerance for risk. His authority rests on those particulars. Assembly meetings become hostile when he treats a schedule as more important than one of them.
   PROSE
   prose <<~PROSE, section: :tensions, heading: "Pell"
-    Daro argued that four synchronized arrays would finish the Pell claims quickly and reduce total exposure. He accepted the stop conditions proposed by the #{ref :tuners, "Tuners"}, then let the test continue through early signs that separated receivers were answering in the same cadence. By the time he ordered shutdown, the pattern held without the arrays.
+    Daro argued that four synchronized arrays would finish the Pell claims quickly and reduce total exposure. He accepted the stop conditions proposed by the #{encyclopedia_ref :tuners, "Tuners"}, then let the test continue through early signs that separated receivers were answering in the same cadence. By the time he ordered shutdown, the pattern held without the arrays.
 
     During the closure he stayed at Pell Cut, opened the Assembly's records, and assigned its haulers and repair crews to the Council. Some members kept him in office because he did this. Others voted against him because it came after the decision that mattered.
   PROSE
@@ -52,29 +50,7 @@ relate :rel_daro_based_in_glasswake, :located_in, :daro_venn, :glasswake, since:
 end
 relate :rel_daro_member_pell_assembly, :member_of, :daro_venn, :pell_freight_assembly, since: 2416 do
   prose "His voting share is the same size as any other working member's."
-  descriptive_identity standing:
-    "Seniority gives him the route council's voice and nothing over the " \
-    "members themselves — a meeting turns hostile when he treats a " \
-    "schedule as more important than one of them, and the Ratter crews " \
-    "he brought in expect to be dealt with as owners."
 end
 relate :rel_daro_participated_pell_four, :participated_in, :daro_venn, :pell_four do
   prose "He sponsored the synchronized test, delayed its shutdown, and directed Assembly support during the closure."
-  descriptive_identity(
-    aims:
-      "His case for the four arrays was that machines should absorb the " \
-      "losses crews had been carrying home, and that synchronized work " \
-      "would finish the Pell claims quickly enough to reduce total " \
-      "exposure.",
-    conduct:
-      "He accepted the Tuners' stop conditions and then let the test " \
-      "run through the early signs of separated receivers answering in " \
-      "one cadence; through the closure he stayed at the Cut with the " \
-      "Assembly's records open.",
-    cost:
-      "The vote that kept him in office split between members weighing " \
-      "the open records and members weighing when they were opened — " \
-      "and he still signs each cordon payment before ordinary freight " \
-      "accounts release."
-  )
 end

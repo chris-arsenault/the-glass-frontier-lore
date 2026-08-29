@@ -2,6 +2,7 @@ conflict :thirty_one_tool_feud do
   name "The Thirty-One Tool Feud"
   summary "The Thirty-One Tool Feud is a continuing conflict between Bay Thirty-One and Wash Four crews over one calibrated wrench."
   subkind :conflict
+  type_of :property_dispute
   status :complete
   prominence :marginal
   veiled "Thirty-One and Wash Four crews keep stealing one calibrated wrench and returning it with a new handle."

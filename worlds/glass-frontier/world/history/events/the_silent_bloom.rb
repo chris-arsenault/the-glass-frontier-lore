@@ -2,6 +2,7 @@ incident :the_silent_bloom do
   name "The Silent Bloom"
   summary "The Silent Bloom was the 2378 resonance cascade that began at Pyre, followed the abandoned Second Span guide chain, and opened the first Bloom Zones."
   subkind :disaster
+  type_of :resonance_cascade
   tags :catastrophe, :resonance, :"ring-hab", :origin
   prominence :renowned
   status :complete

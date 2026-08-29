@@ -2,7 +2,9 @@ installation :hinge_six do
   name "Hinge Six"
   summary "Hinge Six is a small Keel waystation where traffic from Kaleidos turns outward toward Korvath and Ashvane."
   playable_as :chronicle_location
+  context_tags :"realm:orbital"
   subkind :station
+  type_of :waypoint
   status :complete
   tags :orbital, :transport, :trade, :navigation, :resonance
   prominence :marginal

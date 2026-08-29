@@ -64,6 +64,17 @@ declares world-independent kinds, facts, effects, and relationship types. A
 world schema adds its controlled tags and sections, setting-specific relations,
 and narrower fact definitions.
 
+A world that has migrated away from only some shared Atlas kinds narrows its
+active constructor and inspection vocabulary without changing the prelude used
+by other worlds:
+
+```ruby
+restrict_entity_kinds! to: %i[npc faction geographic_location incident era thread]
+```
+
+The restriction must name declared shared kinds. A source declaration using an
+excluded kind fails during load, and `schema kinds` omits it for that world.
+
 ### Kinds and subkinds
 
 `entity_type` registers a top-level entity constructor. `wiki: false` marks a
@@ -101,9 +112,10 @@ Supported fact types:
 | `entities` | one or more known entity ids |
 
 `field` reads an authored value. `relation_field` reads incoming or outgoing
-edges at the query year and has `one` or `many` cardinality. `calculated`
-supports `elapsed_years`, `first_moment_year`, `anchor_year`,
-`timeline_period`, `previous_era`, and `next_era`.
+Atlas edges at the query year and has `one` or `many` cardinality. It never
+queries the Encyclopedia. `calculated` supports `elapsed_years`,
+`first_moment_year`, `anchor_year`, `timeline_period`, `previous_era`, and
+`next_era`.
 
 `expected: true` makes absence visible in `facts`; it does not force an author
 to invent a value. `require_fact_cards! from: :renowned, minimum: 4` makes too
@@ -165,55 +177,26 @@ unknown word.
 
 ### Descriptive identity
 
-An entity kind, subkind, or relation kind may declare a descriptive identity
-contract. Keys define the stable output dictionary. Source slots define the
-only canonical entries whose identity may contribute to an owner.
+An Atlas or Encyclopedia kind may declare descriptive identity keys. They define
+a stable local string dictionary for entries of that kind. Subkinds and
+relations cannot declare keys.
 
 ```ruby
 extend_kind :species do
-  identity_key :visual, required: true, merge: :append
-  no_identity_sources
+  identity_key :visual
 end
 
 extend_kind :npc do
-  identity_key :visual, required: true, merge: :append
-  identity_source :species,
-                  kinds: :species,
-                  cardinality: :one,
-                  keys: :visual
+  identity_key :visual
+  identity_key :bearing
 end
 ```
 
-`identity_key` accepts `required:`, `merge:` (`append` or `replace`), and a text
-`separator:`. A subkind definition with the same key replaces the kind
-definition in place.
-
-`identity_source` accepts:
-
-- `kinds:` and optional `subkinds:` for allowed source entries;
-- `cardinality:` (`one` or `many`) and `required:`;
-- `keys:` as a list of same-name projections or a source-to-target key hash;
-- `precedence:` for deterministic ordering;
-- optional `relation:` and `direction:` to select source entries from live typed
-  edges at the query year.
-
-A direct slot is assigned on an entity or named relationship with
-`identity_source :slot, :entry_id`. `descriptive_identity key: "text"` extends
-resolved source text. `override_identity key: "text"` suppresses inherited
-contributions for that key without changing the source or another consumer.
-
-Resolution recursively composes source entries, applies projections in declared
-precedence, then applies local extensions and overrides. The result retains the
-normalized source references, local operations, resolved dictionary, and
-per-key provenance, including suppressed contributions. Cycles are rejected.
-
-Source entries must be complete canonical entries with prose and complete
-required identity. They cannot be shells or veiled entries. A public owner
-cannot use a DM-only source. A world calls `require_descriptive_identities!` to
-require every kind to declare at least one source slot or
-`no_identity_sources`; subkinds inherit and may replace or omit declared slots.
-Shells may defer values, but established veiled entries must satisfy the same
-required source and key contract as other entities.
+`identity_key` accepts only the key name. An entry writes any applicable values
+with `descriptive_identity key: "text"`. Values must be non-empty strings;
+unfilled keys remain absent. The system performs no source lookup, inheritance,
+merge, override, relation traversal, or provenance tracking. Veiled Atlas
+entries remain blank slates and cannot declare descriptive identity.
 
 ### Controlled declarations
 
@@ -231,6 +214,113 @@ required source and key contract as other entities.
   need an explicit chronicle-location decision.
 - `playable_role :species, "meaning"` declares one controlled selection role.
 - `declare_static_attr :name` adds an attribute that effects may not mutate.
+
+## 2A. Encyclopedia schema and entries
+
+The Encyclopedia is a second canonical namespace for reusable world material.
+Its entries do not become Atlas entities, pages, moments, or graph nodes.
+
+```ruby
+schema do
+  encyclopedia_type :lifeform,
+                    description: "A reusable kind of living or anomalously living organism." do
+    field :lifespan, type: :text, expected: false
+    identity_key :appearance
+  end
+
+  context_tag :"realm:surface", "Planetary surface", scopes: :place
+end
+```
+
+The shared schema declares eleven Encyclopedia kinds: `lifeform`, `culture`,
+`role`, `practice`, `doctrine`, `ability`, `institution`, `technology`,
+`resource`, `phenomenon`, and `place_feature`. A practice is a discrete learned
+action. A doctrine is a belief, rule, measure, prohibition, or interpretive
+framework. An ability is a discrete extraordinary effect at one or more ordered
+power tiers. The schema stops at the kind contract. `subkind` is required
+authored classification, not a separately registered schema. Worlds register
+context tags. Each tag lists one or more of `world`, `place`, `scene`, and
+`participant` as allowed scopes; it may also declare a parent and compatible
+tags.
+
+An Encyclopedia kind may declare typed attribute fields and descriptive-
+identity keys. These declarations apply at the kind level to every authored
+subkind. A world adds setting-specific declarations with
+`extend_encyclopedia_kind`; there is no Encyclopedia subkind schema.
+
+An ability kind may declare ordered tiers with `tier NAME, rank: INTEGER`. An
+ability entry uses `tier NAME, effect: TEXT, cost: TEXT`. Every non-shell
+ability declares at least one tier. Complete abilities require both effect and
+cost; drafts may leave cost unsettled.
+
+```ruby
+encyclopedia :marn do
+  title "Marn"
+  kind :lifeform
+  subkind :animal
+  status :complete
+  summary "Broad-footed herd animals kept along settled surface routes."
+  topics :ecology, :trade
+  prevalence :common
+  descriptive_identity appearance: "A deep-bodied grazer with broad flexible feet."
+
+  appears_when all: { place: [:"realm:surface"] }
+
+  cue "A whole tether line turns toward the same empty ground."
+  cue "Broad flexible feet leave shallow crescent prints."
+  affordance "Herders read herd movement as an early warning."
+  pressure "A changed machine rhythm can unsettle every animal in a pen."
+  variation "Road herds carry household marks on shedding horn."
+  variation "Market animals know machinery better than open routes."
+  prose "Marn travel in tethered herds along the settled roads."
+end
+
+creature :ironwhistle do
+  title "Ironwhistle"
+  type_of :marn
+  prose "Ironwhistle is a named #{encyclopedia_ref :marn, "herd animal"}."
+end
+```
+
+An entry declares either `available_globally` or one or more `appears_when`
+selectors. Selector groups are `all`, `any`, and `none`, keyed by context scope.
+`encyclopedia_reference(:id)` makes one selector value an exact Encyclopedia
+identity rather than a context tag. It cannot target Atlas. Topics use the
+world's ordinary tag vocabulary.
+
+Prevalence is required and is `common`, `uncommon`, or `rare`. It measures
+frequency when the entry is applicable. Atlas prominence measures awareness of
+a particular named entity and does not appear on Encyclopedia entries.
+
+A complete entry requires two cues, one affordance, one pressure, two
+variations, prose, and valid availability. It has no custom facts, GM notes,
+placement, temporal state, or ordinary Atlas relationships. It may carry typed
+kind fields, descriptive identity, editorial logs and questions, and a
+`character_role` of `species` or `culture` with an `origin_blurb`. Whole entries
+and individual prose or usage records may be GM-only. Encyclopedia prose may
+embed another Encyclopedia entry but not Atlas prose.
+
+The Encyclopedia has no relationship graph. A particular Atlas entity may use
+one `type_of` attribute to identify its primary reusable Encyclopedia type.
+It may also declare repeatable, kind-qualified memberships with
+`belongs_to :culture, :sitharian`; `culture :sitharian` is equivalent shorthand.
+`World#encyclopedia_instances` and `World#encyclopedia_members` derive separate
+reverse lists. None of these values is an Atlas relationship. Encyclopedia kind
+fields are scalar `text`, `integer`, or `year` values. They do not point into
+either catalog. Atlas `entity` and `entities` facts remain Atlas-only.
+
+Prose uses `ref` for Atlas ids and `encyclopedia_ref` for Encyclopedia ids.
+Embeds remain within their owner's namespace. The same stable id may exist in
+both stores without ambiguity because every lookup states its namespace.
+
+Atlas and Encyclopedia entries may each have local descriptive identity under
+their own kind's keys. `type_of` and `belongs_to` never copy those values. A GM
+may use classification information without the engine deciding how it changes
+a particular entity's description.
+
+Atlas entities declare `context_tags`. A world may require every entity in one
+playable role to have at least one with
+`require_context_tags! for_playable: :chronicle_location`.
 
 ## 3. Timeline
 
@@ -294,6 +384,11 @@ characters.
 `veiled "Sentence."` defines a thin public story hook with a stable id and its
 real kind. Its affirmative declarative sentence appears during story selection;
 `summary` separately identifies what the entity is in Atlas and search results.
+A veiled entry must name a major particular story subject. Veiling does not
+move a reusable type into the Atlas: that type belongs in the Encyclopedia, and
+a distinctly named Atlas instance retains the veil and graph relationships with
+`type_of` when applicable. A veiled Atlas id cannot duplicate an Encyclopedia
+type id.
 A veiled entity cannot also carry prose, facts, DM visibility, a location kind,
 an article flag, or a playable role.
 
@@ -642,6 +737,9 @@ wiki or the whole graph:
 | Need | Command |
 |---|---|
 | find a stable id | `search QUERY` |
+| search reusable material | `reference search QUERY` |
+| match reusable material to context | `reference match --context SCOPE=TAG --encyclopedia SCOPE=ID` |
+| list Atlas instances of a reusable type | `reference page ID` |
 | read current instructions | `guide list` / `guide NAME` |
 | inspect allowed types and values | `schema kinds` / `schema kind NAME` / `schema relations` / `schema relation NAME` / `schema frames` / `schema frame NAME` / `schema tags` / `schema sections` |
 | read one reader-shaped entry | `page ID` |
@@ -671,7 +769,13 @@ copied into the CLI.
 
 `schema` inspects the merged shared and world schema that validation will use.
 Kind detail includes subkinds and fact shapes; relation detail includes its
-declared constraints. Tags and prose sections come from the selected world.
+declared constraints. `reference-kinds` and `context-tags` inspect the separate
+Encyclopedia contract. Tags and prose sections come from the selected world.
+
+`reference` never returns Atlas entries. `list` and `search` return bounded
+catalog results, `page` reads one entry and its derived Atlas instance list,
+and `match` evaluates context selectors while reporting the matched terms.
+Existing `search`, `page`, `connections`, `path`, and `graph` remain Atlas-only.
 
 `connections` reports every historical relationship interval touching one
 entry, including direction, neighbor title and type, canonical source, and
@@ -708,8 +812,17 @@ records; other bounded commands use query objects. Other commands reject JSON.
 - effects do not change declared static attributes;
 - temporal existence and moment ordering are causal;
 - tags, prominence, subkinds, fact types, and sections use their schemas;
-- descriptive identity uses declared keys and source slots, complete compatible
-  source entries, acyclic resolution, valid cardinality, and required output;
+- Atlas context tags use the registered vocabulary and allowed place or
+  participant scope;
+- Encyclopedia entries have valid kinds, statuses, topics, prevalence,
+  availability, complete-entry content, and audience boundaries;
+- Encyclopedia shells contain only title, kind, subkind, and shell status and
+  remain absent from player queries and exports;
+- Atlas `type_of` targets one known, audience-compatible Encyclopedia entry;
+  kind-qualified `belongs_to` memberships target entries of the declared kind;
+  neither enters the Atlas graph; a world may require primary types for named
+  Atlas kinds;
+- descriptive identity uses only kind-declared keys and non-empty local strings;
 - narrative roles apply only to NPCs and use `viewpoint` or `titan`;
 - authoring status and provenance values have allowed shapes.
 
@@ -754,11 +867,13 @@ world.render(:site, out: "build/site", world_id: "dry-war",
   causality, and sidebar.
 - `graph` returns JSON nodes and full relationship intervals, marking which are
   live at the render year and retaining positions, route geometry, edge
-  properties, resolved descriptive identity, source references, local
-  operations, and per-key provenance.
+  properties, and local descriptive identity on Atlas nodes.
 - `timeline` returns a Markdown effect strip for one entity.
 - `site` writes the public JSON used by the React reader and can write a
-  separate private editorial bundle.
+  separate private editorial bundle. Schema version 12 carries singular primary
+  Encyclopedia types, kind-qualified memberships, local descriptive identity,
+  and a separate `encyclopedia` bundle with derived Atlas instance and member
+  lists.
 
 All targets are disposable. The DSL is the only source loaded on the next run.
 

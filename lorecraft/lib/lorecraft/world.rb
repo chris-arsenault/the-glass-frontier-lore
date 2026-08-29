@@ -12,6 +12,7 @@ require_relative "identity"
 require_relative "entity"
 require_relative "moment"
 require_relative "relation"
+require_relative "encyclopedia"
 require_relative "spatial"
 require_relative "page"
 require_relative "definition_context"
@@ -24,7 +25,7 @@ module Lorecraft
   class World
     attr_reader :schema, :timeline, :entities, :moments, :relation_instances,
                 :authored_pages, :chronicles, :era_narratives, :event_records,
-                :spatial_frames
+                :spatial_frames, :encyclopedia_entries
 
     def initialize
       @schema = Schema.new
@@ -32,6 +33,7 @@ module Lorecraft
       @entities = {}
       @moments = {}
       @relation_instances = {}
+      @encyclopedia_entries = {}
       @authored_pages = {}
       @chronicles = {}
       @era_narratives = {}
@@ -39,7 +41,6 @@ module Lorecraft
       @spatial_frames = {}
       @load_index = 0
       @resolvers = {}
-      @identity_resolvers = {}
     end
 
     # --- construction ------------------------------------------------------
@@ -77,6 +78,10 @@ module Lorecraft
     end
 
     def define_entity(kind:, id:, source_line: nil, **_opts, &block)
+      unless schema.kind?(kind)
+        raise DefinitionError, "entity kind #{kind} is not allowed in this world"
+      end
+
       id = id.to_sym
       raise DefinitionError, "duplicate entity id #{id}" if @entities.key?(id) || @moments.key?(id)
 
@@ -85,6 +90,17 @@ module Lorecraft
       )
       entity.build(self, &block)
       @entities[id] = entity
+    end
+
+    def define_encyclopedia_entry(id:, source_line: nil, &block)
+      id = id.to_sym
+      if @encyclopedia_entries.key?(id)
+        raise DefinitionError, "duplicate encyclopedia id #{id}"
+      end
+
+      @encyclopedia_entries[id] = EncyclopediaEntry.new(
+        id: id, source_file: @current_file, source_line: source_line
+      ).build(self, &block)
     end
 
     def define_moment(id:, at: nil, span: nil, of: nil, kind: :incident,
@@ -184,7 +200,6 @@ module Lorecraft
     # load path has a single completion hook.
     def finalize!
       @resolvers.clear
-      @identity_resolvers.clear
       self
     end
 
@@ -196,6 +211,17 @@ module Lorecraft
     end
 
     def entity(id) = @entities[id.to_sym]
+    def encyclopedia_entry(id) = @encyclopedia_entries[id.to_sym]
+    def encyclopedia_instances(id)
+      id = id.to_sym
+      @entities.values.select { |entity| entity.encyclopedia_type == id }
+    end
+    def encyclopedia_members(id)
+      id = id.to_sym
+      @entities.values.select do |entity|
+        entity.encyclopedia_memberships.any? { |membership| membership.entry == id }
+      end
+    end
     def moment(id) = @moments[id.to_sym]
     def chronicle(id) = @chronicles[id.to_sym]
     def era_narrative(id) = @era_narratives[id.to_sym]
@@ -205,10 +231,7 @@ module Lorecraft
     end
 
     def resolve_identity(owner, at: :now, audience: :all)
-      year = @timeline.year_for(at)
-      resolver = (@identity_resolvers[[year, audience.to_sym]] ||=
-        IdentityResolver.new(self, at: year, audience: audience))
-      resolver.resolve(owner)
+      IdentityResolver.new(self, audience: audience).resolve(owner)
     end
     def known_id?(id) = @entities.key?(id.to_sym) || @moments.key?(id.to_sym)
 
@@ -307,7 +330,7 @@ module Lorecraft
     # prominence-reach check see it without anyone declaring an edge.
     def embed_edges(audience: :all)
       @embed_edges ||= {}
-      @embed_edges[audience] ||= prose_owners.flat_map do |owner|
+      @embed_edges[audience] ||= atlas_prose_owners.flat_map do |owner|
         next [] if audience == :player && owner.respond_to?(:dm?) && owner.dm?
 
         owner.prose_blocks.flat_map do |block|
@@ -320,7 +343,23 @@ module Lorecraft
       end.uniq
     end
 
-    def prose_owners = @entities.values + @moments.values + @relation_instances.values
+    def encyclopedia_embed_edges(audience: :all)
+      @encyclopedia_embed_edges ||= {}
+      @encyclopedia_embed_edges[audience] ||= @encyclopedia_entries.values.flat_map do |owner|
+        next [] if audience == :player && owner.dm?
+
+        owner.prose_blocks.flat_map do |block|
+          next [] if audience == :player && block.dm?
+
+          Markers.scan(block.text).filter_map do |_match, marker|
+            [owner.id, :embeds, marker.id] if marker.kind == :embed
+          end
+        end
+      end.uniq
+    end
+
+    def atlas_prose_owners = @entities.values + @moments.values + @relation_instances.values
+    def prose_owners = atlas_prose_owners + @encyclopedia_entries.values
     def narrative_documents = @chronicles.values + @era_narratives.values
     def authored_owners = prose_owners + narrative_documents + @authored_pages.values
     def published_context_owners = @entities.values + narrative_documents
@@ -332,7 +371,7 @@ module Lorecraft
     # engine cannot traverse to a node that does not exist. Topology reports
     # these beside degree.
     def pending_edges
-      @pending_edges ||= prose_owners.flat_map do |owner|
+      @pending_edges ||= atlas_prose_owners.flat_map do |owner|
         id = owning_entity_id(owner)
         next [] unless id
 

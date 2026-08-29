@@ -2,6 +2,7 @@ npc :maren_soll do
   name "Maren Soll"
   summary "Maren Soll is a Whitefoot cargo official who inspects signal loads and verifies their senders' pulses."
   subkind :official
+  type_of :person
   status :complete
   prominence :marginal
   veiled "Maren Soll inspects Whitefoot signal loads and refuses any crate whose sender cannot reproduce its pulse."end

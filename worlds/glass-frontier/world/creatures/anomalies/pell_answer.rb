@@ -2,6 +2,7 @@ creature :pell_answer do
   name "Pell Answer"
   summary "The Pell Answer is a voice-like anomaly that formed among four distant receivers during Pell Four. It spoke through alarms, shutters, and borrowed crew transmissions, then lost coherence when closure crews broke every repeated rhythm."
   subkind :anomaly
+  type_of :farborn
   tags :resonance, :danger, :mystery, :orbital
   prominence :recognized
 
@@ -19,7 +20,7 @@ creature :pell_answer do
   prose <<~PROSE
     The Displacement Council designation for the voice-like entity that formed during #{ref :pell_four, "Pell Four"}. No body was seen. The Pell Answer occupied the relation among four distant receivers, speaking through alarms, shutters, and borrowed pieces of crew transmission.
 
-    Council records classify it beside the #{ref :farborn, "Farborn"}, with a caution that the classification describes behavior rather than origin. #{ref :ratters, "Ratter"} crews usually call it a young choir-thing. The #{ref :echo_ledger_conclave, "Echo Ledger Conclave"} calls that conclusion premature.
+    Council records classify it beside the #{encyclopedia_ref :farborn, "Farborn"}, with a caution that the classification describes behavior rather than origin. #{encyclopedia_ref :ratters, "Ratter"} crews usually call it a young choir-thing. The #{ref :echo_ledger_conclave, "Echo Ledger Conclave"} calls that conclusion premature.
   PROSE
   prose <<~PROSE, section: :description, heading: "Behavior"
     The Pell Answer repeated the cadence of the extraction rig that formed it. When a cutter pulsed, it answered from another receiver. When a crew member spoke on the work channel, pieces of the speech returned in later alarms. Its clearest output resembled a distress call asking the rig to approach the boundary.
@@ -47,10 +48,4 @@ end
 
 relate :rel_pell_answer_created_during_pell_four, :created_during, :pell_answer, :pell_four do
   prose "The Pell Answer appeared as the four receivers began answering one another."
-end
-relate :rel_pell_answer_embodies_farborn, :embodies, :pell_answer, :farborn do
-  prose "Council bestiaries place it provisionally among voice-like #{ref :farborn, "Farborn"}."
-end
-relate :rel_pell_answer_resonates_remote_cutting, :resonates_with, :pell_answer, :remote_cutting do
-  prose "It learned and repeated the shared cadence of the remote cutting arrays."
 end

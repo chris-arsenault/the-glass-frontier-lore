@@ -2,8 +2,10 @@ installation :perch do
   name "Perch"
   summary "Perch is a seasonal settlement between two ring fragments in the Glass Frontier, expanding from three hundred residents to several thousand during the sarn migration."
   playable_as :chronicle_location, :homeland
+  context_tags :"realm:ring_habitat"
   origin_blurb "A seasonal hab that expands around the sarn passage, comb harvest, and returning vessel wards."
   subkind :settlement
+  type_of :settlement
   status :complete
   tags :"ring-hab", :ecology, :trade, :transport, :"kinetic-freq"
   prominence :recognized
@@ -65,20 +67,10 @@ end
 
 relate :rel_perch_supplies_talven, :supplies, :perch, :talven, since: 2435 do
   prose "Perch sends graded sarn combs to Talven's instrument makers after each migration."
-  descriptive_identity(
-    terms:
-      "One shipment a year, sold at the closing market that opens when " \
-      "the last healthy animal crosses the far fragment: shed flight " \
-      "combs trimmed of living tissue and sorted by size and resonance.",
-    dependence:
-      "Talven's middle-gallery shops buy the flexible grades for hull " \
-      "vanes and instrument work; a lean passage means a lean year of " \
-      "comb stock, and no second harvest is coming."
-  )
 end
 
 
-relate :rel_pava_lorn_studies_sarn, :studies, :pava_lorn, :sarn, since: 2435 do
+relate :rel_pava_lorn_studies_perch_circle, :studies, :pava_lorn, :perch_circle, since: 2435 do
   prose "Pava Lorn reads sarn spacing, comb angle, breathing flashes, and the load carried across each spiral."
 end
 
@@ -86,6 +78,6 @@ relate :rel_molt_carries_pava_lorn, :carries, :molt, :pava_lorn, since: 2435 do
   prose "Molt carries Pava Lorn through the herd when the pylon record cannot resolve the inner formation."
 end
 
-relate :rel_molt_carries_sarn, :carries, :molt, :sarn, since: 2435 do
+relate :rel_molt_carries_perch_circle, :carries, :molt, :perch_circle, since: 2435 do
   prose "Molt's open recovery cradle returns exhausted juvenile sarn to the quiet center of the herd."
 end

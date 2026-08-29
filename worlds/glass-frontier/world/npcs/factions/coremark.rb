@@ -4,6 +4,7 @@ faction :coremark do
   playable_as :allegiance
   origin_blurb "A disciplined outlaw salvage company pays well, protects its crews, and extracts where the Compact forbids."
   subkind :company
+  type_of :criminal_organization
   path "player/npcs/factions/coremark.md"
   reviewed "2026-03-19"
   tags :salvage, :ringglass, :trade, :danger
@@ -35,7 +36,7 @@ faction :coremark do
 
   # --- static identity (what Coremark IS; time-varying facts live in moments) ---
   prose <<~PROSE
-    A salvage corporation that became a criminal syndicate. Coremark made its name running industrial-scale extraction in the deep #{ref :the_shear, "Shear"} — pulling #{ref :ringglass, "ringglass"} out of places nobody else would go — and lost its legitimacy when its own negligence helped trigger the #{ref :the_silent_bloom, "Silent Bloom"}. What was a corporation now does the same work underground.
+    A salvage corporation that became a criminal syndicate. Coremark made its name running industrial-scale extraction in the deep #{ref :the_shear, "Shear"} — pulling #{encyclopedia_ref :ringglass, "ringglass"} out of places nobody else would go — and lost its legitimacy when its own negligence helped trigger the #{ref :the_silent_bloom, "Silent Bloom"}. What was a corporation now does the same work underground.
   PROSE
   prose <<~PROSE, section: :culture, heading: "Character"
     Profit-driven from the start, but not malicious — Coremark took good care of its people, because skilled deep-Shear operators were rare and hard to replace. Compensation was excellent and retention was strategy, but the result was the same: Coremark crews were the best in the system, and they knew it. The "move fast, profit first" culture didn't change when the company went criminal. It just stopped pretending to be legitimate. The name stuck, too — everyone still calls them Coremark, and they don't seem to mind.
@@ -51,7 +52,7 @@ faction :coremark do
 
     The cells produce ringglass at industrial volumes. The output is laundered through fence networks before it enters the legitimate market, and a significant fraction of the system's mid-grade ringglass supply originates in Coremark cells whether anyone wants to acknowledge this or not. The fence networks coordinate with the second unit type to move the material.
 
-    Extraction cells will fight other crews that contest their working zones. They will not engage #{ref :shear_compact, "Shear Compact"} inspectors directly — Compact inspectors travel under standing protections that the syndicate's leadership has explicitly chosen not to violate — but cells will jam signals, falsify telemetry, and disappear into the Deep when Compact attention turns their way. The cells are professional. They will also kill an independent #{ref :ratters, "Ratter"} crew that has stumbled into a Coremark working zone, and have done so often enough that experienced Deep-runners give known Coremark territory wide berth.
+    Extraction cells will fight other crews that contest their working zones. They will not engage #{ref :shear_compact, "Shear Compact"} inspectors directly — Compact inspectors travel under standing protections that the syndicate's leadership has explicitly chosen not to violate — but cells will jam signals, falsify telemetry, and disappear into the Deep when Compact attention turns their way. The cells are professional. They will also kill an independent #{encyclopedia_ref :ratters, "Ratter"} crew that has stumbled into a Coremark working zone, and have done so often enough that experienced Deep-runners give known Coremark territory wide berth.
 
     ### Black-Market Convoys <!-- Operations -->
 
@@ -59,7 +60,7 @@ faction :coremark do
 
     A convoy unit consists of a route officer, a small fleet of cargo vessels (often disguised as legitimate haulers, sometimes openly Coremark in territory where openness is operationally cheap), and an armed escort element. The route officers are the strategic core; they hold the routing knowledge, the fence contacts at each waypoint, and the patterns of timing that keep convoys from being intercepted. A senior route officer's working knowledge is among the most valuable single assets in the syndicate.
 
-    The cargoes are predictable: laundered ringglass moving from extraction cells to legitimate buyers, #{ref :bloom_zones, "Bloom Zone"} relics moving from Coremark recovery operations to private collectors and the #{ref :echo_ledger_conclave, "Echo Ledger Conclave"}'s gray-market consultants, #{ref :duskgrain, "duskgrain"} moving from sources nobody on the syndicate side discusses to buyers who pay extraordinary prices and ask no questions. Volume on these last two is smaller than the ringglass flow and produces a disproportionate share of the syndicate's income.
+    The cargoes are predictable: laundered ringglass moving from extraction cells to legitimate buyers, #{ref :bloom_zones, "Bloom Zone"} relics moving from Coremark recovery operations to private collectors and the #{ref :echo_ledger_conclave, "Echo Ledger Conclave"}'s gray-market consultants, #{encyclopedia_ref :duskgrain, "duskgrain"} moving from sources nobody on the syndicate side discusses to buyers who pay extraordinary prices and ask no questions. Volume on these last two is smaller than the ringglass flow and produces a disproportionate share of the syndicate's income.
 
     Convoy routes use a network of hidden waystations, sympathetic ports, and fence-friendly surface settlements. The waystations are sometimes shared with extraction cells; the surface ports include several settlements whose civic leadership has, in some unrecorded conversation in the past, accepted that the syndicate's presence is a fact to be managed rather than fought. The #{ref :tempered_accord, "Tempered Accord"} has not formally challenged these arrangements. The Accord's signatories include some of the settlements in question. The conversation, if it ever happens, will be uncomfortable.
 
@@ -73,7 +74,7 @@ faction :coremark do
     A successful purchase can leave a town dependent on an object nobody can reproduce or service. Theft then disables public infrastructure, and replacement demand sends recovery crews back across cordons. Route crews test poorly understood effects in live confrontations. Coremark profits once from the sale and again when the buyer needs access, concealment, or another relic to replace the first.
   PROSE
 
-  gm_note :appears, "Salvage in the deep #{ref :the_shear, "Shear"} eventually crosses a Coremark working zone, announced by a survey vessel standing off. A cell that reads the party as competitors jams their signal, falsifies telemetry, and has killed independent #{ref :ratters, "Ratter"} crews for less."
+  gm_note :appears, "Salvage in the deep #{ref :the_shear, "Shear"} eventually crosses a Coremark working zone, announced by a survey vessel standing off. A cell that reads the party as competitors jams their signal, falsifies telemetry, and has killed independent #{encyclopedia_ref :ratters, "Ratter"} crews for less."
   gm_note :triggered_by, "Press a convoy hard and it abandons the cargo rather than fight, because doctrine puts route continuity above any single load. The party keeps what it seized and loses the route: the waystation they followed goes cold and the next traffic runs on a pattern nobody has seen."
   gm_note :complicates, "A town that bought a Bloom relic to hold its air return open is a Coremark client whether its council says so or not. Recovering the object as stolen goods shuts down the thing it was keeping running, and the replacement order sends recovery crews back across a cordon."
 end
@@ -87,7 +88,7 @@ end
 moment :coremark_founded, year: 2322, of: :coremark do
   summary "Coremark was founded at Korvath in 2322 to extract high-grade ringglass from the Deep Shear."
   prose <<~PROSE
-    Founded in the 2320s on #{ref :korvath, "Korvath"} when the Shear salvage industry was young and unregulated. Coremark's founding insight was that the deep #{ref :the_shear, "Shear"} — the dangerous, distorted, poorly charted pockets far from any hab — held the highest-grade #{ref :ringglass, "ringglass"} in the system. Everyone else was picking the accessible debris fields clean; Coremark went where the margins were lethal and the material was priceless.
+    Founded in the 2320s on #{ref :korvath, "Korvath"} when the Shear salvage industry was young and unregulated. Coremark's founding insight was that the deep #{ref :the_shear, "Shear"} — the dangerous, distorted, poorly charted pockets far from any hab — held the highest-grade #{encyclopedia_ref :ringglass, "ringglass"} in the system. Everyone else was picking the accessible debris fields clean; Coremark went where the margins were lethal and the material was priceless.
   PROSE
   effects do
     set :coremark, standing: :legitimate
@@ -99,7 +100,7 @@ end
 moment :coremark_expands, year: 2338, of: :coremark do
   summary "Coremark expanded from Deep Shear work into high-volume mid-drift extraction in 2338."
   prose <<~PROSE
-    As #{ref :ringglass, "ringglass"} demand grew through the Rekindling, Coremark expanded beyond its deep-Shear niche into mid-drift extraction — closer to inhabited habs, higher volume, lower margins. The aggressive methods it had honed where nobody else was present became destructive when applied near civilian populations. Its deep-Shear techniques were genuine, though: the #{ref :shear_compact, "Shear Compact"} later standardized several of them into industry practice.
+    As #{encyclopedia_ref :ringglass, "ringglass"} demand grew through the Rekindling, Coremark expanded beyond its deep-Shear niche into mid-drift extraction — closer to inhabited habs, higher volume, lower margins. The aggressive methods it had honed where nobody else was present became destructive when applied near civilian populations. Its deep-Shear techniques were genuine, though: the #{ref :shear_compact, "Shear Compact"} later standardized several of them into industry practice.
   PROSE
 end
 
@@ -114,7 +115,7 @@ end
 moment :coremark_goes_under, year: 2407, of: :coremark do
   summary "Coremark became an underground criminal syndicate during the Bitter Reach in 2407."
   prose <<~PROSE
-    Through the Bitter Reach the disgraced corporation went underground. The people and infrastructure didn't disappear — they stopped being legitimate. Coremark became a criminal syndicate, doing what it had always done, now illegally: deep-Shear extraction in uncharted zones, smuggling #{ref :bloom_zones, "Bloom Zone"} relics and #{ref :duskgrain, "duskgrain"} through black-market channels, and protection rackets along the less-patrolled stretches of #{ref :keel, "the Keel"}.
+    Through the Bitter Reach the disgraced corporation went underground. The people and infrastructure didn't disappear — they stopped being legitimate. Coremark became a criminal syndicate, doing what it had always done, now illegally: deep-Shear extraction in uncharted zones, smuggling #{ref :bloom_zones, "Bloom Zone"} relics and #{encyclopedia_ref :duskgrain, "duskgrain"} through black-market channels, and protection rackets along the less-patrolled stretches of #{ref :keel, "the Keel"}.
   PROSE
   effects { set :coremark, standing: :criminal }
 end

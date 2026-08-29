@@ -2,6 +2,7 @@ npc :coren_mireth do
   name "Coren Mireth"
   summary "Coren Mireth leads the volunteer crews that keep Kyther Range meltwater moving when road crews withdraw."
   subkind :leader
+  type_of :person
   status :complete
   prominence :marginal
   veiled "Coren Mireth commands the volunteer line that keeps Kyther meltwater moving when the road crews withdraw."end

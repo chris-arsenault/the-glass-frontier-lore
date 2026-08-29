@@ -8,8 +8,7 @@ module Lorecraft
   # this.
   class Schema
     KindDef = Struct.new(
-      :name, :wiki, :facts, :subkinds, :identity_keys, :identity_sources,
-      :identity_source_policy,
+      :name, :wiki, :facts, :subkinds, :identity_keys,
       keyword_init: true
     )
     PlayableRoleDef = Struct.new(:name, :description, keyword_init: true)
@@ -23,8 +22,7 @@ module Lorecraft
       keyword_init: true
     )
     SubkindDef = Struct.new(
-      :name, :label, :facts, :omitted_facts, :identity_keys, :identity_sources,
-      :omitted_identity_sources, :identity_source_policy,
+      :name, :label, :facts, :omitted_facts,
       keyword_init: true
     )
     FactDef = Struct.new(
@@ -36,25 +34,13 @@ module Lorecraft
     end
 
     IdentityKeyDef = Struct.new(
-      :name, :required, :merge, :separator, :order,
+      :name, :order,
       keyword_init: true
-    ) do
-      def required? = required == true
-    end
-
-    IdentitySourceDef = Struct.new(
-      :name, :relation, :direction, :cardinality, :required, :kinds, :subkinds,
-      :projection, :precedence, :order,
-      keyword_init: true
-    ) do
-      def required? = required == true
-      def relation? = !relation.nil?
-    end
+    )
 
     RelationDef = Struct.new(
       :name, :category, :temporal, :symmetric, :inverse,
       :domain, :range, :cardinality, :exclusive_with, :description, :properties,
-      :identity_keys, :identity_sources, :identity_source_policy,
       keyword_init: true
     )
     RelationPropertyDef = Struct.new(
@@ -64,7 +50,18 @@ module Lorecraft
     ) do
       def required? = required == true
     end
-
+    EncyclopediaKindDef = Struct.new(
+      :name, :description, :fields, :identity_keys, :tiers,
+      keyword_init: true
+    )
+    AbilityTierDef = Struct.new(
+      :name, :rank, :description,
+      keyword_init: true
+    )
+    ContextTagDef = Struct.new(
+      :name, :description, :scopes, :parent, :compatible_with,
+      keyword_init: true
+    )
     # Static attributes are declared on an entity and never touched by moment
     # effects. Dynamic state is the opposite: only ever changed by effects.
     # These are the known static attribute names; an effect targeting one is a
@@ -78,10 +75,14 @@ module Lorecraft
     DEFAULT_STATIC_ATTRS = %i[
       title summary source_id tags prominence alias region narrative_role status reviewed
       species culture era date founded registry prominence_xrefs structural subkind
-      article playable_as origin_blurb veiled
+      article playable_as origin_blurb veiled context_tags
     ].freeze
 
     PROMINENCE_LEVELS = %i[forgotten marginal recognized renowned mythic].freeze
+    ENCYCLOPEDIA_PREVALENCE_LEVELS = %i[common uncommon rare].freeze
+    ENCYCLOPEDIA_STATUSES = %i[shell draft complete].freeze
+    ENCYCLOPEDIA_CHARACTER_ROLES = %i[species culture].freeze
+    CONTEXT_SCOPES = %i[world place scene participant].freeze
 
     # What a GM note answers, and the only kinds `gm_note` accepts. A running
     # game consults them at different moments, which is why they are typed
@@ -95,12 +96,10 @@ module Lorecraft
     ENTITY_SUMMARY_LENGTH_MAXIMUM = 280
 
     FACT_TYPES = %i[text integer year entity entities].freeze
+    ENCYCLOPEDIA_FIELD_TYPES = %i[text integer year].freeze
     RELATION_PROPERTY_TYPES = %i[boolean entity enum frame integer number text].freeze
     FACT_DIRECTIONS = %i[outgoing incoming].freeze
     FACT_CARDINALITIES = %i[one many].freeze
-    IDENTITY_MERGES = %i[append replace].freeze
-    IDENTITY_SOURCE_DIRECTIONS = %i[outgoing incoming].freeze
-    IDENTITY_SOURCE_CARDINALITIES = %i[one many].freeze
     FACT_CALCULATIONS = %i[
       elapsed_years first_moment_year anchor_year timeline_period timeline_duration
       previous_era next_era
@@ -111,15 +110,22 @@ module Lorecraft
                 :fact_cards_required_minimum, :playable_roles, :location_kinds,
                 :playable_coverage_requirements, :playable_count_requirements,
                 :focus_choice_requirements, :gm_notes_required_from,
-                :gm_notes_required_minimum, :entity_summary_maximum,
-                :descriptive_identities_required
+                :gm_notes_required_minimum, :entity_summary_maximum, :encyclopedia_kinds,
+                :context_tags, :context_tag_required_roles, :encyclopedia_type_required_kinds,
+                :encyclopedia_type_kind_requirements
 
     def initialize
       @kinds = {}            # kind(sym) => KindDef; wiki=false means non-reader
+      @entity_kind_restriction = nil
       @relations = {}        # name(sym) => RelationDef
       @effects = {}          # verb(sym) => description
       @tags = {}             # tag(sym) => description
       @section_headings = {} # heading(sym) => description (canonical prose sections)
+      @encyclopedia_kinds = {}
+      @context_tags = {}
+      @context_tag_required_roles = []
+      @encyclopedia_type_required_kinds = []
+      @encyclopedia_type_kind_requirements = {}
       @playable_roles = {}   # role(sym) => selection purpose
       @location_kinds = []   # entity kinds that require chronicle-location judgment
       @playable_coverage_requirements = []
@@ -135,7 +141,6 @@ module Lorecraft
       @gm_notes_required_minimum = 1
       @entity_summaries_required = false
       @entity_summary_maximum = ENTITY_SUMMARY_LENGTH_MAXIMUM
-      @descriptive_identities_required = false
     end
 
     # Declare one or more entity kinds. `wiki: false` marks a kind as absent
@@ -151,21 +156,188 @@ module Lorecraft
         raise DefinitionError, "duplicate entity kind #{name}" if @kinds.key?(name)
 
         default_subkind = SubkindDef.new(
-          name: name, label: humanize(name), facts: [], omitted_facts: [],
-          identity_keys: [], identity_sources: [], omitted_identity_sources: [],
-          identity_source_policy: nil
+          name: name, label: humanize(name), facts: [], omitted_facts: []
         )
         @kinds[name] = KindDef.new(
           name: name, wiki: wiki, facts: [], subkinds: { name => default_subkind },
-          identity_keys: [], identity_sources: [], identity_source_policy: nil
+          identity_keys: []
         )
       end
       KindBuilder.new(self, names.first).instance_eval(&block) if block
     end
     alias entity_types entity_type
 
-    def kind?(name) = @kinds.key?(name&.to_sym)
-    def wiki_kind?(name) = @kinds[name&.to_sym]&.wiki == true
+    # Shared craft declares the complete entity vocabulary. A world may narrow
+    # that vocabulary after applying any setting-specific schema extensions;
+    # the underlying definitions remain available to other worlds loaded from
+    # the same prelude.
+    def restrict_entity_kinds!(to:)
+      names = Array(to).map(&:to_sym).uniq
+      raise DefinitionError, "entity kind restriction needs at least one kind" if names.empty?
+      if @entity_kind_restriction
+        raise DefinitionError, "duplicate entity kind restriction"
+      end
+
+      unknown = names.reject { |name| declared_kind?(name) }
+      unless unknown.empty?
+        raise DefinitionError, "entity kind restriction uses unknown kinds #{unknown.join(', ')}"
+      end
+
+      @entity_kind_restriction = names.freeze
+    end
+
+    def kinds
+      return @kinds unless @entity_kind_restriction
+
+      @kinds.slice(*@entity_kind_restriction)
+    end
+
+    def declared_kind?(name) = @kinds.key?(name&.to_sym)
+    def kind?(name) = kinds.key?(name&.to_sym)
+    def wiki_kind?(name) = kinds[name&.to_sym]&.wiki == true
+
+    def encyclopedia_type(*names, description: nil, &block)
+      if block && names.size != 1
+        raise DefinitionError, "an encyclopedia_type block must name exactly one kind"
+      end
+      if description && names.size != 1
+        raise DefinitionError, "an encyclopedia kind description needs exactly one kind"
+      end
+
+      names.each do |name|
+        name = name.to_sym
+        raise DefinitionError, "duplicate encyclopedia kind #{name}" if @encyclopedia_kinds.key?(name)
+
+        @encyclopedia_kinds[name] = EncyclopediaKindDef.new(
+          name: name,
+          description: description&.to_s,
+          fields: [],
+          identity_keys: [],
+          tiers: []
+        )
+      end
+      EncyclopediaKindBuilder.new(self, names.first).instance_eval(&block) if block
+    end
+    alias encyclopedia_types encyclopedia_type
+
+    def encyclopedia_kind?(name) = @encyclopedia_kinds.key?(name&.to_sym)
+
+    def extend_encyclopedia_kind(name, &block)
+      name = name.to_sym
+      raise DefinitionError, "unknown encyclopedia kind #{name}" unless @encyclopedia_kinds.key?(name)
+
+      EncyclopediaKindBuilder.new(self, name).instance_eval(&block) if block
+    end
+
+    def encyclopedia_fields_for(kind)
+      @encyclopedia_kinds[kind&.to_sym]&.fields || []
+    end
+
+    def encyclopedia_field_def(kind, name)
+      encyclopedia_fields_for(kind).find { |definition| definition.name == name&.to_sym }
+    end
+
+    def encyclopedia_identity_keys_for(kind)
+      @encyclopedia_kinds[kind&.to_sym]&.identity_keys || []
+    end
+
+    def encyclopedia_tiers_for(kind)
+      @encyclopedia_kinds[kind&.to_sym]&.tiers || []
+    end
+
+    def encyclopedia_tier_def(kind, name)
+      encyclopedia_tiers_for(kind).find { |tier| tier.name == name&.to_sym }
+    end
+
+    def add_encyclopedia_field(kind, definition)
+      owner = @encyclopedia_kinds.fetch(kind.to_sym)
+      if owner.fields.any? { |field| field.name == definition.name }
+        raise DefinitionError, "duplicate field #{definition.name} on encyclopedia kind #{kind}"
+      end
+
+      definition.order = owner.fields.size + 1
+      owner.fields << definition
+    end
+
+    def add_encyclopedia_identity_key(kind, definition)
+      owner = @encyclopedia_kinds.fetch(kind.to_sym)
+      if owner.identity_keys.any? { |key| key.name == definition.name }
+        raise DefinitionError, "duplicate identity key #{definition.name} on encyclopedia kind #{kind}"
+      end
+
+      definition.order = owner.identity_keys.size + 1
+      owner.identity_keys << definition
+    end
+
+    def add_encyclopedia_tier(kind, definition)
+      owner = @encyclopedia_kinds.fetch(kind.to_sym)
+      unless kind.to_sym == :ability
+        raise DefinitionError, "tiers can only be declared on encyclopedia kind ability"
+      end
+      if owner.tiers.any? { |tier| tier.name == definition.name }
+        raise DefinitionError, "duplicate tier #{definition.name} on encyclopedia kind #{kind}"
+      end
+      if owner.tiers.any? { |tier| tier.rank == definition.rank }
+        raise DefinitionError, "duplicate tier rank #{definition.rank} on encyclopedia kind #{kind}"
+      end
+
+      owner.tiers << definition
+      owner.tiers.sort_by!(&:rank)
+    end
+
+    def context_tag(name, description = nil, scopes:, parent: nil, compatible_with: [])
+      name = name.to_sym
+      raise DefinitionError, "duplicate context tag #{name}" if @context_tags.key?(name)
+
+      normalized_scopes = Array(scopes).map(&:to_sym).uniq
+      unknown = normalized_scopes - CONTEXT_SCOPES
+      unless unknown.empty?
+        raise DefinitionError, "context tag #{name} uses unknown scopes #{unknown.join(', ')}"
+      end
+      raise DefinitionError, "context tag #{name} needs at least one scope" if normalized_scopes.empty?
+
+      @context_tags[name] = ContextTagDef.new(
+        name: name,
+        description: description,
+        scopes: normalized_scopes,
+        parent: parent&.to_sym,
+        compatible_with: Array(compatible_with).map(&:to_sym).uniq
+      )
+    end
+
+    def require_context_tags!(for_playable:)
+      role = checked_playable_role(for_playable)
+      @context_tag_required_roles << role unless @context_tag_required_roles.include?(role)
+    end
+
+    def require_encyclopedia_types!(kinds:)
+      kinds = Array(kinds).map(&:to_sym).uniq
+      raise DefinitionError, "encyclopedia type requirement needs at least one kind" if kinds.empty?
+
+      unknown = kinds.reject { |kind| kind?(kind) }
+      unless unknown.empty?
+        raise DefinitionError, "encyclopedia type requirement uses unknown kinds #{unknown.join(', ')}"
+      end
+      unless @encyclopedia_type_required_kinds.empty?
+        raise DefinitionError, "duplicate encyclopedia type requirement"
+      end
+
+      @encyclopedia_type_required_kinds = kinds.freeze
+    end
+
+    def require_encyclopedia_type_kind!(atlas_kind:, encyclopedia_kind:)
+      atlas_kind = atlas_kind.to_sym
+      encyclopedia_kind = encyclopedia_kind.to_sym
+      raise DefinitionError, "unknown Atlas kind #{atlas_kind}" unless kind?(atlas_kind)
+      unless encyclopedia_kind?(encyclopedia_kind)
+        raise DefinitionError, "unknown Encyclopedia kind #{encyclopedia_kind}"
+      end
+      if @encyclopedia_type_kind_requirements.key?(atlas_kind)
+        raise DefinitionError, "duplicate Encyclopedia type-kind requirement for #{atlas_kind}"
+      end
+
+      @encyclopedia_type_kind_requirements[atlas_kind] = encyclopedia_kind
+    end
 
     # A role exposed by a game-facing selection flow. Entries opt into or out
     # of roles explicitly; kind alone never makes an entry playable.
@@ -345,16 +517,6 @@ module Lorecraft
       @gm_notes_required_minimum = minimum
     end
 
-    # Turn on the strict identity contract for one world after its kinds have
-    # declared their reusable source axes. Other tenants can adopt the contract
-    # independently instead of receiving placeholder source taxonomies from
-    # shared craft.
-    def require_descriptive_identities!
-      @descriptive_identities_required = true
-    end
-
-    def descriptive_identities_required? = @descriptive_identities_required == true
-
     def extend_kind(name, &block)
       name = name.to_sym
       raise DefinitionError, "cannot extend unknown entity kind #{name}" unless kind?(name)
@@ -386,9 +548,7 @@ module Lorecraft
       end
 
       definition.subkinds[name] ||= SubkindDef.new(
-        name: name, label: label || humanize(name), facts: [], omitted_facts: [],
-        identity_keys: [], identity_sources: [], omitted_identity_sources: [],
-        identity_source_policy: nil
+        name: name, label: label || humanize(name), facts: [], omitted_facts: []
       )
     end
 
@@ -438,105 +598,24 @@ module Lorecraft
       definition = @kinds[kind&.to_sym]
       return [] unless definition
 
-      subkind ||= kind
-      subkind_definition = definition.subkinds[subkind&.to_sym]
-      compose_identity_definitions(
-        definition.identity_keys + Array(subkind_definition&.identity_keys)
-      )
+      definition.identity_keys
     end
 
     def identity_key_for(kind, name, subkind: nil)
       identity_keys_for(kind, subkind: subkind).find { |definition| definition.name == name&.to_sym }
     end
 
-    def identity_sources_for(kind, subkind: nil)
-      definition = @kinds[kind&.to_sym]
-      return [] unless definition
-
-      subkind ||= kind
-      subkind_definition = definition.subkinds[subkind&.to_sym]
-      return [] if subkind_definition&.identity_source_policy == :none
-
-      omitted = Array(subkind_definition&.omitted_identity_sources)
-      inherited = definition.identity_source_policy == :none ? [] : definition.identity_sources
-      compose_identity_definitions(
-        inherited.reject { |source| omitted.include?(source.name) } +
-        Array(subkind_definition&.identity_sources)
-      ).sort_by { |source| [source.precedence, source.order] }
-    end
-
-    def relation_identity_keys(name)
-      relation_def(name)&.identity_keys || []
-    end
-
-    def relation_identity_sources(name)
-      definition = relation_def(name)
-      return [] unless definition
-      return [] if definition.identity_source_policy == :none
-
-      definition.identity_sources.sort_by { |source| [source.precedence, source.order] }
-    end
-
-    def identity_source_policy_for(kind, subkind: nil)
-      definition = @kinds[kind&.to_sym]
-      return unless definition
-
-      subkind_definition = definition.subkinds[(subkind || kind)&.to_sym]
-      subkind_definition&.identity_source_policy || definition.identity_source_policy
-    end
-
     def add_identity_key(kind, definition, subkind: nil)
+      if subkind
+        raise DefinitionError, "descriptive identity keys are declared at kind level, not subkind #{subkind}"
+      end
+
       kind_definition = @kinds.fetch(kind.to_sym)
-      keys = subkind ? kind_definition.subkinds.fetch(subkind.to_sym).identity_keys : kind_definition.identity_keys
-      scope = subkind ? "subkind #{subkind}" : "entity kind #{kind}"
-      raise DefinitionError, "duplicate identity key #{definition.name} on #{scope}" if keys.any? { |key| key.name == definition.name }
+      keys = kind_definition.identity_keys
+      raise DefinitionError, "duplicate identity key #{definition.name} on entity kind #{kind}" if keys.any? { |key| key.name == definition.name }
 
       definition.order = keys.size + 1
       keys << definition
-    end
-
-    def add_identity_source(kind, definition, subkind: nil)
-      kind_definition = @kinds.fetch(kind.to_sym)
-      owner = subkind ? kind_definition.subkinds.fetch(subkind.to_sym) : kind_definition
-      scope = subkind ? "subkind #{subkind}" : "entity kind #{kind}"
-      if owner.identity_source_policy == :none
-        raise DefinitionError, "#{scope} declares no identity sources"
-      end
-      if owner.identity_sources.any? { |source| source.name == definition.name }
-        raise DefinitionError, "duplicate identity source #{definition.name} on #{scope}"
-      end
-
-      owner.identity_source_policy = :declared
-      definition.order = owner.identity_sources.size + 1
-      definition.precedence ||= definition.order
-      owner.identity_sources << definition
-    end
-
-    def no_identity_sources(kind, subkind: nil)
-      kind_definition = @kinds.fetch(kind.to_sym)
-      owner = subkind ? kind_definition.subkinds.fetch(subkind.to_sym) : kind_definition
-      scope = subkind ? "subkind #{subkind}" : "entity kind #{kind}"
-      unless owner.identity_sources.empty?
-        raise DefinitionError, "#{scope} already declares identity sources"
-      end
-
-      owner.identity_source_policy = :none
-    end
-
-    def omit_identity_sources(kind, subkind, names)
-      kind_definition = @kinds.fetch(kind.to_sym)
-      subkind_definition = kind_definition.subkinds.fetch(subkind.to_sym)
-      available = identity_sources_for(kind, subkind: kind).map(&:name) +
-                  subkind_definition.identity_sources.map(&:name)
-      names.map(&:to_sym).each do |name|
-        unless available.include?(name)
-          raise DefinitionError, "cannot omit unknown identity source #{name} from #{kind}/#{subkind}"
-        end
-
-        subkind_definition.omitted_identity_sources << name \
-          unless subkind_definition.omitted_identity_sources.include?(name)
-      end
-      subkind_definition.identity_source_policy ||= :declared
     end
 
     # Declare a relation type. Mirrors the repository taxonomy (category +
@@ -553,8 +632,7 @@ module Lorecraft
         name: name, category: category, temporal: temporal, symmetric: symmetric,
         inverse: inverse&.to_sym, domain: arr(domain), range: arr(range),
         cardinality: cardinality, exclusive_with: arr(exclusive_with),
-        description: description, properties: {}, identity_keys: [], identity_sources: [],
-        identity_source_policy: nil
+        description: description, properties: {}
       )
       RelationBuilder.new(self, @relations.fetch(name)).instance_eval(&block) if block
     end
@@ -639,13 +717,6 @@ module Lorecraft
       end
     end
 
-    def compose_identity_definitions(definitions)
-      definitions.each_with_object([]) do |definition, composed|
-        existing = composed.index { |item| item.name == definition.name }
-        existing ? composed[existing] = definition : composed << definition
-      end
-    end
-
     def humanize(value)
       value.to_s.split("_").map(&:capitalize).join(" ")
     end
@@ -653,6 +724,60 @@ module Lorecraft
     def arr(v)
       return nil if v.nil?
       Array(v).map(&:to_sym)
+    end
+
+    # Encyclopedia schema varies by kind only. `subkind` remains an authored
+    # classification on an entry and cannot add or remove fields.
+    class EncyclopediaKindBuilder
+      def initialize(schema, kind)
+        @schema = schema
+        @kind = kind.to_sym
+      end
+
+      def field(name, type:, label: nil, expected: true)
+        type = type.to_sym
+        unless ENCYCLOPEDIA_FIELD_TYPES.include?(type)
+          raise DefinitionError, "field #{name} on encyclopedia kind #{@kind} has unknown type #{type}"
+        end
+
+        @schema.add_encyclopedia_field(
+          @kind,
+          FactDef.new(
+            name: name.to_sym,
+            label: label || name.to_s.split("_").map(&:capitalize).join(" "),
+            source: :attribute,
+            type: type,
+            expected: expected == true
+          )
+        )
+      end
+
+      def subkind(*)
+        raise DefinitionError,
+              "encyclopedia schema is declared at kind level; subkind is authored classification"
+      end
+
+      def identity_key(name)
+        @schema.add_encyclopedia_identity_key(
+          @kind,
+          IdentityKeyDef.new(name: name.to_sym)
+        )
+      end
+
+      def tier(name, rank:, description: nil)
+        unless rank.is_a?(Integer) && rank.positive?
+          raise DefinitionError, "tier #{name} on encyclopedia kind #{@kind} needs a positive integer rank"
+        end
+
+        @schema.add_encyclopedia_tier(
+          @kind,
+          AbilityTierDef.new(
+            name: name.to_sym,
+            rank: rank,
+            description: description&.to_s
+          )
+        )
+      end
     end
 
     class KindBuilder
@@ -676,75 +801,16 @@ module Lorecraft
         @schema.omit_facts(@kind, @subkind, names)
       end
 
-      def identity_key(name, required: true, merge: :append, separator: "\n\n")
-        merge = merge.to_sym
-        unless IDENTITY_MERGES.include?(merge)
-          raise DefinitionError, "identity key #{name} on #{@kind} has unknown merge #{merge}"
-        end
-        unless separator.is_a?(String)
-          raise DefinitionError, "identity key #{name} on #{@kind} needs a text separator"
+      def identity_key(name)
+        if @subkind
+          raise DefinitionError,
+                "descriptive identity keys are declared at kind level, not subkind #{@subkind}"
         end
 
         @schema.add_identity_key(
           @kind,
-          IdentityKeyDef.new(
-            name: name.to_sym, required: required == true, merge: merge, separator: separator
-          ),
-          subkind: @subkind
+          IdentityKeyDef.new(name: name.to_sym)
         )
-      end
-
-      def identity_source(name, kinds:, keys:, subkinds: nil, cardinality: :one,
-                          required: true, relation: nil, direction: :outgoing,
-                          precedence: nil)
-        cardinality = cardinality.to_sym
-        direction = direction.to_sym
-        unless IDENTITY_SOURCE_CARDINALITIES.include?(cardinality)
-          raise DefinitionError, "identity source #{name} on #{@kind} has unknown cardinality #{cardinality}"
-        end
-        unless IDENTITY_SOURCE_DIRECTIONS.include?(direction)
-          raise DefinitionError, "identity source #{name} on #{@kind} has unknown direction #{direction}"
-        end
-        if relation && !@schema.relation?(relation)
-          raise DefinitionError, "identity source #{name} on #{@kind} uses unknown relation #{relation}"
-        end
-
-        projection = if keys.is_a?(Hash)
-                       keys.to_h { |source_key, target_key| [source_key.to_sym, target_key.to_sym] }
-                     else
-                       Array(keys).to_h { |key| [key.to_sym, key.to_sym] }
-                     end
-        raise DefinitionError, "identity source #{name} on #{@kind} needs projected keys" if projection.empty?
-
-        @schema.add_identity_source(
-          @kind,
-          IdentitySourceDef.new(
-            name: name.to_sym,
-            relation: relation&.to_sym,
-            direction: direction,
-            cardinality: cardinality,
-            required: required == true,
-            kinds: Array(kinds).map(&:to_sym),
-            subkinds: Array(subkinds).map(&:to_sym),
-            projection: projection,
-            precedence: precedence && Integer(precedence)
-          ),
-          subkind: @subkind
-        )
-      rescue ArgumentError, TypeError
-        raise DefinitionError, "identity source #{name} on #{@kind} needs an integer precedence"
-      end
-
-      def omit_identity_sources(*names)
-        unless @subkind
-          raise DefinitionError, "omit_identity_sources is only valid inside a subkind"
-        end
-
-        @schema.omit_identity_sources(@kind, @subkind, names)
-      end
-
-      def no_identity_sources
-        @schema.no_identity_sources(@kind, subkind: @subkind)
       end
 
       def field(name, type: :text, label: nil, expected: true)
@@ -768,8 +834,10 @@ module Lorecraft
         raise DefinitionError, "fact #{name} on #{@kind} has unknown cardinality #{cardinality}" \
           unless FACT_CARDINALITIES.include?(cardinality)
 
+        source = :relation
+        type = cardinality == :one ? :entity : :entities
         add(
-          name, label: label, source: :relation, type: cardinality == :one ? :entity : :entities,
+          name, label: label, source: source, type: type,
           expected: expected, relation: relation, direction: direction, cardinality: cardinality
         )
       end
@@ -813,72 +881,6 @@ module Lorecraft
       def initialize(schema, relation)
         @schema = schema
         @relation = relation
-      end
-
-      def identity_key(name, required: true, merge: :append, separator: "\n\n")
-        name = name.to_sym
-        merge = merge.to_sym
-        unless IDENTITY_MERGES.include?(merge)
-          raise DefinitionError, "identity key #{name} on relation #{@relation.name} has unknown merge #{merge}"
-        end
-        if @relation.identity_keys.any? { |key| key.name == name }
-          raise DefinitionError, "duplicate identity key #{name} on relation #{@relation.name}"
-        end
-
-        @relation.identity_keys << IdentityKeyDef.new(
-          name: name,
-          required: required == true,
-          merge: merge,
-          separator: separator.to_s,
-          order: @relation.identity_keys.size + 1
-        )
-      end
-
-      def identity_source(name, kinds:, keys:, subkinds: nil, cardinality: :one,
-                          required: true, precedence: nil)
-        name = name.to_sym
-        cardinality = cardinality.to_sym
-        unless IDENTITY_SOURCE_CARDINALITIES.include?(cardinality)
-          raise DefinitionError, "identity source #{name} on relation #{@relation.name} has unknown cardinality #{cardinality}"
-        end
-        if @relation.identity_source_policy == :none
-          raise DefinitionError, "relation #{@relation.name} declares no identity sources"
-        end
-        if @relation.identity_sources.any? { |source| source.name == name }
-          raise DefinitionError, "duplicate identity source #{name} on relation #{@relation.name}"
-        end
-
-        projection = if keys.is_a?(Hash)
-                       keys.to_h { |source_key, target_key| [source_key.to_sym, target_key.to_sym] }
-                     else
-                       Array(keys).to_h { |key| [key.to_sym, key.to_sym] }
-                     end
-        raise DefinitionError, "identity source #{name} on relation #{@relation.name} needs projected keys" if projection.empty?
-
-        order = @relation.identity_sources.size + 1
-        @relation.identity_source_policy = :declared
-        @relation.identity_sources << IdentitySourceDef.new(
-          name: name,
-          relation: nil,
-          direction: :outgoing,
-          cardinality: cardinality,
-          required: required == true,
-          kinds: Array(kinds).map(&:to_sym),
-          subkinds: Array(subkinds).map(&:to_sym),
-          projection: projection,
-          precedence: precedence ? Integer(precedence) : order,
-          order: order
-        )
-      rescue ArgumentError, TypeError
-        raise DefinitionError, "identity source #{name} on relation #{@relation.name} needs an integer precedence"
-      end
-
-      def no_identity_sources
-        unless @relation.identity_sources.empty?
-          raise DefinitionError, "relation #{@relation.name} already declares identity sources"
-        end
-
-        @relation.identity_source_policy = :none
       end
 
       def property(name, type:, values: nil, required: false,

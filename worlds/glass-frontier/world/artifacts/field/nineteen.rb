@@ -2,6 +2,7 @@ artifact :nineteen do
   name "Nineteen"
   summary "Nineteen is a linked work harness whose ringglass ribs share load, balance, and body position across a moving formation. Kesh fits its recovered belt and shoulder segments to a forty-person walking bridge."
   subkind :instrument
+  type_of :field_instrument
   function "Shares load, balance, and body position through a linked work formation"
   status :complete
   tags :training, :transport, :resonance, :"kinetic-freq"
@@ -45,8 +46,4 @@ end
 
 relate :rel_brace_studies_nineteen, :studies, :brace, :nineteen, since: 2435 do
   prose "Brace maps the extra body position Nineteen reports during the walking bridge."
-end
-
-relate :rel_nineteen_attuned_to_resonance, :attuned_to, :nineteen, :resonance do
-  prose "Nineteen carries kinetic-band load and position through its linked ringglass ribs."
 end

@@ -7,10 +7,8 @@ npc :shei_lush do
   prominence :forgotten
   occupation "Chair of Fermata's governing Sessions"
   jurisdiction "Procedure and recognition during Fermata Sessions"
-  species "fae"
-  culture "Hab-Worlder"
-  identity_source :species, :fae
-  identity_source :culture, :hab_worlder
+  type_of :fae
+  belongs_to :culture, :hab_worlder
   override_identity appearance:
     "Shei Lush holds an unusually settled outline for a fae. Fermata's " \
     "continuously tuned rooms carry much of the coherence load, and within " \
@@ -53,33 +51,9 @@ relate :rel_shei_lush_chairs_fermata, :chairs, :shei_lush, :fermata_station, sin
 end
 relate :rel_shei_lush_cooperates_ol_dent, :cooperates_with, :shei_lush, :ol_dent, since: 2424 do
   prose "Shei accepts Ol'dent's structural limits as binding on the hall schedule."
-  descriptive_identity(
-    basis:
-      "Before every Session she reads his repair limits and load " \
-      "figures, and she may refuse a tune the hall cannot carry — the " \
-      "Closing Session itself sits on the calendar subject to his " \
-      "tests of the eastern bank.",
-    limits:
-      "The traffic runs one way: he sends readings up and will not " \
-      "come up himself while Drone players remain Audience, so the " \
-      "Chair enforces limits set by a man who refuses to enter the " \
-      "room they govern."
-  )
 end
 relate :rel_shei_lush_cooperates_sable_korr, :cooperates_with, :shei_lush, :sable_korr, since: 2424 do
   prose "Shei consults Sable Korr's archive when a Session claims an earlier performance as precedent."
-  descriptive_identity(
-    basis:
-      "Precedent notes before each Session, and during one, the " \
-      "recordings cued behind the Players — what the room actually " \
-      "heard last time, and which part of that memory the surviving " \
-      "capture supports.",
-    limits:
-      "Sable lays the conflicting accounts side by side and recommends " \
-      "nothing, and her failed Sit-In keeps her in the Audience — the " \
-      "Chair leans on a scholar the station's own audition judged " \
-      "unable to govern."
-  )
 end
 
 moment :shei_lush_takes_chair, year: 2424, of: :shei_lush do

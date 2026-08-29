@@ -2,8 +2,10 @@ installation :mareth do
   name "Mareth"
   summary "Mareth is a settlement of forty-one hundred people inside a vast Ring-era freight gate in the Glass Frontier, with streets built through its frame and latch housings."
   playable_as :chronicle_location
+  context_tags :"realm:ring_habitat"
   aka "Mareth-Avelin"
   subkind :settlement
+  type_of :settlement
   status :complete
   tags :"ring-hab", :"ring-era", :transport, :trade, :"structural-freq", :"kinetic-freq"
   prominence :recognized

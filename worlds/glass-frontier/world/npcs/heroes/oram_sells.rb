@@ -3,10 +3,8 @@ npc :oram_sells do
   summary "Oram Sells was the Displacement Council's Third First Threshold from 2421 until his death in 2432."
   subkind :leader
   occupation "Third First Threshold of the Displacement Council"
-  species "human"
-  identity_source :species, :humans
-  identity_source :culture, :hab_worlder
-  culture "Hab-Worlder"
+  type_of :humans
+  belongs_to :culture, :hab_worlder
   tags :governance, :resonance, :danger
   prominence :recognized
   status :complete

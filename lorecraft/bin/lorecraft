@@ -27,6 +27,21 @@ def opt(args, flag, default = nil)
   val
 end
 
+def multi_opt(args, flag)
+  values = []
+  while (i = args.index(flag))
+    value = args[i + 1]
+    if value.nil? || value.start_with?("-")
+      warn "#{flag} requires a value"
+      exit 2
+    end
+    values << value
+    args.delete_at(i + 1)
+    args.delete_at(i)
+  end
+  values
+end
+
 def emit(query, format)
   puts(format == :json ? JSON.pretty_generate(query.data) : query.report)
 end
@@ -236,6 +251,67 @@ when "search"
     limit: limit,
   )
   emit(query, format)
+when "reference"
+  kind = opt(ARGV, "--kind")
+  topic = opt(ARGV, "--topic")
+  limit_arg = opt(ARGV, "--limit", Lorecraft::EncyclopediaQuery::DEFAULT_LIMIT.to_s)
+  limit = begin
+    Integer(limit_arg)
+  rescue ArgumentError
+    warn "--limit must be a positive integer"
+    exit 2
+  end
+  if limit < 1
+    warn "--limit must be a positive integer"
+    exit 2
+  end
+
+  context_terms = []
+  multi_opt(ARGV, "--context").each do |value|
+    scope, tag = value.split("=", 2)
+    abort("--context must be SCOPE=TAG") unless scope && tag
+    context_terms << Lorecraft::ContextTerm.new(scope: scope.to_sym, type: :tag, value: tag.to_sym)
+  end
+  multi_opt(ARGV, "--encyclopedia").each do |value|
+    scope, id = value.split("=", 2)
+    abort("--encyclopedia must be SCOPE=ID") unless scope && id
+    context_terms << Lorecraft::ContextTerm.new(
+      scope: scope.to_sym,
+      type: :encyclopedia,
+      value: id.tr("-", "_").to_sym
+    )
+  end
+
+  action = (ARGV.shift || "list").tr("-", "_").to_sym
+  id = nil
+  text = nil
+  case action
+  when :search
+    text = ARGV.join(" ").strip
+  when :page
+    id = ARGV.shift
+  when :list, :match
+    abort("unexpected reference arguments: #{ARGV.join(' ')}") unless ARGV.empty?
+  end
+  begin
+    emit(
+      Lorecraft::EncyclopediaQuery.new(
+        load_world,
+        action: action,
+        id: id,
+        query: text,
+        kind: kind,
+        topic: topic,
+        audience: audience,
+        limit: limit,
+        context: context_terms,
+        root: Lorecraft::Worlds.repo_root
+      ),
+      format
+    )
+  rescue Lorecraft::Error => e
+    abort e.message
+  end
 when "connections"
   id = ARGV.shift or abort("usage: #{Lorecraft::CLIHelp::EXE} connections ID")
   begin
@@ -426,7 +502,13 @@ when "log"
   # world content, so it appears on no reader-facing page.
   id = ARGV.shift
   w = load_world
-  nodes = id ? [w.entity(id.tr("-", "_").to_sym) || abort("unknown entity: #{id}")] : w.entities.values
+  nodes = if id
+            key = id.tr("-", "_").to_sym
+            [w.entity(key) || w.encyclopedia_entry(key) ||
+              abort("unknown Atlas or Encyclopedia entry: #{id}")]
+          else
+            w.entities.values + w.encyclopedia_entries.values
+          end
   nodes.reject { |n| n.log_entries.empty? }.sort_by(&:id).each do |n|
     puts "#{n.id}:"
     n.log_entries.each { |e| puts "  #{e}" }

@@ -2,7 +2,9 @@ installation :span_nine do
   name "Span Nine"
   summary "Span Nine is a pre-Glassfall signal conduit connecting Whitefoot on Kaleidos to Pelhari and Threshold Station across interplanetary distance."
   playable_as :chronicle_location
+  context_tags :"realm:orbital"
   subkind :landmark
+  type_of :infrastructure
   path "player/locations/landmarks/span-nine.md"
   status :complete
   reviewed "2026-03-19"
@@ -46,7 +48,7 @@ installation :span_nine do
   prose <<~PROSE, section: :mechanics, heading: "How It Works"
     No surviving account explains the Span's construction, and current instruments describe its effects without supplying a mechanism.
 
-    The filament appears to be a single continuous structure from Whitefoot to Pelhari's moon and to the Synod's station at the Lagrange point. It does not sag, stretch, or break despite the constant relative motion of these bodies. It carries signal-band #{ref :resonance, "resonance"} at bandwidths that modern equipment can barely detect, providing communication capacity that dwarfs anything the post-Glassfall world has built. High-bandwidth data transfer, real-time voice, even the dense multidimensional outputs of the #{ref :lattice_proxy_synod, "Lattice Proxy Synod"}'s AI custodians — all of it travels the Span without degradation.
+    The filament appears to be a single continuous structure from Whitefoot to Pelhari's moon and to the Synod's station at the Lagrange point. It does not sag, stretch, or break despite the constant relative motion of these bodies. It carries signal-band #{encyclopedia_ref :resonance, "resonance"} at bandwidths that modern equipment can barely detect, providing communication capacity that dwarfs anything the post-Glassfall world has built. High-bandwidth data transfer, real-time voice, even the dense multidimensional outputs of the #{ref :lattice_proxy_synod, "Lattice Proxy Synod"}'s AI custodians — all of it travels the Span without degradation.
 
     A ship can pass through the filament without harm. The filament jumps around the hull or passes through as though the two do not occupy the same space. Purposeful interference produces a different result. A crew member who reaches for it during an EVA returns to the airlock with no memory of the attempt. A navigation system given an intercept course routes around it without instruction. A technician who tries to cut a sample discovers an hour later that they have been doing something else.
 
@@ -57,7 +59,7 @@ installation :span_nine do
 
     No surviving record identifies the three sites' original purpose. Whitefoot's signal yard, the Pelhari workshops, and Threshold's station all expanded around facilities that survived at the termini. Their present importance followed the Span; it does not explain why the ring builders connected those points.
 
-    The engineering is consistent with #{ref :elves, "elven"} work, though no surviving record credits them specifically. Its builders possessed capabilities the current civilization cannot approach. The filament has survived the Glassfall, #{elapsed :the_glassfall, approx: true} of orbital debris, and every attempt to study it while continuing to function perfectly. It is the most visible surviving example of Ring Age engineering that current workshops cannot reproduce.
+    The engineering is consistent with #{encyclopedia_ref :elves, "elven"} work, though no surviving record credits them specifically. Its builders possessed capabilities the current civilization cannot approach. The filament has survived the Glassfall, #{elapsed :the_glassfall, approx: true} of orbital debris, and every attempt to study it while continuing to function perfectly. It is the most visible surviving example of Ring Age engineering that current workshops cannot reproduce.
   PROSE
 
   gm_note :appears, "Real-time conversation across the system happens only at the three termini, #{ref :whitefoot, "Whitefoot"}, #{ref :pelhari, "Pelhari"} and Threshold. Everywhere else news moves at the speed of the ship carrying it, and a party needing an answer from the far side goes to a terminus or waits."

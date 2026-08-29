@@ -2,6 +2,7 @@ npc :t_resh do
   name "T'resh"
   summary "T'resh is a shutter repair specialist working between the Fracture and Ashenmaw."
   subkind :specialist
+  type_of :person
   status :complete
   prominence :marginal
   veiled "T'resh repairs Fracture shutters with crystal pins cut aboard a moving hull."end

@@ -2,7 +2,9 @@ installation :whitefoot do
   name "Whitefoot"
   summary "Whitefoot is the surface terminus of Span Nine in an open field north of Sithari, where the conduit rises from a low ringglass platform."
   playable_as :chronicle_location
+  context_tags :"realm:surface"
   subkind :station
+  type_of :waypoint
   tags :surface, :"ring-era", :"signal-freq", :resonance
   prominence :recognized
   status :complete
@@ -67,10 +69,4 @@ end
 
 relate :rel_whitefoot_depends_on_sithari, :depends_on, :whitefoot, :sithari do
   prose "Whitefoot depends on Sithari for staff, power distribution, customs, and surface transport."
-  descriptive_identity exposure:
-    "Every operator, customs officer, and watt rides the rail up from " \
-    "the Old Campus each day, so the city can idle the terminus without " \
-    "touching it: a quarrel with the capital arrives as an empty yard " \
-    "and a silent converter hall, and the Span itself never enters the " \
-    "argument."
 end

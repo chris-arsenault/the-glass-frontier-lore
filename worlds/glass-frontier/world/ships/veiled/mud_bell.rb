@@ -2,6 +2,7 @@ transport :mud_bell do
   name "Mud Bell"
   summary "Mud Bell is a Dovra ferry serving Lowbank and the Reed Door. Its resonant hull drives reedjaws away from the vessel's wake."
   subkind :vessel
+  type_of :channel_barge
   status :complete
   prominence :marginal
   veiled "Mud Bell is a Dovra ferry with a resonant hull that drives reedjaws away from its wake."

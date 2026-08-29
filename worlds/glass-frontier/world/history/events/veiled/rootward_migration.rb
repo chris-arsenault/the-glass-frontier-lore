@@ -2,6 +2,7 @@ incident :rootward_migration do
   name "The Rootward Migration"
   summary "The Rootward Migration moved Noll gardeners and their soil beds into Olven after a root deck cooled beyond recovery."
   subkind :migration
+  type_of :evacuation_migration
   status :complete
   prominence :marginal
   veiled "Noll gardeners moved into Olven with their soil beds after a whole root deck cooled beyond recovery."

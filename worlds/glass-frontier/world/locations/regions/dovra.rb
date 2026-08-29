@@ -2,7 +2,9 @@ geographic_location :dovra do
   name "Dovra"
   summary "Dovra is a low tidal river country on Korvath's middle sea, where shifting channels carry farms and towns toward the port of Lowbank."
   playable_as :chronicle_location
+  context_tags :"realm:outer_system"
   subkind :region
+  type_of :region
   status :complete
   tags :"outer-system", :ecology, :trade, :resonance, :transport
   prominence :recognized
@@ -34,7 +36,7 @@ geographic_location :dovra do
   prose <<~PROSE
     Dovra is a low river country on Korvath's middle sea. Older maps give the name to one of its five major rivers. That mouth divided and moved so many times that later charts applied Dovra to the whole tidal plain. Hundreds of smaller channels cross it, divide around wooded islands, and meet the tide through a coast wider than some provinces. The shore moves every season. Silt closes one mouth, storms open another, and a channel that carried barges can become an orchard boundary within a generation.
 
-    People live on natural rises, old levees, driven piles, and earth mounds raised by many rounds of communal work. Towns face water in several directions. Roads exist, but ferries, #{ref :channel_barge, "channel barges"}, and tow paths carry more local traffic. #{ref :lowbank, "Lowbank"} is the largest port and the usual transfer point between river cargo and seagoing vessels.
+    People live on natural rises, old levees, driven piles, and earth mounds raised by many rounds of communal work. Towns face water in several directions. Roads exist, but ferries, #{encyclopedia_ref :channel_barge, "channel barges"}, and tow paths carry more local traffic. #{ref :lowbank, "Lowbank"} is the largest port and the usual transfer point between river cargo and seagoing vessels.
   PROSE
   prose <<~PROSE, section: :geography, heading: "Channels and Gates"
     Flood control spreads across thousands of small works rather than one wall. Timber gates protect orchard channels. Stone spillways take spring water around towns. Reed beds slow storm surge and trap silt. Large tidal doors stand where a salt channel threatens a freshwater district. Each structure belongs to a local board whose members usually live inside the area it protects.
@@ -46,7 +48,7 @@ geographic_location :dovra do
   prose <<~PROSE, section: :economy, heading: "River Work"
     The coast grows rice, grain, fruit, oilseed, reeds, and dye plants. Freshwater ponds support fish and shellfish. Salt works occupy the outer islands, where storm loss is expected and buildings come apart for seasonal retreat. Clay from the inner channels feeds the kilns that make Korvath's resonance-insulating ceramic.
 
-    #{ref :channel_barge, "Channel barges"} collect produce from landing stairs and carry it to Lowbank or smaller sea ports. Most are family or village vessels with shallow hulls and removable deck houses. A crew may run the same loop for decades while changing half its course as channels move. Route knowledge belongs to pilots who read color, reed direction, bottom pressure, and the tone returned by a pole against buried iron sand. Near reed banks, a #{ref :pole_thief, "pole-thief"} can add a convincing false strike.
+    #{encyclopedia_ref :channel_barge, "Channel barges"} collect produce from landing stairs and carry it to Lowbank or smaller sea ports. Most are family or village vessels with shallow hulls and removable deck houses. A crew may run the same loop for decades while changing half its course as channels move. Route knowledge belongs to pilots who read color, reed direction, bottom pressure, and the tone returned by a pole against buried iron sand. Near reed banks, a #{encyclopedia_ref :pole_thief, "pole-thief"} can add a convincing false strike.
 
     Workshops follow the water. Mills, presses, net lofts, and kiln sheds are built in sections that can be raised or moved when a bank fails. The #{ref :counterweight, "Counterweight"} has taken several coast contracts, but most relocations use local crews and equipment designed for lighter buildings.
   PROSE

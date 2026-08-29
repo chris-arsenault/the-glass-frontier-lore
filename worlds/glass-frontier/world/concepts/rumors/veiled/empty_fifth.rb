@@ -1,6 +1,7 @@
 rumor :empty_fifth do
   name "The Empty Fifth"
   summary "The Empty Fifth is a Five Landing rumor about a bunk key that returns after its guest joins the morning departure queue."
+  type_of :local_rumor
   subkind :rumor
   status :complete
   prominence :marginal

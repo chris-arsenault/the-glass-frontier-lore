@@ -2,7 +2,9 @@ installation :shadewell do
   name "Shadewell"
   summary "Shadewell is Ashvane's main port city, terraced down a shaded crater wall above the moon's largest accessible ice lens."
   playable_as :chronicle_location
+  context_tags :"realm:outer_system"
   subkind :settlement
+  type_of :settlement
   status :complete
   population 240_000
   population_band "About two hundred forty thousand across the crater city and port ridge"
@@ -58,7 +60,7 @@ installation :shadewell do
   prose <<~PROSE, section: :trade, heading: "Rim Port"
     The Keel terminus occupies a chain of landing fields along the crater rim. Heavy kites settle on basalt pads separated by ceramic breaks. Cargo moves under reflective sheds and enters the city lifts only after its temperature and field have equalized. A sealed crate cold enough to contract on descent can break its restraints halfway down the wall.
 
-    Freight yards store ringglass, machine parts, medicine, ceramics, salts, and preserved food. Scheduled carriers dominate long-haul traffic, while local cooperatives run crater lifts and #{ref :heat_road_hauler, "heat-road haulers"}. The distinction matters during delays. A cargo can have arrived on Ashvane and remain unavailable to the town that ordered it until a surface crew has room on the correct route.
+    Freight yards store ringglass, machine parts, medicine, ceramics, salts, and preserved food. Scheduled carriers dominate long-haul traffic, while local cooperatives run crater lifts and #{encyclopedia_ref :heat_road_hauler, "heat-road haulers"}. The distinction matters during delays. A cargo can have arrived on Ashvane and remain unavailable to the town that ordered it until a surface crew has room on the correct route.
 
     Passenger halls open onto a shaded court with water stations, clothing stalls, and benches built over cool return lines. Porters check visitors' outer layers before directing them toward the surface exits. A person dressed for the crater can still be injured crossing one unshaded freight apron.
   PROSE
@@ -100,7 +102,4 @@ relate :rel_shadewell_in_ashvane, :located_in, :shadewell, :ashvane do
 end
 relate :rel_shadewell_terminus_keel, :terminus_of, :shadewell, :keel do
   prose "Shadewell's rim port is the surface terminal at the far end of #{ref :keel, "the Keel"}."
-end
-relate :rel_shadewell_depends_on_resonance, :depends_on, :shadewell, :resonance do
-  prose "The city's linked heat uses and cooling loops depend on kinetic-band #{ref :resonance, "resonance"}."
 end

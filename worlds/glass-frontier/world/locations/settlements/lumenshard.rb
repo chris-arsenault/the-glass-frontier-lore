@@ -2,7 +2,9 @@ installation :lumenshard do
   name "Lumenshard"
   summary "Lumenshard is the largest settlement in Miraeth, occupying terraces beneath the crystal-veined canopy of the region's central forest basin."
   playable_as :chronicle_location
+  context_tags :"realm:surface"
   subkind :settlement
+  type_of :settlement
   status :complete
   population 63_000
   population_band "About sixty-three thousand across the central basin and ridge wards"
@@ -97,9 +99,10 @@ end
 relate :rel_lumenshard_in_miraeth, :located_in, :lumenshard, :miraeth, since: 2192 do
   prose "#{ref :lumenshard, "Lumenshard"} fills the largest cultivated basin in Miraeth."
 end
-relate :rel_lumenshard_depends_on_resonance, :depends_on, :lumenshard, :resonance do
-  prose "Its channels, buildings, and rotating quiet periods follow the #{ref :resonance, "resonance"} carried through the basin's living root mat."
-end
 relate :rel_lumenshard_hosts_conservatory, :hosts, :lumenshard, :lumenshard_conservatory, since: 2286 do
   prose "Lumenshard hosts the Conservatory's offices and field yards without placing the town's water or grove assemblies under its control."
+end
+
+relate :rel_prismwell_operates_in_lumenshard, :operates_in, :prismwell_kite_guild, :lumenshard do
+  prose "Prismwell collection flights use Lumenshard's shower-rated kite field and supply the records against which growers measure the season's fall."
 end

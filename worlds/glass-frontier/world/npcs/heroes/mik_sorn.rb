@@ -4,11 +4,9 @@ npc :mik_sorn do
   subkind :courier
   occupation "Meal and medical courier"
   route "Rattle, Neighborhood Eight, the cold wards, and Dock Four"
-  species "human"
-  culture "Hab-Worlder"
-  identity_source :species, :humans
-  identity_source :culture, :hab_worlder
-  identity_source :trade, :couriers
+  type_of :humans
+  belongs_to :culture, :hab_worlder
+  belongs_to :role, :couriers
   descriptive_identity attire:
     "Sorn's coat carries the route in chalk — changes on the left cuff, " \
     "recipients on the right — smeared pale by midday and gone by the next " \

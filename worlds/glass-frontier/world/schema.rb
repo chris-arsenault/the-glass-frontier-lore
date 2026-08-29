@@ -9,13 +9,22 @@ schema do
   # this; a block a person writes declares `drafted_by: :human`.
   drafted_by_default :ai
   require_entity_summaries!
-  require_descriptive_identities!
   require_fact_cards! from: :renowned, minimum: 4
   require_gm_notes! from: :forgotten, minimum: 1
+  require_encyclopedia_types! kinds: %i[
+    ability artifact conflict creature edict faction geographic_location incident installation
+    npc phenomenon resource rumor transport
+  ]
+  require_encyclopedia_type_kind! atlas_kind: :ability, encyclopedia_kind: :ability
+  require_encyclopedia_type_kind! atlas_kind: :phenomenon, encyclopedia_kind: :phenomenon
   require_playable_coverage! :chronicle_location,
                              kinds: location_kinds,
-                             except: %i[kaleidos kaleidos_system the_glass_frontier the_sun],
+                             except: %i[
+                               kaleidos kaleidos_echo_rivers kaleidos_system room_before_the_ice
+                               spreading_front the_glass_frontier the_sun
+                             ],
                              exclusive: true
+  require_context_tags! for_playable: :chronicle_location
   require_playable_count! :species, minimum: 5, maximum: 8
   require_playable_count! :culture, minimum: 4, maximum: 8
   require_playable_count! :homeland, minimum: 8, maximum: 12
@@ -27,75 +36,66 @@ schema do
                          veiled_majority_location_count: 2,
                          veiled_cross_location_minimum: 1,
                          veiled_required_kinds: %i[
-                           ability artifact concept conflict creature culture edict era faction incident
-                           npc phenomenon resource rumor species transport
+                           artifact conflict creature edict era faction incident npc rumor transport
                          ],
                          veiled_require_all_subkinds: true,
                          veiled_kind_minimum: 8,
-                         veiled_kind_maximum: 24
+                         veiled_kind_maximum: 64
 
-  # Resonance is a physical force here, so attunement and sympathy are real
-  # edges rather than metaphors. An attunement may describe how the bond
-  # shows in practice — its expression — as relationship identity.
-  relation :attuned_to, category: :technical, temporal: false do
-    identity_key :expression, required: false
+  extend_encyclopedia_kind :lifeform do
+    field :function, type: :text, expected: false
+    field :resonance_relation, type: :text, label: "Resonance", expected: false
+    field :principal_accommodation, type: :text, label: "Principal Accommodation", expected: false
   end
-  relation :resonates_with, category: :narrative, temporal: false
-  extend_relation :terminus_of,
-                  domain: location_kinds,
-                  range: :installation,
-                  description: "The source place is an endpoint of the target route"
 
-  # DM-only. Where the False Form reaches through, and who is avoiding whom.
-  relation :hiding_from, category: :dm, temporal: false
-  relation :seeping_through, category: :dm, temporal: false
-
-  extend_subkind :concept, :physical_system do
+  extend_encyclopedia_kind :phenomenon do
+    field :function, type: :text, expected: false
     field :nature, type: :text, expected: false
     field :known_forms, type: :text, label: "Known Forms", expected: false
     field :operating_limit, type: :text, label: "Known Limit", expected: false
   end
 
-  extend_subkind :concept, :reference_concept do
-    field :measures, type: :text, expected: false
-    field :scale, type: :text, expected: false
-    field :excludes, type: :text, expected: false
+  extend_encyclopedia_kind :ability do
+    tier :broad, rank: 1,
+                 description: "Broad-band effect with the lowest reach, precision, and cost."
+    tier :focused, rank: 2,
+                   description: "Reduced-band effect with greater reach, precision, and cost."
+    tier :narrow, rank: 3,
+                  description: "Narrow-band effect with high reach, precision, and cost."
+    tier :apex, rank: 4,
+                description: "Single-wavelength effect at the highest power and lasting cost."
   end
 
-  extend_subkind :concept, :social_system do
-    field :scope, type: :text, expected: false
-    field :daily_infrastructure, type: :text, label: "Daily Infrastructure", expected: false
-    field :routine_travel, type: :text, label: "Routine Travel", expected: false
-    relation_field :depends_on, relation: :depends_on, cardinality: :many,
-                                label: "Depends On", expected: false
-  end
+  context_tag :"realm:surface",
+              "Open ground and built places on a planetary surface.",
+              scopes: :place
+  context_tag :"realm:orbital",
+              "Places reached and sustained in orbit or free space.",
+              scopes: :place
+  context_tag :"realm:ring_habitat",
+              "Settled remnants and enclosed communities of the broken ring.",
+              scopes: :place,
+              parent: :"realm:orbital"
+  context_tag :"realm:outer_system",
+              "Worlds, stations, and routes beyond the central ring region.",
+              scopes: :place
 
-  extend_subkind :culture, :overview do
-    field :organizing_basis, type: :text, label: "Organizing Basis", expected: false
-    field :primary_signals, type: :text, label: "Primary Signals", expected: false
-    field :major_cultures, type: :entities, label: "Major Cultures", expected: false
-  end
+  # Resonance is a physical force here, so attunement and sympathy are real
+  # edges rather than metaphors.
+  relation :attuned_to, category: :technical, temporal: false
+  relation :resonates_with, category: :narrative, temporal: false
+  extend_relation :terminus_of,
+                  domain: location_kinds,
+                  range: :installation,
+                  description: "The source place is an endpoint of the target route"
+  extend_relation :bears,
+                  domain: :npc,
+                  range: :ability,
+                  description: "A person who currently or formerly bears a named mantle"
 
-  extend_subkind :culture, :naming_practice do
-    field :organizing_basis, type: :text, label: "Organizing Basis", expected: false
-    field :documented_traditions, type: :integer, label: "Documented Traditions", expected: false
-    field :used_by, type: :entities, label: "Used By", expected: false
-  end
-
-  extend_subkind :culture, :regional_culture do
-    field :homeland, type: :entity, expected: false
-    field :formal_register, type: :text, label: "Formal Register", expected: false
-    field :aesthetic, type: :text, expected: false
-    relation_field :present_at, relation: :manifests_at, cardinality: :many,
-                                label: "Present At", expected: false
-  end
-
-  extend_subkind :culture, :way_of_life do
-    relation_field :origin, relation: :originated_in, cardinality: :one,
-                            label: "Origin", expected: false
-    relation_field :present_at, relation: :manifests_at, cardinality: :many,
-                                label: "Present At", expected: false
-  end
+  # DM-only. Where the False Form reaches through, and who is avoiding whom.
+  relation :hiding_from, category: :dm, temporal: false
+  relation :seeping_through, category: :dm, temporal: false
 
   extend_subkind :faction, :government do
     field :mandate, type: :text, expected: false
@@ -156,168 +156,86 @@ schema do
     field :operating_limit, type: :text, label: "Operating Limit", expected: false
   end
 
-  extend_subkind :species, :sapient_species do
-    field :resonance_relation, type: :text, label: "Resonance", expected: false
-    identity_key :appearance
-    identity_key :senses, required: false
-  end
-
-  # Descriptive identity. Bodies say where you grew up; belonging is the trade
-  # and its tools; culture supplies the layer under both. Norms live in
-  # complete source articles and entities inherit them without copying.
-  # Prose rules: guidance/identity.md.
+  # Descriptive identity is local to each Atlas entity. Classification does
+  # not copy values from Encyclopedia entries.
   extend_kind :npc do
     identity_key :appearance
-    identity_key :attire, required: false
-    identity_key :tools, required: false
-    identity_key :manner, required: false
-    identity_key :disposition, required: false
-    identity_source :species, kinds: :species, subkinds: :sapient_species,
-                              keys: :appearance, cardinality: :one, precedence: 1
-    identity_source :culture, kinds: :culture, subkinds: %i[regional_culture way_of_life],
-                              keys: %i[appearance attire manner], cardinality: :many,
-                              required: false, precedence: 2
-    identity_source :trade, kinds: :concept, subkinds: :practice,
-                            keys: %i[attire tools manner], cardinality: :many,
-                            required: false, precedence: 3
+    identity_key :attire
+    identity_key :tools
+    identity_key :manner
+    identity_key :disposition
   end
 
   # Scene-anchoring dictionaries for the rest of the atlas. Every key holds
   # compact description a scene can narrate from; all optional, distilled from
   # each entry's own canon. Variety is the premise — no source templates.
   extend_kind :installation do
-    identity_key :setting, required: false
-    identity_key :activity, required: false
-    identity_key :access, required: false
-    identity_key :hazards, required: false
+    identity_key :setting
+    identity_key :activity
+    identity_key :access
+    identity_key :hazards
   end
 
   extend_kind :geographic_location do
-    identity_key :setting, required: false
-    identity_key :activity, required: false
-    identity_key :hazards, required: false
+    identity_key :setting
+    identity_key :activity
+    identity_key :hazards
   end
 
   extend_kind :faction do
-    identity_key :ideology, required: false
-    identity_key :methods, required: false
-    identity_key :presence, required: false
-    identity_key :attitude, required: false
+    identity_key :ideology
+    identity_key :methods
+    identity_key :presence
+    identity_key :attitude
   end
 
   extend_kind :transport do
-    identity_key :appearance, required: false
-    identity_key :aboard, required: false
-    identity_key :behavior, required: false
+    identity_key :appearance
+    identity_key :aboard
+    identity_key :behavior
   end
 
   extend_kind :artifact do
-    identity_key :appearance, required: false
-    identity_key :handling, required: false
-    identity_key :risks, required: false
+    identity_key :appearance
+    identity_key :handling
+    identity_key :risks
   end
 
   extend_kind :creature do
-    identity_key :appearance, required: false
-    identity_key :behavior, required: false
-    identity_key :threat, required: false
+    identity_key :appearance
+    identity_key :behavior
+    identity_key :threat
   end
 
   extend_kind :resource do
-    identity_key :appearance, required: false
-    identity_key :working, required: false
-    identity_key :risks, required: false
+    identity_key :appearance
+    identity_key :working
+    identity_key :risks
   end
 
   extend_kind :ability do
-    identity_key :signs, required: false
-    identity_key :effect, required: false
-    identity_key :limits, required: false
+    subkind :the_three, label: "Faith — The Three"
+    subkind :the_adversary, label: "Shadow — The Adversary"
+    identity_key :signs
+    identity_key :effect
+    identity_key :limits
   end
 
   extend_kind :phenomenon do
-    identity_key :signs, required: false
-    identity_key :effects, required: false
-    identity_key :hazards, required: false
+    identity_key :signs
+    identity_key :effects
+    identity_key :hazards
   end
 
   extend_kind :incident do
-    identity_key :marks, required: false
-    identity_key :stakes, required: false
+    identity_key :marks
+    identity_key :stakes
   end
 
   extend_kind :conflict do
-    identity_key :cause, required: false
-    identity_key :intensity, required: false
-    identity_key :conduct, required: false
-  end
-
-  # Relationship identity: the texture of an edge, for the verbs that carry
-  # scene tension. Authored on instances where an entry's tension lives.
-  extend_relation :participated_in do
-    identity_key :aims, required: false
-    identity_key :conduct, required: false
-    identity_key :cost, required: false
-  end
-
-  extend_relation :cooperates_with do
-    identity_key :basis, required: false
-    identity_key :limits, required: false
-  end
-
-  extend_relation :supplies do
-    identity_key :terms, required: false
-    identity_key :dependence, required: false
-  end
-
-  extend_relation :member_of do
-    identity_key :standing, required: false
-  end
-
-  extend_relation :employed_by do
-    identity_key :standing, required: false
-  end
-
-  extend_relation :governs do
-    identity_key :basis, required: false
-    identity_key :reach, required: false
-    identity_key :legitimacy, required: false
-    identity_key :resistance, required: false
-  end
-
-  extend_relation :regulates do
-    identity_key :reach, required: false
-    identity_key :enforcement, required: false
-  end
-
-  extend_relation :depends_on do
-    identity_key :exposure, required: false
-  end
-
-  extend_subkind :culture, :regional_culture do
-    identity_key :appearance, required: false
-    identity_key :attire, required: false
-    identity_key :manner, required: false
-    identity_key :hospitality, required: false
-  end
-
-  extend_subkind :culture, :way_of_life do
-    identity_key :appearance, required: false
-    identity_key :attire, required: false
-    identity_key :manner, required: false
-    identity_key :hospitality, required: false
-  end
-
-  extend_subkind :concept, :practice do
-    identity_key :attire, required: false
-    identity_key :tools, required: false
-    identity_key :manner, required: false
-  end
-
-  %i[ability artifact concept conflict creature culture edict era faction
-     geographic_location incident installation loop phenomenon resource rumor
-     species theme thread transport].each do |sourceless_kind|
-    extend_kind(sourceless_kind) { no_identity_sources }
+    identity_key :cause
+    identity_key :intensity
+    identity_key :conduct
   end
 
   tag :AI, "Artificial intelligence, custodian systems"
@@ -362,6 +280,14 @@ schema do
 
   section_heading :resonance
   section_heading :the_third_panel
+
+  # Glass Frontier has completed the Atlas/Encyclopedia split. Other worlds
+  # may continue using the shared species, culture, and concept definitions
+  # until their own migrations are complete.
+  restrict_entity_kinds! to: %i[
+    ability artifact conflict creature edict era faction geographic_location incident installation
+    npc phenomenon resource rumor transport loop theme thread
+  ]
 end
 
 # Fixed chart coordinates. The system frame uses orbital rank rather than a

@@ -2,8 +2,10 @@ installation :outside do
   name "Outside"
   summary "Outside is the permanent cordon settlement at Karet-3 in the outer Shear, housing evacuee families and Displacement Council crews beside the Bloom boundary."
   playable_as :chronicle_location, :homeland
+  context_tags :"realm:orbital"
   origin_blurb "A permanent cordon station where Karet families and rotating crews maintain the wall around Karet-3."
   subkind :settlement
+  type_of :settlement
   population 300
   population_band "About three hundred, half on rotating contracts"
   role "Permanent cordon station for Karet-3"
@@ -55,7 +57,7 @@ installation :outside do
 
     Below the inhabited decks, a ladder descends through sixty meters of structural frame to the deep mounts. The station's damping field is weak there. Ambient Shear resonance returns as equipment hum, and the Bloom boundary becomes audible as an uneven low tone. Inspection teams work in pairs, limit their time, and write down headaches rather than treating them as ordinary fatigue.
 
-    The boundary walk begins at this lower level and circles the zone-facing hull. It is the station's most exposed routine job. It is also where crews first saw the #{ref :rind, "rind"} holding position beyond the mounts.
+    The boundary walk begins at this lower level and circles the zone-facing hull. It is the station's most exposed routine job. It is also where crews first saw #{ref :three_hundred_out, "Three Hundred Out"} holding position beyond the mounts.
   PROSE
   prose <<~PROSE, section: :people, heading: "A Cordon Town"
     Outside runs on two time scales. Contractors arrive for a tour, learn the array, and leave. Permanent residents plan around school terms, supply intervals, and the old Karet shift calendar. The same mess serves both populations, and the same arguments recur over which repairs can wait for the next ship.
@@ -78,11 +80,4 @@ relate :rel_outside_located_in_shear, :located_in, :outside, :the_shear, since: 
 end
 relate :rel_outside_depends_on_liras_wall, :depends_on, :outside, :liras_wall do
   prose "Its wall array and stillwater buoys are a permanent local deployment of #{ref :liras_wall, "Lira's Wall"}."
-  descriptive_identity exposure:
-    "The station is the wall; there is no version of Outside behind a " \
-    "failed one. A mount out of calibration is heard before it is read " \
-    "— the south deck's hum breaks into changed pulse intervals — and " \
-    "everything after that is measured in how fast a crew can isolate " \
-    "the section, with the Karet families' old home on the far side of " \
-    "whatever gets through."
 end

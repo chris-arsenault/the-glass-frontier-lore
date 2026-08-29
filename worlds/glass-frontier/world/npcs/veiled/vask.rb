@@ -2,6 +2,7 @@ npc :vask do
   name "Vask"
   summary "Vask is a pressure-valve specialist serving South Shade and Shadewell."
   subkind :specialist
+  type_of :person
   status :complete
   prominence :marginal
   veiled "Vask cuts pressure valves for South Shade and tests each one by carrying it into Shadewell's open wind."end

@@ -4,6 +4,7 @@ faction :echo_ledger_conclave do
   playable_as :allegiance
   origin_blurb "Archivists catalogue voices from Echo Rivers and govern access to recordings whose context still matters."
   subkind :religious_order
+  type_of :order
   path "player/npcs/factions/echo-ledger-conclave.md"
   reviewed "2026-03-18"
   tags :archives, :resonance, :"signal-freq", :governance
@@ -36,7 +37,7 @@ faction :echo_ledger_conclave do
   prose <<~PROSE
     Archivists. Gatekeepers. The people who catalogue what the ground remembers and decide who gets to hear it.
 
-    The Conclave exists because the #{ref :echo_rivers, "Echo Rivers"} exist, and because someone had to take responsibility for what surfaces in them. They are headquartered in the #{ref :sable_crescent, "Sable Crescent"}, where the rivers are densest, and they have made themselves indispensable to anyone who needs the past authenticated, interpreted, or — occasionally — suppressed.
+    The Conclave exists because the #{ref :kaleidos_echo_rivers, "Echo Rivers"} exist, and because someone had to take responsibility for what surfaces in them. They are headquartered in the #{ref :sable_crescent, "Sable Crescent"}, where the rivers are densest, and they have made themselves indispensable to anyone who needs the past authenticated, interpreted, or — occasionally — suppressed.
   PROSE
   prose <<~PROSE, section: :structure, heading: "Structure"
     Mid-tier faction — larger than a guild, smaller than a government. The Conclave operates from #{ref :thornvault, "Thornvault"}, their headquarters in the Sable Crescent: a castle-like complex built on a natural bridge spanning a canyon, positioned to face the glasslight at dusk. The architecture is deliberately imposing — soaring crystal-laced buttresses, open galleries that channel ambient river sound through the halls. The building is a statement: we are serious people doing serious work.
@@ -61,7 +62,7 @@ faction :echo_ledger_conclave do
 
     ### Retrieval Cells <!-- Operations -->
 
-    Retrieval cells go out to acquire artifacts and recordings before someone else does or before the material degrades past recovery. A typical retrieval cell is four to six archivists with a #{ref :clarisant, "Clarisant"}-credentialed #{ref :tuners, "Tuner"} on contract, traveling by chartered transport with the equipment to assess, package, and extract resonance-sensitive material in the field.
+    Retrieval cells go out to acquire artifacts and recordings before someone else does or before the material degrades past recovery. A typical retrieval cell is four to six archivists with a #{ref :clarisant, "Clarisant"}-credentialed #{encyclopedia_ref :tuners, "Tuner"} on contract, traveling by chartered transport with the equipment to assess, package, and extract resonance-sensitive material in the field.
 
     The work is varied. A retrieval cell may be excavating a pre-Glassfall installation that has been newly uncovered by surface erosion. They may be negotiating with a salvage flotilla that has pulled something interesting from the #{ref :deep_shear, "Deep Shear"}. They may be racing a #{ref :coremark, "Coremark"} convoy unit to a known artifact site whose location has just leaked. They may be quietly buying a recording from a private holder who has decided to sell.
 
@@ -96,7 +97,7 @@ faction :echo_ledger_conclave do
 
     Their relationship with #{ref :sithari, "Sithari"} and #{ref :the_continuity, "the Continuity"} rests on negotiated access. The Continuity requests records for courts, infrastructure claims, and public histories. The Conclave releases material under its own review rules and refuses demands that would expose private testimony or unstable Echo River sites. Each institution needs records held by the other, so most disputes end in a narrower request and a delayed transfer.
 
-    Within the Conclave, the Redaction theorists — archivists who believe the #{ref :elves, "elven"} historical gaps are evidence of deliberate tampering — are a respected fringe. Not mainstream, not suppressed. The kind of position that gets you invited to interesting dinners and passed over for administrative promotion. The eccentric professor, not the ideological dissident.
+    Within the Conclave, the Redaction theorists — archivists who believe the #{encyclopedia_ref :elves, "elven"} historical gaps are evidence of deliberate tampering — are a respected fringe. Not mainstream, not suppressed. The kind of position that gets you invited to interesting dinners and passed over for administrative promotion. The eccentric professor, not the ideological dissident.
   PROSE
   prose <<~PROSE, section: :present_day, heading: "Present Day"
     The Conclave is secure, solvent, and slightly too pleased with itself. Their expertise is genuinely irreplaceable — nobody else has the institutional knowledge, the listening infrastructure, or the legal standing to do what they do. This makes them confident in ways that sometimes shade into arrogant.
@@ -106,16 +107,13 @@ faction :echo_ledger_conclave do
     #{ref :lira_vashtenri, "Lira Vashtenri"} left the Conclave to join the #{ref :displacement_council, "Displacement Council"}, taking her resonance expertise with her. The Conclave considers this a personal betrayal dressed up as public service. Lira considers it the most useful thing she's ever done. They are both correct.
   PROSE
 
-  gm_note :appears, "Outside #{ref :sable_crescent, "Sable Crescent"} the Conclave arrives as a retrieval cell: four to six archivists with a contracted #{ref :tuners, "Tuner"}, a chartered transport, and the funds to buy the thing the party came for before the party reaches it."
+  gm_note :appears, "Outside #{ref :sable_crescent, "Sable Crescent"} the Conclave arrives as a retrieval cell: four to six archivists with a contracted #{encyclopedia_ref :tuners, "Tuner"}, a chartered transport, and the funds to buy the thing the party came for before the party reaches it."
   gm_note :triggered_by, "Ask for a record and the answer is a fee and a redaction. The Conclave has three times been ordered to widen access and three times released material technically public and practically useless."
   gm_note :complicates, "A find of doubtful provenance is worth more once an archivist attests to its resonance signature. The Conclave does not authenticate such goods; individual archivists do it on their own time, which makes the attestation itself something a rival can raise."
 end
 
-relate :rel_elc_studies_echo_rivers, :studies, :echo_ledger_conclave, :echo_rivers, since: 2310 do
-  prose "The Conclave exists to read the #{ref :echo_rivers, "Echo Rivers"} — cataloguing the pre-Glassfall fragments that surface in deep crystal, and the conspicuous gaps where something was scrubbed out."
-end
-relate :rel_elc_studies_pre_glassfall_transmissions, :studies, :echo_ledger_conclave, :pre_glassfall_transmissions, since: 2310 do
-  prose "Its listeners compare river voices, ringglass shards, and active transmitters to authenticate #{ref :pre_glassfall_transmissions, "pre-Glassfall transmissions"}."
+relate :rel_elc_studies_kaleidos_echo_rivers, :studies, :echo_ledger_conclave, :kaleidos_echo_rivers, since: 2310 do
+  prose "The Conclave reads the Kaleidos Echo Rivers, cataloguing the pre-Glassfall fragments that surface in deep crystal and the conspicuous gaps where something was scrubbed out."
 end
 relate :rel_elc_studies_choir_fragment, :studies, :echo_ledger_conclave, :the_choir_fragment, since: 2421 do
   prose "The Conclave holds fourteen years of recordings from #{ref :the_choir_fragment, "the Choir Fragment"}, including every change in its weekly message."
@@ -126,28 +124,13 @@ end
 relate :rel_elc_hq_thornvault, :headquartered_in, :echo_ledger_conclave, :thornvault, since: 2310 do
   prose "Its archives proper sit deeper, at #{ref :thornvault, "Thornvault"} — the vault from which its most sensitive elf-related material has twice been stolen, both thefts unsolved."
 end
-relate :rel_elc_supplies_stillwater, :supplies, :echo_ledger_conclave, :stillwater, since: 2313 do
-  prose "It feeds recovered records to #{ref :stillwater, "Stillwater"}, the preservation effort that keeps what the rivers give up from decaying a second time."
-  descriptive_identity(
-    terms:
-      "Authenticated river fragments written into the medium by " \
-      "signal-band Tuners at the listening houses, sealed vial by " \
-      "vial — the Conclave supplies the content and consumes most of " \
-      "the clean stock in the same motion."
-  )
-end
 relate :rel_elc_member_of_bloom_coalition, :member_of, :echo_ledger_conclave, :bloom_coalition, since: 2380, till: 2396 do
   prose "Through the Bloom emergency it sat in the #{ref :bloom_coalition, "Bloom Coalition"}, lending archival and analytical weight until the coalition dissolved."
-  descriptive_identity standing:
-    "The Conclave went in a niche academic institution doing on-the-fly " \
-    "resonance analysis and came out a faction with practical relevance " \
-    "to the system's largest continuing crisis; not all of its senior " \
-    "archivists welcomed the change."
 end
 
 # --- history (moments) ---
 moment :echo_ledger_conclave_formed, year: 2310, of: :echo_ledger_conclave do
   summary "Echo River listeners formed the Echo Ledger Conclave in 2310 to catalogue records surfacing across Kaleidos."
-  prose "The Conclave formed during the Rekindling, when reconnecting settlements compared notes about the #{ref :echo_rivers, "Echo Rivers"} and realized the same fragments were surfacing planet-wide. The early archivists were just listeners — people who sat near surfacing points and wrote down what they heard. The Conclave organized them, standardized their methods, and claimed custodianship over the material. The claim stuck because nobody else wanted the job: cataloguing the conversations of dead strangers attracts a specific patient, obsessive, ambiguity-tolerant personality, and the Conclave has been selecting for it ever since."
+  prose "The Conclave formed during the Rekindling, when reconnecting settlements compared notes about the #{ref :kaleidos_echo_rivers, "Echo Rivers"} and realized the same fragments were surfacing planet-wide. The early archivists were just listeners — people who sat near surfacing points and wrote down what they heard. The Conclave organized them, standardized their methods, and claimed custodianship over the material. The claim stuck because nobody else wanted the job: cataloguing the conversations of dead strangers attracts a specific patient, obsessive, ambiguity-tolerant personality, and the Conclave has been selecting for it ever since."
   effects { set :echo_ledger_conclave, standing: :active }
 end

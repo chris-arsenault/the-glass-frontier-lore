@@ -2,7 +2,9 @@ installation :vey do
   name "Vey"
   summary "Vey is a settlement of twelve and a half thousand people inside a porous ring fragment in the Glass Frontier, ventilated by its rotating thermal cycle."
   playable_as :chronicle_location
+  context_tags :"realm:ring_habitat"
   subkind :settlement
+  type_of :settlement
   status :complete
   tags :"ring-hab", :"structural-freq", :household, :resonance, :governance
   prominence :recognized
@@ -86,27 +88,10 @@ end
 
 relate :rel_rib_supplies_vey_filters, :supplies, :rib, :vey, since: 2435 do
   prose "Rib supplies living filter mouths for trials in Vey's warm wall passages."
-  descriptive_identity(
-    terms:
-      "Small lots of reef-grown filter tissue, cut during the pulse " \
-      "interval that suits the work and shipped through Rib's single " \
-      "approach trench on the same carriers that bring its timber in.",
-    dependence:
-      "The trials are still trials. Vey's own ceramic mesh carries the " \
-      "settlement's breath; the living mouths are a bet that a filter " \
-      "which closes against dust on its own could spare households " \
-      "their daily brushing."
-  )
 end
 
 relate :rel_vey_supplies_rib_growth_records, :supplies, :vey, :rib, since: 2435 do
   prose "Vey returns airflow and growth records with each stock of Rib-grown filters."
-  descriptive_identity(
-    terms:
-      "Kir Orm's vapor maps and gallery readings, showing where each " \
-      "batch of mouths opened, clogged, or grew past its socket in a " \
-      "warm passage the cutters back home will never see."
-  )
 end
 
 relate :rel_kir_orm_maintains_lung_three, :maintains, :kir_orm, :lung_three, since: 2435 do

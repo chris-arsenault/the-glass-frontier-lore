@@ -2,6 +2,7 @@ transport :warm_argument do
   name "Warm Argument"
   summary "Warm Argument is an ore vessel serving Crucible, Ashvane, and Shadewell. It carries Crucible ore in detachable pods that crews wager on before opening."
   subkind :vessel
+  type_of :heavy_hauler
   status :complete
   prominence :marginal
   veiled "Warm Argument carries Crucible ore in detachable pods that crews wager on before opening."

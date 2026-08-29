@@ -2,6 +2,7 @@ artifact :karet_spool do
   name "Karet Spool"
   summary "The Karet Spool is a freight-winch relic recovered from Karet-3 in 2426. Its finite braided line preserves one route already crossed through changing space, and the Displacement Council keeps it at Outside for mapped recoveries."
   subkind :relic
+  type_of :bloom_relics
   origin_date 2426
   status :complete
   tags :resonance, :danger, :orbital, :transport, :mystery
@@ -81,9 +82,6 @@ relate :rel_karet_spool_located_outside, :located_in, :karet_spool, :outside, si
 end
 relate :rel_karet_spool_manifests_karet_three, :manifests_at, :karet_spool, :karet_three do
   prose "The route-holding effect first appeared inside #{ref :karet_three, "Karet-3"} after an ordinary freight winch was caught in the zone."
-end
-relate :rel_karet_spool_derived_bloom_relics, :derived_from, :karet_spool, :bloom_relics do
-  prose "The Karet Spool is a documented Bloom relic: an ordinary machine altered into a non-reproducible route tool."
 end
 relate :rel_karet_spool_resonates_bloom_zones, :resonates_with, :karet_spool, :bloom_zones do
   prose "Its line preserves a traversed route through the changing geometry of a Bloom Zone."

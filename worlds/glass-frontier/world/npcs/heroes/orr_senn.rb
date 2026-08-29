@@ -4,16 +4,14 @@ npc :orr_senn do
   subkind :specialist
   occupation "Source-line reader"
   specialty "Water pressure, heat drift, and coupled structural tone"
-  species "human"
-  identity_source :species, :humans
-  identity_source :culture, :hab_worlder
-  identity_source :trade, :readers
+  type_of :humans
+  belongs_to :culture, :hab_worlder
+  belongs_to :role, :readers
   descriptive_identity disposition:
     "Senn stands behind no reading he has not walked from the source " \
     "gate. A blame brought to him comes back separated into heat, " \
     "pumping, and ordinary household draw, with the hour the change " \
     "reached each cistern."
-  culture "Hab-Worlder"
   status :complete
   tags :household, :resonance, :training
   prominence :marginal
@@ -35,8 +33,4 @@ end
 
 relate :rel_orr_senn_operates_holl, :operates_in, :orr_senn, :holl, since: 2435 do
   prose "Orr Senn joins Holl's water crews for seasonal readings along the moving wall."
-end
-
-relate :rel_orr_senn_attuned_to_resonance, :attuned_to, :orr_senn, :resonance do
-  prose "Orr Senn separates structural-tone drift from pressure, heat, and household draw."
 end

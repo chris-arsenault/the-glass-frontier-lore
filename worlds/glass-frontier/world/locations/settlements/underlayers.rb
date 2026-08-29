@@ -2,7 +2,9 @@ installation :underlayers do
   name "Underlayers"
   summary "The Underlayers are the buried neighborhoods below central Sithari, housing about one hundred eighty thousand people in old service halls and submerged buildings."
   playable_as :chronicle_location
+  context_tags :"realm:surface"
   subkind :settlement
+  type_of :settlement
   population 180_000
   population_band "About one hundred eighty thousand permanent residents"
   role "Sithari's inhabited lower city and the working boundary of its buried ring-era complex"
@@ -53,9 +55,9 @@ installation :underlayers do
     The marked limit is not the bottom of the city. It is the depth below which a route cannot be assumed to remain where the last survey placed it. Residents still keep workshops, storage rooms, and meeting halls beyond that line, but the doors are registered with the #{ref :lower_routes_cooperative, "Lower Routes Cooperative"} and checked whenever the buried systems change state.
   PROSE
   prose <<~PROSE, section: :resonance, heading: "When a Route Changes"
-    Much of the old complex still carries #{ref :resonance, "resonance"}. Modern power draws through its ringglass paths, even where engineers have disconnected every visible conduit. At the inhabited levels this usually appears as warmth in a wall, a persistent vibration under a stair, or light from panels with no modern supply. Deeper down, active ring-era systems can change which spaces are adjacent.
+    Much of the old complex still carries #{encyclopedia_ref :resonance, "resonance"}. Modern power draws through its ringglass paths, even where engineers have disconnected every visible conduit. At the inhabited levels this usually appears as warmth in a wall, a persistent vibration under a stair, or light from panels with no modern supply. Deeper down, active ring-era systems can change which spaces are adjacent.
 
-    A shift gives physical warning. A doorframe acquires a second reflected edge. A struck rail returns two decays, one from the corridor in sight and another from a volume that the current map places elsewhere. A #{ref :tuning_compass, "tuning compass"} pulls toward the stronger path and then holds there. Route crews close the door when two signs agree, record the city load at that hour, and approach from another fixed stair.
+    A shift gives physical warning. A doorframe acquires a second reflected edge. A struck rail returns two decays, one from the corridor in sight and another from a volume that the current map places elsewhere. A #{encyclopedia_ref :tuning_compass, "tuning compass"} pulls toward the stronger path and then holds there. Route crews close the door when two signs agree, record the city load at that hour, and approach from another fixed stair.
 
     Most shifts last minutes or hours. A corridor may return to its former destination after a transit field powers down or a large surface array finishes tuning. Some changes persist. The Cooperative treats a route as new after three matching surveys on separate days, which means an address can keep the same rooms while acquiring a different walk to the street.
   PROSE
@@ -88,6 +90,6 @@ end
 relate :rel_underlayers_located_in_sithari, :located_in, :underlayers, :sithari, since: 2140 do
   prose "The Underlayers occupy the buried campus and later construction below central #{ref :sithari, "Sithari"}."
 end
-relate :rel_underlayers_depends_on_tuning_compasses, :depends_on, :underlayers, :tuning_compass do
-  prose "Route crews use #{ref :tuning_compass, "tuning compasses"} with echo and reflection checks before declaring a deep approach safe."
+relate :rel_underlayers_depends_on_tuning_compasses, :depends_on, :underlayers, :shared_reference do
+  prose "Route crews use the Shared Reference with echo and reflection checks before declaring a deep approach safe."
 end

@@ -2,7 +2,9 @@ installation :orra do
   name "Orra"
   summary "Orra is a settlement of seventy-four hundred people in the Glass Frontier, sealed around a dead Ring Age maintenance carrier whose body fills half the hab."
   playable_as :chronicle_location
+  context_tags :"realm:ring_habitat"
   subkind :settlement
+  type_of :settlement
   status :complete
   tags :"ring-hab", :ecology, :salvage, :resonance, :"ring-era"
   prominence :marginal
@@ -57,7 +59,7 @@ installation :orra do
 
     A district approaching a new stage receives crews and equipment from the district that reached it earlier. The practice moves expertise around Orra and gives older neighborhoods a continuing stake in younger ones. It also creates arguments over timing. A cutter sees a clean plate ready for removal; the grower below may need another season of shade from it.
 
-    #{ref :marrower, "Marrowers"} move through channels too narrow for a person. Their feeding exposes warm tissue and blocked fluid pockets. Deep crews follow their tracks during surveys and seal them away from cultivated chambers.
+    #{ref :orra_marrower_colonies, "Marrower colonies"} move through channels too narrow for a person. Their feeding exposes warm tissue and blocked fluid pockets. Deep crews follow their tracks during surveys and seal them away from cultivated chambers.
   PROSE
 
   prose <<~PROSE, section: :present_day, heading: "Heat Under the Sternum"
@@ -77,20 +79,8 @@ end
 
 relate :rel_orra_supplies_seren, :supplies, :orra, :seren, since: 2435 do
   prose "Orra sends documented fungi, carrier tissue, and channel organisms to Seren's trial beds."
-  descriptive_identity(
-    terms:
-      "Material nothing else in the system produces: cultures from a " \
-      "body that has kept changing stage since the Glassfall, each lot " \
-      "labeled with the layer boundary it came off and the stage it was " \
-      "taken in, riding the twice-weekly clean carriers.",
-    dependence:
-      "For Seren the value is the moving source itself — a deposit " \
-      "whose parent tissue will not exist in the same form next season " \
-      "has to be caught, proven, and vaulted while it can still be " \
-      "grown."
-  )
 end
 
-relate :rel_orra_studies_marrowers, :studies, :orra, :marrower, since: 2435 do
+relate :rel_orra_studies_marrower_colonies, :studies, :orra, :orra_marrower_colonies, since: 2435 do
   prose "Orra's deep readers compare marrower tapping patterns with probes along the carrier's spine."
 end

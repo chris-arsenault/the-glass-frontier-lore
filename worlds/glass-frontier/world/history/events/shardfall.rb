@@ -2,6 +2,7 @@ incident :shardfall do
   name "Shardfall"
   summary "Shardfall was a four-day salvage battle and resonance cascade beside Brake in 2348 that killed forty-seven people."
   subkind :disaster
+  type_of :salvage_disaster
   path "player/history/events/shardfall.md"
   status :complete
   reviewed "2026-03-19"
@@ -71,21 +72,4 @@ relate :rel_shardfall_located_in_shear, :located_in, :shardfall, :the_shear do
 end
 relate :rel_brake_participated_shardfall, :participated_in, :brake, :shardfall do
   prose "Brake ordered the extraction stopped, kept the public claim channel open, and suffered the cascade across three inhabited wards."
-  descriptive_identity(
-    aims:
-      "The hab wanted the linked cutting stopped before its own " \
-      "structure joined it — its arrestor instruments were answering " \
-      "the extraction tone before the first full load left the rigs.",
-    conduct:
-      "Local crews cut the arrestor feeds on the fourth day, rescue " \
-      "teams recovered everyone whose route into the field stayed on an " \
-      "isolated clock, and copies of the recordings went out with every " \
-      "departing carrier. Afterward Brake expelled Drossmark and held " \
-      "the surviving Split Wake crews for the casualty hearings.",
-    cost:
-      "Eleven of the forty-seven dead were residents. A capture frame " \
-      "snapped inward, pressure doors closed through occupied " \
-      "corridors, an observation gallery lost its outer wall, and the " \
-      "repairs were paid from the field's last load."
-  )
 end

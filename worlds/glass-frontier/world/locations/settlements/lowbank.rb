@@ -2,7 +2,9 @@ installation :lowbank do
   name "Lowbank"
   summary "Lowbank is Dovra's largest port city on Korvath, spread across raised islands where three river channels reach the middle sea."
   playable_as :chronicle_location
+  context_tags :"realm:outer_system"
   subkind :settlement
+  type_of :settlement
   status :complete
   population 190_000
   population_band "About one hundred ninety thousand in the port and surrounding mound towns"
@@ -54,7 +56,7 @@ installation :lowbank do
     Fresh water arrives from an upstream channel through a buried ceramic line. Ringglass sensors at the intake read salt pressure through the wet ground and close the line before storm surge reaches it. Neighborhood cisterns cover several days of ordinary use. People still fill extra vessels when the outer-gate note changes.
   PROSE
   prose <<~PROSE, section: :operations, heading: "River and Sea"
-    Sea vessels unload at the western quays. #{ref :channel_barge, "Channel barges"} enter from the north and east, passing through tally houses that record cargo by channel. Cranes use tuned kinetic drives isolated from the native stone by thick ceramic beds. The isolation gives each quay a distinct hum that stops at the warehouse wall.
+    Sea vessels unload at the western quays. #{encyclopedia_ref :channel_barge, "Channel barges"} enter from the north and east, passing through tally houses that record cargo by channel. Cranes use tuned kinetic drives isolated from the native stone by thick ceramic beds. The isolation gives each quay a distinct hum that stops at the warehouse wall.
 
     Independent pilots control most river traffic. Sea carriers cannot simply send their own crews inland because channel depth, ownership, and direction change faster than their charts. Pilots bid by route, water level, and cargo draft. A good one can move a shipment around a closed gate without placing it on a road.
 
@@ -82,7 +84,4 @@ end
 
 relate :rel_lowbank_in_dovra, :located_in, :lowbank, :dovra do
   prose "Lowbank occupies the deepest navigable mouths of #{ref :dovra, "Dovra"}."
-end
-relate :rel_lowbank_depends_on_resonance, :depends_on, :lowbank, :resonance do
-  prose "The port isolates concentrated #{ref :resonance, "resonance"} machinery from Korvath's broad native field with locally made ceramic."
 end

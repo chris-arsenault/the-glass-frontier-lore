@@ -1,6 +1,7 @@
 geographic_location :the_glass_frontier do
   name "The Glass Frontier"
   summary "The Glass Frontier is the shattered orbital ring around Kaleidos, now hundreds of inhabited fragments separated by debris and distorted space."
+  type_of :orbital_habitat_ring
   log "2026-08-22 — Excluded as a chronicle location because the entire field of separated habs is too broad for one starting focus."
   subkind :world_region
   path "player/cosmology/the-glass-frontier.md"
@@ -50,16 +51,16 @@ geographic_location :the_glass_frontier do
 
     Some habs maintained continuity with the old ring civilization and still run on the original infrastructure — vast, clean, quietly miraculous technology that would look like magic if you'd only ever lived dirtside. These are places where the legacy of the ring's builders is still tangible, where systems designed by minds far more sophisticated than anything currently operating still hum along, doing their work. The people living in them don't always understand what they have. They just know the lights come on and the air stays fresh.
 
-    Other habs went their own way entirely. Cut off during the Signal Famine, they reinvented themselves from scratch. There are habs governed by musical consensus — where civic decisions are made through structured improvisation, and political authority flows to whoever holds the session. There are habs that let their environmental controls drift until the interior rewilded into something prehistoric and dense, and then decided they preferred it that way. There are habs where the #{ref :resonance, "resonance"} environment is so saturated and strange that the normal rules bend — where the boundary between what's real and what's imagined gets thin enough to step through.
+    Other habs went their own way entirely. Cut off during the Signal Famine, they reinvented themselves from scratch. There are habs governed by musical consensus — where civic decisions are made through structured improvisation, and political authority flows to whoever holds the session. There are habs that let their environmental controls drift until the interior rewilded into something prehistoric and dense, and then decided they preferred it that way. There are habs where the #{encyclopedia_ref :resonance, "resonance"} environment is so saturated and strange that the normal rules bend — where the boundary between what's real and what's imagined gets thin enough to step through.
 
     These fluid-reality habs are the hardest to describe and the most dangerous to visit. They're also, for certain kinds of people, the most interesting places in the system.
   PROSE
   prose <<~PROSE, section: :geography, heading: "Kaleidos Orbit"
     The orbital space around Kaleidos — everything that used to be the ring — contains three distinct environments:
 
-    **The ring** is what most people mean when they say "the frontier" — the surviving habs, the inhabited fragments, the places where people live. Shuttle traffic between the surface and the ring is routine in well-connected regions. The ring is also the gateway to the rest of the #{ref :kaleidos_system, "Kaleidos system"}. Most interplanetary traffic routes through ring-based stations and commerce hubs, because that's where the old infrastructure — docking systems, navigation beacons, #{ref :resonance, "resonance"} relay networks — is densest.
+    **The ring** is what most people mean when they say "the frontier" — the surviving habs, the inhabited fragments, the places where people live. Shuttle traffic between the surface and the ring is routine in well-connected regions. The ring is also the gateway to the rest of the #{ref :kaleidos_system, "Kaleidos system"}. Most interplanetary traffic routes through ring-based stations and commerce hubs, because that's where the old infrastructure — docking systems, navigation beacons, #{encyclopedia_ref :resonance, "resonance"} relay networks — is densest.
 
-    **#{ref :the_shear, "The Shear"}** fills the pockets and layers between habitable fragments — roughly half the orbital volume. Debris, resonance distortion, and the #{ref :ringglass, "ringglass"} salvage industry that depends on both. The Shear has existed since the Glassfall and is, by now, broadly understood. Dangerous, but navigable. An environment people have learned to work in.
+    **#{ref :the_shear, "The Shear"}** fills the pockets and layers between habitable fragments — roughly half the orbital volume. Debris, resonance distortion, and the #{encyclopedia_ref :ringglass, "ringglass"} salvage industry that depends on both. The Shear has existed since the Glassfall and is, by now, broadly understood. Dangerous, but navigable. An environment people have learned to work in.
 
     **#{ref :bloom_zones, "Bloom Zones"}** are the exception to "understood." Man-made reality tears caused by the #{ref :the_silent_bloom, "Silent Bloom"} cascade of 2378, they can appear anywhere in orbit — in the Shear, adjacent to ring habs, or in otherwise clean space. Where the Shear distorts resonance, Bloom Zones break reality. They are actively expanding and require constant containment.
 

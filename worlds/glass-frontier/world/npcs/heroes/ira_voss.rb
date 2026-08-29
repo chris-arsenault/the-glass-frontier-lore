@@ -4,14 +4,12 @@ npc :ira_voss do
   subkind :specialist
   occupation "Salvage intake reader"
   specialty "Occupied hulls, crew records, and live ship systems"
-  species "human"
-  identity_source :species, :humans
-  identity_source :culture, :hab_worlder
-  identity_source :trade, :readers
+  type_of :humans
+  belongs_to :culture, :hab_worlder
+  belongs_to :role, :readers
   descriptive_identity disposition:
     "Voss hears a claim out, writes it under the claims column of her " \
     "board, and moves nothing while a mark still stands under people."
-  culture "Hab-Worlder"
   status :complete
   tags :salvage, :transport, :archives
   prominence :marginal

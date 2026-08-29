@@ -2,7 +2,9 @@ installation :ravel do
   name "Ravel"
   summary "Ravel is a settlement of thirty-five hundred people on a small ring fragment in the Glass Frontier, harvesting a mineral-rich plume every nine days."
   playable_as :chronicle_location
+  context_tags :"realm:ring_habitat", :"realm:orbital"
   subkind :settlement
+  type_of :settlement
   status :complete
   tags :"ring-hab", :orbital, :materials, :transport, :resonance
   prominence :marginal
@@ -74,14 +76,4 @@ end
 
 relate :rel_tanel_supplies_nera_doss, :supplies, :tanel, :nera_doss, since: 2435 do
   prose "Tanel supplies the sealed ceramic capsules used for volatile samples aboard Nera Doss."
-  descriptive_identity(
-    terms:
-      "Capsules sized for the sealed rack beneath the tender's cabin, " \
-      "each holding its pressure and temperature through a full plume " \
-      "crossing.",
-    dependence:
-      "The comparison runs on the warm catch stand or fall with the " \
-      "seals — a failed capsule mid-passage ends the experiment and " \
-      "puts the next attempt nine days out."
-  )
 end

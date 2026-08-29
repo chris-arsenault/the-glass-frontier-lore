@@ -4,6 +4,7 @@ faction :prismwell_kite_guild do
   playable_as :allegiance
   origin_blurb "Pilots, repair wells, and carriers share forecasts and rescue duties along Glassfall shower routes."
   subkind :company
+  type_of :guild
   founded 2312
   tags :transport, :trade, :ringglass, :resonance
   prominence :recognized
@@ -39,7 +40,7 @@ faction :prismwell_kite_guild do
   )
 
   prose <<~PROSE
-    A pilots' guild, repair network, and regional carrier based at #{ref :glasswake, "Glasswake"}. The Prismwell Kite Guild specializes in routes affected by #{ref :glassfall_showers, "Glassfall showers"}: predicting the streams, carrying traffic around dense fronts, and recovering clean ringglass grains from the fall. Its craft are recognized by pale catch panels folded against the hull between showers.
+    A pilots' guild, repair network, and regional carrier based at #{ref :glasswake, "Glasswake"}. The Prismwell Kite Guild specializes in routes affected by #{encyclopedia_ref :glassfall_showers, "Glassfall showers"}: predicting the streams, carrying traffic around dense fronts, and recovering clean ringglass grains from the fall. Its craft are recognized by pale catch panels folded against the hull between showers.
 
     The name comes from Glasswake's first collection yards. Miners dug stepped wells into the sheltered side of the fallen ring fragment and lined them with dark cloth. After a shower, sorted crystal at the bottom threw fractured light up the walls. The wells became workshops, the workshops pooled their pilots, and the pilots formed the guild in 2312 as traffic through the newly reopened routes increased.
   PROSE
@@ -79,28 +80,12 @@ end
 relate :rel_prismwell_headquartered_in_glasswake, :headquartered_in, :prismwell_kite_guild, :glasswake, since: 2312 do
   prose "The Prismwell Kite Guild grew from Glasswake's collection wells and still runs its largest yards there."
 end
-relate :rel_prismwell_studies_showers, :studies, :prismwell_kite_guild, :glassfall_showers, since: 2312 do
-  prose "Prismwell scouts map #{ref :glassfall_showers, "Glassfall showers"} from the field changes and debris their kites encounter."
-end
-relate :rel_prismwell_depends_on_kites, :depends_on, :prismwell_kite_guild, :kite_sail do
-  prose "The guild's forecasts, collections, and rescues depend on kites able to move between surface, atmosphere, and orbit."
+relate :rel_prismwell_studies_spreading_front, :studies, :prismwell_kite_guild, :spreading_front, since: 2312 do
+  prose "Prismwell scouts map the Spreading Front from the field changes and debris their kites encounter."
 end
 relate :rel_prismwell_operates_keelward, :operates_in, :prismwell_kite_guild, :keelward, since: 2330 do
   prose "Prismwell keeps shower-rated repair bays at #{ref :keelward, "Keelward"}, where its kites transfer passengers and freight between orbital traffic and the city."
 end
 relate :rel_prismwell_cooperates_lumenshard, :cooperates_with, :prismwell_kite_guild, :lumenshard_conservatory, since: 2388 do
   prose "Prismwell leaves shower fall above Miraeth and receives the Conservatory's ground readings in return."
-  descriptive_identity(
-    basis:
-      "Ground workers signal which parts of a front the groves can " \
-      "receive and pilots narrow their catch over those paths — the " \
-      "readings improve the guild's forecasts, the restraint lets the " \
-      "root mats take their crystal.",
-    limits:
-      "It began after broad catch cloth stripped a season's fall and " \
-      "living crystal failed along the collection line, and it settles " \
-      "nothing about who owns material still in the sky. A thin season " \
-      "puts a workshop short of clean grain against a bed of empty " \
-      "young veins, and the argument returns."
-  )
 end

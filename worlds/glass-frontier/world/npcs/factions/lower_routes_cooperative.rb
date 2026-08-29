@@ -4,6 +4,7 @@ faction :lower_routes_cooperative do
   playable_as :allegiance
   origin_blurb "Resident survey crews keep Sithari's shifting underlayers connected through repeated readings and public route boards."
   subkind :mutual_aid
+  type_of :mutual_aid_network
   founded 2227
   tags :surface, :resonance, :navigation, :"social-structure", :danger
   prominence :recognized
@@ -37,12 +38,12 @@ faction :lower_routes_cooperative do
   )
 
   prose <<~PROSE
-    A resident-run route service for the #{ref :underlayers, "Underlayers"}. The Cooperative maintains the boards at fixed shafts, verifies approaches below the marked limit, and organizes rescue when a changing connection cuts a household or workshop off from its usual street. Its members include building stewards, couriers, lift mechanics, medics, and certified #{ref :tuners, "Tuners"} from the Sithari chapter.
+    A resident-run route service for the #{ref :underlayers, "Underlayers"}. The Cooperative maintains the boards at fixed shafts, verifies approaches below the marked limit, and organizes rescue when a changing connection cuts a household or workshop off from its usual street. Its members include building stewards, couriers, lift mechanics, medics, and certified #{encyclopedia_ref :tuners, "Tuners"} from the Sithari chapter.
 
     The organization began in 2227 after three lower neighborhoods received incompatible municipal evacuation maps during a field shift. Residents already knew the safe approaches. They pooled their stair lists, assigned pairs to check each route, and posted a common board at the lowest fixed shaft. The city adopted the board within a year and has funded part of the work since 2254.
   PROSE
   prose <<~PROSE, section: :operations, heading: "Route Boards"
-    Each fixed shaft has a steward responsible for its board and emergency cache. Survey pairs walk every white route on a rotating schedule. They strike frames and rails, inspect reflections at doors, and compare a #{ref :tuning_compass, "tuning compass"} against the last recorded pull. A route that changes one measure turns amber. Two matching changes close it until a Tuner joins the inspection.
+    Each fixed shaft has a steward responsible for its board and emergency cache. Survey pairs walk every white route on a rotating schedule. They strike frames and rails, inspect reflections at doors, and compare a #{encyclopedia_ref :tuning_compass, "tuning compass"} against the last recorded pull. A route that changes one measure turns amber. Two matching changes close it until a Tuner joins the inspection.
 
     The replaceable strips on the board show turns, level changes, and the time of the last walk. They also identify the nearest cross-route to another fixed shaft. Residents can therefore leave a shifting block through a longer approach even when the usual stair has vanished. Shopkeepers copy their current strip onto delivery orders. Medics ask for the strip date before dispatch.
 
@@ -82,16 +83,4 @@ relate :rel_lower_routes_maintains_underlayers, :maintains, :lower_routes_cooper
 end
 relate :rel_lower_routes_cooperates_clarisant, :cooperates_with, :lower_routes_cooperative, :clarisant, since: 2310 do
   prose "The Cooperative supplies local route knowledge while #{ref :clarisant, "the Sithari Clarisant chapter"} supplies certified Tuners and instrument audits."
-  descriptive_identity(
-    basis:
-      "Two matching changes on a walked route close it until a Tuner " \
-      "joins the inspection, so the chapter's roster is written into " \
-      "the Cooperative's own procedure, along with the audits that " \
-      "keep every shaft's tuning compass honest.",
-    limits:
-      "The credential opens no doors below the marked limit: a route " \
-      "is safe when residents have walked it twice, and a Tuner who " \
-      "overrides a steward's closure loses access to the boards like " \
-      "anyone else."
-  )
 end

@@ -4,13 +4,11 @@ npc :sen_ket do
   subkind :specialist
   occupation "Passive-array mechanic"
   specialty "Timing long receiver baselines through damaged ringglass"
-  species "gnome"
-  identity_source :species, :gnomes
+  type_of :gnomes
   descriptive_identity disposition:
     "Sen'ket keeps a section comparison running while talking, so replies " \
     "arrive at the cart's pace and out of order. A question about a past " \
     "failure opens the numbered drawers beneath the array."
-  culture "Gnomish"
   status :complete
   tags :navigation, :archives, :"signal-freq", :training
   prominence :marginal
@@ -36,8 +34,4 @@ end
 
 relate :rel_sen_ket_studies_long_note, :studies, :sen_ket, :long_note, since: 2435 do
   prose "Sen'ket uses isolated listening beads to test the three paths preserved in the Long Note."
-end
-
-relate :rel_sen_ket_attuned_to_resonance, :attuned_to, :sen_ket, :resonance do
-  prose "Sen'ket matches replacement cable to the signal response retained by the failed section."
 end

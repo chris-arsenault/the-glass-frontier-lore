@@ -2,7 +2,9 @@ installation :tanel do
   name "Tanel"
   summary "Tanel is a settlement of eight thousand people in the Glass Frontier, spread through pressure modules linked by an extensive Ring Age tube network."
   playable_as :chronicle_location
+  context_tags :"realm:ring_habitat"
   subkind :settlement
+  type_of :settlement
   status :complete
   tags :"ring-hab", :transport, :archives, :"signal-freq", :"ring-era"
   prominence :marginal
@@ -64,16 +66,6 @@ end
 
 relate :rel_tanel_supplies_ravel, :supplies, :tanel, :ravel, since: 2435 do
   prose "Tanel supplies sealed ceramic capsules for Ravel's small and unstable plume catch."
-  descriptive_identity(
-    terms:
-      "Tube-grade ceramic with dry seals and mechanical gate clocks, the " \
-      "same manufacture Tanel sells for hospital lines, delivered along " \
-      "the Ravel collection leg.",
-    dependence:
-      "Ravel's warm catch sits in separate pressure cells because nobody " \
-      "yet knows what it does when two films meet; the seals are what " \
-      "let a nine-day settlement keep an unstable sample at all."
-  )
 end
 
 relate :rel_tanel_studies_alda_capsule, :studies, :tanel, :alda_capsule, since: 2434 do

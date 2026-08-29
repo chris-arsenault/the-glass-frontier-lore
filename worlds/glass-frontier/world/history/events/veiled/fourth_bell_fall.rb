@@ -2,6 +2,7 @@ incident :fourth_bell_fall do
   name "The Fourth Bell Fall"
   summary "The Fourth Bell Fall was a Keel vibration that destroyed the house's upper stair and trapped guests inside its bell chamber."
   subkind :incident
+  type_of :structural_failure
   status :complete
   prominence :marginal
   veiled "Fourth Bell House lost its upper stair during a Keel vibration and sheltered the trapped guests inside its bell chamber."

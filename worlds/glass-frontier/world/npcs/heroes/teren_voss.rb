@@ -4,14 +4,12 @@ npc :teren_voss do
   subkind :specialist
   occupation "Retired signal-array engineer"
   specialty "Narrow-band conduit alignment"
-  species "human"
-  identity_source :species, :humans
-  identity_source :culture, :hab_worlder
+  type_of :humans
+  belongs_to :culture, :hab_worlder
   descriptive_identity disposition:
     "Voss will inspect any conduit design brought to him and mark the " \
     "coupled loads it overlooks. When a plan amounts to another Span, he " \
     "hands the sheets back regardless of who is paying."
-  culture "Hab-Worlder"
   tags :resonance, :ringglass, :"signal-freq"
   prominence :marginal
   status :complete
@@ -36,25 +34,8 @@ end
 
 relate :rel_teren_voss_employed_by_coremark, :employed_by, :teren_voss, :coremark, till: 2357 do
   prose "Coremark employed him through the Second Span trial and dismissed him after he refused to certify the stripped site as inert."
-  descriptive_identity standing:
-    "He aligned the trial's relay chain and signed its abandonment; the " \
-    "residual readings he raised were treated by his employer as an " \
-    "accounting problem, and he kept his own copies when the site was " \
-    "stripped."
 end
 
 relate :rel_teren_voss_cooperates_shear_compact, :cooperates_with, :teren_voss, :shear_compact, since: 2378 do
   prose "He gave the Compact his private copies of the trial telemetry after the Silent Bloom."
-  descriptive_identity(
-    basis:
-      "The readings Coremark ordered stripped are the clearest record " \
-      "of how the first cascade crossed the mid-drift, and Voss handed " \
-      "them to the one body whose whole authority rests on Pyre never " \
-      "repeating.",
-    limits:
-      "The telemetry is where his cooperation ends. He certifies " \
-      "nothing, sits on no panel, and any request that would put a " \
-      "second Span back on a drawing board gets the sheets handed " \
-      "straight back."
-  )
 end

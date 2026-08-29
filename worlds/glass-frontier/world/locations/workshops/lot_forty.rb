@@ -2,8 +2,10 @@ installation :lot_forty do
   name "Forty"
   summary "Forty is Brake's largest enclosed cutting bay, built to divide captured vessels among clean work, hot cutting, quarantine, and cargo recovery."
   playable_as :chronicle_location
+  context_tags :"realm:ring_habitat"
   aka "Lot Forty"
   subkind :workshop
+  type_of :workshop
   function "Enclosed cutting, quarantine, and live-system access for captured vessels"
   status :complete
   tags :salvage, :transport, :materials, :danger

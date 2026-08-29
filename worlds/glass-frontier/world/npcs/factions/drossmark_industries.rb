@@ -2,6 +2,7 @@ faction :drossmark_industries do
   name "Drossmark Industries"
   summary "Drossmark Industries was a mid-drift extraction company whose linked heavy cutting arrays caused the Shardfall cascade at Brake."
   subkind :company
+  type_of :company
   founded 2329
   tags :salvage, :trade, :materials, :military
   prominence :marginal
@@ -62,22 +63,6 @@ relate :rel_drossmark_operated_shear, :operates_in, :drossmark_industries, :the_
 end
 relate :rel_drossmark_participated_shardfall, :participated_in, :drossmark_industries, :shardfall do
   prose "Drossmark entered the claimed field with heavy arrays, fought to hold them, and continued extraction until the cascade reached the hab."
-  descriptive_identity(
-    aims:
-      "The field was a delivery window: intact-grade material with a " \
-      "buyer waiting, and the local claim priced as an obstacle rather " \
-      "than honored as one.",
-    conduct:
-      "Its three arrays fixed the exposed mass, the neighboring debris, " \
-      "and its own carrier into one cutting field on a single command — " \
-      "the arrangement that kept every rig running after local crews " \
-      "tried to stop them — and it contested Brake's authority over " \
-      "open Shear rather than power down.",
-    cost:
-      "Eighteen of its workers died in the field, ports refused its " \
-      "cargo within days of receiving Brake's recordings, and insurers " \
-      "and creditors finished what the refusals began."
-  )
 end
 
 moment :drossmark_dissolved, year: 2359, of: :drossmark_industries do

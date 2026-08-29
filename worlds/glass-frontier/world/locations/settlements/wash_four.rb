@@ -2,9 +2,11 @@ installation :wash_four do
   name "Wash Four"
   summary "Wash Four is a decontamination settlement in the Glass Frontier, occupying a service cylinder of wash drums, drying lofts, and textile-trace workshops."
   playable_as :chronicle_location, :homeland
+  context_tags :"realm:ring_habitat"
   origin_blurb "A sealed hab where textile traces, missing routes, and careful washing preserve old signals."
   aka "Decontamination Habitat Four"
   subkind :settlement
+  type_of :settlement
   status :complete
   tags :"ring-hab", :trade, :household, :resonance, :"signal-freq"
   prominence :recognized
@@ -75,17 +77,6 @@ end
 
 relate :rel_wash_four_supplies_carom, :supplies, :wash_four, :carom, since: 2435 do
   prose "Wash Four cleans and certifies courier bags, insulated cloth, and frame webbing for Carom."
-  descriptive_identity(
-    terms:
-      "Textile service on Carom's carrier runs: bags and webbing come " \
-      "back with yellow signal-clearing stitches added beside the older " \
-      "marks, the chain of treatments left readable.",
-    dependence:
-      "A courier bag records repeated route beacons along its straps, " \
-      "and Carom's whole trade is routes — uncleared cloth circulating " \
-      "through the sorting floors would carry every regular run's " \
-      "pattern to whoever thought to wash it out."
-  )
 end
 
 relate :rel_tess_orr_operates_bay_thirty_one, :operates_in, :tess_orr, :bay_thirty_one, since: 2435 do

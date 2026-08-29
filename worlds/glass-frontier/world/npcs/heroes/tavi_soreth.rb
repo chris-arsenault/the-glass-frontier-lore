@@ -5,20 +5,18 @@ npc :tavi_soreth do
   born 2387
   occupation "Route surveyor and rescue coordinator"
   specialty "Changing spatial connections in Sithari's Underlayers"
-  species "orc"
-  identity_source :species, :orcs
-  identity_source :culture, :sitharian_culture
+  type_of :orcs
+  belongs_to :culture, :sitharian_culture
   descriptive_identity disposition:
     "Soreth's first question is what must reach the far end — a person, a " \
     "cart, a litter, a hose that cannot turn a tight corner — and the " \
     "answer decides which approach they will open. They ask for the " \
     "residents' plans before unpacking an instrument."
-  culture "sithari"
   tags :surface, :resonance, :navigation, :danger
   prominence :recognized
 
   prose <<~PROSE
-    A Sitharian #{ref :orcs, "orc"} who surveys changing routes in the #{ref :underlayers, "Underlayers"}. Tavi Soreth coordinates the long descents for the #{ref :lower_routes_cooperative, "Lower Routes Cooperative"} and takes command at fixed shafts when a field shift separates residents from their usual exits.
+    A Sitharian #{encyclopedia_ref :orcs, "orc"} who surveys changing routes in the #{ref :underlayers, "Underlayers"}. Tavi Soreth coordinates the long descents for the #{ref :lower_routes_cooperative, "Lower Routes Cooperative"} and takes command at fixed shafts when a field shift separates residents from their usual exits.
 
     Soreth grew up above a freight hall in the lower city. Their first paid work was carrying repair orders between workshops whose routes changed faster than the municipal directory. They learned the painted bands, the fixed shafts, and the difference between a resident's shortcut and an approach safe enough for a stretcher. The Cooperative hired them as a survey witness before they were old enough to lead a pair.
   PROSE
@@ -37,7 +35,7 @@ npc :tavi_soreth do
     It also left Soreth suspicious of clean replacements for layered records. The municipal model had removed the buried stair because it was no longer part of the legal building. Residents had kept it in hand-drawn plans because their grandparents used it. Both records were accurate for their purpose; only one still offered a route.
   PROSE
   prose <<~PROSE, section: :relationships, heading: "Tuners and Stewards"
-    Soreth is not a #{ref :tuners, "Tuner"}. They can recognize repeated physical signs and use a #{ref :tuning_compass, "tuning compass"} against a known reading, but they cannot distinguish every change in the field. On a deep survey the Clarisant Tuner decides whether an opening is stable enough to enter. Soreth decides whether the route can serve the people waiting on the other side.
+    Soreth is not a #{encyclopedia_ref :tuners, "Tuner"}. They can recognize repeated physical signs and use a #{encyclopedia_ref :tuning_compass, "tuning compass"} against a known reading, but they cannot distinguish every change in the field. On a deep survey the Clarisant Tuner decides whether an opening is stable enough to enter. Soreth decides whether the route can serve the people waiting on the other side.
 
     Building stewards trust Soreth because they ask for local plans before unpacking instruments. City engineers find the same habit slow. Soreth has stopped more surveys over an unrecorded bedroom, water line, or refuge room than over a resonance reading. In the occupied Underlayers, the contents of a wall matter as much as the geometry behind it.
   PROSE
@@ -55,11 +53,6 @@ relate :rel_tavi_located_in_underlayers, :located_in, :tavi_soreth, :underlayers
 end
 relate :rel_tavi_member_lower_routes, :member_of, :tavi_soreth, :lower_routes_cooperative, since: 2404 do
   prose "Soreth joined the #{ref :lower_routes_cooperative, "Lower Routes Cooperative"} as a survey witness and now coordinates its long descents."
-  descriptive_identity standing:
-    "The Cooperative hired Soreth before they were old enough to lead a " \
-    "survey pair, and the 2418 rescue through the covered stair put " \
-    "them on its rescue roster; when a field shift cuts residents off " \
-    "at a fixed shaft, command there is theirs."
 end
 relate :rel_tavi_operates_folded_annex, :operates_in, :tavi_soreth, :folded_annex, since: 2415 do
   prose "Soreth owns the return path on licensed surveys of the #{ref :folded_annex, "Folded Annex"}."

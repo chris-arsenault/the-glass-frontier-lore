@@ -2,7 +2,9 @@ installation :marker_house_twelve do
   name "Marker House Twelve"
   summary "Marker House Twelve is a stone wayhouse on the eastern road from Ladderwell across Avar, beside a public well and singing route stakes."
   playable_as :chronicle_location
+  context_tags :"realm:surface"
   subkind :station
+  type_of :waypoint
   status :complete
   tags :surface, :transport, :trade, :resonance, :household
   prominence :marginal
@@ -84,9 +86,9 @@ end
 relate :rel_ladderwell_maintains_marker_house, :maintains, :ladderwell, :marker_house_twelve do
   prose "Ladderwell road crews maintain the house, well, emergency store, and paired stakes."
 end
-relate :rel_marker_house_resonates_marn, :resonates_with, :marker_house_twelve, :marn do
+relate :rel_marker_house_resonates_avar_marn_herds, :resonates_with, :marker_house_twelve, :avar_marn_herds do
   prose "Its pen, well order, and loading wall serve pack and herd caravans crossing the steppe."
 end
-relate :rel_marker_house_resonates_heat_hauler, :resonates_with, :marker_house_twelve, :heat_road_hauler do
+relate :rel_marker_house_resonates_heat_hauler, :resonates_with, :marker_house_twelve, :third_radiator do
   prose "Road vehicles use the house to exchange condition marks and shift cargo to pack animals when the track closes."
 end

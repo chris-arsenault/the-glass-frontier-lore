@@ -2,6 +2,7 @@ artifact :hingewalker_twelve do
   name "Hingewalker Twelve"
   summary "Hingewalker Twelve is a joint-maintenance machine used along the Keel. It crawls across loaded docking joints and replaces one bearing without stopping traffic."
   subkind :machine
+  type_of :field_machine
   status :complete
   prominence :marginal
   veiled "Hingewalker Twelve crawls along loaded docking joints and replaces one bearing without stopping traffic."

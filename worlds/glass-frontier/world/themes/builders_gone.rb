@@ -32,11 +32,11 @@ theme :builders_gone do
   prose <<~PROSE, section: :applications, heading: "Multi-Scale"
     | Scale | Expression | Entity |
     |-------|-----------|--------|
-    | System | The entire resonance technology stack is post-elven improvisation | #{ref :resonance, "Resonance"} |
+    | System | The entire resonance technology stack is post-elven improvisation | #{encyclopedia_ref :resonance, "Resonance"} |
     | Faction | The Synod inhabits a station they don't fully control, using rituals they can't explain | #{ref :lattice_proxy_synod, "Lattice Proxy Synod"} |
     | Settlement | *(seed)* A hab whose charismatic leader left — what does the community become after? | unfilled |
     | Personal | Lira Vashtenri left the Conclave to build containment ops from scratch | #{ref :lira_vashtenri, "Lira Vashtenri"} |
-    | Opposition | The Tuners reinvented resonance practice — folk approach sometimes better than original theory | #{ref :tuners, "Tuners"} |
+    | Opposition | The Tuners reinvented resonance practice — folk approach sometimes better than original theory | #{encyclopedia_ref :tuners, "Tuners"} |
 
     ---
   PROSE
@@ -48,16 +48,10 @@ end
 relate :rel_builders_gone_embodies_glassfall, :embodies, :builders_gone, :the_glassfall do
   prose "The theme begins with the #{ref :the_glassfall, "Glassfall"}: the builders' greatest work outlives the builders, and breaks, and nobody left understands why."
 end
-relate :rel_builders_gone_embodies_tuners, :embodies, :builders_gone, :tuners do
-  prose "The #{ref :tuners, "Tuners"} are its other face — people who reinvented resonance practice from fragments, sometimes bettering the original science precisely because they didn't inherit it."
-end
 relate :rel_builders_gone_embodies_liras_wall, :embodies, :builders_gone, :liras_wall do
   prose "#{ref :liras_wall, "Lira's Wall"} embodies the hopeful side: new builders, building from inheritance they didn't choose, making something the originals never imagined."
 end
 
-relate :rel_builders_gone_embodies_resonance, :embodies, :builders_gone, :resonance do
-  prose "The entire #{ref :resonance, "resonance"} technology stack is post-elven improvisation — broad and mid band running a system designed for narrow."
-end
 relate :rel_builders_gone_embodies_synod, :embodies, :builders_gone, :lattice_proxy_synod do
   prose "The #{ref :lattice_proxy_synod, "Lattice Proxy Synod"} inhabits a station it does not fully control, working through rituals it cannot explain."
 end

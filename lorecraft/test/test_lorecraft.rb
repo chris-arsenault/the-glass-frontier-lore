@@ -301,7 +301,7 @@ class NarrativeDocumentTest < Minitest::Test
       timeline = JSON.parse(File.read(File.join(root, "timeline.json")))
       editorial = JSON.parse(File.read(File.join(dir, "internal", "worlds", "ice.json")))
 
-      assert_equal 10, chronicle["schema_version"]
+      assert_equal 12, chronicle["schema_version"]
       assert_equal "tick", index["time_unit"]
       assert_equal "tick", timeline["unit"]
       assert_equal "The ice remembers the first mark.", chronicle["content"]
@@ -504,7 +504,7 @@ class ValidatorTest < Minitest::Test
       timeline { era :t, starts: 0, length: 10; now year: 1 }
       concept :a do name "A"; prose "links to #{ref :nonexistent}" end
     end
-    assert(w.validate.any? { |p| p.include?("unknown id nonexistent") })
+    assert(w.validate.any? { |p| p.include?("unknown Atlas id nonexistent") })
   end
 
   def test_unknown_tag_is_caught
@@ -681,7 +681,7 @@ class ValidatorTest < Minitest::Test
 
     problems = w.validate
     assert(problems.any? { |p| p.include?("unknown id missing") })
-    assert(problems.any? { |p| p.include?("unknown id also_missing") })
+    assert(problems.any? { |p| p.include?("unknown Atlas id also_missing") })
     assert(problems.any? { |p| p.include?("target shell is a shell") })
     assert(problems.any? { |p| p.include?("public card references DM-only entity hidden") })
     assert(problems.any? { |p| p.include?("repeats target shell") })
@@ -801,7 +801,7 @@ class CanonicalMetadataTest < Minitest::Test
     end)
   end
 
-  def test_veiled_entries_cannot_be_locations
+  def test_veiled_locations_are_valid_hidden_atlas_hooks
     world = metadata_world do
       place :entry do
         name "Entry"
@@ -809,7 +809,7 @@ class CanonicalMetadataTest < Minitest::Test
       end
     end
 
-    assert(world.validate.any? { |problem| problem.include?("veiled entry cannot be a location") })
+    refute(world.validate.any? { |problem| problem.include?("veiled entry cannot be a location") })
   end
 
   def test_game_world_scope_excludes_articles_and_their_incident_edges
@@ -845,6 +845,7 @@ class CanonicalMetadataTest < Minitest::Test
       timeline { era :t, starts: 0, length: 10; now year: 1 }
       place :excluded do name "Excluded" end
       place :missing do name "Missing" end
+      place :veiled do name "Veiled"; veiled "A sealed garden hab answers one old docking code." end
       npc :misplaced do name "Misplaced"; playable_as :chronicle_location end
     end
 
@@ -852,6 +853,7 @@ class CanonicalMetadataTest < Minitest::Test
     assert(problems.any? { |problem| problem.include?("place missing: must declare playable_as") })
     assert(problems.any? { |problem| problem.include?("limited to place") })
     refute(problems.any? { |problem| problem.include?("place excluded") })
+    refute(problems.any? { |problem| problem.include?("place veiled") })
   end
 
   def test_world_can_require_a_playable_choice_range
@@ -1613,6 +1615,41 @@ class SchemaInspectionTest < Minitest::Test
 
     assert_equal "unknown entity kind: missing", error.message
   end
+
+  def test_world_can_restrict_shared_entity_kinds_without_changing_other_worlds
+    restricted = Lorecraft.define do
+      schema do
+        entity_type :person, :culture, :concept
+        restrict_entity_kinds! to: :person
+      end
+
+      person(:keeper) { name "Keeper" }
+    end
+
+    assert_equal [:person], restricted.schema.kinds.keys
+    assert restricted.schema.kind?(:person)
+    refute restricted.schema.kind?(:culture)
+    refute restricted.schema.kind?(:concept)
+
+    error = assert_raises(Lorecraft::DefinitionError) do
+      Lorecraft.define do
+        schema do
+          entity_type :person, :concept
+          restrict_entity_kinds! to: :person
+        end
+
+        concept(:excluded) { name "Excluded" }
+      end
+    end
+    assert_equal "entity kind concept is not allowed in this world", error.message
+
+    unrestricted = Lorecraft.define do
+      schema { entity_type :person, :concept }
+      concept(:retained) { name "Retained" }
+    end
+    assert unrestricted.schema.kind?(:concept)
+    assert unrestricted.entity(:retained)
+  end
 end
 
 class GraphRenderTest < Minitest::Test
@@ -1710,7 +1747,7 @@ class SpatialMetadataTest < Minitest::Test
       route = JSON.parse(File.read(File.join(root, "entries", "trade-lane.json")))
       port = JSON.parse(File.read(File.join(root, "entries", "port.json")))
 
-      assert_equal 10, index["schema_version"]
+      assert_equal 12, index["schema_version"]
       assert_equal %w[planet_surface system_chart], index["spatial_frames"].map { |frame| frame["id"] }
       assert_equal %w[planet outer_turn port], route.dig("route_geometry", "paths", 0, "through")
       assert_equal 1_200, port.dig("connections", 0, "properties", "distance_km")
@@ -1848,7 +1885,7 @@ class SiteRenderTest < Minitest::Test
       index = JSON.parse(File.read(File.join(public_root, "index.json")))
       editorial = JSON.parse(File.read(File.join(dir, "internal", "worlds", "sample-world.json")))
 
-      assert_equal 10, ada["schema_version"]
+      assert_equal 12, ada["schema_version"]
       assert_equal "cartographer", ada["subkind"]
       assert(index["subkinds"].any? { |item| item["kind"] == "person" && item["id"] == "cartographer" })
       assert_equal ["born", "age", "occupation", "home", "chart_room", "working_language"], ada["facts"].map { |fact| fact["id"] }
@@ -2113,6 +2150,25 @@ class LinterTest < Minitest::Test
 
     messages = findings.select { |finding| finding.level == :error }.map(&:message)
     assert(messages.any? { |message| message.include?("veiled kind npc has 2 entries; allows at most 1") })
+  end
+
+  def test_world_reports_a_required_veiled_kind_with_no_entries
+    findings = lint do
+      schema do
+        entity_type :npc, :place
+        location_kind :place
+        playable_role :chronicle_location
+        require_focus_choices! role: :chronicle_location,
+                               minimum: 1,
+                               veiled_required_kinds: %i[npc],
+                               veiled_kind_minimum: 1
+      end
+      timeline { era :t, starts: 0, length: 10; now year: 1 }
+      place :first do name "First"; playable_as :chronicle_location end
+    end
+
+    messages = findings.select { |finding| finding.level == :error }.map(&:message)
+    assert(messages.any? { |message| message.include?("veiled kind npc has 0 entries; requires at least 1") })
   end
 
   def test_double_article
@@ -3745,292 +3801,89 @@ class ReviewEditorTest < Minitest::Test
     end
   end
 
-  def test_descriptive_identity_composes_sources_and_supports_extension_and_override
+  def test_descriptive_identity_is_local_string_data_declared_by_kind
     world = Lorecraft.define do
       schema do
-        entity_type :species do
-          identity_key :visual
-          no_identity_sources
-        end
-        entity_type :culture do
-          identity_key :bearing
-          no_identity_sources
-        end
         entity_type :person do
           identity_key :visual
           identity_key :bearing
-          identity_source :species, kinds: :species, keys: :visual
-          identity_source :culture, kinds: :culture, keys: :bearing
         end
-        require_descriptive_identities!
       end
       timeline { era :present, starts: 0, length: 10; now year: 1 }
 
-      species :orcs do
-        name "Orcs"
-        status :complete
-        descriptive_identity visual: "Orcs are usually physically beautiful."
-        prose "Orcs are a people found throughout the settled worlds."
-      end
-      culture :riverfolk do
-        name "Riverfolk"
-        status :complete
-        descriptive_identity bearing: "Riverfolk move with measured patience."
-        prose "Riverfolk communities follow the navigable watercourses."
-      end
-      person :ordinary_orc do
-        name "Ordinary Orc"
-        identity_source :species, :orcs
-        identity_source :culture, :riverfolk
-      end
-      person :scarred_orc do
-        name "Scarred Orc"
-        identity_source :species, :orcs
-        identity_source :culture, :riverfolk
+      person :scarred do
+        name "Scarred"
         descriptive_identity visual: "A pale scar crosses one cheek."
-      end
-      person :ugly_orc do
-        name "Ugly Orc"
-        identity_source :species, :orcs
-        identity_source :culture, :riverfolk
-        override_identity visual: "Contrary to most orcs, this one is remarkably ugly."
       end
     end
 
     assert_empty world.validate
-    ordinary = world.resolve_identity(:ordinary_orc)
-    scarred = world.resolve_identity(:scarred_orc)
-    ugly = world.resolve_identity(:ugly_orc)
+    identity = world.resolve_identity(:scarred)
+    assert_equal({ visual: "A pale scar crosses one cheek." }, identity.descriptive_identity)
+    refute_respond_to identity, :sources
+    assert_equal %i[visual bearing],
+                 world.schema.identity_keys_for(:person, subkind: :anything).map(&:name)
 
-    assert_equal "Orcs are usually physically beautiful.", ordinary.descriptive_identity[:visual]
-    assert_equal "Orcs are usually physically beautiful.\n\nA pale scar crosses one cheek.",
-                 scarred.descriptive_identity[:visual]
-    assert_equal "Contrary to most orcs, this one is remarkably ugly.",
-                 ugly.descriptive_identity[:visual]
-    assert ugly.provenance[:visual].first.suppressed
-    refute ugly.provenance[:visual].last.suppressed
-    assert_equal :orcs, ugly.sources.first[:id]
-    assert_equal :override, ugly.local.dig(:visual, :operation)
-
-    audit = Lorecraft::IdentityAudit.new(world, owner: :ugly_orc).data
-    assert_equal :owner, audit[:scope]
-    assert_equal "Contrary to most orcs, this one is remarkably ugly.",
-                 audit.dig(:descriptive_identity, :visual)
-    schema = Lorecraft::SchemaInspection.new(world, topic: "kind", name: "person").data
-    assert_equal %i[species culture],
-                 schema.dig(:kind, :identity_sources).map { |source| source[:name] }
+    audit = Lorecraft::IdentityAudit.new(world, owner: :scarred).data
+    assert_equal [:bearing], audit[:missing_keys]
 
     Dir.mktmpdir do |directory|
       Lorecraft::Render::Site.new(world).render(
-        out: directory,
-        world_id: "test",
-        title: "Test",
-        revision: "identity-test",
+        out: directory, world_id: "test", title: "Test", revision: "identity-test"
       )
       root = File.join(directory, "worlds", "test")
-      index = JSON.parse(File.read(File.join(root, "index.json")))
-      ugly_summary = index.fetch("entries").find { |entry| entry.fetch("id") == "ugly_orc" }
-      ugly_entry = JSON.parse(File.read(File.join(root, "entries", "ugly-orc.json")))
-
-      assert_equal 10, index.fetch("schema_version")
-      assert_equal "Contrary to most orcs, this one is remarkably ugly.",
-                   ugly_summary.dig("descriptive_identity", "visual")
-      assert_equal "orcs", ugly_entry.dig("identity_sources", 0, "id")
-      assert ugly_entry.dig("identity_provenance", "visual", 0, "suppressed")
+      entry = JSON.parse(File.read(File.join(root, "entries", "scarred.json")))
+      assert_equal({ "visual" => "A pale scar crosses one cheek." }, entry["descriptive_identity"])
+      refute entry.key?("identity_sources")
+      refute entry.key?("identity_provenance")
     end
+  end
+
+  def test_descriptive_identity_keys_cannot_be_declared_on_subkinds
+    error = assert_raises(Lorecraft::DefinitionError) do
+      Lorecraft.define do
+        schema do
+          entity_type :person do
+            subkind :official do
+              identity_key :bearing
+            end
+          end
+        end
+      end
+    end
+
+    assert_includes error.message, "declared at kind level"
+  end
+
+  def test_descriptive_identity_rejects_non_strings_and_unknown_keys
+    non_string = assert_raises(Lorecraft::DefinitionError) do
+      Lorecraft.define do
+        schema { entity_type(:person) { identity_key :visual } }
+        timeline { era :present, starts: 0, length: 10; now year: 1 }
+        person(:wrong) { descriptive_identity visual: :symbol }
+      end
+    end
+    assert_includes non_string.message, "must be a string"
+
+    world = Lorecraft.define do
+      schema { entity_type(:person) { identity_key :visual } }
+      timeline { era :present, starts: 0, length: 10; now year: 1 }
+      person(:wrong) { descriptive_identity bearing: "Measured" }
+    end
+    assert world.validate.any? { |problem| problem.include?("unknown descriptive identity key bearing") }
   end
 
   def test_veiled_entities_are_blank_slates
-    build = lambda do |veiled_identity|
-      Lorecraft.define do
-        schema do
-          entity_type :species do
-            identity_key :visual
-            no_identity_sources
-          end
-          entity_type :person do
-            identity_key :visual
-            identity_source :species, kinds: :species, keys: :visual
-          end
-          require_descriptive_identities!
-        end
-        timeline { era :present, starts: 0, length: 10; now year: 1 }
-        species :orcs do
-          name "Orcs"
-          status :complete
-          descriptive_identity visual: "Orcs are usually physically beautiful."
-          prose "Orcs are a people found throughout the settled worlds."
-        end
-        person :walk_on do
-          name "Walk-On"
-          status :complete
-          veiled "A stranger the table will establish."
-          identity_source :species, :orcs if veiled_identity
-        end
-      end
-    end
-
-    blank = build.call(false)
-    assert_empty blank.validate
-    resolution = blank.resolve_identity(:walk_on)
-    assert_empty resolution.descriptive_identity
-    assert_empty resolution.missing_required
-
-    declared = build.call(true)
-    problem = declared.validate.find { |message| message.include?("blank slate") }
-    assert problem, "expected a blank-slate violation for a veiled entity declaring identity"
-  end
-
-  def test_descriptive_identity_can_use_a_live_relation_as_a_strict_source_slot
     world = Lorecraft.define do
-      schema do
-        relation :located_in, temporal: true
-        entity_type :environment do
-          identity_key :conditions
-          no_identity_sources
-        end
-        entity_type :place do
-          identity_key :conditions
-          identity_source :environment,
-                          kinds: :environment,
-                          keys: :conditions,
-                          relation: :located_in
-        end
-      end
-      timeline { era :present, starts: 0, length: 20; now year: 10 }
-      environment :open_air do
-        name "Open Air"
-        status :complete
-        descriptive_identity conditions: "The sky and weather remain visible."
-        prose "Open-air places are exposed to the surrounding atmosphere."
-      end
-      place(:courtyard) { name "Courtyard" }
-      relate :courtyard_environment, :located_in, :courtyard, :open_air, since: 5
-    end
-
-    assert_equal "The sky and weather remain visible.",
-                 world.resolve_identity(:courtyard, at: 10).descriptive_identity[:conditions]
-    error = assert_raises(Lorecraft::IdentityError) do
-      world.resolve_identity(:courtyard, at: 4)
-    end
-    assert_includes error.message, "needs identity source environment"
-  end
-
-  def test_relationship_instances_have_the_same_identity_composition_contract
-    world = Lorecraft.define do
-      schema do
-        entity_type :organization
-        entity_type :conflict_mode do
-          identity_key :hostility
-          no_identity_sources
-        end
-        relation :opposes do
-          identity_key :hostility
-          identity_key :cause
-          identity_source :mode, kinds: :conflict_mode, keys: :hostility
-        end
-      end
+      schema { entity_type(:person) { identity_key :visual } }
       timeline { era :present, starts: 0, length: 10; now year: 1 }
-      organization(:north) { name "North" }
-      organization(:south) { name "South" }
-      conflict_mode :silent_trade_war do
-        name "Silent Trade War"
-        status :complete
-        descriptive_identity hostility: "Both parties sabotage trade while avoiding open fire."
-        prose "A silent trade war uses prices, access, and deniable interference as weapons."
-      end
-      relate :north_south_trade_war, :opposes, :north, :south do
-        identity_source :mode, :silent_trade_war
-        descriptive_identity cause: "North closed the only winter exchange route."
+      person :walk_on do
+        veiled "A stranger the table will establish."
+        descriptive_identity visual: "Already specified."
       end
     end
 
-    assert_empty world.validate
-    identity = world.resolve_identity(:north_south_trade_war)
-    assert_equal "Both parties sabotage trade while avoiding open fire.",
-                 identity.descriptive_identity[:hostility]
-    assert_equal "North closed the only winter exchange route.",
-                 identity.descriptive_identity[:cause]
-
-    graph = JSON.parse(world.render(:graph, pretty: false))
-    edge = graph.fetch("edges").find { |row| row.fetch("src") == "north" }
-    assert_equal "Both parties sabotage trade while avoiding open fire.",
-                 edge.dig("descriptive_identity", "hostility")
-    assert_equal "silent_trade_war", edge.dig("identity_sources", 0, "id")
-    connection = Lorecraft::Connections.new(world, entity: :north).data[:connections].first
-    assert_equal "Both parties sabotage trade while avoiding open fire.",
-                 connection.dig(:descriptive_identity, :hostility)
-  end
-
-  def test_strict_identity_validation_rejects_undeclared_slots_incomplete_sources_and_cycles
-    world = Lorecraft.define do
-      schema do
-        entity_type :profile do
-          identity_key :visual
-          identity_source :parent, kinds: :profile, keys: :visual
-        end
-        entity_type :person do
-          identity_key :visual
-          identity_source :profile, kinds: :profile, keys: :visual
-        end
-        entity_type :undeclared
-        require_descriptive_identities!
-      end
-      timeline { era :present, starts: 0, length: 10; now year: 1 }
-      profile :first do
-        name "First"
-        status :complete
-        identity_source :parent, :second
-        prose "First profile."
-      end
-      profile :second do
-        name "Second"
-        status :complete
-        identity_source :parent, :first
-        prose "Second profile."
-      end
-      person :consumer do
-        name "Consumer"
-        identity_source :profile, :first
-        identity_source :unknown, :second
-      end
-    end
-
-    problems = world.validate
-    assert problems.any? { |problem| problem.include?("entity kind undeclared") }
-    assert problems.any? { |problem| problem.include?("unknown identity source slot unknown") }
-    assert problems.any? { |problem| problem.include?("descriptive identity source cycle") }
-  end
-
-  def test_identity_sources_must_be_complete_full_articles
-    world = Lorecraft.define do
-      schema do
-        entity_type :profile do
-          identity_key :visual
-          no_identity_sources
-        end
-        entity_type :person do
-          identity_key :visual
-          identity_source :profile, kinds: :profile, keys: :visual
-        end
-      end
-      timeline { era :present, starts: 0, length: 10; now year: 1 }
-      profile :unfinished do
-        name "Unfinished"
-        status :draft
-        descriptive_identity visual: "An unfinished source."
-      end
-      person :consumer do
-        name "Consumer"
-        identity_source :profile, :unfinished
-      end
-    end
-
-    error = assert_raises(Lorecraft::IdentityError) do
-      world.resolve_identity(:consumer)
-    end
-    assert_includes error.message, "must be complete"
-    assert world.validate.any? { |problem| problem.include?("must be complete") }
+    assert world.validate.any? { |problem| problem.include?("blank slate") }
   end
 
   private
@@ -4070,6 +3923,944 @@ class ReviewEditorTest < Minitest::Test
       )
 
       yield Lorecraft::ReviewEditor.new(target: target), file, target
+    end
+  end
+end
+
+def encyclopedia_world
+  Lorecraft.define do
+    schema do
+      entity_type :place, :creature
+      location_kind :place
+      tag :ecology
+      tag :trade
+      context_tag :"realm:surface", "Planetary surface", scopes: :place
+      encyclopedia_type :lifeform, description: "Reusable living kinds." do
+        field :diet, type: :text, expected: false
+        identity_key :appearance
+      end
+      encyclopedia_type :culture
+    end
+    timeline { era :present, starts: 0, length: 10; now year: 1 }
+
+    place :avar do
+      name "Avar"
+      prominence :renowned
+      context_tags :"realm:surface"
+    end
+
+    encyclopedia :marn do
+      title "Marn"
+      kind :lifeform
+      subkind :animal
+      status :complete
+      summary "Broad-footed herd animals kept along settled surface routes."
+      topics :ecology, :trade
+      prevalence :rare
+      diet "Roadside grasses"
+      descriptive_identity appearance: "A broad-footed herd animal."
+      appears_when all: { place: [:"realm:surface"] }
+      appears_when any: { participant: encyclopedia_reference(:marn) }
+      cue "A tether line turns toward the same empty ground."
+      cue "Flexible feet leave shallow crescent prints."
+      affordance "Herders read a herd's movement as an early warning."
+      pressure "A changed machine rhythm can unsettle every animal in a pen."
+      variation "Road herds carry household marks on shedding horn."
+      variation "Market animals know machinery better than open routes."
+      prose "Marn travel in tethered herds along the settled roads."
+      prose "A silent herd marks a danger no handler has identified.", dm: true
+    end
+
+    encyclopedia :hidden_life do
+      title "Hidden Life"
+      kind :lifeform
+      subkind :animal
+      status :complete
+      summary "A reusable organism known only to the GM."
+      topics :ecology
+      prevalence :uncommon
+      available_globally
+      cue "One trace appears."
+      cue "A second trace appears."
+      affordance "The trace can be followed."
+      pressure "Following it attracts attention."
+      variation "It leaves a pale trace."
+      variation "It leaves a dark trace."
+      prose "This organism is hidden."
+      dm!
+    end
+
+    creature :ironwhistle do
+      name "Ironwhistle"
+      prominence :marginal
+      type_of :marn
+      prose "Ironwhistle is a named #{encyclopedia_ref :marn, "herd animal"}."
+    end
+  end
+end
+
+class EncyclopediaTest < Minitest::Test
+  def test_ability_tiers_are_declared_on_the_kind_and_exported_with_entries
+    world = Lorecraft.define do
+      schema do
+        entity_type :ability
+        encyclopedia_type :ability do
+          tier :broad, rank: 1, description: "Lowest effect and cost."
+          tier :apex, rank: 4, description: "Highest effect and cost."
+        end
+        require_encyclopedia_type_kind! atlas_kind: :ability, encyclopedia_kind: :ability
+      end
+      timeline { era :present, starts: 0, length: 10; now year: 1 }
+
+      encyclopedia :signal_folding do
+        title "Signal Folding"
+        kind :ability
+        subkind :resonant_effect
+        status :draft
+        summary "An extraordinary effect that carries speech across a broken relay."
+        prevalence :uncommon
+        available_globally
+        tier :broad, effect: "Carry one warning across one broken relay."
+        tier :apex, effect: "Carry a sustained exchange across a dead network.",
+                    cost: "The speaker loses their voice for a day."
+      end
+      ability :the_clear_word do
+        title "The Clear Word"
+        type_of :signal_folding
+      end
+    end
+
+    assert_empty world.validate
+    kind = Lorecraft::SchemaInspection.new(
+      world, topic: "reference-kind", name: "ability"
+    ).data.fetch(:kind)
+    assert_equal [[:broad, 1], [:apex, 4]],
+                 kind.fetch(:tiers).map { |tier| [tier[:name], tier[:rank]] }
+
+    entry = Lorecraft::EncyclopediaQuery.new(
+      world, action: :page, id: :signal_folding, audience: :all
+    ).data
+    assert_equal %i[broad apex], entry.fetch(:tiers).map { |tier| tier.fetch(:tier) }
+    assert_equal "The speaker loses their voice for a day.", entry.dig(:tiers, 1, :cost)
+
+    Dir.mktmpdir do |directory|
+      Lorecraft::Render::Site.new(world).render(
+        out: directory, world_id: "tiers", title: "Tiers", revision: "test"
+      )
+      index = JSON.parse(File.read(File.join(directory, "worlds", "tiers", "index.json")))
+      rendered = index.dig("encyclopedia", "entries", 0)
+      assert_equal %w[broad apex], rendered.fetch("tiers").map { |tier| tier.fetch("tier") }
+    end
+  end
+
+  def test_ability_tiers_and_primary_type_kind_are_validated
+    world = Lorecraft.define do
+      schema do
+        entity_type :ability
+        encyclopedia_type :practice
+        encyclopedia_type :ability do
+          tier :broad, rank: 1
+        end
+        require_encyclopedia_type_kind! atlas_kind: :ability, encyclopedia_kind: :ability
+      end
+      timeline { era :present, starts: 0, length: 10; now year: 1 }
+
+      encyclopedia :technique do
+        title "Technique"
+        kind :practice
+        subkind :technique
+        status :draft
+        summary "A learned action."
+        prevalence :common
+        available_globally
+      end
+      encyclopedia :unfinished_effect do
+        title "Unfinished Effect"
+        kind :ability
+        subkind :effect
+        status :complete
+        summary "An extraordinary effect with an unsettled cost."
+        prevalence :rare
+        available_globally
+        tier :broad, effect: "Move one object."
+        cue "One object moves."
+        cue "Dust parts around it."
+        affordance "The user can move the object."
+        pressure "The effect draws attention."
+        variation "The object rises."
+        variation "The object slides."
+        prose "The effect moves one object."
+      end
+      ability(:wrong_kind) { type_of :technique }
+    end
+
+    problems = world.validate.join("\n")
+    assert_includes problems, "complete ability tier broad needs a cost"
+    assert_includes problems, "type_of must target Encyclopedia kind ability, not practice"
+  end
+
+  def test_ability_tier_declarations_reject_wrong_kinds_and_duplicate_ranks
+    wrong_kind = assert_raises(Lorecraft::DefinitionError) do
+      Lorecraft.define do
+        schema do
+          encyclopedia_type :practice do
+            tier :broad, rank: 1
+          end
+        end
+      end
+    end
+    assert_includes wrong_kind.message, "only be declared on encyclopedia kind ability"
+
+    duplicate_rank = assert_raises(Lorecraft::DefinitionError) do
+      Lorecraft.define do
+        schema do
+          encyclopedia_type :ability do
+            tier :broad, rank: 1
+            tier :focused, rank: 1
+          end
+        end
+      end
+    end
+    assert_includes duplicate_rank.message, "duplicate tier rank 1"
+  end
+
+  def test_schema_is_declared_at_kind_level_and_subkind_is_authored_classification
+    result = Lorecraft::SchemaInspection.new(
+      encyclopedia_world, topic: "reference-kind", name: "lifeform"
+    ).data
+
+    assert_equal :lifeform, result.dig(:kind, :name)
+    assert_equal "Reusable living kinds.", result.dig(:kind, :description)
+    refute result.fetch(:kind).key?(:subkinds)
+    assert_equal :diet, result.dig(:kind, :fields, 0, :name)
+    assert_equal :appearance, result.dig(:kind, :identity_keys, 0, :name)
+    assert_equal :animal, encyclopedia_world.encyclopedia_entry(:marn).subkind
+    assert_equal "Roadside grasses", encyclopedia_world.encyclopedia_entry(:marn).fact_values[:diet]
+  end
+
+  def test_encyclopedia_subkind_schema_is_rejected
+    error = assert_raises(Lorecraft::DefinitionError) do
+      Lorecraft.define do
+        schema do
+          encyclopedia_type :lifeform do
+            subkind :animal
+          end
+        end
+      end
+    end
+
+    assert_includes error.message, "declared at kind level"
+  end
+
+  def test_playable_counts_can_include_encyclopedia_character_roles
+    world = Lorecraft.define do
+      schema do
+        encyclopedia_type :lifeform
+        playable_role :species
+        require_playable_count! :species, minimum: 1, maximum: 1
+      end
+      timeline { era :present, starts: 0, length: 10; now year: 1 }
+
+      encyclopedia :folk do
+        title "Folk"
+        kind :lifeform
+        subkind :people
+        status :complete
+        summary "A reusable sapient people."
+        prevalence :common
+        character_role :species
+        origin_blurb "A familiar people."
+        available_globally
+        cue "One person arrives."
+        cue "A second person arrives."
+        affordance "They know the region."
+        pressure "Their obligations follow them."
+        variation "They dress for cold."
+        variation "They dress for heat."
+        prose "Folk live throughout the region."
+      end
+    end
+
+    assert_empty world.validate
+  end
+
+  def test_type_and_memberships_do_not_supply_descriptive_identity
+    world = Lorecraft.define do
+      schema do
+        entity_type(:npc) { identity_key :appearance }
+        encyclopedia_type(:lifeform) { identity_key :appearance }
+        encyclopedia_type(:culture) { identity_key :bearing }
+      end
+      timeline { era :present, starts: 0, length: 10; now year: 1 }
+
+      encyclopedia :folk do
+        title "Folk"
+        kind :lifeform
+        subkind :people
+        status :draft
+        summary "A reusable people."
+        prevalence :common
+        available_globally
+        descriptive_identity appearance: "Broad-shouldered."
+      end
+      encyclopedia :riverfolk do
+        title "Riverfolk"
+        kind :culture
+        subkind :regional
+        status :draft
+        summary "A reusable river culture."
+        prevalence :common
+        available_globally
+        descriptive_identity bearing: "Measured."
+      end
+      npc :inez do
+        type_of :folk
+        culture :riverfolk
+      end
+      npc :jon do
+        belongs_to :culture, :riverfolk
+      end
+    end
+
+    assert_empty world.validate
+    assert_equal :folk, world.entity(:inez).encyclopedia_type
+    assert_equal [[:culture, :riverfolk]],
+                 world.entity(:inez).encyclopedia_memberships.map { |item| [item.kind, item.entry] }
+    assert_equal %i[inez jon], world.encyclopedia_members(:riverfolk).map(&:id).sort
+    assert_equal [:inez], world.encyclopedia_instances(:folk).map(&:id)
+    assert_empty world.resolve_identity(:inez).descriptive_identity
+    refute world.relationships.any? { |source, _verb, target| source == :inez && target == :folk }
+    refute world.relationships.any? { |source, _verb, target| source == :inez && target == :riverfolk }
+
+    Dir.mktmpdir do |directory|
+      Lorecraft::Render::Site.new(world).render(
+        out: directory, world_id: "test", title: "Test", revision: "classification-test"
+      )
+      index = JSON.parse(File.read(File.join(directory, "worlds", "test", "index.json")))
+      inez = index.fetch("entries").find { |entry| entry.fetch("id") == "inez" }
+      riverfolk = index.dig("encyclopedia", "entries").find do |entry|
+        entry.fetch("external_key") == "riverfolk"
+      end
+
+      assert_equal "folk", inez.fetch("encyclopedia_type")
+      assert_equal [{ "kind" => "culture", "external_key" => "riverfolk" }],
+                   inez.fetch("encyclopedia_memberships")
+      assert_equal %w[inez jon], riverfolk.fetch("members").map { |entry| entry.fetch("external_key") }.sort
+    end
+  end
+
+  def test_type_of_is_singular
+    error = assert_raises(Lorecraft::DefinitionError) do
+      Lorecraft.define do
+        schema do
+          entity_type :npc
+          encyclopedia_type :lifeform
+        end
+        timeline { era :present, starts: 0, length: 10; now year: 1 }
+        npc :inez do
+          type_of :folk
+          type_of :other_folk
+        end
+      end
+    end
+
+    assert_includes error.message, "duplicate primary Encyclopedia type"
+  end
+
+  def test_veiled_atlas_id_cannot_duplicate_an_encyclopedia_type
+    world = Lorecraft.define do
+      schema do
+        entity_type :npc
+        encyclopedia_type :lifeform
+      end
+      timeline { era :present, starts: 0, length: 10; now year: 1 }
+      encyclopedia :folk do
+        title "Folk"
+        kind :lifeform
+        subkind :people
+        status :draft
+        summary "A reusable people."
+        prevalence :common
+        available_globally
+      end
+      npc :folk do
+        type_of :folk
+        veiled "Folk carries the brass census seal."
+      end
+      npc :inez do
+        type_of :folk
+        veiled "Inez carries the silver census seal."
+      end
+    end
+
+    problems = world.validate
+    assert_includes problems,
+                    "npc folk: veiled Atlas id duplicates Encyclopedia type folk; " \
+                    "use a distinct named Atlas instance with type_of folk"
+    refute(problems.any? { |problem| problem.include?("npc inez") })
+  end
+
+  def test_membership_shorthand_does_not_shadow_declared_string_fact
+    world = Lorecraft.define do
+      schema do
+        entity_type :npc
+        entity_type :installation do
+          field :role, type: :text
+        end
+        encyclopedia_type :culture
+        encyclopedia_type :role
+      end
+      timeline { era :present, starts: 0, length: 10; now year: 1 }
+
+      encyclopedia :riverfolk do
+        title "Riverfolk"
+        kind :culture
+        subkind :regional
+        status :draft
+        summary "A reusable river culture."
+        prevalence :common
+        available_globally
+      end
+      npc(:jon) { culture :riverfolk }
+      installation(:harbor) { role "Freight exchange" }
+    end
+
+    assert_equal [[:culture, :riverfolk]],
+                 world.entity(:jon).encyclopedia_memberships.map { |item| [item.kind, item.entry] }
+    assert_equal "Freight exchange", world.entity(:harbor).fact_values.fetch(:role)
+  end
+
+  def test_encyclopedia_kind_name_rejects_untyped_string_attribute
+    error = assert_raises(Lorecraft::DefinitionError) do
+      Lorecraft.define do
+        schema do
+          entity_type :npc
+          encyclopedia_type :culture
+        end
+        timeline { era :present, starts: 0, length: 10; now year: 1 }
+        npc(:inez) { culture "Hab-Worlder" }
+      end
+    end
+
+    assert_includes error.message, "culture on inez is an Encyclopedia membership"
+    assert_includes error.message, "use culture :entry"
+  end
+
+  def test_membership_shorthand_and_belongs_to_cannot_store_the_same_classification_twice
+    error = assert_raises(Lorecraft::DefinitionError) do
+      Lorecraft.define do
+        schema do
+          entity_type :npc
+          encyclopedia_type :culture
+        end
+        timeline { era :present, starts: 0, length: 10; now year: 1 }
+        npc :inez do
+          culture :riverfolk
+          belongs_to :culture, :riverfolk
+        end
+      end
+    end
+
+    assert_includes error.message,
+                    "duplicate Encyclopedia membership culture:riverfolk on inez"
+  end
+
+  def test_npc_species_string_requires_primary_encyclopedia_type
+    world = Lorecraft.define do
+      schema do
+        entity_type :npc
+        encyclopedia_type :lifeform
+      end
+      timeline { era :present, starts: 0, length: 10; now year: 1 }
+      encyclopedia :folk do
+        title "Folk"
+        kind :lifeform
+        subkind :people
+        status :draft
+        summary "A reusable people."
+        prevalence :common
+        available_globally
+      end
+      npc :inez do
+        type_of :folk
+        species "folk"
+      end
+    end
+
+    assert_includes world.validate,
+                    "npc inez: species is a legacy string classification; use type_of"
+  end
+
+  def test_atlas_removal_impact_projects_topology_and_retained_references
+    world = Lorecraft.define do
+      schema do
+        entity_type :concept
+        relation :supports, domain: :concept, range: :concept
+      end
+      timeline { era :present, starts: 0, length: 10; now year: 1 }
+      concept(:one) { prose "See #{ref :two}." }
+      concept :two do
+        prominence :recognized
+      end
+      concept(:three) { prominence :recognized }
+      relate :one_two, :supports, :one, :two
+      relate :two_three, :supports, :two, :three
+      moment :two_changes, year: 1, of: :two do
+        effects { set :two, standing: :changed }
+      end
+      moment :one_tracks_two, year: 1, of: :one do
+        effects { set :one, supports: :two }
+      end
+    end
+
+    result = Lorecraft::AtlasRemovalImpact.new(world, ids: [:two]).data
+
+    assert_equal 3, result.dig(:baseline, :atlas_entities)
+    assert_equal 2, result.dig(:projected, :atlas_entities)
+    assert_equal 0, result.dig(:projected, :named_relations)
+    assert_equal %i[one three], result.dig(:projected, :components, :isolated_ids)
+    assert_equal %i[one three], result.fetch(:newly_isolated_entries)
+    assert_equal %i[one_two two_three],
+                 result.fetch(:removed_named_relations).map { |relation| relation.fetch(:id) }
+    reference = result.fetch(:references_to_repair).fetch(0)
+    assert_equal({ owner: :one, owner_type: "Entity", namespace: :atlas, marker: :ref,
+                   target: :two, section: :main, source_file: nil },
+                 reference.except(:source_line))
+    assert_kind_of Integer, reference.fetch(:source_line)
+    assert_equal %i[one_tracks_two two_changes],
+                 result.fetch(:moment_effects_to_repair).map { |row| row.fetch(:moment) }.sort
+    assert_equal [:two_changes], result.fetch(:owned_moments).map { |row| row.fetch(:id) }
+  end
+
+  def test_memberships_validate_kind_target_and_audience
+    world = Lorecraft.define do
+      schema do
+        entity_type :npc
+        encyclopedia_type :culture
+        encyclopedia_type :role
+      end
+      timeline { era :present, starts: 0, length: 10; now year: 1 }
+      encyclopedia :hidden_role do
+        title "Hidden Role"
+        kind :role
+        subkind :secret
+        status :draft
+        summary "A hidden reusable role."
+        prevalence :rare
+        available_globally
+        dm!
+      end
+      npc(:unknown_kind) { belongs_to :belief, :missing }
+      npc(:unknown_entry) { belongs_to :culture, :missing }
+      npc(:wrong_kind) { belongs_to :culture, :hidden_role }
+      npc(:public_hidden) { belongs_to :role, :hidden_role }
+      npc :dm_hidden do
+        belongs_to :role, :hidden_role
+        dm!
+      end
+    end
+
+    problems = world.validate.join("\n")
+    assert_includes problems, "belongs_to uses unknown Encyclopedia kind belief"
+    assert_includes problems, "belongs_to culture targets unknown Encyclopedia entry missing"
+    assert_includes problems, "belongs_to culture:hidden_role targets Encyclopedia kind role"
+    assert_includes problems, "public entity cannot belong to DM-only Encyclopedia entry hidden_role"
+    refute_includes problems, "npc dm_hidden: public entity"
+  end
+
+  def test_encyclopedia_fields_are_scalar_values
+    error = assert_raises(Lorecraft::DefinitionError) do
+      Lorecraft.define do
+        schema do
+          encyclopedia_type :lifeform do
+            field :example, type: :encyclopedia_entry
+          end
+        end
+      end
+    end
+
+    assert_includes error.message, "unknown type encyclopedia_entry"
+
+    atlas_error = assert_raises(Lorecraft::DefinitionError) do
+      Lorecraft.define do
+        schema do
+          encyclopedia_type :lifeform do
+            field :example, type: :entity
+          end
+        end
+      end
+    end
+
+    assert_includes atlas_error.message, "unknown type entity"
+  end
+
+  def test_catalog_is_separate_from_atlas_and_prevalence_is_not_prominence
+    world = encyclopedia_world
+
+    assert_empty world.validate
+    assert_kind_of Array, world.lint
+    assert_equal %i[hidden_life marn], world.encyclopedia_entries.keys.sort
+    assert_equal :rare, world.encyclopedia_entry(:marn).prevalence
+    assert_nil world.encyclopedia_entry(:marn)[:prominence]
+    assert_equal :renowned, world.entity(:avar).prominence
+    assert_equal :marn, world.entity(:ironwhistle).encyclopedia_type
+    assert_equal [:ironwhistle], world.encyclopedia_instances(:marn).map(&:id)
+    assert_empty Lorecraft::Search.new(world, query: "Marn").results
+    refute world.relationships.any? { |source, _verb, target| source == :ironwhistle && target == :marn }
+    refute_includes world.pages.map(&:id), :marn
+    assert_includes Lorecraft::Render::Markdown.new(world).page_markdown(
+      world.entity(:ironwhistle)
+    ), "named herd animal"
+  end
+
+  def test_atlas_and_encyclopedia_ids_are_independent
+    world = Lorecraft.define do
+      schema do
+        entity_type :creature
+        encyclopedia_type :lifeform
+      end
+      timeline { era :present, starts: 0, length: 10; now year: 1 }
+
+      encyclopedia :marn do
+        title "Marn Kind"
+        kind :lifeform
+        subkind :animal
+        status :draft
+        summary "The general kind of broad-footed herd animal."
+        prevalence :common
+        available_globally
+      end
+      creature :marn do
+        name "Marn the Bell Herd"
+        type_of :marn
+        prose "This herd is one named group of #{encyclopedia_ref :marn}."
+      end
+    end
+
+    assert_empty world.validate
+    assert_equal "Marn the Bell Herd", world.entity(:marn).title
+    assert_equal "Marn Kind", world.encyclopedia_entry(:marn).title
+    assert_equal [:marn], world.encyclopedia_instances(:marn).map(&:id)
+  end
+
+  def test_encyclopedia_shell_can_type_atlas_entries_without_entering_player_outputs
+    world = Lorecraft.define do
+      schema do
+        entity_type :creature
+        encyclopedia_type :lifeform
+      end
+      timeline { era :present, starts: 0, length: 10; now year: 1 }
+
+      encyclopedia :bell_lung_kind do
+        title "Bell-Lung Kind"
+        kind :lifeform
+        subkind :animal
+        status :shell
+      end
+      creature :sleeping_bell do
+        name "The Sleeping Bell"
+        type_of :bell_lung_kind
+      end
+    end
+
+    assert_empty world.validate
+    assert_equal [:sleeping_bell], world.encyclopedia_instances(:bell_lung_kind).map(&:id)
+    assert_empty Lorecraft::EncyclopediaQuery.new(
+      world, action: :list, audience: :player
+    ).data.fetch(:entries)
+    assert_equal "bell_lung_kind", Lorecraft::EncyclopediaQuery.new(
+      world, action: :list, audience: :all
+    ).data.dig(:entries, 0, :external_key)
+    assert_raises(Lorecraft::Error) do
+      Lorecraft::EncyclopediaQuery.new(
+        world, action: :page, id: :bell_lung_kind, audience: :player
+      ).data
+    end
+
+    Dir.mktmpdir do |directory|
+      Lorecraft::Render::Site.new(world, root: directory).render(
+        out: File.join(directory, "public"),
+        internal_out: File.join(directory, "internal"),
+        world_id: "shells",
+        title: "Shells",
+        revision: "test",
+      )
+      public_index = JSON.parse(File.read(
+        File.join(directory, "public", "worlds", "shells", "index.json")
+      ))
+      internal = JSON.parse(File.read(
+        File.join(directory, "internal", "worlds", "shells.json")
+      ))
+
+      assert_empty public_index.dig("encyclopedia", "entries")
+      internal_keys = internal.dig("encyclopedia", "entries").map { |entry| entry.fetch("external_key") }
+      assert_equal ["bell_lung_kind"], internal_keys
+    end
+  end
+
+  def test_encyclopedia_shell_rejects_authored_reference_content
+    world = Lorecraft.define do
+      schema { encyclopedia_type :lifeform }
+      encyclopedia :overfilled do
+        title "Overfilled"
+        kind :lifeform
+        subkind :animal
+        status :shell
+        summary "This shell already contains authored reference content."
+        prevalence :common
+        available_globally
+      end
+    end
+
+    problems = world.validate.join("\n")
+    assert_includes problems, "a shell cannot have a summary"
+    assert_includes problems, "a shell cannot have prevalence"
+    assert_includes problems, "a shell cannot have availability"
+  end
+
+  def test_world_can_require_primary_encyclopedia_types_for_atlas_kinds
+    world = Lorecraft.define do
+      schema do
+        entity_type :creature, :era
+        encyclopedia_type :lifeform
+        require_encyclopedia_types! kinds: :creature
+      end
+      timeline { era :present, starts: 0, length: 10; now year: 1 }
+
+      encyclopedia :animal do
+        title "Animal"
+        kind :lifeform
+        subkind :animal
+        status :shell
+      end
+      creature :typed do
+        name "Typed Creature"
+        type_of :animal
+      end
+      creature :missing do
+        name "Untyped Creature"
+      end
+      creature :unwritten do
+        name "Unwritten Creature"
+        status :shell
+      end
+    end
+
+    problems = world.validate.join("\n")
+    assert_includes problems, "creature missing: Atlas entry requires type_of"
+    refute_includes problems, "creature typed: Atlas entry requires type_of"
+    assert_includes problems, "creature unwritten: Atlas entry requires type_of"
+  end
+
+  def test_type_of_rejects_unknown_and_hidden_public_targets
+    world = Lorecraft.define do
+      schema do
+        entity_type :creature
+        encyclopedia_type :lifeform
+      end
+      timeline { era :present, starts: 0, length: 10; now year: 1 }
+
+      encyclopedia :hidden_kind do
+        title "Hidden Kind"
+        kind :lifeform
+        subkind :animal
+        status :draft
+        summary "A reusable kind hidden from players."
+        prevalence :rare
+        available_globally
+        dm!
+      end
+      creature :unknown_instance do
+        name "Unknown Instance"
+        type_of :missing_kind
+      end
+      creature :public_instance do
+        name "Public Instance"
+        type_of :hidden_kind
+      end
+      creature :hidden_instance do
+        name "Hidden Instance"
+        type_of :hidden_kind
+        dm!
+      end
+    end
+
+    problems = world.validate.join("\n")
+    assert_includes problems, "type_of targets unknown Encyclopedia entry missing_kind"
+    assert_includes problems, "public entity cannot use DM-only Encyclopedia type hidden_kind"
+    refute_includes problems, "creature hidden_instance: public entity"
+  end
+
+  def test_prose_reference_markers_do_not_fall_back_between_namespaces
+    world = Lorecraft.define do
+      schema do
+        entity_type :concept
+        encyclopedia_type :phenomenon
+      end
+      timeline { era :present, starts: 0, length: 10; now year: 1 }
+
+      encyclopedia :only_reference do
+        title "Only Reference"
+        kind :phenomenon
+        subkind :condition
+        status :draft
+        summary "A condition with no Atlas entity."
+        prevalence :uncommon
+        available_globally
+      end
+      concept :only_atlas do
+        name "Only Atlas"
+      end
+      concept :wrong_atlas_link do
+        name "Wrong Atlas Link"
+        prose "This names #{ref :only_reference}."
+      end
+      concept :wrong_encyclopedia_link do
+        name "Wrong Encyclopedia Link"
+        prose "This names #{encyclopedia_ref :only_atlas}."
+      end
+    end
+
+    problems = world.validate.join("\n")
+    assert_includes problems, "prose ref → unknown Atlas id only_reference"
+    assert_includes problems, "encyclopedia_ref → unknown Encyclopedia id only_atlas"
+  end
+
+  def test_embeds_resolve_only_within_the_owners_namespace
+    world = Lorecraft.define do
+      schema do
+        entity_type :concept
+        encyclopedia_type :phenomenon
+      end
+      timeline { era :present, starts: 0, length: 10; now year: 1 }
+
+      concept :shared do
+        name "Atlas Shared"
+        prose "Atlas-owned passage."
+      end
+      concept :atlas_consumer do
+        name "Atlas Consumer"
+        prose "#{embed :shared}"
+      end
+      encyclopedia :shared do
+        title "Encyclopedia Shared"
+        kind :phenomenon
+        subkind :condition
+        status :draft
+        summary "A reusable condition."
+        prevalence :uncommon
+        available_globally
+        prose "Encyclopedia-owned passage."
+      end
+      encyclopedia :encyclopedia_consumer do
+        title "Encyclopedia Consumer"
+        kind :phenomenon
+        subkind :condition
+        status :draft
+        summary "A reusable consumer of another entry."
+        prevalence :uncommon
+        available_globally
+        prose "#{embed :shared}"
+      end
+    end
+
+    assert_empty world.validate
+    atlas = Lorecraft::Render::Markdown.new(world).page_markdown(world.entity(:atlas_consumer))
+    encyclopedia = Lorecraft::EncyclopediaQuery.new(
+      world, action: :page, id: :encyclopedia_consumer
+    ).data.dig(:sections, 0, :text)
+    assert_includes atlas, "Atlas-owned passage."
+    refute_includes atlas, "Encyclopedia-owned passage."
+    assert_includes encyclopedia, "Encyclopedia-owned passage."
+    refute_includes encyclopedia, "Atlas-owned passage."
+  end
+
+  def test_validation_enforces_complete_content_and_context_vocabulary
+    world = Lorecraft.define do
+      schema do
+        tag :ecology
+        context_tag :surface, scopes: :place
+        encyclopedia_type :lifeform
+      end
+      encyclopedia :thin do
+        title "Thin"
+        kind :lifeform
+        subkind :animal
+        status :complete
+        summary "An incomplete reusable organism."
+        topics :unknown
+        prevalence :mythic
+        appears_when all: { scene: [:surface] }
+      end
+    end
+
+    problems = world.validate.join("\n")
+    assert_includes problems, "topic unknown is not registered"
+    assert_includes problems, "prevalence must be common, uncommon, or rare"
+    assert_includes problems, "context tag surface is not allowed for scene"
+    assert_includes problems, "complete entry needs at least 2 cues"
+    assert_includes problems, "complete entry needs prose"
+  end
+
+  def test_reference_queries_search_match_and_list_atlas_instances
+    world = encyclopedia_world
+    search = Lorecraft::EncyclopediaQuery.new(
+      world, action: :search, query: "herd", audience: :player
+    ).data
+    match = Lorecraft::EncyclopediaQuery.new(
+      world,
+      action: :match,
+      audience: :player,
+      context: [Lorecraft::ContextTerm.new(
+        scope: :place, type: :tag, value: :"realm:surface"
+      )]
+    ).data
+    page = Lorecraft::EncyclopediaQuery.new(
+      world, action: :page, id: :marn, audience: :player
+    ).data
+
+    assert_equal "marn", search.dig(:entries, 0, :external_key)
+    assert_equal 0, match.dig(:matches, 0, :matched_selector)
+    assert_equal "realm:surface", match.dig(:matches, 0, :matched_terms, 0, :tag)
+    assert_equal "ironwhistle", page.dig(:instances, 0, :external_key)
+    assert_equal :encyclopedia,
+                 encyclopedia_world.encyclopedia_entry(:marn).selectors.last.any.first.type
+  end
+
+  def test_site_exports_public_and_internal_encyclopedias_separately
+    Dir.mktmpdir do |directory|
+      Lorecraft::Render::Site.new(encyclopedia_world, root: directory).render(
+        out: File.join(directory, "public"),
+        internal_out: File.join(directory, "internal"),
+        world_id: "references",
+        title: "References",
+        revision: "test",
+      )
+      public_index = JSON.parse(File.read(
+        File.join(directory, "public", "worlds", "references", "index.json")
+      ))
+      public_graph = JSON.parse(File.read(
+        File.join(directory, "public", "worlds", "references", "graph.json")
+      ))
+      internal = JSON.parse(File.read(
+        File.join(directory, "internal", "worlds", "references.json")
+      ))
+
+      assert_equal 12, public_index.fetch("schema_version")
+      assert_equal ["realm:surface"], public_index.fetch("context_tags").map { |tag| tag.fetch("id") }
+      avar = public_index.fetch("entries").find { |entry| entry.fetch("id") == "avar" }
+      assert_equal ["realm:surface"], avar.fetch("context_tags")
+      ironwhistle = public_index.fetch("entries").find { |entry| entry.fetch("id") == "ironwhistle" }
+      assert_equal "marn", ironwhistle.fetch("encyclopedia_type")
+      assert_empty ironwhistle.fetch("encyclopedia_memberships")
+      assert_equal ["marn"], public_index.dig("encyclopedia", "entries").map { |entry| entry.fetch("external_key") }
+      assert_equal 1, public_index.dig("encyclopedia", "entries", 0, "sections").size
+      assert_equal ["ironwhistle"], public_index.dig("encyclopedia", "entries", 0, "instances").map { |entry| entry.fetch("external_key") }
+      refute public_index.fetch("encyclopedia").key?("relationships")
+      assert_equal 2, internal.dig("encyclopedia", "entries").size
+      assert_equal 2, internal.dig("encyclopedia", "entries").find { |entry| entry.fetch("external_key") == "marn" }.fetch("sections").size
+      refute_includes public_graph.fetch("nodes").map { |node| node.fetch("id") }, "marn"
+      refute public_graph.fetch("edges").any? { |edge| edge.fetch("src") == "marn" || edge.fetch("tgt") == "marn" }
     end
   end
 end

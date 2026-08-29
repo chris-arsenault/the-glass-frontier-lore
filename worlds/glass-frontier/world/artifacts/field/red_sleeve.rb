@@ -2,6 +2,7 @@ artifact :red_sleeve do
   name "The Red Sleeve"
   summary "The Red Sleeve is the signal-bearing arm of a faded pressure coat kept at Wash Four. Trace washers use its layered voice, engine rhythm, and route beacon to calibrate instruments and judge later textile records."
   subkind :instrument
+  type_of :recording_medium
   function "Provides a stable textile trace for field comparison and wash calibration"
   status :complete
   tags :household, :archives, :mystery, :"signal-freq"

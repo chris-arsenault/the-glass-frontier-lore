@@ -79,17 +79,18 @@ module Lorecraft
       # render year `year`. The resolution context is held for the duration of
       # the scan so the `on_*` callbacks can reach it, and saved/restored because
       # transclusion re-enters this method.
-      def resolve_prose(text, from_path:, year:, audience: :all, stack: [])
-        prev = [@from_path, @year, @audience, @embed_stack]
+      def resolve_prose(text, from_path:, year:, audience: :all, stack: [], namespace: :atlas)
+        prev = [@from_path, @year, @audience, @embed_stack, @prose_namespace]
         @from_path = from_path
         @year = year
         @audience = audience
         @embed_stack = stack
+        @prose_namespace = namespace
         out = text.dup
         Markers.scan(text) { |match, marker| out = out.sub(match, marker.resolve(self).to_s) }
         out
       ensure
-        @from_path, @year, @audience, @embed_stack = prev
+        @from_path, @year, @audience, @embed_stack, @prose_namespace = prev
       end
 
       # Transclude the target's prose for one section. The cycle guard is a
@@ -99,7 +100,11 @@ module Lorecraft
         id = marker.id
         return "[embed cycle: #{id}]" if @embed_stack.include?(id)
 
-        target = @world.entity(id)
+        target = if @prose_namespace == :encyclopedia
+                   @world.encyclopedia_entry(id)
+                 else
+                   @world.entity(id)
+                 end
         return "[missing embed: #{id}]" unless target
 
         blocks = target.prose_blocks
@@ -112,7 +117,10 @@ module Lorecraft
       # whose link syntax differs, so a transclusion is rendered by the target
       # format rather than by whoever owns the text.
       def resolve_embedded(text, stack)
-        resolve_prose(text, from_path: @from_path, year: @year, audience: @audience, stack: stack)
+        resolve_prose(
+          text, from_path: @from_path, year: @year, audience: @audience,
+          stack: stack, namespace: @prose_namespace
+        )
       end
 
       # --- marker resolution: this renderer links to other pages in the tree --
@@ -149,6 +157,11 @@ module Lorecraft
         else
           marker[:text] || marker.id.to_s
         end
+      end
+
+      def on_encyclopedia_ref(marker)
+        entry = @world.encyclopedia_entry(marker.id)
+        marker[:text] || entry&.title || marker.id.to_s
       end
 
       def on_rel(marker)
@@ -390,7 +403,6 @@ module Lorecraft
 
       def edges(year, audience)
         Edges.new(@world, at: year, audience: audience).rows.map do |edge|
-          relation = @world.relation_instances[edge.origin]
           {
             src: edge.subject,
             rel: edge.relation,
@@ -400,25 +412,17 @@ module Lorecraft
             dm: edge.dm,
             props: (edge.props unless edge.props.nil? || edge.props.empty?),
             live_at_render: edge.live,
-          }.merge(relation ? identity_graph_fields(relation, audience) : {}).compact
+          }.compact
         end
       end
 
       def identity_graph_fields(owner, audience)
-        return {} unless owner.is_a?(Entity) || owner.is_a?(RelationInstance)
+        return {} unless owner.is_a?(Entity)
 
         resolution = @world.resolve_identity(owner, at: @year, audience: audience)
-        return {} if resolution.descriptive_identity.empty? && resolution.sources.empty? &&
-                     resolution.local.empty?
+        return {} if resolution.descriptive_identity.empty?
 
-        {
-          descriptive_identity: resolution.descriptive_identity,
-          identity_sources: resolution.sources,
-          identity_local: resolution.local,
-          identity_provenance: resolution.provenance.transform_values do |rows|
-            rows.map(&:to_h)
-          end,
-        }
+        { descriptive_identity: resolution.descriptive_identity }
       end
 
       def position_documents(node)

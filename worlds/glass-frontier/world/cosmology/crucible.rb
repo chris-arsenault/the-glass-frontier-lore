@@ -1,7 +1,9 @@
 geographic_location :crucible do
   name "Crucible"
   summary "Crucible is the innermost planet of the Kaleidos system, a hot rocky world mined from shielded settlements at high latitude."
+  type_of :celestial_body
   playable_as :chronicle_location
+  context_tags :"realm:outer_system"
   subkind :celestial_body
   status :complete
   tags :cosmology, :materials, :trade, :danger
@@ -69,14 +71,4 @@ relate :rel_crucible_part_of_system, :part_of, :crucible, :kaleidos_system do
 end
 relate :rel_crucible_supplies_ashvane, :supplies, :crucible, :ashvane do
   prose "Crucible foundries supply heat-resistant alloys used in Ashvane's cooling loops and radiator frames."
-  descriptive_identity(
-    terms:
-      "Refined alloy from foundries that hold working temperatures too " \
-      "expensive to produce elsewhere, lifted through orbital yards on " \
-      "the mining windows rather than any fixed schedule.",
-    dependence:
-      "Ashvane's law hands private cooling to the municipal return " \
-      "during a heat emergency, so the buried loops and radiator combs " \
-      "built from this stock are civic plumbing as much as trade goods."
-  )
 end

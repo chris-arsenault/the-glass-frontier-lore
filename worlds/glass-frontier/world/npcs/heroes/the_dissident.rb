@@ -7,9 +7,8 @@ npc :the_dissident do
   prominence :forgotten
   occupation "Famine-era resonance teacher"
   omit_facts :based_in
-  species "elf"
-  identity_source :species, :elves
-  identity_source :trade, :tuners
+  type_of :elves
+  belongs_to :role, :tuners
   dm!(public_entry: :tuners)
 
   prose <<~PROSE
@@ -31,12 +30,6 @@ npc :the_dissident do
   PROSE
 end
 
-relate :rel_dissident_taught_tuners, :taught, :the_dissident, :tuners, dm: true do
-  prose "The Dissident taught one of the early Famine lineages from which present Tuning descends."
-end
-relate :rel_dissident_member_of_elves, :member_of, :the_dissident, :elves, since: 2050, dm: true do
-  prose "The Dissident belonged to the elven civilization that withdrew from public life after the Glassfall."
-end
 relate :rel_clarisant_derived_from_dissident, :derived_from, :clarisant, :the_dissident, dm: true do
   prose "The Clarisant's oldest practical exercises descend from the Dissident's concealed teaching line."
 end

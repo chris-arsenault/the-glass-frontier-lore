@@ -2,6 +2,7 @@ faction :shear_compact do
   name "Shear Compact"
   summary "The Shear Compact is the standards and mediation body that certifies salvage operators and regulates extraction in the Shear."
   subkind :government
+  type_of :government
   path "player/npcs/factions/shear-compact.md"
   reviewed "2026-03-18"
   tags :salvage, :ringglass, :trade, :governance
@@ -57,35 +58,7 @@ end
 
 relate :rel_shear_compact_regulates_the_shear, :regulates, :shear_compact, :the_shear, since: 2383 do
   prose "The Compact exists to regulate the #{ref :the_shear, "Shear"} — charting working zones, certifying operators, and trying to make a lethal industry survivable."
-  descriptive_identity(
-    reach:
-      "Certification and extraction limits bind whoever wants legal " \
-      "standing in the Shear; Coremark works the same volumes without " \
-      "either, and the limits themselves sit under steady pressure from " \
-      "buyers the certified rate cannot supply.",
-    enforcement:
-      "No armed arm and no pursuit — a violation draws a fine sized for " \
-      "deterrence and paid by determined operators as a business cost, " \
-      "while the heavier penalty is losing the mediation that keeps a " \
-      "disputed find yours."
-  )
 end
-relate :rel_shear_compact_regulates_ratters, :regulates, :shear_compact, :ratters, since: 2383 do
-  prose "That includes the #{ref :ratters, "ratters"}, the independent crews it would rather license than chase, with uneven success."
-  descriptive_identity(
-    reach:
-      "A working Ratter is licensed in practice whatever the flotilla's " \
-      "politics: claim ledgers, cutter inspection records, cargo " \
-      "grades, and declared rescue coverage are what keep a crew flying " \
-      "and a haul sellable.",
-    enforcement:
-      "The Compact has no way to chase a skiff and little need to — a " \
-      "clean ledger lets a crew refuse a bad buyer, so most keep the " \
-      "forms that keep them flying, and the ones that do not meet the " \
-      "Compact only when a disputed claim turns expensive."
-  )
-end
-
 # --- history (moments) ---
 moment :shear_compact_formed, year: 2383, of: :shear_compact do
   summary "Salvage operators formed the Shear Compact in 2383 around shared safety standards, neutral mediation, and the evidence from Shardfall."

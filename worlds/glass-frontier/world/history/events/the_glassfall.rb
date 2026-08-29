@@ -2,6 +2,7 @@ incident :the_glassfall do
   name "The Glassfall"
   summary "The Glassfall was the hours-long shattering of Kaleidos's inhabited orbital ring in 2140, leaving isolated habitats and debris across the system."
   subkind :disaster
+  type_of :systemic_catastrophe
   path "player/history/events/the-glassfall.md"
   status :complete
   reviewed "2026-03-19"
@@ -75,8 +76,8 @@ relate :rel_the_glassfall_caused_the_shear, :caused, :the_glassfall, :the_shear 
   PROSE
 end
 
-relate :rel_the_glassfall_caused_echo_rivers, :caused, :the_glassfall, :echo_rivers do
+relate :rel_the_glassfall_caused_kaleidos_echo_rivers, :caused, :the_glassfall, :kaleidos_echo_rivers do
   prose <<~PROSE
-    When the ring broke, its #{ref :ringglass, "ringglass"} rained across Kaleidos and settled into the planet's crust and waterways — still holding the faint imprint of the transmissions it had once carried. Those buried, half-audible fragments of pre-Glassfall signal are the #{ref :echo_rivers, "Echo Rivers"}.
+    When the ring broke, its #{encyclopedia_ref :ringglass, "ringglass"} rained across Kaleidos and settled into the planet's crust and waterways, still holding the faint imprint of the transmissions it had once carried. Those buried fragments surface through the #{ref :kaleidos_echo_rivers, "Kaleidos Echo Rivers"}.
   PROSE
 end

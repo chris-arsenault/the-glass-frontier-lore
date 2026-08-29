@@ -2,7 +2,9 @@ geographic_location :avar do
   name "Avar"
   summary "Avar is a settled grassland on Kaleidos between Glasswake's coastal hills and the Kyther Range, crossed by glass-bearing stone shelves and deep wells."
   playable_as :chronicle_location
+  context_tags :"realm:surface"
   subkind :region
+  type_of :region
   status :complete
   tags :surface, :resonance, :navigation, :trade, :ecology
   prominence :recognized
@@ -34,7 +36,7 @@ geographic_location :avar do
   )
 
   prose <<~PROSE
-    Avar begins behind the coastal hills above #{ref :glasswake, "Glasswake"} and runs inland to the first broken ridges of the #{ref :kyther_range, "Kyther Range"}. Old surface route books already write Avar beside the western wells. The spelling survived the Famine even as the mapped roads changed. Wind keeps most of the country in grass. Long shelves of pale stone rise through the soil at irregular intervals, their exposed faces filled with fine ringglass washed down from centuries of #{ref :glassfall_showers, "Glassfall showers"}. Near sunrise and late afternoon the ridges split the light into low gold bands.
+    Avar begins behind the coastal hills above #{ref :glasswake, "Glasswake"} and runs inland to the first broken ridges of the #{ref :kyther_range, "Kyther Range"}. Old surface route books already write Avar beside the western wells. The spelling survived the Famine even as the mapped roads changed. Wind keeps most of the country in grass. Long shelves of pale stone rise through the soil at irregular intervals, their exposed faces filled with fine ringglass washed down from centuries of #{encyclopedia_ref :glassfall_showers, "Glassfall showers"}. Near sunrise and late afternoon the ridges split the light into low gold bands.
 
     Farms and grazing land occupy the deeper soils between shelves. Towns stand where a reliable well, a sheltered landing field, and a route through the ridges coincide. None approaches Sithari in size. Together they support a large settled population spread across homesteads, market towns, pumping stations, bridge hamlets, and seasonal camps.
   PROSE
@@ -55,7 +57,7 @@ geographic_location :avar do
   prose <<~PROSE, section: :people, heading: "Wells, Markets, and Work"
     A well defines the practical size of a settlement. Public pumps feed drinking taps, wash troughs, livestock basins, gardens, and fire tanks in a set order. Every town posts the order at the pump house. During repairs, temporary pipe reaches the drinking line first and the gardens last. Arguments about water are usually arguments about which use entered the order when.
 
-    Steppe households grow grain, legumes, and tough-leaved vegetables in windbreak plots. Herding families move #{ref :marn, "marn"} between ridge shelter in the cold season and open grass after the first rains. Market towns process wool and hides, mill grain, repair pumps, and trade low-grade shower glass collected from roofs and field cloth. Glasswake takes much of the surplus; replacement machinery and coastal goods come back along the same roads.
+    Steppe households grow grain, legumes, and tough-leaved vegetables in windbreak plots. Herding families move #{encyclopedia_ref :marn, "marn"} between ridge shelter in the cold season and open grass after the first rains. Market towns process wool and hides, mill grain, repair pumps, and trade low-grade shower glass collected from roofs and field cloth. Glasswake takes much of the surplus; replacement machinery and coastal goods come back along the same roads.
 
     Folk resonance work is common. A well reader knows the local water-bearing tones. A mason knows which aggregate quiets a particular shelf. A route keeper may have no Clarisant credential and a better record on one crossing than any visiting Tuner. Outside certification matters for new machinery and legal disputes. Daily trust follows the person who has heard the same ground through twenty wet seasons.
   PROSE

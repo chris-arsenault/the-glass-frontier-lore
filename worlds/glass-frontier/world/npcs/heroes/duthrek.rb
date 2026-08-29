@@ -6,8 +6,7 @@ npc :duthrek do
   tags :salvage, :trade, :danger, :governance
   prominence :recognized
   occupation "Head of Coremark"
-  species "orc"
-  identity_source :species, :orcs
+  type_of :orcs
   descriptive_identity disposition:
     "Duthrek hears captains in pairs from different units so each can " \
     "challenge the other's account, and settles their conflicts by " \

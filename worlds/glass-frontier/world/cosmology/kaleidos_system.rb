@@ -1,6 +1,7 @@
 geographic_location :kaleidos_system do
   name "The Kaleidos System"
   summary "The Kaleidos system is a compact inhabited star system containing seven intact planets, the Fracture's planetary remains, and the broken ring around Kaleidos."
+  type_of :star_system
   log "2026-08-22 — Excluded as a chronicle location because the full star system cannot supply one local starting neighborhood."
   subkind :star_system
   path "player/cosmology/kaleidos-system.md"
@@ -81,7 +82,7 @@ geographic_location :kaleidos_system do
     Population centers are not exclusively planetary. The system is a network, not a set of isolated worlds.
   PROSE
   prose <<~PROSE, section: :applications, heading: "Transit"
-    Interplanetary travel uses #{ref :kite_sail, "KITE"} technology. Transit times planet-to-planet:
+    Interplanetary travel uses #{encyclopedia_ref :kite_sail, "KITE"} technology. Transit times planet-to-planet:
 
     - Adjacent planets: ~1 day (fast ship), 2-3 days (cargo hauler)
     - Kaleidos to Ashenmaw (planet 5): ~3 days
@@ -95,8 +96,4 @@ geographic_location :kaleidos_system do
   gm_note :appears, "Distance here is counted in days: an adjacent world is one day by fast ship and #{ref :lithren, "Lithren"} is a week from Kaleidos. Nobody outruns a problem by leaving the planet, and anyone with a faster hull arrives before the party has finished explaining itself."
   gm_note :triggered_by, "Asked where someone in the system lives, the answer is often not a planet: ring habs, orbital stations, and #{ref :span_nine, "Threshold Station"} at the Kaleidos-sun point all hold real populations. A search that works down the list of eight worlds misses where people actually are."
   gm_note :complicates, "A multi-day crossing passes within reach of things that are not on a planet: listening posts, a #{ref :clarisant, "Clarisant"} retreat sited away from any planetary field, caches whose owners notice traffic. A crew running a straight line is still passing someone's doorstep."
-end
-
-relate :rel_kaleidos_system_depends_on_resonance, :depends_on, :kaleidos_system, :resonance do
-  prose "Everything in the system runs on #{ref :resonance, "resonance"} — the ambient energy that permeates every body in it, from the surface to the outer worlds."
 end

@@ -2,7 +2,9 @@ geographic_location :karet_three do
   name "Karet-3"
   summary "Karet-3 is a contained Bloom Zone in the remains of a freight habitat in the outer Shear, where the interior no longer agrees with the hull."
   playable_as :chronicle_location
+  context_tags :"realm:orbital"
   subkind :hazardous_zone
+  type_of :hazardous_zone
   tags :orbital, :danger, :resonance, :isolation
   prominence :recognized
   nature "Bloom distortion occupying the remains of a freight habitat"
@@ -55,7 +57,7 @@ geographic_location :karet_three do
   prose <<~PROSE, section: :present_day, heading: "Present Day"
     The cordon holds at its established perimeter. Small changes continue inside Karet-3, and the wall array requires more recalibration than a stable zone of its size should.
 
-    A #{ref :rind, "rind"} has followed the array's resonance gradient to the station. Its presence has forced the Council to distinguish movement caused by the zone from interference caused by an animal that has no interest in the cordon at all.
+    #{ref :three_hundred_out, "Three Hundred Out"} has followed the array's resonance gradient to the station. Its presence has forced the Council to distinguish movement caused by the zone from interference caused by an animal that has no interest in the cordon at all.
   PROSE
 
   gm_note :triggered_by, "Players who navigate Karet-3 by looking at it disagree with the next observer about what they saw. The twelve families on the platform are the only workable map of the old hab, and they will want something for the walk."

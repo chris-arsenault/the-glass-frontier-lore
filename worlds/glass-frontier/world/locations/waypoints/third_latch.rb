@@ -2,8 +2,10 @@ installation :third_latch do
   name "Latchhouse"
   summary "Latchhouse is a waiting hall, lodging house, and freight court inside Mareth's third locking cylinder."
   playable_as :chronicle_location
+  context_tags :"realm:ring_habitat"
   aka "Third Latch"
   subkind :station
+  type_of :waypoint
   status :complete
   tags :"ring-hab", :transport, :trade, :household
   prominence :marginal

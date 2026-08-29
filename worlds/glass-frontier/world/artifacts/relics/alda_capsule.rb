@@ -2,6 +2,7 @@ artifact :alda_capsule do
   name "Alda Capsule"
   summary "The Alda Capsule is a ceramic message carrier launched from the Alda residential module in 2305 and delivered to Tanel in 2434. Its trip card requests help at a failing nursery seal beyond the surviving tube network."
   subkind :record
+  type_of :recording_medium
   recorded 2305
   status :complete
   tags :archives, :transport, :"signal-freq", :mystery
@@ -40,9 +41,4 @@ artifact :alda_capsule do
 end
 relate :rel_tanel_possesses_alda_capsule, :possesses, :tanel, :alda_capsule, since: 2434 do
   prose "Tanel holds Alda Capsule at Tube Room Six and uses its trip card to trace the reopened line."
-end
-
-
-relate :rel_alda_capsule_attuned_to_resonance, :attuned_to, :alda_capsule, :resonance do
-  prose "The capsule's ceramic and gate clock carry the signal-band handshake of the Alda line."
 end

@@ -2,6 +2,7 @@ faction :orra_seed_wardens do
   name "Orra Seed Wardens"
   summary "The Orra Seed Wardens are a seed-protection faction that escorts revived strains between Orra and Seren."
   subkind :faction
+  type_of :order
   status :complete
   prominence :marginal
   veiled "Orra Seed Wardens escort revived strains to Seren and destroy any duplicate that flowers out of season."

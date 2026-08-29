@@ -68,7 +68,7 @@ provenance:
 # Which expected kind facts are known, grouped by entity kind and entry.
 facts:
 	@$(LC) facts
-# Resolved descriptive identity, normalized sources, and per-key provenance.
+# Local descriptive-identity values and unfilled kind keys.
 identity:
 	@$(LC) identity
 # GM-note coverage, plus the repetition findings bulk writing produces.

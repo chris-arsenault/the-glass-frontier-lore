@@ -2,7 +2,9 @@ installation :ledgerfall do
   name "Ledgerfall"
   summary "Ledgerfall is a city on the northern rim of the Sable Crescent, built around speaking waterfalls where an Echo River descends into the marshes."
   playable_as :chronicle_location
+  context_tags :"realm:surface"
   subkind :settlement
+  type_of :settlement
   status :complete
   population 81_000
   population_band "About eighty-one thousand across the falls, terrace wards, and lower river port"
@@ -87,24 +89,15 @@ relate :rel_ledgerfall_in_sable_crescent, :located_in, :ledgerfall, :sable_cresc
 end
 relate :rel_ledgerfall_cooperates_conclave, :cooperates_with, :ledgerfall, :echo_ledger_conclave, since: 2310 do
   prose "The town supplies listening rooms, records trades, and gate windows to the Echo Ledger Conclave while retaining civic control of the river."
-  descriptive_identity(
-    basis:
-      "A permanent listening room beside the western spill, steady " \
-      "employment for boat crews, conservators, and copyists, and a " \
-      "paper trade the archivists' appetite largely sustains.",
-    limits:
-      "Every listening window costs someone water. The water board " \
-      "grants mornings, not open extensions — the current hold on the " \
-      "gate order has two upper mills short in their busiest season — " \
-      "and the terrace councils, the board, and the harbor officers " \
-      "answer to no archivist."
-  )
 end
-relate :rel_ledgerfall_depends_on_echo_rivers, :depends_on, :ledgerfall, :echo_rivers do
-  prose "Ledgerfall's water, mills, and public soundscape come from a surfacing branch of the #{ref :echo_rivers, "Echo Rivers"}."
-  descriptive_identity exposure:
-    "The river is drinking water, mill power, port, and archive in one " \
-    "channel, so a flood forces the town to rank them: gate crews save " \
-    "the drinking intake first and the lower port second, and whatever " \
-    "the water carries away that day, the falls keep talking about it."
+relate :rel_ledgerfall_depends_on_kaleidos_echo_rivers, :depends_on, :ledgerfall, :kaleidos_echo_rivers do
+  prose "Ledgerfall's water, mills, and public soundscape come from a surfacing branch of the Kaleidos Echo Rivers."
+end
+
+relate :rel_glassfall_manifests_at_ledgerfall, :manifests_at, :the_glassfall, :ledgerfall do
+  prose "The speaking falls carry signals left in crystal-bearing rock after the ring broke."
+end
+
+relate :rel_elven_disappearance_manifests_at_ledgerfall, :manifests_at, :disappearance_of_the_elves, :ledgerfall do
+  prose "Fragments in the falls sometimes cut to silence or flatten into the harmonic damage associated with the elven disappearance."
 end

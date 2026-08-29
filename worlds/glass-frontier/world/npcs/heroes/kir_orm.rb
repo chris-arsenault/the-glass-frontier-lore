@@ -4,14 +4,12 @@ npc :kir_orm do
   subkind :specialist
   occupation "Airwright and passage mapper"
   specialty "Tracing airflow through porous structural channels"
-  species "human"
-  identity_source :species, :humans
-  identity_source :culture, :hab_worlder
+  type_of :humans
+  belongs_to :culture, :hab_worlder
   descriptive_identity disposition:
     "Orm takes work from anyone with a wall that has stopped breathing, " \
     "and stands whoever hired her in the flow beside her before she lets " \
     "them read an instrument."
-  culture "Hab-Worlder"
   status :complete
   tags :"structural-freq", :household, :training
   prominence :marginal
@@ -36,9 +34,4 @@ npc :kir_orm do
 end
 relate :rel_kir_orm_located_in_vey, :located_in, :kir_orm, :vey, since: 2435 do
   prose "Kir Orm maps and repairs Vey's breathing walls."
-end
-
-
-relate :rel_kir_orm_attuned_to_resonance, :attuned_to, :kir_orm, :resonance do
-  prose "Kir Orm reads structural tone through airflow, wall vibration, and a low-band sounding plate."
 end

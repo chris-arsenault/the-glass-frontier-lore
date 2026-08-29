@@ -2,7 +2,9 @@ installation :thornvault do
   name "Thornvault"
   summary "Thornvault is a bridge-city and archive across the deepest canyon of the Sable Crescent, serving as the headquarters of the Echo Ledger Conclave."
   playable_as :chronicle_location
+  context_tags :"realm:surface"
   subkind :settlement
+  type_of :settlement
   path "player/locations/settlements/thornvault.md"
   tags :surface, :archives, :resonance, :"signal-freq", :governance
   prominence :recognized
@@ -37,7 +39,7 @@ installation :thornvault do
   )
 
   prose <<~PROSE
-    The headquarters of the #{ref :echo_ledger_conclave, "Echo Ledger Conclave"}. A literal bridge-castle: a single immense stone span across the deepest canyon in the #{ref :sable_crescent, "Sable Crescent"}, with the Conclave's halls, archives, and residences built into and across the span itself. The #{ref :echo_rivers, "Echo River"} runs at the canyon's base. The Vault listens down into the water.
+    The headquarters of the #{ref :echo_ledger_conclave, "Echo Ledger Conclave"}. A literal bridge-castle: a single immense stone span across the deepest canyon in the #{ref :sable_crescent, "Sable Crescent"}, with the Conclave's halls, archives, and residences built into and across the span itself. The #{ref :kaleidos_echo_rivers, "Echo River"} runs at the canyon's base. The Vault listens down into the water.
 
     Thornvault is the Conclave. The Conclave's satellite offices in #{ref :sithari, "Sithari"} and elsewhere are postings; Thornvault is the institutional center, the deep archive, and the place every senior archivist eventually spends years living in. The structure is older than the Conclave by a margin nobody has measured.
   PROSE
@@ -57,7 +59,7 @@ installation :thornvault do
 
     **The river path** is for archivists and authorized personnel. A series of switchback stairs cut into the western canyon wall connect the bridge's underside to the river's edge, where small Conclave craft can dock at a sheltered landing. The river path is how senior archivists access the lower galleries and how the Conclave moves material it does not want to display publicly. The path is patrolled and not signposted.
 
-    There is no third approach. The canyon walls are not climbable in any practical sense at the Vault's location, and the airspace above the canyon has #{ref :resonance, "resonance"} properties that interfere with #{ref :kite_sail, "kite"} operation in ways pilots find sufficiently uncomfortable to avoid. The Conclave's predecessors chose the site for these features and the Conclave maintains the choice.
+    There is no third approach. The canyon walls are not climbable in any practical sense at the Vault's location, and the airspace above the canyon has #{encyclopedia_ref :resonance, "resonance"} properties that interfere with #{encyclopedia_ref :kite_sail, "kite"} operation in ways pilots find sufficiently uncomfortable to avoid. The Conclave's predecessors chose the site for these features and the Conclave maintains the choice.
   PROSE
   prose <<~PROSE, section: :culture, heading: "Daily Life"
     Thornvault houses, at any given time, between two and three hundred resident archivists, plus support staff, students, and the occasional outside scholar on standing permission to consult specific records. The residences are along the eastern half of the upper bridge. The dining halls, the libraries, the lecture rooms, and the conservatory greenhouse (which the Conclave maintains for reasons that are functional, theoretical, and aesthetic in roughly that order) occupy the central span.
@@ -83,11 +85,15 @@ installation :thornvault do
     The work continues. The records grow. The river keeps surfacing. Thornvault keeps listening.
   PROSE
 
-  gm_note :appears, "Visitors reach the Vault by the high road from #{ref :ledgerfall, "Ledgerfall"} or they do not reach it; the canyon airspace makes #{ref :kite_sail, "kite"} approach uncomfortable enough that pilots refuse it, so an urgent errand still costs a half-day on the rim."
+  gm_note :appears, "Visitors reach the Vault by the high road from #{ref :ledgerfall, "Ledgerfall"} or they do not reach it; the canyon airspace makes #{encyclopedia_ref :kite_sail, "kite"} approach uncomfortable enough that pilots refuse it, so an urgent errand still costs a half-day on the rim."
   gm_note :triggered_by, "Asking for a specific record moves the conversation downward. The upper galleries produce working files on request, the mid-galleries want the request written, and anything in the river-facing halls needs a senior archivist willing to walk the stairs alongside you."
   gm_note :complicates, "The Conclave settles contested matters in the late afternoon and schedules its difficult conversations there, so an urgent morning arrival is fed, housed, and left waiting until the western galleries fill with light."
 end
 
 relate :rel_thornvault_located_in_sable_crescent, :located_in, :thornvault, :sable_crescent, since: 2308 do
   prose "Thornvault sits within #{ref :sable_crescent, "Sable Crescent"} — the deep, defensible archive where the Conclave keeps what it least wants stolen, and twice has been."
+end
+
+relate :rel_answering_strips_located_in_thornvault, :located_in, :answering_strips, :thornvault do
+  prose "One original Answering Strip remains in Thornvault while its paired record stays at Pell."
 end

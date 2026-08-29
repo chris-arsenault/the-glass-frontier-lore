@@ -2,8 +2,10 @@ installation :olven do
   name "Olven"
   summary "Olven is an agricultural ring-hab settlement in the Glass Frontier, with fifty-four hundred residents working climate chambers around a warm conduit."
   playable_as :chronicle_location
+  context_tags :"realm:ring_habitat"
   aka "Olven-Terath"
   subkind :settlement
+  type_of :settlement
   status :complete
   tags :"ring-hab", :"ring-era", :ecology, :trade, :materials
   prominence :recognized
@@ -33,10 +35,7 @@ installation :olven do
       "resident microbes are exchanged for the next chamber's.",
     hazards:
       "Whatever crosses a transfer room gets written into the receiving " \
-      "chamber's lineage book, visitor and cargo alike. The bound-root " \
-      "stall stands closed with orders still posted, and the root " \
-      "keepers and the clinic buyers each want a stranger's hands on " \
-      "their side of the argument."
+      "chamber's lineage book, visitor and cargo alike."
   )
 
   prose <<~PROSE
@@ -50,20 +49,15 @@ installation :olven do
   prose <<~PROSE, section: :operations, heading: "Chamber Lineages"
     A chamber keeps a lineage book for its air, soil, water, tools, resident organisms, and operating tone. Growers record each transfer across a climate boundary and carry a sample back to the source room. Neighboring chambers compare those samples before renewing a shared crop. Climate-control plates retain the Ring-era name Olven-Terath; market speech shortened it with the first restored band.
 
-    The practice lets Olven cultivate organisms that change quickly under resonance. A useful change receives its own room, workers, and market mark. #{ref :velin, "Velin"}, a pale tissue culture used for nerve grafts, occupies six humid chambers whose walls carry a gentle kinetic pulse.
+    The practice lets Olven cultivate organisms that change quickly under resonance. A useful change receives its own room, workers, and market mark. #{encyclopedia_ref :velin, "Velin"}, a pale tissue culture used for nerve grafts, occupies six humid chambers whose walls carry a gentle kinetic pulse.
   PROSE
 
   prose <<~PROSE, section: :trade, heading: "Velin Across the Door"
-    A fast-growing velin form has appeared in the cool root chambers beyond its transfer room. It follows condensation lines along walls and binds cleanly to the roots stored there. The affected plants remain healthy and carry sensation when growers touch their outer bark.
-
-    Olven has opened a separate market stall for the bound roots and assigned one empty chamber to their cultivation. Buyers from surface clinics and ship gardens have placed orders before the first harvest.
-
-    The first test cut made every bound root in the chamber contract at once and silenced sensation in three control grafts across the transfer room. Growers closed the stall with the orders still posted. Root keepers want the cool stock separated intact; clinic buyers have offered to fund a destructive harvest if Olven releases the complete lineage record with it.
+    #{embed :the_bound_roots}
   PROSE
 
   gm_note :appears, "Crossing Olven means crossing climate bands, and every door between them is a transfer room where clothing, tools, and resident microbes are changed for the next chamber's. Whatever a party carried in gets written into the receiving room's lineage book."
   gm_note :triggered_by, "Ask who owns a crop and the answer is a list rather than a name: one household tends the room, a second leases shelves in it, a third holds shares through a band they have never worked."
-  gm_note :complicates, "The bound-root stall is shut with its orders still posted, and both sides want a visitor's hands. Root keepers want the cool stock moved out whole; clinic buyers will fund a destructive harvest the moment Olven releases the full lineage record with it."
 end
 
 relate :rel_olven_located_in_frontier, :located_in, :olven, :the_glass_frontier, since: 2305 do

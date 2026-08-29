@@ -39,12 +39,9 @@ theme :who_remembers do
   PROSE
 end
 
-relate :rel_who_remembers_embodies_echo_rivers, :embodies, :who_remembers, :echo_rivers do
-  prose "The #{ref :echo_rivers, "Echo Rivers"} are this theme made literal — the past surfacing, half-audible, out of its own time, demanding to be heard."
+relate :rel_who_remembers_embodies_kaleidos_echo_rivers, :embodies, :who_remembers, :kaleidos_echo_rivers do
+  prose "The Kaleidos Echo Rivers make this theme literal: the past surfaces half-audible and out of its own time."
 end
 relate :rel_who_remembers_embodies_elc, :embodies, :who_remembers, :echo_ledger_conclave do
   prose "The #{ref :echo_ledger_conclave, "Echo Ledger Conclave"} are the ones who choose to listen — and the ones who discover, cataloguing the gaps, that someone has been editing the record."
-end
-relate :rel_who_remembers_embodies_stillwater, :embodies, :who_remembers, :stillwater do
-  prose "#{ref :stillwater, "Stillwater"} is the act of keeping — the quiet, unglamorous work of making sure what was recovered is not lost a second time."
 end

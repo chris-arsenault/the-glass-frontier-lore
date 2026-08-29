@@ -2,6 +2,7 @@ conflict :the_bitter_reach do
   name "The Bitter Reach"
   summary "The Bitter Reach was the system-wide conflict of 2407–2423, fought through embargoes, route occupations, credit restrictions, convoy seizures, and limited ship combat."
   subkind :war
+  type_of :armed_conflict
   status :complete
   tags :military, :trade, :governance, :diplomacy, :transport
   prominence :renowned
@@ -73,50 +74,12 @@ end
 
 relate :rel_third_arc_participated_bitter_reach, :participated_in, :third_arc_defense, :the_bitter_reach do
   prose "Third Arc Defense escorted outer-hab cargo and occupied contested signal junctions."
-  descriptive_identity(
-    aims:
-      "For the pact the war was about keeping food and pressure cargo " \
-      "moving between its three member habs, under armed escort where " \
-      "the embargo zones demanded it.",
-    conduct:
-      "Each member supplied patrol craft, dispatchers, and stores on " \
-      "its own account, and command rotated between the three " \
-      "delegations — which hab gave an order depended on the season.",
-    cost:
-      "The pact did not outlive the settlement: its remaining members " \
-      "dissolved it in 2423 and passed the escort guarantees into the " \
-      "Tempered Accord, where they still surface in outer-hab " \
-      "paperwork."
-  )
 end
 relate :rel_vantara_participated_bitter_reach, :participated_in, :vantara, :the_bitter_reach do
   prose "Vantara defended its trade stations, convoys, and claim to charge for the routes they supported."
-  descriptive_identity(
-    aims:
-      "The company fought to keep its network running and paid for " \
-      "regardless of who was shooting — its beacons, waystations, and " \
-      "rescue coverage were the infrastructure the whole war moved " \
-      "over.",
-    conduct:
-      "Armed escorts took contracted convoys through embargo zones for " \
-      "any client with funds, and access fees applied even where " \
-      "opponents insisted the routes were common property."
-  )
 end
 relate :rel_continuity_participated_bitter_reach, :participated_in, :the_continuity, :the_bitter_reach do
   prose "Continuity governments used credit, logistics, and institutional access to support favored combatants while Sithari remained formally neutral."
-  descriptive_identity(
-    conduct:
-      "The pressure ran through paperwork no combatant could answer: a " \
-      "denied loan, a delayed certification, a restricted freight " \
-      "contract, each issued lawfully by a city that stayed open under " \
-      "neutral rules.",
-    cost:
-      "The settlement placed the Accord's offices outside the " \
-      "Continuity's executive grounds, and outside delegations still " \
-      "read the party's involvement through what neutral Sithari's " \
-      "lenders did."
-  )
 end
 relate :rel_bitter_reach_manifested_keel, :manifests_at, :the_bitter_reach, :keel do
   prose "Embargoes and route occupations concentrated along the Keel and its surface approaches."

@@ -2,6 +2,7 @@ incident :disappearance_of_the_elves do
   name "Disappearance of the Elves"
   summary "The Disappearance of the Elves is the recognized absence of every elven community and individual when sustained communication returned in 2305."
   subkind :migration
+  type_of :mass_disappearance
   tags :mystery, :archives, :isolation, :"ring-era"
   prominence :recognized
   status :complete
@@ -39,7 +40,7 @@ incident :disappearance_of_the_elves do
 
     The broad history remains. The elves built the ring and worked throughout its civilization. Individual names, family lines, community records, and locations are missing far more often than the surrounding material.
 
-    The #{ref :echo_rivers, "Echo Rivers"} carry similar damage. Conversations cut to silence and voice signatures flatten into harmonic hum. Deep deposits preserve fragments the alteration did not reach. The #{ref :echo_ledger_conclave, "Echo Ledger Conclave"} catalogs those remnants and has not settled whether the pattern records deliberate removal or an unknown failure concentrated around elven signals.
+    The #{ref :kaleidos_echo_rivers, "Echo Rivers"} carry similar damage. Conversations cut to silence and voice signatures flatten into harmonic hum. Deep deposits preserve fragments the alteration did not reach. The #{ref :echo_ledger_conclave, "Echo Ledger Conclave"} catalogs those remnants and has not settled whether the pattern records deliberate removal or an unknown failure concentrated around elven signals.
   PROSE
 
   prose <<~PROSE, section: :truth, heading: "The Withdrawal", dm: true
@@ -57,12 +58,8 @@ incident :disappearance_of_the_elves do
   PROSE
 
   gm_note :triggered_by, "Research into any pre-Glassfall technical procedure turns up a document that still works, full method and full tolerances, with the author line generic or gone. The #{ref :echo_ledger_conclave, "Echo Ledger Conclave"} will confirm the gap and will not say whether it was cut out or simply lost."
-  gm_note :appears, "Listening deep enough in the #{ref :echo_rivers, "Echo Rivers"} reaches below the flattening: a conversation that does not cut to hum, carrying a voice signature the alteration never touched. The Conclave catalogs every such fragment, and each one reopens its unsettled argument about the pattern."
+  gm_note :appears, "Listening deep enough in the #{ref :kaleidos_echo_rivers, "Echo Rivers"} reaches below the flattening: a conversation that does not cut to hum, carrying a voice signature the alteration never touched. The Conclave catalogs every such fragment, and each one reopens its unsettled argument about the pattern."
   gm_note :complicates, "Elves stayed in the general population to watch the archives, so research closing on a real elven location gets noticed before it gets published. The interference arrives as a misfiled requisition, a reassigned archivist, or a folio that was on the shelf last visit."
-end
-
-relate :rel_elves_participated_disappearance, :participated_in, :elves, :disappearance_of_the_elves do
-  prose "Every publicly known elven population vanished from the returning communication network."
 end
 
 relate :rel_disappearance_active_during_signal_famine, :active_during, :disappearance_of_the_elves, :signal_famine do
@@ -76,5 +73,4 @@ end
 moment :elves_vanish, year: 2305, of: :disappearance_of_the_elves do
   summary "No elven community returned to the public network when the Reconnection began in 2305."
   prose "When the Reconnection began, no elven community returned to the public network."
-  effects { set :elves, standing: :vanished }
 end

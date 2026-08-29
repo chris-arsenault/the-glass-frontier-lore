@@ -163,13 +163,31 @@ The shared schema groups kinds by use.
 Named things that form the primary graph:
 
 `npc`, `geographic_location`, `installation`, `faction`, `artifact`, `creature`,
-`transport`, `incident`, `conflict`, `rumor`, `edict`.
+`transport`, `incident`, `conflict`, `rumor`, `edict`, `resource`, `ability`,
+`phenomenon`.
 
-### Player reference
+An Atlas `ability` is a unique named mantle, office, or designation of power
+whose identity persists through changes of bearer. Its subkind names the finite
+source set that grants it, not the effect it produces. `type_of` identifies the
+primary Encyclopedia ability, and temporal `bears` edges record its bearers.
+Qualification, succession, and cost belong to the mantle.
 
-General knowledge that many atlas entries can share:
+An Atlas `phenomenon` is a unique named anomalous rule recognized through
+repeated manifestations. Its trigger, effect, recurrence, ending, mitigation,
+and any anchor behavior belong to the phenomenon. A carrier or object may
+change without becoming the phenomenon's identity. Its `type_of` target is the
+reusable Encyclopedia phenomenon.
 
-`species`, `culture`, `ability`, `resource`, `phenomenon`, `concept`.
+### Encyclopedia
+
+General knowledge that many Atlas entries can share without entering the Atlas
+graph:
+
+`lifeform`, `culture`, `role`, `practice`, `doctrine`, `ability`, `institution`,
+`technology`, `resource`, `phenomenon`, `place_feature`.
+
+`species`, `culture`, and `concept` are transitional Atlas kinds retained only
+until older worlds have semantic destinations for their existing entries.
 
 ### Structural
 

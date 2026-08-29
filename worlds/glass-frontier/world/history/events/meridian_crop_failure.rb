@@ -2,6 +2,7 @@ incident :meridian_crop_failure do
   name "Meridian Crop Failure"
   summary "The Meridian Crop Failure was a 2317 blight and food shortage aboard Hab Meridian that established regular freight with Glasswake."
   subkind :disaster
+  type_of :crop_failure
   tags :trade, :"ring-hab", :rebuilding
   prominence :recognized
   status :complete
@@ -46,29 +47,8 @@ end
 
 relate :rel_hab_meridian_participated_crop_failure, :participated_in, :hab_meridian, :meridian_crop_failure do
   prose "Hab Meridian rebuilt its growing beds with surface cultures and visiting growers."
-  descriptive_identity(
-    aims:
-      "The hab needed varied root stock and live soil to restart beds " \
-      "that a single preserved culture had left open to one blight.",
-    conduct:
-      "It paid in tuned orbital components and sent its technicians " \
-      "down on the return legs to fit ringglass controls in Glasswake's " \
-      "workshops.",
-    cost:
-      "One harvest was lost outright; the beds themselves survived."
-  )
 end
 
 relate :rel_glasswake_participated_crop_failure, :participated_in, :glasswake, :meridian_crop_failure do
   prose "Glasswake supplied the living cargo and received Meridian technicians on the return legs."
-  descriptive_identity(
-    aims:
-      "What Glasswake stood to gain was a standing market for living " \
-      "cargo and a dependable source of tuned components — worth more " \
-      "than any single relief payment.",
-    conduct:
-      "Its growers rode up with each shipment of seed, soil cultures, " \
-      "and varied root stock, signing shared manifests beside the " \
-      "people prepared to receive them."
-  )
 end

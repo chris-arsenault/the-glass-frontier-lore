@@ -2,6 +2,7 @@ transport :nera_doss do
   name "Nera Doss"
   summary "Nera Doss is Ravel's outer-line tender, converted for work across the plume passage. Its arms recover released collector panels, while the kinetic array holds the short hull against a loaded net."
   subkind :vessel
+  type_of :utility_vessel
   capacity "Four crew, two line workers, and six folded recovery panels"
   status :complete
   tags :transport, :orbital, :materials, :resonance

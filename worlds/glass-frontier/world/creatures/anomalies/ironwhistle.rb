@@ -2,6 +2,7 @@ creature :ironwhistle do
   name "Ironwhistle"
   summary "Ironwhistle is a named Shear dragon ranging between the mid-drift and the inner Keel branch routes. It feeds on active kinetic fields and metal-rich Farborn, announcing its spread membranes through a descending whistle felt in hull members."
   subkind :anomaly
+  type_of :farborn
   status :complete
   tags :orbital, :danger, :resonance, :transport, :legend
   prominence :renowned
@@ -66,7 +67,7 @@ creature :ironwhistle do
 
   gm_note :appears, "Crews meet Ironwhistle through the hull first: a recorder catches a faint scrape while a hand flat on a bulkhead " \
                     "feels the whole descending call, and a steady single note means the membranes are folding for a strike."
-  gm_note :triggered_by, "Running the #{ref :kite_sail, "kite"} up feeds the dragon, because a stronger field gives it more organized " \
+  gm_note :triggered_by, "Running the #{encyclopedia_ref :kite_sail, "kite"} up feeds the dragon, because a stronger field gives it more organized " \
                          "force to follow; crews live through a pass by cutting to the minimum power needed for control, turning " \
                          "across the approach, and releasing an iron decoy on a separate pulse."
   gm_note :complicates, "A sighting with the marks clear earns a modest observation payment, and the Compact now wants raw hull " \
@@ -76,12 +77,6 @@ end
 
 relate :rel_ironwhistle_inhabits_shear, :inhabits, :ironwhistle, :the_shear do
   prose "Ironwhistle ranges through the mid-drift and the branch corridors crossing the Shear."
-end
-relate :rel_ironwhistle_resonates_farborn, :resonates_with, :ironwhistle, :farborn do
-  prose "The dragon is one of the largest individually tracked Farborn predators."
-end
-relate :rel_ironwhistle_resonates_kite, :resonates_with, :ironwhistle, :kite_sail do
-  prose "Active kinetic fields provide the organized force Ironwhistle follows and feeds upon."
 end
 relate :rel_ironwhistle_active_corridor_disputes, :active_during, :ironwhistle, :the_corridor_disputes do
   prose "Its return to the branch routes has added decoy mass and predator coverage to the disputed fees."

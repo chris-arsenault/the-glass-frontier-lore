@@ -2,6 +2,7 @@ conflict :orra_seed_claim do
   name "The Orra Seed Claim"
   summary "The Orra Seed Claim is a dispute between Orra growers and Seren archivists over seeds revived from a mislabeled cold drawer."
   subkind :dispute
+  type_of :resource_dispute
   status :complete
   prominence :marginal
   veiled "Orra growers and Seren archivists contest ownership of seeds revived from a mislabeled cold drawer."

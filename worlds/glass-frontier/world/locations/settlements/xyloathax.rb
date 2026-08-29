@@ -2,7 +2,9 @@ installation :xyloathax do
   name "Xyloathax"
   summary "Xyloathax is a ring-hab settlement of sixty-four hundred people in clean Kaleidos orbit, with one service truss caught inside a Bloom boundary."
   playable_as :chronicle_location
+  context_tags :"realm:ring_habitat", :"realm:orbital"
   subkind :settlement
+  type_of :settlement
   population 6400
   population_band "About sixty-four hundred residents inside the occupied arc"
   role "Inhabited ring habitat beside a Bloom Zone cordon"
@@ -78,11 +80,6 @@ relate :rel_xyloathax_located_in_frontier, :located_in, :xyloathax, :the_glass_f
 end
 relate :rel_xyloathax_member_ring_collective, :member_of, :xyloathax, :ring_collective do
   prose "The hab sends one delegation to the Ring Collective and uses its register for emergency berths."
-  descriptive_identity standing:
-    "The membership belongs to the habitat rather than its council, and " \
-    "it is being drawn on now: while the corridor clocks disagree, the " \
-    "Collective holds emergency berths at Hab Meridian against the day " \
-    "both approaches close."
 end
 relate :rel_bloom_zones_manifest_at_xyloathax, :manifests_at, :bloom_zones, :xyloathax do
   prose "A Bloom Zone opened across Xyloathax's sunward service truss without entering the inhabited arc."

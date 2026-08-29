@@ -2,6 +2,7 @@ transport :held_breath do
   name "Held Breath"
   summary "Held Breath is a Displacement Council boundary vessel stationed at Outside. It carries cordon crews, damping mass, remote cutters, evacuees, and the Karet Spool to work sites around Karet-3."
   subkind :vessel
+  type_of :utility_vessel
   status :complete
   capacity "Fourteen cordon crew, twenty evacuees, two remote cutters, and one relic cradle"
   tags :transport, :orbital, :danger, :resonance, :navigation

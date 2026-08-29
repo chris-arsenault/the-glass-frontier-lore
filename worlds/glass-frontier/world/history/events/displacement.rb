@@ -2,6 +2,7 @@ incident :displacement do
   name "Displacement"
   summary "The Displacement was the mass evacuation of mid-drift ring habitats during the Silent Bloom cascade beginning in 2378."
   subkind :migration
+  type_of :evacuation_migration
   path "player/history/events/displacement.md"
   status :complete
   reviewed "2026-03-19"
@@ -28,7 +29,7 @@ incident :displacement do
   )
 
   prose <<~PROSE
-    The mass evacuation of mid-drift ring habs during the #{ref :the_silent_bloom, "Silent Bloom"} cascade, beginning 2378 CE. Tens of thousands of #{ref :hab_worlder, "Hab-Worlders"} lost their sealed environments — the thing that defined their identity — in days to weeks.
+    The mass evacuation of mid-drift ring habs during the #{ref :the_silent_bloom, "Silent Bloom"} cascade, beginning 2378 CE. Tens of thousands of #{encyclopedia_ref :hab_worlder, "Hab-Worlders"} lost their sealed environments — the thing that defined their identity — in days to weeks.
   PROSE
   prose <<~PROSE, section: :course, heading: "Course"
     The evacuation was mostly chaotic. Some habs handled it with discipline — organized departures, resource triage, designated reception points. Others fell apart. The Bloom cascade didn't give consistent warning: some habs had hours between the first resonance distortion and structural failure, others had days. The variance made coordinated response impossible.
@@ -58,5 +59,5 @@ relate :rel_displacement_caused_displacement_council, :caused, :displacement, :d
 end
 
 relate :rel_displacement_caused_by_the_silent_bloom, :caused_by, :displacement, :the_silent_bloom do
-  prose "The #{ref :the_silent_bloom, "Silent Bloom"} cascade is what forced the evacuation: as mid-drift habs lost their sealed environments in days, tens of thousands of #{ref :hab_worlder, "Hab-Worlders"} had to flee the only world they knew."
+  prose "The #{ref :the_silent_bloom, "Silent Bloom"} cascade is what forced the evacuation: as mid-drift habs lost their sealed environments in days, tens of thousands of #{encyclopedia_ref :hab_worlder, "Hab-Worlders"} had to flee the only world they knew."
 end

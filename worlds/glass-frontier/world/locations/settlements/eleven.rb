@@ -2,8 +2,10 @@ installation :eleven do
   name "Eleven"
   summary "Eleven is a settlement of nine thousand people along eleven shafts in the Glass Frontier, sharing one gravity-fed water and coolant line."
   playable_as :chronicle_location
+  context_tags :"realm:ring_habitat"
   aka "Service Habitat Eleven"
   subkind :settlement
+  type_of :settlement
   status :complete
   tags :"ring-hab", :household, :"social-structure", :transport, :resonance
   prominence :marginal
@@ -79,25 +81,8 @@ end
 
 relate :rel_vey_supplies_eleven_airwork, :supplies, :vey, :eleven, since: 2435 do
   prose "Vey supplies passive-flow shutters and passage drawings for Eleven's coupled water and heat spine."
-  descriptive_identity(
-    terms:
-      "Airwright work traded as drawings and hardware: shutter designs " \
-      "proven in Vey's six public lungs, sized for the valve galleries " \
-      "where Eleven's shafts draw their shares.",
-    dependence:
-      "Eleven's line carries machine heat with its water, so a shutter " \
-      "that meters flow without a powered fan spares the lower shafts " \
-      "the temperature swing an upstream pump would send them."
-  )
 end
 
 relate :rel_eleven_supplies_vey_flow_records, :supplies, :eleven, :vey, since: 2435 do
   prose "Eleven returns pressure, heat, and structural-tone records from each installed Vey design."
-  descriptive_identity(
-    terms:
-      "Working data rather than goods: six kilometers of instrumented " \
-      "channel reporting how each installed design behaves under daily " \
-      "schedules, bargained minutes, and the tremors the cable route " \
-      "cannot feel."
-  )
 end

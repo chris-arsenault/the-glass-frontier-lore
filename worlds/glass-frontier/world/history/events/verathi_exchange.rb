@@ -2,6 +2,7 @@ incident :verathi_exchange do
   name "Verathi Exchange"
   summary "The Verathi Exchange was a 2311 dispute over Sithari's attempt to treat the independently governed hab as a restored district."
   subkind :dispute
+  type_of :jurisdiction_dispute
   tags :diplomacy, :divergence, :"ring-hab", :rebuilding
   prominence :recognized
   status :complete
@@ -45,33 +46,10 @@ end
 
 relate :rel_verathi_participated_exchange, :participated_in, :verathi, :verathi_exchange do
   prose "Verathi received the commission and required reciprocal recognition before accepting a permanent mission."
-  descriptive_identity(
-    aims:
-      "The hab wanted the wider system — signals answered, records " \
-      "exchanged, cargo moving — on the standing of a community that " \
-      "had kept its own registry, courts, and life-support councils " \
-      "running through the Famine.",
-    conduct:
-      "Its receivers cleared the commission's vessel to dock while its " \
-      "civic chambers received the officers as a foreign delegation, " \
-      "and the dock kept working through every rewriting of the " \
-      "documents."
-  )
 end
 
 relate :rel_continuity_participated_verathi_exchange, :participated_in, :the_continuity, :verathi_exchange do
   prose "The Continuity sent Sithari's restoration commission and accepted the rewritten credentials."
-  descriptive_identity(
-    aims:
-      "The commission arrived carrying authority to restore services " \
-      "and seat a district liaison — the model of a returning district " \
-      "of the old ring administration.",
-    conduct:
-      "When the model failed it stayed at the table: every clause " \
-      "assuming inherited jurisdiction came out, and its mission staff " \
-      "took the same protections aboard the hab that Verathi's would " \
-      "hold in Sithari."
-  )
 end
 
 relate :rel_verathi_exchange_caused_cooperation, :caused, :verathi_exchange, :verathi do

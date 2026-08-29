@@ -2,9 +2,11 @@ installation :talven do
   name "Talven"
   summary "Talven is a ringglass quarry settlement in the Glass Frontier, where descending galleries preserve voices, tools, and music in layered crystal."
   playable_as :chronicle_location, :homeland
+  context_tags :"realm:ring_habitat"
   origin_blurb "A ringglass quarry town whose layered galleries preserve voices, tools, and music in the walls."
   aka "Tal-Venari"
   subkind :settlement
+  type_of :settlement
   status :complete
   tags :"ring-hab", :ringglass, :materials, :archives, :"signal-freq"
   prominence :recognized
@@ -80,17 +82,6 @@ end
 
 relate :rel_talven_supplies_echo_ledger, :supplies, :talven, :echo_ledger_conclave, since: 2435 do
   prose "Talven supplies provenanced signal plates and cut records to the Echo Ledger Conclave."
-  descriptive_identity(
-    terms:
-      "Lifted plates sold with their full paperwork — gallery, depth, " \
-      "adjacent layers, cut orientation, every tool used — moved out on " \
-      "the Conclave's own courier branch.",
-    dependence:
-      "The Conclave will not buy a voice separated from its stratum, " \
-      "however vivid, since a later cut could have carried another " \
-      "signal into the band; Talven's records are what turn a recording " \
-      "into evidence."
-  )
 end
 
 relate :rel_echo_ledger_studies_talven, :studies, :echo_ledger_conclave, :talven, since: 2435 do

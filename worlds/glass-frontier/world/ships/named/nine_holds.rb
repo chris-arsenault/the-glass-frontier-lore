@@ -1,5 +1,6 @@
 transport :nine_holds do
   name "Nine Holds"
+  type_of :heavy_hauler
   summary "Nine Holds is a Korvathi freighter with nine pressure-independent cargo boxes attached to one drive spine. Its working-share owners carry mixed cargo between Korvath, Kaleidos, and the outer Keel."
   subkind :vessel
   status :complete
@@ -25,7 +26,7 @@ transport :nine_holds do
   )
 
   prose <<~PROSE
-    *Nine Holds* is a Korvathi freighter that carries mixed cargo between Korvath, Kaleidos, and the outer Keel. Its nine box holds attach to a narrow drive spine through ceramic breaks. Each has separate pressure, cooling, field monitors, and release bolts. The ship can carry grain beside tuned ringglass, livestock beside hot machinery, or passengers beside remote-cut stock without making every load share one environment.
+    *Nine Holds* is a Korvathi freighter that carries mixed cargo between Korvath, Kaleidos, and the outer Keel. Its nine box holds attach to a narrow drive spine through ceramic breaks. Each has separate pressure, cooling, field monitors, and release bolts. The ship can carry grain beside tuned #{encyclopedia_ref :ringglass, "ringglass"}, livestock beside hot machinery, or passengers beside remote-cut stock without making every load share one environment.
 
     Independent partners own the vessel in working shares. A share grants one vote, one bunk, and a claim on earnings after repairs. Several partners live aboard; others work in Korvathi ports or sell their space voyage by voyage. The arrangement has survived debt, injury, and inheritance because the holds can earn separately while the hull remains common.
   PROSE
@@ -47,7 +48,7 @@ transport :nine_holds do
   PROSE
 
   prose <<~PROSE, section: :history, heading: "The Seventh Hold"
-    Hold Seven was replaced after a badly seated ringglass load coupled through its original frame during descent to Keelward. The box pulled against the spine while the other eight continued settling. Release bolts fired, and the hold landed inside the catch field without opening. The cargo survived. The frame did not.
+    Hold Seven was replaced after a badly seated #{encyclopedia_ref :ringglass, "ringglass"} load coupled through its original frame during descent to Keelward. The box pulled against the spine while the other eight continued settling. Release bolts fired, and the hold landed inside the catch field without opening. The cargo survived. The frame did not.
 
     Korvathi yards built the replacement with thicker ceramic layers and an inspection slit through every structural joint. The new box responds less to the ship's drive and more to strong external arrays. It stays empty near an active crane until the crane's field is measured. Port crews call the procedure excessive until they see the old twisted frame mounted above the cargo office in the home yard.
 
@@ -55,9 +56,7 @@ transport :nine_holds do
   PROSE
 
   prose <<~PROSE, section: :present_day, heading: "Stopped at Keelward"
-    *Nine Holds* is berthed at Keelward while three offices argue over Seven-new. The sealed cargo entered as Korvathi insulating tile. Its receiver declared instrument-grade ringglass after the ship crossed the inner corridor. The ship's own sounder records both responses in alternating tests.
-
-    Keelward will not release the box into a warehouse. The insurer will not cover an exterior opening. The consignee has produced a valid ceramic manifest and refuses the ringglass duty. The partners have isolated Seven-new, discharged every other hold, and begun charging the consignee for a voyage the ship cannot finish while the cargo remains attached.
+    #{embed :seven_new_load}
   PROSE
 
   gm_note :appears, "Cheap passage outward runs through Hold Three, where folding bunks hang between the cargo rails and the exterior " \
@@ -77,9 +76,6 @@ relate :rel_nine_holds_operates_keelward, :operates_in, :nine_holds, :keelward d
 end
 relate :rel_nine_holds_operates_keel, :operates_in, :nine_holds, :keel do
   prose "*Nine Holds* works the inner and outer legs of the Keel as an independent carrier."
-end
-relate :rel_nine_holds_depends_ringglass, :depends_on, :nine_holds, :ringglass do
-  prose "Instrument-grade ringglass travels in the isolated racks of Holds Seven and Eight."
 end
 relate :rel_nine_holds_active_corridor_disputes, :active_during, :nine_holds, :the_corridor_disputes do
   prose "Conditional route marks and incompatible port rules shape every partial voyage the freighter accepts."

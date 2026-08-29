@@ -1,6 +1,7 @@
 rumor :missing_chair do
   name "The Missing Chair"
   summary "The Missing Chair is a Verathi clerks' rumor about sealed documents appearing overnight on an extra chair set for difficult exchanges."
+  type_of :local_rumor
   subkind :rumor
   status :complete
   prominence :marginal

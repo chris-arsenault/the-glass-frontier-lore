@@ -2,8 +2,10 @@ installation :issel do
   name "Issel"
   summary "Issel is a shielded settlement of about six hundred people inside a surviving receiver-dish fragment in the Glass Frontier."
   playable_as :chronicle_location
+  context_tags :"realm:ring_habitat"
   aka "Issen-Lareth"
   subkind :settlement
+  type_of :settlement
   status :complete
   tags :"ring-hab", :"ring-era", :navigation, :archives, :"signal-freq", :resonance
   prominence :recognized
@@ -75,28 +77,8 @@ end
 
 relate :rel_issel_supplies_prismwell_tracks, :supplies, :issel, :prismwell_kite_guild, since: 2435 do
   prose "Issel gives Prismwell survey pilots timed traffic and field tracks for the surface approach."
-  descriptive_identity(
-    terms:
-      "Sealed observation copies carried out by hand to ships beyond the " \
-      "listening field, each track sold with the receiver state fixed " \
-      "beside it — nothing here is transmitted.",
-    dependence:
-      "The guild's surface leg is off the passenger boards until Issel " \
-      "can tell a real drive wake from the Long Note, so every Prismwell " \
-      "departure on that route now waits on a track from the dish."
-  )
 end
 
 relate :rel_prismwell_supplies_issel_comparisons, :supplies, :prismwell_kite_guild, :issel, since: 2435 do
   prose "Returning Prismwell kites bring Issel receiver comparisons from the surface approach."
-  descriptive_identity(
-    terms:
-      "Readings taken in flight along the approach, brought in silent " \
-      "down the guide cable like any other cargo because the dish " \
-      "cannot ask for them by signal.",
-    dependence:
-      "A passive observatory has no way to test its own record against " \
-      "the route it describes; the kites are the only instrument Issel " \
-      "owns that moves."
-  )
 end

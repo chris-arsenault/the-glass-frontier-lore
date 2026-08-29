@@ -1,6 +1,7 @@
 rumor :under_river_bell do
   name "The Under-River Bell"
   summary "The Under-River Bell is a Korvath ferrymen's rumor linking a submerged bell to cargo exposed from lost crossings."
+  type_of :local_rumor
   subkind :rumor
   status :complete
   prominence :marginal

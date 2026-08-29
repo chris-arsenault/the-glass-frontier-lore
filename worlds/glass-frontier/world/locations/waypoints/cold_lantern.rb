@@ -2,7 +2,9 @@ installation :cold_lantern do
   name "Cold Lantern"
   summary "Cold Lantern is an uninhabited emergency waypoint on the outer Pell approach, used as the last common route check before the Deep Shear claims."
   playable_as :chronicle_location
+  context_tags :"realm:orbital"
   subkind :station
+  type_of :waypoint
   status :complete
   tags :orbital, :transport, :salvage, :navigation, :danger
   prominence :marginal
@@ -94,9 +96,9 @@ end
 relate :rel_quiet_measure_operates_cold_lantern, :operates_in, :quiet_measure, :cold_lantern do
   prose "Quiet Measure reads missing returns at the waypoint and answers its active distress beacon."
 end
-relate :rel_cold_lantern_resonates_echo_strip, :resonates_with, :cold_lantern, :echo_strip do
+relate :rel_cold_lantern_resonates_echo_strip, :resonates_with, :cold_lantern, :answering_strips do
   prose "Crews exchange route declarations through echo strips pressed to the passive recorder."
 end
-relate :rel_cold_lantern_resonates_blank, :resonates_with, :cold_lantern, :blank do
+relate :rel_cold_lantern_resonates_empty_bearing, :resonates_with, :cold_lantern, :empty_bearing do
   prose "The breakaway beacon varies its call and carries the signal away if a predator follows it."
 end

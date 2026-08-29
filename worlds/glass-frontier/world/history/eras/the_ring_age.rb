@@ -12,7 +12,7 @@ era :the_ring_age do
   prose <<~PROSE
     The Ring Age is the last period in which the orbital ring functioned as one inhabited structure. Its signal lattice carried speech, records, power, and structural corrections around Kaleidos. Surface cities, ring habitats, moons, and outer stations depended on that lattice without maintaining separate replacements for every service it provided.
 
-    The #{ref :elves, "elves"} designed the resonance architecture and worked within a multi-species civilization. Surviving contracts, school texts, household recordings, and repair marks show people moving through institutions shared across species and habitats. They do not preserve one complete account of how those institutions governed themselves.
+    The #{encyclopedia_ref :elves, "elves"} designed the resonance architecture and worked within a multi-species civilization. Surviving contracts, school texts, household recordings, and repair marks show people moving through institutions shared across species and habitats. They do not preserve one complete account of how those institutions governed themselves.
   PROSE
 
   prose <<~PROSE, section: :legacy, heading: "What Survived"

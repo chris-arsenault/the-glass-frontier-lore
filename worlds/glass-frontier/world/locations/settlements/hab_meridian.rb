@@ -2,7 +2,9 @@ installation :hab_meridian do
   name "Hab Meridian"
   summary "Hab Meridian is a ring habitat in the Glass Frontier that preserves one inhabited arc as a working museum of the early Rekindling."
   playable_as :chronicle_location
+  context_tags :"realm:ring_habitat"
   subkind :settlement
+  type_of :settlement
   path "player/locations/settlements/hab-meridian.md"
   tags :"ring-hab", :archives, :trade, :rebuilding, :"social-structure"
   prominence :recognized
@@ -101,18 +103,6 @@ relate :rel_hab_meridian_part_of_glass_frontier, :part_of, :hab_meridian, :the_g
 end
 relate :rel_hab_meridian_cooperates_glasswake, :cooperates_with, :hab_meridian, :glasswake, since: 2305 do
   prose "Its first formal tie was to #{ref :glasswake, "Glasswake"} — the embassy exchange that became a model for how a ring hab and a surface settlement could deal as equals."
-  descriptive_identity(
-    basis:
-      "Free trade, delegations crossing at the major civic " \
-      "anniversaries, and children on each side studying the other's " \
-      "history as a matter of course — the working shape of the " \
-      "partnership the First Signal started.",
-    limits:
-      "The commemorating is done at home: Meridian keeps its memory in " \
-      "the Period Arc and holds the formal relationship to trade, " \
-      "education, and civic exchange, since the Glasswake side of the " \
-      "recording did not survive."
-  )
 end
 
 # --- history (moment) ---

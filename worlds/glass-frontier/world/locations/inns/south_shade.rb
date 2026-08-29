@@ -2,7 +2,9 @@ installation :south_shade do
   name "South Shade"
   summary "South Shade is a road house below Shadewell's southern rim, where Ashvane's highland road meets the cargo lifts to the Keel fields."
   playable_as :chronicle_location
+  context_tags :"realm:outer_system"
   subkind :installation
+  type_of :lodging_house
   status :complete
   tags :"outer-system", :trade, :transport, :household, :resonance
   prominence :marginal
@@ -76,7 +78,7 @@ installation :south_shade do
   gm_note :appears, "The court board posts hauler arrivals against Keel lift slots, and the house clerk writes " \
                     "the interval between them as rest, repair, or impossible. Drivers who take an impossible " \
                     "turn keep the cargo moving and lose their claim on the covered bays."
-  gm_note :triggered_by, "Starting a pump anywhere near the road turns the cargo-yard #{ref :cinderback, "cinderbacks"} " \
+  gm_note :triggered_by, "Starting a pump anywhere near the road turns #{ref :keel_yard_herd, "the cargo-yard herd"} " \
                          "back toward the port, and the handlers camped in the two outer bays come looking for " \
                          "whoever did it. The hot return is closed for the same reason, so warm machinery gets " \
                          "washed at the next road station."
@@ -91,9 +93,9 @@ end
 relate :rel_shadewell_maintains_south_shade, :maintains, :shadewell, :south_shade do
   prose "The city maintains the public water, return lines, and emergency cool rooms under a road-house lease."
 end
-relate :rel_south_shade_resonates_heat_hauler, :resonates_with, :south_shade, :heat_road_hauler do
+relate :rel_south_shade_resonates_heat_hauler, :resonates_with, :south_shade, :third_radiator do
   prose "Its divided vehicle court and machine wash are built around heat-road crews entering the port."
 end
-relate :rel_south_shade_resonates_cinderback, :resonates_with, :south_shade, :cinderback do
+relate :rel_south_shade_resonates_keel_yard_herd, :resonates_with, :south_shade, :keel_yard_herd do
   prose "Handlers are using the outer bays while they move the cargo-yard herd toward an unused quarry."
 end

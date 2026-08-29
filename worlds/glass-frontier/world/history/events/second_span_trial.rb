@@ -2,6 +2,7 @@ incident :second_span_trial do
   name "Second Span Trial"
   summary "The Second Span Trial was Coremark's failed 2356 attempt to build a modern counterpart to Span Nine through the mid-drift."
   subkind :operational_failure
+  type_of :construction_failure
   tags :resonance, :"signal-freq", :ringglass, :danger
   prominence :recognized
   status :complete
@@ -60,20 +61,6 @@ end
 
 relate :rel_teren_voss_participated_second_span_trial, :participated_in, :teren_voss, :second_span_trial do
   prose "#{ref :teren_voss, "Teren Voss"} led the engineering team and signed the abandonment report."
-  descriptive_identity(
-    aims:
-      "Voss wanted the full chain to hold one coherent signal end to " \
-      "end, and when it would not, he wanted the abandoned anchor beds " \
-      "recognized as active rather than written off as inert.",
-    conduct:
-      "He ran the final acceptance attempt from outside the anchor " \
-      "chain — the choice that kept him alive — and kept private copies " \
-      "of the rejected readings showing Pyre answering a silent array.",
-    cost:
-      "His warnings were filed as an accounting problem, and the " \
-      "readings he preserved became evidence only after the cascade had " \
-      "already taken the route he described."
-  )
 end
 
 relate :rel_second_span_trial_caused_silent_bloom_path, :caused, :second_span_trial, :the_silent_bloom do

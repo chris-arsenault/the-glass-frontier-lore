@@ -1,6 +1,7 @@
 resource :vashtenri_thesis do
   name "Vashtenri Thesis"
   summary "The Vashtenri Thesis is Renn Duvasi's published study of how resonance loads spread through connected ringglass beyond the equipment drawing the field."
+  type_of :research_thesis
   subkind :data
   tags :archives, :resonance, :"ring-era"
   prominence :marginal
@@ -35,7 +36,7 @@ resource :vashtenri_thesis do
     The study takes its name from #{ref :lira_vashtenri, "Lira Vashtenri"}. Her refinery books record years of small adjustments made before gauges showed a fault, followed by the first containment work that became #{ref :liras_wall, "Lira's Wall"}. Duvasi set those observations beside damaged pre-Glassfall service ledgers carrying the same correction pattern. The comparison links present work to an older practice without claiming that the lost text has been translated.
   PROSE
   prose <<~PROSE, section: :structure, heading: "The Published Work"
-    The public edition has three parts. The first reproduces the surviving service fragments at their actual size, including burns, cracks, overwritten figures, and empty areas where a copy failed. The second lays Lira's readings over maps of the refinery substrate and the early Bloom cordons. The third applies the resulting model to recorded cases of #{ref :drawdown, "drawdown"} from Clarisant chapter casebooks.
+    The public edition has three parts. The first reproduces the surviving service fragments at their actual size, including burns, cracks, overwritten figures, and empty areas where a copy failed. The second lays Lira's readings over maps of the refinery substrate and the early Bloom cordons. The third applies the resulting model to recorded cases of #{encyclopedia_ref :drawdown, "drawdown"} from Clarisant chapter casebooks.
 
     Transparent leaves carry the maps. When laid in order, they show a heavy draw as a darkened region spreading along ringglass-bearing seams. Readers can remove a layer to separate what an instrument recorded from what Duvasi inferred. Working copies are often missing one or more leaves because mechanics take them to walls, engine rooms, and survey sites where a flat map is easier to use than the complete volume.
 
@@ -62,9 +63,6 @@ relate :rel_vashtenri_thesis_derived_from_lira, :derived_from, :vashtenri_thesis
 end
 relate :rel_vashtenri_thesis_derived_from_liras_wall, :derived_from, :vashtenri_thesis, :liras_wall do
   prose "Its coupled-field account also follows the first measurements from #{ref :liras_wall, "Lira's Wall"}, where redirected load could be observed across a mapped substrate."
-end
-relate :rel_vashtenri_thesis_derived_from_drawdown, :derived_from, :vashtenri_thesis, :drawdown do
-  prose "Its coupled-field model was tested against recorded cases of #{ref :drawdown, "drawdown"}."
 end
 relate :rel_vashtenri_thesis_located_in_pelhari, :located_in, :vashtenri_thesis, :pelhari, since: 2427 do
   prose "The archive master of the thesis is held at #{ref :pelhari, "Pelhari"}; working copies circulate through Clarisant chapters and technical schools."

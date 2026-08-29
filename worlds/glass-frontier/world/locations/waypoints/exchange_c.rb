@@ -2,8 +2,10 @@ installation :exchange_c do
   name "Rattle"
   summary "Rattle is Carom's largest sorting deck, where six marked routes distribute cargo and passengers from a Ring Age transfer drum."
   playable_as :chronicle_location
+  context_tags :"realm:ring_habitat"
   aka "Exchange C"
   subkind :station
+  type_of :waypoint
   status :complete
   tags :"ring-hab", :transport, :trade, :household
   prominence :marginal
