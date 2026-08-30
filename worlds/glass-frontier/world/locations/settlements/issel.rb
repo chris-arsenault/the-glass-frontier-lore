@@ -2,10 +2,9 @@ installation :issel do
   name "Issel"
   summary "Issel is a shielded settlement of about six hundred people inside a surviving receiver-dish fragment in the Glass Frontier."
   playable_as :chronicle_location
-  context_tags :"realm:ring_habitat"
+  context_tags :sealed_hab, :damaged_signal
   aka "Issen-Lareth"
   subkind :settlement
-  type_of :settlement
   status :complete
   tags :"ring-hab", :"ring-era", :navigation, :archives, :"signal-freq", :resonance
   prominence :recognized

@@ -2,9 +2,8 @@ geographic_location :miraeth do
   name "Miraeth"
   summary "Miraeth is a chain of wooded basins along the wet foothills of the Kyther Range, where ringglass veins connect old forests through their roots."
   playable_as :chronicle_location
-  context_tags :"realm:surface"
+  context_tags :surface, :ringglass_rich
   subkind :region
-  type_of :region
   status :complete
   tags :surface, :ecology, :resonance, :ringglass, :trade
   prominence :recognized

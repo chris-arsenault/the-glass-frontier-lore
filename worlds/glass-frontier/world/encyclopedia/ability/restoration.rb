@@ -2,7 +2,7 @@ encyclopedia :restoration do
   name "Restoration"
   summary "Restoration returns a damaged body, object, or record toward its last complete state while enough of that state's pattern survives."
   kind :ability
-  subkind :ability
+  subkind :resonant_effect
   status :complete
   topics :resonance, :rebuilding, :archives, :materials
   prevalence :rare

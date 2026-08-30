@@ -1,14 +1,41 @@
 encyclopedia :loam_hearing do
   name "Loam Hearing"
-  summary "Loam Hearing is an innate tactile sensitivity that registers damaged plant roots as pulses through bare fingertips."
+  summary "Loam hearing is an innate tactile sensitivity that reads the maintenance pulses of elven-engineered growing medium through bare fingertips — root damage, rot pockets, and dry veins announced as faint beats against the skin. The elves built the loam to report; some human hands turn out to be receivers."
   kind :ability
-  subkind :innate_ability
-  status :draft
-  prevalence :rare
-  appears_when all: { place: [:"realm:surface"] }
-  appears_when all: { place: [:"realm:ring_habitat"] }
+  subkind :innate_sensitivity
+  status :complete
+  topics :ecology, :"ring-era", :training
+  prevalence :uncommon
+  appears_when all: { place: [:garden] }
 
-  tier :broad, effect: "Feel damaged plant roots as pulses through bare fingertips"
+  tier :broad, effect: "Feel the loam's condition pulses — root damage, rot, dry veins — as distinct beats through bare fingertips laid in the medium",
+       cost: "The reading takes stillness and bare skin in the bed — a long row is a morning on the knees, and the fingertips carry a numb buzz for hours after a full survey"
 
-  prose "Loam hearers feel root damage as a faint pulse through bare fingertips."
+  descriptive_identity(
+    signs: "The hearer kneels and lays both bare hands flat in the bed, fingers " \
+           "spread and still, with the listening face gardeners learn to leave " \
+           "undisturbed; a reading of a long bed moves hand-width by hand-width " \
+           "down the row.",
+    effect: "The loam's pulses arrive as faint beats against the fingertips, each " \
+            "kind distinct — the quick stutter of cut root, the slow soft beat of " \
+            "rot, the silence-bordered flutter of a dry vein — and a practiced " \
+            "hearer maps a bed's troubles to the hand-width before a spade moves.",
+    limits: "The sense reads engineered loam and reads it shallow — an arm's depth " \
+            "at best — and it reports the medium's complaints, so the hearer's " \
+            "craft is garden diagnosis built on top of it: the loam says where and " \
+            "how urgent, and the grower still has to say what and why."
+  )
+
+  prose <<~PROSE
+    The #{encyclopedia_ref :elves, "elves"} engineered their growing medium the way they engineered everything: to report. Hab garden loam — the dark, faintly warm substrate that fills the terrace beds and grow galleries of every fragment with ring-era plumbing — signals its own condition in fine rhythmic pulses, a maintenance channel their tending instruments once read continuously. The instruments are mostly gone. The channel still transmits. Loam hearing is the human accident of the arrangement: in some hands, bare fingertips laid flat and still in the medium pick up the pulses as faint beats against the skin, each complaint with its own signature — the quick stutter of cut root, the slow soft beat of rot, the silence-bordered flutter of a dry vein running under healthy surface. The sensitivity appears untaught, runs in families the way an ear for pitch does, and is usually discovered in childhood by a gardener who notices which helper keeps stopping at the exact spot the bed later proves to be sick.
+
+    The working practice is diagnosis by hand. A hearer reads a long bed hand-width by hand-width, kneeling and still, and marks the trouble spots for the spade; growers with a hearer in the family open beds surgically where general practice digs exploratory trenches, and the big terrace cooperatives keep a hearer on rounds the way docks keep a #{encyclopedia_ref :gauger, "gauger"}. The trade's refinement is interpretation — the loam says where and how urgent, and the hearer's education is the garden knowledge that turns a beat into a verdict — and its established second market is the casting trades, whose molders' loam descends from the same engineered stock: a hearer run over a packed mold before the pour finds the void or the damp pocket while it is still a correction, and the foundry rate for an afternoon of that is a byword among gardeners for the day the hands earn more than the harvest.
+  PROSE
+
+  cue "The hearer kneels at the terrace bed, lays both bare hands flat in the loam with the listening face, and after a still moment marks two spots with pegs — cut root here, quick stutter; something slower and softer there."
+  cue "Before the pour, the foundry's visiting hearer walks fingertips across the packed mold loam section by section and stops at one span: a damp pocket, still a correction rather than a casting flaw."
+  affordance "A hearer turns bed maintenance from excavation into surgery — troubles mapped to the hand-width before a spade moves — and the same fingers audit molders' loam, sickbed planters, and any engineered medium with a complaint to make."
+  pressure "The loam reports and the hearer interprets, so the craft's authority rests on a verdict record the garden itself audits within the season — and a hearer's wrong call is dug up, literally, in front of everyone."
+  variation "Garden hearers work rounds for terrace cooperatives and family plots; the foundry circuit pays day rates for pre-pour mold readings, and a few hearers work it full time."
+  variation "Sensitivity varies hand to hand — most hearers read the three common complaints, and the fine ears that can feel a seedling's roots take on transplant work the cooperatives book a season ahead."
 end

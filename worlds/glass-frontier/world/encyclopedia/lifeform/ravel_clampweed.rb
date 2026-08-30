@@ -6,7 +6,7 @@ encyclopedia :ravel_clampweed do
   status :draft
   topics :ecology, :"signal-freq", :"ring-hab"
   prevalence :uncommon
-  appears_when all: { place: [:"realm:ring_habitat"] }
+  appears_when all: { place: [:sealed_hab] }
 
   prose "Ravel clampweed grips hull seams during signal tides and opens its leaves when the pull passes."
 end

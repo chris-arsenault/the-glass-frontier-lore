@@ -1,8 +1,7 @@
 faction :perch_rill_household do
   name "The Perch Rill Household"
   summary "The Perch Rill Household is one Perch family that times meals and animal work to the settlement's irrigation tones."
-  type_of :household
-  belongs_to :culture, :rill_households
+  type_of :rill_households
   subkind :community
   status :complete
   prominence :marginal

@@ -1,8 +1,7 @@
 npc :span_nine_signal_folder do
   name "The Span Nine Signal Folder"
   summary "The Span Nine Signal Folder compresses a spoken warning into a resonance burst that survives damaged relay lines."
-  type_of :specialist_practitioner
-  belongs_to :ability, :signal_folding
+  type_of :signal_folding
   subkind :specialist
   status :complete
   prominence :marginal

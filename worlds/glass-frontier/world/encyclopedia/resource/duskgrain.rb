@@ -7,7 +7,7 @@ encyclopedia :duskgrain do
   reviewed "2026-03-19"
   topics :resonance, :danger, :materials
   prevalence :rare
-  available_globally
+  appears_when any: { place: [:bloom_adjacent, :debris_field] }
 
   cue "The grains are small — rarely larger than a seed — dark, and produce a faint harmonic hum that Tuners describe as unsettling."
   cue "Someone who has handled duskgrain for years hears narrow-band work nobody else notices and mistakes which side of a bulkhead a sound came from."

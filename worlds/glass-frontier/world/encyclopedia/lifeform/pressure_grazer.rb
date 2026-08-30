@@ -2,5 +2,44 @@ encyclopedia :pressure_grazer do
   name "Pressure Grazer"
   kind :lifeform
   subkind :animal
-  status :shell
+  status :complete
+  topics :"ring-hab", :"ring-era", :ecology
+  prevalence :uncommon
+  appears_when all: { place: [:sealed_hab] }
+  summary "Pressure grazers are placid, slab-bodied animals that browse the living pressure reefs of the ring habitats, cropping overgrowth and sealing small leaks with their mineral-rich spit. The ring bred them as reef stewards, and Rib's herds still work the oldest reef alive."
+  origin "Ring-era cultivated reef stock; the registers list grazer herds with the reef schedules"
+  biology "A slow browser of reef growth whose gut concentrates minerals into a sealing spit; it patrols pressure gradients by feel and feeds where the reef runs rich"
+  function "Crops reef overgrowth and seals pinhole leaks; a herd's grazing pattern maps the reef's health"
+  principal_accommodation "Reef galleries and pressure margins; working herds den in wall bays the reefs grow around them"
+
+  descriptive_identity(
+    appearance: "A slab-bodied browser the size of a big sledge dog, smooth-hided and " \
+                "toeless, that moves on gripping belly plates like a slow tide. Its blunt " \
+                "head carries wide lips for cropping and the perpetually damp chin of an " \
+                "animal whose spit is its trade.",
+    behavior: "It browses the reef's overgrowth in patient rounds, pausing wherever pressure " \
+              "whispers through a flaw to chew, press its lips to the spot, and seal it " \
+              "with mineral spit that cures reef-hard.",
+    threat: "Its danger is its indifference: a grazer sealing a flaw will seal over a " \
+            "sensor, a sample port, or a sleeping cat with the same conscientious spit, " \
+            "and reef crews cage their instruments accordingly.",
+    senses: "It finds leaks by feel through its belly plates — a herd drifting toward one " \
+            "gallery wall is a pressure report older and often quicker than the gauges.",
+    risks: "The herds graze to the reef's rhythm and sicken off it: grazers refuse " \
+           "overworked reef, and a herd going thin tells the wardens the reef is being " \
+           "asked for more than it has."
+  )
+
+  prose <<~PROSE
+    The living pressure reefs — the engineered growths that hold air in the oldest ring habitats — came with their own livestock. Pressure grazers are slab-bodied, toeless browsers that move over reef surfaces on gripping belly plates, cropping the overgrowth that would otherwise choke a reef's breathing channels and pausing wherever pressure whispers through a flaw. The pause is the service: the grazer chews, presses its wide lips to the spot, and seals the leak with a mineral spit that cures reef-hard in an hour. The ring's registers list grazer herds beside the reef maintenance schedules, and #{ref :rib, "Rib"} — built inside the oldest working reef alive — still runs its herds on rounds the registers would recognize.
+
+    A herd is the reef's dashboard. Grazers find flaws by feel through their plates, so a herd drifting toward one gallery wall is a pressure report that beats the gauges, and reef wardens read grazing patterns the way moss wards read taste: even browsing means a healthy reef, crowding means a flaw field, and a herd going thin means the reef itself is overworked — grazers refuse reef that is being asked for more than it has, and their appetite is the honest audit. The animals share the reef trade with #{encyclopedia_ref :sorel, "sorel"}, and the division is old and settled: sorel keep the passages open, grazers keep the skin tight, and Rib's children learn both herds' names before either trade's.
+  PROSE
+
+  cue "A slab-bodied animal flows slowly up the reef wall on its belly plates, presses its lips to an invisible flaw, and leaves a hardening patch of spit-seal glistening behind it."
+  cue "The whole herd has drifted to the north gallery wall since morning, and the reef warden is already there with a lamp, tapping."
+  affordance "A working herd is leak repair and pressure survey in one placid package — flaws found by feel and sealed within the hour, and the herd's drift, crowding, and appetite reading out the reef's condition daily."
+  pressure "The spit seals whatever the flaw is under — sensor ports, sample taps, anything left against the wall — and a thinning herd is a verdict on the hab's own demands that the wardens must carry to people who wanted a different answer."
+  variation "Rib runs its herds on register-old rounds with named lead animals; younger reef habs keep small free-ranging herds and cage every instrument on the reef face."
+  variation "Grazer spit-seal is prized salvage in its cured form, and retired reef sections are stripped of old seals by crews who call the work spit-mining with straight faces."
 end

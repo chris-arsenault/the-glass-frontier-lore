@@ -2,9 +2,8 @@ installation :xyloathax do
   name "Xyloathax"
   summary "Xyloathax is a ring-hab settlement of sixty-four hundred people in clean Kaleidos orbit, with one service truss caught inside a Bloom boundary."
   playable_as :chronicle_location
-  context_tags :"realm:ring_habitat", :"realm:orbital"
+  context_tags :sealed_hab, :orbital, :bloom_adjacent, :displacement_zone
   subkind :settlement
-  type_of :settlement
   population 6400
   population_band "About sixty-four hundred residents inside the occupied arc"
   role "Inhabited ring habitat beside a Bloom Zone cordon"

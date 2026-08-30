@@ -2,9 +2,8 @@ installation :fourth_bell_house do
   name "Fourth Bell House"
   summary "Fourth Bell House is a municipal port hostel in Keelward, above the freight rail between the arrival halls and Sithari's older terminal wards."
   playable_as :chronicle_location
-  context_tags :"realm:surface"
+  context_tags :surface, :urban, :dock, :road
   subkind :installation
-  type_of :lodging_house
   status :complete
   tags :transport, :trade, :household, :surface, :governance
   prominence :marginal

@@ -2,7 +2,8 @@ faction :archive_concord do
   name "Archive Concord"
   summary "Archive Concord is a research body whose readers compare recovered texts across four separate archive vaults."
   subkind :research_body
-  type_of :research_institution
+  type_of :archives_and_public_memory
+  belongs_to :culture, :custodial_standing
   status :complete
   prominence :marginal
   veiled "Archive Concord readers compare recovered texts in separate vaults and publish only the lines all copies share."

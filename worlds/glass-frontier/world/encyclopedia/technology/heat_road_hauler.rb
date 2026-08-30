@@ -6,7 +6,7 @@ encyclopedia :heat_road_hauler do
   status :complete
   topics :transport, :trade, :resonance, :"kinetic-freq", :"outer-system"
   prevalence :common
-  appears_when all: { place: [:"realm:outer_system"] }
+  appears_when all: { place: [:hot, :road] }
 
   descriptive_identity(
     appearance: "Long and low on broad wheel sets, under reflective cargo covers, with radiator frames that " \

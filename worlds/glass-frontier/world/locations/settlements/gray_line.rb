@@ -2,7 +2,7 @@ installation :gray_line do
   name "Gray Line"
   summary "Gray Line is a Displacement Council cordon station around the Bloom Zone containing Latch and two empty service fragments."
   playable_as :chronicle_location
-  context_tags :"realm:orbital"
+  context_tags :orbital, :cordon, :bloom_adjacent
   aka "Cordon Station Nine"
   subkind :border_post
   type_of :cordon_station

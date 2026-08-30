@@ -1,8 +1,7 @@
 npc :thornvault_echo_guide do
   name "The Thornvault Echo Guide"
   summary "The Thornvault Echo Guide keeps their footing when Sable recordings make a corridor sound wider than it is."
-  type_of :specialist_practitioner
-  belongs_to :ability, :echo_orientation
+  type_of :echo_orientation
   subkind :specialist
   status :complete
   prominence :marginal

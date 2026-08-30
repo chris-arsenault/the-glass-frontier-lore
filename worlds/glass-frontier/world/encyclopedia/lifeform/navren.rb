@@ -7,7 +7,7 @@ encyclopedia :navren do
   function "Provides curved structural timber that carries a tuned load through its grain"
   topics :ecology, :materials, :trade, :"structural-freq"
   prevalence :common
-  appears_when all: { place: [:"realm:ring_habitat"] }
+  appears_when all: { place: [:garden] }
 
   cue "Navren trees grow copper-green bark over pale wood and are coppiced from named root stools at Noll."
   cue "A worked piece answers strain with a low audible hum, so a frame taking a load it was not built for says so aloud."
@@ -22,13 +22,6 @@ encyclopedia :navren do
       "stools at Noll. A worked piece holds the curve it was grown to " \
       "and answers strain with a low audible hum, so a frame taking a " \
       "load it was not built for says so aloud.",
-    working:
-      "Growers shape each stem while it lives — weights set the broad " \
-      "curve, grafts redirect single fibers, water-borne resonance " \
-      "settles the grain around the intended load — and the shape " \
-      "survives drying. Shipwrights brace mixed hull materials with it, " \
-      "builders set it around doors and pressure transitions, and " \
-      "instrument makers pick narrow offcuts by their growth marks.",
     risks:
       "Dried grain no longer answers a growth field, so forcing a " \
       "piece into an unintended shape gets nothing. The repair means " \

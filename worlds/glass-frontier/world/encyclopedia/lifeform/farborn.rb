@@ -6,7 +6,7 @@ encyclopedia :farborn do
   status :draft
   topics :danger, :orbital, :resonance, :ecology, :mystery
   prevalence :common
-  appears_when all: { place: [:"realm:orbital"] }
+  appears_when all: { place: [:debris_field] }
 
   descriptive_identity(
     appearance: "No single body plan — three meters long or three hundred, silicate or fleshy or filamentary, " \

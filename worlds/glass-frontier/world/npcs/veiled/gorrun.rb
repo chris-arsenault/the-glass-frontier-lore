@@ -2,7 +2,6 @@ npc :gorrun do
   name "Gorrun"
   summary "Gorrun is a Vey housing dissident who opens unused rooms to families removed from Eleven's allotment rolls."
   subkind :dissident
-  type_of :person
   status :complete
   prominence :marginal
   veiled "Gorrun opens unused Vey rooms to families whose names Eleven's allotment board struck from its rolls."end

@@ -2,10 +2,9 @@ installation :carom do
   name "Carom"
   summary "Carom is a fourteen-thousand-person ring-hab settlement in the Glass Frontier, formed from three rotating segments joined by transfer drums and sorting decks."
   playable_as :chronicle_location, :homeland
-  context_tags :"realm:ring_habitat"
+  context_tags :sealed_hab, :dock, :market
   origin_blurb "Three rotating segments trade parcels, meals, and messages through transfer drums that never align for long."
   subkind :settlement
-  type_of :settlement
   status :complete
   tags :"ring-hab", :transport, :trade, :household, :resonance
   prominence :recognized

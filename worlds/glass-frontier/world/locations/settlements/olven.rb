@@ -2,10 +2,9 @@ installation :olven do
   name "Olven"
   summary "Olven is an agricultural ring-hab settlement in the Glass Frontier, with fifty-four hundred residents working climate chambers around a warm conduit."
   playable_as :chronicle_location
-  context_tags :"realm:ring_habitat"
+  context_tags :sealed_hab, :garden
   aka "Olven-Terath"
   subkind :settlement
-  type_of :settlement
   status :complete
   tags :"ring-hab", :"ring-era", :ecology, :trade, :materials
   prominence :recognized

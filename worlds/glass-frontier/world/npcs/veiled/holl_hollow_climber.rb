@@ -1,8 +1,7 @@
 npc :holl_hollow_climber do
   name "The Holl Hollow Climber"
   summary "The Holl Hollow Climber remains upright when a ring habitat changes spin between adjoining decks."
-  type_of :specialist_practitioner
-  belongs_to :ability, :hollow_balance
+  type_of :hollow_balance
   subkind :specialist
   status :complete
   prominence :marginal

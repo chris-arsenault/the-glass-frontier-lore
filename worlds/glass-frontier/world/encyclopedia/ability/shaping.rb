@@ -2,7 +2,7 @@ encyclopedia :shaping do
   name "Shaping"
   summary "Shaping is the resonant alteration of nonliving matter without cutting, melting, or replacing it."
   kind :ability
-  subkind :ability
+  subkind :resonant_effect
   status :complete
   topics :resonance, :"structural-freq", :materials, :rebuilding
   prevalence :rare

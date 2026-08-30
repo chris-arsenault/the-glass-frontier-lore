@@ -1,9 +1,8 @@
 geographic_location :vitrael do
   name "Vitrael"
   summary "Vitrael is the fourth planet, a hot high-pressure world inhabited from aerostats and orbital stations above its metal-bearing clouds."
-  type_of :celestial_body
   playable_as :chronicle_location
-  context_tags :"realm:outer_system"
+  context_tags :outer_system, :orbital, :hot
   subkind :celestial_body
   status :complete
   tags :cosmology, :materials, :trade, :danger, :"outer-system"

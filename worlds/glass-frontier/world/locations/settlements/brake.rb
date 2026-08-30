@@ -2,10 +2,9 @@ installation :brake do
   name "Brake"
   summary "Brake is a salvage settlement of about nine thousand people in the Glass Frontier, built across a reinforced ring fragment and eleven anchored wrecks."
   playable_as :chronicle_location, :homeland
-  context_tags :"realm:ring_habitat"
+  context_tags :sealed_hab, :debris_field, :yard
   origin_blurb "A free-cutting hab built around derelict recovery, shared claims, and hard rescue rules."
   subkind :settlement
-  type_of :settlement
   status :complete
   tags :"ring-hab", :salvage, :transport, :trade, :materials
   prominence :recognized

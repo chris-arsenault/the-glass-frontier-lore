@@ -5,7 +5,7 @@ encyclopedia :gutter_crown do
   subkind :creature
   status :draft
   prevalence :uncommon
-  appears_when all: { place: [:"realm:ring_habitat"] }
+  appears_when all: { place: [:urban] }
 
   prose "A gutter crown spreads through drains as a ring of mouths that filters metal from runoff."
 end

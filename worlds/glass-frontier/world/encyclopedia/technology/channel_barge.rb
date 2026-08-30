@@ -7,7 +7,7 @@ encyclopedia :channel_barge do
   capacity "A family or village crew, a shallow cargo deck, and removable passenger or living shelters"
   topics :transport, :trade, :"outer-system", :resonance, :ecology
   prevalence :common
-  appears_when all: { place: [:"realm:outer_system"] }
+  appears_when all: { place: [:waterway] }
 
   descriptive_identity(
     appearance: "Broad, shallow, and plain below the waterline, timber over ceramic ribs, loaded so it can cross " \

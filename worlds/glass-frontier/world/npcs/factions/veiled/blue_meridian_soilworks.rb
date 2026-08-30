@@ -2,7 +2,7 @@ faction :blue_meridian_soilworks do
   name "Blue Meridian Soilworks"
   summary "Blue Meridian Soilworks is a Hab Meridian company that leases tuned garden beds to growers in Meridian and Miraeth."
   subkind :company
-  type_of :company
+  type_of :commercial_standing
   status :complete
   prominence :marginal
   veiled "Blue Meridian Soilworks leases tuned garden beds and repossesses only the frame when a harvest fails."

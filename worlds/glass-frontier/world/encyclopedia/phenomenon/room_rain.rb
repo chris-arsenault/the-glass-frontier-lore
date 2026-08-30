@@ -5,8 +5,7 @@ encyclopedia :room_rain do
   subkind :catastrophe
   status :draft
   prevalence :rare
-  appears_when all: { place: [:"realm:orbital"] }
-  appears_when all: { place: [:"realm:ring_habitat"] }
+  appears_when all: { place: [:displacement_zone] }
 
   prose "Room Rain drops furniture and wall panels from displaced chambers into occupied Xyloathax streets."
 end

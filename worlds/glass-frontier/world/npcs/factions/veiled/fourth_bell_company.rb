@@ -1,8 +1,7 @@
 faction :fourth_bell_company do
   name "The Fourth Bell Company"
   summary "The Fourth Bell Company is one group of travelers lodged under the Bellward custom who repay a household by carrying one message onward toward Sithari or the Keel."
-  type_of :community_group
-  belongs_to :culture, :bellward_guests
+  type_of :bellward_guests
   subkind :community
   status :complete
   prominence :marginal

@@ -1,8 +1,7 @@
 phenomenon :the_false_form do
   name "The False Form"
   summary "The False Form is the impossible third figure in the Three Forms, a resonance path that returns to its beginning without closing."
-  type_of :resonance_anomaly
-  belongs_to :doctrine, :the_three_forms
+  belongs_to :culture, :the_three_forms
   subkind :physical_phenomenon
   path "player/cosmology/the-false-form.md"
   reviewed "2026-06-18"

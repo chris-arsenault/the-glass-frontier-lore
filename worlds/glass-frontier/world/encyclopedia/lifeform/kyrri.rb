@@ -6,7 +6,7 @@ encyclopedia :kyrri do
   status :draft
   topics :species, :resonance, :surface
   prevalence :uncommon
-  appears_when all: { place: [:"realm:surface"] }
+  available_globally
 
   prose "Kyrri brace their four lower limbs against Kyther stone and read ground resonance through hollow joints."
 end

@@ -2,9 +2,8 @@ installation :thornvault do
   name "Thornvault"
   summary "Thornvault is a bridge-city and archive across the deepest canyon of the Sable Crescent, serving as the headquarters of the Echo Ledger Conclave."
   playable_as :chronicle_location
-  context_tags :"realm:surface"
+  context_tags :surface, :urban, :archive, :waterway
   subkind :settlement
-  type_of :settlement
   path "player/locations/settlements/thornvault.md"
   tags :surface, :archives, :resonance, :"signal-freq", :governance
   prominence :recognized

@@ -1,8 +1,7 @@
 npc :keel_countermass_rigger do
   name "The Keel Countermass Rigger"
   summary "The Keel Countermass Rigger passes loaded hulls through changing force by balancing four moving weights by hand."
-  type_of :specialist_practitioner
-  belongs_to :practice, :countermass_threading
+  type_of :countermass_threading
   subkind :specialist
   status :complete
   prominence :marginal

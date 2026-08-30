@@ -533,9 +533,9 @@ module Lorecraft
         graph. An Atlas entity may declare one primary type_of target. Use
         belongs_to :culture, :sitharian for other kind-qualified memberships;
         culture :sitharian is equivalent shorthand. These classifications never
-        enter the Atlas graph or populate descriptive identity.
-        A world can require complete primary classification for selected Atlas
-        kinds with require_encyclopedia_types! kinds: [...].
+        enter the Atlas graph or populate descriptive identity. type_of is an
+        optional link to a real class, never a coverage obligation; an Atlas
+        entry with no reusable type declares none.
 
         Use reference list, search, page, and match to inspect the catalog. See
         craft/encyclopedia.md for the writing rules.

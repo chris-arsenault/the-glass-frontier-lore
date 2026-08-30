@@ -6,7 +6,7 @@ encyclopedia :trellin do
   status :draft
   topics :species, :archives, :"signal-freq"
   prevalence :uncommon
-  appears_when any: { place: [:"realm:surface", :"realm:ring_habitat"] }
+  available_globally
 
   prose "Trellin hear signal resonance through throat fans and speak recorded testimony as layered chords."
 end

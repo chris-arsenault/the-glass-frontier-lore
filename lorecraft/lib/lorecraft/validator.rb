@@ -170,10 +170,6 @@ module Lorecraft
     def check_encyclopedia_classifications
       @world.entities.each_value do |entity|
         @diagnostic_owner = entity
-        if @schema.encyclopedia_type_required_kinds.include?(entity.kind) &&
-           entity.encyclopedia_type.nil?
-          err("#{label(entity)}: Atlas entry requires type_of")
-        end
         if entity.veiled? && @world.encyclopedia_entry(entity.id)
           err("#{label(entity)}: veiled Atlas id duplicates Encyclopedia type #{entity.id}; " \
               "use a distinct named Atlas instance with type_of #{entity.id}")
@@ -242,6 +238,12 @@ module Lorecraft
         end
         if entry[:subkind].nil?
           err("#{label(entry)}: subkind is required")
+        elsif (classifications = @schema.encyclopedia_classifications_for(entry.kind)).any? &&
+              !classifications.include?(entry.subkind)
+          err(
+            "#{label(entry)}: subkind #{entry.subkind.inspect} is not an allowed " \
+            "#{entry.kind} classification (#{classifications.join(', ')})"
+          )
         end
         unless Schema::ENCYCLOPEDIA_STATUSES.include?(entry.status)
           err("#{label(entry)}: status must be shell, draft, or complete")
@@ -303,11 +305,9 @@ module Lorecraft
         return
       end
 
-      if entry.ability_tiers.empty?
-        err("#{label(entry)}: an Encyclopedia ability needs at least one declared tier")
-        return
-      end
-
+      # Tiers are optional: the kind holds trained techniques as well as
+      # extraordinary effects, and only the latter are expressed in ordered
+      # power tiers. A declared tier still has to be real and complete.
       entry.ability_tiers.each do |expression|
         unless @schema.encyclopedia_tier_def(:ability, expression.tier)
           err("#{label(entry)}: unknown ability tier #{expression.tier}")

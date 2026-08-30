@@ -6,7 +6,7 @@ encyclopedia :rind do
   status :draft
   topics :ecology, :resonance, :orbital, :danger, :mystery
   prevalence :uncommon
-  appears_when all: { place: [:"realm:orbital"] }
+  appears_when all: { place: [:debris_field] }
 
   descriptive_identity(
     appearance: "Roughly the size of a small courier kite, most of the body enclosed in an opaque pale-grey carapace whose irregular crystal inclusions catch bands of light for Tuners and look dull to everyone else. Dozens of hair-fine filaments trail ten to fifteen meters behind the shell.",

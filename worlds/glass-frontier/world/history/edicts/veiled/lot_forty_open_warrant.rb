@@ -1,8 +1,7 @@
 edict :lot_forty_open_warrant do
   name "The Lot Forty Open Warrant"
   summary "The Lot Forty Open Warrant is an emergency authorization allowing any equipped crew to cut a dangerous hull in return for its first stable component."
-  type_of :local_order
-  belongs_to :doctrine, :open_salvage_warrant
+  type_of :reconstruction_and_salvage_claims
   subkind :edict
   status :complete
   prominence :marginal

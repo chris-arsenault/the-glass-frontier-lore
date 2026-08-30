@@ -1,8 +1,7 @@
 faction :hinge_six_route_household do
   name "The Hinge Six Route Household"
   summary "The Hinge Six Route Household is one family that measures kinship through maintained routes and the shared repair of Keel stations."
-  type_of :household
-  belongs_to :culture, :keel_route_kin
+  type_of :keel_route_kin
   subkind :community
   status :complete
   prominence :marginal

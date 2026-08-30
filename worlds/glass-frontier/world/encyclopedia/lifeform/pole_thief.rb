@@ -6,7 +6,7 @@ encyclopedia :pole_thief do
   status :complete
   topics :"outer-system", :ecology, :resonance, :transport
   prevalence :common
-  appears_when all: { place: [:"realm:outer_system"] }
+  appears_when all: { place: [:waterway] }
 
   descriptive_identity(
     appearance: "A low, flat amphibious animal, the largest spanning both arms of a human, with four walking " \

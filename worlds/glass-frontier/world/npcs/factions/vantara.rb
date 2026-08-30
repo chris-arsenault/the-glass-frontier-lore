@@ -4,7 +4,8 @@ faction :vantara do
   playable_as :allegiance
   origin_blurb "The system's largest travel company runs carriers, waystations, lodging, and the contracts behind them."
   subkind :company
-  type_of :company
+  type_of :infrastructure_authority
+  belongs_to :culture, :commercial_standing
   path "player/npcs/factions/vantara.md"
   reviewed "2026-03-18"
   tags :trade, :transport, :governance

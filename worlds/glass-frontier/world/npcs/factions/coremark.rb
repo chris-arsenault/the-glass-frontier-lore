@@ -4,7 +4,7 @@ faction :coremark do
   playable_as :allegiance
   origin_blurb "A disciplined outlaw salvage company pays well, protects its crews, and extracts where the Compact forbids."
   subkind :company
-  type_of :criminal_organization
+  type_of :commercial_standing
   path "player/npcs/factions/coremark.md"
   reviewed "2026-03-19"
   tags :salvage, :ringglass, :trade, :danger

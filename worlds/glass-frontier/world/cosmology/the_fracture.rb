@@ -3,7 +3,7 @@ geographic_location :the_fracture do
   summary "The Fracture is a broad outer-system belt formed from the remains of the sixth planet, exposing its crust, mantle, and cooled core."
   type_of :planetary_debris_belt
   playable_as :chronicle_location
-  context_tags :"realm:outer_system"
+  context_tags :outer_system, :debris_field
   subkind :celestial_body
   status :complete
   tags :cosmology, :"outer-system", :danger, :salvage, :mystery, :"fluid-reality"

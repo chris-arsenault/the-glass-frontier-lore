@@ -2,9 +2,8 @@ installation :rib do
   name "Rib"
   summary "Rib is a small settlement inside a living pressure reef in the Glass Frontier, built along one exposed ring support and maintained through the reef's pulse."
   playable_as :chronicle_location
-  context_tags :"realm:ring_habitat"
+  context_tags :sealed_hab, :garden
   subkind :settlement
-  type_of :settlement
   status :complete
   tags :"ring-hab", :ecology, :resonance, :"structural-freq", :materials
   prominence :marginal

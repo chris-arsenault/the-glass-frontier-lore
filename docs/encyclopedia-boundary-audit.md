@@ -136,6 +136,29 @@ The corrected boundary is:
 - The lifeform review applies this boundary to every migrated lifeform; its
   resolved mapping is recorded in the lifeform review ledger.
 
+## Edicts and cultural systems
+
+The sixteen Glass Frontier edicts remain named Atlas acts with their complete
+relationship neighborhoods. Their exact commands, tests, warrants, and
+prohibitions stay on those named acts. Encyclopedia culture entries sit at the
+level of broad cultural, governmental, religious, or professional order and do
+not receive Atlas edges.
+
+The migration removed both the eleven summaryless `institution` shells and the
+later one-edict reference mirrors. The sixteen acts now share eight broad
+primary cultural systems: Ratter Order, Archives and Public Memory, Space
+Traffic Law, Displaced-Room Law, Road and Freight Law, Workshop Authority,
+Living-Cargo Stewardship, and Reconstruction and Salvage Claims. Archive acts
+also carry Sitharian Governance as a secondary context; Ratter acts carry the
+Ratter work tradition. These classifications are `type_of` and `belongs_to`
+attributes, not graph relationships.
+
+Sitharian Governance and Music in Kaleidos remain independent broad texture
+articles even where no current edict uses them as its primary type. The Three
+Forms already supplies the equivalent religious article. Narrow procedures
+such as a three-vault transfer, an open heat gauge, or a two-breath shutdown do
+not receive Encyclopedia entries of their own.
+
 ## Proposal conflict
 
 The accepted game-side design correctly describes the Encyclopedia as a
@@ -445,3 +468,32 @@ General morphology, behavior, handling, and variation remain in the reusable
 articles; Atlas prose owns the particular population or present-day problem.
 The exact mapping and graph measurements are recorded in
 `worlds/glass-frontier/research/lifeform-encyclopedia-review.md`.
+
+## Seven kinds
+
+The Encyclopedia holds seven kinds: `lifeform`, `role`, `technology`,
+`resource`, `ability`, `phenomenon`, and `culture`. Each answers a question a
+GM asks at the table. Three kinds were removed because their subjects belong
+under one of the seven, not because the subjects were wrong.
+
+`practice` merged into `ability`. Both answer "what can a person do", and the
+split forced a boundary argument on every entry — the two kind descriptions
+spent their length excluding each other. Extraordinary entries express ordered
+power tiers; trained ones do not. Classifications keep them legible in one
+list, and the tier requirement now applies only to entries that declare a tier.
+
+`institution` merged into `culture`. What grants a crew, house, or compact
+standing beyond its members is a fact about learned social life. Nine standings
+entries moved intact under a single `collective_standing` classification.
+
+`place_feature` was retired. Eleven of its fifteen entries mirrored the Atlas
+subkind vocabulary — settlement, region, workshop, hazardous zone — and could
+never have become articles, because they name nothing about Kaleidos. Four
+named setting-specific subjects and were re-homed: ring-age sites, cordon
+stations, and the orbital habitat ring to `technology`; the planetary debris
+belt to `phenomenon`.
+
+`require_encyclopedia_types!` was removed from the engine along with them. Its
+coverage obligation is what produced the generic placeholder types this
+migration deleted: an Atlas kind that had to declare `type_of` got one invented
+for it. `type_of` remains available as an optional link to a class that exists.

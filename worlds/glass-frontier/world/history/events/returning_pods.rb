@@ -2,7 +2,6 @@ incident :returning_pods do
   name "The Returning Pods"
   summary "The Returning Pods are six cargo pods that arrived at Clearance Eight in 2435 carrying recently lost household objects repaired and resealed."
   subkind :discovery
-  type_of :anomalous_recovery
   date 2435
   status :complete
   tags :salvage, :governance, :transport, :mystery

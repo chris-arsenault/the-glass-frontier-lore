@@ -2,9 +2,8 @@ installation :ladderwell do
   name "Ladderwell"
   summary "Ladderwell is a town of twenty-eight thousand people on stone benches at Avar's eastern edge, above a deep aquifer at the foot of the Kyther Range."
   playable_as :chronicle_location
-  context_tags :"realm:surface"
+  context_tags :surface, :yard, :road
   subkind :settlement
-  type_of :settlement
   status :complete
   population 28_000
   population_band "About twenty-eight thousand in the town and its outlying farms"

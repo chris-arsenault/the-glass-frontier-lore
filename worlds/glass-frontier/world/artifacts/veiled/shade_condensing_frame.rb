@@ -2,7 +2,6 @@ artifact :shade_condensing_frame do
   name "Shade Condensing Frame"
   summary "The Shade Condensing Frame is a water machine used around Shadewell, South Shade, and Coldside Bench. It draws clean water from Ashvane pressure exhaust and cracks when the wind reverses."
   subkind :machine
-  type_of :field_machine
   status :complete
   prominence :marginal
   veiled "The Shade Condensing Frame pulls clean water from Ashvane's pressure exhaust and cracks when the wind reverses."

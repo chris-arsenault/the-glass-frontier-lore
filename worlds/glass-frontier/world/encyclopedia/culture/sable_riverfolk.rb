@@ -4,11 +4,11 @@ encyclopedia :sable_riverfolk do
   kind :culture
   character_role :culture
   origin_blurb "River households bind names, freight, and remembered voices to the routes that carried them."
-  subkind :regional_culture
+  subkind :cultural_identity
   status :complete
   topics :"social-structure", :archives, :trade
   prevalence :common
-  appears_when all: { place: [:"realm:surface"] }
+  appears_when all: { place: [:waterway] }
   formal_register "A witnessed account names the route, the bearer, and the person who can answer for it"
   aesthetic "Dyed route bands, ceramic tally marks, and household names joined across generations"
 

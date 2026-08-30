@@ -232,16 +232,15 @@ schema do
 end
 ```
 
-The shared schema declares eleven Encyclopedia kinds: `lifeform`, `culture`,
-`role`, `practice`, `doctrine`, `ability`, `institution`, `technology`,
-`resource`, `phenomenon`, and `place_feature`. A practice is a discrete learned
-action. A doctrine is a belief, rule, measure, prohibition, or interpretive
-framework. An ability is a discrete extraordinary effect at one or more ordered
-power tiers. The schema stops at the kind contract. `subkind` is required
-authored classification, not a separately registered schema. Worlds register
-context tags. Each tag lists one or more of `world`, `place`, `scene`, and
-`participant` as allowed scopes; it may also declare a parent and compatible
-tags.
+The shared schema declares seven Encyclopedia kinds: `lifeform`, `role`,
+`technology`, `resource`, `ability`, `phenomenon`, and `culture`. Each kind's
+DSL declaration owns its
+semantic description. The schema stops at the kind contract. `subkind` is
+required authored classification, not a separately registered schema. A kind
+may constrain the allowed authored labels with `classifications`; those labels
+do not declare fields. Worlds register context tags. Each tag lists one or more
+of `world`, `place`, `scene`, and `participant` as allowed scopes; it may also
+declare a parent and compatible tags.
 
 An Encyclopedia kind may declare typed attribute fields and descriptive-
 identity keys. These declarations apply at the kind level to every authored

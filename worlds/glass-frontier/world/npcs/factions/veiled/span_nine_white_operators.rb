@@ -1,8 +1,7 @@
 faction :span_nine_white_operators do
   name "The Span Nine White Operators"
   summary "The Span Nine White Operators repeat damaged messages through three different materials before accepting a word as stable."
-  type_of :work_crew
-  belongs_to :practice, :white_signal_practice
+  type_of :white_signal_practice
   subkind :community
   status :complete
   prominence :marginal

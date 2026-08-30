@@ -6,7 +6,7 @@ encyclopedia :marn do
   status :complete
   topics :surface, :ecology, :trade, :resonance
   prevalence :common
-  appears_when all: { place: [:"realm:surface"] }
+  appears_when all: { place: [:surface] }
 
   descriptive_identity(
     appearance: "A grazing animal standing chest-high on a human, deep-bodied, its coat dense along the spine " \

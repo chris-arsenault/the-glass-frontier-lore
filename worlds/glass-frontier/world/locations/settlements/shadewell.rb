@@ -2,9 +2,8 @@ installation :shadewell do
   name "Shadewell"
   summary "Shadewell is Ashvane's main port city, terraced down a shaded crater wall above the moon's largest accessible ice lens."
   playable_as :chronicle_location
-  context_tags :"realm:outer_system"
+  context_tags :outer_system, :surface, :hot, :urban, :dock
   subkind :settlement
-  type_of :settlement
   status :complete
   population 240_000
   population_band "About two hundred forty thousand across the crater city and port ridge"

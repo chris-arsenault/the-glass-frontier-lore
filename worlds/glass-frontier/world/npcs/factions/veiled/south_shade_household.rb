@@ -1,8 +1,7 @@
 faction :south_shade_household do
   name "The South Shade Household"
   summary "The South Shade Household is one Ashvane family that exchanges pressure-safe rooms by season and carries its door seals between homes."
-  type_of :household
-  belongs_to :culture, :shade_families
+  type_of :shade_families
   subkind :community
   status :complete
   prominence :marginal

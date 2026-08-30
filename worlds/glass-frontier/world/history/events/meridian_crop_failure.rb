@@ -2,7 +2,6 @@ incident :meridian_crop_failure do
   name "Meridian Crop Failure"
   summary "The Meridian Crop Failure was a 2317 blight and food shortage aboard Hab Meridian that established regular freight with Glasswake."
   subkind :disaster
-  type_of :crop_failure
   tags :trade, :"ring-hab", :rebuilding
   prominence :recognized
   status :complete

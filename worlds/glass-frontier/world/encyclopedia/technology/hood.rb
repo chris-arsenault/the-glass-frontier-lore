@@ -7,7 +7,7 @@ encyclopedia :hood do
   status :complete
   topics :resonance, :salvage, :danger, :orbital, :training
   prevalence :uncommon
-  appears_when all: { place: [:"realm:orbital"] }
+  appears_when all: { place: [:orbital] }
 
   descriptive_identity(
     appearance:

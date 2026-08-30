@@ -1,7 +1,6 @@
 artifact :shared_gravity do
   name "Shared Gravity"
   summary "Shared Gravity is a four-hab counterweight system that coordinates local force schedules so freight arrives under the gravity for which it was packed."
-  type_of :counterweight_coordination_system
   subkind :machine
   status :complete
   prominence :marginal

@@ -2,7 +2,7 @@ edict :cinder_entry_rule do
   name "The Cinder Entry Rule"
   summary "The Cinder Entry Rule admits a crew to Pyre only after its tools maintain a stable temperature for one watch."
   subkind :edict
-  type_of :admission_rule
+  type_of :workshop_authority
   status :complete
   prominence :marginal
   veiled "The Cinder Entry Rule admits a crew to Pyre only after its tools hold a stable temperature for one watch."

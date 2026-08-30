@@ -1,8 +1,7 @@
 faction :ashenmaw_wake_crew do
   name "The Ashenmaw Wake Crew"
   summary "The Ashenmaw Wake Crew is one mobile debris crew whose household follows crossing calendars and reunites when its marked shards meet."
-  type_of :work_crew
-  belongs_to :culture, :fracture_wake_crews
+  type_of :fracture_wake_crews
   subkind :community
   status :complete
   prominence :marginal

@@ -2,9 +2,8 @@ installation :orra do
   name "Orra"
   summary "Orra is a settlement of seventy-four hundred people in the Glass Frontier, sealed around a dead Ring Age maintenance carrier whose body fills half the hab."
   playable_as :chronicle_location
-  context_tags :"realm:ring_habitat"
+  context_tags :sealed_hab, :garden
   subkind :settlement
-  type_of :settlement
   status :complete
   tags :"ring-hab", :ecology, :salvage, :resonance, :"ring-era"
   prominence :marginal

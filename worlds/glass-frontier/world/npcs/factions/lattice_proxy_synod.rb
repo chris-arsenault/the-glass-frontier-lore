@@ -2,7 +2,7 @@ faction :lattice_proxy_synod do
   name "Lattice Proxy Synod"
   summary "The Lattice Proxy Synod is the Threshold Station research body that communicates with surviving ring-era AI custodians."
   subkind :research_body
-  type_of :research_institution
+  type_of :custodial_standing
   path "player/npcs/factions/lattice-proxy-synod.md"
   reviewed "2026-03-18"
   tags :"ring-era", :AI, :governance, :resonance

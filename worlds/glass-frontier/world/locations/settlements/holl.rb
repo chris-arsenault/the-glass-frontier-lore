@@ -2,9 +2,8 @@ installation :holl do
   name "Holl"
   summary "Holl is a settlement of about sixty-two hundred people beneath the overhanging face of a split ring wall in the Glass Frontier."
   playable_as :chronicle_location
-  context_tags :"realm:ring_habitat"
+  context_tags :sealed_hab, :market
   subkind :settlement
-  type_of :settlement
   status :complete
   tags :"ring-hab", :transport, :governance, :"structural-freq", :household
   prominence :marginal

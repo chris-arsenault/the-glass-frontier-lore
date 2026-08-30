@@ -2,9 +2,8 @@ incident :first_repeatable_kite_tuning do
   name "The First Repeatable Kite Tuning"
   summary "The First Repeatable Kite Tuning was recorded in 2235 when a freight crew crossed a dry Kaleidos basin with a kinetic array fixed to three cloth spars. Its maintenance record let workshops reproduce the engine within the year."
   subkind :discovery
-  type_of :technological_breakthrough
+  type_of :kite_sail
   date 2235
-  technology :kite_sail
   status :complete
   tags :transport, :resonance, :"kinetic-freq", :trade
   prominence :recognized

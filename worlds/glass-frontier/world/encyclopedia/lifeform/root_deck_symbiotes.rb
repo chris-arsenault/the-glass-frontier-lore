@@ -6,7 +6,7 @@ encyclopedia :root_deck_symbiotes do
   status :draft
   topics :ecology, :trade, :"ring-hab"
   prevalence :uncommon
-  appears_when all: { place: [:"realm:ring_habitat"] }
+  appears_when all: { place: [:garden] }
 
   prose "Root-deck symbiotes exchange heat, waste, and warning pulses across the garden habitats' graft trade."
 end

@@ -2,9 +2,8 @@ installation :blue_step_works do
   name "Blue Step Works"
   summary "Blue Step Works is a heavy repair shop on Ladderwell's second bench, building pump frames, road gear, bridge fittings, and structural clamps for Avar."
   playable_as :chronicle_location
-  context_tags :"realm:surface"
+  context_tags :surface, :yard
   subkind :workshop
-  type_of :workshop
   function "Builds and tests portable structural clamps, pump frames, and road-moving gear"
   status :complete
   tags :surface, :rebuilding, :resonance, :"structural-freq", :trade

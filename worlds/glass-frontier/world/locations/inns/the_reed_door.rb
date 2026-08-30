@@ -2,9 +2,8 @@ installation :the_reed_door do
   name "The Reed Door"
   summary "The Reed Door is a ferry house, food hall, and cheap lodging on Lowbank's outer western mound, built to keep serving through Dovra's floods."
   playable_as :chronicle_location
-  context_tags :"realm:outer_system"
+  context_tags :outer_system, :surface, :waterway, :road
   subkind :installation
-  type_of :lodging_house
   status :complete
   tags :"outer-system", :trade, :transport, :household, :ecology
   prominence :marginal

@@ -1,7 +1,6 @@
 phenomenon :upward_burial do
   name "The Upward Burial"
   summary "The Upward Burial drives sealed and authenticated holdings toward open sky for as long as someone claims custody of them."
-  type_of :directed_matter_migration
   subkind :physical_phenomenon
   status :complete
   tags :resonance, :archives, :governance, :danger

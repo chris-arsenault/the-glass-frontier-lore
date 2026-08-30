@@ -1,9 +1,8 @@
 geographic_location :korvath do
   name "Korvath"
   summary "Korvath is the temperate planet immediately beyond Kaleidos, with broad seas, river plains, old forests, and long-settled cities."
-  type_of :celestial_body
   playable_as :chronicle_location
-  context_tags :"realm:outer_system"
+  context_tags :outer_system, :surface, :waterway
   subkind :celestial_body
   status :complete
   tags :"outer-system", :resonance, :trade, :governance, :ecology

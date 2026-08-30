@@ -2,7 +2,7 @@ encyclopedia :dominion do
   name "Dominion"
   summary "Dominion imposes a comprehensible command on minds, machines, or constructed servants and holds them to its exact terms."
   kind :ability
-  subkind :ability
+  subkind :resonant_effect
   status :complete
   topics :resonance, :governance, :military, :danger
   prevalence :rare

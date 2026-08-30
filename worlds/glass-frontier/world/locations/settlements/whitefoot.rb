@@ -2,9 +2,8 @@ installation :whitefoot do
   name "Whitefoot"
   summary "Whitefoot is the surface terminus of Span Nine in an open field north of Sithari, where the conduit rises from a low ringglass platform."
   playable_as :chronicle_location
-  context_tags :"realm:surface"
+  context_tags :surface, :ringglass_rich, :damaged_signal
   subkind :station
-  type_of :waypoint
   tags :surface, :"ring-era", :"signal-freq", :resonance
   prominence :recognized
   status :complete

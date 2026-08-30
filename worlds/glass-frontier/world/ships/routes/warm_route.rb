@@ -1,7 +1,6 @@
 transport :warm_route do
   name "The Warm Route"
   summary "The Warm Route is a heat-controlled freight chain carrying ore above its brittle point from Crucible's lifts to shaded Ashvane workshops."
-  type_of :heat_controlled_freight_chain
   subkind :route
   status :complete
   prominence :marginal

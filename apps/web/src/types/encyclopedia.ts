@@ -26,16 +26,12 @@ export type EncyclopediaAvailability =
 
 export type EncyclopediaKind =
   | "lifeform"
-  | "culture"
   | "role"
-  | "practice"
-  | "doctrine"
-  | "ability"
-  | "institution"
   | "technology"
   | "resource"
+  | "ability"
   | "phenomenon"
-  | "place_feature";
+  | "culture";
 
 export interface EncyclopediaMembership {
   kind: EncyclopediaKind;

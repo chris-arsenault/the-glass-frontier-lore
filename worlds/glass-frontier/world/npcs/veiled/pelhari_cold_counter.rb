@@ -1,8 +1,7 @@
 npc :pelhari_cold_counter do
   name "The Pelhari Cold Counter"
   summary "The Pelhari Cold Counter wakes when a hull loses heat faster than its gauges can register."
-  type_of :specialist_practitioner
-  belongs_to :ability, :cold_count
+  type_of :cold_count
   subkind :specialist
   status :complete
   prominence :marginal

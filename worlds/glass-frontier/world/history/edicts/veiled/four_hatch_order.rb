@@ -2,7 +2,7 @@ edict :four_hatch_order do
   name "The Four-Hatch Order"
   summary "The Four-Hatch Order keeps one docking mouth clear at every Keel stop for unpowered rescue craft."
   subkind :edict
-  type_of :traffic_priority_rule
+  type_of :space_traffic_law
   status :complete
   prominence :marginal
   veiled "The Four-Hatch Order keeps one docking mouth clear at each Keel stop for unpowered rescue craft."

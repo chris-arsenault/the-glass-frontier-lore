@@ -6,7 +6,7 @@ encyclopedia :mera_flute_reed do
   status :draft
   topics :ecology, :music, :"ring-hab"
   prevalence :uncommon
-  appears_when all: { place: [:"realm:ring_habitat"] }
+  appears_when all: { place: [:garden] }
 
   prose "Mera flute-reeds vent root heat as a chord that changes when neighboring grafts become diseased."
 end

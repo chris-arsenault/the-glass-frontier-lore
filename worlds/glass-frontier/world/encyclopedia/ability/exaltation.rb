@@ -2,7 +2,7 @@ encyclopedia :exaltation do
   name "Exaltation"
   summary "Exaltation drives a person, creature, machine, or weapon beyond its ordinary limits in service of one declared purpose."
   kind :ability
-  subkind :ability
+  subkind :resonant_effect
   status :complete
   topics :resonance, :"kinetic-freq", :military, :religion
   prevalence :rare

@@ -2,7 +2,6 @@ incident :hospital_hull_recovery do
   name "Hospital Hull Recovery"
   summary "Hospital Hull Recovery is Brake's 2435 capture of a powered medical vessel carrying twelve occupied recovery capsules."
   subkind :discovery
-  type_of :salvage_recovery
   date 2435
   status :complete
   tags :salvage, :ecology, :transport, :mystery

@@ -2,7 +2,7 @@ faction :bloom_coalition do
   name "Bloom Coalition"
   summary "The Bloom Coalition was the unified containment command that operated from 2380 to 2396 against the Silent Bloom."
   subkind :civic_body
-  type_of :civic_body
+  type_of :compact_authority
   path "player/npcs/factions/bloom-coalition.md"
   tags :governance, :diplomacy, :resonance, :danger, :rebuilding
   prominence :renowned

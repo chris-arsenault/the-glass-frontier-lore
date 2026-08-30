@@ -2,9 +2,8 @@ installation :mera do
   name "Mera"
   summary "Mera is a settlement of about six thousand people on a slow-tumbling fragment of the Glass Frontier, where a long shaded season supports ice-grown water storage."
   playable_as :chronicle_location
-  context_tags :"realm:ring_habitat"
+  context_tags :sealed_hab, :cold, :garden
   subkind :settlement
-  type_of :settlement
   status :complete
   tags :"ring-hab", :ecology, :household, :materials, :resonance
   prominence :marginal

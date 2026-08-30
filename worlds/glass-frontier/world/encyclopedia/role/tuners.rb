@@ -1,8 +1,9 @@
 encyclopedia :tuners do
-  name "Tuners"
-  summary "Tuners are trained resonance workers who separate a local field from its physical carriers and turn what they perceive into practical judgments."
+  name "Resonant Tuner"
+  aka "Tuner", "Tuners", "Resonant Tuners"
+  summary "A Resonant Tuner separates a local resonance field from its physical carriers and turns what they perceive into practical judgments."
   kind :role
-  subkind :resonance_worker
+  subkind :profession
   status :complete
   reviewed "2026-03-19"
   topics :resonance, :training, :"social-structure"
@@ -51,7 +52,7 @@ encyclopedia :tuners do
 
     The Clarisant is a professional accreditation body first and a community second. They train Tuners, certify competence, set safety standards, and provide the institutional credibility that keeps Tuning from being feared. A Clarisant-trained Tuner carries a credential that means something in any settlement that recognizes the guild — which is most of them. The credential says: this person has been evaluated, their abilities are understood, and they operate within professional norms.
 
-    The guild is not a government, not a military order, and not a religion. It is closer to a medical board — gatekeeping, yes, but gatekeeping in the service of public safety. Malpractice can get you expelled. Dogma cannot, because the Clarisant doesn't have dogma. It has standards.
+    The guild is not a government, military order, or religion. Its authority rests on examinations, recognized credentials, and the settlements that accept them. Unsafe work can cost a Tuner their credential. Disagreement cannot, unless the practitioner claims certainty their method did not earn.
 
     The name is old enough that most people have stopped wondering what it means. It derives from pre-Famine roots — *clear perception*, roughly — and was coined by the guild's founders, who wanted something that sounded serious without sounding threatening. They mostly succeeded.
   PROSE
@@ -60,17 +61,15 @@ encyclopedia :tuners do
 
     Folk Tuners are the norm in communities where the Clarisant has limited presence: remote surface settlements, isolated ring habs, outer-system stations that are weeks from the nearest satellite office. Some communities have never heard of the guild. Some have heard of it and want nothing to do with it. Some have their own traditions that predate the guild and see no reason to defer to an institution on a distant moon.
 
-    The folk tradition is not inferior to the Clarisant tradition. It is different. Folk Tuners tend toward the intuitive, the improvisational, the locally adapted. A folk Tuner on a ring hab knows *that* hab's resonance landscape in a way no visiting Clarisant could match. What they lack is breadth — the theoretical framework that lets a Clarisant-trained Tuner walk into an unfamiliar environment and orient quickly.
-
-    The tension between folk and Clarisant Tuning is the jazz-versus-classical divide. Both produce genuine mastery. Both are suspicious of the other. Both are right to be.
+    Folk Tuners tend toward the intuitive, improvised, and locally adapted. A folk Tuner on a ring hab knows *that* hab's resonance landscape in a way no visiting Clarisant could match. Clarisant training gives breadth instead: a shared framework that lets a credentialed Tuner enter an unfamiliar environment and orient quickly. Each tradition can produce mastery, and each distrusts the evidence the other treats as sufficient.
   PROSE
   prose <<~PROSE, section: :culture, heading: "The Hidden and the Unknowing"
-    Below the visible profession — guild and folk alike — there are people who can feel resonance and don't know what they're feeling. Maybe five to ten percent of the population with some degree of untrained sensitivity, experiencing it as hunches, headaches, an unexplained comfort or discomfort in certain spaces. Most never develop it further. Some do, and become folk Tuners without anyone calling it that — the hedge witch who knows which direction the water runs, the mechanic who can tell a ringglass array is misaligned by standing near it.
+    Below the visible profession — guild and folk alike — there are people who can feel resonance and don't know what they're feeling. Maybe five to ten percent of the population has some degree of untrained sensitivity, experienced as hunches, headaches, or an unexplained comfort or discomfort in certain spaces. Most never develop it further. Some become folk Tuners without anyone calling them that — the water keeper who knows which channel will turn, or the mechanic who can tell a ringglass array is misaligned by standing near it.
 
     And then there are the hidden — Tuners who practice in secret because their community doesn't tolerate it. Some habs prosecute unauthorized resonance work. Some settlements associate Tuning with the elves and treat practitioners with suspicion. Being a hidden Tuner is lonely and dangerous, and the Clarisant runs quiet programs to identify and extract people from these situations when they can.
   PROSE
   prose <<~PROSE, section: :resonance, heading: "Species and Tuning"
-    Any species can become a Tuner. Each brings different strengths and limitations — see individual species entries for details (#{encyclopedia_ref :gnomes, "gnomes"}, #{encyclopedia_ref :humans, "humans"}, #{encyclopedia_ref :orcs, "orcs"}, #{encyclopedia_ref :fae, "fae"}). Gnomes are disproportionately represented at the highest levels; humans compensate with methodology and instrumentation; orcs gravitate toward material Tuning; fae are rare due to coherence risks. The #{encyclopedia_ref :elves, "elves"} were the original masters, and their absence is felt most acutely here — the theoretical framework that should exist doesn't, because the people who would have built it are gone.
+    Any species can become a Tuner. #{encyclopedia_ref :gnomes, "Gnomes"} are disproportionately represented at the highest levels; #{encyclopedia_ref :humans, "humans"} rely more heavily on method and instrumentation; #{encyclopedia_ref :orcs, "orcs"} are common in material Tuning; and #{encyclopedia_ref :fae, "fae"} practitioners are rare because sustained work threatens their coherence. The #{encyclopedia_ref :elves, "elves"} were the original masters. Their absence is felt most sharply in the missing theory that later schools have had to rebuild from practice.
   PROSE
   prose <<~PROSE, section: :applications, heading: "Extremes"
     At the edges of practice, Tuning gets strange:

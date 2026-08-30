@@ -7,7 +7,7 @@ encyclopedia :claim_rig do
   capacity "Three to twelve crew, one to four remote cutters, and isolated receiving rooms"
   topics :transport, :salvage, :resonance, :orbital, :danger, :trade
   prevalence :common
-  appears_when all: { place: [:"realm:orbital"] }
+  appears_when all: { place: [:debris_field] }
 
   descriptive_identity(
     appearance: "Outwardly it could be anything — a converted cargo craft, survey hull, or old passenger kite — " \

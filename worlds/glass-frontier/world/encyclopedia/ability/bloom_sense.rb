@@ -2,11 +2,10 @@ encyclopedia :bloom_sense do
   name "Bloom Sense"
   summary "Bloom Sense is an innate sensitivity to dormant Bloom Zones, felt as pain in the teeth before a zone emits light."
   kind :ability
-  subkind :innate_ability
+  subkind :innate_sensitivity
   status :draft
   prevalence :rare
-  appears_when all: { place: [:"realm:orbital"] }
-  appears_when all: { place: [:"realm:ring_habitat"] }
+  appears_when all: { place: [:bloom_adjacent] }
 
   tier :broad, effect: "Feel pain in the teeth before a dormant Bloom Zone begins emitting light"
 

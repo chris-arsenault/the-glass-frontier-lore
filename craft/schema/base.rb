@@ -13,7 +13,11 @@ schema do
   require_explicit_subkinds!
 
   encyclopedia_type :lifeform,
-                    description: "A reusable kind of living or anomalously living organism." do
+                    description: "Lifeform contains reusable biological or organism-like types. " \
+                                 "It includes flora, fauna, fungi, microbes, sapient species, " \
+                                 "ecological collectives, and anomalously living creatures. A " \
+                                 "particular named animal, herd, colony, or organism with a " \
+                                 "persistent identity belongs in the Atlas." do
     field :origin, type: :text, expected: false
     field :biology, type: :text, expected: false
     field :lifespan, type: :text, expected: false
@@ -21,11 +25,18 @@ schema do
     identity_key :behavior
     identity_key :threat
     identity_key :senses
-    identity_key :working
     identity_key :risks
   end
   encyclopedia_type :culture,
-                    description: "Distributed learned traditions, norms, and material life." do
+                    description: "Culture contains reusable knowledge of learned social life. " \
+                                 "It includes cultural identities, systems of law and governance, " \
+                                 "religions and other shared beliefs, social orders, expressive " \
+                                 "traditions, material life, work traditions, and the bases on " \
+                                 "which a society recognizes a group as an actor in its own right " \
+                                 "— what grants a collective authority, obligations, property, " \
+                                 "continuity, and standing beyond those of its members. A culture " \
+                                 "entry need not describe a whole people. A named group with its " \
+                                 "own history and agency remains an Atlas faction." do
     field :integration, type: :text, expected: false
     field :formal_register, type: :text, label: "Formal Register", expected: false
     field :aesthetic, type: :text, expected: false
@@ -35,40 +46,48 @@ schema do
     identity_key :hospitality
   end
   encyclopedia_type :role,
-                    description: "An ordinary unnamed person defined by work or social function." do
+                    description: "Role contains recurring, socially recognized positions whose " \
+                                 "names, duties, and standing arise from a specific culture, " \
+                                 "institution, history, or material condition of the world. It " \
+                                 "includes occupations, offices, temporary duties, inherited " \
+                                 "stations, and earned designations. A named person remains an " \
+                                 "Atlas NPC." do
     identity_key :attire
     identity_key :tools
     identity_key :manner
-  end
-  encyclopedia_type :practice,
-                    description: "A discrete learned technique or action a person can perform." do
-    field :function, type: :text, expected: false
-    identity_key :attire
-    identity_key :tools
-    identity_key :manner
-    identity_key :signs
-    identity_key :effect
-    identity_key :limits
-  end
-  encyclopedia_type :doctrine,
-                    description: "A reusable belief, rule, measure, prohibition, or interpretive framework." do
-    field :function, type: :text, expected: false
-    identity_key :tenets
-    identity_key :obligations
-    identity_key :prohibitions
-    identity_key :interpretation
   end
   encyclopedia_type :ability,
-                    description: "A discrete extraordinary effect expressed at one or more ordered power tiers." do
+                    description: "Ability contains discrete things a person can deliberately do: " \
+                                 "extraordinary effects they invoke, sustain, perceive through, or " \
+                                 "receive, and trained techniques they learn and perform. It " \
+                                 "includes bodily techniques, operational procedures, methods of " \
+                                 "observation, coordinated work, and skilled uses of tools. An " \
+                                 "entry reads as a spellbook entry: what the ability does, what it " \
+                                 "costs, and, where the world expresses it in ordered power tiers, " \
+                                 "the reach and precision available at each. Whether an ability is " \
+                                 "innate, learned, ordinary, or extraordinary does not determine " \
+                                 "its kind. It does not include religions, laws, taboos, systems " \
+                                 "of calculation, or social positions." do
     field :function, type: :text, expected: false
+    identity_key :attire
+    identity_key :tools
+    identity_key :manner
     identity_key :signs
     identity_key :effect
     identity_key :limits
   end
-  encyclopedia_type :institution,
-                    description: "A reusable form of organized membership, authority, or mutual obligation."
   encyclopedia_type :technology,
-                    description: "A reusable designed device, tool, vehicle, instrument, or technical system." do
+                    description: "Technology contains reusable classes of functional objects and " \
+                                 "engineered systems. It includes tools, machines, instruments, " \
+                                 "vehicle classes, infrastructure, record media, and motive or " \
+                                 "control systems whose capabilities follow from their construction " \
+                                 "and operation. A named object, vehicle, or installation remains " \
+                                 "in the Atlas. An entry must identify a setting-specific construction " \
+                                 "or operating principle; generic categories such as instrument, " \
+                                 "machine, ground transport, or utility vessel do not qualify. A " \
+                                 "material is a resource, a trained use is a practice, and an effect " \
+                                 "that exists independently of the constructed object is an ability " \
+                                 "or phenomenon." do
     field :function, type: :text, expected: false
     field :classes, type: :text, expected: false
     field :operating_environments, type: :text, label: "Operating Environments", expected: false
@@ -82,7 +101,16 @@ schema do
     identity_key :handling
   end
   encyclopedia_type :resource,
-                    description: "A reusable material, commodity, food, medicine, fuel, or useful body of data." do
+                    description: "Resource contains reusable kinds of stock valued for what can be " \
+                                 "gathered, grown, extracted, refined, recorded, stored, traded, " \
+                                 "consumed, or expended. It includes materials, fuels, foods, " \
+                                 "medicines, cultivated biological material, and bodies or media " \
+                                 "of data when people handle them as inventory. A named cache, " \
+                                 "cargo, specimen, reserve, or record remains in the Atlas. An entry " \
+                                 "must identify a setting-specific stock and what people do with it; " \
+                                 "generic labels such as reserve, recording medium, thesis, or ledger " \
+                                 "do not qualify. A constructed mechanism is technology, a species " \
+                                 "is a lifeform, and learned knowledge is practice or culture." do
     field :function, type: :text, expected: false
     field :grades, type: :text, expected: false
     field :availability, type: :text, expected: false
@@ -91,7 +119,18 @@ schema do
     identity_key :risks
   end
   encyclopedia_type :phenomenon,
-                    description: "A recurring physical, ecological, weather, social, or anomalous condition." do
+                    description: "Phenomenon contains reusable processes or conditions that arise " \
+                                 "in the world rather than being deliberately performed as a " \
+                                 "practice or produced solely by operating a designed system. It " \
+                                 "includes physical and environmental processes, ecological cycles, " \
+                                 "persistent field conditions, emergent collective behavior, and " \
+                                 "anomalous effects. A phenomenon entry describes a recognizable " \
+                                 "pattern that persists or can recur. An entry must identify a " \
+                                 "setting-specific pattern; generic event labels such as armed " \
+                                 "conflict, labor action, accident, discovery, or disaster do not " \
+                                 "qualify. A particular named manifestation with its own history " \
+                                 "remains an Atlas phenomenon, while a single occurrence remains an " \
+                                 "Atlas incident or conflict." do
     field :medium, type: :text, expected: false
     field :content, type: :text, expected: false
     field :hazard, type: :text, expected: false
@@ -99,9 +138,6 @@ schema do
     identity_key :effects
     identity_key :hazards
   end
-  encyclopedia_type :place_feature,
-                    description: "A recurring component or arrangement of a place that can enter a scene."
-
   entity_type :ability, :artifact, :concept, :conflict, :creature, :culture, :era, :faction,
               :geographic_location, :incident, :installation, :npc, :phenomenon, :resource,
               :rumor, :species, :transport, :edict

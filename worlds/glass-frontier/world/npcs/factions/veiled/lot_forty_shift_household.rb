@@ -1,8 +1,7 @@
 faction :lot_forty_shift_household do
   name "The Lot Forty Shift Household"
   summary "The Lot Forty Shift Household is one refinery work-family whose members keep contaminated clothing outside their home and take meals together at the work boundary."
-  type_of :household
-  belongs_to :culture, :crowncut_shifts
+  type_of :crowncut_shifts
   subkind :community
   status :complete
   prominence :marginal

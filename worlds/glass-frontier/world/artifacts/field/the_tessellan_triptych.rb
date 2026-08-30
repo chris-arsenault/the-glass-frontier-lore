@@ -1,8 +1,7 @@
 artifact :the_tessellan_triptych do
   name "The Tessellan Triptych"
   summary "The Tessellan Triptych is a complete Three Forms panel kept by the Tessellan Communion, with two lawful figures flanking the False Form."
-  type_of :teaching_triptych
-  belongs_to :doctrine, :the_three_forms
+  type_of :the_three_forms
   subkind :record
   status :complete
   tags :resonance, :cosmology, :religion

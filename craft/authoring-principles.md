@@ -67,11 +67,17 @@ The player experiences viewpoint paths first (personal, investigative) and titan
 
 See `craft/narrative-roles.md` for full guidance, detection criteria, and graph signatures.
 
-## Species and Cultures Are Orthogonal
+## Separate Biology From Learned Social Life
 
-Species determines biology. Culture determines how you introduce yourself. Two people of different species raised in the same culture share more than two people of the same species raised apart.
+Do not infer beliefs, manners, names, work, or allegiance from a lifeform entry.
+A world's culture entries establish which learned identities and practices
+matter there and how they intersect with ancestry, place, institutions, and
+chosen affiliation.
 
-Naming conventions are the primary species-agnostic cultural signal. Each culture's naming pattern should be immediately distinguishable — length, structure, and sound all carrying the signal, not just spelling. A world's patterns are listed in its `guidance/naming-conventions.md`.
+Names may carry one part of that identity, but they are not the universal or
+exclusive cultural signal. Put the world's actual naming traditions in its
+Encyclopedia canon. Its naming guidance should direct authors to those entries
+and explain how to derive new names from established facts.
 
 ## DM Knowledge Is Complete Separation
 

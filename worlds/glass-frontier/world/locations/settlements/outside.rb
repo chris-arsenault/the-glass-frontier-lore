@@ -2,10 +2,9 @@ installation :outside do
   name "Outside"
   summary "Outside is the permanent cordon settlement at Karet-3 in the outer Shear, housing evacuee families and Displacement Council crews beside the Bloom boundary."
   playable_as :chronicle_location, :homeland
-  context_tags :"realm:orbital"
+  context_tags :orbital, :cordon, :bloom_adjacent
   origin_blurb "A permanent cordon station where Karet families and rotating crews maintain the wall around Karet-3."
   subkind :settlement
-  type_of :settlement
   population 300
   population_band "About three hundred, half on rotating contracts"
   role "Permanent cordon station for Karet-3"

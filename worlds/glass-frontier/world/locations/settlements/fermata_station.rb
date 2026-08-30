@@ -2,10 +2,9 @@ installation :fermata_station do
   name "Fermata Station"
   summary "Fermata Station is a ring habitat around Kaleidos where public jazz Sessions produce binding civic decisions."
   playable_as :chronicle_location, :homeland
-  context_tags :"realm:ring_habitat"
+  context_tags :sealed_hab, :urban
   origin_blurb "A ring hab where public Sessions turn musical improvisation into binding civic decisions."
   subkind :settlement
-  type_of :settlement
   path "player/locations/settlements/fermata-station.md"
   status :complete
   reviewed "2026-03-19"

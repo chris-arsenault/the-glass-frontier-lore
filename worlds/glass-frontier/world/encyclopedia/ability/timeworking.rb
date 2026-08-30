@@ -2,7 +2,7 @@ encyclopedia :timeworking do
   name "Timeworking"
   summary "Timeworking changes the rate and order of physical events by taking duration from one process and assigning it elsewhere."
   kind :ability
-  subkind :ability
+  subkind :resonant_effect
   status :complete
   topics :resonance, :danger, :"kinetic-freq", :cosmology
   prevalence :rare

@@ -2,7 +2,6 @@ incident :hinge_six_occupation do
   name "Hinge Six Occupation"
   summary "The Hinge Six Occupation was Third Arc Defense's armed seizure of the civilian relay station during a route embargo in 2362."
   subkind :dispute
-  type_of :military_occupation
   tags :military, :transport, :governance, :"signal-freq"
   prominence :recognized
   status :complete

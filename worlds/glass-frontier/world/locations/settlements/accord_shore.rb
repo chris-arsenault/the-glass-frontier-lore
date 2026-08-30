@@ -2,9 +2,8 @@ installation :accord_shore do
   name "Accord Shore"
   summary "Accord Shore is a civic district of Sithari around an artificial lake west of the Old Campus, built to house the Tempered Accord's delegations and hearings."
   playable_as :chronicle_location
-  context_tags :"realm:surface"
+  context_tags :surface, :urban
   subkind :settlement
-  type_of :settlement
   population 32_000
   population_band "About thirty-two thousand residents, with several thousand visiting delegates and staff"
   role "Diplomatic quarter and standing seat of the Tempered Accord"

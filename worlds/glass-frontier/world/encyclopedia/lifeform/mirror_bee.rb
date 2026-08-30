@@ -6,7 +6,7 @@ encyclopedia :mirror_bee do
   status :draft
   topics :ecology, :surface
   prevalence :uncommon
-  appears_when all: { place: [:"realm:surface"] }
+  appears_when all: { place: [:garden] }
 
   prose "Mirror bees pollinate blue loam plants and copy the color of the last healthy flower they touched."
 end

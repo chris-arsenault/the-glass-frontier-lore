@@ -5,7 +5,7 @@ encyclopedia :thirty_one_echo do
   subkind :phenomenon
   status :draft
   prevalence :rare
-  appears_when all: { place: [:"realm:ring_habitat"] }
+  appears_when all: { place: [:sealed_hab, :yard] }
 
   prose "Thirty-One Echo makes a dropped tool strike twice, once in the workshop and once beneath Rattle's market floor."
 end

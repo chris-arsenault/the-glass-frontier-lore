@@ -2,9 +2,8 @@ installation :lumenshard do
   name "Lumenshard"
   summary "Lumenshard is the largest settlement in Miraeth, occupying terraces beneath the crystal-veined canopy of the region's central forest basin."
   playable_as :chronicle_location
-  context_tags :"realm:surface"
+  context_tags :surface, :ringglass_rich
   subkind :settlement
-  type_of :settlement
   status :complete
   population 63_000
   population_band "About sixty-three thousand across the central basin and ridge wards"

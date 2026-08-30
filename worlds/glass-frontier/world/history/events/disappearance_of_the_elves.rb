@@ -2,7 +2,6 @@ incident :disappearance_of_the_elves do
   name "Disappearance of the Elves"
   summary "The Disappearance of the Elves is the recognized absence of every elven community and individual when sustained communication returned in 2305."
   subkind :migration
-  type_of :mass_disappearance
   tags :mystery, :archives, :isolation, :"ring-era"
   prominence :recognized
   status :complete

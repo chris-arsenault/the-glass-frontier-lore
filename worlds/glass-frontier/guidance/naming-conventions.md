@@ -1,38 +1,49 @@
 ---
-title: Naming Conventions — The Glass Frontier
+title: Naming Guidance — The Glass Frontier
 ---
 
-# Naming Conventions — The Glass Frontier
+# Naming Guidance — The Glass Frontier
 
-The method for judging a name is `craft/naming-craft.md`; the per-kind checks are `craft/naming-by-kind.md`. This file supplies the substitutions those two ask for: who names things in the Kaleidos system, and how.
+Canonical naming traditions belong in the Encyclopedia. Read the current world
+article before naming a person, role, place, event, or reusable subject:
 
-## Personal Names by Culture
+```bash
+ruby lorecraft/bin/lorecraft reference page naming_conventions --world glass-frontier
+```
 
-Species determines biology; culture determines how you introduce yourself. A Sitharian orc and a Sitharian human share more naming identity than a Sitharian human and a Hab-Worlder human.
+Do not add a cultural pattern, historical naming claim, vocabulary list, or
+etymology only to this file. Add it to the Encyclopedia entry that owns the
+fact, then use it here as a source.
 
-| Culture | Pattern | Feel |
-|---|---|---|
-| Sithari | formal two-part: personal + family | deliberate, institutional |
-| Hab-Worlder | clipped functional | short, working, earned |
-| Orcish | mononyms | single weight-bearing word |
-| Gnomish | apostrophe compounds | dense, technical |
-| Fae | epithet-primary + breathy true name | the epithet is what you get |
-| Elven | chain patronymics | historical; nobody living uses these |
+## Choosing a name
 
-The patterns must stay distinguishable by ear, not just by spelling. If a new name could plausibly belong to two of these cultures, it is doing no work.
+Begin with the concrete thing that recurs in the world. Establish what makes it
+different from the nearest familiar category before giving it an unfamiliar
+name.
 
-## Place Names
+Identify who uses the name and why it persists. Use the relevant culture,
+institution, work, material, place, or historical occurrence already present in
+the canon. A name may be plain, translated, shortened, inherited, earned, or
+opaque to outsiders. It must not be unexplained decoration applied to an
+otherwise generic subject.
 
-Locations are named by the people who found or settled them, in the era they did it.
+Give an unfamiliar term an ordinary gloss in the entry summary. A reader should
+understand what exists before learning why its name carries weight.
 
-- **Rekindling-era** names are improvised and functional — what the place was for, or what went wrong there.
-- **Accord-era** names are more deliberate, sometimes committee-made, sometimes commemorative.
-- **Ring-era** names, where they survive, are elven and usually mangled by three centuries of use.
+When a formal name and a working name coexist, record the canonical form with
+`title` and the other with `alias`. Use the form spoken by the relevant
+observer in prose.
 
-Old countries, watersheds, and mountain systems usually retain proper names even when their meanings no longer travel with them. Reserve transparent working names for facilities, routes, businesses, and settlements whose founders named a job, accident, or visible landmark. A mapmaker's description is not automatically the name used by residents.
+## Review
 
-Many locations carry an official name and the name everyone actually uses. Record both where the gap says something.
+Read the proposed name beside neighboring entries. Reject it when the same
+adjective-noun structure, sound palette, or grand register dominates the set.
+Keep repeated structures when the same naming authority deliberately produced
+them.
 
-## Era and Occurrence Names
+Replace a coined name with the ordinary noun and reread the entry. If nothing
+substantive changes, either strengthen the world concept or keep the ordinary
+name.
 
-The Glassfall, the Signal Famine, the Rekindling, the Bitter Reach, the Silent Bloom, the Displacement. These are named by the people who lived through them, in the register of what it cost them — plain nouns doing heavy work, not coined terminology.
+The universal review method remains `craft/naming-craft.md`; the per-kind checks
+remain `craft/naming-by-kind.md`.

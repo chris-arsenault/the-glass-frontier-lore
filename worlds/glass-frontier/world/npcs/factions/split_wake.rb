@@ -2,7 +2,7 @@ faction :split_wake do
   name "Split Wake"
   summary "Split Wake was a mobile pirate crew of three armed cutters and a fast loader during the Contested Reach."
   subkind :community
-  type_of :criminal_organization
+  type_of :shipboard_standing
   founded 2343
   tags :military, :salvage, :transport
   prominence :marginal

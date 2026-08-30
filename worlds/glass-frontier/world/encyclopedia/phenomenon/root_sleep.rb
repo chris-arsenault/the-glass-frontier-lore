@@ -5,7 +5,7 @@ encyclopedia :root_sleep do
   subkind :ecological_phenomenon
   status :draft
   prevalence :rare
-  appears_when all: { place: [:"realm:ring_habitat"] }
+  appears_when all: { place: [:garden] }
 
   prose "Root sleep stills whole garden decks until water from another habitat touches the oldest graft."
 end

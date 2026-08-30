@@ -2,9 +2,8 @@ geographic_location :deep_shear do
   name "Deep Shear"
   summary "The Deep Shear is a set of scattered pockets within the Shear where resonance distortion disrupts distance, angle, and volume."
   playable_as :chronicle_location
-  context_tags :"realm:orbital"
+  context_tags :orbital, :debris_field, :displacement_zone
   subkind :hazardous_zone
-  type_of :hazardous_zone
   path "player/locations/landmarks/deep-shear.md"
   tags :orbital, :danger, :resonance, :salvage
   prominence :recognized

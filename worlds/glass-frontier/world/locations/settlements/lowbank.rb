@@ -2,9 +2,8 @@ installation :lowbank do
   name "Lowbank"
   summary "Lowbank is Dovra's largest port city on Korvath, spread across raised islands where three river channels reach the middle sea."
   playable_as :chronicle_location
-  context_tags :"realm:outer_system"
+  context_tags :outer_system, :surface, :urban, :waterway, :dock, :market
   subkind :settlement
-  type_of :settlement
   status :complete
   population 190_000
   population_band "About one hundred ninety thousand in the port and surrounding mound towns"

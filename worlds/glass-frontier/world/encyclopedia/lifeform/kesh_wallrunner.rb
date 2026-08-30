@@ -6,7 +6,7 @@ encyclopedia :kesh_wallrunner do
   status :draft
   topics :ecology, :"kinetic-freq", :"ring-hab"
   prevalence :uncommon
-  appears_when all: { place: [:"realm:ring_habitat"] }
+  appears_when all: { place: [:sealed_hab] }
 
   prose "Kesh wallrunners store kinetic force in their tails and release it in one straight leap."
 end

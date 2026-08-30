@@ -1,8 +1,7 @@
 npc :three_arms_load_singer do
   name "The Three Arms Load Singer"
   summary "The Three Arms Load Singer pitches salvage frames until hidden fractures answer through the lifting cables."
-  type_of :specialist_practitioner
-  belongs_to :practice, :load_singing
+  type_of :load_singing
   subkind :specialist
   status :complete
   prominence :marginal

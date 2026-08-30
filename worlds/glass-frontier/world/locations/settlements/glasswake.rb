@@ -2,10 +2,9 @@ installation :glasswake do
   name "Glasswake"
   summary "Glasswake is a coastal mining town on Kaleidos, built between the sea and the fused ridge of a ring fragment that fell during the Glassfall."
   playable_as :chronicle_location, :homeland
-  context_tags :"realm:surface"
+  context_tags :surface, :urban, :yard, :ringglass_rich, :dock
   origin_blurb "A coastal mining town built against a fallen hab whose repaired transmitter began the Rekindling."
   subkind :settlement
-  type_of :settlement
   path "player/locations/settlements/glasswake.md"
   status :complete
   reviewed "2026-03-18"

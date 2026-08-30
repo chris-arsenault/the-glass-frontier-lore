@@ -2,9 +2,8 @@ installation :span_nine do
   name "Span Nine"
   summary "Span Nine is a pre-Glassfall signal conduit connecting Whitefoot on Kaleidos to Pelhari and Threshold Station across interplanetary distance."
   playable_as :chronicle_location
-  context_tags :"realm:orbital"
+  context_tags :orbital, :surface, :damaged_signal
   subkind :landmark
-  type_of :infrastructure
   path "player/locations/landmarks/span-nine.md"
   status :complete
   reviewed "2026-03-19"

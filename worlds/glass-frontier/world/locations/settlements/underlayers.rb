@@ -2,9 +2,8 @@ installation :underlayers do
   name "Underlayers"
   summary "The Underlayers are the buried neighborhoods below central Sithari, housing about one hundred eighty thousand people in old service halls and submerged buildings."
   playable_as :chronicle_location
-  context_tags :"realm:surface"
+  context_tags :surface, :urban, :displacement_zone, :unstable_route
   subkind :settlement
-  type_of :settlement
   population 180_000
   population_band "About one hundred eighty thousand permanent residents"
   role "Sithari's inhabited lower city and the working boundary of its buried ring-era complex"

@@ -1,8 +1,7 @@
 npc :avar_dustline_guide do
   name "The Avar Dustline Guide"
   summary "The Avar Dustline Guide reads buried roads from the angle of grit caught against low stones."
-  type_of :specialist_practitioner
-  belongs_to :practice, :dustline_crossing
+  type_of :dustline_crossing
   subkind :specialist
   status :complete
   prominence :marginal

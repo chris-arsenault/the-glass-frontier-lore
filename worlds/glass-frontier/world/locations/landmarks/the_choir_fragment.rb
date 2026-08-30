@@ -2,7 +2,7 @@ installation :the_choir_fragment do
   name "The Choir Fragment"
   summary "The Choir Fragment is a fallen ring section on the outer Pell routes whose surviving transmitter sends a changing pre-Glassfall message each week."
   playable_as :chronicle_location
-  context_tags :"realm:orbital"
+  context_tags :orbital, :debris_field, :damaged_signal, :ringglass_rich
   subkind :landmark
   type_of :ring_age_site
   tags :orbital, :"ring-era", :resonance, :archives, :mystery, :salvage

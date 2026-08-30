@@ -2,7 +2,7 @@ faction :displacement_council do
   name "Displacement Council"
   summary "The Displacement Council is a neutral containment order that maintains Bloom Zone cordons and supports displaced communities."
   subkind :civic_body
-  type_of :order
+  type_of :custodial_standing
   path "player/npcs/factions/displacement-council.md"
   reviewed "2026-03-19"
   tags :governance, :resonance, :danger

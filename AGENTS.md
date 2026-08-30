@@ -251,7 +251,7 @@ Kinds are declared once for every world in `craft/schema/base.rb`, grouped into 
 `npc`, `geographic_location`, `installation`, `faction`, `artifact`, `creature`, `transport`, `incident`, `conflict`, `rumor`, `edict`, `resource`, `ability`, `phenomenon`
 
 **Encyclopedia** (general knowledge — outside the Atlas graph):
-`lifeform`, `culture`, `role`, `practice`, `doctrine`, `ability`, `institution`, `technology`, `resource`, `phenomenon`, `place_feature`
+`lifeform`, `role`, `technology`, `resource`, `ability`, `phenomenon`, `culture`
 
 `species`, `culture`, and `concept` remain transitional Atlas kinds only while
 older worlds are migrated. Do not create new Atlas entries of those kinds.

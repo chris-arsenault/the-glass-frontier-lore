@@ -2,9 +2,8 @@ installation :the_dry_net do
   name "The Dry Net"
   summary "The Dry Net is a lodging house and hiring room on Glasswake's dock fringe, used by Ratter crews, steppe carriers, and cargo hands."
   playable_as :chronicle_location
-  context_tags :"realm:surface"
+  context_tags :surface, :urban, :dock
   subkind :installation
-  type_of :lodging_house
   status :complete
   tags :trade, :salvage, :transport, :household, :surface
   prominence :marginal

@@ -2,7 +2,8 @@ faction :shear_compact do
   name "Shear Compact"
   summary "The Shear Compact is the standards and mediation body that certifies salvage operators and regulates extraction in the Shear."
   subkind :government
-  type_of :government
+  type_of :portable_standing
+  belongs_to :culture, :compact_authority
   path "player/npcs/factions/shear-compact.md"
   reviewed "2026-03-18"
   tags :salvage, :ringglass, :trade, :governance

@@ -1,7 +1,7 @@
 installation :room_before_the_ice do
   name "The Room Before the Ice"
   summary "The Room Before the Ice is a furnished Ring Age apartment melting free of Mera's Fourth Column, with the thawglass frame passing through its walls as though the room predated the column."
-  context_tags :"realm:ring_habitat"
+  context_tags :sealed_hab, :cold
   subkind :installation
   type_of :ring_age_site
   resource :thawglass

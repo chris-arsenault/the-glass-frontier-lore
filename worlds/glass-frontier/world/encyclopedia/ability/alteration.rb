@@ -2,7 +2,7 @@ encyclopedia :alteration do
   name "Alteration"
   summary "Alteration rewrites living anatomy, changing what a body can do while keeping it alive through the transformation."
   kind :ability
-  subkind :ability
+  subkind :resonant_effect
   status :complete
   topics :resonance, :species, :danger
   prevalence :rare

@@ -4,8 +4,8 @@ faction :tessellan_communion do
   playable_as :allegiance
   origin_blurb "Keepers preserve the Three Forms through handwork, sound, open study, and complete public copies."
   subkind :religious_order
-  type_of :order
-  belongs_to :doctrine, :the_three_forms
+  type_of :the_three_forms
+  belongs_to :culture, :custodial_standing
   founded 2216
   tags :religion, :resonance, :cosmology, :training
   prominence :recognized

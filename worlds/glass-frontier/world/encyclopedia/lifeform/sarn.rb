@@ -6,7 +6,7 @@ encyclopedia :sarn do
   status :complete
   topics :ecology, :resonance, :"kinetic-freq", :orbital
   prevalence :uncommon
-  appears_when all: { place: [:"realm:ring_habitat"] }
+  appears_when all: { place: [:debris_field] }
 
   descriptive_identity(
     appearance: "A narrow-bodied migratory animal, the largest the length of a small transport, with four " \

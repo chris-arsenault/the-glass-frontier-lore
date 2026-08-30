@@ -301,7 +301,7 @@ class NarrativeDocumentTest < Minitest::Test
       timeline = JSON.parse(File.read(File.join(root, "timeline.json")))
       editorial = JSON.parse(File.read(File.join(dir, "internal", "worlds", "ice.json")))
 
-      assert_equal 12, chronicle["schema_version"]
+      assert_equal 13, chronicle["schema_version"]
       assert_equal "tick", index["time_unit"]
       assert_equal "tick", timeline["unit"]
       assert_equal "The ice remembers the first mark.", chronicle["content"]
@@ -1747,7 +1747,7 @@ class SpatialMetadataTest < Minitest::Test
       route = JSON.parse(File.read(File.join(root, "entries", "trade-lane.json")))
       port = JSON.parse(File.read(File.join(root, "entries", "port.json")))
 
-      assert_equal 12, index["schema_version"]
+      assert_equal 13, index["schema_version"]
       assert_equal %w[planet_surface system_chart], index["spatial_frames"].map { |frame| frame["id"] }
       assert_equal %w[planet outer_turn port], route.dig("route_geometry", "paths", 0, "through")
       assert_equal 1_200, port.dig("connections", 0, "properties", "distance_km")
@@ -1885,7 +1885,7 @@ class SiteRenderTest < Minitest::Test
       index = JSON.parse(File.read(File.join(public_root, "index.json")))
       editorial = JSON.parse(File.read(File.join(dir, "internal", "worlds", "sample-world.json")))
 
-      assert_equal 12, ada["schema_version"]
+      assert_equal 13, ada["schema_version"]
       assert_equal "cartographer", ada["subkind"]
       assert(index["subkinds"].any? { |item| item["kind"] == "person" && item["id"] == "cartographer" })
       assert_equal ["born", "age", "occupation", "home", "chart_room", "working_language"], ada["facts"].map { |fact| fact["id"] }
@@ -4152,6 +4152,35 @@ class EncyclopediaTest < Minitest::Test
     assert_includes error.message, "declared at kind level"
   end
 
+  def test_encyclopedia_kind_can_constrain_authored_classifications
+    world = Lorecraft.define do
+      schema do
+        encyclopedia_type :culture do
+          field :function, type: :text
+          classifications :belief, :governance
+        end
+      end
+      timeline { era :present, starts: 0, length: 10; now year: 1 }
+
+      encyclopedia :road_law do
+        title "Road Law"
+        kind :culture
+        subkind :traffic_rule
+        status :shell
+      end
+    end
+
+    inspection = Lorecraft::SchemaInspection.new(
+      world, topic: "reference-kind", name: "culture"
+    )
+    data = inspection.data
+    assert_equal %i[belief governance], data.dig(:kind, :classifications)
+    assert_includes inspection.report, "Classifications: belief, governance"
+
+    errors = Lorecraft::Validator.new(world).validate
+    assert errors.any? { |error| error.include?("not an allowed culture classification") }
+  end
+
   def test_playable_counts_can_include_encyclopedia_character_roles
     world = Lorecraft.define do
       schema do
@@ -4618,12 +4647,14 @@ class EncyclopediaTest < Minitest::Test
     assert_includes problems, "a shell cannot have availability"
   end
 
-  def test_world_can_require_primary_encyclopedia_types_for_atlas_kinds
+  # type_of links an Atlas entry to a real reusable class. It is never a
+  # coverage obligation: requiring one for every entry of a kind is what
+  # manufactures generic placeholder types with nothing in them.
+  def test_atlas_entries_need_no_primary_encyclopedia_type
     world = Lorecraft.define do
       schema do
         entity_type :creature, :era
         encyclopedia_type :lifeform
-        require_encyclopedia_types! kinds: :creature
       end
       timeline { era :present, starts: 0, length: 10; now year: 1 }
 
@@ -4637,19 +4668,12 @@ class EncyclopediaTest < Minitest::Test
         name "Typed Creature"
         type_of :animal
       end
-      creature :missing do
+      creature :untyped do
         name "Untyped Creature"
-      end
-      creature :unwritten do
-        name "Unwritten Creature"
-        status :shell
       end
     end
 
-    problems = world.validate.join("\n")
-    assert_includes problems, "creature missing: Atlas entry requires type_of"
-    refute_includes problems, "creature typed: Atlas entry requires type_of"
-    assert_includes problems, "creature unwritten: Atlas entry requires type_of"
+    assert_empty world.validate
   end
 
   def test_type_of_rejects_unknown_and_hidden_public_targets
@@ -4846,7 +4870,7 @@ class EncyclopediaTest < Minitest::Test
         File.join(directory, "internal", "worlds", "references.json")
       ))
 
-      assert_equal 12, public_index.fetch("schema_version")
+      assert_equal 13, public_index.fetch("schema_version")
       assert_equal ["realm:surface"], public_index.fetch("context_tags").map { |tag| tag.fetch("id") }
       avar = public_index.fetch("entries").find { |entry| entry.fetch("id") == "avar" }
       assert_equal ["realm:surface"], avar.fetch("context_tags")

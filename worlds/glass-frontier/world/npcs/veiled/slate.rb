@@ -2,7 +2,6 @@ npc :slate do
   name "Slate"
   summary "Slate is a Crowncut labor dissident who alters shift tokens so injured salvagers can claim meals during disputes."
   subkind :dissident
-  type_of :person
   status :complete
   prominence :marginal
   veiled "Slate recuts Crowncut shift tokens so injured salvagers can claim meals while their cases are disputed."end

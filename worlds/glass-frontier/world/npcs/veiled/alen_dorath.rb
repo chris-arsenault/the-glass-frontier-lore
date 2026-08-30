@@ -2,7 +2,7 @@ npc :alen_dorath do
   name "Alen Dorath"
   summary "Alen Dorath is a Sithari bell tuner who repairs household bells with voice records from Old Campus."
   subkind :npc
-  type_of :person
+  type_of :tuners
   status :complete
   prominence :marginal
   veiled "Alen Dorath buys broken household bells in Sithari and returns them tuned to voices from Old Campus."end

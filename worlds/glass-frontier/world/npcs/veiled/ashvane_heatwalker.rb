@@ -1,8 +1,7 @@
 npc :ashvane_heatwalker do
   name "The Ashvane Heatwalker"
   summary "The Ashvane Heatwalker crosses work yards by reading pressure shimmer through the soles of insulated boots."
-  type_of :specialist_practitioner
-  belongs_to :practice, :heatwalking
+  type_of :heatwalking
   subkind :specialist
   status :complete
   prominence :marginal

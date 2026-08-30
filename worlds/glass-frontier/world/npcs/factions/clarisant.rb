@@ -4,7 +4,7 @@ faction :clarisant do
   playable_as :allegiance
   origin_blurb "A dispersed guild of trained Tuners whose credential carries trust across most of the system."
   subkind :religious_order
-  type_of :guild
+  type_of :portable_standing
   path "player/npcs/factions/clarisant.md"
   tags :resonance, :training, :governance, :"social-structure"
   prominence :recognized
@@ -32,7 +32,7 @@ faction :clarisant do
   )
 
   prose <<~PROSE
-    The professional guild of #{encyclopedia_ref :tuners, "Tuners"}. The Clarisant trains, certifies, and disciplines the practitioners who shape the system's working relationship with #{encyclopedia_ref :resonance, "resonance"}. It is not a government, not a religion, and not an order. It is closer to a medical board — gatekeeping in the service of public safety, supported by fees, and structurally hostile to dogma.
+    The professional guild of #{encyclopedia_ref :tuners, "Tuners"}. The Clarisant trains, certifies, and disciplines the practitioners who shape the system's working relationship with #{encyclopedia_ref :resonance, "resonance"}. It is not a government, religion, or order. Its examinations and inspections serve public safety, its fees preserve its independence, and its credential carries only as far as settlements agree to recognize it.
 
     Headquartered on #{ref :pelhari, "Pelhari"}, the guild operates a network of chapter houses across the system. A Clarisant credential means something in any settlement that recognizes it, which is most of them.
   PROSE

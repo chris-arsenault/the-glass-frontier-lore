@@ -11,7 +11,7 @@ module Lorecraft
     # player knowledge. Questions, entry logs and drafting records go into a
     # separate document intended for the authenticated editorial API.
     class Site < Base
-      SCHEMA_VERSION = 12
+      SCHEMA_VERSION = 13
       CAUSAL_RELATIONS = %w[causes caused caused_by].freeze
 
       def initialize(world, root: Dir.pwd)

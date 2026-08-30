@@ -2,9 +2,8 @@ installation :tanel do
   name "Tanel"
   summary "Tanel is a settlement of eight thousand people in the Glass Frontier, spread through pressure modules linked by an extensive Ring Age tube network."
   playable_as :chronicle_location
-  context_tags :"realm:ring_habitat"
+  context_tags :sealed_hab
   subkind :settlement
-  type_of :settlement
   status :complete
   tags :"ring-hab", :transport, :archives, :"signal-freq", :"ring-era"
   prominence :marginal

@@ -6,7 +6,7 @@ encyclopedia :hushmaw do
   status :complete
   topics :orbital, :danger, :resonance, :salvage, :mystery
   prevalence :uncommon
-  appears_when all: { place: [:"realm:orbital"] }
+  appears_when all: { place: [:debris_field] }
 
   descriptive_identity(
     appearance: "A broad central membrane folded around a cord of muscle and clear cartilage, with lines of " \

@@ -2,7 +2,6 @@ incident :repeated_voice do
   name "The Repeated Voice"
   summary "The Repeated Voice is a 2435 recovery at Bay Thirty-One of one voice from twenty-seven unrelated garments."
   subkind :discovery
-  type_of :anomalous_recovery
   date 2435
   status :complete
   tags :archives, :household, :mystery, :resonance, :"signal-freq"

@@ -5,7 +5,7 @@ encyclopedia :tripline_kiln do
   subkind :technology
   status :draft
   prevalence :uncommon
-  appears_when all: { place: [:"realm:outer_system"] }
+  appears_when all: { place: [:waterway] }
 
   prose "A tripline kiln fires river clay while suspended from a barge so Korvath tremors cannot crack the load."
 end

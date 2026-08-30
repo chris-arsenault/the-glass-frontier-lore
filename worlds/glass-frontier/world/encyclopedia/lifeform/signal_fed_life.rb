@@ -6,7 +6,7 @@ encyclopedia :signal_fed_life do
   status :draft
   topics :ecology, :"signal-freq", :orbital
   prevalence :uncommon
-  appears_when all: { place: [:"realm:orbital"] }
+  appears_when all: { place: [:damaged_signal] }
 
   prose "Signal-fed life gathers around damaged relays and converts repeated transmissions into heat and shell growth."
 end

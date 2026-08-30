@@ -2,10 +2,9 @@ installation :clearance_eight do
   name "Clearance Eight"
   summary "Clearance Eight is a traffic settlement in the Glass Frontier, built on a capture frame that clears passage between two narrow ring fragments."
   playable_as :chronicle_location, :homeland
-  context_tags :"realm:ring_habitat"
+  context_tags :sealed_hab, :dock, :road
   origin_blurb "A debris-capture settlement where eight public desks decide what may pass, be claimed, or be cut."
   subkind :settlement
-  type_of :settlement
   status :complete
   tags :"ring-hab", :transport, :navigation, :salvage, :governance, :"kinetic-freq"
   prominence :recognized

@@ -124,6 +124,7 @@ module Lorecraft
           fields: kind.fields.map { |field| fact_data(field) },
           identity_keys: kind.identity_keys.map { |key| identity_key_data(key) },
           tiers: kind.tiers.map { |tier| ability_tier_data(tier) },
+          classifications: kind.classifications,
         }.compact
       end
     end
@@ -138,6 +139,7 @@ module Lorecraft
         fields: kind.fields.map { |field| fact_data(field) },
         identity_keys: kind.identity_keys.map { |key| identity_key_data(key) },
         tiers: kind.tiers.map { |tier| ability_tier_data(tier) },
+        classifications: kind.classifications,
       }.compact
     end
 
@@ -333,6 +335,19 @@ module Lorecraft
     def report_reference_kind(kind)
       lines = ["Encyclopedia kind — #{kind[:name]}"]
       lines << kind[:description] if kind[:description]
+      unless kind[:classifications].empty?
+        lines << "Classifications: #{kind[:classifications].join(', ')}"
+      end
+      unless kind[:fields].empty?
+        lines << "Fields:"
+        kind[:fields].each do |field|
+          expectation = field[:expected] ? "expected" : "optional"
+          lines << "  #{field[:name]}: #{field[:type]} (#{expectation})"
+        end
+      end
+      unless kind[:identity_keys].empty?
+        lines << "Descriptive identity: #{kind[:identity_keys].map { |key| key[:name] }.join(', ')}"
+      end
       unless kind[:tiers].empty?
         lines << "Tiers:"
         kind[:tiers].each do |tier|

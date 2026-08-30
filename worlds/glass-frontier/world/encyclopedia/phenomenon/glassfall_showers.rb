@@ -9,7 +9,7 @@ encyclopedia :glassfall_showers do
   hazard "High-speed impacts, false resonance gradients, and abrasion of exposed arrays"
   topics :orbital, :ringglass, :resonance, :danger
   prevalence :uncommon
-  appears_when any: { place: [:"realm:surface", :"realm:orbital"] }
+  appears_when any: { place: [:surface, :orbital] }
 
   cue "Tuning compasses lean toward empty sky and signal equipment acquires brief echoes before the first visible streak."
   cue "On the surface the shower is pale streaks in quick succession; in orbit it is a dry hiss along the hull and bright pinpricks on shielding."

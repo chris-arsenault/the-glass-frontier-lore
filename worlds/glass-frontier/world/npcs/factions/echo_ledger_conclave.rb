@@ -4,7 +4,8 @@ faction :echo_ledger_conclave do
   playable_as :allegiance
   origin_blurb "Archivists catalogue voices from Echo Rivers and govern access to recordings whose context still matters."
   subkind :religious_order
-  type_of :order
+  type_of :archives_and_public_memory
+  belongs_to :culture, :custodial_standing
   path "player/npcs/factions/echo-ledger-conclave.md"
   reviewed "2026-03-18"
   tags :archives, :resonance, :"signal-freq", :governance

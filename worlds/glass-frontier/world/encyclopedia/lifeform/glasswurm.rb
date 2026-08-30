@@ -6,7 +6,7 @@ encyclopedia :glasswurm do
   status :complete
   topics :orbital, :salvage, :danger, :ringglass, :resonance
   prevalence :common
-  appears_when all: { place: [:"realm:orbital"] }
+  appears_when all: { place: [:debris_field] }
 
   descriptive_identity(
     appearance: "A segmented, plated borer, narrower than a ship corridor and long enough to cross one several " \

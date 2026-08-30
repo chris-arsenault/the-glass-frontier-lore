@@ -6,7 +6,7 @@ encyclopedia :eighth_seal do
   status :complete
   topics :governance, :archives, :salvage, :resonance
   prevalence :common
-  appears_when all: { place: [:"realm:ring_habitat"] }
+  appears_when all: { place: [:dock] }
 
   descriptive_identity(
     appearance:

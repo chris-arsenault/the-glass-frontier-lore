@@ -2,9 +2,8 @@ installation :lung_three do
   name "Lung Three"
   summary "Lung Three is a tall ceramic airflow chamber inside Vey that divides the settlement's thermal return among four residential wards."
   playable_as :chronicle_location
-  context_tags :"realm:ring_habitat"
+  context_tags :sealed_hab
   subkind :infrastructure
-  type_of :infrastructure
   function "Divides Vey's main thermal airflow among four residential wards"
   status :complete
   tags :"structural-freq", :household, :training, :"ring-hab"

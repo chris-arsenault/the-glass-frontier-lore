@@ -6,7 +6,7 @@ encyclopedia :sorel do
   status :complete
   topics :ecology, :resonance, :"structural-freq", :"ring-hab"
   prevalence :uncommon
-  appears_when all: { place: [:"realm:ring_habitat"] }
+  appears_when all: { place: [:sealed_hab, :garden] }
 
   descriptive_identity(
     appearance: "A broad, low grazer with four gripping feet that hold it against steep shell, a rasping " \

@@ -2,7 +2,7 @@ faction :cinder_breakers do
   name "Cinder Breakers"
   summary "The Cinder Breakers are a resistance network that opens unofficial paths through Pyre cordons for returning Latch families."
   subkind :resistance_network
-  type_of :resistance_network
+  type_of :doorstep_claimants
   status :complete
   prominence :marginal
   veiled "Cinder Breakers cut unofficial paths through Pyre cordons for families returning to abandoned Latch rooms."

@@ -4,7 +4,7 @@ encyclopedia :shade_burn_salve do
   subkind :medicine
   status :draft
   prevalence :uncommon
-  appears_when all: { place: [:"realm:outer_system"] }
+  appears_when all: { place: [:hot] }
   summary "Shade-burn salve is a wound medicine sourced from Crucible and South Shade. It draws charged grit from flesh and becomes rigid when the last grain leaves."
 
   prose "Shade-burn salve draws charged grit from a wound and turns rigid when the last grain leaves."

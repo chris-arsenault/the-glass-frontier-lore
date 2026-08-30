@@ -2,10 +2,9 @@ installation :kesh do
   name "Kesh"
   summary "Kesh is a shifting-gravity settlement of thirty-nine hundred people in the Glass Frontier, built around a kinetic-field junction on the Mareth branch."
   playable_as :chronicle_location, :homeland
-  context_tags :"realm:ring_habitat"
+  context_tags :sealed_hab, :unstable_route
   origin_blurb "A shifting-gravity hab where formations carry loads, cross thresholds, and train for rescue."
   subkind :settlement
-  type_of :settlement
   status :complete
   tags :"ring-hab", :resonance, :"kinetic-freq", :training, :"social-structure", :transport
   prominence :recognized

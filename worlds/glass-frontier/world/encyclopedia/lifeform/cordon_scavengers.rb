@@ -6,7 +6,7 @@ encyclopedia :cordon_scavengers do
   status :draft
   topics :ecology, :danger, :orbital
   prevalence :uncommon
-  appears_when all: { place: [:"realm:orbital"] }
+  appears_when all: { place: [:bloom_adjacent] }
 
   prose "Cordon scavengers feed on heat-softened sealant and retreat when Bloom light reaches the red warning band."
 end

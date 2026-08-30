@@ -2,9 +2,8 @@ installation :cold_lantern do
   name "Cold Lantern"
   summary "Cold Lantern is an uninhabited emergency waypoint on the outer Pell approach, used as the last common route check before the Deep Shear claims."
   playable_as :chronicle_location
-  context_tags :"realm:orbital"
+  context_tags :orbital, :cold, :road, :debris_field
   subkind :station
-  type_of :waypoint
   status :complete
   tags :orbital, :transport, :salvage, :navigation, :danger
   prominence :marginal

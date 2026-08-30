@@ -7,7 +7,7 @@ encyclopedia :shuttered_habs do
   reviewed "2026-03-19"
   topics :"ring-hab", :governance, :"social-structure"
   prevalence :rare
-  appears_when all: { place: [:"realm:ring_habitat"] }
+  appears_when all: { place: [:sealed_hab] }
 
   cue "A hab on the route holds power and atmosphere and does not answer hail."
   cue "Nothing visible separates a working council keeping its own company from a community with no remaining word for contact."

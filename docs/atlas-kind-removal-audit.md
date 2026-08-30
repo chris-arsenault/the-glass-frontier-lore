@@ -29,7 +29,7 @@ The concept entries divide without ambiguity:
 
 | Current id | Destination | Reason |
 |---|---|---|
-| `the_water_heresy` | Encyclopedia `doctrine` | A belief and allocation rule |
+| `the_water_heresy` | Encyclopedia `culture` | A belief and allocation rule |
 | `mixed_minds` | Encyclopedia `technology` | A reusable class of hybrid mind |
 | `continental_mycelium` | Encyclopedia `technology` | A reusable biological computation system |
 | `feral_models` | Encyclopedia `technology` | A reusable class of disconnected model |
@@ -50,7 +50,7 @@ The imported `concept` kind currently mixes ideologies, laws, customs, and
 recurring gatherings. Preserve the same Atlas id for every specific enacted law
 or named recurring event.
 
-Move these reusable beliefs and norms to Encyclopedia `doctrine`:
+Move these reusable beliefs and norms to Encyclopedia `culture`:
 
 - `the_way_al_2`
 - `the_way_ens`
@@ -61,8 +61,8 @@ Move these reusable beliefs and norms to Encyclopedia `doctrine`:
 
 Retype these specific enacted laws, covenants, or memorial rules as Atlas
 `edict`, retaining their ids, prose, moments, and edges. Give each a primary
-Encyclopedia doctrine type; a shell is sufficient until its reference article
-is authored:
+Encyclopedia culture type for its broader system of law or belief; a shell is
+sufficient until its reference article is authored:
 
 - `mandatum_ccord`
 - `echo_eliquiae`
@@ -81,10 +81,10 @@ the reusable institution or observance, not duplicate the named gathering:
 - `ritus_um`
 - `tide_custom`
 
-Before moving the six reusable doctrines out of the Atlas, run removal-impact
-analysis as one set and inspect every relation, moment effect, and prose
-reference. Their replacement requirement depends on those concrete claims, not
-on the fact that the imported files share a kind.
+Before moving the six reusable belief systems out of the Atlas, run
+removal-impact analysis as one set and inspect every relation, moment effect,
+and prose reference. Their replacement requirement depends on those concrete
+claims, not on the fact that the imported files share a kind.
 
 ## Enum removal gate
 

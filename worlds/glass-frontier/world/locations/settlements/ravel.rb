@@ -2,9 +2,8 @@ installation :ravel do
   name "Ravel"
   summary "Ravel is a settlement of thirty-five hundred people on a small ring fragment in the Glass Frontier, harvesting a mineral-rich plume every nine days."
   playable_as :chronicle_location
-  context_tags :"realm:ring_habitat", :"realm:orbital"
+  context_tags :sealed_hab, :orbital, :yard
   subkind :settlement
-  type_of :settlement
   status :complete
   tags :"ring-hab", :orbital, :materials, :transport, :resonance
   prominence :marginal

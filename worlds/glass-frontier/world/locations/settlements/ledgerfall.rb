@@ -2,9 +2,8 @@ installation :ledgerfall do
   name "Ledgerfall"
   summary "Ledgerfall is a city on the northern rim of the Sable Crescent, built around speaking waterfalls where an Echo River descends into the marshes."
   playable_as :chronicle_location
-  context_tags :"realm:surface"
+  context_tags :surface, :urban, :waterway, :ringglass_rich, :archive
   subkind :settlement
-  type_of :settlement
   status :complete
   population 81_000
   population_band "About eighty-one thousand across the falls, terrace wards, and lower river port"

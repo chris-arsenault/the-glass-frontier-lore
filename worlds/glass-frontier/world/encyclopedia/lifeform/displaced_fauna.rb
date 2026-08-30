@@ -6,7 +6,7 @@ encyclopedia :displaced_fauna do
   status :draft
   topics :ecology, :"fluid-reality", :"ring-hab"
   prevalence :uncommon
-  appears_when all: { place: [:"realm:ring_habitat"] }
+  appears_when all: { place: [:displacement_zone] }
 
   prose "Displaced fauna survive room shifts by nesting in thresholds and following air currents between incompatible interiors."
 end

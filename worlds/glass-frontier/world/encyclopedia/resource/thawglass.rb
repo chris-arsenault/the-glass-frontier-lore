@@ -9,7 +9,7 @@ encyclopedia :thawglass do
   availability "Made in Mera from low-grade ringglass fiber and porous ceramic"
   topics :materials, :ringglass, :household, :resonance
   prevalence :common
-  appears_when all: { place: [:"realm:ring_habitat"] }
+  appears_when all: { place: [:cold] }
 
   cue "Thawglass is a porous ceramic mesh threaded with low-grade ringglass fiber."
   cue "Every piece is fired with a painted heat line showing the direction of the spring melt."

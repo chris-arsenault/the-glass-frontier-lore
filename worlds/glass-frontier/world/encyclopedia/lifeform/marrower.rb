@@ -6,7 +6,7 @@ encyclopedia :marrower do
   status :complete
   topics :ecology, :resonance, :"ring-hab"
   prevalence :uncommon
-  appears_when all: { place: [:"realm:ring_habitat"] }
+  appears_when all: { place: [:sealed_hab] }
 
   descriptive_identity(
     appearance: "A six-legged scavenger the length of a forearm, with a narrow head, folding shoulder plates " \

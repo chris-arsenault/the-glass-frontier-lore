@@ -7,7 +7,7 @@ encyclopedia :blue_loam do
   function "Carries a medicinal mold that guides nerve regrowth"
   topics :ecology, :materials, :trade, :resonance
   prevalence :rare
-  available_globally
+  appears_when all: { place: [:garden] }
 
   cue "Cobalt fungal hairs thread the dark soil, and the mature mold forms pale nodules along the bed's tone lines."
   cue "A shipment includes live loam, dried nodules, and a scored ceramic bar carrying the bed's cultivation tone."

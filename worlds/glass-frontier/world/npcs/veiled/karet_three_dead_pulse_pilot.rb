@@ -1,8 +1,7 @@
 npc :karet_three_dead_pulse_pilot do
   name "The Karet Three Dead-Pulse Pilot"
   summary "The Karet Three Dead-Pulse Pilot holds a route by counting the silences between damaged navigation beacons."
-  type_of :specialist_practitioner
-  belongs_to :practice, :dead_pulse_reckoning
+  type_of :dead_pulse_reckoning
   subkind :specialist
   status :complete
   prominence :marginal

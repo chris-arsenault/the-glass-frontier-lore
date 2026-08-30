@@ -1,8 +1,7 @@
 npc :noll_root_tracer do
   name "The Noll Root Tracer"
   summary "The Noll Root Tracer follows buried ring conduits by touching each wall where the stone stays warm."
-  type_of :specialist_practitioner
-  belongs_to :practice, :root_tracing
+  type_of :root_tracing
   subkind :specialist
   status :complete
   prominence :marginal

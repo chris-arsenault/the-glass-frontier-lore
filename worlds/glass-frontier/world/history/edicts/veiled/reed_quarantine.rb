@@ -2,7 +2,7 @@ edict :reed_quarantine do
   name "The Reed Quarantine"
   summary "The Reed Quarantine holds boats carrying red-root growth outside inhabited channels until every cutting remains silent."
   subkind :edict
-  type_of :quarantine_rule
+  type_of :living_cargo_stewardship
   status :complete
   prominence :marginal
   veiled "The Reed Quarantine keeps boats carrying red-root growth outside inhabited channels until every cutting stays silent."

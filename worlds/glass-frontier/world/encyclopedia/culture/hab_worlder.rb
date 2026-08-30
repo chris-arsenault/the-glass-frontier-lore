@@ -4,7 +4,7 @@ encyclopedia :hab_worlder do
   kind :culture
   character_role :culture
   origin_blurb "Raised in sealed habs, Hab-Worlders read air, exits, maintenance, and mutual obligation instinctively."
-  subkind :way_of_life
+  subkind :cultural_identity
   status :complete
   reviewed "2026-03-18"
   topics :"social-structure", :"ring-hab"

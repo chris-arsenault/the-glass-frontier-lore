@@ -5,7 +5,7 @@ encyclopedia :drain_migration do
   subkind :ecological_phenomenon
   status :draft
   prevalence :rare
-  appears_when all: { place: [:"realm:surface"] }
+  appears_when all: { place: [:urban] }
 
   prose "Metal-feeding drain life leaves Glasswake in silver streams whenever the surface yards begin cutting ringglass."
 end

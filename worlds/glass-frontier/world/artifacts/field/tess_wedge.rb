@@ -2,7 +2,6 @@ artifact :tess_wedge do
   name "Var's Wedge"
   summary "Var's Wedge is a hand instrument for separating thin ringglass plates without destroying the signals recorded in them. Renn Var made it at Talven, which keeps the shortening original for mapped archive cuts."
   subkind :instrument
-  type_of :field_instrument
   function "Separates thin ringglass plates while preserving their signal impressions"
   status :complete
   tags :ringglass, :archives, :"signal-freq", :materials

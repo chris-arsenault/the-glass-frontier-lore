@@ -2,9 +2,8 @@ installation :south_shade do
   name "South Shade"
   summary "South Shade is a road house below Shadewell's southern rim, where Ashvane's highland road meets the cargo lifts to the Keel fields."
   playable_as :chronicle_location
-  context_tags :"realm:outer_system"
+  context_tags :outer_system, :surface, :hot, :road
   subkind :installation
-  type_of :lodging_house
   status :complete
   tags :"outer-system", :trade, :transport, :household, :resonance
   prominence :marginal

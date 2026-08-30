@@ -204,12 +204,13 @@ complete shared definitions.
 ## Authoring an Encyclopedia entry
 
 The Encyclopedia holds reusable types and patterns outside the Atlas entity and
-relationship graph. Its eleven kinds are `lifeform`, `culture`, `role`,
-`practice`, `doctrine`, `ability`, `institution`, `technology`, `resource`,
-`phenomenon`, and `place_feature`. The shared schema declares kinds. An entry's required
+relationship graph. Its seven kinds are `lifeform`, `role`, `technology`,
+`resource`, `ability`, `phenomenon`, and `culture`. The shared schema declares
+kinds and owns each kind's semantic boundary. An entry's required
 `subkind` is authored classification and does not define another schema layer.
-Kinds may declare typed fields and descriptive-identity keys; those declarations
-apply to every subkind of that kind.
+Kinds may constrain those labels with `classifications`; fields and
+descriptive-identity keys remain kind-level declarations that apply to every
+classification.
 
 ```ruby
 encyclopedia_type :lifeform do

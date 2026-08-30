@@ -1,8 +1,9 @@
 encyclopedia :couriers do
-  name "Couriers"
-  summary "Couriers are the hand-carry trade of the Kaleidos system, moving small, urgent, or custody-sensitive loads along routes held in one person's working memory."
+  name "Keeper of Roads"
+  aka "Courier", "Couriers", "Keepers of Roads"
+  summary "A Keeper of Roads carries small, urgent, or custody-sensitive loads along routes held in one person's working memory and answers for every transfer of the case."
   kind :role
-  subkind :courier
+  subkind :profession
   status :complete
   topics :transport, :trade
   prevalence :common
@@ -32,7 +33,9 @@ encyclopedia :couriers do
   variation "Each route has its own drums, locks, stairs, households, and counters, and passes to an apprentice who can rebuild it after disruption."
 
   prose <<~PROSE
-    Freight moves on schedules; couriers move what cannot wait for one. Medicine that spoils, a replacement part a settlement is down without, pressure samples that lose their value in a day, papers whose chain of custody matters more than their weight — anything small enough to carry and urgent enough to pay for travels by hand. The trade exists wherever the #{ref :keel, "Keel"}'s manifests and the local freight yards leave a gap, which is everywhere.
+    Freight moves on schedules; Keepers of Roads move what cannot wait for one. Medicine that spoils, a replacement part a settlement is down without, pressure samples that lose their value in a day, papers whose chain of custody matters more than their weight — anything small enough to carry and urgent enough to pay for travels by hand. The trade exists wherever the #{ref :keel, "Keel"}'s manifests and the local freight yards leave a gap, which is everywhere.
+
+    A keeper does not own a road or promise that it will remain open. The title means that the route lives in the keeper: its current locks, stairs, households, delays, and people willing to take the next case. Freight ledgers classify the work as courier service. People who entrust a case to one person through several transfers call that person its Keeper of Roads.
 
     The unit of the trade is the route, not the run. A courier holds a route the way other trades hold a workshop: the transfer drums and their timings, the locks that stick, the stairs that beat the lift when the docks are crowded, the households and counters at either end. Route knowledge is personal and perishable. A courier who has been away a season walks their route before they carry on it again.
   PROSE

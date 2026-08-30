@@ -6,7 +6,7 @@ encyclopedia :shellback do
   status :complete
   topics :orbital, :resonance, :ecology, :salvage, :danger, :ringglass
   prevalence :common
-  appears_when all: { place: [:"realm:orbital"] }
+  appears_when all: { place: [:debris_field] }
 
   descriptive_identity(
     appearance: "Broad enough to cover a hatch and low enough to pass for fused wreckage: overlapping mineral " \

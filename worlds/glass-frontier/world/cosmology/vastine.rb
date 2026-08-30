@@ -1,9 +1,8 @@
 geographic_location :vastine do
   name "Vastine"
   summary "Vastine is the seventh planet of the Kaleidos system, a water giant whose global ocean lies below its deep atmosphere and inhabited moons."
-  type_of :celestial_body
   playable_as :chronicle_location
-  context_tags :"realm:outer_system"
+  context_tags :outer_system
   subkind :celestial_body
   status :complete
   tags :cosmology, :"outer-system", :ecology, :trade, :religion

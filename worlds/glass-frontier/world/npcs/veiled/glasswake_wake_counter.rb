@@ -1,8 +1,7 @@
 npc :glasswake_wake_counter do
   name "The Glasswake Wake Counter"
   summary "The Glasswake Wake Counter identifies an approaching vessel from the rhythm it leaves in household water tanks."
-  type_of :specialist_practitioner
-  belongs_to :practice, :wake_counting
+  type_of :wake_counting
   subkind :specialist
   status :complete
   prominence :marginal

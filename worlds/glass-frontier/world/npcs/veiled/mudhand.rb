@@ -2,7 +2,6 @@ npc :mudhand do
   name "Mudhand"
   summary "Mudhand is a river worker who clears intake reeds between Dovra and Lowbank."
   subkind :worker
-  type_of :person
   status :complete
   prominence :marginal
   veiled "Mudhand clears Dovra intake reeds and leaves the trapped pole-thief eggs for Lowbank kitchens."end

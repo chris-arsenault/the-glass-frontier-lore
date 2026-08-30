@@ -51,7 +51,7 @@ module Lorecraft
       def required? = required == true
     end
     EncyclopediaKindDef = Struct.new(
-      :name, :description, :fields, :identity_keys, :tiers,
+      :name, :description, :fields, :identity_keys, :tiers, :classifications,
       keyword_init: true
     )
     AbilityTierDef = Struct.new(
@@ -111,7 +111,7 @@ module Lorecraft
                 :playable_coverage_requirements, :playable_count_requirements,
                 :focus_choice_requirements, :gm_notes_required_from,
                 :gm_notes_required_minimum, :entity_summary_maximum, :encyclopedia_kinds,
-                :context_tags, :context_tag_required_roles, :encyclopedia_type_required_kinds,
+                :context_tags, :context_tag_required_roles,
                 :encyclopedia_type_kind_requirements
 
     def initialize
@@ -124,7 +124,6 @@ module Lorecraft
       @encyclopedia_kinds = {}
       @context_tags = {}
       @context_tag_required_roles = []
-      @encyclopedia_type_required_kinds = []
       @encyclopedia_type_kind_requirements = {}
       @playable_roles = {}   # role(sym) => selection purpose
       @location_kinds = []   # entity kinds that require chronicle-location judgment
@@ -213,7 +212,8 @@ module Lorecraft
           description: description&.to_s,
           fields: [],
           identity_keys: [],
-          tiers: []
+          tiers: [],
+          classifications: []
         )
       end
       EncyclopediaKindBuilder.new(self, names.first).instance_eval(&block) if block
@@ -243,6 +243,10 @@ module Lorecraft
 
     def encyclopedia_tiers_for(kind)
       @encyclopedia_kinds[kind&.to_sym]&.tiers || []
+    end
+
+    def encyclopedia_classifications_for(kind)
+      @encyclopedia_kinds[kind&.to_sym]&.classifications || []
     end
 
     def encyclopedia_tier_def(kind, name)
@@ -285,6 +289,16 @@ module Lorecraft
       owner.tiers.sort_by!(&:rank)
     end
 
+    def add_encyclopedia_classification(kind, name)
+      owner = @encyclopedia_kinds.fetch(kind.to_sym)
+      name = name.to_sym
+      if owner.classifications.include?(name)
+        raise DefinitionError, "duplicate classification #{name} on encyclopedia kind #{kind}"
+      end
+
+      owner.classifications << name
+    end
+
     def context_tag(name, description = nil, scopes:, parent: nil, compatible_with: [])
       name = name.to_sym
       raise DefinitionError, "duplicate context tag #{name}" if @context_tags.key?(name)
@@ -308,21 +322,6 @@ module Lorecraft
     def require_context_tags!(for_playable:)
       role = checked_playable_role(for_playable)
       @context_tag_required_roles << role unless @context_tag_required_roles.include?(role)
-    end
-
-    def require_encyclopedia_types!(kinds:)
-      kinds = Array(kinds).map(&:to_sym).uniq
-      raise DefinitionError, "encyclopedia type requirement needs at least one kind" if kinds.empty?
-
-      unknown = kinds.reject { |kind| kind?(kind) }
-      unless unknown.empty?
-        raise DefinitionError, "encyclopedia type requirement uses unknown kinds #{unknown.join(', ')}"
-      end
-      unless @encyclopedia_type_required_kinds.empty?
-        raise DefinitionError, "duplicate encyclopedia type requirement"
-      end
-
-      @encyclopedia_type_required_kinds = kinds.freeze
     end
 
     def require_encyclopedia_type_kind!(atlas_kind:, encyclopedia_kind:)
@@ -755,6 +754,18 @@ module Lorecraft
       def subkind(*)
         raise DefinitionError,
               "encyclopedia schema is declared at kind level; subkind is authored classification"
+      end
+
+      # Classifications constrain the authored subkind vocabulary without
+      # creating a second schema layer. Fields and identity keys remain owned
+      # by the Encyclopedia kind.
+      def classifications(*names)
+        names = names.flatten
+        if names.empty?
+          raise DefinitionError, "encyclopedia kind #{@kind} classifications need at least one name"
+        end
+
+        names.each { |name| @schema.add_encyclopedia_classification(@kind, name) }
       end
 
       def identity_key(name)

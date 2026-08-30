@@ -2,7 +2,6 @@ artifact :returning_casing do
   name "The Returning Casing"
   summary "The Returning Casing is one of three original stillwater buoy casings mounted at Cinder Gap; it returns a faint copy of every test tone applied nearby."
   subkind :artifact
-  type_of :field_machine
   resource :stillwater
   status :complete
   tags :resonance, :danger, :archives

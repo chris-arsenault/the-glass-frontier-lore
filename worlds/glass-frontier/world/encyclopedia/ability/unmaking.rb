@@ -2,7 +2,7 @@ encyclopedia :unmaking do
   name "Unmaking"
   summary "Unmaking destroys the coherence that lets an object, effect, body, or constructed system continue as one thing."
   kind :ability
-  subkind :ability
+  subkind :resonant_effect
   status :complete
   topics :resonance, :danger, :catastrophe, :"structural-freq"
   prevalence :rare

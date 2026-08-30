@@ -2,9 +2,8 @@ installation :coldside_bench do
   name "Coldside Bench"
   summary "Coldside Bench is a shaded public repair hall on a lower Shadewell terrace, rebuilding heat-rated pumps, radiator controls, and road-hauler gear."
   playable_as :chronicle_location
-  context_tags :"realm:outer_system"
+  context_tags :outer_system, :surface, :hot, :yard
   subkind :workshop
-  type_of :workshop
   function "Rebuilds heat-rated pumps, radiator controls, and road-hauler running gear"
   status :complete
   tags :"outer-system", :trade, :transport, :resonance, :rebuilding

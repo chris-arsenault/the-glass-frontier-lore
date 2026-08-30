@@ -2,10 +2,9 @@ installation :eleven do
   name "Eleven"
   summary "Eleven is a settlement of nine thousand people along eleven shafts in the Glass Frontier, sharing one gravity-fed water and coolant line."
   playable_as :chronicle_location
-  context_tags :"realm:ring_habitat"
+  context_tags :sealed_hab
   aka "Service Habitat Eleven"
   subkind :settlement
-  type_of :settlement
   status :complete
   tags :"ring-hab", :household, :"social-structure", :transport, :resonance
   prominence :marginal

@@ -4,7 +4,7 @@ encyclopedia :sitharian_culture do
   kind :culture
   character_role :culture
   origin_blurb "Sitharian upbringing prizes measured speech, institutional memory, and confidence in formal procedure."
-  subkind :regional_culture
+  subkind :cultural_identity
   status :complete
   reviewed "2026-03-19"
   topics :"social-structure", :governance, :trade

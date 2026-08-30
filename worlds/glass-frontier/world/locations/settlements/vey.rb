@@ -2,9 +2,8 @@ installation :vey do
   name "Vey"
   summary "Vey is a settlement of twelve and a half thousand people inside a porous ring fragment in the Glass Frontier, ventilated by its rotating thermal cycle."
   playable_as :chronicle_location
-  context_tags :"realm:ring_habitat"
+  context_tags :sealed_hab
   subkind :settlement
-  type_of :settlement
   status :complete
   tags :"ring-hab", :"structural-freq", :household, :resonance, :governance
   prominence :recognized

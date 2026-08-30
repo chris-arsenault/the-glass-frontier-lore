@@ -2,9 +2,8 @@ installation :verathi do
   name "Verathi"
   summary "Verathi is an eighteen-thousand-person ring habitat on the outer inhabited arc of the Glass Frontier, with a complete civil registry preserved through the Signal Famine."
   playable_as :chronicle_location
-  context_tags :"realm:ring_habitat"
+  context_tags :sealed_hab, :archive
   subkind :settlement
-  type_of :settlement
   tags :"ring-hab", :governance, :divergence, :diplomacy
   prominence :recognized
   position frame: :kaleidos_system_chart, relative_to: :kaleidos,

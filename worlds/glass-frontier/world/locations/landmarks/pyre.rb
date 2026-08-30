@@ -2,9 +2,8 @@ installation :pyre do
   name "Pyre"
   summary "Pyre is a ruined Coremark ringglass refinery in the mid-drift Shear, now enclosed by the Bloom Zone that formed during the Silent Bloom."
   playable_as :chronicle_location
-  context_tags :"realm:orbital"
+  context_tags :orbital, :debris_field, :bloom_adjacent, :hot, :yard
   subkind :landmark
-  type_of :refinery
   path "player/locations/landmarks/pyre.md"
   status :complete
   reviewed "2026-03-20"

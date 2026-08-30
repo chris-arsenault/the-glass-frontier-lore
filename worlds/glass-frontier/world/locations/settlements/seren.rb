@@ -2,10 +2,9 @@ installation :seren do
   name "Seren"
   summary "Seren is a biological repository settlement in the Glass Frontier, occupying a cold Ring-era spindle divided between sealed vaults and warm trial beds."
   playable_as :chronicle_location
-  context_tags :"realm:ring_habitat"
+  context_tags :sealed_hab, :cold, :garden, :archive
   aka "Seren-ith"
   subkind :settlement
-  type_of :settlement
   status :complete
   tags :"ring-hab", :"ring-era", :archives, :ecology, :materials
   prominence :recognized

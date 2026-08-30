@@ -2,7 +2,7 @@ edict :blue_step_weight do
   name "The Blue-Step Weight"
   summary "The Blue-Step Weight limits loads on the Avar roads to the mass that two stranded crews can move by hand."
   subkind :edict
-  type_of :load_safety_rule
+  type_of :road_and_freight_law
   status :complete
   prominence :marginal
   veiled "The Blue-Step Weight limits each Avar road load to what two stranded crews can move by hand."

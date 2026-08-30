@@ -1,8 +1,7 @@
 artifact :three_arms_unfinished_frame do
   name "The Three Arms Unfinished Frame"
   summary "The Three Arms Unfinished Frame passes to the crew able to name every repair already made to it."
-  type_of :workshop_frame
-  belongs_to :doctrine, :yard_inheritance
+  type_of :yard_order
   subkind :machine
   status :complete
   prominence :marginal

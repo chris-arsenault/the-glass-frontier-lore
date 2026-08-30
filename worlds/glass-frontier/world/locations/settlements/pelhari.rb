@@ -2,9 +2,8 @@ installation :pelhari do
   name "Pelhari"
   summary "Pelhari is a vertical city carved into a deep crater on an inhabited moon of Vastine, and the outer system's largest center of learning and trade."
   playable_as :chronicle_location
-  context_tags :"realm:outer_system"
+  context_tags :outer_system, :urban, :archive
   subkind :settlement
-  type_of :settlement
   path "player/locations/settlements/pelhari.md"
   tags :"outer-system", :training, :resonance, :trade, :"ring-era"
   prominence :recognized

@@ -6,7 +6,7 @@ encyclopedia :drift_eel do
   status :complete
   topics :danger, :orbital, :resonance, :ecology, :salvage
   prevalence :common
-  appears_when all: { place: [:"realm:orbital"] }
+  appears_when all: { place: [:debris_field] }
 
   descriptive_identity(
     appearance: "A chain of dark flexible plates joined by pale tissue, trailing a fringe of thin feeding " \

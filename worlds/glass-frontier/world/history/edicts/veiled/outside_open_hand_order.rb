@@ -1,8 +1,7 @@
 edict :outside_open_hand_order do
   name "The Outside Open-Hand Order"
   summary "The Outside Open-Hand Order requires anyone entering a displaced room to show an empty glove first."
-  type_of :local_order
-  belongs_to :doctrine, :open_hand_rule
+  type_of :displaced_room_law
   subkind :edict
   status :complete
   prominence :marginal

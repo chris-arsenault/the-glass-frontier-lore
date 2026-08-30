@@ -1,8 +1,7 @@
 npc :ashenmaw_afterimage_watcher do
   name "The Ashenmaw Afterimage Watcher"
   summary "The Ashenmaw Afterimage Watcher retains the safe outline of moving debris for several breaths after it vanishes."
-  type_of :specialist_practitioner
-  belongs_to :ability, :fracture_afterimage
+  type_of :fracture_afterimage
   subkind :specialist
   status :complete
   prominence :marginal

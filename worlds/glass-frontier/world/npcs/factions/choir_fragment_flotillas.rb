@@ -1,8 +1,7 @@
 faction :choir_fragment_flotillas do
   name "The Choir Fragment Flotillas"
   summary "The Choir Fragment Flotillas are two Ratter flotillas that share the quarterly inspection route through the Choir Fragment."
-  type_of :salvage_flotilla
-  belongs_to :role, :ratters
+  type_of :ratters
   subkind :trade_network
   status :complete
   tags :salvage, :orbital, :trade

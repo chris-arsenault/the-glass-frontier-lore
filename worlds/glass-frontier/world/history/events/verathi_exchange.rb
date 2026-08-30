@@ -2,7 +2,6 @@ incident :verathi_exchange do
   name "Verathi Exchange"
   summary "The Verathi Exchange was a 2311 dispute over Sithari's attempt to treat the independently governed hab as a restored district."
   subkind :dispute
-  type_of :jurisdiction_dispute
   tags :diplomacy, :divergence, :"ring-hab", :rebuilding
   prominence :recognized
   status :complete

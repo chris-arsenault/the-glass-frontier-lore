@@ -6,7 +6,7 @@ encyclopedia :oruun do
   status :draft
   topics :species, :trade, :"ring-hab"
   prevalence :uncommon
-  appears_when all: { place: [:"realm:ring_habitat"] }
+  available_globally
 
   prose "Oruun change skin density with local spin and mark kinship by exchanging weighted rings."
 end

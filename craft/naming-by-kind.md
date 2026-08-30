@@ -57,6 +57,60 @@ Common fails:
 ## People Names
 
 See `naming-craft.md` for the method and the world's `guidance/naming-conventions.md` for its culture patterns. Additional checks:
-- **Does the name match the character's culture and species?** Cross-check against the world's conventions.
+- **Does the name match the identity sources the world says govern public names?** Cross-check against the world's canon rather than assuming ancestry, birthplace, or occupation takes priority.
 - **If they code-switch, is that reflected?** Someone with a professional name in one culture's register and a personal name in another should have both referenced.
 - **Are there nicknames or shortened forms?** Real people have these, and which one a speaker uses says who they are to each other.
+
+## Encyclopedia Names
+
+An Encyclopedia title establishes reusable world vocabulary. State the ordinary
+category first, determine how the world has changed it, and derive the title
+from the people who recognize that difference. Give an unfamiliar title an
+ordinary gloss in its summary.
+
+Do not fill a reference catalog with decorated generic nouns. If changing the
+title back to the ordinary category leaves the article unchanged, keep the
+ordinary title or redesign the subject.
+
+### Lifeforms
+
+Name a lifeform through the people who encounter, cultivate, hunt, study, or
+fear it. A trade name, local name, and scholarly name may coexist. Avoid a
+catalog dominated by one descriptive compound pattern, especially color plus
+familiar animal.
+
+### Cultural subjects
+
+The title names the learned practice, identity, body of law, artistic
+tradition, belief, or social order the article actually describes. Use a plain
+descriptive title when several cultures share the subject. Use a culturally
+specific term only when the canon establishes who uses it and what that term
+distinguishes.
+
+### Roles
+
+A role may be a profession, office, community duty, social station, or earned
+designation. Its title should be the form recognized by the people who grant
+its standing or rely on its obligations. A familiar noun can remain when the
+position has a distinct world meaning. A coined title must carry a difference
+in duties, authority, qualification, or social expectation rather than merely
+renaming an ordinary job.
+
+### Practices and abilities
+
+Name the discrete action or effect, not the desired mood. Prefer the term used
+by practitioners or witnesses. Two names for mechanically similar acts are
+useful only when training, consequence, or interpretation makes them different
+in the world.
+
+### Institutions, technologies, and resources
+
+Use the name spoken by members, makers, operators, traders, or users. Technical
+designations, trade names, and slang may coexist. Do not turn a specification
+into a title unless the people handling the thing actually do.
+
+### Phenomena and place features
+
+Use the name given by people who repeatedly live with the condition or feature.
+The name may record a sign, old explanation, location, discoverer, or practical
+response. It need not summarize the true mechanism.

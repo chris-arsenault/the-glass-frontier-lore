@@ -44,7 +44,7 @@ encyclopedia :humans do
   prose <<~PROSE, section: :present_day, heading: "Present Day"
     Humans represent the largest single population in the system, partly because their shorter lifespans mean faster generational turnover and partly because they breed prolifically by the standards of most other species. They are the demographic default — not dominant in any qualitative sense, but numerous enough that human faces are the most common ones in most settlements.
 
-    This ubiquity means humans don't have a strong species-level identity the way some smaller populations do. A human's primary identity is cultural — #{encyclopedia_ref :cultures, "Sithari"}, #{encyclopedia_ref :cultures, "Hab-Worlder"}, syndicate, independent — rather than biological. Most humans don't think about being human very often. There are too many of them for it to feel distinctive.
+    This ubiquity means humans don't have a strong species-level identity the way some smaller populations do. A human's primary identity is cultural — #{encyclopedia_ref :sitharian_culture, "Sitharian"}, #{encyclopedia_ref :hab_worlder, "Hab-Worlder"}, syndicate, independent — rather than biological. Most humans don't think about being human very often. There are too many of them for it to feel distinctive.
   PROSE
   prose <<~PROSE, section: :resonance, heading: "Relationship with Resonance"
     Neutral. Humans can learn, but the learning curve is steep and the ceiling is lower than it is for naturally attuned species. The best human resonance practitioners are genuinely skilled — but they'll never feel the resonance landscape the way a gnome does, and they know it.

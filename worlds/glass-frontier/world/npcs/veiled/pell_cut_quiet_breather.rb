@@ -1,8 +1,7 @@
 npc :pell_cut_quiet_breather do
   name "The Pell Cut Quiet Breather"
   summary "The Pell Cut Quiet Breather works beside sound-sensitive glasswurms without waking the colony."
-  type_of :specialist_practitioner
-  belongs_to :practice, :quiet_breath
+  type_of :quiet_breath
   subkind :specialist
   status :complete
   prominence :marginal

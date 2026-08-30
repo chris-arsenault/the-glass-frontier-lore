@@ -2,9 +2,8 @@ installation :pell_cut do
   name "Pell Cut"
   summary "Pell Cut is a chain of receiving and sorting yards along a navigable cut in the outer Deep Shear, processing salvage from four claim pockets."
   playable_as :chronicle_location
-  context_tags :"realm:orbital"
+  context_tags :orbital, :debris_field, :yard, :dock
   subkind :infrastructure
-  type_of :infrastructure
   tags :salvage, :trade, :transport, :resonance, :orbital, :danger
   prominence :recognized
   function "Receives and separates material extracted from remote Deep Shear claims"

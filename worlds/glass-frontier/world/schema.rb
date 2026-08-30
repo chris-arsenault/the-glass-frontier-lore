@@ -11,10 +11,6 @@ schema do
   require_entity_summaries!
   require_fact_cards! from: :renowned, minimum: 4
   require_gm_notes! from: :forgotten, minimum: 1
-  require_encyclopedia_types! kinds: %i[
-    ability artifact conflict creature edict faction geographic_location incident installation
-    npc phenomenon resource rumor transport
-  ]
   require_encyclopedia_type_kind! atlas_kind: :ability, encyclopedia_kind: :ability
   require_encyclopedia_type_kind! atlas_kind: :phenomenon, encyclopedia_kind: :phenomenon
   require_playable_coverage! :chronicle_location,
@@ -48,6 +44,17 @@ schema do
     field :principal_accommodation, type: :text, label: "Principal Accommodation", expected: false
   end
 
+  extend_encyclopedia_kind :culture do
+    classifications :cultural_identity, :social_order, :governance, :belief,
+                    :expressive_tradition, :material_life, :work_tradition,
+                    :collective_standing
+  end
+
+  extend_encyclopedia_kind :role do
+    classifications :profession, :office, :community_duty, :social_station,
+                    :earned_designation
+  end
+
   extend_encyclopedia_kind :phenomenon do
     field :function, type: :text, expected: false
     field :nature, type: :text, expected: false
@@ -56,6 +63,10 @@ schema do
   end
 
   extend_encyclopedia_kind :ability do
+    # The extraordinary classifications express power tiers; the trained ones
+    # do not. Both are things a person can deliberately do.
+    classifications :resonant_effect, :innate_sensitivity,
+                    :technique, :sensory_training, :operational_method, :verification_method
     tier :broad, rank: 1,
                  description: "Broad-band effect with the lowest reach, precision, and cost."
     tier :focused, rank: 2,
@@ -66,18 +77,75 @@ schema do
                 description: "Single-wavelength effect at the highest power and lasting cost."
   end
 
-  context_tag :"realm:surface",
+  # Placement vocabulary: properties of a place, then functions a place
+  # serves. Encyclopedia availability selects over these; every tag below is
+  # justified by entries that need it, none by speculation.
+
+  # Physical properties.
+  context_tag :surface,
               "Open ground and built places on a planetary surface.",
               scopes: :place
-  context_tag :"realm:orbital",
+  context_tag :orbital,
               "Places reached and sustained in orbit or free space.",
               scopes: :place
-  context_tag :"realm:ring_habitat",
-              "Settled remnants and enclosed communities of the broken ring.",
-              scopes: :place,
-              parent: :"realm:orbital"
-  context_tag :"realm:outer_system",
+  context_tag :outer_system,
               "Worlds, stations, and routes beyond the central ring region.",
+              scopes: :place
+  context_tag :sealed_hab,
+              "Enclosed living space with managed air and structure: ring habitats, sealed stations, shuttered decks.",
+              scopes: :place
+  context_tag :hot,
+              "Dangerous heat, charged dust, or open thermal industry.",
+              scopes: :place
+  context_tag :cold,
+              "Deep cold: ice routes, unheated hulls, freezing storage.",
+              scopes: :place
+  context_tag :waterway,
+              "Rivers, channels, deltas, and the working spaces on and beside them.",
+              scopes: :place
+  context_tag :debris_field,
+              "Ring debris and the salvage regions and routes threading it.",
+              scopes: :place
+  context_tag :bloom_adjacent,
+              "Within reach of a Bloom Zone boundary and its cordon discipline.",
+              scopes: :place
+  context_tag :ringglass_rich,
+              "Ground, water, or structure carrying concentrated ringglass.",
+              scopes: :place
+  context_tag :displacement_zone,
+              "Places where rooms and passages shift, open wrongly, or shed contents.",
+              scopes: :place
+  context_tag :garden,
+              "Cultivated growing space: garden habitats, graft networks, farm settlements.",
+              scopes: :place
+  context_tag :unstable_route,
+              "Roads and passages that move, decay, or lose their markers.",
+              scopes: :place
+  context_tag :damaged_signal,
+              "Broken relays, dead beacons, and corrupted transmission lines.",
+              scopes: :place
+  context_tag :urban,
+              "Dense settled fabric: packed streets, shared walls, drains, crowds.",
+              scopes: :place
+
+  # Place functions.
+  context_tag :dock,
+              "Berths, moorings, and transfer floors where vessels load and unload.",
+              scopes: :place
+  context_tag :yard,
+              "Industrial working ground: rigging yards, workshops, refineries, cutting floors.",
+              scopes: :place
+  context_tag :archive,
+              "Rooms and institutions that keep records under custody.",
+              scopes: :place
+  context_tag :market,
+              "Exchanges, trade floors, and the public rooms where goods change hands.",
+              scopes: :place
+  context_tag :road,
+              "Freight and passenger routes and the stops that serve them.",
+              scopes: :place
+  context_tag :cordon,
+              "Watched hazard boundaries and the posts that hold them.",
               scopes: :place
 
   # Resonance is a physical force here, so attunement and sympathy are real

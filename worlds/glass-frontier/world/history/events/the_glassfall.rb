@@ -2,7 +2,6 @@ incident :the_glassfall do
   name "The Glassfall"
   summary "The Glassfall was the hours-long shattering of Kaleidos's inhabited orbital ring in 2140, leaving isolated habitats and debris across the system."
   subkind :disaster
-  type_of :systemic_catastrophe
   path "player/history/events/the-glassfall.md"
   status :complete
   reviewed "2026-03-19"

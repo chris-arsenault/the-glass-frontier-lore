@@ -1,305 +1,71 @@
 encyclopedia :naming_conventions do
-  name "Naming Conventions"
-  summary "Naming conventions in the Kaleidos system follow culture first, with species ancestry retained mainly through ceremonial, inherited, or deliberately asserted names."
+  name "Names in Kaleidos"
+  summary "Names in Kaleidos ordinarily identify a person's culture and present affiliations, while species traditions survive in intimate, ceremonial, inherited, or deliberately asserted forms."
   kind :culture
-  subkind :naming_practice
-  status :draft
+  subkind :expressive_tradition
+  status :complete
   reviewed "2026-03-18"
   topics :"social-structure"
   prevalence :common
   available_globally
-  registry true
+
+  cue "A formal introduction gives more structure than the name shouted across a work floor, while an intimate name may follow a different tradition entirely."
+  cue "Names shared by people of different species but the same upbringing sound more alike than names shared only through ancestry."
+  affordance "A name can establish the culture, household, institution, or working community through which its bearer expects to be recognized."
+  pressure "Using an intimate, inherited, or ceremonial form in the wrong setting can claim a closeness or ancestry the speaker has not been given."
+  variation "People who leave home often clip, translate, or supplement a name so it works in the register of their new community."
+  variation "Earned names, household names, work names, and species-traditional names can coexist, with different witnesses entitled to different forms."
 
   log "2026-08-22 — Classified as a reference article because it compares naming practices across cultures rather than naming one practice."
+  log "2026-08-29 — Removed generator configuration and unwritten design notes; retained the established naming traditions as in-world canon."
 
   prose <<~PROSE
-    Names in the Kaleidos system are primarily cultural, not species-based. Culture determines naming pattern. Species occasionally influences names as a secondary layer — traditional species-rooted names used as throwbacks, ceremonial names, or by people making a deliberate statement.
+    Public names in Kaleidos follow culture before ancestry. A Sitharian orc and a Sitharian human generally share more of an introduction than either shares with a person raised in an isolated hab. Species remains audible where a family preserves an older form, a community maintains a separate intimate register, or a bearer chooses to assert it. None of those forms reliably states where the person grew up.
 
-    Each domain below follows the `name-forge` schema: **phonology** (sound inventory), **morphology** (word construction), **style** (presentation rules).
-    **Structural variety across traditions:**
-
-    | Tradition | Structure | Example |
-    |-----------|-----------|---------|
-    | Sithari | Personal + Family (formal two-part) | *Senna Korvanis* |
-    | Hab-Worlder | Given + Hab-marker (clipped two-part) | *Dern Talish* |
-    | Orcish | Mononym (one earned name) | *Goruth* |
-    | Gnomish | Apostrophe compound (resonance breaks) | *T'vekis* |
-    | Fae | Epithet-primary + breathy true name | *The Held Stillness* / *Eshaia* |
-    | Elven | Chain patronymic (name-of-name-of-name) | *Thaliraea ve Samaethis ve Loriendi* |
-
-    ---
+    Most people accumulate more than one usable name. A household supplies the first. A school, ship, guild, work crew, marriage, adoption, or public office may add another. Which form a person offers tells the listener what relationship they are prepared to begin.
   PROSE
-  prose <<~PROSE, section: :naming, heading: "Cultural Domains"
-    ### Sithari
 
-    The system's formal register. Old-world gravitas.
+  prose <<~PROSE, section: :naming, heading: "Sitharian Names"
+    Sitharian public names normally join a personal name to a family name. The two-part form belongs to courts, contracts, schools, and introductions in which standing matters. Formal proceedings put the family first; friends and household members use the personal name without treating the omission as incomplete.
 
-    ```json
-    {
-      "id": "sithari_npc",
-      "cultureId": "sithari",
-      "appliesTo": { "kind": ["npc"], "subKind": [], "tags": [] },
-      "phonology": {
-        "consonants": ["s", "t", "r", "l", "n", "m", "v", "k", "d", "th"],
-        "vowels": ["a", "e", "i", "o", "ah", "eh"],
-        "syllableTemplates": ["CV", "CVC", "CVV"],
-        "lengthRange": [2, 3],
-        "favoredClusters": ["th", "nd", "rv", "lm", "st"],
-        "forbiddenClusters": ["gh", "kh", "aa", "ee"],
-        "favoredClusterBoost": 1.3
-      },
-      "morphology": {
-        "prefixes": ["Tal", "Kor", "Mer", "Val", "Sel", "Dor", "Ven"],
-        "suffixes": ["indra", "aleth", "anis", "ova", "enis", "ira"],
-        "structure": ["root", "root-suffix", "prefix-root-suffix"],
-        "structureWeights": [0.3, 0.35, 0.35]
-      },
-      "style": {
-        "capitalization": "title",
-        "apostropheRate": 0,
-        "hyphenRate": 0,
-        "preferredEndings": ["a", "eth", "is", "en", "ith"],
-        "preferredEndingBoost": 1.3,
-        "rhythmBias": "flowing"
-      }
-    }
-    ```
-
-    **Name structure:** Personal name (2 syllables, generated from root) + Family name (3 syllables, generated from prefix-root-suffix). In formal contexts, family name comes first: *Korvanis Senna*. Personal name is intimate.
-
-    **Examples:** *Aven Talindra*, *Jorin Meraleth*, *Senna Korvanis*
-
-    **Shortened forms:** Sithari who leave the capital often clip their family name: *Lira Vashtenri* → *Lira Vasht*. This signals cosmopolitan rather than provincial.
-
-    ---
-
-    ### Hab-Worlder
-
-    Functional, compact. Names are tools, not statements.
-
-    ```json
-    {
-      "id": "habworlder_npc",
-      "cultureId": "hab-worlder",
-      "appliesTo": { "kind": ["npc"], "subKind": [], "tags": [] },
-      "phonology": {
-        "consonants": ["d", "t", "k", "r", "n", "m", "l", "s", "b", "sh"],
-        "vowels": ["e", "a", "o", "u", "i"],
-        "syllableTemplates": ["CVC", "CV", "VC"],
-        "lengthRange": [1, 2],
-        "favoredClusters": ["rn", "sh", "lk", "nt", "sk"],
-        "forbiddenClusters": ["str", "spl", "thr"],
-        "favoredClusterBoost": 1.2
-      },
-      "morphology": {
-        "prefixes": [],
-        "suffixes": [],
-        "structure": ["root"],
-        "structureWeights": [1.0]
-      },
-      "style": {
-        "capitalization": "title",
-        "apostropheRate": 0,
-        "hyphenRate": 0,
-        "preferredEndings": ["rn", "nt", "sk", "sh", "lt", "rk"],
-        "preferredEndingBoost": 1.4,
-        "rhythmBias": "staccato"
-      }
-    }
-    ```
-
-    **Name structure:** Given name (1-2 syllables) + Hab-name (1-2 syllables, often a short derivative of their hab or a functional marker). Hab-name is optional in local context — everyone on a hab knows where they are. No ornamentation.
-
-    **Examples:** *Dern Talish*, *Sable Korr*, *Dez Morrn*, *Shei Lush* (fae true name clipped for hab use)
-
-    ---
+    *Senna Korvanis*, *Aven Talindra*, and *Jorin Meraleth* follow the capital form. Sitharians who build lives elsewhere often clip the family name for daily use while retaining the full form on records. The shorter name signals that the bearer expects to be met in the present place rather than through the capital standing carried by the complete one.
   PROSE
-  prose <<~PROSE, section: :naming, heading: "Species Domains"
-    Species naming traditions exist as a secondary layer. Most people use their culture's conventions. Species-traditional names appear as: ceremonial names, deliberate throwbacks, in species-majority communities, or as intimate names within species-specific social contexts.
 
-    ### Orcish — Mononyms
+  prose <<~PROSE, section: :naming, heading: "Hab Names"
+    Hab names are compact because they do ordinary work among people who already know one another's households, decks, and duties. A short given name may take a hab marker or another local second element when it travels. Within the hab, that addition is often unnecessary.
 
-    One name. Earned, not given. Orcs receive a birth-sound from their parents — a placeholder, often just a syllable or two — and choose their true name when they're ready. The true name is the only name. Introducing yourself with one word and considering the matter settled is peak orc communication.
-
-    An orc using a two-part cultural name (e.g., a Sithari orc with a family name) is code-switching. Their mononym still exists underneath and is used in orc-to-orc contexts.
-
-    ```json
-    {
-      "id": "orc_species",
-      "cultureId": "orc",
-      "appliesTo": { "kind": ["npc"], "subKind": [], "tags": ["species-name"] },
-      "phonology": {
-        "consonants": ["k", "g", "r", "d", "b", "th", "n", "m", "v"],
-        "vowels": ["a", "o", "u", "ah", "oh"],
-        "syllableTemplates": ["CVC", "CVCC", "CV"],
-        "lengthRange": [1, 3],
-        "favoredClusters": ["rg", "th", "kr", "gv", "dk"],
-        "forbiddenClusters": ["ss", "ff", "ll"],
-        "favoredClusterBoost": 1.4
-      },
-      "morphology": {
-        "prefixes": [],
-        "suffixes": [],
-        "structure": ["root"],
-        "structureWeights": [1.0]
-      },
-      "style": {
-        "capitalization": "title",
-        "apostropheRate": 0,
-        "hyphenRate": 0,
-        "preferredEndings": ["ak", "orn", "uth", "a", "o", "urg"],
-        "preferredEndingBoost": 1.5,
-        "rhythmBias": "harsh"
-      }
-    }
-    ```
-
-    **Examples:** *Goruth*, *Thukra*, *Barok*, *Duva*, *Krenno*
-
-    **In cultural context:** An orc named *Goruth* raised Sithari might go by *Goruth Doraleth* professionally and *Goruth* among friends and family. An orc raised Hab-Worlder might just be *Goruth* everywhere, which suits both traditions fine.
-
-    ---
-
-    ### Gnomish — Apostrophe Compounds
-
-    Gnomish names contain harmonic breaks — points where the resonance of the name shifts, marked by an apostrophe in written form. This is not decoration. Gnomes hear these breaks as actual tonal shifts, the way a tuning fork changes pitch when you touch it to different surfaces. Non-gnomes usually pronounce the apostrophe as a brief glottal stop, which gnomes consider acceptable if inelegant.
-
-    ```json
-    {
-      "id": "gnome_species",
-      "cultureId": "gnome",
-      "appliesTo": { "kind": ["npc"], "subKind": [], "tags": ["species-name"] },
-      "phonology": {
-        "consonants": ["t", "k", "n", "l", "s", "r", "z", "v", "ch"],
-        "vowels": ["i", "e", "a", "ih", "eh"],
-        "syllableTemplates": ["CV", "CVC", "CVV"],
-        "lengthRange": [2, 3],
-        "favoredClusters": ["nk", "st", "lv", "rk", "ch", "zv"],
-        "forbiddenClusters": ["gg", "kk", "tt"],
-        "favoredClusterBoost": 1.3
-      },
-      "morphology": {
-        "prefixes": [],
-        "suffixes": ["ik", "en", "ist", "el", "is"],
-        "structure": ["root", "root-suffix"],
-        "structureWeights": [0.4, 0.6]
-      },
-      "style": {
-        "capitalization": "title",
-        "apostropheRate": 0.7,
-        "hyphenRate": 0,
-        "preferredEndings": ["ik", "en", "ist", "el", "is", "ek"],
-        "preferredEndingBoost": 1.4,
-        "rhythmBias": "staccato"
-      }
-    }
-    ```
-
-    **Name structure:** A single compound name with one or two apostrophe breaks. The segments before and after each break are generated independently and joined. Two-segment names are common; three-segment names indicate formality or old lineage.
-
-    **Examples:** *T'vekis*, *Chel'sten*, *Ri'navik*, *Zar'vel'eki*
-
-    **In cultural context:** A gnome raised Sithari might go by *Tivekis Meraleth* — the apostrophe smoothed out for non-gnome mouths, a Sithari family name appended. Among other gnomes, they're *T'vekis* and nobody needs more.
-
-    ---
-
-    ### Fae — Epithets
-
-    Fae are intermittently present. A fixed personal name feels wrong for a being that is sometimes a person and sometimes a room. The fae naming tradition reflects this: you are known by what you are *like*, not what you are *called*.
-
-    **Epithets** are the public name. Descriptive, poetic, referencing the fae's quality of presence — how they feel when they're diffuse, how they arrive when they cohere, what it's like to be near them. Epithets are given by others and can change over a lifetime.
-
-    **True names** exist but are intimate — shared with close bonds only. These follow the breathy phonology below and are used in fae-to-fae contexts and private moments.
-
-    ```json
-    {
-      "id": "fae_species",
-      "cultureId": "fae",
-      "appliesTo": { "kind": ["npc"], "subKind": [], "tags": ["species-name"] },
-      "phonology": {
-        "consonants": ["f", "s", "sh", "h", "l", "r", "w", "n", "th"],
-        "vowels": ["a", "e", "i", "ai", "ei", "ou"],
-        "syllableTemplates": ["V", "CV", "VCV", "CVV"],
-        "lengthRange": [2, 3],
-        "favoredClusters": ["sh", "th", "wh", "eil", "rai"],
-        "forbiddenClusters": ["k", "t", "d", "b", "g", "ck", "kt", "gd"],
-        "favoredClusterBoost": 1.3
-      },
-      "morphology": {
-        "prefixes": [],
-        "suffixes": ["ai", "esh", "ou", "ira", "en", "aia"],
-        "structure": ["root-suffix"],
-        "structureWeights": [1.0]
-      },
-      "style": {
-        "capitalization": "title",
-        "apostropheRate": 0,
-        "hyphenRate": 0.3,
-        "preferredEndings": ["ai", "esh", "ou", "ira", "en", "aia"],
-        "preferredEndingBoost": 1.6,
-        "rhythmBias": "soft"
-      }
-    }
-    ```
-
-    **Epithet examples:** *The Held Stillness*, *Warmth-at-Nine*, *Soft Landing*, *The One Who Arrives Slowly*
-
-    **True name examples:** *Eshaia*, *Louwen*, *Fei'shara*, *Shenai*, *Whoulen*
-
-    **In cultural context:** A fae raised Hab-Worlder might be called *Shei* by crewmates (a clipped version of their true name that fits hab naming) and *The Stillness* in formal contexts. The true name *Sheiren* is for intimates.
-
-    ---
-
-    ### Elven — Chain Patronymics (Historical)
-
-    Elven names are chains — your name, then your parent's name, then theirs, linked by *ve* ("of/from"). A full elven name could run ten generations deep. In practice, three links was common for everyday use, and the full chain was reserved for ceremony.
-
-    This tradition is extinct in public use — the elves are gone. Fragments surface in Echo River recordings. Scholars reconstruct partial chains from the surviving references.
-
-    ```json
-    {
-      "id": "elf_species",
-      "cultureId": "elf",
-      "appliesTo": { "kind": ["npc"], "subKind": [], "tags": ["species-name"] },
-      "phonology": {
-        "consonants": ["l", "r", "n", "th", "v", "s", "m", "d"],
-        "vowels": ["a", "e", "i", "ae", "ai", "ea", "ia"],
-        "syllableTemplates": ["CVV", "CVCV", "VCV", "CV"],
-        "lengthRange": [3, 5],
-        "favoredClusters": ["th", "ae", "ia", "nd", "lr"],
-        "forbiddenClusters": ["gg", "kk", "ck", "bb"],
-        "favoredClusterBoost": 1.4
-      },
-      "morphology": {
-        "prefixes": ["Thal", "Ven", "Sam", "Lor", "Ael", "Mir"],
-        "suffixes": ["aea", "ion", "ethis", "endi", "iel", "aith"],
-        "structure": ["prefix-root-suffix", "root-suffix"],
-        "structureWeights": [0.6, 0.4]
-      },
-      "style": {
-        "capitalization": "title",
-        "apostropheRate": 0,
-        "hyphenRate": 0,
-        "preferredEndings": ["ia", "ae", "ean", "ael", "ion", "aith"],
-        "preferredEndingBoost": 1.5,
-        "rhythmBias": "flowing"
-      }
-    }
-    ```
-
-    **Chain structure:** *Name ve Name ve Name*. Each link is independently generated. The chain reads youngest to oldest. *Thaliraea ve Samaethis ve Loriendi* = Thaliraea, child of Samaethis, child of Loriendi.
-
-    **In present-day usage:** Nobody uses elven chain names — but Echo River archivists have catalogued fragments. A scholar who recognizes the *ve*-linked pattern in a river recording knows they're hearing an elf.
-
-    ---
+    *Dern Talish*, *Sable Korr*, and *Dez Morrn* carry the clipped rhythm common to many habs, but there is no single Hab-Worlder system. One settlement uses deck names, another family tools, another the last functioning lock. What they share is a preference for a name that survives a shouted warning, a crowded channel, and repeated daily use. #{encyclopedia_ref :kesh_challenge_names, "Kesh Challenge Names"} and #{encyclopedia_ref :span_names, "Span Names"} are two local traditions that add earned work to that compact base.
   PROSE
-  prose <<~PROSE, section: :applications, heading: "Slot Cultures (naming TBD)"
-    These cultures are defined but their naming conventions haven't been established yet.
-    | Culture | Structural instinct | Notes |
-    |---------|-------------------|-------|
-    | *7th-planet moon* | TBD | Water giant context likely shapes phonology — aquatic influence? |
-    | *Spiritual/druid* | TBD | Possibly nature-epithet influenced, but distinct from fae epithets |
-    | *Hyper-religious* | TBD | Liturgical naming? Theophoric elements? |
-    | *Syndicate* | TBD | Code names? Earned names like orc mononyms but darker? |
+
+  prose <<~PROSE, section: :naming, heading: "Orc Names"
+    Orc households preserve a mononym tradition alongside the names supplied by the surrounding culture. Parents give a child a short birth-sound. The bearer chooses the lasting name after deciding what they are prepared to be called by others. That chosen name stands alone among orcs.
+
+    An orc using a Sitharian family name, a hab marker, or a crew name is not surrendering the mononym. The public form states where the bearer stands now. The single name remains available among people entitled to use it. *Goruth Doraleth* may be correct at a capital hearing and *Goruth* correct at the same person's table.
+  PROSE
+
+  prose <<~PROSE, section: :naming, heading: "Gnomish Names"
+    Gnomish names carry audible harmonic breaks. Written forms mark those turns with apostrophes; a gnome hears a change of tone where most other speakers make a brief stop. Two-part compounds such as *T'vekis* and *Chel'sten* are ordinary. A third division, as in *Zar'vel'eki*, usually carries age, formality, or lineage.
+
+    The breaks are not ornament. Removing one changes the sound by which the bearer is known. Gnomes living among speakers who cannot hold the turn may accept a smoothed public form and keep the complete one for their own households. A Sitharian record might therefore carry *Tivekis Meraleth* while the bearer remains *T'vekis* among gnomes.
+  PROSE
+
+  prose <<~PROSE, section: :naming, heading: "Fae Names"
+    Fae public names are epithets given by others: *The Held Stillness*, *Warmth-at-Nine*, *Soft Landing*. The name describes how the person coheres, arrives, or remains present to those around them. It can change when that presence changes.
+
+    A fae true name is intimate rather than public. Names such as *Eshaia*, *Louwen*, and *Shenai* pass between close bonds and in fae company. A fae living in a hab may let crewmates clip that form into a work name without granting them the complete one. Public epithet, working name, and true name answer different relationships and need not resemble one another.
+  PROSE
+
+  prose <<~PROSE, section: :naming, heading: "Elven Names"
+    Surviving elven names form chains joined by *ve*: the bearer's name, then a parent's, then the name before that. Three links served most ordinary records; ceremonial chains could run much farther. *Thaliraea ve Samaethis ve Loriendi* names Thaliraea through Samaethis and Loriendi.
+
+    No living public community uses the old chains as an ordinary naming system. They survive in recordings, inscriptions, and partial archive copies. Recognizing the *ve*-linked structure can identify an elven voice when the rest of a damaged record supplies no speaker.
+  PROSE
+
+  prose <<~PROSE, section: :naming, heading: "Names of Places and Events"
+    Places keep the register of the people who named them. Rekindling settlements and facilities often bear improvised working names: a job, a failure, or the visible feature that let crews distinguish one site from another. Accord foundations more often carry deliberate civic or commemorative names. Ring-era names survive in older languages, shortened and altered by centuries of mouths that no longer know the first meaning.
+
+    Old countries, watersheds, and mountain systems usually retain proper names even after their meanings stop traveling with them. Facilities, routes, businesses, and young settlements more readily keep a working description. Many places carry both an official name and the one used by residents; the difference records who claims the place and who must live there.
+
+    Occurrences take their lasting names from the people who endured or recorded them. The Glassfall, the Signal Famine, the Rekindling, the Bitter Reach, the Silent Bloom, and the Displacement use plain words because those words had to carry public loss before they carried history.
   PROSE
 end

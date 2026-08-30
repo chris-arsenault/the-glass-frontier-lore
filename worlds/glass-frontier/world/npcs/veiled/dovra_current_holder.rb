@@ -1,8 +1,7 @@
 npc :dovra_current_holder do
   name "The Dovra Current Holder"
   summary "The Dovra Current Holder keeps a channel barge aligned by matching its vibration through a handrail."
-  type_of :specialist_practitioner
-  belongs_to :practice, :current_holding
+  type_of :current_holding
   subkind :specialist
   status :complete
   prominence :marginal

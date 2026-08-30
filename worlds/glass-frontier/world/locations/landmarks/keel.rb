@@ -2,9 +2,8 @@ installation :keel do
   name "The Keel"
   summary "The Keel is the Kaleidos system's main trade route, linking surface ports, ring habitats, Shear industry, Korvath, and Ashvane."
   playable_as :chronicle_location
-  context_tags :"realm:orbital"
+  context_tags :orbital, :outer_system, :road
   subkind :infrastructure
-  type_of :infrastructure
   function "Connects the system's major ringglass, trade and settlement nodes"
   path "player/locations/landmarks/keel.md"
   status :complete

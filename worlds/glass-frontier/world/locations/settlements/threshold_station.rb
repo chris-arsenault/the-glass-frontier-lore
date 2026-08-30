@@ -2,9 +2,8 @@ installation :threshold_station do
   name "Threshold Station"
   summary "Threshold Station is a pre-Glassfall spindle at the inner balance point between Kaleidos and the sun, housing the Lattice Proxy Synod and one end of Span Nine."
   playable_as :chronicle_location
-  context_tags :"realm:orbital"
+  context_tags :orbital, :sealed_hab
   subkind :settlement
-  type_of :settlement
   path "player/locations/settlements/threshold-station.md"
   tags :orbital, :"ring-era", :AI, :governance, :resonance
   prominence :recognized

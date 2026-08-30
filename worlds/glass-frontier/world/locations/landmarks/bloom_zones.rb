@@ -2,9 +2,8 @@ geographic_location :bloom_zones do
   name "Bloom Zones"
   summary "Bloom Zones are expanding reality tears in Kaleidos orbit and the Fracture, where physical rules and distance become inconsistent."
   playable_as :chronicle_location
-  context_tags :"realm:orbital"
+  context_tags :orbital, :bloom_adjacent, :displacement_zone
   subkind :hazardous_zone
-  type_of :hazardous_zone
   path "player/locations/landmarks/bloom-zones.md"
   status :complete
   reviewed "2026-03-18"

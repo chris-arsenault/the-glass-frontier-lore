@@ -5,8 +5,7 @@ encyclopedia :latch_quiet do
   subkind :social_condition
   status :draft
   prevalence :rare
-  appears_when all: { place: [:"realm:orbital"] }
-  appears_when all: { place: [:"realm:ring_habitat"] }
+  appears_when all: { place: [:cordon] }
 
   prose "Latch Quiet empties public rooms whenever the cordon bells repeat the pattern heard before Pyre's last surge."
 end

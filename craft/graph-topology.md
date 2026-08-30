@@ -183,8 +183,8 @@ reusable Encyclopedia phenomenon.
 General knowledge that many Atlas entries can share without entering the Atlas
 graph:
 
-`lifeform`, `culture`, `role`, `practice`, `doctrine`, `ability`, `institution`,
-`technology`, `resource`, `phenomenon`, `place_feature`.
+`lifeform`, `role`, `technology`, `resource`, `ability`, `phenomenon`,
+`culture`.
 
 `species`, `culture`, and `concept` are transitional Atlas kinds retained only
 until older worlds have semantic destinations for their existing entries.

@@ -7,7 +7,7 @@ encyclopedia :wurm_bit do
   status :complete
   topics :salvage, :ringglass, :resonance, :trade, :danger
   prevalence :common
-  appears_when all: { place: [:"realm:orbital"] }
+  appears_when all: { place: [:debris_field, :yard] }
 
   descriptive_identity(
     appearance:

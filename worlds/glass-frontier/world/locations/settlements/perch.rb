@@ -2,10 +2,9 @@ installation :perch do
   name "Perch"
   summary "Perch is a seasonal settlement between two ring fragments in the Glass Frontier, expanding from three hundred residents to several thousand during the sarn migration."
   playable_as :chronicle_location, :homeland
-  context_tags :"realm:ring_habitat"
+  context_tags :sealed_hab, :garden
   origin_blurb "A seasonal hab that expands around the sarn passage, comb harvest, and returning vessel wards."
   subkind :settlement
-  type_of :settlement
   status :complete
   tags :"ring-hab", :ecology, :trade, :transport, :"kinetic-freq"
   prominence :recognized

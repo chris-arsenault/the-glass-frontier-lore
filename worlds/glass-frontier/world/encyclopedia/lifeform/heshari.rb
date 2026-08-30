@@ -6,7 +6,7 @@ encyclopedia :heshari do
   status :draft
   topics :species, :materials, :trade
   prevalence :uncommon
-  appears_when any: { place: [:"realm:surface", :"realm:ring_habitat"] }
+  available_globally
 
   prose "Heshari grow replaceable glass teeth and work cutting yards where airborne splinters ruin ordinary lungs."
 end

@@ -1,8 +1,7 @@
 faction :fourth_bell_hosts do
   name "The Fourth Bell Hosts"
   summary "The Fourth Bell Hosts are the participating houses that reserve one bed for travelers carrying news between Sithari and the Keel."
-  type_of :community_group
-  belongs_to :doctrine, :bellward_hospitality
+  type_of :bellward_guests
   subkind :community
   status :complete
   prominence :marginal

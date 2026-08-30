@@ -2,7 +2,6 @@ artifact :liras_wall do
   name "Lira's Wall"
   summary "Lira's Wall is a resonance-containment network of stillwater damping buoys placed along Bloom Zone boundaries. Lira Vashtenri designed it to absorb cascade frequencies and stop a boundary from expanding."
   subkind :machine
-  type_of :field_machine
   function "Stabilizes the boundaries of Bloom Zones"
   path "player/artifacts/relics/liras-wall.md"
   status :complete

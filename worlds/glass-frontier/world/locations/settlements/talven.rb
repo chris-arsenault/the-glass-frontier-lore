@@ -2,11 +2,10 @@ installation :talven do
   name "Talven"
   summary "Talven is a ringglass quarry settlement in the Glass Frontier, where descending galleries preserve voices, tools, and music in layered crystal."
   playable_as :chronicle_location, :homeland
-  context_tags :"realm:ring_habitat"
+  context_tags :sealed_hab, :yard, :ringglass_rich, :archive
   origin_blurb "A ringglass quarry town whose layered galleries preserve voices, tools, and music in the walls."
   aka "Tal-Venari"
   subkind :settlement
-  type_of :settlement
   status :complete
   tags :"ring-hab", :ringglass, :materials, :archives, :"signal-freq"
   prominence :recognized

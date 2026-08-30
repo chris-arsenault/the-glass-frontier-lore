@@ -1,7 +1,6 @@
 geographic_location :the_sun do
   name "The Sun"
   summary "The sun is the star at the center of the Kaleidos system and the common reference for its routes, clocks, light, and heat."
-  type_of :celestial_body
   log "2026-08-22 — Excluded as a chronicle location because it has no habitable local site at which a chronicle can begin."
   subkind :celestial_body
   status :complete

@@ -2,7 +2,7 @@ encyclopedia :revelation do
   name "Revelation"
   summary "Revelation perceives distant, hidden, or past events through the resonant traces left by what physically occurred."
   kind :ability
-  subkind :ability
+  subkind :resonant_effect
   status :complete
   topics :resonance, :"signal-freq", :archives, :mystery
   prevalence :rare

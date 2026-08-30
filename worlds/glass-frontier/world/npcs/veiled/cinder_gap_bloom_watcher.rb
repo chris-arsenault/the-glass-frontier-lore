@@ -1,8 +1,7 @@
 npc :cinder_gap_bloom_watcher do
   name "The Cinder Gap Bloom Watcher"
   summary "The Cinder Gap Bloom Watcher feels pain in their teeth before a dormant zone begins emitting light."
-  type_of :specialist_practitioner
-  belongs_to :ability, :bloom_sense
+  type_of :bloom_sense
   subkind :specialist
   status :complete
   prominence :marginal

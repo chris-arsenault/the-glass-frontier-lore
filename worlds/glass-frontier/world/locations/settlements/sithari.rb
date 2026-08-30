@@ -2,10 +2,9 @@ installation :sithari do
   name "Sithari"
   summary "Sithari is the largest city in the Kaleidos system, an equatorial surface capital built in layers above a surviving ring-era research campus."
   playable_as :chronicle_location, :homeland
-  context_tags :"realm:surface"
+  context_tags :surface, :urban, :market, :archive
   origin_blurb "A surface capital where law, trade, and old institutions shape daily life."
   subkind :settlement
-  type_of :settlement
   path "player/locations/settlements/sithari.md"
   status :complete
   reviewed "2026-03-19"

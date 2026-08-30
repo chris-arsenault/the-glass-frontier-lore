@@ -6,7 +6,7 @@ encyclopedia :cinderback do
   status :complete
   topics :"outer-system", :ecology, :danger, :trade, :resonance
   prevalence :common
-  appears_when all: { place: [:"realm:outer_system"] }
+  appears_when all: { place: [:hot] }
 
   descriptive_identity(
     appearance: "A low six-legged animal with overlapping black plates along the spine and a fringe of pale " \

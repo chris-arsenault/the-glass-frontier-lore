@@ -2,7 +2,7 @@ encyclopedia :consumption do
   name "Consumption"
   summary "Consumption takes a usable quality from a target into the user: heat, strength, memory, skill, resonance, or an active power."
   kind :ability
-  subkind :ability
+  subkind :resonant_effect
   status :complete
   topics :resonance, :danger, :"kinetic-freq"
   prevalence :rare

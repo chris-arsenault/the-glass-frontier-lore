@@ -2,7 +2,7 @@ faction :drossmark_industries do
   name "Drossmark Industries"
   summary "Drossmark Industries was a mid-drift extraction company whose linked heavy cutting arrays caused the Shardfall cascade at Brake."
   subkind :company
-  type_of :company
+  type_of :commercial_standing
   founded 2329
   tags :salvage, :trade, :materials, :military
   prominence :marginal

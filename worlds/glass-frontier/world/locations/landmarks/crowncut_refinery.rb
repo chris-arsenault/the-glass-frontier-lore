@@ -2,9 +2,8 @@ installation :crowncut_refinery do
   name "Crowncut Refinery"
   summary "Crowncut Refinery is an abandoned Coremark ringglass works inside a split debris mass in the Deep Shear, with coupled processing lines across both halves."
   playable_as :chronicle_location
-  context_tags :"realm:orbital"
+  context_tags :orbital, :debris_field, :yard, :ringglass_rich
   subkind :installation
-  type_of :refinery
   tags :salvage, :resonance, :ringglass, :orbital
   prominence :marginal
   status :complete

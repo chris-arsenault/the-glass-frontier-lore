@@ -1,7 +1,6 @@
 phenomenon :kneeling do
   name "The Kneeling"
   summary "The Kneeling makes a region of the Fracture bend permanently toward whichever sustained force dominates it."
-  type_of :load_deformation
   subkind :physical_phenomenon
   status :complete
   tags :resonance, :"outer-system", :danger, :"structural-freq"

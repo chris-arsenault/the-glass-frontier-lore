@@ -2,9 +2,8 @@ geographic_location :avar do
   name "Avar"
   summary "Avar is a settled grassland on Kaleidos between Glasswake's coastal hills and the Kyther Range, crossed by glass-bearing stone shelves and deep wells."
   playable_as :chronicle_location
-  context_tags :"realm:surface"
+  context_tags :surface, :unstable_route, :ringglass_rich, :road
   subkind :region
-  type_of :region
   status :complete
   tags :surface, :resonance, :navigation, :trade, :ecology
   prominence :recognized

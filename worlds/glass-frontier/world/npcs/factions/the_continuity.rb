@@ -2,7 +2,7 @@ faction :the_continuity do
   name "The Continuity"
   summary "The Continuity is the political organization that has governed Sithari through elected majorities and municipal administration since 2160."
   subkind :government
-  type_of :government
+  type_of :sitharian_governance
   founded 2160
   mandate "Govern Sithari through its elected assembly and municipal administration"
   authority "Repeated electoral majorities, city law and control of the executive administration"

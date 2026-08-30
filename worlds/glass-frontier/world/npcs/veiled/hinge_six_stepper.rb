@@ -1,8 +1,7 @@
 npc :hinge_six_stepper do
   name "The Hinge Six Stepper"
   summary "The Hinge Six Stepper crosses a moving docking joint during its brief unloaded beat."
-  type_of :specialist_practitioner
-  belongs_to :practice, :hinge_step
+  type_of :hinge_step
   subkind :specialist
   status :complete
   prominence :marginal

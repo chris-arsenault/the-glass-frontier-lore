@@ -2,7 +2,7 @@ faction :hatchward_choir do
   name "Hatchward Choir"
   summary "Hatchward Choir is a religious order whose singers guide damaged vessels through Keel docking joints."
   subkind :religious_order
-  type_of :order
+  type_of :music_in_kaleidos
   status :complete
   prominence :marginal
   veiled "Hatchward singers hold a continuous low note while damaged vessels pass through Keel docking joints."

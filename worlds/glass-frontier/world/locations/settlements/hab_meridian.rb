@@ -2,9 +2,8 @@ installation :hab_meridian do
   name "Hab Meridian"
   summary "Hab Meridian is a ring habitat in the Glass Frontier that preserves one inhabited arc as a working museum of the early Rekindling."
   playable_as :chronicle_location
-  context_tags :"realm:ring_habitat"
+  context_tags :sealed_hab, :archive
   subkind :settlement
-  type_of :settlement
   path "player/locations/settlements/hab-meridian.md"
   tags :"ring-hab", :archives, :trade, :rebuilding, :"social-structure"
   prominence :recognized

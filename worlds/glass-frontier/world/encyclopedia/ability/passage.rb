@@ -2,7 +2,7 @@ encyclopedia :passage do
   name "Passage"
   summary "Passage carries travelers across impossible distance by making a known destination directly reachable for a limited time."
   kind :ability
-  subkind :ability
+  subkind :resonant_effect
   status :complete
   topics :resonance, :navigation, :transport, :"signal-freq"
   prevalence :rare

@@ -1,8 +1,7 @@
 artifact :mareth_red_table do
   name "The Mareth Red Table"
   summary "The Mareth Red Table measures freight-route risk by how long exposed cargo can survive a route's changing kinetic field."
-  type_of :working_ledger
-  belongs_to :doctrine, :red_distance
+  type_of :road_and_freight_law
   subkind :record
   status :complete
   prominence :marginal

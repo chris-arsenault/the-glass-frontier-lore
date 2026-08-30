@@ -2,7 +2,8 @@ faction :lumenshard_conservatory do
   name "Lumenshard Conservatory"
   summary "The Lumenshard Conservatory is a coalition of growers, field ecologists, and resonance workers that tends Miraeth's ringglass-bearing groves."
   subkind :research_body
-  type_of :research_institution
+  type_of :custodial_standing
+  belongs_to :culture, :living_cargo_stewardship
   founded 2286
   tags :ecology, :resonance, :ringglass, :surface
   prominence :recognized

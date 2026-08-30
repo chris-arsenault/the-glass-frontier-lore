@@ -2,7 +2,7 @@ faction :rattle_bench do
   name "Rattle Bench"
   summary "Rattle Bench is a civic claims body serving Exchange C and Carom, with hearings held around the sealed disputed cargo."
   subkind :civic_body
-  type_of :civic_body
+  type_of :custodial_standing
   status :complete
   prominence :marginal
   veiled "Rattle Bench settles damaged-cargo claims in public while the disputed container remains sealed between the parties."

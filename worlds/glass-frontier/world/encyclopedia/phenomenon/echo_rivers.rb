@@ -7,7 +7,7 @@ encyclopedia :echo_rivers do
   reviewed "2026-03-19"
   topics :resonance, :"signal-freq", :archives
   prevalence :uncommon
-  appears_when all: { place: [:"realm:surface"] }
+  appears_when all: { place: [:waterway, :ringglass_rich] }
   medium "Crystal-bearing underground water"
   content "Fragments of pre-Glassfall signal and speech"
   hazard "Headaches, disorientation and identity drift after prolonged exposure"

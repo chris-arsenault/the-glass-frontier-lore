@@ -1,8 +1,7 @@
 faction :span_nine_signal_crew do
   name "The Span Nine Signal Crew"
   summary "The Span Nine Signal Crew is one signal-work crew whose members amend their working names with the last relay they repaired."
-  type_of :work_crew
-  belongs_to :culture, :span_names
+  type_of :span_names
   subkind :community
   status :complete
   prominence :marginal

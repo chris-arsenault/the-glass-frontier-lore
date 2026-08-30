@@ -6,7 +6,7 @@ encyclopedia :ravel_claspworm do
   status :draft
   topics :ecology, :household, :"ring-hab"
   prevalence :uncommon
-  appears_when all: { place: [:"realm:ring_habitat"] }
+  appears_when all: { place: [:sealed_hab] }
 
   prose "Ravel claspworms knot themselves around loose water lines and release only when the pipe reaches full pressure."
 end

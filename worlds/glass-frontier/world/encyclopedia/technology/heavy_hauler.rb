@@ -6,8 +6,8 @@ encyclopedia :heavy_hauler do
   status :draft
   topics :trade, :transport, :ringglass, :"kinetic-freq", :orbital, :navigation
   prevalence :common
-  appears_when all: { place: [:"realm:orbital"] }
-  appears_when all: { place: :"realm:outer_system" }
+  appears_when all: { place: [:orbital] }
+  appears_when all: { place: :outer_system }
 
   descriptive_identity(
     appearance: "Easy to name on approach by the bracketed silhouette of its reinforced hull frame — heavy " \

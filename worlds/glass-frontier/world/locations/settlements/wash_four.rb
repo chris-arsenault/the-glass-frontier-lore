@@ -2,11 +2,10 @@ installation :wash_four do
   name "Wash Four"
   summary "Wash Four is a decontamination settlement in the Glass Frontier, occupying a service cylinder of wash drums, drying lofts, and textile-trace workshops."
   playable_as :chronicle_location, :homeland
-  context_tags :"realm:ring_habitat"
+  context_tags :sealed_hab, :yard
   origin_blurb "A sealed hab where textile traces, missing routes, and careful washing preserve old signals."
   aka "Decontamination Habitat Four"
   subkind :settlement
-  type_of :settlement
   status :complete
   tags :"ring-hab", :trade, :household, :resonance, :"signal-freq"
   prominence :recognized
