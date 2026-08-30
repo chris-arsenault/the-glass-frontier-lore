@@ -36,5 +36,5 @@ encyclopedia :glass_fines do
   affordance "Fines put the glass trades' waste to work at every scale — the scrub sack in each kitchen, the casting sand under every foundry pour, and the live jars that let the resonance trades seed their work with material that already answers."
   pressure "The dead-live line carries the whole trade's trust, so the certificate is forked, stamped, and audited — and a mill caught careless with it loses the sweepings contracts that are the whole business, to competitors who bid the next morning."
   variation "Glasswake's mills grade the fused ridge's sweepings and export system-wide; small yards mesh their own floors on a kitchen screen and sell to the neighbors, certificate by handshake."
-  variation "The polishing flours are a connoisseur's market — instrument shops specify yards and even saws by name — and the finest grade, swept from the lens trade's own finishing rooms, resells at prices the yards find spiritually offensive."
+  variation "Instrument shops specify polishing flour by yard and even by saw; the finest grade, swept from lens-finishing rooms, resells above the price of many whole cuts."
 end

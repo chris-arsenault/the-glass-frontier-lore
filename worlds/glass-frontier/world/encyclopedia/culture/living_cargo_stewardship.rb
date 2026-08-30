@@ -18,7 +18,7 @@ encyclopedia :living_cargo_stewardship do
   )
 
   prose <<~PROSE
-    A living cargo can be irreplaceable and dangerous at the same time. Recovered strains, grafts, cuttings, and root cultures travel with records of where they opened, what they answered to, which habitat holds another viable stock, and what signs require the carrier to wait outside an inhabited channel. Custody includes the ecology that will receive them, and the law's whole architecture follows from that premise.
+    A living cargo can be irreplaceable and dangerous at the same time. Recovered strains, grafts, cuttings, and root cultures travel with records of where they opened, what they answered to, which habitat holds another viable stock, and what signs require the carrier to wait outside an inhabited channel. Custody covers the receiving ecology as well as the carried stock, so these records travel with every transfer.
 
     Resonance gives the paperwork teeth. A cultivated line carries its raising in the band — the tone of the graft bed it rooted in, readable to instruments and to the trained hands of stewards — and the resonance passport records it: what the strain answered to at each holding, taken fresh at every transfer. A cutting whose reading has drifted from its papers is a cutting with an undocumented interval, and it waits outside settled water and air until the receiving place's test says otherwise. The test is local by design — river settlements prove cuttings in channels outside the inhabited flow, sealed habs prove them in isolation frames off the shared air — and passing it is the moment custody transfers, recorded in both gardens' books.
   PROSE

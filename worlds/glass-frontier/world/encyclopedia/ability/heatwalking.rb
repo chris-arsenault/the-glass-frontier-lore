@@ -30,7 +30,7 @@ encyclopedia :heatwalking do
   cue "A figure crosses the shimmering yard in a line that ignores the painted paths, rolling each step heel to toe, and pauses mid-yard with all weight on one boot, reading."
   cue "By the gate, a rack of retired boot soles hangs like service stripes, each pair tagged with a name and the yards it walked."
   affordance "A certified walker turns a live yard into a crossable one in real time — routing crews, flagging soft ground ahead of the survey, and giving the yard a moving inspection every shift at the price of a walk."
-  pressure "The reading expires with every step, so the walker moves or stands proven — and a crew following boot-to-bootprint has exactly one map, one set of ears, and one person whose bad morning becomes everyone's."
+  pressure "The reading expires with every step. A following crew must stay inside the walker's boot line, and a long crossing uses a second walker to check the route and take point on the count."
   variation "Ashvane certifies walkers on salted examination courses and posts requirements at yard gates; Crucible's ore fields run paired walkers on long crossings, point and check, swapping on a count."
   variation "The boots are personal instruments — resoled to spec, broken in by their owner, retired with ceremony — and lending a pair is read across the hot trades as either deep trust or deep insult, context deciding."
 end

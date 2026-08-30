@@ -32,47 +32,47 @@ encyclopedia :tuners do
   variation "Folk Tuners learn through family, local tradition, apprenticeship, or experimentation and may know one hab or valley better than any visitor."
 
   prose <<~PROSE
-    People who practise #{encyclopedia_ref :attunement, "attunement"} as a trade. Anyone can operate a #{encyclopedia_ref :ringglass, "ringglass"}-powered lantern. Tuners have trained themselves to separate the local resonance field from the pressure, vibration, heat, and sound that carry it, then turn what they perceive into decisions other people can use. The crystal hums, the ground vibrates, the air carries harmonics that most people walk through without noticing. Tuners notice.
+    Resonant Tuners practise #{encyclopedia_ref :attunement, "attunement"} as a trade. They separate the local resonance field from the pressure, vibration, heat, and sound that carry it, then turn what they perceive into decisions about corridors, loads, departures, and repairs. Their instruments and trained senses distinguish a crystal's hum, the ground's vibration, and harmonics carried through the air.
 
-    The profession is older than the name. During the #{ref :signal_famine, "Signal Famine"}, people in isolated settlements independently figured out that they could learn to feel what the ring-era systems had once automated. Some reverse-engineered salvaged equipment. Some began with the kind of repeated mismatch that #{ref :renn_duvasi, "Renn Duvasi"} later found throughout Famine-era casebooks. Others had artifacts that responded to their attention in ways they did not expect. The learning was slow, dangerous, and carried little shared theory. The elves had understood resonance as a science. The first Tuners approached it as a craft and acted on what repeated experience taught them.
+    The practice predates its current name. During the #{ref :signal_famine, "Signal Famine"}, isolated settlements developed ways to sense effects that ring-era systems had automated. Practitioners reverse-engineered salvaged equipment, followed repeated mismatches of the kind #{ref :renn_duvasi, "Renn Duvasi"} later found in Famine-era casebooks, and tested artifacts that responded to directed attention. Each settlement built a craft from repeated local results with little theory shared across the system.
 
-    They weren't called Tuners then. They weren't called anything. They were just the person in the settlement who could tell you whether the ringglass in the wall was about to crack, or the one on the hab who knew which corridors were safe when the resonance shifted. The profession came later. The name came later still.
+    Early records identify practitioners by local work: the person who judged whether wall ringglass would crack, or the guide who marked safe corridors during a resonance shift. Training networks and common credentials later joined those local practices under the name Tuner.
   PROSE
   prose <<~PROSE, section: :history, heading: "The First Tuners"
     The original practitioners are recognized retroactively as the founders of a tradition that would outlast the crisis that created it. Different communities remember them differently:
 
     - **Primers** — the academic term. Dry, institutional, used in Clarisant literature.
-    - **Wildfelt** — the folk term. More respectful than it sounds. These people felt something wild and didn't flinch.
-    - **Reckless** — what some communities called them, and not affectionately. Early Tuning killed people. Not every settlement appreciated someone experimenting with forces they didn't understand.
+    - **Wildfelt** — the folk term for practitioners who trusted direct sensation under unstable conditions.
+    - **Reckless** — the name used in communities where early experiments killed practitioners or bystanders.
 
-    The first generation spans the entire Famine — #{elapsed :the_glassfall, :the_rekindling} of independent discovery across hundreds of isolated communities. Some of their techniques survived and became foundational. Others were dead ends, literally. The diversity of early practice is why modern Tuning has so many regional variations and why the #{ref :clarisant, "Clarisant"} spends considerable effort standardizing what doesn't want to be standardized.
+    The first generation spans the entire Famine — #{elapsed :the_glassfall, :the_rekindling} of independent discovery across hundreds of isolated communities. Some techniques became foundations of modern practice. Others ended with the practitioners who tested them. Regional traditions preserve that independent development, and the #{ref :clarisant, "Clarisant"} compares them through common examinations and safety standards.
   PROSE
   prose <<~PROSE, section: :structure, heading: "The Clarisant"
     The guild. Headquartered on #{ref :pelhari, "Pelhari"}, a moon of the seventh planet — far enough from the distorted space of #{ref :the_shear, "the Shear"} and the ring debris field that resonance practice is cleaner, more predictable, more suited to structured training. Satellite offices operate across the system, in Sithari, in major ring habs, on outer-system stations.
 
-    The Clarisant is a professional accreditation body first and a community second. They train Tuners, certify competence, set safety standards, and provide the institutional credibility that keeps Tuning from being feared. A Clarisant-trained Tuner carries a credential that means something in any settlement that recognizes the guild — which is most of them. The credential says: this person has been evaluated, their abilities are understood, and they operate within professional norms.
+    The Clarisant trains Tuners, certifies competence, sets safety standards, and maintains a community of practice. Most settlements recognize its credential as evidence that the holder has passed an examination and agreed to its working rules.
 
-    The guild is not a government, military order, or religion. Its authority rests on examinations, recognized credentials, and the settlements that accept them. Unsafe work can cost a Tuner their credential. Disagreement cannot, unless the practitioner claims certainty their method did not earn.
+    Its authority rests on examinations, recognized credentials, and the settlements that accept them. Unsafe work can cost a Tuner their credential. A disputed interpretation remains within professional practice when the Tuner states the limits of the method and the evidence.
 
-    The name is old enough that most people have stopped wondering what it means. It derives from pre-Famine roots — *clear perception*, roughly — and was coined by the guild's founders, who wanted something that sounded serious without sounding threatening. They mostly succeeded.
+    The name derives from pre-Famine roots meaning *clear perception*, approximately. The guild's founders adopted it for the accreditation body, and the term now appears on its examinations, seals, and credentials.
   PROSE
   prose <<~PROSE, section: :culture, heading: "Folk Tuners"
-    Not everyone trains Clarisant. Roughly thirty percent of practicing Tuners operate outside the guild — folk practitioners who learned from family, from local tradition, from apprenticeship to another folk Tuner, or from sheer stubborn experimentation.
+    Roughly thirty percent of practicing Tuners work outside the Clarisant. Folk practitioners learn through family, local tradition, apprenticeship to another Tuner, or independent experimentation.
 
-    Folk Tuners are the norm in communities where the Clarisant has limited presence: remote surface settlements, isolated ring habs, outer-system stations that are weeks from the nearest satellite office. Some communities have never heard of the guild. Some have heard of it and want nothing to do with it. Some have their own traditions that predate the guild and see no reason to defer to an institution on a distant moon.
+    Folk Tuners are the norm in remote surface settlements, isolated ring habs, and outer-system stations weeks from a Clarisant office. Local schools may predate the guild, train against one place's conditions, or reject outside certification in favor of witnessed work.
 
     Folk Tuners tend toward the intuitive, improvised, and locally adapted. A folk Tuner on a ring hab knows *that* hab's resonance landscape in a way no visiting Clarisant could match. Clarisant training gives breadth instead: a shared framework that lets a credentialed Tuner enter an unfamiliar environment and orient quickly. Each tradition can produce mastery, and each distrusts the evidence the other treats as sufficient.
   PROSE
   prose <<~PROSE, section: :culture, heading: "The Hidden and the Unknowing"
-    Below the visible profession — guild and folk alike — there are people who can feel resonance and don't know what they're feeling. Maybe five to ten percent of the population has some degree of untrained sensitivity, experienced as hunches, headaches, or an unexplained comfort or discomfort in certain spaces. Most never develop it further. Some become folk Tuners without anyone calling them that — the water keeper who knows which channel will turn, or the mechanic who can tell a ringglass array is misaligned by standing near it.
+    An estimated five to ten percent of the population has some untrained resonance sensitivity, experienced as hunches, headaches, or a repeated comfort or discomfort in certain spaces. Most leave it untrained. Others develop a local practice through ordinary work: a water keeper who anticipates which channel will turn, or a mechanic who detects a misaligned ringglass array by standing near it.
 
-    And then there are the hidden — Tuners who practice in secret because their community doesn't tolerate it. Some habs prosecute unauthorized resonance work. Some settlements associate Tuning with the elves and treat practitioners with suspicion. Being a hidden Tuner is lonely and dangerous, and the Clarisant runs quiet programs to identify and extract people from these situations when they can.
+    Hidden Tuners practice in communities that prosecute unauthorized resonance work or associate the practice with the elves. They conceal instruments, avoid recording readings under their own names, and risk prosecution when someone acts on their judgment. The Clarisant runs quiet programs to identify and relocate practitioners from those settlements.
   PROSE
   prose <<~PROSE, section: :resonance, heading: "Species and Tuning"
     Any species can become a Tuner. #{encyclopedia_ref :gnomes, "Gnomes"} are disproportionately represented at the highest levels; #{encyclopedia_ref :humans, "humans"} rely more heavily on method and instrumentation; #{encyclopedia_ref :orcs, "orcs"} are common in material Tuning; and #{encyclopedia_ref :fae, "fae"} practitioners are rare because sustained work threatens their coherence. The #{encyclopedia_ref :elves, "elves"} were the original masters. Their absence is felt most sharply in the missing theory that later schools have had to rebuild from practice.
   PROSE
   prose <<~PROSE, section: :applications, heading: "Extremes"
-    At the edges of practice, Tuning gets strange:
+    Several documented practices exceed ordinary field reading:
 
     - There are habs where only Tuners are permitted to live — communities that have organized their entire social structure around resonance sensitivity.
     - There is a deep-space station, far from any planet or ring fragment, that is held together structurally by the sustained concentration of its Tuner residents. If they stop, the station fails.
@@ -81,13 +81,11 @@ encyclopedia :tuners do
 
   # ---- Hidden (DM) truth ----
   prose <<~PROSE, section: :truth, heading: "The Rogue Elf", dm: true
-    One of the independent origins of Tuning during the Signal Famine was not independent at all.
+    During the Signal Famine, #{ref :the_dissident, "the Dissident"} founded one teaching line while concealing their elven identity. Their name is absent from the surviving record. They rejected the collective decision to disappear and taught that removing resonance knowledge from the system caused greater harm than exposure.
 
-    An elf whose name is absent from the surviving record, known to the hidden leadership as #{ref :the_dissident, "the Dissident"}, rejected the collective decision to disappear. They believed that stripping the system of resonance knowledge was a greater crime than the risk of exposure. While the rest of their species scrubbed themselves from history and retreated to hidden habs, the Dissident walked in the other direction.
+    The Dissident settled in a surface community during the early Famine, passed as human, and taught as a local resonance practitioner. Their students received practical techniques adapted for human senses rather than the theoretical framework of elven training.
 
-    They settled in a surface community during the early Famine and began teaching. Not as an elf — they passed as human, which the physical differences make possible — but as a resonance practitioner sharing what they knew. Their students didn't learn elven theory. They learned a simplified, human-accessible version of it: practical techniques for feeling and working with resonance, stripped of the deep framework that would have taken decades of elven training to convey.
-
-    The Dissident's students became some of the most effective early Tuners. Their lineage is traceable — several modern Clarisant techniques descend from this single teaching line, though the guild doesn't know the origin. The Dissident themselves vanished after #{elapsed :dissident_begins_teaching, :dissident_vanishes}, either recalled by elven authorities, killed, or simply moving on. There is no record of what happened to them.
+    The Dissident's students became some of the most effective early Tuners. Several modern Clarisant techniques descend from this teaching line, though the guild's records reach only a group of local founders with the same unexplained method. Records of the Dissident end after #{elapsed :dissident_begins_teaching, :dissident_vanishes}; the hidden elven archive records no recall, death, or later settlement.
 
     The elven leadership considers the Dissident a traitor. Among the small number of elves who know the full history, opinion is more divided than the leadership would prefer. Some consider the Dissident proof that the disappearance was wrong. Others consider them proof that individual conscience can't be trusted with civilizational decisions.
   PROSE

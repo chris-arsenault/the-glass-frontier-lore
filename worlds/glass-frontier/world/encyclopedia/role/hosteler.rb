@@ -1,6 +1,6 @@
 encyclopedia :hosteler do
   name "Hosteler"
-  summary "A hosteler runs a waystation on the long routes — beds, beasts, water, repairs, and the gate that bars at dark — spacing the roads into survivable days. The station book records every arrival and departure, and a route's hostelers know more about its traffic than any office that taxes it."
+  summary "A hosteler runs a waystation on the long routes — beds, beasts, water, repairs, and the gate that bars at dark — spacing the roads into survivable days. The station book records every arrival and departure for searchers, factors, wardens, and the next station along the route."
   kind :role
   subkind :profession
   status :complete
@@ -26,13 +26,13 @@ encyclopedia :hosteler do
   cue "The station gate stands open on a walled yard — beds, beast lines, the repair bench, the measured well — and the hosteler meets the arrivals with the three gate questions before the dust settles."
   cue "The station book lies open on the counter, tonight's arrivals entered in a hand that matches the last thirty years of pages, and a route office clerk is two days behind it and knows it."
   affordance "The station chain spaces the long routes into survivable days — beds, water, feed, and repairs a day's travel apart — and the hostelers' books and gate questions make them the route's living census, consulted by searchers, factors, and wardens before any office."
-  pressure "The station's stores are the margin for everyone on the route, so the hosteler's dry-season arithmetic — measured water, rationed feed, the gate's judgment calls on late arrivals — is survival policy set nightly by one person at one counter."
+  pressure "The hosteler measures water and feed against expected traffic, enters late arrivals in the station book, and tells the next station what remains. During a dry season those nightly figures set the ration offered to every traveler."
   variation "Surface stations on the drove roads run big yards and feed by the herd; the orbital route's waystation hostelers run sealed berths and air accounts, and both traditions claim the harder job with statistics."
   variation "Station books pass with the stations and searchers read them like registries — a missing traveler's last entry, direction and condition in the hosteler's hand, has started and ended searches for three centuries of route history."
 
   prose <<~PROSE
     The long routes are chains of days, and at the end of each day stands a station. The hosteler's trade runs them: the walled yard a day's travel from the last one, with beds, beast lines, measured water, feed against the season, a repair bench stocked to get a traveler one more stage, and a gate that bars at dark. The spacing is the institution — routes are surveyed in station-days, a stretch that loses its station is a stretch the freight offices re-route around, and the founding of a new station on a growing road is route-country news of the first order, attended by every hosteler in reach with gifts and professional opinions.
 
-    The station book is the trade's second product. Every arrival and departure enters it — name or mark, direction, condition, the news carried — in the nightly ritual that route culture treats as near-sacred, and the accumulated books make the hostelers the routes' true census: searchers consult them before wardens, #{encyclopedia_ref :factor, "factors"} price route risk off their traffic, and the gate questions — direction, condition, news — feed the working intelligence that keeps the chain's stores matched to the road's actual state. The trade's authority is the gate's. A hosteler's yard is neutral ground by custom old as the routes — quarrels bar at the gate with the dark — and the stations' role in every route-country story, as the walls where the pursued, the stranded, and the storm-caught became guests with beds, is the trade's plain self-image: the hosteler holds the keys so the road can have rules.
+    The station book is the trade's second product. Every arrival and departure enters it — name or mark, direction, condition, the news carried — and the accumulated books form the route's census. Searchers consult them, #{encyclopedia_ref :factor, "factors"} price route risk from their traffic, and the gate questions keep each station's stores matched to the road's actual state. A hosteler's yard is neutral ground by route custom: quarrels stop at the gate with the dark, and the hosteler enforces the posted terms until morning.
   PROSE
 end

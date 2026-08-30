@@ -15,11 +15,10 @@ encyclopedia :latch_watch do
                 "latch cord looped at the wrist, with the quiet-cloth hung over " \
                 "the knocker above — the whole arrangement legible down the " \
                 "street at a glance.",
-    manner: "Soft-voiced and unbudgeable; the watcher greets everyone, admits on " \
-            "the posted order, takes messages onto the lap-board, and turns the " \
-            "rest away with the settled courtesy of a person spending their own " \
-            "time on someone else's threshold — which is the office's entire " \
-            "authority, and enough.",
+    manner: "The watcher greets each caller, admits people on the posted order, " \
+            "takes messages onto the lap-board, and gives refused callers a place " \
+            "on the visiting list. The latch cord marks the watcher's authority " \
+            "over the threshold for the month.",
     hospitality: "Callers refused the door are hosted at the stool — news " \
                  "exchanged, parcels taken, a place on the visiting list offered — " \
                  "so the watch turns visitors away full-handed, and the household's " \
@@ -27,15 +26,15 @@ encyclopedia :latch_watch do
   )
 
   prose <<~PROSE
-    A room in Kaleidos is only as settled as its door. Traffic stirs the bands — every crossing writes its small wake into a house's fabric — and the people a household most needs kept calm are the ones rawest to the stirring: the newborn in the #{encyclopedia_ref :midwife, "lying-in"} month, arriving unaccustomed to the bands' ordinary weather; the deep-sick, whose rest the sickroom trades damp with felt and schedule; the newly bereaved, whose first mourning the old custom treats as a convalescence. The latch watch is the human half of the damping. For the length of the month, a neighbor sits the door — stool, lap-board, latch cord looped at the wrist, the quiet-cloth muting the knocker overhead — and everything the street sends meets the watcher first: admitted on the posted order, written onto the lap-board as a message, or turned away hosted, with news exchanged and a place on the visiting list offered, so the refusal itself is a kind of welcome.
+    Households post a latch watch during a lying-in month, a deep sickness, or the first month of mourning. Every crossing stirs the house's resonance wake, so the room is damped with felt and its visitors follow a posted order. A neighbor sits at the door with a stool, lap-board, latch cord, and quiet-cloth over the knocker. The watcher admits callers on the order, records messages, accepts parcels, and places refused visitors on the later list.
 
-    The office runs on reciprocity and is priced in it. A street's households sit each other's latches in turn — the debt kept casually and repaid exactly, sometimes decades later, at the far end of a life — and the question of who sat whose month is the kind of ledger neighborhoods retain when they have forgotten everything else about a year. Custom gives the watcher a strange, complete authority: the household head defers at their own door for the month, because the watcher's standing to refuse a visitor rests on spending their own days on someone else's threshold, and everyone at the door knows it. The watch's closing is its one small ceremony. On the month's last day the quiet-cloth comes down, the household walks out — behind the midwife at a lying-in, behind the eldest at a mourning — and the first act across the reopened threshold, everywhere the custom is kept, is the household seating the watcher at its own table, in the place the month earned.
+    Streets exchange the office by reciprocity. Households remember who sat each month and return the service when that watcher's family later needs it, sometimes decades afterward. For the posted month, the household head defers to the watcher at the door. On the last day, the quiet-cloth comes down and the household walks out behind the midwife or mourning elder. The reopened table gives its first seat to the watcher.
   PROSE
 
   cue "The stool is at the door, the quiet-cloth is over the knocker, and the caller adjusts mid-street — slowing, softening, rehearsing the message that will go onto the lap-board instead of through the door."
   cue "On the month's last day the cloth comes down, the household walks out into the street's gathered greeting, and the watcher is seated first at the reopened table, in the place the month earned."
-  affordance "A posted watch buys a household the one thing its hard month needs and its own hands are full past providing — a kept door — while holding its place in the street's life: messages logged, callers hosted, the visiting list managed, the welcome intact."
-  pressure "The office's authority is pure custom, so it holds exactly as well as the street honors it — the visitor who pushes past a watcher has committed the neighborhood's most legible offense, and the household that stints the watch's closing courtesy has published what its gratitude weighs."
+  affordance "A posted watch keeps traffic outside a damped room while preserving the household's place in street life through logged messages, accepted parcels, and a managed visiting list."
+  pressure "A caller who passes the stool without admission violates the street's watch, and neighbors record the offense against the caller rather than the household whose door was crossed."
   variation "Lying-in watches run on the midwife's posted order and admit the trade at any hour; mourning watches keep the visiting list by the burial custom's calendar; sickroom watches follow the physic's schedule and are the ones most often sat in shifts."
   variation "Dense districts keep the full furniture — stool, cloth, lap-board — while thin country compresses the office into a marked door and the nearest neighbor's standing errand; the debt is kept the same everywhere."
 end

@@ -40,7 +40,7 @@ encyclopedia :claim_rig do
   PROSE
 
   prose <<~PROSE, section: :operations, heading: "Working a Claim"
-    A rig approaches only close enough to maintain a clear cutter path. The crew maps local debris, places retreat marks, and sounds the receiving rooms before launching anything. A Tuner chooses the seam response. A cutter operator flies the machine in, fixes the anchor head, and confirms that every return path ends in the intended bay. Nobody starts the tone until the deck lead reads back the room state.
+    A rig approaches only close enough to maintain a clear cutter path. The crew maps local debris, places retreat marks, and sounds the receiving rooms before launching anything. A Tuner chooses the seam response. A cutter operator flies the machine in, fixes the anchor head, and confirms that every return path ends in the intended bay. The deck lead's readback of the room state authorizes the tone.
 
     Once material begins arriving, the vessel handles heat, pressure, waste, and resonance load that the claim no longer carries. The pilot keeps the rig oriented while the receiving crew trims the flow. A good cut looks uneventful from the bridge and exhausting in the process rooms. The most valuable stock may arrive in minutes; cooling, separation, and cleaning can occupy the rest of the watch.
 
@@ -50,7 +50,7 @@ encyclopedia :claim_rig do
   prose <<~PROSE, section: :dangers, heading: "Cutter Wakes"
     Remote returns sometimes carry living things. Deckmouths arrive in trapped pressure. Flintjacks follow active current. Small shear-jellies cling to loose material and open when the receiving atmosphere thickens. Crews call the intrusion a cutter wake and train for it as part of ordinary remote work.
 
-    The first response is to close the room and turn off every tone beyond it. Barriers and tuned deck weapons remain inside the bay so nobody has to carry equipment through the threatened door. A wake becomes difficult when a beast crosses into a shared service passage or when an operator keeps a downstream machine active. The intruder follows the strongest useful signal, which is often the equipment the crew most wants to save.
+    The first response is to close the room and turn off every tone beyond it. Barriers and tuned deck weapons remain inside the bay, available without reopening the threatened door. A wake becomes difficult when a beast crosses into a shared service passage or when an operator keeps a downstream machine active. The intruder follows the strongest useful signal, which is often the equipment the crew most wants to save.
 
     Older rigs are judged by how well they were rebuilt after wakes. Scrape marks around a shutter, mismatched wall plates, and a breaker moved within easier reach carry more information than a clean sales record.
   PROSE
@@ -58,16 +58,16 @@ encyclopedia :claim_rig do
   prose <<~PROSE, section: :people, heading: "A Small Working Vessel"
     A two-cutter rig usually carries a pilot, cutter operator, Tuner, deck lead, and two or three process hands. On a small crew those jobs overlap until the first live return, when every person must remain at one station. Larger rigs add repair staff and separate watches rather than placing more people in the receiving line.
 
-    The crew lives close to the work. Cabins occupy the clean end of the hull beyond the bridge, with the galley and air plant between habitation and processing. Boots, tools, and outer clothing do not cross that division until they have been washed and sounded. A crew that relaxes the rule soon learns why the previous owners wrote it on the door.
+    The crew lives close to the work. Cabins occupy the clean end of the hull beyond the bridge, with the galley and air plant between habitation and processing. Boots, tools, and outer clothing remain on the processing side until they have been washed and sounded, and the crossing rule is painted on the clean-end door.
 
     Independent crews own many rigs outright or owe on them through a broker, yard, or flotilla debt. The #{ref :pell_freight_assembly, "Pell Freight Assembly"} maintains shared receivers and finances rebuilds for its members. A rig remains its crew's vessel under those arrangements. The Assembly can deny a berth to unsafe work; it does not take the helm.
   PROSE
 
   cue "Buyers, hirers, and berth masters read a rig's history off its repairs. Scrape marks around a shutter, mismatched wall plates, and a breaker moved within easier reach carry more about what the vessel has survived than its sales record does."
   cue "The repeated features are visible inside: short passages, heavy shutters, cleanable walls, exposed manual breakers, and instrument runs that do not share a clock."
-  affordance "Someone asks the bridge whether a closed receiving room is safe to open. The whole layout exists because a powered system once read safe when it was not, so the answer is a person standing at the opening with a deliberately slow hand wheel and the tally beside it."
+  affordance "The hand wheel and physical tally let a deck lead verify pressure, heat, field response, and last entry at the opening before releasing a room whose powered system has reported safe."
   pressure "Jobs overlap freely on a small rig until the first live return, and then pilot, cutter operator, Tuner, deck lead, and process hands are each fixed to one station. Anything needing a spare pair of hands while the tone runs costs whichever station is left empty."
-  variation "Some rigs began as cargo craft, survey hulls, or old passenger kites."
-  variation "Others were built for remote work."
+  variation "Converted cargo craft, survey hulls, and passenger kites keep their old outer silhouettes while gaining heavy shutters, exposed breakers, and isolated receiving bays inside."
+  variation "Purpose-built rigs give every cutter its own receiver and clock, with the cabins past the bridge at the clean end of the vessel."
 
 end

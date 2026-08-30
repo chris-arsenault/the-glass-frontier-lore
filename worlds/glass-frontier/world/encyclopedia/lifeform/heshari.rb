@@ -8,5 +8,5 @@ encyclopedia :heshari do
   prevalence :uncommon
   available_globally
 
-  prose "Heshari grow replaceable glass teeth and work cutting yards where airborne splinters ruin ordinary lungs."
+  prose "Heshari grow replaceable glass teeth, and their lungs tolerate the airborne splinters common in cutting yards."
 end

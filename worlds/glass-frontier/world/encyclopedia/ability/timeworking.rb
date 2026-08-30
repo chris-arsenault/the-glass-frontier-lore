@@ -28,7 +28,7 @@ encyclopedia :timeworking do
   )
 
   cue "A moving subject hangs between positions while the user completes actions in the missing interval."
-  cue "The user emerges visibly older, carrying dust, wounds, or exhaustion from time no one else experienced."
+  cue "The user emerges visibly older, carrying dust, wounds, or exhaustion from duration that passed only through the working."
   affordance "Timeworking can stop a projectile, outrun a collapse, complete a rescue before fire advances, or hold an enemy force still while allies reposition."
   pressure "The user lives every stolen interval in their body even when their mind retains only fragments of what occurred."
   variation "Fine work transfers fractions of a second among mechanisms, wounds, chemical reactions, and moving hands."

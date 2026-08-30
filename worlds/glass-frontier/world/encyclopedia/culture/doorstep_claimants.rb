@@ -27,7 +27,7 @@ encyclopedia :doorstep_claimants do
   cue "Beneath each bed in the temporary room lies a single worn floor tile, and the youngest child, asked where home is, points down."
   cue "At the displacement court's counter, the family's filing sits in the standard form the clerks call tile-and-testimony — the pried stones photographed and named, the household's account braided on a spool."
   affordance "The tiles hold the claim in both registers at once — evidence of standing the displacement courts accept, and a portable hearth that keeps a household a household through years of meanwhile."
-  pressure "The custom keeps the loss present on purpose — every bed stands on a room that is gone — and the courts' long queues mean whole childhoods are lived above tiles, which the culture counts as fidelity and its critics, gently, as a wound kept open."
+  pressure "A pending claim keeps the tiles in their room-by-room places through each move; a court settlement sends them home or releases them to be laid into a permanent new floor."
   variation "Xyloathax's claimant quarters run tile-warmings as street festivals and their courts move fastest; the scattered claimants of smaller events carry one tile and file thin, and the courts weigh the testimony harder."
-  variation "Settled rulings end in homecomings or adoptions — tiles carried back, or set into the new floor — and the adopted floors of the permanently displaced, old stones in new rooms, are the displacement country's quietest monuments."
+  variation "Settled rulings end in homecomings or adoptions: tiles are carried back to the recovered rooms or set into the floor of a permanent new home."
 end

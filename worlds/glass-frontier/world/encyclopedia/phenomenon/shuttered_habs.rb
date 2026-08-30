@@ -9,60 +9,54 @@ encyclopedia :shuttered_habs do
   prevalence :rare
   appears_when all: { place: [:sealed_hab] }
 
-  cue "A hab on the route holds power and atmosphere and does not answer hail."
-  cue "Nothing visible separates a working council keeping its own company from a community with no remaining word for contact."
-  affordance "A party with a route into a locked hab acquires backers before it has a plan because someone always wants the hab opened."
+  cue "A hab on the route holds power and atmosphere behind sealed access and leaves every hail unanswered."
+  cue "External instruments confirm pressure, heat, and working systems; contact status depends on a reply from inside."
+  affordance "A verified route into a shuttered hab draws backers seeking contact, records, resources, or territory, each under the Accord's prohibition on forced entry."
   pressure "A breach is actionable against whoever sponsored it, regardless of what waits inside."
   variation "Some shuttered habs have functioning societies that prefer isolation or depend on it."
   variation "Some garden habs rewilded and their inhabitants adapted by abandoning technology entirely."
 
   descriptive_identity(
     signs:
-      "From outside, a shuttered hab is a hull holding power and " \
-      "atmosphere that does not answer hail. Nothing visible separates " \
-      "a working council keeping its own company from a community with " \
-      "no remaining word for contact.",
+      "From outside, a shuttered hab is a hull holding power, pressure, " \
+      "and heat behind sealed access. Survey instruments establish which " \
+      "systems remain active; only a reply from inside establishes contact.",
     effects:
       "Each sealed door closes over a different answer to generations " \
-      "of isolation: societies that prefer their own governance, " \
-      "interiors that rewilded into pre-technological life, and at " \
-      "least one documented case deep in the Shear whose inhabitants " \
-      "changed past the point of ordinary dealings. All of them sit " \
+      "of isolation: societies that preserve their own governance, " \
+      "garden interiors whose people reorganized around rewilded systems, " \
+      "and one documented case deep in the Shear whose inhabitants " \
+      "changed beyond ordinary dealings. All of them sit " \
       "outside the Ring Collective, and the Tempered Accord protects " \
-      "their refusal whether or not they recognize it.",
+      "their refusal even when they do not recognize the institution.",
     hazards:
-      "A breach is actionable against whoever sponsored it, regardless " \
-      "of what waits inside — and what waits may be people who kill " \
-      "outsiders on sight. Coriolis put a price on forcing a door that " \
-      "few will pay twice, yet the political pressure to reclaim " \
-      "sealed territory has never fully gone away."
+      "A breach is actionable against whoever sponsored it. Several " \
+      "documented communities answered forced entry with lethal resistance, " \
+      "and the Coriolis ruling applies even when the closed hab rejects " \
+      "the Accord's authority."
   )
 
   prose <<~PROSE
-    Ring habs that refused reconnection during the Rekindling and remain closed in the present day. The number isn't important — what matters is that they exist, that their reasons vary wildly, and that the system has mostly learned to leave them alone.
+    Shuttered habs are ring habitats that remained sealed through the Rekindling and still refuse or fail to establish contact. External surveys can confirm pressure, heat, and working systems without identifying the society or ecology inside. Each hab therefore carries its own contact record: hails sent, replies received, doors opened by consent, and approaches that ended at the hull.
   PROSE
   prose <<~PROSE, section: :how_it_works, heading: "Why They Closed"
-    Every shuttered hab has its own reason. Some are ideological — communities that developed governance systems during the Signal Famine that depend on isolation, and reconnection would destabilize what they've built. Some are pragmatic — habs that assessed the reconnecting system and decided they were better off without it. Some aren't making a choice at all — they've changed so much that "refusing contact" isn't a decision, it's just what they are now.
+    Some communities developed institutions during the Signal Famine that depend on controlled isolation. Others received Rekindling envoys, assessed the reconnecting system, and closed their doors deliberately. In still others, generations of ecological or cognitive change removed the shared practices needed for ordinary contact.
 
-    The range is extraordinary:
+    One documented hab deep in #{ref :the_shear, "the Shear"} underwent sustained resonance-driven biological and cognitive change. Its surviving survey reports make extraordinary claims without measurements later teams could repeat. The entry route remains closed, and the registry classifies the hab by its contact status rather than treating those claims as established fact.
 
-    At one extreme, there is at least one documented case of accelerated evolution — a hab deep in #{ref :the_shear, "the Shear"} where resonance-influenced biological and cognitive change, sustained over generations in a sealed, saturated environment, has produced inhabitants who appear to have reached a near-godlike state. They do their own thing. People leave them alone because why would you provoke the functionally omnipotent beings next door. That hab isn't shuttered in any meaningful sense — it's operating on a plane that the rest of the system can't meaningfully interact with. Whether any other shuttered hab has undergone similar transformation is unknown. The Shear makes surveying difficult, and most expeditions that get close enough to find out don't come back with clear answers.
+    In some garden habs, environmental controls drifted and the interior rewilded. Their inhabitants built self-sufficient communities around the changed ecology and stopped maintaining the ring systems around them. Recorded entry attempts at several such habs met immediate armed resistance; the people inside treated the breach itself as an attack.
 
-    At the other extreme, there are habs that reverted. Garden habs where the environmental controls drifted, the interior rewilded, and the inhabitants adapted by abandoning technology entirely. Tribal communities that are self-sufficient, no longer understand the machinery around them, and consider outsiders demons to be killed on sight. These habs are shuttered because the people inside no longer have the framework to understand what "contact" means.
-
-    Between these extremes: habs with functioning societies that simply prefer isolation. Habs with internal politics that would collapse if exposed to outside influence. Habs with secrets. Habs with nothing to trade and nothing to gain. Each one a different answer to the question of what #{elapsed :the_glassfall, :the_rekindling} of isolation produces.
+    Most known examples are functioning societies that restrict outside traffic to preserve their governance, economy, or settlement balance. Their laws range from permanent closure to rare exchanges conducted through one sealed threshold. The category describes the closed relationship with the wider system, rather than a common culture inside.
   PROSE
   prose <<~PROSE, section: :governance, heading: "Sovereignty"
-    Under the #{ref :tempered_accord, "Tempered Accord"}, habs can legally refuse contact. This was hard-won. The #{ref :coriolis_breach, "Coriolis Breach"} — a forced-entry incident during the Contested Reach — was the defining argument for hab sovereignty, and the Accord's framers wrote the lesson into the governance structure.
+    Under the #{ref :tempered_accord, "Tempered Accord"}, habs can legally refuse contact. The hab-sovereignty provisions adopted after the #{ref :coriolis_breach, "Coriolis Breach"}, a forced-entry incident during the Contested Reach, make sponsors answerable for any unauthorized entry.
 
-    Sovereignty is not perfectly settled. Many habs operate as micro-nations with their own rules, including local resonance conditions that make outside standards difficult to apply. Connected habs can send delegates to the #{ref :ring_collective, "Ring Collective"}, which represents shared ring-hab interests without governing its members. Shuttered habs remain outside it. The Accord forbids forced entry whether or not a closed community recognizes the institution issuing that protection.
+    Enforcement remains contested. Many habs operate as independent polities with their own rules, including local resonance conditions that make outside standards difficult to apply. Connected habs can send delegates to the #{ref :ring_collective, "Ring Collective"}, which represents shared ring-hab interests without governing its members. Shuttered habs remain outside it. The Accord forbids forced entry even when a closed community does not recognize the institution issuing that protection.
   PROSE
   prose <<~PROSE, section: :perception, heading: "The System's Relationship"
-    Mixed. Per community, per individual. Some people pity the shuttered habs. Some fear them. Some respect the choice. Some are angry — resources and territory locked behind doors that won't open while the rest of the system negotiates over scarce space. Some are curious. Some don't think about them at all.
+    Open-system interest concentrates on four things: the closed hab's sovereignty, the safety of nearby routes, access to resources and territory behind the hull, and the knowledge carried by a society isolated since the Famine. These interests produce survey expeditions, contact offers, salvage claims, and periodic demands for reclamation.
 
-    The ascended habs provoke awe and unease in roughly equal measure. The reverted habs provoke horror and fascination. The quietly isolationist habs provoke mostly indifference — they're not dramatic enough to have opinions about.
-
-    Most communities have learned not to force them open. Coriolis made the cost of that approach vivid enough that few are willing to repeat it — though "few" is not "none," and the political pressure to reclaim shuttered territory has never fully gone away.
+    The Coriolis Breach established the cost of forced entry and the law that followed it. Most settlements now treat a sealed door as the boundary of a protected polity. Advocates for reclaiming shuttered territory remain active wherever scarce space or a valuable route lies behind one.
   PROSE
 
 end

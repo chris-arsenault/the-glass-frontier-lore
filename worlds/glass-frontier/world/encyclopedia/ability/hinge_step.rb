@@ -11,16 +11,15 @@ encyclopedia :hinge_step do
 
   descriptive_identity(
     signs: "The stepper stands at the joint's lip with weight already committed forward, " \
-           "watching the far plate, and crosses in one flowing stride at a moment that " \
-           "looks arbitrary to anyone untrained and inevitable to anyone drilled.",
+           "watches the far plate through one full cycle, and crosses the slack beat in " \
+           "one flowing stride.",
     effect: "Every working joint carries its load in rhythm — clamp, swing, settle — and " \
             "each cycle holds a slack beat when the plates sit unloaded and still. The " \
             "technique is finding that beat by eye and ear and putting the crossing " \
             "inside it.",
     limits: "The beat belongs to the joint's current work, so a stepper reads before every " \
-            "crossing, every time — the rhythm changes with the cargo — and the trades " \
-            "drill the abort as hard as the step, since the second-worst place to be is " \
-            "waiting and the worst is halfway."
+            "crossing and aborts when the cargo changes the rhythm. A step begun outside " \
+            "the slack beat leaves the crosser on moving plates under load."
   )
 
   prose <<~PROSE
@@ -29,10 +28,10 @@ encyclopedia :hinge_step do
     The training is rhythm first, footwork second. Apprentices learn joints from the lip — clapping the cycle before they cross it, calling the beat aloud until the call comes true — and drill the abort stance as hard as the step itself, because the beat is a property of the joint's present cargo and the cargo changes on its own schedule alone. Dock custom reinforces the craft at the culture level: joints are crossed single file by standing rule, a stepper at the lip is given the lip, and the courtesy of calling the beat for a burdened crosser — hands full, child on hip — is the dock's ordinary kindness, offered and taken without ceremony a hundred times a shift.
   PROSE
 
-  cue "At the joint's lip a docker stands weight-forward, clapping the plate's cycle softly — clamp, swing, settle — then crosses in one stride at a moment that looks arbitrary and lands like proof."
+  cue "At the joint's lip a docker stands weight-forward, clapping the plate's cycle softly — clamp, swing, settle — then crosses the slack beat in one stride."
   cue "A crosser with both arms full pauses at the lip, and the nearest stepper calls the beat for them as easily as passing the salt."
   affordance "A drilled stepper crosses any working joint at working pace, which keeps a whole dock's foot traffic moving through floors that would otherwise ration every crossing to the traffic gaps."
   pressure "The beat belongs to the joint's current cargo and changes with it, so every crossing begins with a fresh read — and the drilled abort exists because the halfway point of a misread joint is the dock's least forgiving address."
   variation "Passenger docks time their joints slow and post beat-callers at the busy crossings; freight docks let the cargo set the rhythm and expect the feet to keep up."
-  variation "Dock children learn the clap-and-call as a game years before their first crossing, and the game's rhyme differs by dock in the way of all the best safety training."
+  variation "Dock children learn the clap-and-call as a game years before their first crossing, and each dock fits its own rhyme to the local joint cycle."
 end

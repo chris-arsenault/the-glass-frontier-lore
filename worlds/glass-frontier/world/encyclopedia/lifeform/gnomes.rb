@@ -20,7 +20,7 @@ encyclopedia :gnomes do
     appearance:
       "Small-framed and unexpectedly heavy, a gnome carries a crystalline " \
       "lattice grown through the bone, and it shows: skin with a faint depth to " \
-      "it in strong light, a glimmer in direct sun, and a hum from the bones at " \
+      "it in strong light, a glimmer in direct starlight, and a hum from the bones at " \
       "rest that the gnome cannot hear and a quiet room can.",
     senses:
       "A gnome feels the local resonance field the way other species feel " \
@@ -29,7 +29,7 @@ encyclopedia :gnomes do
       "openness makes distorted resonance a physical assault."
   )
 
-  cue "A gnome is small-framed and unexpectedly heavy, with skin that shows a crystalline depth and glimmers in direct sunlight."
+  cue "A gnome is small-framed and unexpectedly heavy, with skin that shows a crystalline depth and glimmers in direct starlight."
   cue "At rest, gnomish bones give off a harmonic hum below the gnome's own hearing but audible to others in a quiet room."
   affordance "A gnome can identify nearby ringglass, active frequencies, and bad tuning as immediate sensory experience without reaching for an instrument."
   pressure "Distorted resonance causes sensory overload and lattice microfractures that accelerate aging, making dangerous work a cost measured in years."
@@ -37,14 +37,14 @@ encyclopedia :gnomes do
   variation "Some gnomes regard attunement as a gift, some as the mark of having been designed for another people's purpose, and many hold both views."
 
   prose <<~PROSE
-    Bioengineered by the #{encyclopedia_ref :elves, "elves"} during the ring era. Gnomes were designed — there is no polite way around the word — to interface with the orbital ring's #{encyclopedia_ref :resonance, "resonance"} systems. Their biology incorporates #{encyclopedia_ref :ringglass, "ringglass"} at a fundamental level: crystalline structures threaded through their skeletal system and nervous tissue, grown in place rather than implanted. A gnome is, in a very literal sense, part crystal.
+    The #{encyclopedia_ref :elves, "elves"} engineered gnomes during the ring era to interface with the orbital ring's #{encyclopedia_ref :resonance, "resonance"} systems. #{encyclopedia_ref :ringglass, "Ringglass"} structures grow through gnomish bone and nervous tissue as part of the body rather than as implants.
   PROSE
   prose <<~PROSE, section: :biology, heading: "Biology"
-    Small-framed, compact, with a density that surprises people who try to pick one up. Gnomish bone has a crystalline lattice component that makes it harder and heavier than baseline organic bone. Their skin has a faint translucency in strong light — not transparent, but a quality of depth, like looking at something with a layer of glass between you and it. In direct sunlight, gnomes glimmer.
+    Gnomes are small-framed and compact, with a density that surprises people who try to pick one up. Their bones contain a crystalline lattice that makes them harder and heavier than baseline organic bone. In strong light, gnomish skin has the depth of light passing through thin glass. Direct starlight makes it glimmer.
 
-    Their nervous system conducts resonance directly. A gnome can feel the local resonance landscape the way other species feel temperature — not as abstract data, but as immediate sensory experience. Warm and cold, loud and quiet, harmonic and dissonant. Walk a gnome into a room and they can tell you what #{encyclopedia_ref :ringglass, "ringglass"} is present, what frequencies are active, and whether anything is tuned wrong, before they've consciously registered any of it.
+    Their nervous system conducts resonance directly. A gnome feels the local resonance landscape the way other species feel temperature — as immediate differences between warm and cold, loud and quiet, harmonic and dissonant. In an unfamiliar room, nearby #{encyclopedia_ref :ringglass, "ringglass"}, active frequencies, and poor tuning register before conscious thought names them.
 
-    At rest, gnomish bones produce a barely audible harmonic hum. Gnomes themselves can't hear it — it's below their conscious threshold — but other species in close proximity sometimes notice. In quiet rooms, in shared beds, in the moment before sleep. Whether this is beautiful or unsettling depends on who you ask. Gnomes generally find the question tiresome.
+    At rest, gnomish bones produce a harmonic hum below the gnome's conscious threshold. Other species hear it in quiet rooms and shared beds, especially in the moment before sleep; gnomes themselves do not.
 
     Gnomish lifespan has unusually high variance. A gnome with good maintenance — regular lattice realignment, controlled resonance exposure, access to stillwater baths — can live #{duration 150}, longer than any other species in the system. A gnome without maintenance, or one with chronic exposure to bad resonance harmonics, might not see fifty. The crystalline components accumulate microfractures over decades that the body can't fully repair, and the rate of accumulation depends almost entirely on environment and care.
 
@@ -53,20 +53,18 @@ encyclopedia :gnomes do
     Elderly gnomes in either case experience a gradual dulling of their resonance sense as the lattice degrades — the gnomish equivalent of going deaf, and treated with a similar mix of pragmatism and grief.
   PROSE
   prose <<~PROSE, section: :culture, heading: "The Ethics"
-    Gnomes were *made*. Designed by the elves to serve a function in the ring's infrastructure. This is historical fact, not speculation, and the ethical implications are a live issue in the present day even though nobody involved in the decision is still around to answer for it.
+    Ring-era records establish that the elves engineered gnomes for direct neural work with the ring's resonance systems. Present-day gnomish debate concerns the institutions and expectations inherited from that purpose after the ring's destruction.
 
-    The debate is not abstract. Gnomes are people — fully autonomous, fully intelligent, fully sovereign. Nobody disputes this. What they dispute is what it *means* that an entire species exists because someone decided they should, for a purpose that no longer exists. The ring is shattered. The function gnomes were designed for — direct neural interface with ring-scale resonance systems — is no longer possible. Gnomes are a tool designed for a machine that broke.
-
-    Gnomes themselves have complicated and varied feelings about this. Some consider their attunement a gift — a richer experience of the world than any other species has access to. Some consider it a brand — a reminder that they exist because someone wanted a product. Most hold both views simultaneously and don't appreciate outsiders trying to resolve the tension for them.
+    Some gnomes describe attunement as a valued sense. Others emphasize the labor assignments, maintenance costs, and shortened lives attached to an engineered body. The same person may use either account in a different setting, and gnomish organizations disagree over which obligations belong to current governments, ring-era archives, and employers.
   PROSE
   prose <<~PROSE, section: :resonance, heading: "Relationship with Resonance"
-    Unmatched among living species. The elves were more knowledgeable, but gnomish attunement is more *immediate* — a gnome doesn't understand resonance intellectually, they experience it sensorially. This makes them invaluable in any resonance-related field: tuning, repair, prospecting, containment, medical applications. A gnome tuner can do in minutes what takes a human technician an hour with instruments.
+    Gnomish attunement is immediate sensory experience. Nearby ringglass, active frequencies, and poor tuning register through the lattice before a practitioner names them with theory or an instrument. Tuning, repair, prospecting, containment, and medical work use that perception alongside learned method.
 
-    The downside is overexposure. Gnomes are more sensitive to resonance disruption than other species. The #{ref :bloom_zones, "Bloom Zones"} are acutely dangerous for gnomes — the reality distortion registers as intense sensory overload, and prolonged exposure causes crystal lattice damage that accelerates the aging process. Gnomish Displacement Council operatives are rare, respected, and closely monitored for exposure limits.
+    Resonance disruption also enters through the lattice. In the #{ref :bloom_zones, "Bloom Zones"}, distortion produces sensory overload and prolonged exposure causes microfractures that accelerate aging. Gnomish Displacement Council operatives work under strict exposure limits.
   PROSE
   prose <<~PROSE, section: :present_day, heading: "Present Day"
-    Gnomes are distributed across the system, found wherever resonance work happens — which is everywhere. They are overrepresented in technical fields and underrepresented in politics, a pattern that gnomes themselves are divided on whether to address. Some see it as a natural consequence of their strengths. Others see it as the system quietly steering them back toward the function they were designed for.
+    Gnomes live across the system and are especially numerous around major ringglass processing and resonance work. Employment records place them heavily in technical fields and sparsely in political office; gnomish organizations dispute whether access, expectation, or preference produces the pattern.
 
-    Gnomish communities exist, particularly in settlements built around major ringglass processing operations, but gnomes don't have a species-level homeland. Like most species in the system, their primary identity is cultural.
+    Gnomes have no species-level homeland. Their communities form within the cultures and settlements where they live.
   PROSE
 end

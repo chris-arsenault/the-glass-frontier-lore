@@ -12,15 +12,13 @@ encyclopedia :rill_heron do
   function "Clears channel vermin and leech-line pests; a standing flock's behavior is read as a water-quality gauge"
 
   descriptive_identity(
-    appearance: "A tall pale wader with dove-gray plumage, a dark spear beak, and the deliberate " \
-                "gait of a creature that has watched water professionally for generations. Kept " \
-                "birds wear a household's leg ring and an air of employment.",
+    appearance: "A tall pale wader with dove-gray plumage, a dark spear beak, and a deliberate " \
+                "high-stepping gait. Kept birds wear a household's leg ring.",
     behavior: "The flock works the channels at first light and dusk, spearing vermin along the " \
               "leech lines, and spends the day standing sentinel at the junctions — one bird " \
               "per junction, by an arrangement the birds enforce themselves.",
-    threat: "The spear beak is for channel vermin and treats a bare wading foot as a " \
-            "misunderstanding to regret briefly; children learn the flock's spacing rules " \
-            "before they learn to swim.",
+    threat: "A bird defending its junction strikes bare feet with the spear beak. Children " \
+            "learn the flock's spacing rules before entering the channels.",
     senses: "The birds read the water first: herons abandoning a channel in a body is the " \
             "gardens' oldest contamination alarm, and stewards close the reach on the " \
             "flock's word alone.",
@@ -29,21 +27,21 @@ encyclopedia :rill_heron do
   )
 
   prose <<~PROSE
-    The ring's great park galleries kept herons the way they kept fountains, and the Famine put the ornaments to work. Rill herons — tall, dove-gray, deliberate — came through the dark years as vermin-catchers in the garden habs' channels, and the pipe-linked settlements have kept working flocks since. The birds stalk the shallow rills at first light and dusk, spearing the pests that plague warm piped water, and pass the working day standing sentinel at the channel junctions, one bird to a junction, spaced by a protocol the flock maintains itself and enforces with brief aristocratic violence.
+    The ring's great park galleries kept herons as ornament, and garden habs put the surviving flocks to work during the Famine. The tall, dove-gray birds stalk shallow rills at first light and dusk, spearing pests in the warm piped water. Through the day they stand at channel junctions, one bird to a junction, and drive intruding birds or waders back across the spacing line.
 
-    The gardens read their herons the way keepers read hives. A working flock is a water-quality instrument with opinions: birds fishing calmly certify the reach, birds standing high and watching mean something moving that ought to stay still, and a flock abandoning a channel in a body closes the reach on its own authority — the stewards' rule of trusting the birds predates every instrument the stewards own, and its record keeps the rule. Households mark their birds with leg rings and tell the flock the news at the junction stones by old custom: departures, arrivals, a birth, a death. The stewards' books defend the practice on flock-management grounds, the practice is older than the books, and the flocks, for their part, notice the attention.
+    Garden stewards read flock behavior beside their water instruments. Calm fishing accompanies a clear reach, high standing and fixed attention marks movement below the surface, and a flock leaving one channel together closes the reach for inspection. Household leg rings identify kept birds. At junction stones, households also maintain the old custom of speaking departures, arrivals, births, and deaths while feeding the flock.
   PROSE
 
   prose <<~PROSE, section: :operations, heading: "Keeping and the Flock's Franchise"
-    A flock belongs to its water. Herons bond to their channels first and their keepers a distant second, hold their junction franchises for life, and pass them by a succession visible from any bridge — the young bird standing at the junction's edge for a season, tolerated, until the incumbent stands aside or fails to return. Households feed lightly and deliberately, enough to anchor the flock through lean water and not enough to dull the working appetite, and the feeding stones double as the telling stones where the household news is spoken.
+    Herons bond to their channels and hold a junction for life. A young bird stands at its edge for a season until the incumbent yields the place or fails to return. Households feed enough to keep the flock through lean water without dulling its hunting, using the same junction stones where household news is spoken.
 
-    Between gardens, birds travel as gifts of the same weight as proof reseedings: a mated pair to a new settlement's channels, with their ring history and their line's junction record recited at the handover. The gift's acceptance is the birds' to give — a pair that fishes the new reach by the second dusk has taken the water, and one that stands at the crate and watches has declined it, and stewards on both sides treat the verdict as final and slightly embarrassing.
+    Between gardens, birds travel as settlement gifts with their ring history and junction record recited at the handover. A pair fishing the new reach by the second dusk has taken the water. A pair that remains at the crate returns with its keepers for placement elsewhere.
   PROSE
 
   cue "At each channel junction a single pale heron stands sentinel with professional patience, and the spacing between birds is too even to be accident."
   cue "A household elder pauses at the junction stone to tell the standing bird the week's news, and the bird attends with the gravity of a registrar."
-  affordance "A working flock is vermin control and water alarm in one — calm fishing certifies the reach, and a flock quitting a channel closes it on the spot with a reliability the stewards' instruments have spent generations failing to beat."
-  pressure "The birds bond to water and hold their own franchises, so the flock's cooperation is courted rather than commanded — and a reach whose herons decline it has been reviewed by the gardens' least corruptible inspector."
+  affordance "A working flock controls channel vermin and supplies a visible water alarm: calm fishing accompanies a clear reach, while a flock leaving together closes the channel for inspection."
+  pressure "The birds bond to a channel and defend one-bird spacing at its junctions. Stewards place feeding stones, introduce young birds at the edge of an occupied place, and move rejected gift pairs elsewhere."
   variation "Great garden habs run flocks of forty with junction maps and succession records; a small pipe household keeps two birds and a stone, and tells them the news anyway."
-  variation "Gift pairs travel between gardens with recited lineage, and the receiving stewards wait on the birds' verdict — fishing by second dusk is acceptance, and the crate-stand is a declined water no one argues with."
+  variation "Gift pairs travel between gardens with recited lineage; fishing by second dusk establishes them, while a pair that remains at the crate returns for placement elsewhere."
 end

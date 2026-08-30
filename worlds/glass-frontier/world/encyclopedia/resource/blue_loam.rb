@@ -31,8 +31,8 @@ encyclopedia :blue_loam do
       "A stressed culture drives rapid pulses through the surrounding " \
       "tissue and can keep a patient awake for days. Seren's stock has " \
       "split into two stable forms identical to the eye and the record, " \
-      "so with the exchange lot closed, a cracked or swapped ceramic " \
-      "bar leaves nobody able to say which form a shipment holds.",
+      "so with the exchange lot closed, the scored ceramic bar is the " \
+      "only shipment record distinguishing the two forms.",
   )
 
   prose <<~PROSE

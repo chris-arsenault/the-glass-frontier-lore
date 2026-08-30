@@ -31,10 +31,10 @@ encyclopedia :sarn do
     Old combs loosen during the seasonal passage at #{ref :perch, "Perch"}. Their mineral fibers retain the loads carried during growth and have become valuable materials. Collection crews wait for a comb to separate and keep their lines outside the living fans; a cut made early can pull an entire collection frame into the herd's shared turn.
   PROSE
 
-  cue "Sarn cross the gaps between fragments on their own schedule, so a herd turns up in a lane the charts show as clear; the first warning a crossing party gets is usually a hab closing its approach lanes ahead of them."
+  cue "Sarn cross gaps on their own schedule, so a herd may enter a lane the charts show as clear; the first warning to an approaching vessel is often the hab closing its lanes ahead."
   cue "A mature animal has a narrow body, four steering fins, and two fans of flexible mineral combs grown from its sides."
-  affordance "Fly into the spiral rather than beneath it and the herd treats the vessel as one more load to pass along; adults can throw its momentum toward the outer edge faster than a kite cancels it, and the way out runs with the turn, not across it."
-  pressure "A comb cut before it separates on its own is still attached to a moving animal, and the herd's shared turn takes the line, the frame, and whatever the frame is bolted to; a crew watching a rich fan has every reason to cut early."
+  affordance "A vessel beneath a migrating spiral can observe or collect without entering the load exchange. Inside the spiral, the herd passes its momentum toward the outer edge and escape follows the turn."
+  pressure "Collection crews wait for a comb to separate and keep their lines outside the living fans; an early cut remains attached to the animal and draws the frame into the herd's shared turn."
   variation "Their spirals distribute strain across hundreds of bodies, allowing young and injured animals to travel near the quiet center."
   variation "Old combs loosen during the seasonal passage at #{ref :perch, "Perch"}."
 

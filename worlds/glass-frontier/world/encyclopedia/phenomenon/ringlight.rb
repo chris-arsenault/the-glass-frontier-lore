@@ -1,13 +1,13 @@
 encyclopedia :ringlight do
   name "Ringlight"
-  summary "Ringlight is the broken ring's gift to the night: the band of scattered brightness the debris field throws across the dark hours, bright enough to work by in season and patterned enough to navigate by always. The intact ring lit the night as one steady arch; its wreckage lights it as weather."
+  summary "Ringlight is the band of brightness cast across Kaleidos's night by starlight scattering from the broken ring. In bright seasons it provides working light, and its fixed line remains a surface navigation mark year-round."
   kind :phenomenon
   subkind :physical_phenomenon
   status :complete
   topics :surface, :"ring-era", :navigation, :ecology
   prevalence :common
   appears_when all: { place: [:surface] }
-  medium "The night sky of Kaleidos, lit by sunlight scattered off the orbital debris field"
+  medium "The night sky of Kaleidos, lit by starlight scattered off the orbital debris field"
   nature "A band of night brightness varying with the debris streams' density and geometry; charted seasonally and read locally"
   hazard "Bright seasons flatten shadows and wash out the gleeds, and the dark-season transition catches every routine the bright months quietly built on free light"
 
@@ -24,15 +24,15 @@ encyclopedia :ringlight do
   )
 
   prose <<~PROSE
-    The ring still lights the night, in the way of broken things. Sunlight scattering off the debris field throws a band of brightness along the old ring's line, arching the dark sky from horizon to horizon, and the surface lives by its calendar. High-season ringlight is working light — bright enough to read by, to harvest by, to cast the doubled shadows that surface children learn as ordinary — and the bright weeks pull evening life outdoors: the late markets, the ringlight harvests that take the dry crops in the cool, the festival seasons that every surface culture has moored to the brightest nights. Dark seasons thin the band to a grain of moving glitter, and the transition weeks are the lantern trade's whole year.
+    Starlight scattering from the debris field throws a band of brightness along the old ring's line, arching across the night sky from horizon to horizon. High-season ringlight is bright enough to read and harvest by and casts the doubled shadows familiar to surface children. Late markets, dry-crop harvests, and festival seasons follow the brightest weeks. Dark seasons thin the band to a grain of moving glitter, and lantern sales rise through the transition.
 
-    The old sky is remembered in the new one's grammar. The intact ring lit the night as one steady arch — the ribbon again, bright side up — and the surface's night culture simply weathered the shattering: the band still marks the same line across the sky, still serves as the compass it always was, and the almanac offices chart its seasons from the same stream tables that predict the #{encyclopedia_ref :falling_years, "falling years"}, since the brightness and the hazard are the same debris read two ways. The correlation is the surface's oldest bittersweet arithmetic, taught with the almanac: a brilliant ringlight year is a heavy year coming, the light and the fall travel together, and the festivals of the brightest nights carry, in every tradition that keeps them, one observance turned toward the roofs.
+    The intact ring formed one steady arch, remembered as the ribbon again, bright side up. Its debris still marks the same compass line. Almanac offices chart ringlight from the stream tables used to predict the #{encyclopedia_ref :falling_years, "falling years"}: dense streams scatter more light and later produce heavier showers. Surface calendars pair the brightest festivals with roof inspections, shutter raising, or another observance preparing for the coming fall.
   PROSE
 
   cue "The night field is bright enough to work by, every worker casting doubled shadows, and the band arches overhead along the line the ring used to hold."
   cue "The lantern seller's stall doubles its stock in one week — the dark-season transition — and the mishap ledger at the ward house thickens on the same schedule."
   affordance "Ringlight is free working light on a charted calendar — evening labor, harvests, and festivals planned to the bright weeks — and the band's fixed line is a compass no cloud short of full overcast takes away."
-  pressure "The light is the fall's own advertisement: bright years are heavy years coming, so every ringlight festival carries its roof-turned observance, and the almanac's cheerful brightness tables are read twice."
+  pressure "A bright season signals dense debris streams and a heavier falling year ahead, so districts use its festivals to inspect roofs and raise shutters before the shower tables thicken."
   variation "Avar takes its dry harvest by ringlight and holds the year's weddings in the high weeks; the Sable Crescent's bright-night boat processions predate the Glassfall in the records and simply changed skies."
   variation "Dark-season customs mirror the bright ones at hearth scale, and the surface's proverb for consolation in every dialect is some version of 'the band thins, the band returns.'"
 end

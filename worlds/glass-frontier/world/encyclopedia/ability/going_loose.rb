@@ -33,7 +33,7 @@ encyclopedia :going_loose do
     Yards drill a second form, the tucked variant, for falls among clutter — arms bound in, one rotation accepted, impact taken on the padded line of back and shoulder. Which variant to take is the split-second judgment the drills exist to make automatic, and rigging bosses interview for it by asking a candidate to describe their worst fall, slowly.
   PROSE
 
-  cue "Someone slips from the high walk, stretches long instead of flailing, turns once in the air with trailing arms, and lands rolling along the deck's drift, finishing on their feet to scattered, unsurprised applause."
+  cue "Someone slips from the high walk, stretches long, turns once with trailing arms, and lands rolling along the deck's drift before rising to their feet."
   cue "In the padded gallery a class of children takes turns dropping to the net floor while an instructor calls the drift like a ferry pilot calling water."
   affordance "A crew that has gone loose together rigs height on bare frames and saves its nets for training days, and the best faller in the room is a living drift gauge everyone reads before a long drop."
   pressure "The long read needs height and open floor, and the split-second choice between stretching long and tucking small is the difference between a roll and a broken shoulder in a cluttered shaft."

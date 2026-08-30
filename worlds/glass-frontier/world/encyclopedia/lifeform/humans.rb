@@ -17,10 +17,8 @@ encyclopedia :humans do
 
   descriptive_identity(
     appearance:
-      "Humans sit in the middle of every range: medium build, faces and skin in " \
-      "every tone, nothing about the species itself worth a second look. What a " \
-      "human body shows is where it grew up — gravity, light, and work write " \
-      "more on a human than species does.",
+      "Humans have medium builds, faces and skin in every tone, and bodies that " \
+      "show the gravity, light, and work of the places where they were raised.",
     senses:
       "Human senses are the system's baseline, and resonance is not among " \
       "them: without an instrument a human feels nothing of the field. Human " \
@@ -31,24 +29,22 @@ encyclopedia :humans do
   cue "A human has a medium build and no species-level physical feature that outweighs the marks of local gravity, light, and work."
   cue "A human resonance specialist reaches for a calibrated instrument and a reference before offering a reading."
   affordance "Training, meters, repeated comparisons, and tool-building let humans turn resonance into observations despite having no innate sense for it."
-  pressure "A human resonance reading is only as good as the instrument and its last calibration, and without one the practitioner has method rather than sensation."
+  pressure "Human resonance work depends on calibrated instruments and documented references; practitioners state the device and its last calibration with the reading."
   variation "Human bodies show the gravity, light, and work of the places where they were raised more strongly than a shared species identity."
-  variation "Human practitioners respond to their lack of attunement with either pragmatic tool-building or competitiveness with naturally attuned species."
+  variation "Human practitioners build different tool traditions around meters, reference collections, repeated comparison, and instrument-assisted attunement."
 
   prose <<~PROSE
-    Alien arrivals. Humans reached the Kaleidos system around 2050 CE, during the height of the ring era, and were integrated into the existing multi-species civilization built by the #{encyclopedia_ref :elves, "elves"} and others. They were not the first non-native species to arrive, and their integration was unremarkable by the standards of the time — the ring-era civilization was already multi-species and accustomed to new additions.
+    Humans arrived in Kaleidos around 2050 CE, during the height of the ring era, and joined the multi-species civilization of the #{encyclopedia_ref :elves, "elves"} and earlier arrivals. Ring-era civic, trade, and household records include humans within a generation of the first landing accounts.
   PROSE
   prose <<~PROSE, section: :biology, heading: "Biology"
-    Nothing unusual by the standards of the system. Bipedal, medium build, lifespan measured in decades. No natural resonance affinity — humans can learn #{encyclopedia_ref :attunement, "attunement"} through training, but it requires deliberate study and practice in a way that comes intuitively to #{encyclopedia_ref :gnomes, "gnomes"} or came naturally to the elves. A human resonance practitioner is always working harder for the same result, which produces a particular kind of stubborn, methodical expertise that other species sometimes find impressive and sometimes find exhausting.
+    Humans are bipedal, medium-built, and live for decades. Resonance enters human perception through instruments and trained #{encyclopedia_ref :attunement, "attunement"}. Practitioners learn against calibrated meters, known samples, and repeated observations rather than a species-level resonance sense.
   PROSE
   prose <<~PROSE, section: :present_day, heading: "Present Day"
-    Humans represent the largest single population in the system, partly because their shorter lifespans mean faster generational turnover and partly because they breed prolifically by the standards of most other species. They are the demographic default — not dominant in any qualitative sense, but numerous enough that human faces are the most common ones in most settlements.
+    Humans are the largest single population in the system. Their shorter lifespans and generation times contributed to that number after the Famine, and human faces are common in most settlements.
 
-    This ubiquity means humans don't have a strong species-level identity the way some smaller populations do. A human's primary identity is cultural — #{encyclopedia_ref :sitharian_culture, "Sitharian"}, #{encyclopedia_ref :hab_worlder, "Hab-Worlder"}, syndicate, independent — rather than biological. Most humans don't think about being human very often. There are too many of them for it to feel distinctive.
+    Census and household records usually place human residents through culture, district, trade, and allegiance. #{encyclopedia_ref :sitharian_culture, "Sitharian"} and #{encyclopedia_ref :hab_worlder, "Hab-Worlder"} identities carry more local information than the species line alone.
   PROSE
   prose <<~PROSE, section: :resonance, heading: "Relationship with Resonance"
-    Neutral. Humans can learn, but the learning curve is steep and the ceiling is lower than it is for naturally attuned species. The best human resonance practitioners are genuinely skilled — but they'll never feel the resonance landscape the way a gnome does, and they know it.
-
-    This produces two reactions: a pragmatic culture of tool-building (if you can't feel it directly, build instruments that translate it into something you can read) and an occasional chip-on-the-shoulder competitiveness with attuned species that is mostly good-natured and occasionally not.
+    Human attunement is learned through deliberate study and practice. Instruments translate resonance into readings the practitioner can compare, while trained attention links those readings to heat, pressure, vibration, and sound. Human schools therefore emphasize calibration, reference collections, and repeatable method.
   PROSE
 end

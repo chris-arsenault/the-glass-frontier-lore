@@ -17,9 +17,8 @@ encyclopedia :breach_lichen do
     behavior: "It grows only on struck stone, fastest in the first seasons after a strike, and " \
               "spreads in rings that date the scar the way growth rings date a tree. The mat " \
               "darkens as the local field rebuilds and pales again in the days after discharge.",
-    threat: "The mat itself sits harmless underfoot. Its color is the hazard notice: a mat gone " \
-            "black from center to rim is standing on stone that is due, and crews treat black " \
-            "lichen as a posted sign.",
+    threat: "The mat's color serves as the hazard notice: black from center to rim marks stone " \
+            "approaching another discharge, and crews treat it as a posted sign.",
     risks: "Harvesting runs on the same clock as the danger — the mats cure best when fully " \
            "loaded, so felt crews cut closest to discharge and grade their nerve along with " \
            "their crop."
@@ -32,13 +31,13 @@ encyclopedia :breach_lichen do
   PROSE
 
   prose <<~PROSE, section: :trade, heading: "Felt and the Cutting Window"
-    Cut, pressed, and cured, loaded lichen makes an insulating felt that damps structural-band bleed — lining for instrument cases, kneeling pads for tuners, wall patches for houses on humming ground. The catch is in the loading: mats cure into worthwhile felt only when cut full, and a full mat is by definition standing on stone that is due. Felt crews work in threes, two cutting and one watching the rim color and calling the fade, and a crew's grade book records both the felt quality and how deep into the black they cut it. The trade phrase for overreaching is cutting past the call, and the trade has its funerals.
+    Cut, pressed, and cured, loaded lichen makes an insulating felt that damps structural-band bleed — lining for instrument cases, kneeling pads for tuners, wall patches for houses on humming ground. Fully loaded mats produce the densest felt and grow on stone approaching discharge. Felt crews work in threes, two cutting and one watching the rim color and calling the fade. The grade book records the felt quality and the color at the final cut; cutting past the call is the trade's recorded cause in fatal harvests.
   PROSE
 
   cue "Gray-green rosettes ripple outward from an old scar across the shelf, and the nearest route stone has been planted deliberately at the mat's edge."
   cue "The center of the big mat has gone slate-dark since yesterday, and the herd's lead animals are already drifting off the shelf."
   affordance "The mat is a free strike forecast graded by color — pale is settled, darkening is due within days — and a slope's rings date every old strike for anyone routing new construction."
-  pressure "The best felt comes from mats cut at full load, so the harvest window and the danger window are the same days, and a felt crew's income runs on how late its caller dares to call."
+  pressure "A three-person felt crew cuts while the caller watches the rim color and ends the harvest at the agreed shade. The grade book records that color beside the cured felt."
   variation "Avar mats grow broad and thin and are cut like turf; Kyther valley mats grow in deep cushions that yield the dense felt tuners pay for."
   variation "Some strike-country households keep a house mat on a boundary stone and read it each morning, trusting it over the district bulletin by long habit."
 end

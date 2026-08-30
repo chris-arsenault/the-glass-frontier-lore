@@ -12,7 +12,7 @@ encyclopedia :stillwater do
   cue "Stillwater is carried in sealed vials with crystal particulate suspended through the purified water."
   cue "A vial offered outside Conclave supply may still contain the original Echo River voices."
   affordance "A vial of stillwater can hold more data than a conventional crystal array ten times its size."
-  pressure "Heat, contamination, a resonance spike, or a broken seal corrupts the contents, and nobody learns what was lost until a Tuner reads the vial back."
+  pressure "Heat, contamination, a resonance spike, or a broken seal corrupts the contents. The damage becomes legible only when a Tuner reads the vial back."
   variation "Clean stillwater has been filtered of its accidental historical content while retaining its signal-band capacity."
   variation "Black-market stillwater retains original Echo River voices and commands extreme prices from collectors."
 
@@ -25,25 +25,25 @@ encyclopedia :stillwater do
     working:
       "Writing to it and reading it back both take signal-band Tuning, " \
       "and a single vial holds more data than a crystal array ten times " \
-      "its size — the archival medium nothing else approaches. The " \
+      "its size. The " \
       "Conclave consumes most of the supply, and the Lattice Proxy " \
       "Synod uses it for custodian outputs that die in transfer to " \
       "conventional media.",
     risks:
       "Heat, contamination, a resonance spike, or a broken seal " \
-      "corrupts the contents, and nobody learns what was lost until a " \
-      "Tuner reads the vial at the far end. Stock offered outside " \
+      "corrupts the contents, and the damage becomes legible only when " \
+      "a Tuner reads the vial at the far end. Stock offered outside " \
       "Conclave supply may never have been purified — vials with the " \
       "original river voices intact sell to collectors for far more " \
       "than clean medium.",
   )
 
   prose <<~PROSE, section: :how_it_works, heading: "How It Works"
-    Purified #{encyclopedia_ref :echo_rivers, "Echo River"} water. In its raw state, Echo River water carries resonance imprints — fragments of pre-Glassfall data encoded in the crystal particulate suspended in the flow. With careful filtration and resonance stabilization, the water can be cleaned of its historical content while retaining its extraordinary capacity to hold signal-band information.
+    Stillwater begins as #{encyclopedia_ref :echo_rivers, "Echo River"} water carrying pre-Glassfall signal imprints in suspended crystal. Filtration removes those accidental records, and resonance stabilization leaves a clear medium able to accept new signal-band information.
 
-    The result is an effectively infinite storage medium. A vial of stillwater can hold more data than a conventional crystal array ten times its size, because the suspended crystal particulate provides a three-dimensional lattice of microscopic storage surfaces. Writing data to stillwater requires signal-band Tuning. Reading it back requires the same. The medium is fragile — contamination, resonance spikes, or temperature extremes corrupt the contents — but for archival purposes, nothing else comes close.
+    A vial holds more data than a conventional crystal array ten times its size because the particulate provides storage surfaces throughout the water's volume. Signal-band Tuning writes and reads the medium. Heat, contamination, resonance spikes, and a broken seal alter the lattice; the loss becomes legible at the next readback.
 
-    The #{ref :echo_ledger_conclave, "Echo Ledger Conclave"} is the largest consumer. The #{ref :lattice_proxy_synod, "Lattice Proxy Synod"} uses it to record AI custodian outputs that don't survive transfer to conventional media. Black market stillwater with pre-purification content — original Echo River voices still intact — commands extreme prices from collectors.
+    The #{ref :echo_ledger_conclave, "Echo Ledger Conclave"} consumes most of the clean supply. The #{ref :lattice_proxy_synod, "Lattice Proxy Synod"} uses it for custodian outputs that lose information when transferred to conventional media. Black-market vials retaining their original Echo River voices command much higher prices from collectors.
   PROSE
 
 end

@@ -23,7 +23,7 @@ encyclopedia :drover do
   cue "A single herd of mixed brands flows down the drove road behind one belled lead animal, and a figure with knotted cords on their belt walks the flank, counting under their breath."
   cue "At the pens, households hand over stock and receive a knot on a cord in return, and the whole transaction is the knot."
   affordance "Pooling under a drover turns a dozen households' scattered stock into one professionally moved drive — and the drover's route book knows the season's ground, water, and passings better than any single farm can."
-  pressure "The drover answers for the count at the far end, so every risk on the route — a green ford, a strike slope, a shortcut past a due mat — is the drover's to refuse, and owners with market dates push against exactly that refusal."
+  pressure "The drover answers for the far-end count and chooses the route from current ground, water, and strike signs. Owners set market dates, but the drover records and may refuse a ford, slope, or shortcut for the pooled herd."
   variation "Avar drives run to the shifting roads with roadspider support at the fords; garden-hab circuits are walked drives of small stock between habs, timed to dock schedules."
   variation "The great seasonal drives end in descent fairs — stock paraded through town, the lead beast garlanded, accounts settled at the pens — and towns compete over whose fair the drovers prefer."
 

@@ -1,6 +1,6 @@
 encyclopedia :bellholder do
   name "Bellholder"
-  summary "A bellholder is the one person at a cordon post certified to ring the evacuation bell — the office that holds the judgment of when a boundary's behavior has stopped being weather and started being the day everyone drilled for. The bell rung right empties a district in minutes; rung wrong, it spends a trust no post can quickly rebuild."
+  summary "A bellholder is the cordon officer certified to order a district's immediate evacuation with one stroke of the post bell. Boundary instruments, patrol reports, and the inherited threshold book inform the decision; the bellholder alone carries the striker."
   kind :role
   subkind :office
   status :complete
@@ -15,21 +15,20 @@ encyclopedia :bellholder do
     tools: "The bell, the striker, the threshold book — the post's accumulated record of " \
            "every boundary behavior that was almost the day — and the succession envelope, " \
            "sealed, naming the second holder.",
-    manner: "Calm as professional equipment and studied in it; a bellholder narrates the " \
-            "boundary's behavior aloud on the bad watches, evenly, so the post hears the " \
-            "judgment forming instead of guessing at it."
+    manner: "Deliberately calm; on a bad watch the bellholder narrates the boundary's " \
+            "behavior aloud so the post hears the evidence and the judgment forming."
   )
 
-  cue "At the cordon post one figure wears a white cord shoulder to hip and carries the striker on their belt, and the whole post's small talk orbits their calm like boats around a mooring."
+  cue "At the cordon post one figure wears a white cord shoulder to hip and carries the striker on their belt; instrument readers address every change in the boundary directly to them."
   cue "The threshold book lies open at the watch desk — generations of entries reading 'held' — and today's entry is already three lines longer than yesterday's."
-  affordance "The office concentrates the hardest call at the boundary into one certified, drilled, accountable judgment — and a district that trusts its bellholder evacuates in minutes on one sound, with no committee in the loop."
-  pressure "Every watch is a wager between the ring too early that spends the district's trust and the ring too late that spends the district — and the threshold book's long record of 'held' is both the holder's guide and the pressure to add one more."
+  affordance "One stroke from a certified bellholder begins the district's drilled evacuation in minutes, with the decision and its supporting readings entered under one officer's name."
+  pressure "The threshold book shows how earlier holders read similar conditions, while the live instruments and patrol reports belong to the present watch; the bellholder must state which evidence governs the call."
   variation "Great cordons run paired holders on opposing shifts with the succession envelope sealed between them; a small post's holder trains a second quietly and hopes the envelope stays sealed for a career."
   variation "Holders' drills ring the true bell muffled — the district hears the rhythm and sleeps on — and the unmuffled test rung at each holder's investiture is, by design, a sound the district never quite forgets."
 
   prose <<~PROSE
-    Every Bloom cordon has one bell that means leave now, and one person entitled to ring it. The bellholder is that office: certified by the Displacement Council, invested at the post with the white cord and the striker, and charged with the single judgment the whole apparatus of boundary instruments, stillhull patrols, and threshold books exists to inform — the call that the boundary's behavior has left the range the post can watch and entered the range the district must flee. The bell's authority is absolute and pre-agreed. Rung, it empties the district by drilled routes with no confirmation step and no committee; every soul under a cordon bell has practiced the sound's meaning since childhood, and the evacuation begins with the first stroke, arguments deferred by design until everyone is somewhere safer to have them.
+    Every Bloom cordon has one bell that means leave now, and one person entitled to ring it. The bellholder is that office: certified by the Displacement Council, invested at the post with the white cord and the striker, and charged with deciding when the boundary's behavior has left the range the post can watch and entered the range the district must flee. Boundary instruments, stillhull patrols, and the threshold book report to that decision. The first stroke sends the district along its drilled routes; everyone under a cordon bell has practiced the sound's meaning since childhood.
 
-    The office's craft is threshold judgment, and its instrument is the book. A post's threshold book holds generations of near-days — boundary behaviors logged, weighed, and closed with the word held — and a new holder inherits it as both textbook and burden: the accumulated evidence of how bad it can look and still hold, pressing against the one entry that must be written before rather than after. Holders train against the book, drill the muffled bell on schedule, and cultivate on principle the audible calm the posts call bell-voice — the even narration of a deteriorating boundary that lets a watch hear the judgment forming. The #{ref :gray_line, "Gray Line"} and #{ref :outside, "Outside"} hold the trade's teaching posts, and their retired holders' seminars consist, by all accounts, largely of reading old threshold entries aloud and asking the room: this watch, this reading — do you ring?
+    The office's craft is threshold judgment, and its instrument is the book. A post's threshold book holds generations of near-days — boundary behaviors logged, weighed, and closed with the word held — and a new holder inherits the accumulated evidence of how bad a reading can look while the boundary still holds. Holders train against the book, drill the muffled bell on schedule, and cultivate the audible calm the posts call bell-voice: even narration of a deteriorating boundary that lets a watch hear the judgment forming. The #{ref :gray_line, "Gray Line"} and #{ref :outside, "Outside"} hold the trade's teaching posts, where retired holders read old threshold entries aloud and ask trainees whether each watch had reached the bell.
   PROSE
 end

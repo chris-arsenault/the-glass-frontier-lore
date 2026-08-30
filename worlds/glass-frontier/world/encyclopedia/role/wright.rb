@@ -1,6 +1,6 @@
 encyclopedia :wright do
   name "Wright"
-  summary "A wright keeps hulls and hab shells sound — laying out repairs full-size on the lofting floor, steaming frames to shape, and holding the half-model wall that is the fleet's structural memory. Where a listener hears the structure and a minder tends the machine, the wright is who cuts."
+  summary "A wright keeps hulls and hab shells sound — laying out repairs full-size on the lofting floor, steaming frames to shape, fastening them to schedule, and maintaining the half-model wall that records each structure's curves."
   kind :role
   subkind :profession
   status :complete
@@ -23,7 +23,7 @@ encyclopedia :wright do
   cue "On the black lofting floor a full-size hull section grows in chalked stations, and the wright walks it barefoot with a batten, springing the line and squinting for fairness."
   cue "One wall of the shop is shelves of carved half-models — every hull and shell section the yard has ever served — and the wright pulls one, slices it into lifts, and reads a dead builder's intentions off the curves."
   affordance "The half-model wall is the fleet's structural memory: a wright who holds a vessel's model can loft its repair full-size, steam frames to the original intent, and certify the work against the very curves the first builder carved."
-  pressure "The wright cuts where the listener heard and the minder worried, so every serious repair is a standing negotiation between the model's original fairness, the structure's present truth, and an owner paying by the day for a vessel on the hard."
+  pressure "The wright lays a listener's finding and a minder's log against the half-model, then marks the repair full-size on the floor. Owners approve the marked scope before the wright steams or cuts the replacement frame."
   variation "Dock wrights serve hulls and keep models by vessel; hab wrights serve shell sections and keep them by frame number, and each trade regards the other's wall as charmingly disorganized."
   variation "A wright's masterpiece is still a carved half-model of an original design, judged by seniors with battens in hand, and the trade's fairness argument at a judging is a spectator event."
 
@@ -36,6 +36,6 @@ encyclopedia :wright do
   prose <<~PROSE, section: :structure, heading: "The Wall and the Trade"
     The half-model wall makes a wright's shop an archive with sawdust. Models pass shop to shop with the vessels they describe, carry their carvers' names, and accumulate margin marks — repairs dated, frames sistered, the small history of each hull written on its own shape. A vessel whose model is lost is measured, carved fresh, and treated thereafter as newly documented, and buying a used hull begins, for the careful, with an hour at the wright's wall reading the margins.
 
-    Apprenticeship runs floor first: years of lofting and battens before the steam box, the steam box before the saw. The masterpiece is a carved half-model of the candidate's own design, judged by seniors with battens and strong opinions, and the judging's public argument about fairness — this line sweet, that turn hard — is the trade examining its own eye in the open, which is precisely the point.
+    Apprenticeship runs floor first: years of lofting and battens before the steam box, the steam box before the saw. The masterpiece is a carved half-model of the candidate's own design, judged in public by seniors with battens. Their argument about fairness — this line sweet, that turn hard — determines whether the candidate receives a shop mark.
   PROSE
 end

@@ -35,11 +35,11 @@ encyclopedia :alteration do
   variation "Others build unprecedented but viable bodies whose senses and needs remain unknown until they are used."
 
   prose <<~PROSE
-    Alteration treats living anatomy as changeable while refusing to let the body die during the work. Bone divides and rejoins under load. Organs shift function before their replacements are complete. Skin becomes shell, sail, filter, or sensory tissue. The subject remains conscious unless another means suppresses sensation.
+    Alteration keeps a body alive while changing its anatomy. Bone divides and rejoins under load. Organs shift function before their replacements are complete. Skin becomes shell, sail, filter, or sensory tissue. The subject remains conscious unless another means suppresses sensation.
 
     A viable pattern is mandatory. Studied lifeforms provide reliable solutions for pressure, heat, poison, darkness, flight, and violence. Novel anatomy can be made when the user understands every necessary exchange: where its mass comes from, how it breathes, what carries waste and heat, and how its nervous system will inhabit the new shape.
   PROSE
-  prose <<~PROSE, section: :dangers, heading: "No Unchanged Hand"
+  prose <<~PROSE, section: :dangers, heading: "Changes Carried by the User"
     Alteration passes through the user. At low power the echo may be a patch of scale, a changed pupil, or an appetite that lasts after the useful trait is gone. Greater work leaves greater inheritance. A person who gives a company the same armored skeleton may keep it. One who grows wings for another body may never again balance as they did before.
 
     #{ref :many_fleshed, "The Many-Fleshed"} can rewrite every living body across a battlefield or settlement. Its bearer must become the proposed anatomy first and cannot fully return. Each great use therefore adds another body to the mantle's history, visible in the person who carries it.

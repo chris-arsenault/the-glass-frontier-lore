@@ -10,7 +10,7 @@ encyclopedia :roadspider do
   function "Carries freight across unstable, shifting, or glass-sheeted ground on eight resonance-sensing legs"
   classes "Avar route walkers with high cargo slings; Kyther slope walkers with short paired legs; the broad marsh pattern of the Sable Crescent"
   capacity "A route walker carries three heavy pallets and a crew of two; slope patterns trade cargo for reach"
-  operating_limit "Walks at a herd's pace and plants only where the ground answers; on dead-flat settled road a wheeled hauler passes it laughing"
+  operating_limit "Walks at a herd's pace and yields speed and capacity to wheeled haulers on stable roads"
 
   descriptive_identity(
     appearance: "A low slung hull between eight tall independently sprung legs, each ending in a " \
@@ -33,7 +33,7 @@ encyclopedia :roadspider do
   PROSE
 
   prose <<~PROSE, section: :operations, heading: "The Pole and the Void"
-    The machine's honesty is its one blind spot. Feet judge the ground they touch, and ground can answer solid over a hollow — a crusted sink, a roofed old cellar, the glass bridge over a drained channel. Doubtful stretches get sounded ahead on foot with a pole shoe, a walking staff shod with the same ringglass as a spider foot, and reading the pole is the apprentice's first responsibility and whole education. A crew that loses a spider to a void has usually lost it to a saved half-hour, and route-grade books mark voids in a hand that stays legible for decades.
+    Each foot judges the surface it touches, and solid-sounding ground can bridge a hollow — a crusted sink, a roofed old cellar, or glass over a drained channel. Crews sound doubtful stretches ahead with a pole shoe, a walking staff shod in the same ringglass as a spider foot. Reading the pole is an apprentice's first route responsibility. Route-grade books mark confirmed voids and the safe lines around them.
 
     Regional patterns diverge on the usual lines. Avar route walkers stand tall with high cargo slings for flood season. Kyther slope walkers run short paired legs and hug the grade. The Sable marsh pattern spreads its feet broad as serving trays and walks water-logged ground a person sinks in. All of them yield the road to wheels wherever ground holds still, and spider crews wave haulers past on the flats with professional serenity, because the flats end.
   PROSE
@@ -43,5 +43,5 @@ encyclopedia :roadspider do
   affordance "A spider crew moves real freight across ground that ends wheeled traffic entirely, and their route grades — where the ground answered well this season — are purchasable knowledge worth more than the cargo on the wrong week."
   pressure "The feet trust what they touch, so ground that answers solid over a void invites the machine on — and the crew that skips the pole to save a half-hour explains the sling salvage to the owner."
   variation "Avar walkers stand tall with flood slings, Kyther patterns hug slopes on short paired legs, and the Sable marsh build walks on feet broad as serving trays."
-  variation "Some crews name their spiders and paint the hulls; Kesh crews leave them bare and instead name the routes, and both traditions defend the practice as obviously correct."
+  variation "Some crews name their spiders and paint the hulls; Kesh crews leave the machines bare and name the routes instead."
 end

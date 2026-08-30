@@ -23,7 +23,7 @@ encyclopedia :music_in_kaleidos do
   PROSE
 
   prose <<~PROSE, section: :structure, heading: "Forms and Authority"
-    A single musical order would be simpler than what exists. Some settlements preserve voices in worked crystal and treat playback as testimony. #{ref :fermata_station, "Fermata Station"} makes civic decisions through public improvisation and hears precedent in the standards a player calls. Work crews claim machine tones as common music once enough hands can hold the pulse together, and a claimed tone enters the crew's repertoire with the machine's name attached.
+    Musical authority differs by settlement and trade. Some settlements preserve voices in worked crystal and treat playback as testimony. #{ref :fermata_station, "Fermata Station"} makes civic decisions through public improvisation and hears precedent in the standards a player calls. Work crews claim machine tones as common music once enough hands can hold the pulse together, and a claimed tone enters the crew's repertoire with the machine's name attached.
 
     Pace is discipline. A gutting line, a loading gang, or a splice crew works to a pulse tight enough that the music is the supervision — a hand that drops out of rhythm is visible to the whole line before any foreman speaks. The people maintaining the underlying tone make everyone else's performance possible and hold the least glamorous position in the room, and every working tradition has songs about exactly that.
   PROSE

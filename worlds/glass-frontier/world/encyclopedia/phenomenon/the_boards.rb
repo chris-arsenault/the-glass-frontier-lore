@@ -38,5 +38,5 @@ encyclopedia :the_boards do
   affordance "The board cycle is the steadiest public clock in the system — free, visible, and identical in every town that has one — and its fixed listings give archivists a preserved map of the ring's last working day."
   pressure "A listing that changes draws a crowd and an argument, because the board is updating a network that survives as debris, and the Verathi change-log gives every faction in the room something to cite."
   variation "Sithari's boards run behind polished gallery glass with attendants; Lowbank's market board is touched for luck until its lower corner has gone smooth."
-  variation "Dock towns time cargo windows by the boards; garden habs with a working board mostly ignore it and keep water-clock time, and visitors from board towns find this barbaric."
+  variation "Dock towns time cargo windows by the boards; garden habs with a working board commonly keep water-clock time, leaving visitors from board towns a second local schedule to learn."
 end

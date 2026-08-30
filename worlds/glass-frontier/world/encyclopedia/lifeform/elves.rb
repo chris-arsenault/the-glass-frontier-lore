@@ -13,58 +13,48 @@ encyclopedia :elves do
 
   descriptive_identity appearance:
     "Elves run taller than humans, with elongated ears, finer bone, and " \
-    "lifespans in centuries. The differences are visible but not dramatic — " \
-    "in a crowd you might notice, or might not."
+    "lifespans in centuries. The physical differences are subtle enough for " \
+    "an elf to pass without notice in a mixed crowd."
 
   prose <<~PROSE
-    One of the founding species of the Kaleidos system, primary architects of the #{ref :the_glass_frontier, "orbital ring"}, and for centuries the most technically sophisticated civilization in the system. Then, during the #{ref :signal_famine, "Signal Famine"}, they disappeared. Where they went, why they left, and whether "left" is even the right word are questions that #{elapsed :elves_vanish} of scholarship haven't answered.
+    Elves were one of Kaleidos's founding species and the primary architects of the #{ref :the_glass_frontier, "orbital ring"}. During the #{ref :signal_famine, "Signal Famine"}, civic rolls, work records, and household accounts stop registering living elven populations. Scholarship since the Rekindling has established the scale of the disappearance but has found no destination or verified account of departure.
   PROSE
   prose <<~PROSE, section: :biology, heading: "Who They Were"
-    The elves were native to the Kaleidos system, present from before the colony era. Physically similar to humans — taller on average, with elongated ear structure, finer bone density, and significantly longer lifespans measured in centuries rather than decades. The differences were visible but not dramatic. In a crowd, you might notice. You might not.
+    The elves were native to Kaleidos and present before the colony era. They stood taller than humans on average, with elongated ears, finer bone, and lifespans measured in centuries.
 
-    They were integrated into the broader multi-species society of the ring era. They held positions in government, academia, industry, and the arts. They weren't a separate civilization — they were part of the civilization, woven through every level of it.
-
-    But their primary contribution was the ring itself.
+    Elves held positions throughout the ring era's multi-species governments, academies, industries, households, and arts. Their largest body of documented work is the ring itself.
   PROSE
   prose <<~PROSE, section: :history, heading: "The Ring Builders"
     The orbital ring was a multi-species undertaking, but the elves were its architects. The #{encyclopedia_ref :resonance, "resonance"} engineering — the system of tuned crystal that carried power, data, and structural force through the entire ring — was elven science. The #{encyclopedia_ref :ringglass, "ringglass"} lattice design, the frequency architecture, the systems that made a megastructure spanning a planet's orbit function as a single integrated machine: that was their work.
 
-    This isn't controversial. Ring-era records are clear on elven authorship of the core engineering. What modern practitioners know as resonance theory is, in many cases, a simplified version of elven originals — stripped of context and attribution by time, but recognizably derived. The sophistication gap between what the ring builders achieved and what anyone alive can replicate is, in large part, the gap left by the people who understood it best.
-
-    The elves didn't just build the ring. They understood it. And then they were gone, and that understanding went with them.
+    Ring-era records attribute the core engineering to elven laboratories and design houses. Much of present-day resonance theory descends from surviving elven originals with missing context and attribution. Repair crews can maintain many of those systems at reduced load, while the design records needed to reproduce them end at the elven layer.
   PROSE
   prose <<~PROSE, section: :perception, heading: "What People Think"
-    Everyone has heard of the elves. They built the ring. That's basic history — taught in schools, referenced in everyday conversation. "Elven engineering" is a common shorthand for technology that works better than anyone can explain.
+    School histories identify the elves as ring architects, and "elven engineering" remains common shorthand for technology whose performance exceeds its surviving documentation.
 
-    The disappearance is less universally known but widely recognized as a historical fact. The elves were here, and then they weren't. Most people file it under "things that happened during the Famine" and don't think about it further.
+    Public histories place the disappearance during the Famine. Specialist debate concerns the record gaps and their cause.
 
     The Redaction is where opinion diverges:
 
-    - **The mainstream position** is that the record gaps are a natural consequence of the Famine's chaos. #{elapsed :the_glassfall, :the_rekindling} of fragmented communication degraded a lot of records. The elves were prominent, so their absence from degraded records is noticeable, but not evidence of conspiracy.
+    - **The mainstream position** attributes the gaps to #{elapsed :the_glassfall, :the_rekindling} of fragmented communication and record loss. Its surveys find comparable damage elsewhere in Famine-era archives.
 
-    - **The Redaction theorists** argue the pattern is too systematic to be coincidence. Someone deliberately cleaned the record — and the Echo River evidence suggests it was the elves themselves. Why a civilization would erase its own detailed history while remaining in the broad strokes is the central question these scholars can't answer.
+    - **Redaction scholarship** identifies repeated removal of personal, household, and technical detail while broad elven history remains intact. Echo River fragments support deliberate alteration and leave the actor and purpose unsettled.
 
-    - **Folk tradition** in older settlements preserves more specific stories. The elves didn't die. They left. Some versions say they saw something coming. Some say they're still out there, somewhere in the ring, in habs that don't show on any chart. These stories are treated as folklore by most people and as uncomfortably plausible by the scholars who study the Redaction.
+    - **Folk traditions** in older settlements say the elves departed after foreseeing a threat or still occupy uncharted ring habs. Public archives classify these accounts as folklore; Redaction scholars preserve them as testimony without treating them as verified sightings.
   PROSE
-  prose <<~PROSE, section: :tensions, heading: "The Open Questions"
-    The elves' existence is historical fact. Their contributions are documented. Their disappearance is acknowledged.
+  prose <<~PROSE, section: :tensions, heading: "Evidence Boundaries"
+    The last population records place elves throughout the ring-era system. Later archives contain no destination, departure manifest, mass casualty record, or verified living population. Echo River fragments show deliberate alteration in some records, but do not identify who performed it or what information was removed.
 
-    What nobody can explain:
-    - Where did an entire species go during the #{elapsed :the_glassfall, :the_rekindling} Signal Famine?
-    - Why does the historical record show signs of deliberate tampering?
-    - If the elves cleaned their own records, what were they hiding — or hiding from?
-    - Are there still elves in the system, somewhere, and if so — what have they been doing for #{elapsed :elves_vanish, approx: true}?
-
-    The last question is the one people don't ask in polite company. It implies things about the Famine, about the #{ref :the_glassfall, "Glassfall"}, and about the current state of the system that nobody is prepared to deal with.
+    Searches for uncharted habs have produced disputed signals and folklore rather than a confirmed settlement. Public scholarship therefore records the disappearance, the pattern of alteration, and #{elapsed :elves_vanish, approx: true} without a verified account of where the population went.
   PROSE
 
   prose <<~PROSE, section: :truth, heading: "Where They Are Now", dm: true
-    Most elves live in hidden habs — ring fragments running dark, resonance signatures masked, not on any chart. These habs are where the war preparation happens: weapons development, strategic planning, training, and the slow accumulation of resources that #{elapsed :elves_vanish, approx: true} of work by the system's most advanced species can produce.
+    Most elves live in hidden ring habs with masked resonance signatures and omitted chart positions. These habs support weapons development, strategic planning, training, and resource stockpiles accumulated across #{elapsed :elves_vanish, approx: true}.
 
-    A smaller number live among the general population, passing without much difficulty — the physical differences are subtle enough that inattention is sufficient disguise. These are intelligence operatives, supply chain facilitators, and people who couldn't bring themselves to leave entirely. They maintain the Redaction: monitoring archives, intercepting discoveries that get too close, occasionally nudging scholars away from productive lines of inquiry. The Echo Ledger Conclave's most sensitive elf-related material has been stolen from their archives twice. Both thefts are unsolved.
+    A smaller number live among the general population in human guise. They work as intelligence operatives, supply-chain facilitators, and residents who retained ties outside the hidden habs. Redaction operations monitor archives, intercept discoveries, and divert productive investigations. The Echo Ledger Conclave has recorded two unresolved thefts of its most sensitive elf-related material.
   PROSE
   prose <<~PROSE, section: :truth, heading: "The Adversary", dm: true
-    The force that destroyed the orbital ring. The elves know what it is: the #{ref :the_false_form, "False Form"} — the figure that will not close, given will. It is the same thing the public cosmology of #{encyclopedia_ref :the_three_forms, "The Three Forms"} draws as the impossible third panel and dismisses as an abstraction. The elves know it is no abstraction. See #{ref :the_false_form, "The False Form"} for the full account.
+    The #{ref :the_false_form, "False Form"} destroyed the orbital ring. Elven records identify it as the figure that will not close, given will. Public accounts of #{encyclopedia_ref :the_three_forms, "The Three Forms"} preserve it as the impossible third panel while treating it as an abstraction.
 
     What is established:
     - External to the Kaleidos system
@@ -74,34 +64,30 @@ encyclopedia :elves do
     - The elves have been preparing for #{elapsed :elves_vanish, approx: true}
   PROSE
   prose <<~PROSE, section: :truth, heading: "The Bloom Zones", dm: true
-    The Silent Bloom was an industrial accident. The elves didn't cause it and had nothing to do with Coremark's negligence. But the consequence — tears in local reality across mid-drift ring habs — is now the elves' most urgent problem.
+    Coremark's industrial accident caused the Silent Bloom and tore local reality across mid-drift ring habs. The resulting openings are now the elves' primary operational concern.
 
-    The Adversary is seeping through the Bloom Zone reality tears. Not a full incursion — more like pressure through a crack. The dimensional instability that makes the zones dangerous to inhabit is, in part, the Adversary's influence bleeding through. The new relic-magnitude artifacts that the zones generate are a byproduct of this contact between normal reality and whatever lies on the other side.
+    The Adversary's influence enters through the Bloom Zone tears as pressure rather than a full incursion. That contact contributes to the zones' dimensional instability and produces the new relic-magnitude artifacts found there.
 
     The elves have significantly increased their hidden presence in and around the Bloom Zones. This is their primary operational focus now — monitoring the incursion, studying the tears, and preparing countermeasures.
 
-    This is the nightmare scenario the elves have been preparing for: the Adversary finding a way back in. The Bloom Zones are the front line of a war that nobody else knows is being fought.
+    Elven preparations now concentrate on preventing that influence from widening into an incursion.
   PROSE
   prose <<~PROSE, section: :truth, heading: "The Council Contact", dm: true
-    The Displacement Council's top leadership position — the First Threshold or equivalent — is aware of the elves and cooperates with them directly. This is the single point of contact between elven operations and the non-elven world.
+    The Displacement Council's top leadership office cooperates directly with the elves and serves as their contact with the Council.
 
-    The arrangement is pragmatic. The elves need a human organization maintaining the cordons and controlling access to the Bloom Zones. The Council needs resources, intelligence, and occasional interventions that arrive from no identifiable source. The First Threshold knows the truth: the containment mission is cover for something larger, the "unexplained successes" are elven operations, and the reality tears are not just an industrial aftereffect.
+    Council cordons control access to the Bloom Zones; elven operations supply intelligence, resources, and interventions concealed from the public service. The Council leader knows that containment also obstructs an external incursion and that several unexplained successes were elven operations.
 
-    The rank and file of the Displacement Council do not know. They believe in their mission — containment of a resonance anomaly — and that belief is genuine and correct as far as it goes. The First Threshold carries the weight of knowing it goes further.
+    Other Council personnel receive the accurate but incomplete brief that they are containing resonance anomalies caused by the industrial accident.
 
-    This position is the loneliest job in the system. The holder cooperates with a civilization that officially doesn't exist, to fight a threat that nobody else knows about, while maintaining a public face of stoic neutrality. Succession is handled carefully — the outgoing First Threshold identifies and reads in their successor personally. The elves have veto power over the choice, which they have exercised at least once.
+    The outgoing Council leader personally briefs a successor on the arrangement. Elven representatives hold veto power over the choice and have exercised it at least once.
   PROSE
   prose <<~PROSE, section: :implications, heading: "The Cultural Sacrifice", dm: true
-    The emotional core of the elven story.
+    Public history still records the elves and credits them with the ring, while the Redaction removed personal connections, community ties, and individual contributions. Elven children in the hidden habs learn about the civilization their grandparents built and left. They study ancestral resonance techniques that continue in public schools without knowledge of the living source.
 
-    The elves didn't erase themselves from existence — people still know they were real, still credit them with the ring. But they erased themselves from *life*. Every personal connection, every community tie, every individual contribution — all severed. Elven children born in the hidden habs grow up learning about a civilization their grandparents built and then walked away from. They study resonance techniques their ancestors invented, practiced across the system by people who will never know they're still alive.
-
-    This was a choice. Cultural retreat, not cultural death — but the difference is academic when you're the generation living it. The elven leadership chose secrecy over presence, preparation over participation. They believed — and continue to believe — that the Adversary cannot be fought by a visible target.
-
-    Whether they're right is the question the story will eventually have to answer.
+    Elven leadership chose secrecy and preparation because it considers a visible civilization vulnerable to the Adversary. Hidden-hab councils continue to enforce that policy while some residents and the Dissident's sympathizers oppose it.
   PROSE
 
-  cue "Anything working better than its owner can account for gets sold as elven engineering, whether or not an elf was ever near it. The claim adds to the asking price and nobody can check it."
-  pressure "Ask any scholar whether the record gaps were deliberate and you get one of three settled positions, delivered as though holding either of the other two were an embarrassment."
+  cue "A seller calls the machine elven engineering and adds the claim to the asking price; the buyer looks for a ring-era maker's mark or an archive line that would support it."
+  pressure "Archive reviews classify an elven record gap as ordinary Famine loss, evidence of deliberate alteration, or unverified folk testimony, with each conclusion tied to the surviving source."
   pressure "Any resonance repair that needs the original design runs out of documentation at the elven layer. What gets fitted instead is a substitution somebody local worked out, and it holds at reduced load."
 end

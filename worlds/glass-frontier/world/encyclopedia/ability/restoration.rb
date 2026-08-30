@@ -37,10 +37,10 @@ encyclopedia :restoration do
   prose <<~PROSE
     Restoration gives a surviving pattern authority over later damage. Broken material travels back to old joins. A wound closes according to the body that existed before it. Overwritten words rise beneath the marks that covered them. The ability works because complete things leave redundant accounts of themselves in structure, signal, memory, and use.
 
-    The strongest available account sets the destination. A freshly broken tool may hold that account in every fragment. A person carries it through living tissue, neural continuity, and the memories of movement. An archive may survive through copies, checks, readers, and physical impressions after its principal record is gone. Restoration can assemble these witnesses across distance, but it cannot substitute confidence for evidence.
+    The strongest available account sets the destination. A freshly broken tool may hold that account in every fragment. A person carries it through living tissue, neural continuity, and the memories of movement. An archive may survive through copies, checks, readers, and physical impressions after its principal record is gone. Restoration assembles these witnesses across distance, with the surviving pattern determining what returns.
   PROSE
   prose <<~PROSE, section: :limits, heading: "What Returns"
-    A restored state is not an improved state. An old flaw returns with the hull that contained it. A healed body regains the chronic injury it carried before the recent wound. Malicious instructions reappear with the damaged archive when they belonged to the last complete copy. Restorers inspect the candidate state before allowing it to become whole whenever time permits.
+    Restoration returns the last complete state, including its old flaws. A healed body regains the chronic injury it carried before the recent wound. Malicious instructions reappear with the damaged archive when they belonged to the last complete copy. Restorers inspect the candidate state before allowing it to become whole whenever time permits.
 
     Contradictory patterns force a choice. Once restoration commits to one state, the rejected state becomes part of the loss. #{ref :great_restorer, "The Great Restorer"} can recover entire cities and populations from scattered remains, but its bearer must name the part that will stay lost and take that absence into their own body or memory.
   PROSE

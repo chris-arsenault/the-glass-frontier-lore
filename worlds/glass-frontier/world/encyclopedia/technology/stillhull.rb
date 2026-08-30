@@ -36,6 +36,6 @@ encyclopedia :stillhull do
   cue "Beside the hatch, the rating is painted fresh over older, higher numbers, and the crew touches it on the way in with the casualness of long habit."
   affordance "A rated stillhull buys certified minutes of ordinary physics at the edge of a place that has stopped offering any — the margin every boundary survey, instrument placement, and recovery run is planned inside."
   pressure "The rating is an interval and nothing more, so every job is staged to the count — and the boundary's own variability means the counted margin is spent judgment, breath by breath, with the turn call as the crew's most rehearsed argument."
-  variation "Boundary tenders work the routine cordon rounds; the recovery hulls run closest with empty racks and paired crews, and their veterans are identifiable by how little they say about it."
-  variation "Retired short-test hulls serve as trainers with chevrons stripped, and cordon crews hold their retirement ceremonies with the same seriousness either way — the hull kept its count while it had one."
+  variation "Boundary tenders carry six crew and staged equipment on routine cordon rounds; recovery hulls approach more closely with paired crews and empty racks."
+  variation "Retired short-test hulls serve as trainers with their orange chevrons stripped, giving new crews a working hull for rehearsing the count."
 end

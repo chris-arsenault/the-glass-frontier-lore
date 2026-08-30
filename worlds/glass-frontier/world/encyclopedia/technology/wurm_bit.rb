@@ -62,9 +62,9 @@ encyclopedia :wurm_bit do
     Old plates also retain material from previous work. A bit that begins turning before it touches the new surface may be answering a fragment lodged at the root. The tool is opened and cleaned rather than trusted to find a seam through memory.
   PROSE
 
-  cue "Bits sold as Pell plate turn up in Glasswake without response marks cut into the yoke. Most carry ordinary worked glass darkened at the root and will not twist toward a seam at all; a few carry real plates taken from a burrow nobody has charted."
+  cue "Bits sold as Pell plate turn up in Glasswake without response marks cut into the yoke. Most carry ordinary worked glass darkened at the root and will not twist toward a seam at all; a few carry real plates from burrows absent from current survey charts."
   cue "A cleaned mouth plate sits in a forked yoke with its dark root against a weak ringglass driver."
-  affordance "Somebody always locks the yoke to get a straight, fast cut. The locked plate takes every change in the seam into itself and snaps, and its unvaried bite is the clearest call a working #{encyclopedia_ref :glasswurm, "glasswurm"} can follow through a connected debris mass."
+  affordance "A yielding yoke lets the plate follow a curved boundary through mixed mineral and ringglass, freeing intact stock that a straight bore would cross. Locking the yoke makes a faster cut but transfers every change in the seam into the plate."
   pressure "The plate folds flat against the yoke when the seam ends, divides, or turns harder than the mount allows, and it does not distinguish between the three. Pressing the feed anyway breaks the plate into pieces that then run off along different boundaries."
   variation "A remote cutter can carry a larger yoke and let the plate shape an extraction path around intact stock."
   variation "Surface crews use hand frames to remove damaged ringglass from bridges, mills, and old foundations."

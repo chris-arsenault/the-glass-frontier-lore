@@ -17,7 +17,7 @@ encyclopedia :rind do
   prose <<~PROSE
     Rinds are large animals of the #{ref :deep_shear, "Deep Shear"} that follow sustained resonance gradients. Deep-runners named them for the pale shell enclosing most of the body.
 
-    They move slowly and show no aggressive response to ships or people. Their danger comes from scale. A rind seeks the same stable signals that hold tuned structures in calibration, and the filaments trailing from its shell can disrupt active ringglass on contact.
+    They move slowly past ships and people, holding course toward a stable signal. Their trailing filaments make that scale dangerous: a rind seeks the same signals that hold tuned structures in calibration, and contact can disrupt active ringglass.
   PROSE
   prose <<~PROSE, section: :description, heading: "Body"
     A rind is roughly the size of a small courier kite. An opaque pale-grey carapace encloses most of the body. Irregular crystal inclusions catch bands of light visible to #{encyclopedia_ref :tuners, "Tuners"} and appear dull to everyone else.

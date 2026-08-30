@@ -34,7 +34,7 @@ encyclopedia :pan_salt do
   prose <<~PROSE, section: :trade, heading: "The Salter Towns and the Long Stacks"
     Harvest weeks run the salter towns like festivals with quotas. Scoring crews walk the fields at dawn chalking the grids, breaking gangs follow with bars to the work songs that pace the lift, and the graded salt moves inland from the pan stacks — the long weatherproofed ricks, walled in coarse and roofed in tile, where a good year's surplus waits out the thin ones. A town's long stacks are its treasury and are audited like one; the stack wardens' tallies post at the market bell, and coastal politics runs on stack levels the way ward politics runs on water.
 
-    The pans themselves get the running-elven-equipment courtesy: stewards clear the channels, dress the sluice stones, and otherwise leave the terraces to their cycle, which has survived three hundred years of clever suggestions. The one recorded improvement scheme to reach construction — a Rekindling-era pumping gallery meant to hurry the brine — is preserved unfinished at its site as the salter coast's favorite cautionary monument, and steward oaths at two towns still include a line about it.
+    The pans receive the running-elven-equipment courtesy: stewards clear the channels, dress the sluice stones, and leave the terraced cycle unchanged. A Rekindling-era pumping gallery meant to hurry the brine remains unfinished at its site, and steward oaths at two towns still cite it when forbidding changes to the flow.
   PROSE
 
   cue "At dawn the scoring crews walk the set salt field chalking a grid across the crust, and the breaking gangs behind them lift the first clear slabs to a work song."

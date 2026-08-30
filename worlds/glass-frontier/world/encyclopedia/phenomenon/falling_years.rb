@@ -9,24 +9,24 @@ encyclopedia :falling_years do
   appears_when any: { place: [:surface, :orbital] }
   medium "The debris streams of the broken ring, crossing Kaleidos's atmosphere and inhabited orbits"
   nature "A long cycle in glassfall intensity as the great debris streams precess; the almanac offices publish the cycle a generation out"
-  hazard "A falling year multiplies shower crossings — surface impact seasons, orbital transit closures — and the light years between them breed the complacency the heavy ones collect on"
+  hazard "A falling year multiplies shower crossings, producing surface impact seasons and repeated orbital transit closures"
 
   descriptive_identity(
     signs: "The almanac's shower tables thicken, the first heavy streams put shimmer in the " \
            "night sky weeks early, and every yard in the system is suddenly re-laying roof " \
-           "tile and arguing about the shutter budget the light years deferred.",
+             "tile and bringing deferred shutter work forward.",
     effects: "Falling years reshape the calendar: orbital routes shift to shielded windows, " \
              "surface harvests advance ahead of the impact season, and the glass trades " \
              "boom — a heavy year salts the fields and the Shear alike with fresh stock.",
-    hazards: "The cycle's light years run long enough for roofs, drills, and budgets to " \
-             "slacken, and the injury tables spike at each heavy year's front edge, among " \
-             "the settlements that stopped believing in it."
+    hazards: "Roof, shutter, and drill maintenance deferred during the light years leaves " \
+             "settlements exposed at the first heavy streams; injury records peak before " \
+             "late repairs are complete."
   )
 
   prose <<~PROSE
-    The ring is still falling, and it falls on a rhythm. The great debris streams precess on cycles the almanac offices have charted since the Rekindling, and when the heavy streams swing across the inhabited orbits the system gets a falling year: #{encyclopedia_ref :glassfall_showers, "showers"} crossing sky and orbit week after week, the night shimmer that surface children learn as weather, the drumming seasons the ring settlements call the long hail. The cycle is published a generation out. A falling year arrives with its dates in every passing table and its budget lines in every ward ledger, and the system's relationship with its own catastrophe has the texture of flood-country life — scheduled, priced, and survivable by exactly the amount of work done in advance.
+    The great debris streams precess on cycles the almanac offices have charted since the Rekindling. When the heavy streams cross the inhabited orbits, #{encyclopedia_ref :glassfall_showers, "showers"} pass through sky and orbit week after week. Surface children learn the night shimmer as seasonal weather; ring settlements call the repeated drumming the long hail. Almanacs publish the cycle a generation ahead, and falling-year dates appear in passing tables, ward budgets, roof contracts, and harvest plans.
 
-    The heavy years reorganize everything that moves. Orbital routes compress into shielded windows and the freight backlog becomes the season's shared complaint; surface districts advance their harvests ahead of the impact months and roof crews command harvest wages; the cordon services surge; and the glass trades boom behind the danger — a falling year re-salts Avar's sheets and the Shear's claims with fresh stock, and the salvage fleets follow a heavy season the way gleaners follow a reaper. The light years between are the cycle's other test. Roofs age, drills slacken, shutter budgets lose their arguments, and the injury tables spike at each heavy year's front edge among settlements that let the almanac become an opinion.
+    Orbital routes compress into shielded windows and accumulate freight between them. Surface districts bring harvests forward, roof crews command harvest wages, and cordon services add shifts. A falling year also lays fresh stock across Avar's sheets and the Shear's claims, drawing salvage fleets behind the heaviest streams. During the light years, roofs, drills, and shutters still require scheduled maintenance; settlements that defer it record their highest injuries at the front edge of the next heavy season.
   PROSE
 
   prose <<~PROSE, section: :structure, heading: "The Almanac and the Long Ledger"
@@ -38,7 +38,7 @@ encyclopedia :falling_years do
   cue "The night sky carries its first shimmer weeks ahead of the tables, and by morning every yard in town has tile stacked and the shutter argument settled."
   cue "The almanac's revision posts at the market bell, and three trades read it in three ways — the roofers pricing the peak weeks, the freight office compressing its windows, the salvage broker smiling."
   affordance "The cycle is catastrophe with a timetable: a generation's notice for every heavy season, which lets routes, harvests, budgets, and whole trades stage around dates the almanac has earned the right to set."
-  pressure "The light years are long enough to unlearn in, so each falling year opens with a harvest of deferred maintenance — and the settlements that argued with the almanac appear in the injury tables ahead of the ones that argued with their roofers."
+  pressure "The first heavy streams expose deferred roof, shutter, and drill maintenance at once, while repair crews and shielded freight windows are already at their seasonal limit."
   variation "Surface districts fight the cycle with roofs, shutters, and advanced harvests; the ring settlements fight it with shielded windows and route discipline, and each regards the other's falling year as the easy one."
   variation "Heavy years are named and remembered like storms, and the ring settlements close each long hail by walking their outer skins in company, counting the new scars aloud."
 end

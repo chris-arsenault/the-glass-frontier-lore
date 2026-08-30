@@ -39,7 +39,7 @@ encyclopedia :old_proof do
   cue "A glazed crock sits recessed in the warm wall by the stove, and the first thing anyone does on entering the kitchen — before greeting the visitor — is glance at the bloom on its surface."
   cue "The bread in the road chest is dense, faintly gray-crumbed, and dated in pencil on the crust, and it is plainly weeks old and plainly fine."
   affordance "Proof bread is the traveling food of the system — a season's keeping in a loaf — and a household's willingness to reseed a stranger's dead crock is a fast, honest signal of local standing."
-  pressure "A proof line dies in a day of cold or neglect, the loss is tasted publicly in every loaf for the following year, and an evacuation that saves the bedding and loses the crock has its priorities corrected by every neighbor who hears of it."
+  pressure "A proof line dies in a day of cold or neglect, and young replacement culture bakes harsh for the following year. Evacuation lists place the crock ahead of bedding."
   variation "Garden habs run communal crocks the size of barrels with posted feeding rosters; surface households keep small lines and guard their falls-count jealously."
   variation "A few archive-traced lines with low falls-counts from famous registry numbers are treated as civic property — Ledgerfall's oldest line has a keeper, a deputy, and a succession dispute."
 end

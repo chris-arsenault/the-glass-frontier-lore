@@ -1,5 +1,6 @@
 encyclopedia :species do
-  name "Species"
+  name "Kaleidos Species Registry"
+  aka "Species"
   summary "The Kaleidos system is home to six documented sapient species shaped by alien arrival, ring-era engineering, or disputed local origins."
   kind :lifeform
   subkind :overview
@@ -13,9 +14,9 @@ encyclopedia :species do
   log "2026-08-22 — Classified as a reference article because it is the species registry, not a species in the world."
 
   prose <<~PROSE
-    The Kaleidos system is home to multiple intelligent species. This is unremarkable to its inhabitants. The origin of this diversity is debated: accelerated divergent evolution driven by #{encyclopedia_ref :resonance, "resonance"}, deliberate bioengineering by the ring-era elves, independent alien arrival, or some combination. The honest answer is that nobody knows for certain, and most people don't think about it much.
+    Six documented sapient species live in Kaleidos, and mixed-species settlements predate the Glassfall. Ring-era and early-colony records identify separate alien arrivals, elven bioengineering, and older native populations. The fae record remains disputed, and no surviving account connects every species to one origin.
 
-    All known species are roughly bipedal and person-shaped.
+    All six species are roughly bipedal and person-shaped. The registry below records the origin and resonance relationship supported by current archives.
   PROSE
   prose <<~PROSE, section: :sources, heading: "Species Registry"
     | Species | Origin | Resonance Relationship |

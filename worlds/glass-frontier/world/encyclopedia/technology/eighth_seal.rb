@@ -1,5 +1,6 @@
 encyclopedia :eighth_seal do
-  name "The Eighth Seal"
+  name "Eighth Seal"
+  aka "The Eighth Seal"
   summary "An Eighth Seal is a palm-sized ceramic custody record fixed to an object at Clearance Eight. Its eight channels preserve the evidence and public findings behind the object's release, sale, quarantine, return, or continued custody."
   kind :technology
   subkind :record
@@ -36,7 +37,7 @@ encyclopedia :eighth_seal do
 
   PROSE
 
-  cue "Anything a party hands over or recovers in #{ref :clearance_eight}'s custody comes back wearing one. Read clockwise, it gives the hazards, identity marks and route evidence behind the disposition rather than only the color at the center."
+  cue "Anything handed into #{ref :clearance_eight}'s custody comes back wearing one. Read clockwise, it gives the hazards, identity marks, and route evidence behind the disposition rather than only the color at the center."
   cue "Eight radial channels accept impressions from the settlement's public desks."
   affordance "Push for an early release and the center is still gray: the color arrives only once all eight channels are impressed, so the empty channel names the desk that is refusing to sign."
   pressure "#{ref :tangent} carries authenticated blanks for retrievals beyond the custody docks, so a seal can be pressed far from the desks whose findings it records."

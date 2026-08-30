@@ -24,16 +24,16 @@ encyclopedia :keep do
   cue "Behind the counter hangs a row of wet felts, and a slate by the taps carries two chalked readings — morning and evening — that customers ignore and the ward warden checks."
   cue "As the room fills, the keep quietly reseats people: the big slow regulars into the far corner, the card game away from it, the musician nearer the door."
   affordance "The keep knows the room — its regulars, its debts, the street's mood, and who came in wrong tonight — and a traveler who asks the keep before asking the ward board usually gets the truer answer."
-  pressure "Damping a sharpening room means closing early and eating the lost night, and letting it run means the brawl, the cracked crockery, and the warden's visit — the call is the keep's alone and the room second-guesses every version of it."
+  pressure "The keep may reseat a sharpening room, hang the wet felts, move the music, or call last drinks. The slate preserves the morning and evening readings, so wardens and regulars can compare the call with the room's condition."
   variation "Dock-front keeps run loud rooms hard and close them fast; garden-hab keeps run quiet floors where the reading rarely moves and the felts are ceremonial."
-  variation "Prosperous rooms retain a tuner for the readings; most keeps do it by ear, and the trade's standing joke is which method the brawl statistics favor."
+  variation "Prosperous rooms retain a tuner for the readings; most keeps work by ear and keep the slate themselves, while ward records preserve the results of both methods."
 
   prose <<~PROSE
-    A packed public room accumulates resonance the way it accumulates heat and noise. Bodies, voices, struck glasses, and stamped floors feed the structural band, and a room running sharp works on the people in it — tempers shorten, hands get clumsy, the same argument that dissolved in laughter an hour ago now breaks a jaw. Everyone in Kaleidos grows up knowing it, which is why public rooms have keeps, and why the trade's name belongs to the person: the keep keeps the room.
+    A packed public room accumulates resonance the way it accumulates heat and noise. Bodies, voices, struck glasses, and stamped floors feed the structural band, and a room running sharp works on the people in it — tempers shorten, hands get clumsy, the same argument that dissolved in laughter an hour ago now breaks a jaw. Public rooms employ a keep to hold that balance; the trade's name belongs to the person who keeps the room.
 
     The working craft is half hospitality and half management of the physics. Every room has a resonant corner where the sharpness gathers first, and a keep's floor plan is built around it: wet felts hung to damp it, the heaviest and calmest regulars seated into it as ballast, the music kept away from it after the second hour. The room's slate carries morning and evening readings — chalked from an instrument in prosperous houses, from the keep's own ear in most — and ward wardens on their rounds check the slate the way they check a kitchen's water.
 
-    The authority runs on custom, and it is real. A keep who calls the room — last drinks, felts up, out by the count — is obeyed by custom old enough that arguing with the call marks a stranger. What balances the authority is that the call costs the keep the night's take, every time, and everyone in the room knows it. Rooms remember their keep's record the way crews remember a pilot's: the keep who calls early and often runs a dull safe house, the keep who lets every night run late runs a lively one with a repair bill, and the trade's whole art lives between the two.
+    A keep who calls the room — last drinks, felts up, out by the count — is obeyed by custom old enough that arguing with the call marks a stranger. Closing costs the keep the night's remaining take. Regulars and wardens remember both the calls and the nights allowed to run, and that record determines a keep's standing in the room.
   PROSE
 
   prose <<~PROSE, section: :structure, heading: "Standing and Succession"

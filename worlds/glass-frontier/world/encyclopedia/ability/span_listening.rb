@@ -36,7 +36,7 @@ encyclopedia :span_listening do
   cue "A figure works along the high gallery with a palm on the beam and an ear to the palm, tapping softly with a small hammer at stations worn bright by generations of the same touch."
   cue "At station nine the listener goes still, taps twice more, and writes in the log at deliberate length while the walkway traffic slows around the silence."
   affordance "A listener's chart of the span — which members run fat, which hungry, where the new notes live — lets rigging crews stage heavy work with confidence and gives the hab seasons of warning ahead of anything a visual inspection catches."
-  pressure "The craft reads change against memory, so its value is hostage to continuity — a round that changes hands too fast, or a listener lost with the log unwritten, turns a known span back into a stranger overnight."
+  pressure "The craft reads change against an established baseline. Rounds pass through long overlaps and written logs; without them, a new listener must keep the span lightly loaded through a full seasonal cycle while learning its ordinary voice."
   variation "Great habs run listener guilds with formal rounds and archived logs; a small fragment's span is listened by one trained ear between other work, and the round passes down a family."
   variation "Notation schools differ — the Vey hand scores beams like music, the Carom hand like survey tables — and listeners trading rounds across habs grumble through the translation."
 end

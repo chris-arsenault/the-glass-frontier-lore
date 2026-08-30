@@ -35,7 +35,7 @@ encyclopedia :exaltation do
   variation "On machines it presents as clean synchronization, impossible acceleration, and warning gauges held at their stops."
 
   prose <<~PROSE
-    Exaltation makes effort answer a declared purpose. A runner becomes faster while carrying medicine to a named patient. A gun holds together while defending a named gate. A crew works without hesitation while bringing a damaged hull home. The ability does not choose the purpose and does not decide whether it is wise. It makes the chosen act burn brighter than the bodies and machines performing it were built to endure.
+    Exaltation makes effort answer a declared purpose. A runner becomes faster while carrying medicine to a named patient. A gun holds together while defending a named gate. A crew works without hesitation while bringing a damaged hull home. The user chooses the purpose, with all of its wisdom or folly, and the ability drives bodies and machines beyond the limits they were built to endure.
 
     The declaration must be understood by living subjects and physically expressible by machines. *Win* is too empty. *Hold this stair until the children clear the lower dock* is enough. Within that purpose, exaltation sharpens judgment already present, drives muscles and mechanisms past ordinary reserve, and suppresses failures that would interrupt the act. It cannot teach an untrained hand to fly or make an unloaded weapon fire.
   PROSE

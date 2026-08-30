@@ -32,13 +32,13 @@ encyclopedia :lining do
   prose <<~PROSE, section: :operations, heading: "Slurry, Salvage, and the Third Rule"
     The compound is salvage stock with a working afterlife. Recovered tanks grade by how strongly the dried line answers in the structural band — first-water slurry from sealed stores, down to the pale reclaimed stock scraped and reboiled from dead sections' own lines — and a liner's pot is blended for the job, strong for a route boundary, mild for a larder. The trade's supply rule is borrowed from the route crews outright and named for them: a third of the pot out, a third back, a third against surprises, because a boundary abandoned half-laid is a gate standing open with a wall's reputation.
 
-    What the compound is remains a stores-ledger mystery of the ordinary kind. The ring's registers record issue quantities and route assignments in bulk and file the formulation elsewhere; the reboiling trades hold the working recipe for reclaimed stock and the archives hold three partial analyses that agree on the minerals and differ on what answers in the band. The lines hold either way, and liners keep laying them.
+    The ring's surviving registers record issue quantities and route assignments, but the formulation sheets have not been recovered. Reboilers hold the working recipe for reclaimed stock. Three archived analyses agree on its minerals and identify different components as the source of the structural-band answer.
   PROSE
 
   cue "Someone kneels backward down the corridor at a slow even pace, laying a finger-width stripe from a warmed pot, and finishes the junction with two taps of the brush handle on the deck."
   cue "The nursery threshold carries a fresh bright line across it, renewed this season, and the hab's sweep turns at it like a cart at a wall."
   affordance "A true line steers the ring's surviving servants for the price of a brushstroke — routing sweeps, fencing vent crawlers, holding old doors closed — and a certified liner can re-fence a district's living machinery in a working day."
-  pressure "The line rules the servants and stands ornamental to all else, and it fails by quiet wear — so every load-bearing stripe in a hab carries a walking calendar, and a skipped season is discovered by whatever the line was holding back."
+  pressure "People, weather, and vermin cross a marker line freely. Scuffs and thinning weaken its answer without warning, so liners walk every load-bearing stripe on a posted calendar and refresh it before the ring's servants test the gap."
   variation "Households lay their own threshold and larder lines from the family pot; certified liners keep the route boundaries and shaft boxes, and sign their junctions with a personal crossbar mark."
   variation "Rich habs line in first-water slurry and repaint on festival years; poor ones reboil their dead sections' old lines into pale stock and walk the calendar twice as often."
 end

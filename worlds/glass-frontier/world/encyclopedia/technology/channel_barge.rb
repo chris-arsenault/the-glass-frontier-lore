@@ -65,7 +65,7 @@ encyclopedia :channel_barge do
   cue "Local travel in #{ref :dovra, "Dovra"} means asking a household barge for deck space, and the fare is as often return carriage, repair tile, or a share of the load as it is coin."
   cue "At night, small lamps hang low over both sides of the hull so another pilot can read its loaded draft."
   affordance "A passenger in a hurry does not get a shortcut; the pilot sounds the approach even holding a posted closure, because silt rises after a notice leaves and a barge ahead may have cut a new passage."
-  pressure "During flood work a water board can call any suitable vessel into service with its cargo aboard, recording the lost work beside the labor supplied from shore; whatever the party hired it for waits until the board releases it."
+  pressure "During flood work a water board can call any suitable vessel into service with its cargo aboard, recording the lost work beside the labor supplied from shore; its chartered work waits until the board releases it."
   variation "Deck houses lift away."
   variation "A grain vessel becomes a passenger boat for a gate-closing market and a flood ferry when the outer note changes."
 

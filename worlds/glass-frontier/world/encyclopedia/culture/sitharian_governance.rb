@@ -23,15 +23,15 @@ encyclopedia :sitharian_governance do
   PROSE
 
   prose <<~PROSE, section: :structure, heading: "Wards, Forms, and the Standing Duties"
-    The ward is the working unit, and ward life runs on standing duties of the settled, unglamorous kind: the water watch, the span rounds, the fire rota, each assessed on the households that benefit and each with its elected wardens, its inspection walks, and its ledger. Ward assemblies bargain exceptions before votes; the city assembly sets standards; and the boundary between the two is patrolled by both with a vigor visitors mistake for crisis.
+    The ward is the working unit, and ward life runs on standing duties of the settled, unglamorous kind: the water watch, the span rounds, the fire rota, each assessed on the households that benefit and each with its elected wardens, its inspection walks, and its ledger. Ward assemblies bargain exceptions before votes, the city assembly sets standards, and both record objections when a duty crosses the boundary between them.
 
-    Sitharian law favors forms that another office can read and another settlement can adopt. Contracts, cargo classes, archive custody, professional records, and hearing procedure use stable language and leave a public trail, which makes the system dependable and gives trained officials power over every exception. A claimant with the right record moves across jurisdictions; a claimant whose case sits outside the form waits while everyone agrees, on the record, that the underlying claim is sound. The system's critics and its clerks describe this identically and disagree only about the tone.
+    Sitharian law favors forms that another office can read and another settlement can adopt. Contracts, cargo classes, archive custody, professional records, and hearing procedure use stable language and leave a public trail, which makes the system dependable and gives trained officials power over every exception. A claimant with the right record moves across jurisdictions; a claimant whose case sits outside the form waits while officials record that the underlying claim is sound. Clerks call the wait procedural discipline. Critics call it inertia.
   PROSE
 
   cue "A public counter displays the governing form, the office that owns it, the appeal route, and the record number of the last decision."
   cue "The ward's water warden walks the morning inspection with a ledger under one arm, and householders come out to stand beside their section of pipe as the walk passes."
   affordance "A party that can turn its evidence into an accepted record gains access to courts and offices far beyond Sithari, and the ward duty rosters give any resident a public, appealable statement of exactly what the city owes them and they it."
-  pressure "An urgent case can remain stationary because every official agrees it matters and the record does not yet fit the form — and the exception's path runs through the same service whose discipline is the reason the forms are trusted."
+  pressure "An urgent case remains at the counter until its evidence fits an accepted record or an appeal office grants the exception."
   variation "Ward offices bargain over exceptions before assembly votes; system-wide bodies preserve the same legal language while disputing Sithari's assumptions."
   variation "The service's internal honors go to continuity — the Famine-era clerks are its saints, and a registrar's highest professional compliment remains 'the office did not notice the transition.'"
 end

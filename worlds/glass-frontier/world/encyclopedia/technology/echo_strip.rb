@@ -57,16 +57,16 @@ encyclopedia :echo_strip do
   prose <<~PROSE, section: :limits, heading: "Folds, Heat, and Memory"
     A sealed strip tolerates ordinary handling and weak fields. Heat softens the resin. Repeated bending breaks the grain paths. Strong signal equipment stored against the sleeve can slowly overwrite the margins without opening the central fold.
 
-    The foil does not decide what matters. It records the clearest organized pattern available, including a repeated lie, a nearby pump, or the operator's own instrument. It also captures only what reaches it. A strip fixed to one side of a ceramic break may have no trace of the event that damaged the other side.
+    The foil records the clearest organized pattern that reaches it, including a repeated lie, a nearby pump, or the operator's own instrument. Its record ends at barriers the signal did not cross. A strip fixed to one side of a ceramic break may have no trace of the event that damaged the other side.
 
     Used strips cannot be cleaned into new blanks. Archive workers cut authenticated records into distinctive outlines before storage so an old foil cannot return to the market as unused stock.
   PROSE
 
   cue "Cheap grades travel as household messages and archive grades as field evidence, so a workshop, a listening room or a rescue office has strips on hand in rigid sleeves with the start line exposed."
   cue "An echo strip is a hand-length sheet of dark foil that records the strongest coherent resonance pattern touching it."
-  affordance "The foil takes the strongest coherent pattern reaching it, not the one the party aimed at. A deposition recorded beside an active lift preserves the lift beautifully and the witness as a thin change along one margin."
+  affordance "A strip carries a machine cycle, sounding-stake reading, or signal-bearing voice in a rigid sleeve after live communication has failed, with folds and edge noise that preserve evidence of where the record was made."
   pressure "Authentication reads the folds and the edge noise, so a clean playback with no environmental margin is treated as a copy or a staged recording. Copying keeps the words and destroys exactly the structure that would place the original."
-  variation "Copies can be made by playing one strip into another."
-  variation "Used strips cannot be cleaned into new blanks."
+  variation "Cheap household strips carry messages beyond live signal coverage; archive grades preserve enough edge structure to place a field recording."
+  variation "Authenticated records are cut into distinctive outlines before storage, while copies keep the central words or alarms and lose more of the margins with every generation."
 
 end

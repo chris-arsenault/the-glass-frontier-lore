@@ -26,7 +26,7 @@ encyclopedia :heat_road_hauler do
   )
 
   prose <<~PROSE
-    Heat-road haulers carry bulk freight between Ashvane towns that do not justify a flight or cannot offer a dependable landing field. They are long, low surface vehicles with broad wheel sets, reflective cargo covers, and radiator frames that rise above the body when stopped. A loaded hauler moves slowly enough for its crew to inspect the road ahead and steadily enough to cross the moon's open plains before the next strong tidal heating period.
+    Heat-road haulers carry bulk freight between Ashvane towns with too little traffic for regular flights or without dependable landing fields. They are long, low surface vehicles with broad wheel sets, reflective cargo covers, and radiator frames that rise above the body when stopped. A loaded hauler moves slowly enough for its crew to inspect the road ahead and steadily enough to cross the moon's open plains before the next strong tidal heating period.
 
     Most use mechanical drives assisted by a small kinetic array. The wheels carry the vehicle. The array reduces the worst opposing load at soft salt, broken basalt, and steep crater approaches. Keeping the two systems separate allows a crew to continue after a ringglass fault and prevents the hauler from depending on the same field conditions that may have closed a kite route.
   PROSE
@@ -61,7 +61,7 @@ encyclopedia :heat_road_hauler do
     Strong tidal periods close some low roads by schedule. Others close after a scout finds new steam, a changing marker tone, or salt crust too thin to carry a loaded wheel. The cargo then waits, transfers to smaller vehicles, or pays for a kite. Basalt temperature sets the delay.
   PROSE
 
-  cue "Freight houses seal each bay by temperature and handling need, so the crew carrying a party's cargo can name every owner on the manifest and none of the buyers. At small towns the same vehicle brings mail, legal notices, apprentices changing workshops, and patients well enough for a slow journey."
+  cue "Freight houses seal each bay by temperature and handling need, so the crew can name every owner on the manifest and none of the buyers. At small towns the same vehicle brings mail, legal notices, apprentices changing workshops, and patients well enough for a slow journey."
   cue "They are long, low surface vehicles with broad wheel sets, reflective cargo covers, and radiator frames that rise above the body when stopped."
   affordance "Asking a crew to shed heat before dark means raising the radiator frames in daylight, visible to every temperature sensor along the road, and their cooling stop will not match the one they published. Carriers running concealed cargo already accept the hotter load rather than do it."
   pressure "At bad crossings the hauler pulses a buried ringglass cut and reads what returns: slow and even is solid basalt, a divided answer means a hot cavity or a fracture opening below. Crews turn back on that reading, and a stranded hauler gives shade and water long after it gives motion."

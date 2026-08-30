@@ -14,7 +14,7 @@ encyclopedia :public_identity do
   affordance "A traveler who understands the reading order can present deliberately — leading with the register, kit, and name that claim the standing they intend — and be met accordingly anywhere in the system."
   pressure "The signs are legible everywhere and misread constantly, and the standard mistake — reading the body when the instruments are what count — falls hardest on people whose bodies carry a famous origin their lives have left."
   variation "Sitharian introductions run long and structured; hab introductions run short and demonstrative, standing shown by what the newcomer can do with the airlock rather than said."
-  variation "Every culture keeps its own stock of confident wrong conclusions about the others, and the traveling trades collect them as professional humor with a maintenance function."
+  variation "Traveling trades collect common misreadings of their tools and marks as cautionary jokes taught to new crews before their first distant posting."
 
   log "2026-08-22 — Classified as a reference article because it describes culture as a system-wide basis of public identity."
   log "2026-08-29 — Replaced the generic culture registry and authoring note with the in-world practice of reading public identity."
@@ -29,6 +29,6 @@ encyclopedia :public_identity do
 
     Trade and standing are read from what a person carries and wears. Officials carry the marks of their offices. A #{encyclopedia_ref :tuners, "Resonant Tuner"} carries calibrated references; a #{encyclopedia_ref :couriers, "Keeper of Roads"} carries a sealed case whose custody can be recited. People whose affiliations cannot be worn look like any other crew until an introduction, a witness, or a ledger says otherwise.
 
-    The standard mistake is reading the body when the instruments are what count. A stranger sees a Shear-built frame and assumes a salvager, and the woman is a surgeon whose grandparents left the Shear before she was born. The signs are legible everywhere and misread constantly, and every culture keeps its own stock of confident wrong conclusions about the others.
+    The standard mistake is reading the body when the instruments are what count. A stranger sees a Shear-built frame and assumes a salvager, and the woman is a surgeon whose grandparents left the Shear before she was born. Traveling trades collect recurring misreadings of tools, marks, and bodies as cautionary jokes for new crews.
   PROSE
 end

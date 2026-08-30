@@ -40,7 +40,7 @@ encyclopedia :signal_folding do
   cue "The operator speaks a metered string into cupped hands against the line-point, the floor thumps once like a struck drum, and the room's gauges jump together and settle."
   cue "The received burst unfolds through the duty ear's moving lips into flat, creased words on a slate, and the room reads over their shoulder before the last line lands."
   affordance "Two certified folders make any dead line a working one for traffic that matters — the cordon warning, the medical call, the words that cannot wait for the ebb — at a cost the trade prices openly in folder-hours."
-  pressure "The fold spends the folder and rations the words, so every folded message is triage twice over — what is worth a folder's afternoon, and what fits in forty words — and the compression books exist because emergencies write badly."
+  pressure "A clean fold is limited to forty measured words and leaves the folder fatigued for hours. Relay services use standard compression books so warnings, medical calls, and cordon traffic fit the count under stress."
   variation "Relay services post certified folders at the route's dead spans and drill the standard compressions seasonally; independent folders work the deep routes freelance, and their personal compression books are guarded like route charts."
   variation "Receiving is its own certification — unfolding a ragged burst is compared to reading a letter that has been through water — and the great receiving ears develop reputations for recovering tone that the folding side privately doubts."
 end

@@ -40,8 +40,8 @@ encyclopedia :revelation do
     What returns is sensory evidence rather than explanation. A revelator may see a hand place the charge and still lack the person's name. They may hear the words spoken in a chamber and remain unable to tell which speaker believed them. Intent leaves consequences only when it changes a body, an object, or a signal. Futures have no consequences to follow.
   PROSE
   prose <<~PROSE, section: :dangers, heading: "The Answering Gaze"
-    Distance does not make revelation private. A person under observation may see an unfamiliar face in polished metal. A machine may log an impossible return signal. Resonance-sensitive creatures turn toward the observer as if the intervening space were absent. At narrow and apex use, other readers can enter the same trace and follow it back.
+    Revelation is reciprocal across distance. A person under observation may see an unfamiliar face in polished metal. A machine may log an impossible return signal. Resonance-sensitive creatures turn toward the observer as if the intervening space were absent. At narrow and apex use, other readers can enter the same trace and follow it back.
 
-    Erasure defeats revelation only when it is complete. Destroying a recording leaves the heat and fragments of its destruction. Killing a witness leaves a body. Moving an object extends the event rather than ending it. #{ref :far_witness, "The Far Witness"} can cross the system or descend through centuries of such consequences, but the mantle makes its bearer present to everything they choose to see.
+    Revelation follows every surviving consequence. Destroying a recording leaves the heat and fragments of its destruction. Killing a witness leaves a body. Moving an object extends the event rather than ending it. Only complete erasure ends the trace. #{ref :far_witness, "The Far Witness"} can cross the system or descend through centuries of such consequences, but the mantle makes its bearer present to everything they choose to see.
   PROSE
 end

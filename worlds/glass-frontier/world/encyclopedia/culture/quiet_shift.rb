@@ -18,9 +18,9 @@ encyclopedia :quiet_shift do
   )
 
   prose <<~PROSE
-    An apprenticeship in most Kaleidos trades ends when the seniors walk out. The day is theirs to choose and they choose it silently; the apprentice looks up from a task and the shop is quiet, the tools are hung, and the kiln, the vat, the graft bed, the tuned frame — whatever in that trade must be tended continuously or die — is now theirs for a full working cycle. Keep it alive, keep the doors open, serve whoever comes, and the trade considers you made. The shift's length depends on what is being kept: one firing at a kiln, one watering cycle in a garden hab, one full accession-and-sealing round in an archive.
+    An apprenticeship in most Kaleidos trades ends when the seniors walk out. The day is theirs to choose and they choose it silently; the apprentice looks up from a task and the shop is quiet, the tools are hung, and the kiln, the vat, the graft bed, the tuned frame — whatever in that trade must be tended continuously or die — is now theirs for a full working cycle. Passing requires the apprentice to keep the work alive, the doors open, and the usual customers served until the seniors return. The shift's length depends on what is being kept: one firing at a kiln, one watering cycle in a garden hab, one full accession-and-sealing round in an archive.
 
-    The custom is younger than it feels. Trade registers from before the Signal Famine record ordinary journeyman examinations. The quiet shift dates from the Famine years, when the #{encyclopedia_ref :elves, "elves"} vanished from their workshops between one shift and the next — benches found with work laid out, firings half-run, cultures still warm — and the apprentices who kept those works alive became the trade by the plain fact of having kept it. The shops that survived were the ones where somebody stayed. When the trades rebuilt their rules in the Rekindling, they kept the test that had actually been administered.
+    Pre-Famine trade registers record ordinary journeyman examinations. The quiet shift dates from the Famine years, when the #{encyclopedia_ref :elves, "elves"} vanished from their workshops between one shift and the next — benches found with work laid out, firings half-run, cultures still warm — and the apprentices who kept those works alive became the surviving practitioners. Shops survived where an apprentice remained at the work. When the trades rebuilt their rules in the Rekindling, they adopted that full-cycle continuity as the examination.
   PROSE
 
   prose <<~PROSE, section: :structure, heading: "What Counts as Passing"
@@ -32,7 +32,7 @@ encyclopedia :quiet_shift do
   cue "A workshop is open and working but wrong: the seniors' aprons folded on the benches, their tools hung, and one young person running every station alone at speed."
   cue "Regular customers order simpler than usual and pay the asking price, and the room's talk stays on the weather and the work."
   affordance "Anyone who has stood a quiet shift can be trusted with the shop, and hiring crews verify the claim by asking what was kept alive and for how long — an answer the trade can test in two questions."
-  pressure "A real emergency during a quiet shift forces the question the trades keep open: an apprentice who leaves to fetch help has failed by every traditional reading, and one who stays through a cordon bell may keep the shop and lose the street's respect."
+  pressure "Most trades suspend a quiet shift when a cordon bell or other public emergency empties the shop; stricter shops count any departure as failure, so apprentices learn the local rule before the day arrives."
   variation "Garden habs run the shift across a full watering cycle, kilns across a single firing, and archives across one accession-and-sealing round, so its length is the trade's own clock."
-  variation "A few shops stage a false crisis as part of the shift; most trades regard the practice as missing the custom's origin and say so."
+  variation "A few shops stage a failed delivery or impossible order as part of the shift; most trades test only the ordinary working cycle."
 end

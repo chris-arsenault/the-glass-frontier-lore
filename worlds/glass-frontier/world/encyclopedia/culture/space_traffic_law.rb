@@ -16,7 +16,7 @@ encyclopedia :space_traffic_law do
   PROSE
 
   cue "Route lamps move powered traffic away from the safest line while one otherwise usable docking mouth remains empty beside a crowded station."
-  cue "A vessel drifting in on cold thrusters gets the center line and the ready mouth, and the queue it displaced reforms around the courtesy with working-route patience."
+  cue "A vessel drifting in on cold thrusters gets the center line and the ready mouth, and route lamps reform the displaced queue around it."
   affordance "A crew that has genuinely lost maneuvering power can claim passage and emergency docking ahead of commercial traffic."
   pressure "A craft reporting partial failure gains priority before anyone can determine whether it is disabled, damaged, or merely late."
   variation "Passage settlements reserve a center line; stations preserve an empty docking mouth; convoy routes assign the nearest powered vessel as escort."

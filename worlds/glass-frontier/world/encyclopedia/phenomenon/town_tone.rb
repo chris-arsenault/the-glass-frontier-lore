@@ -19,15 +19,15 @@ encyclopedia :town_tone do
            "range.",
     effects: "The tone is recognition: carriers make landfall on it, homesick songs quote it, " \
              "and a hab's children raised in it sleep badly their first week anywhere else.",
-    hazards: "A changed tone is the bluntest of instruments — it announces that something in " \
-             "the braid moved and stops there, and towns have torn up sound streets hunting " \
+    hazards: "A changed tone identifies movement somewhere in the braid without locating it, " \
+             "and towns have torn up sound streets hunting " \
              "a shifted note that turned out to be a new mill two galleries over."
   )
 
   prose <<~PROSE
     Every inhabited place hums, and the hum settles. A settlement's machinery, water, footfall, market roar, and breathing braid into the structural band as a composite signature — the town tone — and continuous habitation steadies it the way constant weight seats a foundation. The tone is as identifying as a skyline. Route pilots name towns off the approach trace from beyond visual range, carriers' charts file tone signatures beside berth diagrams, and the old test of a homesick hab-worlder is that they can hum their settlement's tone on request and grow quiet doing it.
 
-    Residents live inside their tone and hear it the way they hear their own heartbeat: at changes. A new mill entering the braid, a district emptied by festival, a great machine easing toward failure — each moves the tone before it moves anything the eye reports, and the settled reflex runs from tavern to ward hall: heads lift, someone says 'the tone,' and the room starts naming candidates. #{encyclopedia_ref :minder, "Minders"} log their machines against the town tone as a baseline, wardens treat a shifted tone as a standing question until answered, and the diagnostic argument that follows — which strand of the braid moved — is a civic sport with real stakes, since the tone announces change and declines, with perfect neutrality, to say which change.
+    Residents live inside their tone and notice changes. A new mill entering the braid, a district emptied by festival, or a great machine easing toward failure moves the tone before a specific report reaches the ward hall. #{encyclopedia_ref :minder, "Minders"} log their machines against it as a baseline, and wardens keep a shifted tone open on the board until survey crews locate the changed strand. The tone gives early warning across the settlement, but its composite signal does not identify which machine, watercourse, or pattern of traffic moved.
   PROSE
 
   prose <<~PROSE, section: :structure, heading: "Signatures, Homesickness, and the Grown Tone"
@@ -39,7 +39,7 @@ encyclopedia :town_tone do
   cue "The approach trace steadies into a braided signature, and the pilot names the town off it with the chart still folded."
   cue "Across the tavern, three residents lift their heads in the same moment and one says 'the tone' — and the room begins naming candidates before the warden's board posts anything."
   affordance "The tone is free recognition and free early warning at once: pilots make landfall on it, wardens read change in it ahead of every specific report, and minders baseline their machines against it."
-  pressure "The tone announces that the braid moved and stops there, so every shifted note starts a hunt across the whole settlement's machinery, water, and habits — and the hunt's false trails are expensive exactly in proportion to the town's nerves."
+  pressure "A shifted tone starts a survey across machinery, water, and traffic; crews compare local readings with the baseline before opening walls or stopping a district's equipment."
   variation "Sibling settlements founded from one hab carry related tones for generations, and survey collections group them into families the way philologists group dialects."
   variation "Young settlements wait years for their braid to settle, and several celebrate the night the tone first held steady as the true founding, whatever the charter says."
 end

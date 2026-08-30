@@ -6,9 +6,9 @@ encyclopedia :spanbone do
   topics :materials, :"ring-era", :salvage, :trade
   prevalence :rare
   appears_when all: { place: [:debris_field] }
-  summary "Spanbone is the truss alloy of the ring's primary structure — the pale metal that held the ring up, recoverable only from the great dead spans and workable only where it is already the shape you need. A spanbone member outlasts everything attached to it, and the system builds its most critical joints around salvaged lengths."
-  function "Ultimate structural material for members that must survive everything: keel roots, gate hinges, the bones of bones"
-  grades "Graded by recovered length and section — whole members command civic prices, cut stubs serve the yards, and spanbone scrap is a contradiction the trade refuses to recognize"
+  summary "Spanbone is the truss alloy of the ring's primary structure — the pale metal that held the ring up, recoverable only from the great dead spans and workable only where it already has the required shape. A spanbone member outlasts everything attached to it, and the system builds its most critical joints around salvaged lengths."
+  function "Primary structural members for keel roots, gate hinges, lift shafts, and other joints built for the longest service"
+  grades "Graded by recovered length and section — whole members command civic prices, while cut stubs and drilled offcuts serve the yards"
   availability "Recovered from the great dead spans by claim crews under Compact certification; the whole-member trade is a public event each time"
 
   descriptive_identity(
@@ -26,15 +26,15 @@ encyclopedia :spanbone do
   )
 
   prose <<~PROSE
-    The ring stood on spanbone. The pale truss alloy of the primary structure — the great members that carried the whole impossible arch — survives its fall almost untouched: #{elapsed :the_glassfall, approx: true} in the debris weather and the surfaces are crisp, the stampings legible, the sections true. The #{encyclopedia_ref :elves, "elves"} rolled it; the Glassfall distributed it; and the system has spent the years since learning the material's one joke, which is that it can barely be worked at all. Cutting spanbone ruins tooling at a rate the yards price like disaster. What the trade does instead is use it whole — members recovered at their fallen lengths, engineered into new work as given, the design bending around the metal because the metal declines to bend around the design.
+    Spanbone is the pale truss alloy of the ring's primary structure. After #{elapsed :the_glassfall, approx: true} in debris weather, recovered members retain crisp surfaces, legible load stampings, and true sections. Cutting consumes tools at a rate the yards price into every attempt, so wrights normally use a member whole. Each design accepts the recovered length and curve, then joins the surrounding structure to it with collars, shrink fittings, or lashings.
 
-    Whole members are civic purchases. A recovered length becomes the keel root of a settlement's lift shaft, the hinge beam of a freight gate, the spine a #{encyclopedia_ref :wright, "wright"} builds a hull's whole argument around — the joints that must survive everything, holding up structures the member will outlast. The claim crews that work the great dead spans recover them under Compact certification with the care of people moving something worth a district's budget, the whole-member auctions at Pell Cut are attended like festivals, and the stampings are read aloud at sale by custom: section, station, load class, the ring's own voice stating what its bone was built to carry, into a room full of people planning to ask it for less.
+    Whole members are civic purchases. Recovered lengths become lift-shaft roots, freight-gate hinge beams, and the primary spines of new hulls. Claim crews recover them from the great dead spans under Compact certification, and a whole-member sale at Pell Cut can spend a district's construction budget. By custom the caller reads the original stampings aloud before bidding: section, station, and load class.
   PROSE
 
   cue "The auction floor clears around a single pale member forty spans long, and the caller reads the ring's own stampings aloud — section, station, load class — before the first bid."
   cue "In the lift shaft's root, one crisp pale beam carries the whole rig's weight between structures visibly younger, rougher, and mortal."
   affordance "A spanbone member is permanence purchasable — the joint built on one outlasts the settlement's every other decision, and the legible stampings certify its capacity in the ring's own engineering hand."
-  pressure "The metal accepts use and refuses alteration, so every acquisition is an engineering marriage — the design takes the member's length and curve as vows — and the whole-member market prices accordingly, in civic money, publicly argued."
-  variation "Keel-country yards hold the collar-and-shrink joining patents and guard the shrink schedules; frontier wrights join spanbone by lashing and prayer, and their work holds too, which annoys the yards."
-  variation "Cut stubs and drilled offcuts from the old profligate decades circulate as heirloom stock — a spanbone hinge pin is a wedding gift in the salvage trades — and the modern trade regards the era that cut them the way foresters regard old-growth stumps."
+  pressure "A new structure must accept the member's recovered length and curve, so buyers bring wrights to the auction and price the surrounding redesign with the bid."
+  variation "Keel-country yards join whole members with patented collars and guarded shrink schedules; frontier wrights use certified lashings where those fittings cannot be made."
+  variation "Cut stubs and drilled offcuts from early salvage circulate as heirloom stock, and a spanbone hinge pin remains a wedding gift in the salvage trades."
 end

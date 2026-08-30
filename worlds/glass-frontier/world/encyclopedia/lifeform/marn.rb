@@ -18,8 +18,8 @@ encyclopedia :marn do
               "pads gives it a continuous sense of ground vibration: a herd notices a loaded caravan beyond a " \
               "ridge before the bells carry, learns the rhythm of the machine it lives beside, and refuses " \
               "ground beginning to slip under a repeated load.",
-    threat: "Not a hunter, but a kinetic correction through the ground — a flitter settling close, a changed " \
-            "bearing in a familiar pump — can make a tethered group pull at once. One animal planting all " \
+    threat: "A kinetic correction through the ground — a flitter settling close, a changed bearing in a " \
+            "familiar pump — can make a tethered group pull at once. One animal planting all " \
             "four feet and lowering its head is temperament; twenty facing the same empty hollow is a reason " \
             "to move the caravan."
   )
@@ -47,7 +47,7 @@ encyclopedia :marn do
   PROSE
 
   prose <<~PROSE, section: :operations, heading: "On a Moving Road"
-    Pack marn carry light loads across highland paths too narrow for a cargo vehicle. Their pace is slow, and the broad pads handle broken ground without damaging the trails as quickly as wheels or skids. Market caravans often combine pack animals with haulers, shifting grain, wool, instruments, and replacement parts between them when a road changes class.
+    Pack marn carry light loads across highland paths too narrow for a hauler. Their pace is slow, and the broad pads handle broken ground without damaging the trails as quickly as wheels or skids. Market caravans often combine pack animals with haulers, shifting grain, wool, instruments, and replacement parts between them when a road changes class.
 
     The animals dislike active kite fields. A flitter settling nearby sends a kinetic correction through the ground that can make a tethered group pull at once. Ladderwell keeps the livestock yards below the benches and the kite field beyond them. Smaller markets post a landing interval during which animals are held away from the pad.
 
@@ -62,9 +62,9 @@ encyclopedia :marn do
     Market towns process more marn goods than they raise. #{ref :ladderwell, "Ladderwell"} is the eastern steppe's largest wool and machinery exchange, where highland carriers meet lowland herds and repair shops produce pumps sturdy enough for both routes.
   PROSE
 
-  cue "Herds share every steppe road, so a party arriving by kite comes down into somebody's livestock. A flitter settling nearby drives a kinetic correction through the ground and can make a tethered group pull at once, which is why small markets post a landing interval."
+  cue "Herds share the steppe roads. A flitter settling nearby sends a kinetic correction through the ground and can make a tethered group pull at once, so small markets post a landing interval away from the livestock yards."
   cue "In wet clay the pad spreads and releases at an angle, leaving a shallow crescent print instead of a deep hole."
-  affordance "Players who read a stopped animal as a warning get one answer from herders and another from route keepers. One refusal is temperament, a whole herd facing the same empty ground moves the caravan, and no keeper will reopen or close a section on animal behavior alone."
+  affordance "Herders read one refusal as temperament and a whole herd facing the same empty ground as reason to move the caravan. Route keepers record the behavior and inspect the section before changing its status."
   pressure "Animals kept beside a settlement learn the rhythm of the machine they live next to, and a changed bearing unsettles the entire pen. Work on a mill or pump reaches the livestock before anyone else notices, and the handlers arrive wanting to know what was altered."
   variation "A family herd ranges from a few animals kept beside a farm to several hundred moving between seasonal camps."
   variation "Pack marn carry light loads across highland paths too narrow for a cargo vehicle."

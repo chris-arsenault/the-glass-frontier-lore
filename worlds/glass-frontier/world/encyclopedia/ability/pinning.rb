@@ -1,6 +1,6 @@
 encyclopedia :pinning do
   name "Pinning"
-  summary "Pinning is the everyday craft of securing things against a world that moves them — lashing to the elves' built-in pin points, tying the holds that release with one pull, and rigging a room for recoil, tide, or spin change in the minutes a warning allows. It is the first thing every hab hand's hands learn."
+  summary "Pinning is the everyday craft of securing things against a world that moves them — lashing to the elves' built-in pin points, tying holds that release with one pull, and rigging a room for recoil, tide, or spin change in the minutes a warning allows. Hab children learn it before table manners."
   kind :ability
   subkind :technique
   status :complete
@@ -18,10 +18,9 @@ encyclopedia :pinning do
             "the elves set into decks, walls, and furniture as universally as door " \
             "handles — and the craft uses them: standard hitches for standing loads, " \
             "the one-pull holds for what must release fast, the body lines for people.",
-    limits: "A pin holds what the hitch was tied for, so the craft's discipline is " \
-            "declaring the load — 'pinned for recoil' and 'pinned for tide' are " \
-            "different rigs — and the mixed error, the recoil rig trusted through a " \
-            "spin change, keeps its place in the training the usual way."
+    limits: "Each hitch answers a declared load: 'pinned for recoil' and 'pinned for " \
+            "tide' require different rigs, while sleepers and emergency gear require " \
+            "one-pull holds that release under hand pressure."
   )
 
   prose <<~PROSE
@@ -33,7 +32,7 @@ encyclopedia :pinning do
   cue "At the warning note the household moves in a practiced circuit — hook, lash, tension, the flat-palm shove on each hold — and the room is rigged before the kettle the youngest was told to mind comes off its hook."
   cue "Every bench, bunk, and doorway carries the recessed rings of the old pin points, polished by generations of hitches, and a traveler's hand finds them in the dark of any hab in the system."
   affordance "A pinned room rides out what the warning named — and the standard points and hitches mean any hab hand can rig any hab's rooms, which makes pinning the one craft a traveler carries that works identically everywhere the elves built."
-  pressure "The rig holds what it was declared for, so the craft's failures are category errors — the recoil rig trusted through a tide, the standing lash where a one-pull hold was owed to a sleeper — and the drills exist to make the declaration as automatic as the hitches."
+  pressure "A rig carries only its declared load. Recoil, tide, and spin change require different hitches, and body lines or emergency gear require one-pull releases that stay reachable under load."
   variation "Gate districts drill recoil rigs to the horn and pride themselves on kettle-time; the tide fragments rig standing and live half-lashed always, and their guests are re-taught which chairs are load-bearing."
   variation "Carrier crews certify pinning like lending, and a crew's rig is inspected by the flat-palm shove of any member at any time — a custom whose etiquette, whose shove is a compliment and whose is a challenge, takes newcomers a season to read."
 end

@@ -37,8 +37,8 @@ encyclopedia :remote_cutting do
     Council work has stricter stop conditions than salvage work and assigns a named operator to every live return. The machinery is much the same. What changed after Pell is the record kept beside it: which clock drove the cut, which distant sites answered, and who had authority to stop the tone.
   PROSE
 
-  cue "The #{ref :displacement_council, "Displacement Council"} moves damping mass and instruments across cordon boundaries with the same machinery salvage crews use. One named operator owns every live return there and can end the tone over the objection of whoever is paying for the cut."
-  affordance "Time pressure puts two cutters on one clock and one repeated processing cadence. The coupled seams can stay phase-related after the material has arrived, and a rig built to current practice trips its own receivers the moment two of them begin answering as one."
-  pressure "The receiver gains exactly what the claim loses, heat and pressure and resonance load together, so a rich cut moves a refinery's worth of trouble onto the vessel holding the crew. Every shutter has a hand breaker because the failure crews plan for is a control system reporting the job within limits."
+  cue "An unmanned cutter anchors to a sounded seam while the claim rig opens a matching receiver; recovered material enters a shuttered outer bay before any crewed room opens to it."
+  affordance "Remote cutting lets a crew work an unstable claim from stand-off range, spending an unmanned cutter and a sacrificial process line instead of bringing people alongside the debris mass."
+  pressure "The rig receives the cut's heat, pressure, and resonance load along with its material. Shared clocks can also leave several seams phase-coupled, so current rigs isolate clocks, stagger returns, and trip the receivers when two seams answer together."
 
 end

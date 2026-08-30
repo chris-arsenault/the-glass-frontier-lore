@@ -26,7 +26,7 @@ encyclopedia :stillweight do
     risks:
       "The clamp seats on whatever mass is actually continuous — a " \
       "buried water line, the next foundation over — so the first pull " \
-      "can stress something nobody was watching. Opened under load it " \
+      "can stress an unmonitored service or neighboring structure. Opened under load it " \
       "jumps, twists its feet, or returns the held motion all at once, " \
       "and a counterfeit core can divide under a changing load, leaving " \
       "each fragment anchored to a different mass.",
@@ -55,17 +55,17 @@ encyclopedia :stillweight do
   PROSE
 
   prose <<~PROSE, section: :dangers, heading: "The Wrong Anchor"
-    Stillweights follow structural continuity rather than the operator's intention. A clamp placed on a warehouse floor may take its seat from the buried water line, a neighboring crane foundation, or a resonant seam crossing the whole yard. The first pull then moves or stresses something nobody was watching.
+    Stillweights follow structural continuity rather than the operator's intention. A clamp placed on a warehouse floor may take its seat from the buried water line, a neighboring crane foundation, or a resonant seam crossing the whole yard. The first pull then moves or stresses that unmonitored service or neighboring structure.
 
     Standard practice begins with a low test load and observers at every plausible return. Workers chalk the selected tone on the machine and repeat it on the structure. If the two marks disagree after a shift, the area clears before anyone touches the wheel.
 
     Counterfeit cores create another hazard. A poor ringglass cut can hold during setup and divide under a changing load, leaving each fragment anchored to a different mass. The casing then becomes the connection between motions the machine can no longer reconcile.
   PROSE
 
-  cue "A stillweight offered secondhand anywhere around Kaleidos this year gets its core opened before the sale closes. Blue-backed cores and ground-off lot plates end the conversation, and an owner who refuses the inspection is assumed to be moving recalled stock."
+  cue "Secondhand buyers open the core before a stillweight sale closes. Blue-backed cores and ground-off lot plates end the inspection, and an owner who refuses it is assumed to be moving recalled stock."
   cue "The machine has a squat metal body, three jointed feet, and a ringglass core behind a thick hand wheel."
-  affordance "Players will try to pin something alive with one. Flesh yields around the feet, clothing tears, and the nearest clear tone belongs to the floor, so the clamp takes a Farborn's shell or a rigid limb only after the soft parts are off the contact."
-  pressure "The clamp seats on whatever mass is actually continuous, not on what the operator chose: a buried water line, the next crane's foundation, a seam crossing the whole yard. The first pull moves or stresses that instead, in front of nobody who was watching for it."
+  affordance "The clamp can pin a Farborn shell, jaw plate, or rigid limb once living tissue has been cleared from the contact. Flesh yields around the feet, clothing tears, and the nearest clear tone usually belongs to the floor."
+  pressure "The clamp seats on whatever mass is structurally continuous: a buried water line, the next crane's foundation, or a seam crossing the whole yard. Crews begin with a low test load and station observers at every plausible return."
   variation "Rescue crews place stillweights across a damaged hatch before cutting away a bent hinge."
   variation "Road teams anchor a hauler during ground movement or secure a bridge panel after its ordinary seat fails."
 

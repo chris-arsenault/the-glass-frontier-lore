@@ -13,8 +13,8 @@ encyclopedia :rill_households do
             "fingers, identify each other's households by ear at a syllable, and treat a " \
             "spoken-only promise as a draft awaiting its singing.",
     hospitality: "A guest is brought to the pipe and given the house tone to hum before the " \
-                 "meal — joining the tone is accepting the roof — and children delight in " \
-                 "coaching visitors through it with merciless patience."
+                 "meal — joining the tone is accepting the roof — and children repeat the " \
+                 "phrase until the visitor can hold it."
   )
 
   prose <<~PROSE

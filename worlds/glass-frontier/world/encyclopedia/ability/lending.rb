@@ -12,8 +12,7 @@ encyclopedia :lending do
   descriptive_identity(
     signs: "A lender works skin to skin, usually forearm to forearm under a blanket, counting a slow " \
            "beat aloud or against the casualty's wrist. Afterward the lender's own hands tremble for " \
-           "hours — the shakes are taken as proof the lend was real, and an old lender's steady " \
-           "morning cup is a small public boast.",
+           "hours and the lender needs food, warmth, and quiet.",
     effect: "A body in shock drifts off its own structural tone and stops holding heat, blood, and " \
             "breath in rhythm. A lender in contact gives the body something to settle against, the " \
             "way a loose line stops swinging when it touches a taut one. The casualty stays " \
@@ -39,7 +38,7 @@ encyclopedia :lending do
   cue "Someone kneels beside a casualty with a bare forearm pressed to a bare forearm, counting aloud, while everyone else routes their work in a careful circle around the pair."
   cue "Hours after an accident, one member of the crew has trembling hands and a short temper and is being fed and left alone — the lender's shakes, worn openly."
   affordance "A certified lender keeps a casualty warm, conscious, and transportable through a journey that would otherwise kill them, and any crew or household can say who their lender is."
-  pressure "A lend masks decline: the body reads steady while a bleed or break worsens underneath, and a lender who skips the wound-check on the count delivers a calm corpse."
+  pressure "A lend masks decline: the body reads steady while a bleed or break worsens underneath, so the spoken count includes repeated wound checks throughout transport."
   variation "Long-haul carriers lend in relays, two certified lenders trading on the spoken count so the rhythm carries the casualty straight across the handoff."
   variation "Herding households teach the technique on animals, and a child who can settle a frightened marn is considered to have the shape of the skill."
 end

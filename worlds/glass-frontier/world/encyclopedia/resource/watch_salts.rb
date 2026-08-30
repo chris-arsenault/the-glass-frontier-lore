@@ -10,7 +10,7 @@ encyclopedia :watch_salts do
   available_globally
   function "Restores alertness and steadiness for about an hour; the standard against cold-watch drowse, post-lend shakes, and the last leg of long work"
   grades "Full-cut for emergencies, half-cut for watch rotation, and the mild household press sold loose at any counter"
-  availability "Mixed by apothecaries and route provisioners everywhere from a formula in the public pharmacopoeia; the mineral stock is common and the price is deliberately kept boring"
+  availability "Mixed by apothecaries and route provisioners everywhere from a formula in the public pharmacopoeia; common mineral stock and food-law price controls keep the tablets cheap"
 
   descriptive_identity(
     appearance: "A pressed gray-white tablet the size of a thumbnail, scored for halving, carried " \
@@ -39,7 +39,7 @@ encyclopedia :watch_salts do
   cue "The watch turns over at the cold hour: the incoming stander crushes a half-tablet under their nose, breathes three times, and takes the rail with settled hands."
   cue "A flat tin with a mixer's mark passes across the counter as change for a favor, and both parties treat the exchange as fully legible."
   affordance "One tablet is a level hour on demand — the difference between a manned watch and an empty one, a steady lender and a second casualty — and the public formula means the tin in a stranger's pocket is the same medicine as the tin in yours."
-  pressure "The hour is borrowed, the debt stands, and the two-salt cap is enforced by the same crews that depend on the tablets — a stander caught running a third is relieved on the spot and sent to sleep in mild disgrace."
+  pressure "Each tablet postpones rest for one hour, and crews enforce a two-salt cap. A stander preparing a third is relieved on the spot and sent to sleep."
   variation "Cordon and route trades issue half-cut tins on the manifest and log usage; households buy the mild press loose and spend it on harvests, births, and market mornings."
   variation "Mixer loyalties run deep enough that crews trade tins on routes the way they trade news, and a district's favorite press is defended with the seriousness elsewhere reserved for bread."
 end

@@ -30,7 +30,7 @@ encyclopedia :sweep do
   )
 
   prose <<~PROSE
-    Every settled ring fragment has sweeps, and every hab child learns their schedule before learning to read. A sweep is a knee-high mass of firm translucent tissue that moves at an even pace a person overtakes at a stroll, grazing spilled food, refuse, mold, and degraded sealant along a fixed circuit through the corridors. The ring bred them for exactly this. Maintenance registers from the intact ring list sanitation stock by circuit and feeding schedule in the same hand that lists pumps and filters, and the sweeps walking Carom's galleries today are the descendants of the entries.
+    Ring fragments with surviving sanitation stock keep sweep circuits through their corridors. A sweep is a knee-high mass of firm translucent tissue that moves at a pace a person overtakes at a stroll, grazing spilled food, refuse, mold, and degraded sealant. Intact-ring maintenance registers list each circuit and feeding schedule beside pumps and filters, and the sweeps in Carom's galleries descend from that stock.
 
     Since the Glassfall the sweeps have kept their own schedule. The circuits they walk are older than the break, laid down in a marker compound the ring painted into its decks, and they cut across today's settlements on the ring's old logic. Habs have grown around their sweeps the way a road grows around a river crossing: refuse points sit on the route, bunkrooms sit off it, and a corridor the route crosses gets a raised sill and a painted warning, because a sweep stopped by new construction stands against the obstacle and grazes the same span of wall until the wall needs replacing.
   PROSE
@@ -38,7 +38,7 @@ encyclopedia :sweep do
   prose <<~PROSE, section: :operations, heading: "Living on the Route"
     The working rules are old and short. Set waste on the route and it is gone by shift-end. Keep bedding, cargo, and animals off the route, because a sweep takes an outflung hand for a spill and its digestion burns like strong lye. Feed a sweep at its refuse points only: a sweep drawn off its line rejoins the circuit at the nearest marker facing whichever way it happens to face, and a sweep re-walking a buried line goes through floorboards, cold stores, and nursery walls with the same patience it gives a corridor.
 
-    A sweep that stops is read as a warning before it is read as a loss. They stall where the air runs wrong — households near Vey's wards treat a stopped sweep the way surface towns treat a silent bird — and they thin and slow when a hab's temperature drifts low, which is usually news about the hab. A dead sweep is cut from its route and its circuit posted as unswept until a neighboring hab can spare a young one, walked over in a lined crate with its feeding schedule written on the lid.
+    A stopped sweep prompts an air and temperature check. They stall where the air runs wrong and thin or slow when a hab grows cold. A dead sweep is cut from its route and the circuit posted as unswept until a neighboring hab can spare a young one, carried over in a lined crate with its feeding schedule written on the lid.
   PROSE
 
   cue "A translucent mass the height of a child's knee pours itself along the corridor wall at an unhurried pace, and foot traffic parts around it with every head bent to its own business."
@@ -46,5 +46,5 @@ encyclopedia :sweep do
   affordance "A sweep's route is reliable disposal — anything organic left on the line is gone by shift-end — and a stopped or thinning sweep is an early warning about the hab's air or heat that runs ahead of the instruments."
   pressure "The route treats a sleeper as refuse, and a sweep drawn off its circuit by careless feeding re-walks the original line through whatever has been built across it since."
   variation "Established habs raise sills and paint warnings where routes cross living space; newer settlements on old fragments discover their routes one burned bedroll at a time."
-  variation "Some galleries keep their sweep fat and fast with deliberate feeding at the refuse points; others keep theirs lean so the circuit takes longer and covers the off-shift, and each school walks the other's corridors with loud professional grief."
+  variation "Some galleries feed their sweep heavily at refuse points for a fast circuit; others keep a leaner animal whose slower circuit covers the off-shift."
 end

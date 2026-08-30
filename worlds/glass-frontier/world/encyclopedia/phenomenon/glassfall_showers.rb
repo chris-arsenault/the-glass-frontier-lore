@@ -64,7 +64,7 @@ encyclopedia :glassfall_showers do
   prose <<~PROSE, section: :limits, heading: "Forecasts"
     A shower corridor can be predicted from the motion of the larger debris around it. Density remains harder. Fine grains respond to weak resonance gradients, collisions, and atmospheric drag that ordinary orbital models treat poorly. A forecast can place the front within a few hours and still miss the narrow dense strand that damages a vessel.
 
-    Surveyors compare several kinds of evidence: tracked fragments, tuning-compass movement, signal echoes, and the faint glow where dust has already entered the upper air. No one reading is sufficient. A resonance spike without tracked debris may be a reflected field. A visible fall without a strong response may contain mostly ordinary glass and slag.
+    Surveyors compare several kinds of evidence: tracked fragments, tuning-compass movement, signal echoes, and the faint glow where dust has already entered the upper air. No single reading is sufficient. A resonance spike without tracked debris may be a reflected field. A visible fall without a strong response may contain mostly ordinary glass and slag.
 
     Each stream mixes material from many parts of the old ring. Chemical and harmonic signatures can identify some original structures, but repeated collisions have erased most provenance. The showers are a continuing movement of the Glassfall, not a reliable sample of any one lost habitat.
   PROSE

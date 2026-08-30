@@ -61,7 +61,7 @@ encyclopedia :shellback do
 
   cue "Small ones ride home in a remote cutter return, shut tight around the fragment and indistinguishable from fused wreck until a process crew waits one out. Given aggregate and a quiet surface it can be walked to an external hatch, provided no machine in the room offers a stronger meal."
   cue "Fine eyes occupy the seams between plates."
-  affordance "Taking plate off a living animal yields fresher material and is legal under some claim rules; most flotilla practice rejects it, and the #{ref :shear_compact, "Shear Compact"} counts repeated live cutting as damage to a managed claim. Enforcement needs a witness who finds the vessel later."
+  affordance "A strip of charged aggregate laid on firmer debris draws a grazing shellback across a work line without forcing it to retract. Cast plates left behind can be collected and mapped for stable ringglass bands."
   pressure "Cutting near a settled adult makes it retract and draw the structural response of the surrounding debris into its shell, and the mass then reads sound while the animal is what holds it. Getting the shellback off afterwards means bracing first and losing the shift."
   variation "New shell grows at the plate edges."
   variation "Small shellbacks appear in remote cutter wakes, usually closed tight around a returned fragment."

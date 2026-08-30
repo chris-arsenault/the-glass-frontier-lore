@@ -26,7 +26,7 @@ encyclopedia :road_and_freight_law do
   prose <<~PROSE, section: :structure, heading: "Recovery, Refusal, and the Shared Road"
     The rules are shared more widely than any enforcing authority. Road settlements care about clearing a failed carrier; docks care about accepting a load with its history legible; workshops care about the unrecorded interval between mine and floor. Local acts choose weights, gauges, markings, and penalties. The common burden stays with the carrier that knows the cargo and can still choose how it travels — and with the handoff, which must leave the receiving crew able to refuse. A refusal under the code is a protected act: the crew that turns away an unreadable load keeps its standing, and the shipper that dressed the load answers for the delay.
 
-    Recovery is the code's public face. A dead carrier on a shared route belongs, temporarily, to everyone behind it, and the recovery rules ration the obligation: who moves what, in what order, and how the costs ride home with the rescued crew as a debt of the road. The debts are honored across districts with a reliability that surprises visitors, because every crew on every route is one bad ford from the other side of the ledger.
+    Recovery is the code's public face. A dead carrier on a shared route belongs, temporarily, to everyone behind it, and the recovery rules ration the obligation: who moves what, in what order, and how the costs ride home with the rescued crew as a debt of the road. Districts honor those debts because each crew may enter the same ledger at the next bad ford.
   PROSE
 
   cue "A dead hauler sits on the shoulder with its cargo already broken into carry-lots, each lot tagged with the manifest line it came from, and the crews moving past each take one."
@@ -34,5 +34,5 @@ encyclopedia :road_and_freight_law do
   affordance "Under the code, a crew can refuse an unreadable load with its standing intact, recover a stranded cargo by the posted order, and carry a debt of the road home to be honored a season later in another district."
   pressure "A valuable load fits the machine and misses the route rule, inviting everyone to treat likely success as proof of lawful carriage — and the crew that burns its reserve third to make a date answers at the next yard either way."
   variation "Surface roads emphasize hand recovery and divisible loads; docks emphasize external readings and clear transfer records."
-  variation "Districts set their own penalties, and freight crews rank towns by them in a connoisseurship that startles outsiders — a heavy-fine town reads as a serious town, and crews relax there."
+  variation "Districts set their own penalties, and freight crews rank towns by them; a heavy-fine town reads as a place that enforces recovery and reserve rules closely."
 end

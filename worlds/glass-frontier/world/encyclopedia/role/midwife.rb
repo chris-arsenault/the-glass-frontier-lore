@@ -17,23 +17,21 @@ encyclopedia :midwife do
            "local pharmacy, the felt door runners and damping cloths that quiet a " \
            "birth room, and the tide table marked in the midwife's own hand with " \
            "the district's calms.",
-    manner: "Calm as furniture and direct as a foreman; a midwife in a birth room " \
-            "commands it by custom that outranks the household head, and the " \
-            "trade's bedside register — plain words, steady voice, orders phrased " \
-            "as the obvious next thing — is imitated by every other profession " \
-            "that works in other people's homes."
+    manner: "Calm and direct; a midwife commands the birth room by custom that outranks " \
+            "the household head, using plain words, a steady voice, and one instruction " \
+            "at a time."
   )
 
   cue "The knock comes with the wooden fish held to the door slot, the house opens at once and at any hour, and the midwife's first act inside is laying the felt runners that turn the birth room quiet."
   cue "The tide table comes out of the satchel, the midwife reads the district's next calm against the labor's pace, and tells the household plainly whether this child is coming on the calm or through the chop."
   affordance "A midwife brings the birth room its calm, its authority, and its month of aftercare in one visit — hands trained on hundreds of deliveries, a damped room, the lying-in schedule, and a door token that gets all of it inside any house at any hour."
-  pressure "The trade works at the mercy of timing — tides, distance, and two labors on one night — and its standing in a district is remade at every hard birth, because the whole street knows by morning how it went."
+  pressure "The district round records expected dates, travel time, and the tide table. When two labors overlap, the midwife assigns the apprentice or calls another round, and the lying-in visits continue under the same named practice."
   variation "District midwives walk a neighborhood round and know three generations of its bodies; the route midwives of thin country ride circuits timed to their families' dates, and a route midwife's winter schedule is set at midsummer."
   variation "Hab practice leans on the damped room and the dock services' backup; river and surface practice leans on the tide tables and the herb rolls — and the two traditions trade students to round them."
 
   prose <<~PROSE
     Birth in Kaleidos has a weather. Labor runs easier through a resonance calm — the #{encyclopedia_ref :still_mornings, "still mornings"} are the trade's favorite shift, and every district midwife keeps a tide table annotated in their own hand — and newborns arrive raw to the bands, startling at disturbances the adults in the room stopped hearing years ago. The trade is built around both facts. A midwife's first act in any house is laying the felt runners and hanging the damping cloths that turn the birth room into a small quiet chamber; the satchel carries the listening horn and cord kit of the hands-on craft beside the tide table of the timing craft; and the choice the midwife announces early — this child comes on the calm, or through the chop — organizes the household's whole night.
 
-    The office is older than most law and admitted everywhere. The wooden fish at the belt is the trade's door token, and a house that opens to it at the third hour has done what every house does; inside, the midwife commands the birth room by a custom that outranks the household head, in the flat bedside register the other home-visiting trades all imitate. The work extends a month past the birth. The lying-in — the damped, fed, visited-by-schedule month that follows — is the midwife's to open and to close: the trade posts the #{encyclopedia_ref :latch_watch, "latch watch"}, sets the visiting order, and ends the confinement with the walking-out visit that returns the household to the street. The trade keeps its own succession the same way it keeps everything, by attended practice: an apprentice carries the satchel for years of another midwife's rounds before the district's households, in the trade's phrase, learn her knock.
+    The wooden fish at the belt is the trade's door token, admitted at any hour. Inside, the midwife commands the birth room by a custom that outranks the household head. The work extends a month past the birth. The lying-in — the damped, fed, visited-by-schedule month that follows — is the midwife's to open and close: the trade posts the #{encyclopedia_ref :latch_watch, "latch watch"}, sets the visiting order, and ends the confinement with the walking-out visit that returns the household to the street. An apprentice carries the satchel for years of another midwife's rounds before the district's households, in the trade's phrase, learn her knock.
   PROSE
 end

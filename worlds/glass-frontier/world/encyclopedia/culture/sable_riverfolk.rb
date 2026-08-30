@@ -14,7 +14,7 @@ encyclopedia :sable_riverfolk do
 
   descriptive_identity(
     appearance:
-      "Crescent-raised skin is darkened and weathered by river sun and " \
+      "Crescent-raised skin is darkened and weathered by river light and " \
       "glasslight, and the hands are water-worn early. Riverfolk move at the " \
       "pace of loaded boats — steady, balanced, unhurried on any footing.",
     attire:
@@ -28,8 +28,8 @@ encyclopedia :sable_riverfolk do
     hospitality:
       "A landing household feeds a traveler who names their route and who " \
       "carried them; the meal makes the traveler a witness the household " \
-      "can ask after later. Refusing to say how you came is refusing the " \
-      "table."
+      "can ask after later. A traveler who withholds the route also declines " \
+      "the table."
   )
 
   cue "Route bands woven into sleeves and cargo covers keep their colors when wet, while ceramic tallies mark stores, landings, and barge shares."

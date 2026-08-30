@@ -9,10 +9,9 @@ encyclopedia :avar_road_people do
   appears_when all: { place: [:surface, :unstable_route] }
 
   descriptive_identity(
-    manner: "Road People reckon everything in chests and days — a household is 'eleven " \
-            "chests,' a move is 'a two-day lift' — and greet by exchanging road news " \
-            "before names, which among them is the courtesy and among settled folk gets " \
-            "them a reputation for nosiness they regard as rich.",
+    manner: "Road People reckon households in chests and moves in days — 'eleven " \
+            "chests,' 'a two-day lift.' Greetings exchange current road news before " \
+            "names, giving both parties the condition of the route ahead.",
     attire: "Layered travel dress with the household's chest-mark stitched at the " \
             "shoulder, and the walking staff shod for crust-sounding, carried by " \
             "everyone old enough to walk point.",
@@ -22,15 +21,15 @@ encyclopedia :avar_road_people do
   )
 
   prose <<~PROSE
-    Avar's roads move — the glass sheets breathe, the strike seasons redraw the fords, and a route that carried carts for a decade can shrug itself into scree between seasons — and the Road People are the culture that stopped fighting it. Their households live in chests: standardized, numbered, sized to a barrow and a spider sling, so that home is a count rather than a place. Eleven chests is a household; forty is a compound; and the great road families run to counts that take two drover fairs to move. When the resurvey posts each season's routes, the Road People read it the way farmers read weather, and the households lift, walk, and re-stake along whatever line the ground has decided to permit.
+    Avar's roads move: the glass sheets breathe, strike seasons redraw the fords, and a route that carried carts for a decade can become scree between surveys. Road People organize their households for that movement. Their standardized, numbered chests fit a barrow or a spider sling, making household size a visible count. Eleven chests is a household; forty is a compound; the great road families run to counts that take two drover fairs to move. When the resurvey posts each season's routes, households lift, walk, and re-stake along the open lines.
 
-    The chest is the culture's whole philosophy made furniture. Everything owned must earn its place against the question 'does it travel,' inheritance is settled in chests to the visible count, and the worst thing one Road person says of another is that their goods have rooted. What the chests exclude, the culture carries otherwise: the road knowledge itself, held in trained memory and traded at the staking-grounds, where households returning from different lines pool the season's ground truth. Settled Avar pays for that knowledge — the resurvey offices hire Road People as line-walkers, and the #{encyclopedia_ref :roadspider, "spider"} crews buy their grades — and the relationship between the settled towns and the moving households runs on the old mixed current of dependence and doubt.
+    Chests govern stores and inheritance. Each possession is weighed against whether the household can move it, and saying that someone's goods have rooted means their count has outgrown their route. Road knowledge travels in trained memory instead. At staking-grounds, households returning from different lines pool the season's ground truth. Settled Avar buys that knowledge: resurvey offices hire Road People as line-walkers, and #{encyclopedia_ref :roadspider, "spider"} crews buy their grades.
   PROSE
 
   cue "A household compound stands staked beside the route — numbered chests in neat ranks under awnings, barrows racked, everything visibly ready to be elsewhere in two days."
   cue "At the staking-ground fire, returning households trade the season's ground truth line by line, and a listener with a resurvey office satchel writes fast and buys rounds."
   affordance "The Road People hold the freshest map of Avar's actual roads — traded at the staking-grounds, sold to the resurvey, and available to any traveler who feeds a household news it can check."
-  pressure "The chest-count measures everything, so the culture is permanently arguing with its own edges — the daughter whose loom is worth rooting for, the household grown too big to lift, the settled town offering one family a road office and a foundation."
-  variation "The great road families move on spider trains and winter at the fairs; small households walk their counts behind a single barrow and are prouder for it."
-  variation "Chest-marks are stitched, painted, and inherited like brands, and a chest found astray on the roads is walked to the next staking-ground unopened — a custom enforced by everyone who owns chests, which is everyone."
+  pressure "At each move a household must fit its count to the available barrows and spider slings; a fixed loom, a household grown too large to lift, or a road-office post changes what remains in the traveling count."
+  variation "The great road families move in spider convoys and winter at the fairs; small households walk their counts behind a single barrow and are prouder for it."
+  variation "Chest-marks are stitched, painted, and inherited like brands, and a marked chest found astray is walked unopened to the next staking-ground."
 end

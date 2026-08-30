@@ -39,13 +39,13 @@ encyclopedia :bell_lung_colossus do
   prose <<~PROSE, section: :operations, heading: "Keeping a Lung"
     A colossus is fed at the shaft mouth — condensate sludge and gallery sweepings by the barrow, on a schedule its #{encyclopedia_ref :minder, "minder"} keeps and its district subsidizes — and worked around with tide-table discipline. Shaft maintenance happens in the long ease of the off-shift breath; a crew caught inside on a hard exhale comes out bruised and lectured. The creature tolerates its neighbors with the indifference of weather, and the one recorded exception is engine noise new to it, which turns the crown slowly and quickens the rhythm until the noise becomes familiar or leaves.
 
-    Every documented colossus predates the Glassfall. The archives record hatchings on the intact ring — clutch entries, shaft assignments — and record the method with them in notation the archives preserve and the trades still argue over. The habs that keep a lung therefore keep it the way a family keeps its last heirloom of a kind: with a named minder, a civic feeding budget, and a standing rule that the creature's health outranks the convenience of any schedule touching its shaft.
+    Every documented colossus predates the Glassfall. The archives preserve intact-ring clutch entries, shaft assignments, and a hatching notation the trades have not reproduced. Each surviving lung has a named minder, a civic feeding budget, and a standing rule that its health governs schedules touching the shaft.
   PROSE
 
   cue "The whole gallery breathes — a long, faintly ringing exhale moves the hung laundry and everyone's hair at once — and conversation pauses around it as automatically as around a passing cart."
   cue "A barrow crew tips condensate sludge into the shaft-mouth trough while a coil the color of old ceramic shifts somewhere above, and the barrow crew's timing is visibly rehearsed."
   affordance "The lung is a living pressure system and early-warning instrument in one: it answers structural loads minutes ahead of the gauges, and a ward that logs its rhythm alongside instrument readings catches what either alone would miss."
-  pressure "The creature's reflexes are scaled to the shaft, so a hard exhale in a narrow gallery flattens a work crew, and every schedule touching the shaft bends around a breath that answers to loads, moods, and unfamiliar engines rather than to the schedule."
+  pressure "Maintenance crews schedule entry during the long ease of the off-shift breath and clear the gallery when the crown turns toward an unfamiliar engine note. The minder calls the work from the animal's current rhythm."
   variation "Vey's colossus is civic property with a salaried minder and a feeding budget defended in ward sessions; a smaller lung in the outer arcs is kept by three families who split the barrow rota and the standing."
   variation "Districts differ on the courtesies — some hush engine tests near the shaft by ordinance, others introduce new machinery to the creature deliberately, running it soft nearby until the crown settles."
 end
