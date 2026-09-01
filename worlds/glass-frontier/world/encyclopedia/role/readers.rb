@@ -1,10 +1,11 @@
 encyclopedia :readers do
-  name "Perceptionist"
-  aka "Reader", "Readers", "Perceptionists"
-  summary "A Perceptionist examines the physical record carried by cloth, water, hulls, herds, or another material system and issues a bounded judgment other people act on."
+  name "Reader"
+  aka "Readers", "Perceptionist", "Perceptionists"
+  summary "A reader examines the physical record carried by cloth, water, hulls, herds, or another material system and issues a bounded judgment other people act on."
   kind :role
   subkind :profession
   status :complete
+  log "2026-08-31 — Changed the canonical title from Perceptionist to Reader. Reader is the established job word across textile, intake, water, and migration trades; Perceptionist remains the cross-trade formalism."
   topics :materials, :archives
   prevalence :uncommon
   available_globally
@@ -29,9 +30,9 @@ encyclopedia :readers do
   variation "Readers reach the same form of judgment through fingertip perception, calibrated instruments, or long observation of one system."
 
   prose <<~PROSE
-    Perceptionists work from the record a physical thing keeps of what has happened to it: the dirt, repair, pressure, and resonance held in cloth; the tone and delivery of a water system; the wear and heat history of a hull; the timing and spread of a migrating flock. Each practice compares its material against documented references, identifies disagreements, and states a judgment someone else will act on.
+    Readers work from the record a physical thing keeps of what has happened to it: the dirt, repair, pressure, and resonance held in cloth; the tone and delivery of a water system; the wear and heat history of a hull; the timing and spread of a migrating flock. Each practice compares its material against documented references, identifies disagreements, and states a judgment someone else will act on.
 
-    *Reader* remains the local job title in trades that otherwise share nothing. #{ref :wash_four, "Wash Four"} employs textile readers on its dirty route; #{ref :brake, "Brake"} posts a salvage intake reader to say whether a hull is inhabited before cutters mark a line; water systems and herding platforms keep their own. *Perceptionist* is the name used when those workers compare methods, credentials, or evidence across trades. Two Perceptionists of unlike materials meeting for the first time compare methods within minutes, because the method is what they share.
+    *Reader* is the local job title in trades that otherwise share nothing. #{ref :wash_four, "Wash Four"} employs textile readers on its dirty route; #{ref :brake, "Brake"} posts a salvage intake reader to say whether a hull is inhabited before cutters mark a line; water systems and herding platforms keep their own. *Perceptionist* is the formal name used when those workers compare methods, credentials, or evidence across trades. Two readers of unlike materials meeting for the first time compare methods within minutes, because the method is what they share.
   PROSE
 
   prose <<~PROSE, section: :structure, heading: "References"

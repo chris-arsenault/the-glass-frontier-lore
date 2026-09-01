@@ -165,7 +165,7 @@ module Lorecraft
         descriptive_identity: @world.resolve_identity(
           entry, audience: @audience
         ).descriptive_identity,
-        tiers: ability_tier_documents(entry),
+        tier: entry.ability_tier,
         dm: (entry.dm? if @audience == :all),
         source_file: relative_source(entry),
       }.compact
@@ -213,18 +213,6 @@ module Lorecraft
           }
         end,
       }
-    end
-
-    def ability_tier_documents(entry)
-      entry.ability_tiers.sort_by do |expression|
-        @world.schema.encyclopedia_tier_def(:ability, expression.tier)&.rank || expression.order
-      end.map do |expression|
-        {
-          tier: expression.tier,
-          effect: expression.effect,
-          cost: expression.cost,
-        }.compact
-      end
     end
 
     def usage_document(entry)

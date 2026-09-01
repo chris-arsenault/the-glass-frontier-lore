@@ -1,11 +1,13 @@
 encyclopedia :perch_salt_egg do
-  name "Perch Salt-Egg"
+  name "Salt-Eggs"
   kind :resource
   subkind :food
   status :complete
+  log "2026-08-31 — Renamed Perch Salt-Egg to Seven-Shake; the seven-grade packing-bench test gives the food its spoken trade name instead of a place-plus-product compound."
+  log "2026-08-31 — Renamed Seven-Shake to Salt-Eggs. The grade test belongs on the packing bench, while salt-egg is the ordinary staple name used in the food's own article and by the Kesh jar that instantiates it."
   prevalence :uncommon
   appears_when any: { place: [:sealed_hab, :market] }
-  summary "Perch salt-eggs are cured eggs packed in mineral salt at Perch and Kesh, graded by shake and keeping for a season. A finished egg cracks itself open when held beside a working kinetic line, and crews prize them for exactly that trick."
+  summary "Salt-eggs are cured in mineral salt at Perch and Kesh, graded by shake, and keep for a season. A finished egg cracks itself open when held beside a working kinetic line, and crews prize them for exactly that trick."
   function "Season-keeping preserved protein for route chests and hab larders"
   grades "Seven grades sorted by shake and heft at the packing bench, first-shake through seventh, with first-shake commanding cordon-post prices"
   availability "Cured at Perch and Kesh in the herd seasons; sold through hab markets and route provisioners across the ring settlements"

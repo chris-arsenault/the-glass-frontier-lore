@@ -1,9 +1,10 @@
 encyclopedia :quiet_breath do
-  name "Quiet Breath"
-  summary "Quiet breath is the salvage discipline of breathing in the recorded elven cadence — the slow, evenly weighted rhythm that glasswurm colonies were bred to read as their keepers' presence — so a crew can work beside a sound-sensitive colony that files them under caretaker and sleeps on. Learned from abandonment-site recordings, drilled with a counting partner, and held for a whole shift."
+  name "Keeper's Breath"
+  summary "Keeper's Breath is the salvage discipline of breathing in the recorded elven cadence — the slow, evenly weighted rhythm that glasswurm colonies were bred to read as their keepers' presence — so a crew can work beside a sound-sensitive colony that files them under caretaker and sleeps on. Learned from abandonment-site recordings, drilled with a counting partner, and held for a whole shift."
   kind :ability
   subkind :technique
   status :complete
+  log "2026-08-31 — Renamed Quiet Breath to Keeper's Breath; the name preserves the colonies' learned recognition of the cadence as a keeper's presence."
   topics :salvage, :training, :"ring-era", :ecology
   prevalence :uncommon
   appears_when all: { place: [:debris_field] }

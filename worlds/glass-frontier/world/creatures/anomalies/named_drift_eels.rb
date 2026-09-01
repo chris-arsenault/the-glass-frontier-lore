@@ -9,7 +9,7 @@ creature :named_drift_eels do
   prominence :recognized
 
   prose <<~PROSE
-    The largest #{encyclopedia_ref :drift_eel, "drift-eels"} are route events. Traffic shuts down, beacons go quiet, and pilots wait for the animal to cross. Hunters pursue a named eel only after repeated attacks because killing several kilometres of feeding body creates a debris and contamination problem of its own.
+    The largest #{encyclopedia_ref :drift_eel, "sheareels"} are route events. Traffic shuts down, beacons go quiet, and pilots wait for the animal to cross. Hunters pursue a named eel only after repeated attacks because killing several kilometres of feeding body creates a debris and contamination problem of its own.
 
     Ratter route boards exchange sightings, lure results, and the movement of these named animals. Reports follow them between managed corridors, extraction yards, old habs whose systems still pulse, and the approaches to busy ports.
   PROSE

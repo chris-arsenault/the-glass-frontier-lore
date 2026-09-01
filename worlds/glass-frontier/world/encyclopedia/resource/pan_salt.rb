@@ -1,13 +1,15 @@
 encyclopedia :pan_salt do
-  name "Pan Salt"
+  name "Last Water"
   aka "salt"
   kind :resource
   subkind :material
   status :complete
+  log "2026-08-31 — Renamed Pan Salt to Scores; the harvesters' scored crust supplies the commodity's shifted working name instead of a source-plus-material label."
+  log "2026-08-31 — Renamed Scores to Last Water. Scoring is one harvest procedure. Salters call the set crust from the final basin last water, a commodity name that carries the terraces' uphill brine cycle beyond the coast."
   topics :trade, :household, :"ring-era", :materials
   prevalence :common
   available_globally
-  summary "Pan salt is the working salt of the system, drawn from the elven evaporation pans that still terrace the Kaleidos coasts. The pans concentrate brine on their own schedule, the salter towns harvest by scoring and breaking the crust like a field, and the grades run from packing coarse to the table fines."
+  summary "Last water is the working salt of the system, drawn from the elven evaporation pans that still terrace the Kaleidos coasts. The pans walk brine uphill through a cycle of basins, leaving a set crust in the last basin for salters to score, break, and grade from packing coarse to table fines."
   function "Preservation, curing, seasoning, and the mineral base of half the pharmacopoeia's pressings"
   grades "Field coarse for packing and curing, second-break for the kitchens, and pan fines — the clear top crystal — for the table and the mixers"
   availability "Harvested at the coastal pan terraces and traded everywhere; the salter towns' output sets the season's curing calendars system-wide"
@@ -26,9 +28,9 @@ encyclopedia :pan_salt do
   )
 
   prose <<~PROSE
-    The salt terraces predate every town that harvests them. The #{encyclopedia_ref :elves, "elves"} built evaporation pans along the warm Kaleidos coasts — stepped stone fields that walk brine uphill through basin after basin on a cycle the terraces still keep — and the pans have concentrated the sea on their own patient schedule through the Glassfall, the Famine, and everything since. What arrives in the final basins is a harvest crust: a set field of salt, renewed each cycle, that the salter towns take the way ice crews take a frozen field. The harvesters score the crust in a grid, break along the scores, and grade at the break — the clear top crystal lifted first and sold as pan fines, the deep cuts stacked as field coarse for the packing and curing trades.
+    The salt terraces predate every town that harvests them. The #{encyclopedia_ref :elves, "elves"} built evaporation pans along the warm Kaleidos coasts — stepped stone fields that walk brine uphill through basin after basin on a cycle the terraces still keep — and the pans have concentrated the sea on their own patient schedule through the Glassfall, the Famine, and everything since. What arrives in the final basins is last water: a set field of salt, renewed each cycle, that the salter towns take the way ice crews take a frozen field. The harvesters score the crust in a grid, break along the scores, and grade at the break — the clear top crystal lifted first and sold as pan fines, the deep cuts stacked as field coarse for the packing and curing trades.
 
-    Salt is the quiet constant of the working system. Field coarse packs the #{encyclopedia_ref :perch_salt_egg, "salt-eggs"} and cures the fish and the hides; second-break salts every kitchen; the fines season the tables and supply the #{encyclopedia_ref :mixer, "mixers'"} benches, where pan salt is the mineral base of half the pharmacopoeia's pressings. The salter towns' harvest sets calendars far inland — curing seasons wait on the salt fleet, and a thin pan year is priced into eggs, fish, and pressings across the system before the first barrel ships. Harvest law is correspondingly old and serious: the pans are common infrastructure under town stewardship, the crust is taken on the pans' schedule and the stewards' word, and the scoring of a field before the stewards call it is the salter coast's version of cutting past the call.
+    Last water is the quiet constant of the working system. Field coarse packs #{encyclopedia_ref :perch_salt_egg, "salt-eggs"} and cures the fish and the hides; second-break salts every kitchen; the fines season the tables and supply the #{encyclopedia_ref :mixer, "mixers'"} benches, where last water is the mineral base of half the pharmacopoeia's pressings. Coastal trade books distinguish it from #{encyclopedia_ref :first_water, "first water"}: last water renews with the pan cycle and moves by stack and barrel, while first water is a sealed inheritance drawn by flask. The salter towns' harvest sets calendars far inland — curing seasons wait on the salt fleet, and a thin pan year is priced into eggs, fish, and pressings across the system before the first barrel ships. Harvest law is correspondingly old and serious: the pans are common infrastructure under town stewardship, the crust is taken on the pans' schedule and the stewards' word, and the scoring of a field before the stewards call it is the salter coast's version of cutting past the call.
   PROSE
 
   prose <<~PROSE, section: :trade, heading: "The Salter Towns and the Long Stacks"

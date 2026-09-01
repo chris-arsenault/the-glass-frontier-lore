@@ -1,38 +1,44 @@
 phenomenon :spanning_fall do
-  name "The Spanning Fall"
-  summary "The Spanning Fall is a distributed set of frictionless patches that drives an entire mass along one vector when the patches connect edge to edge."
+  name "Spanning Fall"
+  aka "The Spanning Fall"
+  summary "Spanning Fall is the distributed directional-slip field tracked through the Shear, where scattered patches share one vector and send an entire connected mass falling when they join free edge to free edge."
   type_of :linked_slip
   subkind :physical_phenomenon
   status :complete
   tags :resonance, :orbital, :danger, :salvage
   prominence :recognized
-  trigger "Separate slick patches form one continuous path between two free edges of the same connected mass"
-  effect "The whole mass loses resistance to one fixed direction and accelerates along it regardless of braces, traction, or local gravity"
-  recurrence "Patches throughout the Shear share one acceleration vector and answer one another with a sharp double vibration when joined"
-  ending "The fall stops only when the spanning path is broken, the moving mass separates around it, or the mass leaves the active field"
-  mitigation "Map and isolate every patch, preserve an untreated gap between free edges, or cut away the spanned section before connection completes"
-  anchor_behavior "Individual patches remain fixed to load-bearing surfaces and transfer to the largest surviving fragment when a spanned mass breaks"
-  medium "Rock, hulls, roads, decks, structural glass, and other connected load-bearing surfaces"
-  hazard "A harmless set of isolated slicks can abruptly move a fortress, asteroid, vessel, or inhabited deck as one falling body"
+  trigger "Directional-slip patches form one continuous route between two free edges of the same connected load-bearing mass"
+  effect "The complete mass accelerates along the vector shared by the patches, carrying foundations, braces, anchors, cargo, and occupants with it"
+  recurrence "Patches across the Shear retain one acceleration vector and answer with the same sharp double vibration whenever two boundaries join"
+  ending "The acceleration stops when the spanning route is broken, the mass separates around it, or the surviving fragment leaves the active field"
+  mitigation "Map and isolate each patch, preserve an untreated break between every pair of free edges, or cut away the affected section before the route closes"
+  anchor_behavior "Each patch remains fixed to its load-bearing surface; when a spanned mass breaks, the active pattern follows the largest surviving fragment"
+  medium "Rock, hulls, roads, decks, structural glass, and other connected load-bearing surfaces in the Shear"
+  hazard "Several small worksite slicks can close into one route and abruptly move a rig, vessel, inhabited deck, or debris body as a single falling mass"
 
   descriptive_identity(
-    signs: "Scattered surfaces become perfectly slick along one direction and produce a sharp double vibration whenever two patches connect.",
-    effects: "Once a continuous path reaches between two free edges, the complete connected mass accelerates along the shared vector as if every support had become a slope.",
-    hazards: "Anchors, foundations, and internal braces move with the mass rather than resisting it, while breaking the path may split occupied structure under acceleration."
+    signs: "A test block grips in three directions and runs freely in the fourth; separate slicks answer with a sharp double vibration when their marked boundaries meet.",
+    effects: "An edge-to-edge chain makes the entire connected mass accelerate along the shared vector, carrying every support and anchor with it.",
+    hazards: "The first stable resistance may be another vessel or debris body, and breaking the chain under acceleration can divide an occupied structure around its people."
   )
 
   prose <<~PROSE
-    The first patches of the Spanning Fall are inconvenient and often small. A boot slips in one direction and grips in every other. A crate moves across a deck only when pushed toward a particular wall. Separate patches can remain unchanged for weeks.
+    Shear crews call the field Spanning Fall after the condition that makes it move a claim. Its first patches are often hand-sized. A boot slips toward one wall and grips in every other direction. A tethered test block runs freely along the same vector. Separate patches can remain unchanged for weeks while a crew works around them.
 
-    The fall begins when those patches join in one continuous path between two free edges of the same mass. A deck, vessel, fortress, or asteroid then accelerates along the direction shared by every patch. Foundations and anchors travel with it. In open space the name remains accurate: the mass chooses a down that the surrounding orbit does not share.
+    Two boundaries touching produce a sharp double vibration through both surfaces. When joined patches complete a route between free edges, the deck, vessel, rig, or debris body accelerates along their shared direction. Foundations and anchors travel with it. The distributed vector and answering vibration identify the same field across claims separated by open Shear.
   PROSE
-  prose <<~PROSE, section: :applications, heading: "Completing the Span"
-    Shear crews mark each patch and cut an untreated gap around it. If the gap closes, the only reliable stop is to break the spanning path or separate the moving mass around it. Both acts are harder after acceleration begins.
+  prose <<~PROSE, section: :operations, heading: "The Untreated Break"
+    A claim crew tests every new slick with a block on a line, paints its boundary and direction, and copies it onto the shift map. The map matters less for the area covered than for the routes between free edges. Crews cut or plate an untreated break across every possible chain and inspect those breaks after drilling, cargo moves, or structural cracks change the surface.
 
-    The same threshold makes the phenomenon a weapon. One narrow strip can complete a path across an enemy hull and throw the whole vessel from formation. A trapped settlement can cut away the affected district and let it fall clear. Salvagers can move a debris body too large for their engines, provided they know where its new down will carry it and can break the path before it strikes what they came to recover.
+    Once the double vibration runs uninterrupted from edge to edge, the crew must break the route or separate the moving mass around it. Internal braces cannot hold the claim in place because they accelerate with it. If the mass divides, the surviving field settles on the largest fragment, carrying its remaining patches onward.
+  PROSE
+  prose <<~PROSE, section: :applications, heading: "Moving the Claim"
+    Salvagers sometimes complete a mapped route deliberately to move a debris body too large for their drives. Their recovery plan begins at the destination: another body, a prepared catch field, or open distance along the shared vector. A cut team rides beside the last joining strip and breaks it before the claim reaches what the crew came to recover.
+
+    The threshold also permits violence. One narrow strip can complete a route across an enemy hull and throw the vessel from formation. An occupied structure can cut away its affected district and let that section fall clear, preserving the remainder at the cost of everyone and everything still across the cut.
   PROSE
 
-  gm_note :triggered_by, "Joining two harmless slick patches completes an edge-to-edge path and sends the entire connected mass falling along their shared direction, supports and occupants included."
+  gm_note :triggered_by, "Joining two marked slicks can complete the free-edge route and send the entire connected mass falling along their shared vector, including anchors, supports, cargo, and occupants."
 end
 
 relate :rel_spanning_fall_manifests_shear, :manifests_at, :spanning_fall, :the_shear

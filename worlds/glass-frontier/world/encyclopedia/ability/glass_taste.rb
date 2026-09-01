@@ -1,9 +1,11 @@
 encyclopedia :glass_taste do
-  name "Glass Taste"
-  summary "Glass Taste is an inherited Kyther sensitivity that distinguishes grades and veins of ringglass by the metallic trace they leave on the breath. Tasting families grade quarry lots, and their assay marks set the stock's price."
+  name "Palate"
+  summary "Palate is an inherited Kyther sensitivity that distinguishes grades and veins of ringglass by the metallic trace they leave on the breath. Tasting families grade quarry lots, and their assay marks set the stock's price."
   kind :ability
   subkind :innate_sensitivity
   status :complete
+  log "2026-08-31 — Renamed Glass Taste to Palate; Kyther stock traders use the familiar word for the inherited sense that grades ringglass rather than for ordinary flavor."
+  log "2026-08-31 — Removed the broad tier. Palate is an innate sensitivity, not a resonant spell."
   topics :ringglass, :trade, :household, :training
   prevalence :rare
   appears_when all: { place: [:ringglass_rich] }
@@ -22,12 +24,8 @@ encyclopedia :glass_taste do
             "in the morning with water between lots."
   )
 
-  tier :broad,
-       effect: "Distinguish grades of ringglass by the metallic trace they leave on the breath",
-       cost: "Palate fatigue by mid-shift, and the tasting-line diet — the gift's households eat bland by necessity and tradition both"
-
   prose <<~PROSE
-    In the Kyther tasting families, ringglass has flavors. The gift — inherited, arriving with the family features or skipping a child entirely — reads the metallic trace a bare shard leaves on the breath, and reads it finely: grade, vein, often the very quarry, named in the length of a swallow and confirmed by the survey bench in an afternoon of instrument time. The range's stock trade runs on it. Quarry lots are tasted before they are priced, the tasting families' verdicts travel with the stock like assay marks, and the great buyers pay for a taster's breath the way archives pay for a recaller's wrist.
+    In the Kyther tasting families, *palate* means the inherited sense by which ringglass has flavors. The gift arrives with the family features or skips a child entirely and reads the metallic trace a bare shard leaves on the breath finely enough to name grade, vein, and often the quarry in the length of a swallow. The survey bench confirms the call in an afternoon of instrument time. The range's stock trade runs on it: quarry lots are tasted before they are priced, the tasting families' verdicts travel with the stock like assay marks, and the great buyers pay for a taster's breath the way archives pay for a recaller's wrist.
 
     Tasting families keep pedigree books that survey scholars quote and arrange marriages with the gift's inheritance in mind. Children are cup-tested young. A child with the sensitivity begins years of shards and blind tests under an older taster; a child without it usually trains at the survey bench or in the quarries. Trade custom protects the palate: tasters work mornings, rinse between lots, and eat the bland tasting-line diet before a grading shift.
   PROSE

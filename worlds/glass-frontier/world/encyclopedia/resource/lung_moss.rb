@@ -1,13 +1,14 @@
 encyclopedia :lung_moss do
-  name "Lung Moss"
+  name "Kelm"
   aka "moss"
   kind :resource
   subkind :biological_material
   status :complete
+  log "2026-08-31 — Renamed Lung Moss to Kelm; the sealed habs' short working word names the filter crop without promoting its assay or ordinary material class into the title."
   topics :"ring-hab", :ecology, :materials, :danger
   prevalence :uncommon
   appears_when all: { place: [:sealed_hab] }
-  summary "Lung moss is the living filter material of the sealed habs: a dense gray-green mat grown in shaft frames that traps structural dust from the air and turns bitter to the taste before the shaft that houses it begins to buckle. Moss wards tend it as both crop and structural instrument."
+  summary "Kelm is the living filter material of the sealed habs: a dense gray-green mat grown in shaft frames that traps structural dust from the air and turns bitter before the shaft that houses it begins to buckle. Moss wards tend it as both crop and structural instrument."
   function "Filters structural dust from hab air; its taste tracks the load on the shaft that houses it"
   grades "Sweet, flat, and bitter — the taster's ladder — with frame stock graded separately by mat density and seed vigor"
   availability "Grown in frame beds at Lung Three, Kesh, and every hab with a moss ward; frame stock and seed mats trade between habs under stewardship rules"
@@ -25,7 +26,7 @@ encyclopedia :lung_moss do
   )
 
   prose <<~PROSE
-    Sealed habs use lung moss as their standard living air filter. The mats fill removable frames racked across airways and shaft mouths — dense gray-green turf, napped like wet felt — and trap the structural dust that ring fragments shed into their own air: glass fines, ceramic powder, the gray flour of old decks grinding. A hab's moss ward racks, rotates, and harvests the frames like any crop, and split moss turf goes on to a second working life as packing, poultice stock, and the filter plugs in every respirator the hab issues.
+    The sealed habs call their standard living air filter *kelm*. Its mats fill removable frames racked across airways and shaft mouths — dense gray-green turf, napped like wet felt — and trap the structural dust that ring fragments shed into their own air: ringglass fines, ceramic powder, the gray flour of old decks grinding. A hab's moss ward racks, rotates, and harvests the frames like any crop, and split kelm turf goes on to a second working life as packing, poultice stock, and the filter plugs in every respirator the hab issues.
 
     The taste is the material's second gift and the habs' oldest structural instrument. Moss roots read the frame that holds them, and the frame reads the shaft: a licked fingertip pressed to healthy moss comes back faintly sweet, tired moss reads flat, and moss housed in structure under wrong load turns bitter — distinctly, reliably, and ahead of the gauges. The habs institutionalized the tongue generations ago. Moss wards walk their racks on taster's rounds, the taster's ladder — sweet, flat, bitter — is taught to children with the rest of the survival canon, and a bitter frame is pulled, tagged, and reported with the same standing a #{encyclopedia_ref :span_listening, "listener's"} call carries: the shaft gets inspected, and the argument about why happens afterward.
   PROSE

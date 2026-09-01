@@ -1,9 +1,10 @@
 encyclopedia :blue_loam do
-  title "Blue Loam"
+  title "Seren Blue"
   kind :resource
   subkind :biological_material
   status :complete
-  summary "Blue loam is a live medicinal soil cultivated at Seren; its fungal nodules guide sensation back through damaged nerves."
+  log "2026-08-31 — Renamed Blue Loam to Seren Blue; the source settlement and the growers' visible color create a local commodity name instead of a generic soil compound."
+  summary "Seren blue is a live medicinal soil whose fungal nodules guide sensation back through damaged nerves."
   function "Carries a medicinal mold that guides nerve regrowth"
   topics :ecology, :materials, :trade, :resonance
   prevalence :rare
@@ -36,7 +37,7 @@ encyclopedia :blue_loam do
   )
 
   prose <<~PROSE
-    Cobalt fungal hairs thread the dark soil sold as blue loam. Growers at #{ref :seren, "Seren"} keep it in shallow warm beds and feed it powdered root, saline water, and a slow structural tone. The mature mold forms pale nodules along the tone lines.
+    Cobalt fungal hairs thread the dark soil sold as Seren blue. Growers at #{ref :seren, "Seren"} keep it in shallow warm beds and feed it powdered root, saline water, and a slow structural tone. The mature mold forms pale nodules along the tone lines.
 
     Apothecaries steep those nodules into a paste applied around damaged nerves. A steady culture encourages sensation to return from the injury outward. A stressed culture sends rapid pulses through nearby tissue and can keep a patient awake for several days.
 

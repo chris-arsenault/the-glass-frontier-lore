@@ -3,7 +3,7 @@ encyclopedia :rind do
   summary "Rinds are large Deep Shear animals that follow sustained resonance gradients. Pale shells enclose their bodies, and trailing filaments can disrupt tuned ringglass on contact."
   kind :lifeform
   subkind :animal
-  status :draft
+  status :complete
   topics :ecology, :resonance, :orbital, :danger, :mystery
   prevalence :uncommon
   appears_when all: { place: [:debris_field] }
@@ -29,4 +29,10 @@ encyclopedia :rind do
 
     Deep-runners redirect them with a counter-tone placed beyond the desired route. The work takes patience and a clear field. Striking the shell scatters the filaments and creates more contacts, so experienced crews keep weapons cold unless the animal is already inside a structure.
   PROSE
+
+  cue "The Tuner calls the approach first — a band of light in the shell's inclusions that reads dull to everyone else — and the crew starts the counter-tone drill while the animal is still ten minutes of walking-speed away."
+  cue "A trailing filament brushes the array mount in passing, both materials take up the sympathetic response, and the rig's calibration is gone for the afternoon while the rind drifts on, entirely well."
+  affordance "A rind's course is a free gradient survey — the animal walks the strongest sustained resonance line in reach — and deep crews chart where the local rinds hold station the way river pilots chart deep water."
+  variation "Shear-edge rinds are small, singly encountered, and redirected as routine; the Deep Shear's hold whole slow congregations at the great standing gradients, and crews route around those grounds entirely."
+  variation "Course records support both feeding and navigation models for gradient-following. No observed mouth, intake cycle, nest, or return route yet distinguishes between them."
 end

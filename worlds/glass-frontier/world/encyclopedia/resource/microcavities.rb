@@ -1,9 +1,10 @@
 encyclopedia :microcavities do
-  title "Microcavities"
+  title "Seed"
   kind :resource
   subkind :fuel
   status :complete
-  summary "Microcavities are sealed ringglass cells cut to hold dense standing resonance and release it as portable high-energy fuel."
+  log "2026-08-31 — Renamed Microcavities to Seed; the ordinary word gains a stable commodity meaning for sealed ringglass cells that carry a releasable charge."
+  summary "Seed cells are sealed ringglass chambers cut to hold dense standing resonance and release it as portable high-energy fuel."
   reviewed "2026-03-19"
   topics :resonance, :trade, :materials
   prevalence :common
@@ -37,7 +38,7 @@ encyclopedia :microcavities do
   )
 
   prose <<~PROSE, section: :how_it_works, heading: "How It Works"
-    Microcavities are sealed #{encyclopedia_ref :ringglass, "ringglass"} cells cut with internal chambers that hold dense standing waves. The chamber geometry and outer seal keep the charge fixed. Cracking the seal releases it as one controlled burst of kinetic-band output.
+    Seed cells are sealed #{encyclopedia_ref :ringglass, "ringglass"} vessels cut with internal chambers that hold dense standing waves. The chamber geometry and outer seal keep the charge fixed. Cracking the seal releases it as one controlled burst of kinetic-band output.
 
     Deep #{ref :the_shear, "Shear"} operations, emergency thrust, and heavy industrial work use the cells when ambient resonance cannot supply enough power. Ringglass refineries cut and tune them to tight tolerances. A loose seal vents the same stored charge before the cell reaches its machine.
 

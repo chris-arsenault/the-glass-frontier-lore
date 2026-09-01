@@ -1,9 +1,10 @@
 encyclopedia :road_and_freight_law do
-  name "Road and Freight Law"
-  summary "Road and Freight Law is the shared body of carrier rules that keeps loads recoverable, hazards visible, and custody legible when machinery or routes fail. It descends from the ring's transit code, rewritten by people who had watched the transit stop."
+  name "The Shared Road"
+  summary "The Shared Road is the shared body of carrier rules that keeps loads recoverable, hazards visible, and custody legible when machinery or routes fail. It descends from the ring's transit code, rewritten by people who had watched the transit stop."
   kind :culture
   subkind :governance
   status :complete
+  log "2026-08-31 — Renamed Road and Freight Law to The Shared Road; the name makes the carrier network a common obligation rather than a legal category."
   topics :trade, :transport, :governance, :danger
   prevalence :common
   available_globally

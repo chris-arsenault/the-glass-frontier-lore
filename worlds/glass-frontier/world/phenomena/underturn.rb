@@ -1,38 +1,46 @@
 phenomenon :underturn do
-  name "The Underturn"
-  summary "The Underturn exchanges equal upper and lower strata, raising buried matter and carrying surface places downward without crossing the space between."
+  name "Ravel Underturn"
+  aka "The Underturn"
+  summary "Ravel Underturn is the settlement's recurrent inversion field, exchanging equal volumes from strata with matching resonant loads while leaving every intervening layer untouched."
   type_of :stratum_exchange
   subkind :physical_phenomenon
   status :complete
+  log "2026-08-31 — Renamed The Underturn to Ravel Underturn when underturn became the reusable name for the wider phenomenon class."
   tags :resonance, :"ring-hab", :danger, :mystery
   prominence :recognized
-  trigger "Two separated strata within the active field carry matching resonant load at the moment the field reverses"
-  effect "Equal volumes of upper and lower matter exchange position, including heat, wreckage, poison, broadcasts, structures, and living bodies"
-  recurrence "The same inversion field follows Ravel's plume cycle and has been identified elsewhere by its paired signal silence and exchanged volume"
-  ending "The exchange completes when both volumes settle into the other's resonant load; interrupting one load arrests both volumes between states"
-  mitigation "Keep inhabited strata at deliberately unequal loads, isolate poisonous or pressurized layers, and evacuate anything caught in the paired signal silence"
-  anchor_behavior "Pairs volumes by resonant load rather than distance, material, ownership, or local direction of gravity"
-  medium "Layered terrain, ring decks, buried structures, atmosphere, fluid, and signal-bearing material"
-  hazard "Occupied places descend while sealed wreckage, toxins, hostile life, and old transmissions rise into them"
+  trigger "Two separated strata carry matching resonant loads when the inversion field reaches its reversal point"
+  effect "Equal volumes exchange position without crossing the intervening matter, carrying structures, atmosphere, heat, momentum, signals, and living bodies intact"
+  recurrence "One field follows Ravel's plume cycle and is recognized elsewhere by paired signal silence, duplicated instrument positions, and an exact exchange of volume"
+  ending "The exchange completes when both volumes settle into the other's resonant load; changing either load during transit arrests both volumes between positions"
+  mitigation "Keep inhabited and buried strata deliberately unequal in load, isolate dangerous layers, and evacuate both paired positions when signal silence begins"
+  anchor_behavior "Pairs volumes by resonant load rather than separation, material, ownership, or local gravity"
+  medium "Layered terrain, ring decks, buried structures, atmosphere, fluid, and signal-bearing matter"
+  content "Two equal volumes with all structures, substances, signals, momentum, and living bodies present inside them"
+  hazard "An inhabited layer can exchange with sealed wreckage, poison, hostile life, old transmissions, or another occupied volume whose motion resumes on arrival"
 
   descriptive_identity(
-    signs: "Two separated layers fall silent on signal at once, then exchange equal volumes without traversing the material between them.",
-    effects: "Upper matter occupies a matched lower stratum as the lower matter rises into its exact former volume, carrying structures, heat, atmosphere, broadcasts, and life intact until arrival.",
-    hazards: "A settlement can trade places with a buried ruin, open air with poison, or living ground with wreckage whose momentum resumes only after the exchange."
+    signs: "Two separated strata fall silent on signal together and appear on instruments at both positions before their equal volumes exchange.",
+    effects: "Each volume arrives in the other's position with rooms, atmosphere, heat, momentum, broadcasts, and living bodies intact.",
+    hazards: "Present traffic can descend into stone while a buried ruin's pressure, poison, inhabitants, and unfinished motion resume at the surface."
   )
 
   prose <<~PROSE
-    The Underturn exchanges layers. A surface yard vanishes into the ground while an equal volume of buried wreckage occupies its place. Hot atmosphere can trade with cold sealed gas. A broadcast trapped in old signal glass can rise into a working network as the network's present traffic descends into stone.
+    Ravel collectors call the field the Ravel Underturn because a lower stratum comes up as an upper one goes under. A surface yard can exchange with an equal volume of buried wreckage. Hot atmosphere can trade with cold sealed gas. A broadcast trapped in old signal glass can rise into a working network as the network's present traffic descends into stone.
 
-    Nothing crosses the material between. During the exchange, instruments show both volumes at both positions and signals from each go silent. The arrival is exact enough to preserve rooms and living bodies when the receiving volume is compatible. Pressure, heat, momentum, and poison resume in the new place as soon as the exchange settles.
+    The paired volumes never traverse the layers between them. Their signals fall silent together while instruments report each volume at both positions. Rooms and living bodies arrive intact when the receiving volume can contain them. Pressure, heat, momentum, and poison resume as soon as the exchange settles.
   PROSE
-  prose <<~PROSE, section: :operations, heading: "Ravel's Two Loads"
-    The Underturn follows #{ref :ravel, "Ravel"} through its plume cycle. Collectors keep the inhabited hull and the lower service mass at deliberately unequal resonant loads so the field cannot pair them. Crews add or release tuned water, machinery, and cargo before the paired signal silence begins.
+  prose <<~PROSE, section: :operations, heading: "The Load Slate"
+    Underturn follows #{ref :ravel, "Ravel"} through its nine-day plume cycle. The settlement's load slate lists the inhabited hull, lower service mass, catch tanks, and sealed pressure cells separately. During the two days of line and mesh work before a passage, crews add or release tuned water, machinery, and cargo to keep those strata deliberately unequal.
 
-    When the loads cannot be separated, the exchange becomes a choice of strata. A buried refuge can be brought to the surface. An occupied deck can be traded below an attack. A poison layer can be sent into open void if an equal volume there can be prepared to receive it. Every rescue displaces something else, and that displaced volume arrives with its own people, claims, and unfinished motion.
+    Paired signal silence stops catch work. Both listed positions are cleared, pressure doors close around dangerous layers, and the load crew changes one stratum in small increments until the readings separate. When unequal loads cannot be restored, the exchange becomes a choice of strata: a buried refuge can rise, an occupied deck can descend below an attack, or a poison layer can trade with an equal volume prepared in open void. Every rescue brings the other volume into use with its own people, claims, and unfinished motion.
+  PROSE
+  prose <<~PROSE, section: :limits, heading: "Between Positions"
+    Changing a paired load after the exchange begins arrests both volumes. Instruments continue reporting each in both places while neither position answers a signal. Ravel crews evacuate both possible arrivals and rebuild the last unequal load from the slate. The readings collapse to one position only after the field accepts the new imbalance.
+
+    An arrested exchange preserves contents and danger together. A breached tank holds its contents away from the intervening strata during the pause, then resumes venting under pressure wherever the volume settles. A moving machine keeps its unfinished motion. The pause buys work time while both destinations remain hazardous.
   PROSE
 
-  gm_note :complicates, "Two equal resonant loads begin to exchange, so saving the occupied layer requires deciding what lower volume—ruin, poison, wreckage, or living ground—will take its place."
+  gm_note :complicates, "Paired signal silence marks two equal loads beginning to exchange, so protecting the occupied layer requires preparing the ruin, poison, wreckage, open void, or living ground that will arrive in its place."
 end
 
 relate :rel_underturn_manifests_ravel, :manifests_at, :underturn, :ravel

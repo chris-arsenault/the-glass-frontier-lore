@@ -47,7 +47,7 @@ Common fails:
 
 Artifacts are named by their makers, their users, or legend. Ask:
 - **Is this a technical designation or a popular name?** Both can exist for the same object, and the gap between them is usually interesting.
-- **Does the name tell you too much?** An artifact named for exactly what it does is a spec sheet. One named for what it sounded like is a mystery.
+- **Does the name tell you too much?** An artifact named for exactly what it does is a spec sheet. A sound, shape, or remembered incident can supply a name only when the entry establishes that people use the term for the whole artifact; the detail is not a title by itself.
 - **Is it named after its effect, its maker, or something unrelated?** Mix these.
 
 Common fails:
@@ -63,21 +63,27 @@ See `naming-craft.md` for the method and the world's `guidance/naming-convention
 
 ## Encyclopedia Names
 
-An Encyclopedia title establishes reusable world vocabulary. State the ordinary
-category first, determine how the world has changed it, and derive the title
-from the people who recognize that difference. Give an unfamiliar title an
-ordinary gloss in its summary.
+An Encyclopedia title establishes reusable world vocabulary. Give the ordinary
+category in the summary, then use the title to introduce, deepen, or reuse a
+word that belongs to the setting. Read the world's `naming_lexicon` before
+proposing one. Its entries are established examples, not an allowlist. When a
+recurring Encyclopedia subject needs a word the current vocabulary cannot
+supply, add that word with its meaning, productive use, examples, and boundary
+in the same change.
 
-Do not fill a reference catalog with decorated generic nouns. If changing the
-title back to the ordinary category leaves the article unchanged, keep the
-ordinary title or redesign the subject.
+A modifier joined to a generic noun is a failed draft unless the modifier or
+the construction already carries a distinctive setting meaning. The fact that
+an in-world group uses a phrase explains its circulation, not its quality. A
+bare generic noun is not a repair; it removes the decorative modifier without
+adding lexical identity.
 
 ### Lifeforms
 
-Name a lifeform through the people who encounter, cultivate, hunt, study, or
-fear it. A trade name, local name, and scholarly name may coexist. Avoid a
-catalog dominated by one descriptive compound pattern, especially color plus
-familiar animal.
+Name a lifeform through the language of the people who encounter, cultivate,
+hunt, study, or fear it. A trade name, local name, and scholarly name may
+coexist. Prefer a distinctive word, a culture's established morphology, or a
+setting term tied to the creature's place in the world. A habitat word attached
+to an ordinary animal is only a description.
 
 ### Cultural subjects
 
@@ -112,5 +118,7 @@ into a title unless the people handling the thing actually do.
 ### Phenomena and place features
 
 Use the name given by people who repeatedly live with the condition or feature.
-The name may record a sign, old explanation, location, discoverer, or practical
-response. It need not summarize the true mechanism.
+The name may preserve an old explanation, location, discoverer, or practical
+response. A visible sign can supply the name only when canon independently
+establishes that repeated usage; do not lift a sign from the article into the
+title. The name need not summarize the true mechanism.

@@ -1,9 +1,10 @@
 encyclopedia :shuttered_habs do
-  title "Shuttered Habs"
+  title "The Shuttered"
   kind :phenomenon
   subkind :social_condition
   status :complete
-  summary "Shuttered habs are sealed ring habitats that refused reconnection during the Rekindling and remain isolated from the wider system."
+  log "2026-08-31 — Renamed Shuttered Habs to The Shuttered; the established collective form names the communities by their continuing relationship to contact rather than by a generic habitat label."
+  summary "The Shuttered are sealed ring habitats that refused reconnection during the Rekindling and remain isolated from the wider system."
   reviewed "2026-03-19"
   topics :"ring-hab", :governance, :"social-structure"
   prevalence :rare
@@ -11,14 +12,14 @@ encyclopedia :shuttered_habs do
 
   cue "A hab on the route holds power and atmosphere behind sealed access and leaves every hail unanswered."
   cue "External instruments confirm pressure, heat, and working systems; contact status depends on a reply from inside."
-  affordance "A verified route into a shuttered hab draws backers seeking contact, records, resources, or territory, each under the Accord's prohibition on forced entry."
+  affordance "A verified route into one of the Shuttered draws backers seeking contact, records, resources, or territory, each under the Accord's prohibition on forced entry."
   pressure "A breach is actionable against whoever sponsored it, regardless of what waits inside."
-  variation "Some shuttered habs have functioning societies that prefer isolation or depend on it."
+  variation "Some of the Shuttered have functioning societies that prefer isolation or depend on it."
   variation "Some garden habs rewilded and their inhabitants adapted by abandoning technology entirely."
 
   descriptive_identity(
     signs:
-      "From outside, a shuttered hab is a hull holding power, pressure, " \
+      "From outside, one of the Shuttered is a hull holding power, pressure, " \
       "and heat behind sealed access. Survey instruments establish which " \
       "systems remain active; only a reply from inside establishes contact.",
     effects:
@@ -37,7 +38,7 @@ encyclopedia :shuttered_habs do
   )
 
   prose <<~PROSE
-    Shuttered habs are ring habitats that remained sealed through the Rekindling and still refuse or fail to establish contact. External surveys can confirm pressure, heat, and working systems without identifying the society or ecology inside. Each hab therefore carries its own contact record: hails sent, replies received, doors opened by consent, and approaches that ended at the hull.
+    The Shuttered are ring habitats that remained sealed through the Rekindling and still refuse or fail to establish contact. External surveys can confirm pressure, heat, and working systems without identifying the society or ecology inside. Each hab therefore carries its own contact record: hails sent, replies received, doors opened by consent, and approaches that ended at the hull.
   PROSE
   prose <<~PROSE, section: :how_it_works, heading: "Why They Closed"
     Some communities developed institutions during the Signal Famine that depend on controlled isolation. Others received Rekindling envoys, assessed the reconnecting system, and closed their doors deliberately. In still others, generations of ecological or cognitive change removed the shared practices needed for ordinary contact.
@@ -51,7 +52,7 @@ encyclopedia :shuttered_habs do
   prose <<~PROSE, section: :governance, heading: "Sovereignty"
     Under the #{ref :tempered_accord, "Tempered Accord"}, habs can legally refuse contact. The hab-sovereignty provisions adopted after the #{ref :coriolis_breach, "Coriolis Breach"}, a forced-entry incident during the Contested Reach, make sponsors answerable for any unauthorized entry.
 
-    Enforcement remains contested. Many habs operate as independent polities with their own rules, including local resonance conditions that make outside standards difficult to apply. Connected habs can send delegates to the #{ref :ring_collective, "Ring Collective"}, which represents shared ring-hab interests without governing its members. Shuttered habs remain outside it. The Accord forbids forced entry even when a closed community does not recognize the institution issuing that protection.
+    Enforcement remains contested. Many habs operate as independent polities with their own rules, including local resonance conditions that make outside standards difficult to apply. Connected habs can send delegates to the #{ref :ring_collective, "Ring Collective"}, which represents shared ring-hab interests without governing its members. The Shuttered remain outside it. The Accord forbids forced entry even when a closed community does not recognize the institution issuing that protection.
   PROSE
   prose <<~PROSE, section: :perception, heading: "The System's Relationship"
     Open-system interest concentrates on four things: the closed hab's sovereignty, the safety of nearby routes, access to resources and territory behind the hull, and the knowledge carried by a society isolated since the Famine. These interests produce survey expeditions, contact offers, salvage claims, and periodic demands for reclamation.

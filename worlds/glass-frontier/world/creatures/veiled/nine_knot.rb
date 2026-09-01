@@ -1,6 +1,6 @@
 creature :nine_knot do
   name "Nine-Knot"
-  summary "Nine-Knot is a marked Ravel claspworm found in pressure lines at Ravel and Perch."
+  summary "Nine-Knot is a marked Ravel knot found in pressure lines at Ravel and Perch."
   subkind :creature
   status :complete
   prominence :marginal

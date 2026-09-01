@@ -878,15 +878,7 @@ module Lorecraft
           descriptive_identity: @world.resolve_identity(
             entry, at: @year, audience: audience
           ).descriptive_identity.transform_keys(&:to_s),
-          tiers: entry.ability_tiers.sort_by do |expression|
-            @world.schema.encyclopedia_tier_def(:ability, expression.tier)&.rank || expression.order
-          end.map do |expression|
-            {
-              tier: expression.tier.to_s,
-              effect: expression.effect,
-              cost: expression.cost,
-            }.compact
-          end,
+          tier: entry.ability_tier&.to_s,
           usage: encyclopedia_usage_document(entry, audience),
           sections: encyclopedia_section_documents(entry, audience),
           instances: @world.encyclopedia_instances(entry.id).filter_map do |entity|

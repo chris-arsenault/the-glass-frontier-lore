@@ -1,9 +1,10 @@
 encyclopedia :hinge_step do
-  name "Hinge Step"
-  summary "Hinge Step is a docking technique for crossing a moving joint during the brief beat when it carries no load. The stepper reads the joint's rhythm, waits for the slack beat, and crosses in it — the dock trades' basic footwork, drilled until the wait feels longer than it is."
+  name "Slack"
+  summary "Slack is a docking technique for crossing a moving joint during the brief beat when it carries no load. The stepper reads the joint's rhythm, waits for the slack beat, and crosses in it — the dock trades' basic footwork, drilled until the wait feels longer than it is."
   kind :ability
   subkind :technique
   status :complete
+  log "2026-08-31 — Renamed Hinge Step to Slack; dockers use the familiar word for the joint's unloaded crossing interval."
   topics :training, :transport, :danger
   prevalence :uncommon
   appears_when all: { place: [:dock] }
@@ -23,7 +24,7 @@ encyclopedia :hinge_step do
   )
 
   prose <<~PROSE
-    Working docks are floored with moving joints — the hinged plates and swing sections that let a berth flex with its traffic — and dock feet learn early that the floor has a rhythm. A loaded joint works in cycles, clamp and swing and settle, and every cycle carries one slack beat when the plates sit still and unloaded. Hinge step is the technique of crossing in it: read the joint's current rhythm from the lip, commit the weight forward, and take the crossing in one flowing stride inside the beat. Drilled steppers cross working joints all shift with the unconsidered fluency of stairs; the undrilled wait for gaps in the traffic that the joints, which answer to cargo rather than courtesy, rarely offer.
+    Working docks are floored with moving joints — the hinged plates and swing sections that let a berth flex with its traffic — and dock feet learn early that the floor has a rhythm. A loaded joint works in cycles, clamp and swing and settle, and every cycle carries one slack beat when the plates sit still and unloaded. Slack is the technique of crossing in it: read the joint's current rhythm from the lip, commit the weight forward, and take the crossing in one flowing stride inside the beat. Drilled steppers cross working joints all shift with the unconsidered fluency of stairs; the undrilled wait for gaps in the traffic that the joints, which answer to cargo rather than courtesy, rarely offer.
 
     The training is rhythm first, footwork second. Apprentices learn joints from the lip — clapping the cycle before they cross it, calling the beat aloud until the call comes true — and drill the abort stance as hard as the step itself, because the beat is a property of the joint's present cargo and the cargo changes on its own schedule alone. Dock custom reinforces the craft at the culture level: joints are crossed single file by standing rule, a stepper at the lip is given the lip, and the courtesy of calling the beat for a burdened crosser — hands full, child on hip — is the dock's ordinary kindness, offered and taken without ceremony a hundred times a shift.
   PROSE

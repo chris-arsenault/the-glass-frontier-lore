@@ -365,6 +365,11 @@ when "guide"
   rescue Lorecraft::Error => e
     abort e.message
   end
+when "lexicon"
+  emit(
+    Lorecraft::NamingLexiconQuery.new(load_world, root: Lorecraft::Worlds.repo_root),
+    format
+  )
 when "review"
   abort <<~MSG
     `review` is gone. Review state lives on the content:

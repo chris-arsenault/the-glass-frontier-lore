@@ -1,9 +1,10 @@
 encyclopedia :pre_glassfall_transmissions do
-  title "Pre-Glassfall Transmissions"
+  title "Old Traffic"
   kind :resource
   subkind :data
   status :complete
-  summary "Pre-Glassfall Transmissions are fragments of signal traffic accidentally preserved in ringglass and crystal-bearing water since the intact ring age."
+  log "2026-08-31 — Renamed Pre-Glassfall Transmissions to Old Traffic; the archival trade's compact phrase names the ordinary signal flow the surviving fragments preserve."
+  summary "Old Traffic is signal traffic accidentally preserved in ringglass and crystal-bearing water since the intact ring age."
   topics :archives, :resonance, :"signal-freq", :"ring-era", :mystery
   prevalence :uncommon
   available_globally
@@ -40,7 +41,7 @@ encyclopedia :pre_glassfall_transmissions do
   )
 
   prose <<~PROSE
-    Fragments of signal traffic preserved from the intact ring. Most are incomplete: a cargo number without its destination, one side of a family call, a calibration sequence repeated after the machine it served has vanished. A few retain enough context to identify a speaker, place, or event.
+    Old Traffic survives in fragments from the intact ring. Most are incomplete: a cargo number without its destination, one side of a family call, a calibration sequence repeated after the machine it served has vanished. A few retain enough context to identify a speaker, place, or event.
 
     The transmissions survive because ringglass and crystal-bearing water can hold signal-band impressions without having been built as archives. Their preservation was accidental. Their recovery has become a profession.
   PROSE

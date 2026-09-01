@@ -1,33 +1,41 @@
 ability :thief_of_hours do
   name "The Thief of Hours"
-  summary "The Thief of Hours is an Adversary mantle that steals duration from an army, city, or catastrophe and forces its bearer to live the interval."
+  summary "The Thief of Hours is an Adversary mantle that extends Hourtaking across battles, cities, and catastrophes while its bearer lives every interval removed."
   type_of :timeworking
   subkind :the_adversary
   status :complete
   tags :resonance, :religion, :danger, :cosmology
   prominence :recognized
-  qualification "Answers someone who knowingly gives up part of their remaining life so another person can finish an urgent act"
+  qualification "Answers someone who voluntarily received duration from another process so another person could finish an urgent act"
   succession "Passes to a person who voluntarily lives one stolen interval beside the bearer and accepts an equal share of its age"
-  cost "Every stolen interval passes through the bearer as lived age, including hunger, fatigue, healing, and bodily decline"
+  cost "Every removed interval passes through the bearer as lived duration, advancing hunger, fatigue, healing, injury, and age even when memory retains only fragments"
 
   descriptive_identity(
-    signs: "The world hangs between positions while the bearer moves, then the bearer emerges older and the suspended event resumes without the missing interval.",
-    effect: "The bearer can use #{encyclopedia_ref :timeworking, "Timeworking"} to steal hours from cities, armies, disasters, and other large physical courses.",
-    limits: "The mantle reallocates present duration, cannot enter or rewrite a completed past, and cannot remove the age it places in the bearer."
+    signs: "Clocks disagree, moving subjects hang between positions, and the bearer emerges from the transferred interval older, hungry, injured, or carrying dust from work completed inside it.",
+    effect: "The mantle extends #{encyclopedia_ref :timeworking, "hourtaking"} from one short transfer to many processes across an army, city, or catastrophe.",
+    limits: "Duration must come from a present physical process and passes through a living bearer. Completed events remain fixed, and transferred age can move again only into another living subject."
   )
 
+  question "Who is the present or most recently attested Thief of Hours, and which stolen interval did they share to receive the mantle?", raised: "2026-08-31"
+
   prose <<~PROSE
-    The Thief of Hours can hold a battle between one impact and the next, stop a city beneath an advancing blast, or take the night from a pursuer while the pursued continue moving. Chosen companions may enter the stolen interval. Everything else remains exactly where motion left it until the time is released.
+    The Thief of Hours moves duration among many present processes at once. The bearer can suspend a battle between impacts, hold a city beneath an advancing blast, or let chosen companions enter hours taken from everything around them. Every moving body, spreading fire, failing structure, and working machine included in the hold contributes duration to the bearer.
 
-    Tessellan commentators identify the mantle with a path that returns without completing its course. The suspended event reaches its next moment only after its duration has been lived elsewhere. The effect looks merciful when used for rescue and remains theft: the missing hours enter one body and never return to the world that lost them.
+    Transferred time remains physical. Hunger, medicine, corrosion, healing, thought, motion, and age proceed wherever the duration goes. A suspended casualty does not bleed and cannot receive a drug into the still tissue. A repeated lift repeats its muscle damage. A mechanism given an hour to cool also ages through that hour. The mantle changes rate and order; it leaves the completed past intact.
   PROSE
-  prose <<~PROSE, section: :limits, heading: "The Life Inside the Pause"
-    The bearer lives the full interval. A stolen hour brings an hour of breath, hunger, thought, and age even if memory later compresses it into a few images. Holding a catastrophe for days can consume years because every separate process contributes duration to the stillness imposed upon it.
+  prose <<~PROSE, section: :operations, heading: "Counting the Interval"
+    Before a large working, companions set clocks inside and outside the intended transfer, lay in water and food for the bearer, and mark untreated wounds. The clocks establish what moved; the body establishes what it cost. Memory may compress a long interval into a handful of images even though thirst, healing, and age record every hour.
 
-    Succession requires shared time. A willing companion enters an interval with the bearer and accepts half its age without knowing how long the pause must last. If both emerge alive, the mantle passes. Nothing restores the years to either of them.
+    The final duration cannot be known from ordinary time alone. Holding one projectile for a minute yields a minute. Holding a burning district still requires duration from spreading flame, failing structures, moving air, bodies, and machinery, all of which continue through the bearer. Crews release the smallest useful set of processes first and recount before extending the pause.
+  PROSE
+  prose <<~PROSE, section: :legacy, heading: "Shared Time"
+    Tessellan shadow lists name the bearer *Thief of Hours* because every interval removed from the world must be lived elsewhere. Their diagrams show a path returning to its next moment only after the bearer completes the missing course. The title remains exact even when the hours buy a rescue.
+
+    A claimant qualifies by voluntarily receiving duration from another process so someone else can complete an urgent act. Succession requires the claimant to enter one stolen interval beside the bearer and accept an equal share of its age without knowing how long the work will take. If both emerge alive, the mantle passes; the years remain in both bodies.
   PROSE
 
-  gm_note :appears, "The Thief of Hours gives the group all the time needed to stop a catastrophe, while the bearer visibly ages through the work and cannot know in advance how many years it will take."
+  gm_note :triggered_by, "Any present process can lend duration to another: a projectile can lose its next second to a rescue, a wound can wait while treatment advances, or a pursuer's moments can be spent on escape."
+  gm_note :complicates, "The bearer lives the duration of every suspended process, so holding a room or disaster costs far more age than its clock time; companions can reduce the cost by releasing processes from the pause one at a time."
 end
 
 relate :rel_thief_of_hours_resonates_false_form, :resonates_with, :thief_of_hours, :the_false_form

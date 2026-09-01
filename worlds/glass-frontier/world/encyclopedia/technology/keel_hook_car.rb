@@ -1,16 +1,17 @@
 encyclopedia :keel_hook_car do
-  name "Keel Hook-Car"
+  name "Hook"
   kind :technology
   subkind :transport
   status :complete
+  log "2026-08-31 — Renamed Keel Hook-Car to Hook. Keel crews already use hook for the cars, freight, traffic, and crews, and the Third Latch Hook continues the class word in a named vehicle."
   topics :transport, :"ring-era", :trade, :orbital
   prevalence :uncommon
   appears_when any: { place: [:road, :dock] }
-  summary "A keel hook-car is a freight car that rides the Keel's own structure — hooked onto the elven trunk rails by articulated arms and drawn along by the route's standing drift. Hook crews ride the system's spine on hardware the spine was built to carry."
+  summary "A hook is a freight car that rides the Keel's own structure — fixed to the elven trunk rails by articulated arms and drawn along by the route's standing drift. Hook crews ride the system's spine on hardware the spine was built to carry."
   function "Carries freight along the Keel's trunk structure on articulated hook arms, drawn by the route's standing drift"
   classes "Single-hook couriers, the four-arm freight standard, and married pairs that swing heavy loads between them"
   capacity "A four-arm standard carries two pallet masses and a riding crew of three; married pairs rate by the swing"
-  operating_limit "A hook-car goes where the trunk rails go and holds at every junction for the signal; its pace is the drift's pace, and the drift answers to the Keel"
+  operating_limit "A hook goes where the trunk rails go and holds at every junction for the signal; its pace is the drift's pace, and the drift answers to the Keel"
 
   descriptive_identity(
     appearance: "A slab-sided freight car slung under articulated hook arms, each arm ending in " \
@@ -28,7 +29,7 @@ encyclopedia :keel_hook_car do
   )
 
   prose <<~PROSE
-    The #{ref :keel, "Keel"} is the system's trunk route, and its elven structure carries more than berths and moorings: the trunk rails — rolled-lip guideways running the route's length — were built for traffic, and the hook-car is the traffic that still rides them. A hook-car is a slab-sided freight carrier slung under articulated arms, each ending in a polished hook-head shaped to the rail's lip. The arms walk: hook, release, re-hook in overlapping sequence, the car always held twice, and where the route carries standing drift the crew hooks in and lets the Keel itself draw the load along while they ride and mind the junctions.
+    The #{ref :keel, "Keel"} is the system's trunk route, and its elven structure carries more than berths and moorings: the trunk rails — rolled-lip guideways running the route's length — were built for traffic, and hooks are the traffic that still rides them. A hook is a slab-sided freight carrier slung under articulated arms, each ending in a polished hook-head shaped to the rail's lip. The arms walk: hook, release, re-hook in overlapping sequence, the car always held twice, and where the route carries standing drift the crew hooks in and lets the Keel itself draw the load along while they ride and mind the junctions.
 
     Hook freight is the steady stratum of Keel trade — slower than a kite, cheaper than anything else per pallet, and running in weather and band conditions that ground the fast traffic. The cars queue at junction holds by signal, walk the dead sections arm over arm, and make the drift sections in long silent glides that crews describe with the affection reserved elsewhere for a following current. Route colors mark each car's circuit, married pairs swing the heavy loads between them on shared arms, and the great terminal at #{ref :keelward, "Keelward"} sorts arriving hook traffic into the surface yards on a board the freight clerks read like tide tables.
   PROSE

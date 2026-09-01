@@ -1,9 +1,10 @@
 encyclopedia :breach_lichen do
-  name "Breach Lichen"
-  summary "Breach Lichen is a stone-growing organism that colonizes the scars of resonance strikes and darkens ahead of the next discharge. Surface crews read its color as a strike forecast and harvest its cured mats for insulating felt."
+  name "Resonance Lichen"
+  summary "Resonance lichen is a stone-growing organism that colonizes the scars of resonance strikes and darkens ahead of the next discharge. Surface crews read its color as a strike forecast and harvest its cured mats for insulating felt."
   kind :lifeform
   subkind :lichen
   status :complete
+  log "2026-08-31 — Renamed Breach Lichen to Resonance Lichen; the established resonance root governs both the strike-scar habitat and the organism's warning cycle."
   topics :ecology, :resonance, :surface
   prevalence :uncommon
   appears_when all: { place: [:surface, :ringglass_rich] }
@@ -25,7 +26,7 @@ encyclopedia :breach_lichen do
   )
 
   prose <<~PROSE
-    Where a resonance strike scars open stone, breach lichen follows. The first rosettes appear within a season, gray-green crusts spreading outward from the scar in dated rings, and a slope's lichen map is a strike history any herder can read at a walk. The organism feeds on the mineral changes the strike leaves behind, and it prospers on exactly the ground other growth avoids — the glass-veined shelves of Avar and the Kyther valleys carry mats the size of threshing floors.
+    Where a resonance strike scars open stone, resonance lichen follows. The first rosettes appear within a season, gray-green crusts spreading outward from the scar in dated rings, and a slope's lichen map is a strike history any herder can read at a walk. The organism feeds on the mineral changes the strike leaves behind, and it prospers on exactly the ground other growth avoids — the glass-veined shelves of Avar and the Kyther valleys carry mats the size of threshing floors.
 
     Its second habit is the useful one. As the local field rebuilds toward the stone's next discharge, the mat loads, and a loading mat darkens from the center out: gray, slate, then a wet-looking black. The change runs days ahead of the discharge, and surface crews treat the sequence as posted signage. Route stones in strike country are set beside established mats on purpose, so the warning and the waypoint share a glance. Survey instruments read the same rebuilding field the lichen does; the lichen's advantage is that it is already everywhere, costs a look, and grades itself by color.
   PROSE

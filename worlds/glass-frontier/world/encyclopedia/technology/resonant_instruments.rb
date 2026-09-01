@@ -1,16 +1,17 @@
 encyclopedia :resonant_instruments do
-  title "Resonant Instruments"
+  title "Tonework"
   kind :technology
   subkind :instrument
   status :complete
-  summary "Resonant instruments are devices that shape ambient resonance through breath, pressure, and other physical vibration instead of fixed ringglass arrays. Skilled players use specialized instruments for kinetic, signal, and structural work."
+  log "2026-08-31 — Renamed Resonant Instruments to Tonework; the working term names the craft by its audible mechanism instead of a broad technical category."
+  summary "Tonework devices shape ambient resonance through breath, pressure, and other physical vibration instead of fixed ringglass arrays. Skilled players use specialized instruments for kinetic, signal, and structural work."
   function "Produce adjustable resonance effects through physical vibration"
   reviewed "2026-03-19"
   topics :resonance, :music
   prevalence :rare
   available_globally
 
-  cue "Resonant instruments are built from specific alloys, tensioned membranes, and tuned cavities selected for their natural harmonic properties."
+  cue "Tonework devices are built from specific alloys, tensioned membranes, and tuned cavities selected for their natural harmonic properties."
   cue "The instrument produces audible sound while it works, and the noise cannot be turned off because the vibration is the effect."
   affordance "An instrument can produce an odd frequency or change bands during use when no fixed array on hand is cut for the effect."
   pressure "The player must hold an arbitrary frequency steady while changing its bandwidth and output in real time; every useful effect lasts only as long as that physical control."
@@ -42,7 +43,7 @@ encyclopedia :resonant_instruments do
   )
 
   prose <<~PROSE
-    Resonant instruments use specific alloys, tensioned membranes, and tuned cavities to shape ambient resonance through physical vibration. Their audible tone is the same vibration working on the field. Makers build horns for kinetic force, harps for signal work, drums for structural reinforcement, and other forms around the band each material can hold.
+    Tonework uses specific alloys, tensioned membranes, and tuned cavities to shape ambient resonance through physical vibration. The audible tone is the same vibration working on the field. Makers build horns for kinetic force, harps for signal work, drums for structural reinforcement, and other forms around the band each material can hold.
   PROSE
   prose <<~PROSE, section: :how_it_works, heading: "How They Work"
     A conventional #{encyclopedia_ref :kite_sail, "KITE"} engine or refinery array holds a frequency through tuned #{encyclopedia_ref :ringglass, "ringglass"}. A resonant player maintains and changes the frequency directly. Breath, pressure, finger position, and bow angle become adjustments to band, bandwidth, and output in real time.

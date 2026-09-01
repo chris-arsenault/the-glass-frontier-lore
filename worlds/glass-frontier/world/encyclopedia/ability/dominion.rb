@@ -1,47 +1,32 @@
 encyclopedia :dominion do
-  name "Dominion"
-  summary "Dominion imposes a comprehensible command on minds, machines, or constructed servants and holds them to its exact terms."
+  name "Outside Will"
+  summary "Outside Will imposes a comprehensible command on minds, machines, or constructed servants and holds them to its exact terms."
   kind :ability
   subkind :resonant_effect
   status :complete
+  log "2026-08-31 — Renamed Dominion to Outside Will; the Three Forms term names the power as Will imposed from beyond a subject's own Form rather than by its audible symptom."
+  log "2026-08-31 — Kept one broad-tier spell for one immediate command. The former focused and narrow rows added subjects, duration, and standing authority without changing the operation; collective command remains the Red Sovereign mantle's work."
   topics :resonance, :governance, :military, :danger
   prevalence :rare
   available_globally
 
-  tier :broad,
-       effect: "Compel one immediate, physically possible action from a person, creature, or machine that understands the command",
-       cost: "The user loses access to one recent personal memory until the command ends"
-  tier :focused,
-       effect: "Bind a small group or connected machine system to a short sequence of commands",
-       cost: "The user permanently loses a minor autobiographical memory for each resisted order"
-  tier :narrow,
-       effect: "Rule a company, vessel, institution, or engineered host through standing commands",
-       cost: "The user loses the memories that explain one important loyalty or relationship"
-  tier :apex,
-       effect: "Place an army, city, or machine intelligence under absolute command until the bearer releases it",
-       cost: "Each absolute command destroys an autobiographical memory equal in importance to what the subjects were made to betray"
+  tier :broad
+  effect "Compel one person, creature, or machine that receives and understands the words to perform one immediate, physically possible action"
+  limits "The spell supplies neither knowledge nor skill, cannot establish a standing order, and follows the subject's literal understanding rather than the practitioner's unspoken intent"
+  consequence "One recent autobiographical memory becomes inaccessible until the action ends; if the subject resists the command, that memory does not return"
 
   descriptive_identity(
-    signs: "Speech acquires a second tone, machine lights align to the speaker's pulse, and commanded subjects repeat the operative words before acting.",
-    effect: "Dominion makes an understood command authoritative over a subject's competing intentions or instructions.",
-    limits: "It cannot compel an action the subject cannot understand or perform, cannot supply missing knowledge, and follows literal wording rather than the user's unspoken intent."
+    signs: "Speech acquires a second tone, machine lights align to the speaker's pulse, and the commanded subject repeats the operative words before acting."
   )
 
-  cue "The command is heard twice: once in the speaker's voice and once from inside the listener or machine."
-  cue "A resisting subject repeats the decisive words through clenched teeth or a stuttering output channel."
-  affordance "Dominion can halt a charge, turn a defense grid, force a captive to release someone, or make a hostile vessel carry its boarders to safety."
-  pressure "Literal commands produce literal obedience, while resistance strips the user of the memories that once gave their own choices meaning."
-  variation "Living subjects experience the command as their own decision arriving with impossible certainty."
-  variation "Machines preserve the imposed command as an unauthorized root instruction that survives ordinary resets."
-
   prose <<~PROSE
-    Dominion makes a command stronger than the instructions already inside its subject. The command must be heard or received, understood, and physically possible. It can seize a person in mid-strike, turn a weapon system against its controller, or force a constructed servant to open the place it was made to guard.
+    Three Forms teaching calls the spell *Outside Will*: Will imposed from beyond a subject's own Form. One person, creature, or machine receives one command to perform one immediate act. The command must be heard or otherwise received, understood, and physically possible. It can stop a hand in mid-strike, turn one mounted weapon, or make a constructed servant open the place it guards.
 
-    The ability provides obedience rather than competence. A subject ordered to fly a vessel cannot do so without the relevant skill. A machine ordered to identify a liar cannot answer unless it has a way to make that judgment. Complex commands are possible, but each undefined term belongs to the subject's understanding rather than the speaker's intention.
+    Outside Will provides obedience rather than competence. A subject ordered to fly a vessel cannot do so without the relevant skill. A machine ordered to identify a liar cannot answer unless it has a way to make that judgment. The spell cannot wait as policy or standing instruction: when the immediate act ends, so does the command.
   PROSE
   prose <<~PROSE, section: :limits, heading: "The Price of Authority"
-    Resistance costs the user memory. Small commands usually take recent and minor details: the last meal, a route walked that morning, the reason a tool was in hand. Continued resistance reaches deeper. Standing control can remove the face attached to a name or the event that made a loyalty matter while leaving the bare fact of the relationship behind.
+    Casting Outside Will closes one recent autobiographical memory to the practitioner: the last meal, a route walked that morning, the reason a tool was in hand. The memory returns when the compelled act ends unless the subject resisted. Resistance makes the absence permanent even when the command succeeds.
 
-    #{ref :red_sovereign, "The Red Sovereign"} is the apex of Dominion. Its bearer can command an army, a city, or a machine mind absolutely. The price follows betrayal: an order that makes subjects abandon something central to themselves destroys a memory equally central to the bearer. A sovereign can retain perfect control after forgetting every reason they once wanted it.
+    #{ref :red_sovereign, "The Red Sovereign"} extends Outside Will into standing and collective command, with a cost that follows the betrayals it compels.
   PROSE
 end

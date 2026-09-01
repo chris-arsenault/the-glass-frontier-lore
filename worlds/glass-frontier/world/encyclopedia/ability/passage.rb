@@ -1,47 +1,34 @@
 encyclopedia :passage do
-  name "Passage"
-  summary "Passage carries travelers across impossible distance by making a known destination directly reachable for a limited time."
+  name "Waybearing"
+  summary "Waybearing carries travelers across impossible distance by making a known destination directly reachable for a limited time."
   kind :ability
   subkind :resonant_effect
   status :complete
+  log "2026-08-31 — Renamed Known Road to Waybearing; the practice now shares a lexical family with the Waybearer mantle that extends it to fleets and populations."
+  log "2026-08-31 — Kept Waybearing as the focused two-way threshold. The former broad self-crossing became Step because moving one practitioner without opening a route has a different target, use, and consequence; the narrow row only enlarged Waybearing's traffic."
   topics :resonance, :navigation, :transport, :"signal-freq"
   prevalence :rare
   available_globally
 
-  tier :broad,
-       effect: "Cross one obstructed span to a destination the traveler can presently sense",
-       cost: "Disorientation and loss of balance proportional to the distance bypassed"
-  tier :focused,
-       effect: "Carry a small group to a place one traveler knows through direct memory or a live signal",
-       cost: "The opening remains available to anything close enough to follow before it seals"
-  tier :narrow,
-       effect: "Move a vessel or company between known destinations without crossing the intervening route",
-       cost: "The point of departure becomes unreachable to the user until they complete an ordinary journey of equal difficulty"
-  tier :apex,
-       effect: "Open a traversable way between any two genuinely known places in the system and sustain it for an army or fleet",
-       cost: "The way remains open behind the last intended traveler, and the bearer cannot close it while any pursuer is upon it"
+  tier :focused
+  effect "Open one traversable threshold between the practitioner's position and a genuinely known destination long enough for a small group to cross"
+  limits "The destination requires lived memory, a trustworthy live signal, or a traveler who belongs there; the opening carries bodies, air, matter, and momentum in both directions and cannot move after it forms"
+  consequence "The practitioner cannot close the threshold while anyone is crossing it, so weather, weapons, debris, creatures, and pursuers may follow the intended travelers"
 
   descriptive_identity(
-    signs: "The destination becomes visible through an ordinary opening or across a single step, while sound and air move between both places.",
-    effect: "Passage makes two known locations directly adjacent long enough for bodies, vehicles, signals, and pursuing hazards to cross.",
-    limits: "A destination must be known through lived memory, a trustworthy live signal, or a traveler who belongs there. A name, map, or guess is insufficient."
+    signs: "The destination becomes visible through an ordinary opening, while its sound and air enter the practitioner's present room before anyone crosses."
   )
 
-  cue "A doorway, hatch, or empty step shows weather and light from the destination before anyone crosses."
-  cue "Air, sound, loose dust, and hostile fire can pass in either direction while the way remains open."
-  affordance "Passage can extract people from a sealed ruin, board a moving vessel, outflank a fortress, or bring distant allies directly into a battle."
-  pressure "The route grants no preference to friends, and an error in what the traveler truly knows can open onto the last place that satisfies the memory."
-  variation "Some passages occupy an existing door or hatch and fail when its frame is broken."
-  variation "Others appear as a single impossible stride whose far end moves with a living guide or active signal."
-
   prose <<~PROSE
-    Passage makes a destination adjacent. The space between remains where it was; travelers simply stop crossing it. A hatch can open from a ring fragment onto a surface courtyard. One step can carry a boarding party from a kite deck into a vessel moving beyond weapon range. Air, light, sound, loose matter, and danger travel through the opening as readily as people do.
+    Waybearing makes one destination adjacent through an existing doorway, hatch, or similarly bounded opening. The space between remains where it was; a small group simply stops crossing it. A hatch can open from a ring fragment onto a surface courtyard, or a compartment door onto the deck sending a live signal. Air, light, sound, loose matter, and danger travel through the threshold as readily as people do.
 
-    The destination must be genuinely known. Lived memory is the surest anchor. A live signal can serve when it carries enough of a place to distinguish it from every similar room, and a traveler can anchor a place through the habits and relationships that make it home. A copied name or accurate plan is not knowledge of this kind. Passage follows what the traveler has actually encountered.
+    The destination must be genuinely known. Lived memory is the surest anchor. A live signal can serve when it carries enough of a place to distinguish it from every similar room, and a traveler can anchor a place through the habits and relationships that make it home. A copied name or accurate plan supplies no anchor. If the knowledge is incomplete, the threshold opens onto the last real place that satisfies it.
   PROSE
   prose <<~PROSE, section: :dangers, heading: "What Follows"
-    An open way has two sides and no allegiance. Pressure crosses. Fire crosses. A hostile creature can charge through before the last intended traveler clears it. At greater reach, the way also acquires momentum from both ends; a vessel that opens passage into a storm receives the storm immediately.
+    An open way has two sides and no allegiance. Pressure crosses. Fire crosses. A hostile creature can charge through before the last intended traveler clears it. The practitioner cannot close the threshold around an occupant; it remains until everyone in passage reaches one side or turns back.
 
-    The greatest expression belongs to #{ref :waybearer, "the Waybearer"}. Its bearer can sustain a road for armies and fleets across the Kaleidos system. The mantle cannot close that road while a pursuer is still upon it, turning every rescue into a decision about what may be invited through after the rescued are safe.
+    #{ref :waybearer, "The Waybearer"} can sustain a road large enough for armies, fleets, or populations anywhere in Kaleidos, far beyond the spell's one fixed threshold.
+
+    #{encyclopedia_ref :step, "Step"} carries only its practitioner across one local obstruction and leaves no opening behind. It needs a destination in direct sight rather than memory, signal, or belonging.
   PROSE
 end

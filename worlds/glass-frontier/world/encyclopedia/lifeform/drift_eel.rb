@@ -1,9 +1,10 @@
 encyclopedia :drift_eel do
-  name "Drift-eel"
-  summary "Drift-eels are long Shear predators drawn to electrical discharge and active resonance arrays. Smaller adults can wrap around a flitter, anchor several mouths to its hull, and feed on current, heat, and field response."
+  name "Sheareel"
+  summary "Sheareels are long Shear predators drawn to electrical discharge and active resonance arrays. Smaller adults can wrap around a flitter, anchor several mouths to its hull, and feed on current, heat, and field response."
   kind :lifeform
   subkind :anomaly
   status :complete
+  log "2026-08-31 — Renamed Drift-eel to Sheareel; the title ties the animal to the Shear it inhabits."
   topics :danger, :orbital, :resonance, :ecology, :salvage
   prevalence :common
   appears_when all: { place: [:debris_field] }
@@ -26,7 +27,7 @@ encyclopedia :drift_eel do
   )
 
   prose <<~PROSE
-    Drift-eels are long Shear predators that follow electrical discharge and active resonance arrays. Small adults can wrap around a flitter. The oldest recorded bodies extend for several kilometres, though most of that length is thin feeding filament rather than muscle. Working crews encounter the smaller animals often enough to treat them as a route hazard rather than a rare beast.
+    Sheareels are long Shear predators that follow electrical discharge and active resonance arrays. Small adults can wrap around a flitter. The oldest recorded bodies extend for several kilometres, though most of that length is thin feeding filament rather than muscle. Working crews encounter the smaller animals often enough to treat them as a route hazard rather than a rare beast.
 
     An eel approaches along the weakest gradient its prey produces. A badly shielded cable, a cycling receiver, and a Tuner sounding repeatedly on one band can each draw it. When it reaches a vessel, it anchors several mouths to the hull and begins taking current, heat, and field response through different parts of its body.
   PROSE
@@ -40,7 +41,7 @@ encyclopedia :drift_eel do
   PROSE
 
   prose <<~PROSE, section: :operations, heading: "Detection and Diversion"
-    A tuning compass often notices a drift-eel before visual instruments do. The reeds begin leaning toward a point that moves against the surrounding debris. Hull current drops in small separate steps as the animal's filaments enter the field. An experienced pilot shuts down nonessential emitters and lets the vessel's strongest signature move to a disposable lure.
+    A tuning compass often notices a sheareel before visual instruments do. The reeds begin leaning toward a point that moves against the surrounding debris. Hull current drops in small separate steps as the animal's filaments enter the field. An experienced pilot shuts down nonessential emitters and lets the vessel's strongest signature move to a disposable lure.
 
     Lures are simple frames carrying a warm battery, a low-output ringglass cut, and enough wire to imitate a poorly maintained craft. They are launched across the eel's approach and driven away from the route. The animal usually follows the easier gradient. A lure that is too strong can draw another eel from farther out or keep the first feeding until the frame returns as hazardous salvage.
 
@@ -56,12 +57,12 @@ encyclopedia :drift_eel do
   PROSE
 
   prose <<~PROSE, section: :geography, heading: "Following the Working Shear"
-    Drift-eels gather where active machinery makes dependable gradients: managed corridors, extraction yards, old habs whose systems still pulse, and the approaches to busy Ratter ports. They also follow glassfall streams through the debris, feeding on charge released by impacts and leaving when the field settles.
+    Sheareels gather where active machinery makes dependable gradients: managed corridors, extraction yards, old habs whose systems still pulse, and the approaches to busy Ratter ports. They also follow glassfall streams through the debris, feeding on charge released by impacts and leaving when the field settles.
 
-    Young eels have been found inside cutter wakes, short enough to coil beneath a receiving grate. Whether they crossed as whole animals or grew from severed filaments remains unresolved. Ratter records contain both observations and no controlled specimen has survived long enough in a quiet field to distinguish them.
+    Young sheareels have been found inside cutter wakes, short enough to coil beneath a receiving grate. Whether they crossed as whole animals or grew from severed filaments remains unresolved. Ratter records contain both observations and no controlled specimen has survived long enough in a quiet field to distinguish them.
   PROSE
 
-  cue "A tuning compass usually registers an eel before anything visual does, its reeds leaning toward a point that moves against the surrounding debris while hull current drops in small separate steps. It is following the weakest gradient the vessel makes, often a badly shielded cable rather than the drive."
+  cue "A tuning compass usually registers a sheareel before anything visual does, its reeds leaning toward a point that moves against the surrounding debris while hull current drops in small separate steps. It is following the weakest gradient the vessel makes, often a badly shielded cable rather than the drive."
   cue "The central body is a chain of dark flexible plates joined by pale tissue."
   affordance "The instinct once mouths fix to the hull is to shut everything down. Abrupt silence sends the animal searching across the surface instead, so the sources come down one at a time while a lure is raised, walking the mouths off habitation, pressure seals, and control lines."
   pressure "Answering an attached eel with more drive power pulls it harder against the hull, because the body tightens around the field it is feeding on. A severed plate keeps gripping for hours afterward and leaks a conductive fluid carrying the ship's own signal."

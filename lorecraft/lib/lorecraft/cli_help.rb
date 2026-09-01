@@ -86,6 +86,18 @@ module Lorecraft
           Content is read from Markdown, not copied here.
         TEXT
       },
+      "lexicon" => {
+        summary: "Read the selected world's naming vocabulary and patterns.",
+        usage: "lexicon [--format text|json] [--world ID]",
+        body: <<~TEXT,
+          Read the world-owned words, naming patterns, extension rules, and
+          explicit warnings that make names belong to this setting. The result
+          always identifies itself as an open vocabulary rather than an allowlist.
+          Use it before proposing or reviewing a name. The declaration is
+          editorial guidance in the world DSL, not a reader-facing Encyclopedia
+          article or an automated name generator.
+        TEXT
+      },
       "page" => {
         summary: "Render one entry as reviewable Markdown on stdout.",
         usage: "page ID [--audience all|player] [--world ID]",
@@ -528,9 +540,12 @@ module Lorecraft
         with context_tag. Use encyclopedia_reference(:id) when a selector depends
         on another Encyclopedia identity rather than a tag.
 
-        A complete entry needs two cues, one affordance, one pressure, two
-        variations, prose, and availability. The Encyclopedia has no relationship
-        graph. An Atlas entity may declare one primary type_of target. Use
+        A complete non-spell entry needs two cues, one affordance, two
+        variations, prose, and availability. A complete spell instead needs
+        exactly one world-defined tier plus an effect, limits, and consequence;
+        cues, affordances, and variations are optional when they add information.
+        A pressure is optional for every entry. The Encyclopedia has no
+        relationship graph. An Atlas entity may declare one primary type_of target. Use
         belongs_to :culture, :sitharian for other kind-qualified memberships;
         culture :sitharian is equivalent shorthand. These classifications never
         enter the Atlas graph or populate descriptive identity. type_of is an

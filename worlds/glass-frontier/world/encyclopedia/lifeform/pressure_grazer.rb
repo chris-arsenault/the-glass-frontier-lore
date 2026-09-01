@@ -1,12 +1,13 @@
 encyclopedia :pressure_grazer do
-  name "Pressure Grazer"
+  name "Sealers"
   kind :lifeform
   subkind :animal
   status :complete
+  log "2026-08-31 — Renamed Reef Grazer to Sealers; the working name distinguishes the animals by the leak-sealing service that separates them from sorel and other reef browsers."
   topics :"ring-hab", :"ring-era", :ecology
   prevalence :uncommon
   appears_when all: { place: [:sealed_hab] }
-  summary "Pressure grazers are placid, slab-bodied animals that browse the living pressure reefs of the ring habitats, cropping overgrowth and sealing small leaks with their mineral-rich spit. The ring bred them as reef stewards, and Rib's herds still work the oldest reef alive."
+  summary "Sealers are placid, slab-bodied animals that browse the living pressure reefs of the ring habitats, cropping overgrowth and sealing small leaks with their mineral-rich spit. The ring bred them as reef stewards, and Rib's herds still work the oldest reef alive."
   origin "Ring-era cultivated reef stock; the registers list grazer herds with the reef schedules"
   biology "A slow browser of reef growth whose gut concentrates minerals into a sealing spit; it patrols pressure gradients by feel and feeds where the reef runs rich"
   function "Crops reef overgrowth and seals pinhole leaks; a herd's grazing pattern maps the reef's health"
@@ -30,9 +31,9 @@ encyclopedia :pressure_grazer do
   )
 
   prose <<~PROSE
-    The living pressure reefs — the engineered growths that hold air in the oldest ring habitats — came with their own livestock. Pressure grazers are slab-bodied, toeless browsers that move over reef surfaces on gripping belly plates, cropping the overgrowth that would otherwise choke a reef's breathing channels and pausing wherever pressure whispers through a flaw. The pause is the service: the grazer chews, presses its wide lips to the spot, and seals the leak with a mineral spit that cures reef-hard in an hour. The ring's registers list grazer herds beside the reef maintenance schedules, and #{ref :rib, "Rib"} — built inside the oldest working reef alive — still runs its herds on rounds the registers would recognize.
+    The living pressure reefs — the engineered growths that hold air in the oldest ring habitats — came with their own livestock. Sealers are slab-bodied, toeless browsers that move over reef surfaces on gripping belly plates, cropping the overgrowth that would otherwise choke a reef's breathing channels and pausing wherever pressure whispers through a flaw. The pause is the service: the sealer chews, presses its wide lips to the spot, and closes the leak with a mineral spit that cures reef-hard in an hour. The ring's registers list sealer herds beside the reef maintenance schedules, and #{ref :rib, "Rib"} — built inside the oldest working reef alive — still runs its herds on rounds the registers would recognize.
 
-    Grazers find flaws by feel through their plates, so a herd drifting toward one gallery wall gives wardens an early pressure report. Even browsing accompanies a healthy reef, crowding marks a field of small flaws, and a thinning herd shows that the animals are refusing overworked growth. The animals share reef work with #{encyclopedia_ref :sorel, "sorel"}: sorel keep the passages open and grazers keep the skin sealed.
+    Sealers find flaws by feel through their plates, so a herd drifting toward one gallery wall gives wardens an early pressure report. Even browsing accompanies a healthy reef, crowding marks a field of small flaws, and a thinning herd shows that the animals are refusing overworked growth. The animals share reef work with #{encyclopedia_ref :sorel, "sorel"}: sorel keep the passages open and sealers keep the skin closed.
   PROSE
 
   cue "A slab-bodied animal flows slowly up the reef wall on its belly plates, presses its lips to an invisible flaw, and leaves a hardening patch of spit-seal glistening behind it."

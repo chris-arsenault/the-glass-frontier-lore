@@ -1,9 +1,10 @@
 encyclopedia :sitharian_governance do
-  name "Sitharian Governance"
-  summary "Sitharian Governance is the capital's system of elected ward authority, independent administration, public record, and reusable legal standards. Its skeleton is the ring's provincial civil service, kept alive through the Famine by clerks who ran a city while the government above them vanished."
+  name "The Service"
+  summary "The Service is the capital's system of elected ward authority, independent administration, public record, and reusable legal standards. Its skeleton is the ring's provincial civil service, kept alive through the Famine by clerks who ran a city while the government above them vanished."
   kind :culture
   subkind :governance
   status :complete
+  log "2026-08-31 — Shortened The Service Continues to The Service. Sitharians use service for the continuing civil institution; the longer form remains its doctrine rather than the article title."
   topics :governance, :archives, :diplomacy, :"social-structure", :surface
   prevalence :common
   available_globally

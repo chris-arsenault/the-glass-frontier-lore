@@ -1,47 +1,32 @@
 encyclopedia :consumption do
-  name "Consumption"
-  summary "Consumption takes a usable quality from a target into the user: heat, strength, memory, skill, resonance, or an active power."
+  name "Hunger"
+  summary "Hunger takes one active physical quantity from a touched subject into the practitioner for immediate use."
   kind :ability
   subkind :resonant_effect
   status :complete
+  log "2026-08-31 — Renamed Consumption to Hunger; the shifted word joins the transfer itself to the appetite that repeated use creates."
+  log "2026-08-31 — Kept Hunger as the broad physical transfer in the former ladder. Theft of a recalled memory or practiced skill became Want; the old narrow row mixed unrelated power theft with collective scale and was not retained as one spell."
   topics :resonance, :danger, :"kinetic-freq"
   prevalence :rare
   available_globally
 
-  tier :broad,
-       effect: "Draw heat, momentum, strength, or active resonance from one touched target into the user",
-       cost: "Ordinary food and rest cease to satisfy the user until the stolen quality is spent"
-  tier :focused,
-       effect: "Take a memory, trained skill, or bodily capacity and use it for a short time",
-       cost: "The user's corresponding appetite or pleasure becomes permanently weaker"
-  tier :narrow,
-       effect: "Consume an extraordinary ability, engine output, or shared strength from a group and wield it as one reserve",
-       cost: "The user loses the ability to feel sated by one ordinary need and begins craving what was taken"
-  tier :apex,
-       effect: "Strip a city, army, or great creature of a named quality and gather the whole of it into the bearer",
-       cost: "The bearer can never again be satisfied by that quality and must consume greater expressions of it to quiet the hunger"
+  tier :broad
+  effect "Take one active physical quantity—heat, momentum, muscular force, or resonant output—from one touched subject and hold it for immediate use"
+  limits "The quantity must be physically present and doing work; Hunger cannot take an abstraction, an inactive capacity, or more than the subject presently carries, and the practitioner can hold only one reserve"
+  consequence "Food and rest still nourish the practitioner but give no feeling of satisfaction until the stolen reserve is spent or returned"
 
   descriptive_identity(
-    signs: "The target becomes abruptly cold, weak, forgetful, silent, or inert while the user displays the missing quality with excessive intensity.",
-    effect: "Consumption transfers an existing capacity from a target into the user, who can spend or express what was taken.",
-    limits: "It cannot take an abstraction without a present physical expression, cannot hold contradictory capacities safely, and does not create more than the target possessed."
+    signs: "The subject becomes abruptly cold, slack, still, or inert while the practitioner displays the missing heat, motion, force, or resonant output with excessive intensity."
   )
 
-  cue "Color and motion drain from the target toward the user along a darkened resonant trace."
-  cue "The user names what they are taking, then displays it more intensely than its former owner did."
-  affordance "Consumption can still a weapon, rob a pursuer of speed, take a pilot's skill, drain an enemy power, or feed a failing machine from another source."
-  pressure "Every use teaches the body that theft is nourishment, making ordinary food, sleep, touch, and achievement progressively less satisfying."
-  variation "Physical consumption leaves targets cold, slack, and intact enough to recover if the quality is returned or naturally renewed."
-  variation "Consumption of memory or skill leaves clean absences that the victim often discovers only when attempting a familiar act."
-
   prose <<~PROSE
-    Consumption takes a quality that is presently doing work. Heat can be drawn from a burning room. Momentum can be stripped from a falling mass. Strength can leave a fighter's limbs and enter the person facing them. Memory, trained motion, resonance output, and extraordinary powers can also be taken when they are active enough to follow.
+    Hunger takes one physical quantity that is presently doing work through a subject the practitioner can touch. Heat can leave a burning housing. Momentum can leave a falling mass. Muscular force can leave a fighter's limbs, and resonant output can leave an active instrument. The subject keeps everything else and loses exactly what was named.
 
-    The transfer is exact in quantity and violent in use. A consumed engine output may drive the user as speed, heat, or force according to its original character. A stolen memory arrives with sensation and habit but no assurance that the user understands its place in a life. A stolen ability carries its limits as well as its effect.
+    The transfer is exact in quantity and character. Stolen heat warms; stolen momentum moves; stolen force acts through the practitioner's own body; stolen output answers only equipment capable of carrying its band. The practitioner can hold one reserve. Spending it expresses the quantity in its original form, while returning it restores what remains to the subject.
   PROSE
   prose <<~PROSE, section: :dangers, heading: "The Hunger That Learns"
-    The first loss belongs to ordinary satiety. Food still nourishes, sleep still repairs, and company still changes the mind, but none of them feels complete while a stolen quality remains in the user. Repeated use teaches the body a narrower appetite. Someone who often consumes strength begins to feel hunger only in the presence of stronger bodies. Someone who takes memories may stop finding pleasure in their own past.
+    Food still nourishes and sleep still repairs, but neither feels complete while a stolen reserve remains in the practitioner. The discomfort ends when the reserve is spent or returned. Practitioners who carry a reserve for too long describe every ordinary need as a physical reminder that the body is holding work taken from somewhere else.
 
-    The apex expression is #{ref :all_hunger, "the All-Hunger"}. Its bearer can empty a city of heat, an army of courage, or a great array of resonance. Each such act permanently removes another ordinary way of being satisfied, leaving only the scale of the next taking capable of quieting the need.
+    #{encyclopedia_ref :want, "Want"} takes a learned or remembered pattern rather than a physical quantity and leaves a more lasting appetite. #{ref :all_hunger, "The All-Hunger"} can use both forms of taking across collective subjects such as armies, cities, and great arrays.
   PROSE
 end

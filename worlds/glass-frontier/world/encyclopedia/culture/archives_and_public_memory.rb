@@ -1,9 +1,10 @@
 encyclopedia :archives_and_public_memory do
-  name "Archives and Public Memory"
-  summary "Archives and Public Memory is the legal and civic tradition that treats recovered records as public evidence requiring independent custody, preserved readings, and visible disagreement. It took its modern shape handling the records the elves left, and it treats every archive as answerable to the public account."
+  name "The Public Shelf"
+  summary "The Public Shelf is the legal and civic tradition that treats recovered records as public evidence requiring independent custody, preserved readings, and visible disagreement. It took its modern shape handling the records the elves left, and it treats every archive as answerable to the public account."
   kind :culture
   subkind :governance
   status :complete
+  log "2026-08-31 — Renamed Archives and Public Memory to The Public Shelf; the name makes public access and visible custody the tradition's concrete claim."
   topics :archives, :governance, :"signal-freq", :"ring-era"
   prevalence :common
   available_globally

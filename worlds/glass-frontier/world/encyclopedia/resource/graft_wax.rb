@@ -1,13 +1,14 @@
 encyclopedia :graft_wax do
-  name "Graft Wax"
+  name "Render"
   aka "wax"
   kind :resource
   subkind :material
   status :complete
+  log "2026-08-31 — Renamed Graft Wax to Render; the production word becomes the garden habs' stable name for the cap-bloom sealant across its graft, storehouse, and registry uses."
   topics :ecology, :materials, :trade, :"ring-era"
   prevalence :uncommon
   appears_when all: { place: [:garden] }
-  summary "Graft wax is the sealing wax of the garden habs, rendered from the cap-bloom of elven provisioning cultivars. It seals grafts, jars, and joins breathable-tight, and its second trade — closing documents and doors with a witness seal — grew from the gardens outward."
+  summary "Render is the sealing wax of the garden habs, made from the cap-bloom of elven provisioning cultivars. It seals grafts, jars, and joins breathable-tight, and its second trade — closing documents and doors with a witness seal — grew from the gardens outward."
   function "Seals grafts, preserves stores, and carries witness impressions; sets breathable-tight and lifts clean"
   grades "Green-render for graft work, kettle-white for stores and jars, and the pressed seal-stock the registries buy, graded by how crisply it holds an impression"
   availability "Rendered in every garden hab from cap-bloom harvests; seal-stock trades to registries and courts system-wide"
@@ -24,9 +25,9 @@ encyclopedia :graft_wax do
   )
 
   prose <<~PROSE
-    The provisioning cultivars the #{encyclopedia_ref :elves, "elves"} bred for the ring's gardens crown their stems each season with cap-bloom, a waxy collar the plants shed as they set fruit. The gardens have rendered the sheddings since the ring was whole. Graft wax is pale, faintly green, smells of cut stems, and sets breathable-tight. A waxed graft union holds its moisture and passes gas, which is the difference between a join that takes and a join that rots. Garden stewards use green-render by the block in grafting season, warming beads between their palms and working the collar of every union on the bench.
+    The provisioning cultivars the #{encyclopedia_ref :elves, "elves"} bred for the ring's gardens crown their stems each season with cap-bloom, a waxy collar the plants shed as they set fruit. The gardens have rendered the sheddings since the ring was whole. Render is pale, faintly green, smells of cut stems, and sets breathable-tight. A waxed graft union holds its moisture and passes gas, which is the difference between a join that takes and a join that rots. Garden stewards use green-render by the block in grafting season, warming beads between their palms and working the collar of every union on the bench.
 
-    Kettle-white, the refined grade, does the storehouse work — jar seals, join beds, the weatherproofing collar on anything a garden hab sends traveling — and lifts clean at a warmed blade. The third trade left the gardens generations ago: the wax's matte skin takes an impression down to thumb-whorls and keeps it for decades, and pressed seal-stock became the registries' witness wax. A document closed in graft wax carries its sealer's thumb as testimony, and courts read wax impressions against the registries' thumb ledgers.
+    Kettle-white, the refined grade, does the storehouse work — jar seals, join beds, the weatherproofing collar on anything a garden hab sends traveling — and lifts clean at a warmed blade. The third trade left the gardens generations ago: the wax's matte skin takes an impression down to thumb-whorls and keeps it for decades, and pressed seal-stock became the registries' witness wax. A document closed in render carries its sealer's thumb as testimony, and courts read wax impressions against the registries' thumb ledgers.
   PROSE
 
   prose <<~PROSE, section: :trade, heading: "Renders, Seals, and the Thumb Ledger"

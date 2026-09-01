@@ -1,9 +1,10 @@
 encyclopedia :fracture_wake_crews do
-  name "Fracture-Wake Crews"
-  summary "Fracture-Wake Crews are mobile debris-working households that live aboard their claims and keep time by the crossing calendar — the schedule of when their worked shards pass near one another. A crew's year is built around its crossings: reunions, marriages, settled disputes, and the crossing hail sounded hull to hull as the ground itself brings the family together."
+  name "Rejoiners"
+  summary "Rejoiners are mobile debris-working households that live aboard their claims and keep time by the crossing calendar — the schedule of when their worked shards pass near one another. A crew's year is built around its crossings: reunions, marriages, settled disputes, and the crossing hail sounded hull to hull as the ground itself brings the family together."
   kind :culture
   subkind :work_tradition
   status :complete
+  log "2026-08-31 — Renamed Fracture-Wake Crews to Rejoiners; the crews name themselves for the crossings that bring separated households together."
   topics :"social-structure", :salvage, :household, :"ring-era"
   prevalence :uncommon
   appears_when all: { place: [:debris_field] }
@@ -29,7 +30,7 @@ encyclopedia :fracture_wake_crews do
   prose <<~PROSE
     The Glassfall scattered the ring, and the #{encyclopedia_ref :elves, "elves'"} own survey system kept the accounts: the beacon tables that tracked every fragment's path survived in the orbital archives, and the earliest debris crews learned to read them as almanacs. A crew claims and works a set of shards — marking each with its crossing figure, hull-high — and the elven tables tell it, years out, when its worked ground will pass near itself: the crossings, the fixed points of a scattered household's year. Between crossings the crew divides, a hearth-hull and work parties distributed across the claims, living the long apart on schedule and letter. At a crossing the shards close to hailing range for counted days, the crossing hail sounds hull to hull — each crew's call its own, pitched to carry and answered in kind — and the accumulated year happens all at once: reunions, betrothals, the division of take, the settlement of disputes held over by custom until the family could sit together, the marriages that join two crews' calendars and are dated, forever after, by which crossing.
 
-    The culture's law is the tended claim. A crew works its shards the way river families work tended waters — take rates set so the ground outlasts the generation, seed debris left to the #{encyclopedia_ref :crowncut_spark_bloom, "blooms"}, the claim passing entire at inheritance — and its standing in the fields is its marks' condition: bright figures on well-kept shards read as a household in good order. The crossing calendar frames everything said about time. Crews date events by crossings, plan by the elven tables' long sight, and carry the tables' authority into their idiom. 'The ground keeps the appointment' gives a date that registries, suitors, creditors, and divided work parties can all use years in advance.
+    The culture's law is the tended claim. A crew works its shards the way river families work tended waters — take rates set so the ground outlasts the generation, seed debris left to #{encyclopedia_ref :crowncut_spark_bloom, "the Tithe"}, the claim passing entire at inheritance — and its standing in the fields is its marks' condition: bright figures on well-kept shards read as a household in good order. The crossing calendar frames everything said about time. Crews date events by crossings, plan by the elven tables' long sight, and carry the tables' authority into their idiom. 'The ground keeps the appointment' gives a date that registries, suitors, creditors, and divided work parties can all use years in advance.
   PROSE
 
   cue "The two shards close to hailing range on the day the tables named years ago, the crossing hail sounds hull to hull in the crew's own call, and the counted days begin — betrothals first, disputes last."

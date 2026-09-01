@@ -3094,6 +3094,130 @@ class MarkersTest < Minitest::Test
   end
 end
 
+class NamingLexiconTest < Minitest::Test
+  def test_world_keeps_structured_naming_guidance_and_query_preserves_order
+    world = Lorecraft.define do
+      naming_lexicon do
+        note "Names teach the world's vocabulary."
+        extension "Add a word when a recurring subject has no suitable name."
+        word :resonance,
+             meaning: "An ambient force.",
+             use: "Names effects and practices that directly act on the force.",
+             examples: ["Resonance Cascade", "resonant instruments"],
+             boundary: "Not a prefix for unrelated technology."
+        pattern :river_names,
+                "Related settlements share the river language's morphology.",
+                examples: ["Avara", "Temara"],
+                boundary: "Applies to settlements founded by river speakers."
+        avoid "Do not decorate a generic noun with a thematic modifier."
+      end
+    end
+
+    result = Lorecraft::NamingLexiconQuery.new(world).data
+
+    assert result[:declared]
+    assert result[:open]
+    assert_includes result[:notice], "not a closed list"
+    assert_equal ["Names teach the world's vocabulary."], result[:notes]
+    assert_equal ["Add a word when a recurring subject has no suitable name."],
+                 result[:extensions]
+    assert_equal :resonance, result.dig(:words, 0, :name)
+    assert_equal ["Resonance Cascade", "resonant instruments"],
+                 result.dig(:words, 0, :examples)
+    assert_equal "Not a prefix for unrelated technology.",
+                 result.dig(:words, 0, :boundary)
+    assert_equal :river_names, result.dig(:patterns, 0, :name)
+    assert_equal ["Do not decorate a generic noun with a thematic modifier."], result[:avoids]
+    report = Lorecraft::NamingLexiconQuery.new(world).report
+    assert_includes report, "Naming lexicon — open vocabulary"
+    assert_includes report, "How to extend"
+    assert_includes report, "resonance — An ambient force."
+    assert_includes report, "Boundary: Not a prefix for unrelated technology."
+  end
+
+  def test_world_without_a_naming_lexicon_has_an_explicit_empty_query
+    result = Lorecraft::NamingLexiconQuery.new(Lorecraft.define {}).data
+
+    refute result[:declared]
+    assert result[:open]
+    assert_includes result[:notice], "not a closed list"
+    assert_empty result[:words]
+    report = Lorecraft::NamingLexiconQuery.new(Lorecraft.define {}).report
+    assert_includes report, "Naming lexicon — open vocabulary"
+    assert_includes report, "No naming lexicon is declared for this world."
+  end
+
+  def test_duplicate_blocks_and_items_fail_during_definition
+    duplicate_block = assert_raises(Lorecraft::DefinitionError) do
+      Lorecraft.define do
+        naming_lexicon { note "First."; extension "Add missing words." }
+        naming_lexicon { note "Second."; extension "Add missing words." }
+      end
+    end
+    assert_includes duplicate_block.message, "duplicate naming_lexicon"
+
+    duplicate_word = assert_raises(Lorecraft::DefinitionError) do
+      Lorecraft.define do
+        naming_lexicon do
+          extension "Add missing words."
+          word :tune,
+               meaning: "A condition.",
+               use: "Names resonance work.",
+               examples: ["Tuning"],
+               boundary: "Only for coherent fields."
+          word :tune,
+               meaning: "A condition.",
+               use: "Names resonance work.",
+               examples: ["Tuning"],
+               boundary: "Only for coherent fields."
+        end
+      end
+    end
+    assert_includes duplicate_word.message, "duplicate naming lexicon word tune"
+  end
+
+  def test_blank_guidance_fails_during_definition
+    error = assert_raises(Lorecraft::DefinitionError) do
+      Lorecraft.define { naming_lexicon { note "  " } }
+    end
+
+    assert_includes error.message, "must be non-empty text"
+  end
+
+  def test_extension_rules_and_demonstrated_uses_are_required
+    missing_extension = assert_raises(Lorecraft::DefinitionError) do
+      Lorecraft.define { naming_lexicon { note "Names teach vocabulary." } }
+    end
+    assert_includes missing_extension.message, "must explain how this world extends"
+
+    missing_examples = assert_raises(Lorecraft::DefinitionError) do
+      Lorecraft.define do
+        naming_lexicon do
+          extension "Add missing words."
+          word :tune,
+               meaning: "A condition.",
+               use: "Names resonance work.",
+               boundary: "Only for coherent fields."
+        end
+      end
+    end
+    assert_includes missing_examples.message, "must contain at least one example"
+
+    blank_boundary = assert_raises(Lorecraft::DefinitionError) do
+      Lorecraft.define do
+        naming_lexicon do
+          extension "Add missing words."
+          pattern :river_names,
+                  "River settlements share one morphology.",
+                  examples: ["Avara"],
+                  boundary: " "
+        end
+      end
+    end
+    assert_includes blank_boundary.message, "boundary for river_names must be non-empty text"
+  end
+end
+
 class CLIHelpTest < Minitest::Test
   def test_help_does_not_require_a_world_manifest
     executable = File.expand_path("../bin/lorecraft", __dir__)
@@ -4000,13 +4124,19 @@ def encyclopedia_world
 end
 
 class EncyclopediaTest < Minitest::Test
-  def test_ability_tiers_are_declared_on_the_kind_and_exported_with_entries
+  def test_ability_tier_is_a_single_classification_exported_with_entries
     world = Lorecraft.define do
       schema do
         entity_type :ability
         encyclopedia_type :ability do
-          tier :broad, rank: 1, description: "Lowest effect and cost."
-          tier :apex, rank: 4, description: "Highest effect and cost."
+          field :effect, type: :text, expected: false
+          field :limits, type: :text, expected: false
+          field :consequence, type: :text, expected: false
+          classifications :resonant_effect, :technique
+          tiered_classifications :resonant_effect
+          tier :broad, rank: 1, description: "Wide-band spellwork."
+          tier :focused, rank: 2, description: "Reduced-band spellwork."
+          tier :narrow, rank: 3, description: "Tightly concentrated spellwork."
         end
         require_encyclopedia_type_kind! atlas_kind: :ability, encyclopedia_kind: :ability
       end
@@ -4016,13 +4146,15 @@ class EncyclopediaTest < Minitest::Test
         title "Signal Folding"
         kind :ability
         subkind :resonant_effect
-        status :draft
+        status :complete
         summary "An extraordinary effect that carries speech across a broken relay."
         prevalence :uncommon
         available_globally
-        tier :broad, effect: "Carry one warning across one broken relay."
-        tier :apex, effect: "Carry a sustained exchange across a dead network.",
-                    cost: "The speaker loses their voice for a day."
+        tier :focused
+        effect "Carry one warning across one broken relay."
+        limits "The warning must fit the line's measured word count."
+        consequence "The speaker loses their voice for a day."
+        prose "A folder sends one measured warning through a damaged line."
       end
       ability :the_clear_word do
         title "The Clear Word"
@@ -4034,14 +4166,15 @@ class EncyclopediaTest < Minitest::Test
     kind = Lorecraft::SchemaInspection.new(
       world, topic: "reference-kind", name: "ability"
     ).data.fetch(:kind)
-    assert_equal [[:broad, 1], [:apex, 4]],
+    assert_equal [[:broad, 1], [:focused, 2], [:narrow, 3]],
                  kind.fetch(:tiers).map { |tier| [tier[:name], tier[:rank]] }
+    assert_equal [:resonant_effect], kind.fetch(:tiered_classifications)
 
     entry = Lorecraft::EncyclopediaQuery.new(
       world, action: :page, id: :signal_folding, audience: :all
     ).data
-    assert_equal %i[broad apex], entry.fetch(:tiers).map { |tier| tier.fetch(:tier) }
-    assert_equal "The speaker loses their voice for a day.", entry.dig(:tiers, 1, :cost)
+    assert_equal :focused, entry.fetch(:tier)
+    assert_equal "The speaker loses their voice for a day.", entry.dig(:facts, :consequence)
 
     Dir.mktmpdir do |directory|
       Lorecraft::Render::Site.new(world).render(
@@ -4049,16 +4182,21 @@ class EncyclopediaTest < Minitest::Test
       )
       index = JSON.parse(File.read(File.join(directory, "worlds", "tiers", "index.json")))
       rendered = index.dig("encyclopedia", "entries", 0)
-      assert_equal %w[broad apex], rendered.fetch("tiers").map { |tier| tier.fetch("tier") }
+      assert_equal "focused", rendered.fetch("tier")
     end
   end
 
-  def test_ability_tiers_and_primary_type_kind_are_validated
+  def test_ability_tier_contract_and_primary_type_kind_are_validated
     world = Lorecraft.define do
       schema do
         entity_type :ability
         encyclopedia_type :practice
         encyclopedia_type :ability do
+          field :effect, type: :text, expected: false
+          field :limits, type: :text, expected: false
+          field :consequence, type: :text, expected: false
+          classifications :resonant_effect, :technique
+          tiered_classifications :resonant_effect
           tier :broad, rank: 1
         end
         require_encyclopedia_type_kind! atlas_kind: :ability, encyclopedia_kind: :ability
@@ -4077,25 +4215,32 @@ class EncyclopediaTest < Minitest::Test
       encyclopedia :unfinished_effect do
         title "Unfinished Effect"
         kind :ability
-        subkind :effect
+        subkind :resonant_effect
         status :complete
-        summary "An extraordinary effect with an unsettled cost."
+        summary "An extraordinary effect with an incomplete spell contract."
         prevalence :rare
         available_globally
-        tier :broad, effect: "Move one object."
-        cue "One object moves."
-        cue "Dust parts around it."
-        affordance "The user can move the object."
-        pressure "The effect draws attention."
-        variation "The object rises."
-        variation "The object slides."
         prose "The effect moves one object."
+      end
+      encyclopedia :mistiered_technique do
+        title "Mistiered Technique"
+        kind :ability
+        subkind :technique
+        status :draft
+        summary "A learned action incorrectly assigned a spell tier."
+        prevalence :common
+        available_globally
+        tier :broad
       end
       ability(:wrong_kind) { type_of :technique }
     end
 
     problems = world.validate.join("\n")
-    assert_includes problems, "complete ability tier broad needs a cost"
+    assert_includes problems, "resonant_effect ability needs one tier"
+    assert_includes problems, "complete tiered ability needs effect"
+    assert_includes problems, "complete tiered ability needs limits"
+    assert_includes problems, "complete tiered ability needs consequence"
+    assert_includes problems, "technique ability cannot declare a tier"
     assert_includes problems, "type_of must target Encyclopedia kind ability, not practice"
   end
 
@@ -4122,6 +4267,39 @@ class EncyclopediaTest < Minitest::Test
       end
     end
     assert_includes duplicate_rank.message, "duplicate tier rank 1"
+
+    undeclared_classification = assert_raises(Lorecraft::DefinitionError) do
+      Lorecraft.define do
+        schema do
+          encyclopedia_type :ability do
+            classifications :technique
+            tiered_classifications :spell
+          end
+        end
+      end
+    end
+    assert_includes undeclared_classification.message,
+                    "tiered classification spell is not declared"
+
+    duplicate_entry_tier = assert_raises(Lorecraft::DefinitionError) do
+      Lorecraft.define do
+        schema do
+          encyclopedia_type :ability do
+            classifications :spell
+            tiered_classifications :spell
+            tier :broad, rank: 1
+            tier :narrow, rank: 2
+          end
+        end
+        encyclopedia :double_tier do
+          kind :ability
+          subkind :spell
+          tier :broad
+          tier :narrow
+        end
+      end
+    end
+    assert_includes duplicate_entry_tier.message, "already has tier broad"
   end
 
   def test_schema_is_declared_at_kind_level_and_subkind_is_authored_classification
@@ -4824,6 +5002,33 @@ class EncyclopediaTest < Minitest::Test
     assert_includes problems, "context tag surface is not allowed for scene"
     assert_includes problems, "complete entry needs at least 2 cues"
     assert_includes problems, "complete entry needs prose"
+  end
+
+  def test_complete_encyclopedia_entry_does_not_require_pressure
+    world = Lorecraft.define do
+      schema do
+        tag :ecology
+        encyclopedia_type :lifeform
+      end
+      encyclopedia :quiet_grazer do
+        title "Quiet Grazer"
+        kind :lifeform
+        subkind :animal
+        status :complete
+        summary "A reusable grazing animal whose ordinary life creates useful signs."
+        topics :ecology
+        prevalence :common
+        available_globally
+        cue "A clipped feeding line crosses the verge."
+        cue "Broad paired tracks turn toward fresh growth."
+        affordance "Herders can follow the feeding line to open pasture."
+        variation "Hill herds browse in pairs."
+        variation "Lowland herds gather around shallow water."
+        prose "Quiet grazers travel between pasture and water in settled herds."
+      end
+    end
+
+    assert_empty world.validate
   end
 
   def test_reference_queries_search_match_and_list_atlas_instances

@@ -52,6 +52,7 @@ module Lorecraft
     end
     EncyclopediaKindDef = Struct.new(
       :name, :description, :fields, :identity_keys, :tiers, :classifications,
+      :tiered_classifications,
       keyword_init: true
     )
     AbilityTierDef = Struct.new(
@@ -213,7 +214,8 @@ module Lorecraft
           fields: [],
           identity_keys: [],
           tiers: [],
-          classifications: []
+          classifications: [],
+          tiered_classifications: []
         )
       end
       EncyclopediaKindBuilder.new(self, names.first).instance_eval(&block) if block
@@ -251,6 +253,10 @@ module Lorecraft
 
     def encyclopedia_tier_def(kind, name)
       encyclopedia_tiers_for(kind).find { |tier| tier.name == name&.to_sym }
+    end
+
+    def encyclopedia_tiered_classification?(kind, classification)
+      @encyclopedia_kinds[kind&.to_sym]&.tiered_classifications&.include?(classification&.to_sym) || false
     end
 
     def add_encyclopedia_field(kind, definition)
@@ -297,6 +303,19 @@ module Lorecraft
       end
 
       owner.classifications << name
+    end
+
+    def add_encyclopedia_tiered_classification(kind, name)
+      owner = @encyclopedia_kinds.fetch(kind.to_sym)
+      name = name.to_sym
+      unless owner.classifications.include?(name)
+        raise DefinitionError, "tiered classification #{name} is not declared on encyclopedia kind #{kind}"
+      end
+      if owner.tiered_classifications.include?(name)
+        raise DefinitionError, "duplicate tiered classification #{name} on encyclopedia kind #{kind}"
+      end
+
+      owner.tiered_classifications << name
     end
 
     def context_tag(name, description = nil, scopes:, parent: nil, compatible_with: [])
@@ -766,6 +785,15 @@ module Lorecraft
         end
 
         names.each { |name| @schema.add_encyclopedia_classification(@kind, name) }
+      end
+
+      def tiered_classifications(*names)
+        names = names.flatten
+        if names.empty?
+          raise DefinitionError, "encyclopedia kind #{@kind} tiered classifications need at least one name"
+        end
+
+        names.each { |name| @schema.add_encyclopedia_tiered_classification(@kind, name) }
       end
 
       def identity_key(name)

@@ -62,13 +62,17 @@ schema do
                                  "receive, and trained techniques they learn and perform. It " \
                                  "includes bodily techniques, operational procedures, methods of " \
                                  "observation, coordinated work, and skilled uses of tools. An " \
-                                 "entry reads as a spellbook entry: what the ability does, what it " \
-                                 "costs, and, where the world expresses it in ordered power tiers, " \
-                                 "the reach and precision available at each. Whether an ability is " \
+                                 "extraordinary entry reads as one spellbook entry: one bounded " \
+                                 "effect, its limits, and its consequence. Where a world classifies " \
+                                 "spells by power tier, each spell belongs to one tier rather than " \
+                                 "forming a progression across several. Whether an ability is " \
                                  "innate, learned, ordinary, or extraordinary does not determine " \
                                  "its kind. It does not include religions, laws, taboos, systems " \
                                  "of calculation, or social positions." do
     field :function, type: :text, expected: false
+    field :effect, type: :text, expected: false
+    field :limits, type: :text, expected: false
+    field :consequence, type: :text, expected: false
     identity_key :attire
     identity_key :tools
     identity_key :manner

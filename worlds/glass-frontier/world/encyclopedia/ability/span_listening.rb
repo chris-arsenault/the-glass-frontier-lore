@@ -1,9 +1,10 @@
 encyclopedia :span_listening do
-  name "Span Listening"
-  summary "Span Listening is a learned structural skill for hearing changes in the load carried by old ring beams before they shift. The listener works ear and palm against the metal, walks the span's stations in order, and calls what the beam is carrying today against what it carried last season."
+  name "Load Listening"
+  summary "Load Listening is a learned structural skill for hearing changes in the load carried by old ring beams before they shift. The listener works ear and palm against the metal, walks the span's stations in order, and calls what the beam is carrying today against what it carried last season."
   kind :ability
   subkind :technique
   status :complete
+  log "2026-08-31 — Renamed Span Listening to Load Listening; the established load root joins the passive hab skill to Load Singing and the Load Note without reducing the name to the structure being inspected."
   topics :training, :"ring-hab", :"structural-freq", :danger
   prevalence :uncommon
   appears_when all: { place: [:sealed_hab] }

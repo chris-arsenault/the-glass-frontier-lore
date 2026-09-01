@@ -1,9 +1,10 @@
 encyclopedia :ledger_recall do
-  name "Ledger Recall"
-  summary "Ledger Recall is a mnemonic discipline that binds passages of a spoken account to distinct pulses in the speaker's wrist, letting a trained holder carry a contract, testimony, or inventory verbatim for years and replay it under witness. Courts accept a recaller's recitation the way they accept a sealed page."
+  name "Binding"
+  summary "Binding is a mnemonic discipline that binds passages of a spoken account to distinct pulses in the speaker's wrist, letting a trained holder carry a contract, testimony, or inventory verbatim for years and replay it under witness. Courts accept a recaller's recitation the way they accept a sealed page."
   kind :ability
   subkind :technique
   status :complete
+  log "2026-08-31 — Renamed Ledger Recall to Binding; the name describes the wrist-pattern that holds an account together."
   topics :archives, :training, :trade
   prevalence :uncommon
   available_globally
@@ -25,7 +26,7 @@ encyclopedia :ledger_recall do
   )
 
   prose <<~PROSE
-    Where the record must travel in a person, the person trains. Ledger recall descends from the #{encyclopedia_ref :elves, "elven"} clerical schools — the ring's registries examined human clerks in it, and the examination texts survive — and the Famine made it a survival craft: with the relays dark and the archives cut off from each other, accounts crossed the system in trained wrists. The discipline binds a spoken account passage by passage to distinct pulses of the recaller's own wrist, worked through a drummer's finger pattern as the account is taken. The pattern becomes the document's spine. Run it again — tomorrow, or in ten years — and the account replays whole: words, order, the original's pauses and self-corrections, delivered in the flat careful voice recallers call reading aloud from the arm.
+    Where the record must travel in a person, the person trains. Binding descends from the #{encyclopedia_ref :elves, "elven"} clerical schools — the ring's registries examined human clerks in it, and the examination texts survive — and the Famine made it a survival craft: with the relays dark and the archives cut off from each other, accounts crossed the system in trained wrists. The discipline binds a spoken account passage by passage to distinct pulses of the recaller's own wrist, worked through a drummer's finger pattern as the account is taken. The pattern becomes the document's spine. Run it again — tomorrow, or in ten years — and the account replays whole: words, order, the original's pauses and self-corrections, delivered in the flat careful voice recallers call reading aloud from the arm.
 
     The trade's standing is juridical. Courts, registries, and freight houses accept a certified recaller's witnessed replay as they accept a sealed page. Certification tests verbatim fidelity across seasons, replay under distraction, and accurate recognition of impairment. Injury, exhaustion, and grief degrade recall; the oath requires the recaller to declare that change. The formal statement 'my wrist is tired' adjourns proceedings without prejudice.
   PROSE

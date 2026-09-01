@@ -9,75 +9,84 @@ phenomenon :the_false_form do
   prominence :renowned
   registry true
   aka "the Rhomboid", "the Outside Figure", "the Open Thing"
-  effect "Returns a resonant path to its start without allowing the figure to close"
-  recurrence "Appears wherever a coherent figure repeatedly fails to close"
-  ending "Cannot sustain closure"
+  trigger "A coherent resonance path returns to its origin with an unresolved edge or phase, most often in an unstable field, material, or device"
+  effect "The path prevents its local resonant figure from closing, so tuned work bleeds, wanders, or loses stable form while the return remains measurable"
+  recurrence "The same return-without-closure is recorded at Bloom-adjacent benches, in Deep Shear material, and wherever a coherent figure repeatedly fails in the same pattern"
+  ending "A local manifestation ends when damping breaks the return or retuning closes the path into a stable lawful figure"
   mitigation "Perfect single-wavelength coherence leaves no open edge through which it can press"
-  anchor_behavior "Uses unstable places, substances, and devices as points where its non-closing geometry presses into ordinary space"
+  anchor_behavior "Reappears through unstable places, substances, and devices that sustain a measurable return path without a complete close"
+  medium "Bloom-adjacent ringglass, Deep Shear material, depleted fields, damaged devices, and other resonant paths that repeatedly fail to close"
+  hazard "Working glass loses a stable tune, instruments follow a path that returns with one edge unresolved, and prolonged exposure disrupts a person's sense of spatial boundary"
   custom_fact :nature, "The impossible third figure in the Three Forms"
   custom_fact :known_forms, "An open rhombus drawn with contradictory edges"
+
+  descriptive_identity(
+    signs: "A tuned path returns to its starting point with an open phase still visible on the instrument trace; nearby glass shimmers without settling into a stable figure.",
+    effects: "Structural, kinetic, or signal work at the affected point bleeds or wanders because the resonant path completes its course without closing its figure.",
+    hazards: "Repeated exposure makes spatial edges feel uncertain, while glass left on the non-closing path loses reliable output and can carry the failure into connected work."
+  )
 
   log "2026-08-20 — Kept the False Form and the Adversary as one entity, replacing the earlier Adversary placeholder."
   log "2026-08-20 — DM handling: public accounts work as cosmology and superstition on their own; bench superstition provides a path toward the hidden truth; reveal the Adversary by accumulating evidence rather than as a gotcha."
   log "2026-08-20 — Keep the Adversary's exact kind of mind and motive unresolved until play requires an answer. Recurring failures of closure at any scale are its recognizable trace."
 
   prose <<~PROSE
-    The False Form is the third figure of the #{encyclopedia_ref :the_three_forms, "Three Forms"} — the impossible rhombus that the triptych draws between the lawful Tetrahedron and the lawful Triangulum and labels, in every honest copy, *false, outside.* It is the figure whose edges meet in ways no real edge can: a path that comes back to where it began and still refuses to close. The old caption beneath it is the one no apprentice forgets — *it is, and is not, all at once.*
+    Every complete copy of the #{encyclopedia_ref :the_three_forms, "Three Forms"} places the False Form between the lawful Tetrahedron and Triangulum. The panel shows an open rhombus whose edges meet in contradictory orientations. Its path returns to its starting point while one edge remains unresolved. Honest copies label it *false, outside* and carry the old caption beneath: *it is, and is not, all at once.*
 
-    Of the three figures, the False Form is the most often drawn and the least often believed. Most people treat it as a useful idea rather than a thing they might meet: the cleanest way to teach coherence is to set beside it the one shape that cannot sustain any. The False Form is the worked example of failure, the proof that contradicts itself and the figure used to mark what a sound construction must avoid.
+    Workshop triptychs use the panel as a closure test. An apprentice traces the two lawful figures, then follows the rhomboid until the stylus returns to its first point on the wrong orientation. The violated join makes the rule visible: stable resonance closes into a figure, while a return that leaves an edge open cannot hold its tune.
   PROSE
-  prose <<~PROSE, section: :significance, heading: "The Figure of Speech"
-    In daylight the False Form has thinned into a turn of phrase. To call a deal *rhomboid* is to say it looks sound and isn't — a contract that reads closed and opens the moment weight goes on it. To say someone *draws the open thing* is to accuse them of a lie polished to look like a truth. Preachers of every register use the False Form the way a builder uses a cracked beam: as the example that makes the rule obvious. Falsehood that wears the shape of fact; entropy patient under everything built; the slow yawning-open of any figure left untended. The False Form is the name the system has agreed to give all of that at once. Most people who use the word believe nothing lies behind it.
+  prose <<~PROSE, section: :language, heading: "Rhomboid"
+    In common speech, a *rhomboid* is a claim that appears complete and opens when weight reaches it. A contract can be rhomboid. So can a repair account, a witness statement, or a promise whose last obligation points back to its first. To accuse someone of *drawing the open thing* is to say that they shaped a lie to pass as a closed figure.
 
-    The closing line of the #{encyclopedia_ref :the_three_forms, "Three Forms"} is usually read as the last word on the matter, and it is meant to be reassuring: *Order is not enough. Truth is more. But falsehood is not.* The False Form, for all that it shimmers and pulls the eye in the picture, is held to have no real being of its own. It is the open dressed as the closed — an absence in the costume of a figure. It cannot *make* anything, the comfortable reading goes; it can only fail to be made. A figure of speech, a teaching tool, a devil drawn on the bottom of a card to make the rest of the card mean something.
+    Preachers and Communion keepers use the same image in doctrinal argument. The closing line — *Order is not enough. Truth is more. But falsehood is not* — supports two established readings. Some houses teach that the panel depicts a violated drawing with no force of its own. Others treat it as the accurate mark of a pressure that acts wherever closure fails. Both readings preserve the complete third panel.
   PROSE
   prose <<~PROSE, section: :perception, heading: "What the Bench Knows"
-    People who work where figures come apart have a quieter relationship with the idea. #{encyclopedia_ref :tuners, "Tuners"} who run benches near the #{ref :bloom_zones, "Bloom Zones"}, salvagers who handle raw crystal out of the #{ref :deep_shear, "deep Shear"}, and anyone who has spent too long around #{encyclopedia_ref :duskgrain, "duskgrain"} use the word *rhomboid* less lightly than city folk. Their instruments offer no common theory, but their work repeatedly finds places and substances where a vibration will not close, where a tuned figure that holds elsewhere refuses to hold, and where prolonged exposure makes a person's own edges feel uncertain in a way the #{encyclopedia_ref :fae, "fae"} recognize.
+    #{encyclopedia_ref :tuners, "Tuners"} working near the #{ref :bloom_zones, "Bloom Zones"}, salvagers testing raw crystal from the #{ref :deep_shear, "Deep Shear"}, and handlers of #{encyclopedia_ref :duskgrain, "duskgrain"} record the same fault: an instrument trace returns to its starting coordinate with an unresolved phase still open. Glass on that path shimmers without settling, and a tune that closes on the comparison bench continues bleeding at the affected one.
 
-    The trade keeps its superstitions about it: never draw the open thing on a hull, never whistle its caption in a depleted field, and re-tune any glass that starts to *shimmer wrong* without delay. Scholars attribute these practices to nerves and bad air. Public teaching still treats the False Form as the unreal member of the Three, a symbolic failure without agency or power.
+    Repeated exposure also produces a bodily report: workers misjudge where their outline ends or feel an arm, tool, or doorway offset from the place sight gives it. Fae compare the sensation to the edge of dislocation. Current bench records establish a recurrent closure failure and its exposure pattern; they do not establish whether the triptych names its cause or merely provides the oldest diagram of the fault.
+
+    The trades answer the evidence directly. Crews erase an open rhombus drawn on a hull, leave the old caption unsounded in a depleted field, and retune glass that starts to *shimmer wrong* before connected work resumes. Scholars classify the cases as closure failures. Communion houses continue their older argument about whether a force stands behind them.
   PROSE
 
   # ---- Hidden (DM) truth ----
-  prose <<~PROSE, section: :truth, heading: "The Hidden Truth", dm: true
-    *Falsehood is not*, the line on which the system's public teaching rests, is the most useful lie the #{encyclopedia_ref :elves, "elves"} ever let stand. The False Form is the *Adversary*, a real and active geometry with will.
+  prose <<~PROSE, section: :truth, heading: "The Adversary", dm: true
+    The False Form is the Adversary: a real non-closing geometry with will. The #{encyclopedia_ref :elves, "elves"} identified it in their records of the ring's destruction and preserved *falsehood is not* as public doctrine while they prepared against its return.
   PROSE
-  prose <<~PROSE, section: :truth, heading: "The Cosmology Is Literally True", dm: true
-    The #{encyclopedia_ref :the_three_forms, "Three Forms"} accurately describes how resonance and reality work. Its makers knew what the third panel represented and chose to draw it as a devil rather than a coordinate.
+  prose <<~PROSE, section: :truth, heading: "Non-Closing Geometry", dm: true
+    The #{encyclopedia_ref :the_three_forms, "Three Forms"} records the actual geometry of resonance. Coherence closes into figures. The Tetrahedron and Triangulum are the lawful shapes of held form and applied force. The third path returns to its origin with an edge still open, forcing a figure that cannot stably exist to persist against ordinary space. The Adversary is that geometry acting with intent.
 
-    Resonance closes into figures; coherence *is* closure; this much the keepers have right. The Tetrahedron and the Triangulum are the real lawful shapes of held form and applied force. And the False Form is the real third thing: a figure that returns to its origin and does not close — a geometry that cannot stably exist and exists anyway. *It is, and is not, all at once* is not poetry. It is a literal property. The Adversary is that geometry given will.
+    Where it presses into normal space, local reality cannot resolve a coherent figure. The caption *it is, and is not, all at once* describes this forced persistence. Elven records connect that geometry to four established effects:
 
-    Where the False Form presses against normal space, local reality cannot resolve a coherent figure. Form will not hold. This single fact is the deep cause of everything the elves are fighting:
-
-    - **#{ref :bloom_zones, "Bloom Zone"} reality-tears** are places where the False Form's geometry has pressed through far enough that space can no longer close — the #{ref :bloom_zones, "fluid-reality"} distortion is the open figure showing through the crack.
-    - **#{encyclopedia_ref :duskgrain, "Duskgrain"}** — described in the #{encyclopedia_ref :duskgrain, "Resonance Corruption"} truth as "solidified alien intent" — is more precisely *solidified non-closing figure*: fragments of the False Form's geometry crystallized into matter, which is why prolonged exposure narrows perception and aligns the user with a dimensional framework that isn't ours.
-    - **Spatial-identity collapse** — the duskgrain end-state, "a complete inability to maintain coherent spatial identity" — is a person being tuned, against their will, toward the figure that will not close. It resembles advanced #{encyclopedia_ref :fae, "fae"} dislocation because it is the same failure: a coherent figure coming undone. The fae live at the edge of it as a condition. The False Form's victims are pushed over it as a weapon.
-    - The **#{ref :communication_shard, "Communication Shard"}** that channels #{ref :dern_talish, "Dern Talish"}'s elven contact is "keyed to an impossible frequency" — i.e. a frequency on the wrong side of closure. The elves built a controlled, surgical touch of the False Form's own geometry into a tool. They know precisely what they are handling.
+    - **#{ref :bloom_zones, "Bloom Zone"} reality tears** are openings where the non-closing geometry prevents space from resolving a stable boundary.
+    - **#{encyclopedia_ref :duskgrain, "Duskgrain"}** is Adversary residue: fragments of the non-closing figure crystallized into matter. Prolonged exposure aligns perception with the framework preserved in the grain.
+    - **Spatial-identity collapse** tunes a person toward that framework until their coherent bodily boundary fails. Advanced #{encyclopedia_ref :fae, "fae"} dislocation resembles the same failure at its edge; duskgrain exposure drives a body through it.
+    - The **#{ref :communication_shard, "Communication Shard"}** held by #{ref :dern_talish, "Dern Talish"} uses a controlled discontinuity on the same side of closure. The elves made that narrow contact path into an instrument.
   PROSE
-  prose <<~PROSE, section: :truth, heading: "It Has Will", dm: true
-    The False Form has agency. Entropy is indifferent; the Adversary chooses. It pressed *here* rather than elsewhere, timed the #{ref :the_glassfall, "Glassfall"}, and, according to #{encyclopedia_ref :elves, "the elves"}, will return. The "one conflict" written under the triptych describes a war against an active opponent.
+  prose <<~PROSE, section: :truth, heading: "Recorded Agency", dm: true
+    Elven records attribute the location and timing of the #{ref :the_glassfall, "Glassfall"} to the Adversary. They describe selection, preparation, and pressure applied at a ring-breaking scale. Their reading of *one conflict* is a continuing war against that active opponent, and their preparations assume it will return.
 
-    Elven records do not establish the nature of that agency. The Adversary may be a single intelligence, a swarm, a law of another cosmos that experiences this world's refusal to dissolve as an intrusion, or something for which "intelligence" is the wrong frame. The records establish only that it comes from outside the Kaleidos system, can destroy ring-scale megastructures, acts with apparent intent, and is expected by the #{encyclopedia_ref :elves, "elves"} to return. Their preparations record the coming war; #{encyclopedia_ref :duskgrain, "duskgrain"} records what its presence leaves behind.
+    The records do not identify the kind of mind involved. A single intelligence, a swarm, or a law of another cosmos capable of choice all fit part of the evidence. What the records establish is narrower: it comes from outside the Kaleidos system, destroys ring-scale coherent structures, acts with apparent intent, and left #{encyclopedia_ref :duskgrain, "duskgrain"} where its geometry crossed into matter.
   PROSE
-  prose <<~PROSE, section: :implications, heading: "Why the Public Stays Abstract", dm: true
-    The thinning of the False Form into a figure of speech is not an accident of cultural drift. It is partly the elven #{encyclopedia_ref :elves, "Redaction"} doing what it does best — softening texture. A system that remembers the Rhomboid as a devil drawn on a card is a system that will not go looking for the real thing, will not name it loudly enough to be heard naming it, and will not hand the Adversary a map of who believes in it. *Falsehood is not* is a doctrine the elves were glad to see take hold. It keeps the front quiet.
+  prose <<~PROSE, section: :implications, heading: "The Redaction", dm: true
+    The elven #{encyclopedia_ref :elves, "Redaction"} preserved the third panel and its caption while stripping records that tied the figure to particular events, locations, and procedures. The resulting public tradition retained a symbol of false closure and lost the operational history that identified an opponent. *Falsehood is not* became the dominant reading because it directed study toward doctrine and bench discipline rather than Adversary traces.
 
-    The public comfort rests on one accurate property. The Adversary has being, but its figure genuinely cannot close. It is a violation forced against reality's grain, a pressure that costs it something and gives the defenders their only leverage. The One Truth — perfect single-wavelength coherence, the horizon the elves reached for — offers the relevant weapon: a figure so completely closed that the False Form can find no open edge to press. The elves' centuries of work toward single-wavelength resonance are an attempt to close a figure the Adversary cannot open.
+    The doctrine preserves one useful property: the Adversary's figure cannot close. Its persistence against reality carries a cost and requires an open edge through which to press. The One Truth — perfect single-wavelength coherence — is the elven countermeasure: a figure closed so completely that the False Form has no unresolved edge to enter. Their centuries of single-wavelength work aim to construct that close at the scale of the coming conflict.
   PROSE
 
-  gm_note :appears, "The name arrives as ordinary speech long before it arrives as anything else: a preacher's worked example, an accusation that a contract reads closed and opens under weight, a word for a polished lie."
-  gm_note :triggered_by, "A player who uses *rhomboid* the city way gets a flat look from anyone who runs a bench near the #{ref :bloom_zones}, who spends the word only on glass that has stopped closing."
-  gm_note :complicates, "Trade rules bind at the table: nobody draws the open thing on a hull, nobody whistles the caption in a depleted field, and glass that shimmers wrong is re-tuned before the conversation resumes. Ignore them and the crew stops working with the party."
+  gm_note :appears, "The name enters ordinary speech as a preacher's worked example or an accusation that a contract reads closed and opens under weight; the complete triptych hangs over the nearest working bench."
+  gm_note :triggered_by, "Calling a claim *rhomboid* makes a bench worker check whether the speaker means a polished lie or a trace that returned to its origin with one phase still open."
+  gm_note :complicates, "A non-closing trace stops connected work: the crew erases any open figure on the hull, leaves the old caption unsounded, and retunes every glass path that shimmers before machinery starts again."
 end
 
 relate :rel_the_false_form_destroyed_the_glass_frontier, :destroyed, :the_false_form, :the_glass_frontier, dm: true do
-  prose "It was the False Form, not any internal sabotage, that broke the ring into the #{ref :the_glass_frontier, "Glass Frontier"}."
+  prose "The False Form forced non-closing geometry through the ring and shattered it into the #{ref :the_glass_frontier, "Glass Frontier"}."
 end
 relate :rel_the_false_form_caused_the_glassfall, :caused, :the_false_form, :the_glassfall, dm: true do
-  prose "The #{ref :the_glassfall, "Glassfall"} was its work — the moment a geometry that should not exist pressed hard enough on the system to shatter its grandest structure."
+  prose "The #{ref :the_glassfall, "Glassfall"} began when the False Form pressed its open geometry into the ring at a scale the structure could not close against."
 end
 relate :rel_the_false_form_caused_disappearance_of_the_elves, :caused, :the_false_form, :disappearance_of_the_elves, dm: true do
-  prose "And it is why the elves are gone: a threat you cannot fight by being a visible target is a threat you disappear from."
+  prose "The elves answered the expected return by withdrawing their communities, masking their resonance signatures, and removing the routes that led to them."
 end
 relate :rel_the_false_form_seeping_through_bloom_zones, :seeping_through, :the_false_form, :bloom_zones, dm: true do
-  prose "Its influence leaks back in through the #{ref :bloom_zones, "Bloom Zones"} — pressure through a crack, the open figure showing through where reality can no longer close."
+  prose "The #{ref :bloom_zones, "Bloom Zones"} are openings where the False Form's non-closing geometry prevents local space from resolving a stable boundary."
 end

@@ -22,7 +22,7 @@ encyclopedia :splicing do
   )
 
   prose <<~PROSE
-    The rigging trades hang, haul, and secure their work with #{encyclopedia_ref :rigging_line, "line"}, and every working coil eventually needs an end, an eye, or a join. A splicer opens the lay with a fid and carries each strand through the tuck pattern for the job. Eye splices make permanent loops for hooks, long splices join runs that must pass through blocks, and back splices finish a free end. Each pattern also carries the listening thread through the join so a rigger can read the load on either side.
+    The rigging trades hang, haul, and secure their work with #{encyclopedia_ref :rigging_line, "Singing Line"}, and every working coil eventually needs an end, an eye, or a join. A splicer opens the lay with a fid and carries each strand through the tuck pattern for the job. Eye splices make permanent loops for hooks, long splices join runs that must pass through blocks, and back splices finish a free end. Each pattern also carries the listening thread through the join so a rigger can read the load on either side.
 
     Every finished splice is proved by ear. The splicer draws it across a sounding edge and rings the line. A clean answer certifies the join; a buzz, flat spot, or muffled note locates a bad tuck. The splicer cuts that section back and works it again. A join that holds weight but loses the thread's voice drops the whole length to mute work, regardless of how sound the fiber remains.
 

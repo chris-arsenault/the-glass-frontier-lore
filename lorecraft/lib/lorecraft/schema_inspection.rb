@@ -125,6 +125,7 @@ module Lorecraft
           identity_keys: kind.identity_keys.map { |key| identity_key_data(key) },
           tiers: kind.tiers.map { |tier| ability_tier_data(tier) },
           classifications: kind.classifications,
+          tiered_classifications: kind.tiered_classifications,
         }.compact
       end
     end
@@ -140,6 +141,7 @@ module Lorecraft
         identity_keys: kind.identity_keys.map { |key| identity_key_data(key) },
         tiers: kind.tiers.map { |tier| ability_tier_data(tier) },
         classifications: kind.classifications,
+        tiered_classifications: kind.tiered_classifications,
       }.compact
     end
 
@@ -337,6 +339,9 @@ module Lorecraft
       lines << kind[:description] if kind[:description]
       unless kind[:classifications].empty?
         lines << "Classifications: #{kind[:classifications].join(', ')}"
+      end
+      unless kind[:tiered_classifications].empty?
+        lines << "Tiered classifications: #{kind[:tiered_classifications].join(', ')}"
       end
       unless kind[:fields].empty?
         lines << "Fields:"

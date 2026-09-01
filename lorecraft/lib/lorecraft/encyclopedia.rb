@@ -12,7 +12,6 @@ module Lorecraft
   ReferenceUsage = Struct.new(:kind, :text, :dm, :order, keyword_init: true) do
     def dm? = dm == true
   end
-  AbilityTierExpression = Struct.new(:tier, :effect, :cost, :order, keyword_init: true)
   # Reusable world material. Encyclopedia entries are intentionally separate
   # from Atlas entities: they have no moments, prominence, placement, mutable
   # state, or ordinary world-graph edges. Kind fields and descriptive identity
@@ -23,7 +22,7 @@ module Lorecraft
 
     attr_reader :id, :static_attrs, :content_blocks, :usage, :selectors,
                 :source_file, :source_line, :fact_values, :log_entries, :questions,
-                :ability_tiers
+                :ability_tier
     attr_accessor :visibility
 
     def initialize(id:, source_file: nil, source_line: nil)
@@ -37,7 +36,7 @@ module Lorecraft
       @fact_values = {}
       @log_entries = []
       @questions = []
-      @ability_tiers = []
+      @ability_tier = nil
       @availability_mode = nil
       @visibility = :public
       initialize_identity
@@ -130,7 +129,7 @@ module Lorecraft
       def pressure(text, dm: false) = add_usage(:pressure, text, dm)
       def variation(text, dm: false) = add_usage(:variation, text, dm)
 
-      def tier(name, effect:, cost: nil)
+      def tier(name)
         unless @entry.kind == :ability
           raise DefinitionError, "tier on #{@entry.id} requires encyclopedia kind ability"
         end
@@ -138,16 +137,11 @@ module Lorecraft
         unless @world.schema.encyclopedia_tier_def(:ability, name)
           raise DefinitionError, "unknown ability tier #{name} on #{@entry.id}"
         end
-        if @entry.ability_tiers.any? { |expression| expression.tier == name }
-          raise DefinitionError, "duplicate ability tier #{name} on #{@entry.id}"
+        if @entry.ability_tier
+          raise DefinitionError, "ability #{@entry.id} already has tier #{@entry.ability_tier}"
         end
 
-        @entry.ability_tiers << AbilityTierExpression.new(
-          tier: name,
-          effect: effect.to_s,
-          cost: cost&.to_s,
-          order: @entry.ability_tiers.length + 1
-        )
+        @entry.instance_variable_set(:@ability_tier, name)
       end
 
       def prose(text, section: :main, heading: nil, dm: false,

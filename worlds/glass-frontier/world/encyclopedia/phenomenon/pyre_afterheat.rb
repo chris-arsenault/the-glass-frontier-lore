@@ -1,9 +1,10 @@
 encyclopedia :pyre_afterheat do
-  name "Pyre Afterheat"
-  summary "Pyre afterheat is the flameless heat surge that follows a kinetic-band resonance event the way a struck bell's hum follows its strike note — arriving hours later, softening exposed seals and re-annealing glass along the Cinder Gap cordon. The cordon services time their inspections to it, and seal work in afterheat country is scheduled like tide work."
+  name "Afterheat"
+  summary "Afterheat is the flameless heat surge that follows a kinetic-band resonance event the way a struck bell's hum follows its strike note — arriving hours later, softening exposed seals and re-annealing glass along the Cinder Gap cordon. The cordon services time their inspections to it, and seal work in afterheat country is scheduled like tide work."
   kind :phenomenon
   subkind :catastrophe
   status :complete
+  log "2026-08-31 — Renamed Pyre Afterheat to Afterheat; the existing regional work term already names the delayed surge, while the place qualifier falsely narrowed a recurring effect."
   topics :resonance, :"kinetic-freq", :danger, :rebuilding
   prevalence :uncommon
   appears_when all: { place: [:cordon, :hot] }

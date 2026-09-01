@@ -1,13 +1,14 @@
 encyclopedia :ravel_water_silk do
-  name "Ravel Water-Silk"
+  name "Suture"
   aka "water-silk", "leak silk"
   kind :resource
   subkind :biological_material
   status :complete
+  log "2026-08-31 — Renamed Ravel Water-Silk to Suture; the familiar repair word gains a specific hab-trade meaning through the living mat's tightening action."
   topics :materials, :"ring-hab", :danger, :trade
   prevalence :uncommon
   appears_when any: { place: [:sealed_hab, :orbital] }
-  summary "Ravel water-silk is the living leak dressing of the hab trades: a woven mat of cultured fiber that tightens around escaping fluid and changes color when the leak carries a signal charge. Every pressure kit stows a roll, and the silk's verdict on a leak arrives faster than any gauge."
+  summary "Suture is the living leak dressing of the hab trades: a woven mat of cultured fiber that tightens around escaping fluid and changes color when the leak carries a signal charge. Every pressure kit stows a roll, and the weave's verdict on a leak arrives faster than any gauge."
   function "Emergency leak dressing that self-tightens on contact with escaping fluid and color-codes the leak's charge"
   grades "Fresh-roll for the kits, cistern-grade for standing repairs, and the spent gray mats that go to the training rooms"
   availability "Cultured in wet-frame beds at Ravel, Tanel, and Issel; rolls trade through every hab chandlery and cordon store"
@@ -27,7 +28,7 @@ encyclopedia :ravel_water_silk do
   )
 
   prose <<~PROSE
-    A hab leak is a race between the fluid and the crew, and water-silk is the trades' standing head start. The mats are cultured at Ravel's wet-frames — a living fiber raised in the settlement's mineral plume — and a roll slapped over a leak does two jobs in the same breath: the weave drinks the escaping fluid and cinches, a live tightening that follows the leak's own pressure, and the silk's color announces what the fluid carries. Plain water leaves the weave linen-pale. A line carrying signal charge blushes the silk to deep blue within a breath, and the blush is the material's real gift: the difference between a plumber's job and a #{encyclopedia_ref :signal_folding, "folder"}-and-tuner job, decided at a glance, before anyone has put a hand where a charged line could teach them better.
+    A hab leak is a race between the fluid and the crew, and suture is the trades' standing head start. The mats are cultured at Ravel's wet-frames — a living fiber raised in the settlement's mineral plume — and a roll slapped over a leak does two jobs in the same breath: the weave drinks the escaping fluid and cinches, a live tightening that follows the leak's own pressure, and the silk's color announces what the fluid carries. Plain water leaves the weave linen-pale. A line carrying signal charge blushes the silk to deep blue within a breath, and the blush is the material's real gift: the difference between a plumber's job and a #{encyclopedia_ref :signal_folding, "folder"}-and-tuner job, decided at a glance, before anyone has put a hand where a charged line could teach them better.
 
     The rolls live in every pressure kit, cordon store, and engine room in the ring settlements, wrapped in wax against their own drying. Fresh rolls go to emergency kits, aging rolls to standing repairs, and spent gray mats to training rooms where apprentices practice the slap-and-read on rigged leak walls. Ravel's wet-frame beds supply the system, and the culture travels under living-cargo rules with lineage and second-habitat records. Demand regularly exceeds the rate at which the beds can grow fresh mat.
   PROSE

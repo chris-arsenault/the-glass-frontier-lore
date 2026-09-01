@@ -1,33 +1,37 @@
 ability :far_witness do
   name "The Far Witness"
-  summary "The Far Witness is a mantle of the Three that follows true events across distance and history through their surviving consequences."
+  summary "The Far Witness is a mantle of the Three that carries Witnessing across centuries of consequences and Elsewhere across any present distance in Kaleidos."
   type_of :revelation
   subkind :the_three
   status :complete
+  log "2026-08-31 — Distinguished historical Witnessing from present-tense Elsewhere; the mantle carries either form of observation across the system and answers the bearer to everyone along it."
   tags :resonance, :religion, :"signal-freq", :archives
   prominence :recognized
-  qualification "Answers someone who has made dangerous evidence public despite a personal reason to conceal it"
+  qualification "Answers someone who placed dangerous evidence in a public record together with the fact that implicated them"
   succession "Passes when the bearer deliberately closes their perception and entrusts an unfinished line of evidence to another witness"
-  cost "Every person, machine, and resonant presence along an apex observation can perceive the bearer and follow the same evidence back toward them"
+  cost "Observation is reciprocal: people, machines, and resonant presences along a distant or historical trace can perceive the bearer and follow the evidence back toward them"
 
   descriptive_identity(
-    signs: "Reflections show the bearer facing events outside the room, and people at the observed place see the same face looking back through glass or signal noise.",
-    effect: "The bearer can use #{encyclopedia_ref :revelation, "Revelation"} across the Kaleidos system or through centuries of surviving physical consequence.",
-    limits: "The mantle reads events rather than intent, cannot see an unrealized future, and finds nothing after every consequence of an event has been erased."
+    signs: "Old light and sound return through present surfaces, the bearer's eyes answer another place, and people or machines along the trace receive the bearer's face or pulse in return.",
+    effect: "The mantle extends #{encyclopedia_ref :revelation, "Witnessing"} through system-wide chains of consequence and #{encyclopedia_ref :elsewhere, "Elsewhere"} beyond the ordinary spell's single anchored viewpoint.",
+    limits: "Historical work requires a surviving consequence; present observation requires a known live anchor. Neither supplies private intent, an unrealized future, or perception without an answering trace."
   )
 
+  question "Who is the present or most recently attested Far Witness, and which unfinished line of evidence passed with the mantle?", raised: "2026-08-31"
+
   prose <<~PROSE
-    The Far Witness can look from a scored wall to the weapon that marked it, from the weapon to the hand that held it, and from that hand through every surviving consequence of the act. Distance does not interrupt the path. A true line of evidence can carry the bearer from a present wreck to the moment of its breaking or from one weak signal to the place that sent it.
+    The Far Witness begins with material that participated in an event and carries the same perception through a connected chain of consequences. A present wreck can lead to its breaking; a copied record can lead through centuries of damage, custody, and transcription; a known person, object, or live signal can carry the account to a distant place.
 
-    Tessellan teaching places the mantle on the unfigured signal path between Form and Will. The event is Form: the fact that occurred. Following it is Will: the choice to look despite what may answer. The Far Witness does not pronounce truth. The bearer sees light, motion, pressure, speech, and damage, then must still decide what those facts establish.
+    The trace gives sensation: light, movement, pressure, speech, heat, and damage. It supplies no name for an unfamiliar face and no judgment about which speaker believed their own words. Courts and archives therefore preserve a Far Witness account with the object, place, or signal that opened it and keep observation separate from the conclusion drawn afterward. A witnessed replay can be compared with #{encyclopedia_ref :ledger_recall, "Binding"}; neither practice turns inference into evidence.
   PROSE
-  prose <<~PROSE, section: :dangers, heading: "Seen in Return"
-    Nothing viewed by the mantle remains unaware of observation. A person sees the bearer's face in a polished surface. A machine records their pulse as an unauthorized signal. A resonance-sensitive presence can follow the observation backward through the same chain of evidence. Looking into an ambush may warn its killers exactly where the warning is being received.
+  prose <<~PROSE, section: :perception, heading: "The Answering Trace"
+    Observation travels both ways. A person at the far end sees the bearer in polished metal. A machine records the bearer's pulse as an unauthorized return. Resonance-sensitive creatures turn toward the watcher, and another reader can enter the same trace and follow it back. A long search removes awareness from the room around the bearer; a system-spanning observation can expose everyone standing near them to the observed place.
 
-    Succession begins when a bearer chooses to stop looking. They must name the unfinished evidence and give it to another person without telling that person what conclusion to reach. The mantle has refused heirs asked merely to confirm an answer their predecessor already wanted.
+    Tessellan copies place the Far Witness on the open signal path between Form and Will: an event occurred, and someone chooses to follow what it left behind. A claimant qualifies by making dangerous evidence public together with the part that implicates them. Succession begins when the bearer closes their own perception and entrusts an unfinished trace to another witness without supplying its conclusion.
   PROSE
 
-  gm_note :complicates, "The Far Witness can answer what happened somewhere inaccessible, but the observed adversary immediately gains a trace back to the witness and everyone standing near them."
+  gm_note :triggered_by, "When the group examines an object, body, place, or signal that participated in an event, the Far Witness can recover sensory evidence and follow any surviving consequence onward from it."
+  gm_note :complicates, "Distant observation is reciprocal: a person sees the bearer in reflection, a machine logs their pulse, and another resonance reader can follow the same trace back to the bearer and everyone nearby."
 end
 
 relate :rel_far_witness_resonates_triptych, :resonates_with, :far_witness, :the_tessellan_triptych

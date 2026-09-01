@@ -4,12 +4,10 @@ encyclopedia :loam_hearing do
   kind :ability
   subkind :innate_sensitivity
   status :complete
+  log "2026-08-31 — Removed the broad tier. Loam Hearing is an innate sensitivity, not a resonant spell."
   topics :ecology, :"ring-era", :training
   prevalence :uncommon
   appears_when all: { place: [:garden] }
-
-  tier :broad, effect: "Feel the loam's condition pulses — root damage, rot, dry veins — as distinct beats through bare fingertips laid in the medium",
-       cost: "The reading takes stillness and bare skin in the bed — a long row is a morning on the knees, and the fingertips carry a numb buzz for hours after a full survey"
 
   descriptive_identity(
     signs: "The hearer kneels and lays both bare hands flat in the bed, fingers " \

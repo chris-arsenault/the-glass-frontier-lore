@@ -1,9 +1,10 @@
 encyclopedia :crowncut_spark_bloom do
-  name "Crowncut Spark Bloom"
-  summary "A crowncut spark bloom is a scrap-bed growth cycle in which warm-rooted colonies rise from elven alloy, ripen over a working season, and release drifting metallic spores when cutting crews approach — seeding the next bed from the disturbance of harvesting this one. Yard law treats a bloom as a crop, and the cutters time their work like a harvest."
+  name "The Tithe"
+  summary "The Tithe is a scrap-bed growth cycle in which warm-rooted colonies rise from elven alloy, ripen over a working season, and release drifting metallic spores when cutting crews approach — seeding the next bed from the disturbance of harvesting this one. Yard law treats each bloom as a crop, and the cutters time their work like a harvest."
   kind :phenomenon
   subkind :ecological_phenomenon
   status :complete
+  log "2026-08-31 — Renamed Crowncut Spark Bloom to The Tithe; yard law's recurring harvest obligation gives the cycle an idiomatic name instead of a stacked descriptive compound."
   topics :ecology, :salvage, :materials, :"ring-era"
   prevalence :uncommon
   appears_when all: { place: [:yard, :debris_field] }
@@ -25,7 +26,7 @@ encyclopedia :crowncut_spark_bloom do
   )
 
   prose <<~PROSE
-    Elven alloy repairs itself — slowly, blindly, by seed layers worked into the metal — and in the warm scrap beds of the crowncut yards the seed layers have found their way to open air. A spark bloom begins as bright filament breaking the scrap line like frost on a sill: the bed's alloy, drawn up out of slag-grade tangle into fine branching growths that ripen over a working season to wrist height, warmest at the root, and worth hand-salvage assay at the tip. What the yards took a generation to accept is the trigger. A ripe bloom releases its spores under the vibration signature of approaching cutters — the drifting metal glitter rides the wind to the next warm bed and roots there — so the act of harvesting a bloom sows the following one, and the beds a yard works hardest bloom best. #{ref :lot_forty, "Lot Forty"}, whose cutters gave the cycle its first documented seasons, wrote the arithmetic into yard law: a bloom is a crop.
+    Elven alloy repairs itself — slowly, blindly, by seed layers worked into the metal — and in the warm scrap beds of the crowncut yards the seed layers have found their way to open air. The Tithe begins as bright filament breaking the scrap line like frost on a sill: the bed's alloy, drawn up out of slag-grade tangle into fine branching growths that ripen over a working season to wrist height, warmest at the root, and worth hand-salvage assay at the tip. What the yards took a generation to accept is the trigger. A ripe bloom releases its spores under the vibration signature of approaching cutters — the drifting metal glitter rides the wind to the next warm bed and roots there — so the act of harvesting a bloom sows the following one, and the beds a yard works hardest bloom best. #{ref :lot_forty, "Lot Forty"}, whose cutters gave the cycle its first documented seasons, wrote the arithmetic into yard law: a bloom is a crop.
 
     The harvest practice reads like farming conducted in respirators. Beds are walked and graded through the season; ripe beds are worked on calm mornings, crews masked and machines sheeted, because spore drift silvers felts, bearings, and lungs in that order of expense; and the cut filament goes to assay as reclaimed elven alloy — the bed refining itself upward into reach, a tithe of good metal rising annually out of ground already picked twice. The seeding wind is the season's strategy. Yards angle their heavy cutting so the release drifts across their own holdings, neighboring yards dispute bloom drift the way farm districts dispute water, and the crowncut registries carry a page of settled precedent on the question of whose crop a bloom is when one yard's cutters sprang another yard's bed.
   PROSE

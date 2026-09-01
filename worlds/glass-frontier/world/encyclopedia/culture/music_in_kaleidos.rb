@@ -1,9 +1,10 @@
 encyclopedia :music_in_kaleidos do
-  name "Music in Kaleidos"
-  summary "Music in Kaleidos is a public language of work, memory, authority, and resonance practiced across settlements, ships, workshops, and ring habitats. Its working forms descend from the intact ring's operating calls, and answering a phrase correctly is a form of standing."
+  name "The Answering Phrase"
+  summary "The Answering Phrase is a public language of work, memory, authority, and resonance practiced across settlements, ships, workshops, and ring habitats. Its working forms descend from the intact ring's operating calls, and answering a phrase correctly is a form of standing."
   kind :culture
   subkind :expressive_tradition
   status :complete
+  log "2026-08-31 — Renamed Music in Kaleidos to The Answering Phrase; the name comes from the response that proves a shared working form."
   topics :music, :resonance, :governance, :archives, :training
   prevalence :common
   available_globally

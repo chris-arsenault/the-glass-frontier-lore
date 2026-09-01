@@ -1,33 +1,41 @@
 ability :waybearer do
   name "The Waybearer"
-  summary "The Waybearer is a mantle of the Three that opens a traversable road between two genuinely known places anywhere in the Kaleidos system."
+  summary "The Waybearer is a mantle of the Three that extends Waybearing into a traversable road for fleets or populations between genuinely known places anywhere in Kaleidos."
   type_of :passage
   subkind :the_three
   status :complete
   tags :resonance, :religion, :navigation, :transport
   prominence :recognized
-  qualification "Answers a traveler who can be guided home by another person's knowledge rather than their own certainty"
-  succession "Passes when a bearer holds an impossible road for a successor and remains behind to face what follows"
-  cost "An apex road cannot close while a pursuer remains upon it, and the bearer must stay able to perceive both ends until the pursuit resolves"
+  qualification "Answers a traveler who has opened a way to a place they did not know by trusting another person's lived memory or belonging"
+  succession "Passes when the bearer yields an open road and its destination to a qualified successor, then remains at the other end until every pursuit on the road resolves"
+  cost "The road remains open while anyone is upon it, and the bearer must keep both ends in perception until the last traveler or pursuer reaches one side"
 
   descriptive_identity(
-    signs: "An ordinary opening shows the weather and light of a distant place, and the bearer stands where both ends can see them.",
-    effect: "The bearer can use #{encyclopedia_ref :passage, "Passage"} to carry armies, fleets, and whole populations between genuinely known destinations.",
-    limits: "A destination needs lived memory, a trustworthy live signal, or a traveler who belongs there; the open road carries enemies and hazards as readily as allies."
+    signs: "An ordinary opening shows the weather and light of a distant place, air moves through it, and the bearer is visible at both ends at once.",
+    effect: "The mantle extends #{encyclopedia_ref :passage, "waybearing"} from one fixed threshold to a system-wide road for armies, fleets, or whole populations.",
+    limits: "A destination requires lived memory, a trustworthy live signal, or a traveler who belongs there. The road joins both environments and remains open while anyone is upon it."
   )
 
+  question "Who is the present or most recently attested Waybearer, and what occupied road did the former bearer yield to them?", raised: "2026-08-31"
+
   prose <<~PROSE
-    The Waybearer makes a road where no route exists. A hangar door can open onto a harbor across the system. A step from a collapsing habitat can land on ground remembered by one evacuee. Fleets can cross the same opening with their momentum intact. Everything between the two places remains untouched because nothing using the road travels through it.
+    The Waybearer makes distant places adjacent on a scale ordinary #{encyclopedia_ref :passage, "waybearing"} cannot sustain. A hangar can open onto a remote vessel, a freight court onto another world, or an embarkation ground onto a settlement held in one passenger's memory. Fleets and populations cross the same road anywhere in Kaleidos, carrying momentum and cargo intact.
 
-    Tessellan diagrams draw the mantle as a bright stroke between the gold and red panels. Signal is the path by which Form becomes Will and Will finds Form; the Waybearer makes that path wide enough for bodies and vessels. The destination must be known from life, living signal, or belonging. Accurate coordinates without encounter have never opened a road.
+    The intervening distance remains untouched because travelers never enter it. Both ends occupy one threshold for as long as the road holds: light and sound cross before the first traveler, air and loose matter follow, and the bearer stands visible from each side. The road stays open behind the intended traffic while anyone remains upon it.
   PROSE
-  prose <<~PROSE, section: :dangers, heading: "The Last Pursuer"
-    The road has no favored direction. Air, radiation, weapons, debris, and enemies can follow. Once a pursuer enters an apex road, the bearer cannot close it until that pursuer reaches an end, turns back, or is removed from the path. A rescue from a besieged city can therefore place its besiegers inside the refuge.
+  prose <<~PROSE, section: :operations, heading: "Making an Address"
+    Coordinates locate a point for instruments; they do not give the mantle an address. A lived memory carries the worn step at a door, the light from its window, and the surrounding rooms. A trustworthy live signal carries present weather, motion, and enough local response to distinguish one deck from another. A traveler who belongs somewhere can supply the anchor through habits and relationships even when the Waybearer has never seen the place.
 
-    The mantle passes through that danger. One bearer holds the road while a successor crosses, then remains at the other end to deal with the pursuit. The act need not be fatal. It must be genuine: the old bearer surrenders both the road and the choice of destination.
+    The qualification rests on that last kind of journey. A candidate must have trusted another person's knowledge strongly enough to open a way home to a place the candidate did not know. Mistaken or incomplete knowledge produces a real destination: the last place that satisfies the memory or signal as the bearer actually received it. Before moving a vessel, crews compare the anchor against current traffic, pressure, and motion at both ends.
+  PROSE
+  prose <<~PROSE, section: :dangers, heading: "The Occupied Road"
+    A road joins conditions as well as places. Pressure, radiation, fire, weapons, debris, and enemies can cross from either end. Momentum also survives the passage; a vessel opening onto a storm receives the storm's motion immediately. Once anyone enters the road, the bearer must keep both ends in perception and cannot close it until every traveler or pursuer reaches one side, turns back, or is removed from the road.
+
+    Tessellan diagrams draw the mantle as a bright signal stroke between the gold and red panels: the path by which Form reaches Will and Will finds Form, widened until bodies and vessels can use it. Succession occurs when the bearer yields an occupied road and its destination to a qualified successor, then remains at the other end until the pursuit has resolved.
   PROSE
 
-  gm_note :triggered_by, "An extraction across impossible distance succeeds immediately, then the scene turns to whatever entered the road behind the last intended traveler."
+  gm_note :triggered_by, "When the group can supply lived memory, a trustworthy live signal, or someone who belongs at the destination, the Waybearer can make it adjacent; an incomplete anchor opens the last real place that satisfies it."
+  gm_note :complicates, "While a road remains open, pressure, weather, momentum, weapons, debris, and pursuers cross in either direction, and the road cannot close until every occupant reaches one end or leaves the path."
 end
 
 relate :rel_waybearer_resonates_triptych, :resonates_with, :waybearer, :the_tessellan_triptych

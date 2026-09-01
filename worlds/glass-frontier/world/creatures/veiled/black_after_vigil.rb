@@ -1,6 +1,6 @@
 creature :black_after_vigil do
   name "Black-After-Vigil"
-  summary "Black-After-Vigil is a named breach-lichen colony spread between Vigil Breach and the Sable Crescent."
+  summary "Black-After-Vigil is a named resonance-lichen colony spread between Vigil Breach and the Sable Crescent."
   subkind :creature
   status :complete
   prominence :marginal

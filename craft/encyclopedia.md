@@ -98,10 +98,11 @@ is understood, and its summary supplies an ordinary gloss.
 Read the loaded kind description with `schema reference-kind ability`; the DSL
 is the authority for its entry boundary. `ability` holds both extraordinary
 effects and trained techniques, because from a player's side both answer the
-same question. Extraordinary entries use the ordered power tiers the world
-declares on the kind; trained ones declare none. A complete entry that declares
-a tier gives that tier both an effect and a cost. It need not appear at every
-tier. Separate the two with classifications rather than with a second kind.
+same question. A world may identify the classifications that count as spells
+and declare its in-world spell tiers. Each spell then declares exactly one tier.
+The tier classifies the spell; it is not a progression of stronger versions.
+Other ability classifications declare no tier. Separate the two with
+classifications rather than with a second kind.
 
 A named act, writ, decree, standing order, or local codification remains an
 Atlas edict. Its exact command stays on that named Atlas subject. `type_of`
@@ -113,14 +114,19 @@ Encyclopedia article.
 
 ```ruby
 extend_encyclopedia_kind :ability do
-  tier :broad, rank: 1, description: "Lowest effect and cost."
-  tier :apex, rank: 4, description: "Highest effect and lasting cost."
+  classifications :spell, :technique
+  tiered_classifications :spell
+  tier :broad, rank: 1, description: "Wide-band spellwork."
+  tier :narrow, rank: 2, description: "Tightly concentrated spellwork."
 end
 
 encyclopedia :signal_folding do
   kind :ability
-  subkind :resonant_effect
-  tier :broad, effect: "Carry a warning across one broken relay.", cost: "A short headache."
+  subkind :spell
+  tier :broad
+  effect "Carry a warning across one broken relay."
+  limits "The warning must fit the line's measured word count."
+  consequence "The folder is exhausted for several hours."
 end
 ```
 
@@ -174,24 +180,25 @@ culture, or other Encyclopedia subject. Do not make a pseudo-tag such as
 
 ## Complete entries
 
-A complete entry contains:
+A complete non-spell entry contains:
 
 - at least two concrete signs that it is present;
 - at least one thing people can do with, learn from, or exploit;
-- at least one cost, failure mode, tension, or changing condition;
 - at least two distinct variations;
 - canonical prose;
 - global availability or at least one non-empty contextual selector;
 - only registered topics and context tags.
 
-A complete `ability` that declares a world-defined tier gives that tier a
-non-empty effect and cost. Draft abilities may omit the cost while the
-consequence remains unsettled. A trained technique declares no tier and is
-complete without one.
+A complete spell declares exactly one world-defined tier and gives the spell a
+non-empty effect, limits, and consequence. These replace the generic cue,
+affordance, and variation minimums: write any of those only when they add
+information. A trained technique or innate sensitivity declares no spell tier.
 
-The signs are observations, not summaries. The affordance gives action. The
-pressure changes or complicates that action. Variations prevent every instance
-from appearing in the same form.
+The signs are observations, not summaries. The affordance gives action.
+Variations prevent every instance from appearing in the same form. A pressure
+is optional. Use one when a recurring cost, consequence, tension, or changing
+condition materially helps someone use the subject; do not invent a failure
+mode merely to complete the entry.
 
 Define the subject by its positive traits. State what a thing does, has, and
 causes; a sentence built on what it lacks, what nobody does, or what it is
@@ -200,9 +207,9 @@ places where it carries real content: an in-world rule people actually follow,
 and a measurement an instrument or survey actually returned.
 
 Culture entries must describe several forms or internal variations. Write
-practices, institutions, material life, and pressures. Do not assign a fixed
-personality to members, infer an individual's behavior from membership, or put
-the agency of a government or community on a culture entry.
+practices, institutions, material life, and internal differences. Do not assign
+a fixed personality to members, infer an individual's behavior from membership,
+or put the agency of a government or community on a culture entry.
 
 ## Namespace and audience
 

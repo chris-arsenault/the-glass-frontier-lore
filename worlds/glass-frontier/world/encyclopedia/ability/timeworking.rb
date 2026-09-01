@@ -1,47 +1,34 @@
 encyclopedia :timeworking do
-  name "Timeworking"
-  summary "Timeworking changes the rate and order of physical events by taking duration from one process and assigning it elsewhere."
+  name "Hourtaking"
+  summary "Hourtaking changes the rate and order of physical events by taking duration from one process and assigning it elsewhere."
   kind :ability
   subkind :resonant_effect
   status :complete
+  log "2026-08-31 — Renamed Timeworking to Hourtaking; the practice now shares its defining act with the Thief of Hours mantle instead of using a generic fantasy working compound."
+  log "2026-08-31 — Kept Hourtaking as the focused transfer of an interval between two present processes. Stay became the broad hold on one small process because it supplies no second recipient or action; city-scale suspension remains mantle work."
   topics :resonance, :danger, :"kinetic-freq", :cosmology
   prevalence :rare
   available_globally
 
-  tier :broad,
-       effect: "Slow or hasten one hand-sized process for several breaths by moving its unused duration into the user",
-       cost: "The user ages by the interval removed from the process"
-  tier :focused,
-       effect: "Take several moments from one creature, projectile, or mechanism and spend them on another immediate action",
-       cost: "The user ages by days and temporarily loses the sequence of events around the transfer"
-  tier :narrow,
-       effect: "Suspend, accelerate, or repeat the physical course of a room, vessel section, or battle line for several minutes",
-       cost: "The user ages by years and retains injuries from every repeated course"
-  tier :apex,
-       effect: "Steal hours from an army, city, or catastrophe and act freely while everything chosen remains between moments",
-       cost: "The stolen interval passes through the bearer as lived age and cannot be restored to them"
+  tier :focused
+  effect "Take several moments from one present creature, projectile, mechanism, or physical process and assign that interval to one other immediate action"
+  limits "The spell transfers only present physical duration, cannot revisit a completed event, and holds one source and one recipient within the practitioner's perception"
+  consequence "Every transferred moment passes through the practitioner's body as lived age, fatigue, healing, hunger, and injury even when the mind retains only fragments of the interval"
 
   descriptive_identity(
-    signs: "Clocks disagree with bodies, moving objects leave several positions visible at once, and the user acquires age without an intervening life.",
-    effect: "Timeworking reallocates duration among present physical processes, slowing one course so another can happen sooner or more often.",
-    limits: "It does not reveal or rewrite a completed past, create duration without a source, or spare the user the age carried by stolen time."
+    signs: "Clocks disagree with bodies, a moving subject hangs between positions, and the practitioner acquires age without an intervening life."
   )
 
-  cue "A moving subject hangs between positions while the user completes actions in the missing interval."
-  cue "The user emerges visibly older, carrying dust, wounds, or exhaustion from duration that passed only through the working."
-  affordance "Timeworking can stop a projectile, outrun a collapse, complete a rescue before fire advances, or hold an enemy force still while allies reposition."
-  pressure "The user lives every stolen interval in their body even when their mind retains only fragments of what occurred."
-  variation "Fine work transfers fractions of a second among mechanisms, wounds, chemical reactions, and moving hands."
-  variation "Large work creates a still interval in which the user and selected companions move while the surrounding event waits."
-
   prose <<~PROSE
-    Timeworking moves duration rather than traveling through history. A falling blade can be denied its next second while a defender spends that second stepping aside. A spreading fire can be held at the edge of a room while a rescue proceeds in the time taken from it. A failing mechanism can be given the quiet hours it needs to cool, provided those hours pass through someone else.
+    Hourtaking moves a short interval rather than traveling through history. A falling blade can be denied its next moments while a defender spends them stepping aside. A mechanism can be slowed while a hand receives enough time to reach its cutoff. One casting names one source and one immediate recipient; the practitioner keeps both in perception until the interval is spent.
 
-    The transfer remains physical. Hunger, healing, corrosion, thought, motion, and age all proceed according to the time a subject receives. A suspended casualty does not bleed, but neither do medicines reach the wound. A repeated action repeats its strain. The ability cannot return to a completed event and choose another result.
+    The transfer remains physical. Hunger, healing, corrosion, thought, motion, and age all proceed according to the time a subject receives. A suspended casualty does not bleed, but neither do medicines reach the wound. Hourtaking cannot return to a completed event, repeat it, or choose another result.
   PROSE
   prose <<~PROSE, section: :dangers, heading: "Stolen Hours"
-    The user receives the age of every interval taken. Small workings add minutes that appear as fatigue and thirst. Greater transfers add visible years. The body has lived them even when the mind was occupied for only a few breaths, and no later timeworking can remove that history without placing it in another living subject.
+    The practitioner receives the age of every interval transferred. The body lives those moments as fatigue, thirst, healing, and the progress of any injury even when the mind was occupied for only a few breaths. No later hourtaking can remove that history without making a new transfer through another living subject.
 
-    #{ref :thief_of_hours, "The Thief of Hours"} can hold a city, an army, or a catastrophe between moments while the bearer acts. The title is exact: the mantle does not stop time without price. It steals the interval into one life, and that life emerges older by everything the world was denied.
+    #{ref :thief_of_hours, "The Thief of Hours"} can hold a city, army, or catastrophe between moments while its bearer acts, exacting the whole denied interval from one life.
+
+    #{encyclopedia_ref :stay, "Stay"} denies several breaths to one small process and sends that duration only through the practitioner. It holds rather than reallocates; no other action receives the missing time.
   PROSE
 end

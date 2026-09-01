@@ -1,12 +1,14 @@
 encyclopedia :rattle_tally_dust do
-  name "Rattle Tally Dust"
+  name "Tally Dust"
   kind :resource
   subkind :data
   status :complete
+  log "2026-08-31 — Renamed Rattle Tally Dust to Tally; the freight medium's original bookkeeping office supplies a concise shifted meaning instead of a three-part material description."
+  log "2026-08-31 — Renamed Tally to Tally Dust. The bare title collided with the named ship Tally; freight culture already uses tally for attestations, bowls, route records, and that ship, while dust identifies this medium within the family."
   topics :trade, :"ring-era", :archives, :mystery
   prevalence :uncommon
   appears_when any: { place: [:dock, :market] }
-  summary "Rattle tally dust is a fine metallic dust, harvested from the holds of two ring-era freight installations, that settles into legible figures: the last registered weight of any container opened above it. On the standing ring it was the cargo system's own bookkeeping medium; scattered, it is a scarce instrument that dockside trade prizes and dockside fraud studies."
+  summary "Tally dust is a fine metallic medium, harvested from the holds of two ring-era freight installations, that settles into legible figures: the last registered weight of any container opened above it. On the standing ring it was the cargo system's own bookkeeping medium; scattered, it is a scarce instrument that dockside trade prizes and dockside fraud studies."
   function "Weight attestation — a pan of dust under an opened container settles into the container's last registered weight, in elven figures, readable by anyone with the conversion card"
   grades "Graded by settling speed and figure sharpness — Bay Thirty-One dust settles crisp in a breath and grades highest; Exchange C dust runs slower and softer; mixed or exhausted dust settles smudged and is sold down as curiosity"
   availability "Harvested under registry license from the two source holds, sold by the sealed pan through the dock assay houses; a working pan serves for years before its figures soften"
@@ -14,7 +16,7 @@ encyclopedia :rattle_tally_dust do
   descriptive_identity(
     appearance: "A fine gray-bright metallic dust, kept in shallow sealed pans; at " \
                 "rest it lies featureless, and under an opened container it stirs — " \
-                "the rattle the name records — and settles into raised elven " \
+                "with a dry rattle and settles into raised elven " \
                 "figures like frost forming numerals.",
     working: "The pan goes under the container, the lid comes off the container " \
              "above it, the dust rattles and settles into the last registered " \

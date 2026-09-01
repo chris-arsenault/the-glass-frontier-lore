@@ -5,6 +5,7 @@ encyclopedia :naming_conventions do
   subkind :expressive_tradition
   status :complete
   reviewed "2026-03-18"
+  log "2026-08-31 — Kept Names in Kaleidos as a descriptive cross-cultural title; no single culture or shared institution owns a system-wide term for all of these traditions."
   topics :"social-structure"
   prevalence :common
   available_globally

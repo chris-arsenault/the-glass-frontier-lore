@@ -83,6 +83,7 @@ Every content/query command selects one world through `--world ID`,
 | match reusable material to context | `reference match` | applicable entries with matching selector terms |
 | inspect the live ontology | `schema kind NAME` / `schema relation NAME` | allowed facts and edges |
 | read authoritative guidance | `guide list` / `guide NAME` | one current craft or world Markdown source |
+| read the world's naming vocabulary | `lexicon` | productive words, name patterns, and known dead ends |
 | choose work | `queue [ID]` | global or entry-scoped questions and findings |
 | read one resolved entry | `page ID` | reader-shaped Markdown on stdout |
 | read one accepted chronicle | `chronicle ID` | complete text, notes, media, and source links |
@@ -276,10 +277,14 @@ not follow any classification or reference.
 `character_role :species` and `character_role :culture` make complete entries
 available to character-origin selectors and require an `origin_blurb`.
 
-Completed entries require two cues, one affordance, one pressure, two
-variations, prose, and an availability declaration. Topics use the ordinary
-world tag registry for subject classification. Atlas entities use the separate
-`context_tags` field for properties that selectors may match:
+Completed non-spell entries require two cues, one affordance, two variations,
+prose, and an availability declaration. A complete spell instead requires
+exactly one tier from its world's spell lexicon and non-empty `effect`, `limits`,
+and `consequence` fields. Cues, affordances, and variations are optional for a
+spell and should appear only when they add information. A pressure is optional
+for every entry. Topics use the ordinary world tag registry for subject
+classification. Atlas entities use the separate `context_tags` field for
+properties that selectors may match:
 
 ```ruby
 schema do
@@ -384,6 +389,44 @@ the ordinary facts and prose for that entity. Keep any location relationships
 that remain true. A game or other consumer can therefore retain the stable id
 when later work replaces the one-sentence entry; no parallel placeholder or
 identifier migration is needed.
+
+## Naming lexicon
+
+A world may declare one editorial naming vocabulary at the top level of its
+DSL. It is loaded with the world and queried with `lexicon`; it does not render
+as lore and does not generate names. Every query identifies the declaration as
+an open vocabulary rather than a list of permitted words.
+
+```ruby
+naming_lexicon do
+  note "Names should reinforce a vocabulary unique to this world."
+  extension "Add a word when a recurring subject needs language this vocabulary cannot supply."
+  word :resonance,
+       meaning: "The ambient force shaped by the world's technology.",
+       use: "A productive root for effects, instruments, and practices.",
+       examples: ["Resonance Cascade", "resonant instruments"],
+       boundary: "Not a prefix for unrelated technology."
+  pattern :capital_names,
+          "Personal and family names share the morphology established in canon.",
+          examples: ["Senna Korvanis", "Aven Talindra"],
+          boundary: "Applies to names formed in the capital's culture."
+  avoid "Do not join a thematic modifier to a generic animal or device."
+end
+```
+
+`note` states a world-wide naming rule. Every block must include at least one
+`extension` explaining when that world adds vocabulary. `word` records the
+setting meaning and the circumstances in which the word can productively name
+related subjects. `pattern` records a culture or institution's morphology.
+Words and patterns require demonstrated `examples` and a `boundary` that keeps
+authors from stretching them across unrelated subjects. `avoid` records a
+specific dead end. Names and patterns are unique within the declaration, and a
+world may declare only one block.
+
+Extend the declaration in the same change as the first canonical uses. A lone
+proper name need not become a root. Facts about how people inside the world
+speak or derive names belong in the relevant Encyclopedia entry as well as this
+editorial vocabulary.
 
 ## Facts and schema
 

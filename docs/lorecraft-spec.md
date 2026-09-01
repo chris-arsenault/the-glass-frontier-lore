@@ -247,10 +247,12 @@ identity keys. These declarations apply at the kind level to every authored
 subkind. A world adds setting-specific declarations with
 `extend_encyclopedia_kind`; there is no Encyclopedia subkind schema.
 
-An ability kind may declare ordered tiers with `tier NAME, rank: INTEGER`. An
-ability entry uses `tier NAME, effect: TEXT, cost: TEXT`. Every non-shell
-ability declares at least one tier. Complete abilities require both effect and
-cost; drafts may leave cost unsettled.
+An ability kind may declare in-world tiers with `tier NAME, rank: INTEGER` and
+identify the spell classifications with `tiered_classifications`. An entry in
+one of those classifications uses `tier NAME` exactly once. The tier classifies
+the spell; it does not contain another effect or create a progression. Complete
+spells require spell-level `effect`, `limits`, and `consequence` fields. Other
+ability classifications declare no tier.
 
 ```ruby
 encyclopedia :marn do
@@ -291,8 +293,11 @@ Prevalence is required and is `common`, `uncommon`, or `rare`. It measures
 frequency when the entry is applicable. Atlas prominence measures awareness of
 a particular named entity and does not appear on Encyclopedia entries.
 
-A complete entry requires two cues, one affordance, one pressure, two
-variations, prose, and valid availability. It has no custom facts, GM notes,
+A complete non-spell entry requires two cues, one affordance, two variations,
+prose, and valid availability. A complete spell instead requires exactly one
+tier declared by its world and non-empty `effect`, `limits`, and `consequence`
+fields; its cues, affordances, and variations are optional. A pressure is
+optional for every entry. An Encyclopedia entry has no custom facts, GM notes,
 placement, temporal state, or ordinary Atlas relationships. It may carry typed
 kind fields, descriptive identity, editorial logs and questions, and a
 `character_role` of `species` or `culture` with an `origin_blurb`. Whole entries
@@ -320,6 +325,45 @@ a particular entity's description.
 Atlas entities declare `context_tags`. A world may require every entity in one
 playable role to have at least one with
 `require_context_tags! for_playable: :chronicle_location`.
+
+## 2B. Naming lexicon
+
+A world may declare one top-level editorial vocabulary for naming. The block is
+part of the loaded `World`, but it is not reader-facing canon and does not enter
+the Atlas or Encyclopedia. Lorecraft treats every naming lexicon as open: it is
+the vocabulary established so far, not a list of permitted words.
+
+```ruby
+naming_lexicon do
+  note "Names should reinforce a vocabulary unique to this world."
+  extension "Add a word when a recurring subject needs language this vocabulary cannot supply."
+  word :resonance,
+       meaning: "The ambient force shaped by the world's technology.",
+       use: "A productive root for effects, instruments, and practices.",
+       examples: ["Resonance Cascade", "resonant instruments"],
+       boundary: "Not a prefix for unrelated technology."
+  pattern :capital_names,
+          "Personal and family names share the morphology established in canon.",
+          examples: ["Senna Korvanis", "Aven Talindra"],
+          boundary: "Applies to names formed in the capital's culture."
+  avoid "Do not join a thematic modifier to a generic animal or device."
+end
+```
+
+The block accepts any number of `note`, `extension`, `word`, `pattern`, and
+`avoid` declarations, but it must contain at least one declaration and at least
+one extension rule. A `word` requires a unique name, non-empty `meaning` and
+naming `use`, one or more non-empty examples, and a non-empty boundary. A
+`pattern` requires a unique name, a non-empty note, one or more non-empty
+examples, and a non-empty boundary. A second block, duplicate word, duplicate
+pattern, missing extension rule, missing examples, or blank value raises
+`DefinitionError` during load.
+
+`World#naming_lexicon` exposes the declaration. `lexicon --format text|json`
+always reports that the vocabulary is open, followed by the same ordered notes,
+extension rules, words, patterns, warnings, and source location. Each word and
+pattern includes its examples and boundary. The engine does not infer names or
+lint titles from this guidance.
 
 ## 3. Timeline
 
@@ -740,6 +784,7 @@ wiki or the whole graph:
 | match reusable material to context | `reference match --context SCOPE=TAG --encyclopedia SCOPE=ID` |
 | list Atlas instances of a reusable type | `reference page ID` |
 | read current instructions | `guide list` / `guide NAME` |
+| read the world's naming vocabulary | `lexicon` |
 | inspect allowed types and values | `schema kinds` / `schema kind NAME` / `schema relations` / `schema relation NAME` / `schema frames` / `schema frame NAME` / `schema tags` / `schema sections` |
 | read one reader-shaped entry | `page ID` |
 | read one accepted chronicle | `chronicle ID` |

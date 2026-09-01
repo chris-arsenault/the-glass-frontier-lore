@@ -1,12 +1,13 @@
 encyclopedia :fold_spider do
-  name "Fold Spider"
+  name "Shearweaver"
   kind :lifeform
   subkind :anomaly
   status :complete
+  log "2026-08-31 — Renamed Fold Spider to Shearweaver; the established shear root places the animal in the debris culture that charts its webs, while weaver names the behavior that makes it useful there."
   topics :ecology, :"fluid-reality", :danger, :mystery
   prevalence :rare
   appears_when all: { place: [:debris_field] }
-  summary "Fold spiders are pale Deep Shear weavers that anchor their silk through distortion pockets where distance disagrees with itself. They repair storm-torn webs, haul their catch along shortcuts through the folds, and answer disturbance from anchors a crew's instruments place somewhere else."
+  summary "Shearweavers are pale Deep Shear animals that anchor their silk through distortion pockets where distance disagrees with itself. They repair storm-torn webs, haul their catch along shortcuts through the folds, and answer disturbance from anchors a crew's instruments place somewhere else."
   origin "Documented in the Deep Shear's distortion pockets; survey literature treats them as organisms native to the pockets' contradictory geometry"
   biology "A long-legged weaver that anchors silk through spatial folds; its webs span distances the surveys measure as both a hand's width and forty spans, and both measurements repeat"
   resonance_relation "Webs sit along the distortion gradients, and a web's tension readings map its pocket's folds more finely than instruments survey them"
@@ -30,7 +31,7 @@ encyclopedia :fold_spider do
   )
 
   prose <<~PROSE
-    Fold spiders live in the #{ref :deep_shear, "distortion pockets"} where distance gives two repeatable answers. Their silk anchors through the folds themselves: one strand may run from a wreck's rail to a point the eye puts a hand's width away and the rangefinder holds at forty spans. The pale, many-jointed weaver walks between those readings on its own line. It repairs storm-torn strands, hauls captured animals toward an anchor, and turns toward tension entering the web from beyond a crew's sight.
+    Shearweavers live in the #{ref :deep_shear, "distortion pockets"} where distance gives two repeatable answers. Their silk anchors through the folds themselves: one strand may run from a wreck's rail to a point the eye puts a hand's width away and the rangefinder holds at forty spans. The pale, many-jointed animal walks between those readings on its own line. It repairs storm-torn strands, hauls captured animals toward an anchor, and turns toward tension entering the web from beyond a crew's sight.
 
     Each web follows the grain of its pocket. Survey crews chart the strands the way pilots read kite lines, using their tension to map folds more finely than instruments manage alone. The survey literature remains divided over whether a spider finds an existing fold or makes one: both sets of measurements come from the same webs and repeat on later passes.
 
@@ -40,7 +41,7 @@ encyclopedia :fold_spider do
   cue "The silk strand runs taut from the wreck's rail to an anchor point the eye calls close and the rangefinder calls forty spans out, and both keep saying so."
   cue "The claim crew's chart marks the pocket's old webs in a different ink, and the day's route walks two of them like bridges."
   affordance "The tension of an established web maps a distortion pocket more finely than instruments alone, and charted old silk crosses in strides what the unfurled route measures in shifts."
-  pressure "A fold spider follows tension toward a disturbance from whichever anchor reaches it through the web; crews approach slowly, haul steadily, and leave prey caught on live silk in place."
+  pressure "A shearweaver follows tension toward a disturbance from whichever anchor reaches it through the web; crews approach slowly, haul steadily, and leave prey caught on live silk in place."
   variation "Outer Shear spiders build great pocket webs across distortions no crew otherwise crosses; fringe spiders fold a corridor's width and catch whatever enters it."
   variation "Live webs show fresh repairs and carry catch toward the spider's anchors; abandoned webs retain the same folds and become charted routes for claim crews."
 end

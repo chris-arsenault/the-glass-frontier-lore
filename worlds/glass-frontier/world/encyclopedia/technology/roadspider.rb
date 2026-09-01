@@ -1,16 +1,17 @@
 encyclopedia :roadspider do
-  name "Roadspider"
+  name "Spiders"
   kind :technology
   subkind :transport
   status :complete
+  log "2026-08-31 — Renamed Eight to Spiders. Avar Road People already use spider for the walking freight class in spider slings and spider convoys, and the named Blue Spider carries the same usage."
   topics :transport, :surface, :resonance, :trade
   prevalence :uncommon
   appears_when all: { place: [:surface, :unstable_route] }
-  summary "A roadspider is a walking freight carrier for ground that shifts: eight independently sprung legs read the footing through resonance-sensing feet, and the machine refuses bad ground by planting where the ground answers well. Crews follow good footing the way fleets follow a shoal."
+  summary "A spider is a walking freight carrier for ground that shifts: independently sprung legs read the footing through resonance-sensing feet, and the machine refuses bad ground by planting where the ground answers well. Crews follow good footing the way fleets follow a shoal."
   function "Carries freight across unstable, shifting, or glass-sheeted ground on eight resonance-sensing legs"
   classes "Avar route walkers with high cargo slings; Kyther slope walkers with short paired legs; the broad marsh pattern of the Sable Crescent"
   capacity "A route walker carries three heavy pallets and a crew of two; slope patterns trade cargo for reach"
-  operating_limit "Walks at a herd's pace and yields speed and capacity to wheeled haulers on stable roads"
+  operating_limit "Walks at a herd's pace and yields speed and capacity to wheeled carriers on stable roads"
 
   descriptive_identity(
     appearance: "A low slung hull between eight tall independently sprung legs, each ending in a " \
@@ -27,15 +28,15 @@ encyclopedia :roadspider do
   )
 
   prose <<~PROSE
-    Avar's roads move, the Kyther slopes shed scree, and the Sable marshes eat wheels whole. The roadspider is the freight answer: a low hull slung between eight tall legs, each ending in a broad ringglass-shod foot that sounds the ground it touches. The walker plants weight where the answer comes back solid and lifts away from ground that answers soft, and it does this leg by leg, continuously, at a herd's patient pace. The driver holds a heading and a schedule; the legs hold the argument with the terrain.
+    Avar's roads move, the Kyther slopes shed scree, and the Sable marshes eat wheels whole. The spider is the freight answer: a low hull slung between eight tall legs, each ending in a broad ringglass-shod foot that sounds the ground it touches. The walker plants weight where the answer comes back solid and lifts away from ground that answers soft, and it does this leg by leg, continuously, at a herd's patient pace. The driver holds a heading and a schedule; the legs hold the argument with the terrain.
 
     The craft of spider freight is route reading. Ground that answers well runs in veins — a shelf here, a compacted old roadbed there — and the veins shift with seasons, strikes, and the slow breathing of the glass sheets. Crews follow good footing the way fleets follow a shoal: a route that walked quiet last season gets walked first this season, graded by how much the legs argued, and the grades pass between crews as working currency. A quiet route is worth money; a route gone loud is news the next crew pays to hear.
   PROSE
 
   prose <<~PROSE, section: :operations, heading: "The Pole and the Void"
-    Each foot judges the surface it touches, and solid-sounding ground can bridge a hollow — a crusted sink, a roofed old cellar, or glass over a drained channel. Crews sound doubtful stretches ahead with a pole shoe, a walking staff shod in the same ringglass as a spider foot. Reading the pole is an apprentice's first route responsibility. Route-grade books mark confirmed voids and the safe lines around them.
+    Each foot judges the surface it touches, and solid-sounding ground can bridge a hollow — a crusted sink, a roofed old cellar, or glass over a drained channel. Crews sound doubtful stretches ahead with a pole shoe, a walking staff shod in the same ringglass as a spider's foot. Reading the pole is an apprentice's first route responsibility. Route-grade books mark confirmed voids and the safe lines around them.
 
-    Regional patterns diverge on the usual lines. Avar route walkers stand tall with high cargo slings for flood season. Kyther slope walkers run short paired legs and hug the grade. The Sable marsh pattern spreads its feet broad as serving trays and walks water-logged ground a person sinks in. All of them yield the road to wheels wherever ground holds still, and spider crews wave haulers past on the flats with professional serenity, because the flats end.
+    Regional patterns diverge on the usual lines. Avar route spiders stand tall with high cargo slings for flood season. Kyther slope spiders run short paired legs and hug the grade. The Sable marsh pattern spreads its feet broad as serving trays and walks water-logged ground a person sinks in. All of them yield the road to wheels wherever ground holds still, and spider crews wave wheeled carriers past on the flats with professional serenity, because the flats end.
   PROSE
 
   cue "Eight tall legs move in unhurried threes along the broken shelf, the hull riding level as a carried tray, while the driver reads a grade book instead of the ground."

@@ -1,47 +1,35 @@
 encyclopedia :revelation do
-  name "Revelation"
-  summary "Revelation perceives distant, hidden, or past events through the resonant traces left by what physically occurred."
+  name "Witnessing"
+  summary "Witnessing perceives distant, hidden, or past events through the resonant traces left by what physically occurred."
   kind :ability
   subkind :resonant_effect
   status :complete
+  log "2026-08-31 — Renamed Revelation to Witnessing; the name joins the ability to Kaleidos's practice of making an event answerable through surviving physical evidence."
+  log "2026-08-31 — Kept Witnessing as the narrow reconstruction of one event through its surviving consequences. Present observation through a distant person, object, or signal became Elsewhere because it uses a live anchor and answers the observer immediately."
+  log "2026-08-31 — Separated Echoing as the broad replay of one recent sensory fragment retained in a touched surface; Witnessing joins multiple consequences into an account of the event that produced them."
   topics :resonance, :"signal-freq", :archives, :mystery
   prevalence :rare
   available_globally
 
-  tier :broad,
-       effect: "Read the recent resonant trace of an event from an object or place that participated in it",
-       cost: "Temporary confusion between the user's senses and the trace being read"
-  tier :focused,
-       effect: "Observe a distant place through a known person, object, or signal that is physically present there",
-       cost: "The observed place receives a clear sensory sign that someone is looking"
-  tier :narrow,
-       effect: "Follow one true event backward through damaged records, moved evidence, and interrupted signals",
-       cost: "The user loses awareness of their own surroundings for the duration of the search"
-  tier :apex,
-       effect: "Witness a distant or historical event across the system wherever a surviving physical consequence still carries it",
-       cost: "Everyone and everything capable of perceiving resonance along the traced event can perceive the bearer in return"
+  tier :narrow
+  effect "Follow the surviving physical consequences of one event to receive a sensory account of what occurred"
+  limits "The practitioner must begin with an object, body, place, or signal that participated in the event; the spell yields sensation rather than intent or interpretation, cannot see a future, and ends where every consequence has been erased"
+  consequence "The practitioner loses awareness of their present surroundings while following the trace, and people, machines, or resonant presences encountered along it can perceive and follow the watcher in return"
 
   descriptive_identity(
-    signs: "Reflections face the wrong direction, old sounds return through present surfaces, and the observer's eyes answer light from another place.",
-    effect: "Revelation follows the physical consequences of a true event until they yield a sensory account of what occurred.",
-    limits: "It cannot read private intent, prove an interpretation, see an unrealized future, or recover an event whose every consequence has been erased."
+    signs: "Reflections face the wrong direction, old sounds return through present surfaces, and the practitioner's eyes answer light from another place."
   )
 
-  cue "A surface involved in the event repeats a fragment of light, pressure, or sound that no longer belongs to the room."
-  cue "People at a distant target feel watched and may see the observer standing in reflection or signal noise."
-  affordance "Revelation can reconstruct a crime, find a missing vessel, inspect a sealed chamber, or learn what struck before anyone entered the wreck."
-  pressure "Observation is reciprocal at useful range, exposing the user to the subject and to anything else following the same trace."
-  variation "Material readers recover events as pressure, heat, and stress moving through worked matter."
-  variation "Signal readers receive broken voices, images, and positional data through surviving transmissions and recording substrates."
-
   prose <<~PROSE
-    Revelation begins with a consequence. A scored bulkhead remembers the direction of the blow. A signal relay retains a voice beneath later traffic. Dust carries the path of the body that disturbed it, and a witness carries the change an encounter made in breath and pulse. The ability follows those consequences toward the event that joined them.
+    Witnessing begins with a consequence. A scored bulkhead remembers the direction of the blow. A signal relay retains a voice beneath later traffic. Dust carries the path of the body that disturbed it, and a witness carries the change an encounter made in breath and pulse. The ability follows those consequences toward the event that joined them.
 
-    What returns is sensory evidence rather than explanation. A revelator may see a hand place the charge and still lack the person's name. They may hear the words spoken in a chamber and remain unable to tell which speaker believed them. Intent leaves consequences only when it changes a body, an object, or a signal. Futures have no consequences to follow.
+    One casting follows one line of evidence and returns sensory material rather than explanation. A witnesser may see a hand place the charge and still lack the person's name. They may hear the words spoken in a chamber and remain unable to tell which speaker believed them. Intent leaves consequences only when it changes a body, object, or signal.
   PROSE
   prose <<~PROSE, section: :dangers, heading: "The Answering Gaze"
-    Revelation is reciprocal across distance. A person under observation may see an unfamiliar face in polished metal. A machine may log an impossible return signal. Resonance-sensitive creatures turn toward the observer as if the intervening space were absent. At narrow and apex use, other readers can enter the same trace and follow it back.
+    Witnessing is reciprocal. A person preserved in the trace may see an unfamiliar face in polished metal. A machine may log an impossible return signal in the recovered account. Another reader can enter the same trace and follow it back while the casting continues. #{encyclopedia_ref :elsewhere, "Elsewhere"} uses the same answering property to observe one distant place as it is now rather than reconstructing an event.
 
-    Revelation follows every surviving consequence. Destroying a recording leaves the heat and fragments of its destruction. Killing a witness leaves a body. Moving an object extends the event rather than ending it. Only complete erasure ends the trace. #{ref :far_witness, "The Far Witness"} can cross the system or descend through centuries of such consequences, but the mantle makes its bearer present to everything they choose to see.
+    Destroying a recording leaves the heat and fragments of its destruction. Killing a witness leaves a body. Moving an object extends the event rather than ending it. Only complete erasure ends the trace. #{ref :far_witness, "The Far Witness"} can cross the system or descend through centuries of connected consequences.
+
+    #{encyclopedia_ref :echoing, "Echoing"} reads one recent impression directly from one surface. It can recover the last impact on a hatch or the last voice carried through a console, but it does not connect that fragment to other evidence or identify the event around it.
   PROSE
 end

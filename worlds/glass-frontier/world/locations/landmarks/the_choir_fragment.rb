@@ -4,7 +4,7 @@ installation :the_choir_fragment do
   playable_as :chronicle_location
   context_tags :orbital, :debris_field, :damaged_signal, :ringglass_rich
   subkind :landmark
-  type_of :ring_age_site
+  culture :ring_age_site
   tags :orbital, :"ring-era", :resonance, :archives, :mystery, :salvage
   prominence :recognized
 

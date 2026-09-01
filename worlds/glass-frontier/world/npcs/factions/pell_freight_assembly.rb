@@ -56,7 +56,7 @@ faction :pell_freight_assembly do
     #{ref :daro_venn, "Daro Venn"} is the current senior factor. He came out of Ratter brokerage and still conducts meetings like a claim board: the hazard is named first, the price second, and the person accepting it speaks before anyone votes.
   PROSE
   prose <<~PROSE, section: :operations, heading: "Pell Work"
-    The Assembly's Deep Shear business is built around #{encyclopedia_ref :remote_cutting, "remote cutting"}. Member cutters work unstable seams; shared receiving yards sort the returns; heavy haulers take separated cargoes inward. The system reduces exposure and gives small crews access to processing capacity they could not finance alone.
+    The Assembly's Deep Shear business is built around #{encyclopedia_ref :remote_cutting, "Claim Coupling"}. Member coupling crews work unstable seams; shared receiving yards sort the returns; heavy haulers take separated cargoes inward. The system reduces exposure and gives small crews access to processing capacity they could not finance alone.
 
     Its weakness is coordination. Shared clocks keep berths and haulers moving, and pooled losses reward uniform procedure. At #{ref :pell_cut, "Pell Cut"}, the Assembly extended that discipline to four extraction arrays. The synchronized test triggered #{ref :pell_four, "Pell Four"}.
   PROSE

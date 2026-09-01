@@ -1,9 +1,10 @@
 encyclopedia :kyther_glass_rain do
-  name "Kyther Glass Rain"
-  summary "Kyther Glass Rain is the mountain storm of the crystal-strewn slopes: charged wind that lifts old splinters from the scree and drives them sideways in glittering sheets. The valleys build for it, the storm season is charted, and the shelters are marked because the storm finds the marks."
+  name "Kyther Scour"
+  summary "The Kyther Scour is the mountain storm of the crystal-strewn slopes: charged wind that lifts old splinters from the scree and drives them sideways in glittering sheets. The valleys build for it, the storm season is charted, and the shelters are marked because the storm finds the marks."
   kind :phenomenon
   subkind :catastrophe
   status :complete
+  log "2026-08-31 — Renamed Kyther Glass Rain to Kyther Scour; the regional name centers the storm's defining abrasion and avoids treating driven splinters as ordinary rain."
   topics :surface, :danger, :ringglass, :ecology
   prevalence :uncommon
   appears_when all: { place: [:surface, :ringglass_rich] }
@@ -25,7 +26,7 @@ encyclopedia :kyther_glass_rain do
   )
 
   prose <<~PROSE
-    The Kyther slopes wear the Glassfall's oldest debris — generations of splinters weathered into the scree — and the range's charged storm winds put it back in the air. Glass rain is the result: wind off the high slopes that lifts the splinter beds and drives them laterally in glittering, hissing sheets, scouring the windward face of everything standing and turning the air itself into an abrasive. The storms run the funnels — the same valley throats, season after season, tracked by the range's charge the way water tracks its beds — and the valleys have built against them for three hundred years of learned specificity: windowless windward walls, shutter tracks worn silk-smooth, the deep door porches that let a household receive a storm the way coastal houses receive weather.
+    The Kyther slopes wear the Glassfall's oldest debris — generations of splinters weathered into the scree — and the range's charged storm winds put it back in the air. The Kyther Scour is wind off the high slopes that lifts the splinter beds and drives them laterally in glittering, hissing sheets, scouring the windward face of everything standing and turning the air itself into an abrasive. The storms run the funnels — the same valley throats, season after season, tracked by the range's charge the way water tracks its beds — and the valleys have built against them for three hundred years of learned specificity: windowless windward walls, shutter tracks worn silk-smooth, the deep door porches that let a household receive a storm the way coastal houses receive weather.
 
     The scree whispers first, shifting on its beds as the charge rises; the slope's #{encyclopedia_ref :gleeds, "gleeds"} green in a line down the funnel; and the valley storm bells take up the interval ring that counts the front down. Travelers make for the stone shelters painted in the storm colors along every route. The paint requires renewal each spring because the same glass that makes the markers necessary abrades them from the windward side. After the blow, quarry crews read and stake the new deposition fans, while glaziers collect storm-frosted panes for the outside luxury trade.
   PROSE

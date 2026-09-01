@@ -13,6 +13,7 @@ require_relative "entity"
 require_relative "moment"
 require_relative "relation"
 require_relative "encyclopedia"
+require_relative "naming_lexicon"
 require_relative "spatial"
 require_relative "page"
 require_relative "definition_context"
@@ -25,7 +26,7 @@ module Lorecraft
   class World
     attr_reader :schema, :timeline, :entities, :moments, :relation_instances,
                 :authored_pages, :chronicles, :era_narratives, :event_records,
-                :spatial_frames, :encyclopedia_entries
+                :spatial_frames, :encyclopedia_entries, :naming_lexicon
 
     def initialize
       @schema = Schema.new
@@ -34,6 +35,7 @@ module Lorecraft
       @moments = {}
       @relation_instances = {}
       @encyclopedia_entries = {}
+      @naming_lexicon = nil
       @authored_pages = {}
       @chronicles = {}
       @era_narratives = {}
@@ -101,6 +103,15 @@ module Lorecraft
       @encyclopedia_entries[id] = EncyclopediaEntry.new(
         id: id, source_file: @current_file, source_line: source_line
       ).build(self, &block)
+    end
+
+    def define_naming_lexicon(source_line: nil, &block)
+      raise DefinitionError, "duplicate naming_lexicon declaration" if @naming_lexicon
+
+      @naming_lexicon = NamingLexicon.new(
+        source_file: @current_file,
+        source_line: source_line,
+      ).build(&block)
     end
 
     def define_moment(id:, at: nil, span: nil, of: nil, kind: :incident,

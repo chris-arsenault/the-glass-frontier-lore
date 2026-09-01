@@ -1,9 +1,10 @@
 encyclopedia :living_cargo_stewardship do
-  name "Living-Cargo Stewardship"
-  summary "Living-Cargo Stewardship is the body of cultivation and quarantine law that treats transported plants as shared inheritance and shared ecological risk. Its instruments are the second-habitat record, the receiving test, and the resonance passport that travels with every living load."
+  name "The Second Habitat"
+  summary "The Second Habitat is the body of cultivation and quarantine law that treats transported plants as shared inheritance and shared ecological risk. Its instruments are the second-habitat record, the receiving test, and the resonance passport that travels with every living load."
   kind :culture
   subkind :material_life
   status :complete
+  log "2026-08-31 — Renamed Living-Cargo Stewardship to The Second Habitat; the name treats every carried living load as a habitat extended beyond its source."
   topics :ecology, :trade, :rebuilding, :danger
   prevalence :common
   appears_when all: { place: [:garden] }

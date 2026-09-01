@@ -4,9 +4,9 @@ require_relative "markers"
 
 module Lorecraft
   # The object every world file is evaluated against. It exposes the top-level
-  # DSL — `schema`, `timeline`, the entity-kind constructors (`faction`,
-  # `location`, ...), `moment`, `genesis`, and `relate` — and forwards each to
-  # the World registry.
+  # DSL — `schema`, `timeline`, `naming_lexicon`, the entity-kind constructors
+  # (`faction`, `location`, ...), `moment`, `genesis`, and `relate` — and
+  # forwards each to the World registry.
   class DefinitionContext
     include Markers
 
@@ -21,7 +21,9 @@ module Lorecraft
       # on this context so they route through method_missing to define_entity.
       @world.schema.kinds.each_key do |kind|
         next unless self.class.method_defined?(kind) || self.class.private_method_defined?(kind)
-        next if %i[schema timeline genesis moment relate chronicle era_narrative event_record].include?(kind)
+        next if %i[
+          schema timeline naming_lexicon genesis moment relate chronicle era_narrative event_record
+        ].include?(kind)
 
         self.class.send(:undef_method, kind)
       end
@@ -29,6 +31,13 @@ module Lorecraft
 
     def timeline(&block)
       @world.timeline.instance_eval(&block)
+    end
+
+    def naming_lexicon(&block)
+      @world.define_naming_lexicon(
+        source_line: caller_locations(1, 1).first.lineno,
+        &block
+      )
     end
 
     # `genesis :id, year: N` (or `at:`) — bootstrap standing facts.

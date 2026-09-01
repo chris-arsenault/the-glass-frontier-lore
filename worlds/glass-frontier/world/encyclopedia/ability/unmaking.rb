@@ -1,47 +1,31 @@
 encyclopedia :unmaking do
   name "Unmaking"
-  summary "Unmaking destroys the coherence that lets an object, effect, body, or constructed system continue as one thing."
+  summary "Unmaking destroys the coherence that lets an object, body, or constructed system continue as one thing."
   kind :ability
   subkind :resonant_effect
   status :complete
+  log "2026-08-31 — Kept one focused-tier spell ending one person-sized physical subject. Unclosing became the broad interruption of an active broad-band working because it leaves the working's material coherence intact; city, army, and phenomenon-scale work remains the Unmaker mantle's reach."
   topics :resonance, :danger, :catastrophe, :"structural-freq"
   prevalence :rare
   available_globally
 
-  tier :broad,
-       effect: "Break the coherence of one hand-sized object or active resonant effect",
-       cost: "One of the user's senses goes dark until the remains stop moving"
-  tier :focused,
-       effect: "Unmake a person-sized target, weapon emplacement, barrier, or machine into inert constituent matter",
-       cost: "The user loses a sense or trained ability for several hours"
-  tier :narrow,
-       effect: "Collapse the coherent operation of a creature, vessel, structure, or distributed field",
-       cost: "One sense, memory faculty, or resonant band becomes permanently weaker"
-  tier :apex,
-       effect: "Unmake a city, army, great creature, or sustained phenomenon as a single coherent subject",
-       cost: "The bearer permanently loses a sense, ability, or portion of resonant bandwidth necessary to perceive what was destroyed"
+  tier :focused
+  effect "End the coherence of one person-sized object, creature, machine, barrier, or joined structure that the practitioner can perceive as one physical subject"
+  limits "The spell leaves all matter and prior consequences in place, cannot target abstractions, and follows the actual boundary of the coherent subject rather than the boundary the practitioner hoped to name"
+  consequence "The sense or trained faculty by which the practitioner perceived the subject goes dark for several hours; using an uncertain boundary can include connected supports, occupants, or active systems in the unmaking"
 
   descriptive_identity(
-    signs: "The target separates without impact or heat. Joined matter becomes loose material, active fields go silent, and coordinated parts cease recognizing one another.",
-    effect: "Unmaking removes the physical or resonant coherence that lets many parts persist and act as one subject.",
-    limits: "The user must perceive the target as a coherent whole. Matter remains, consequences already produced remain, and abstract institutions or beliefs cannot be targeted directly."
+    signs: "The subject separates without impact or heat. Joined matter becomes loose material, active fields go silent, and coordinated parts cease recognizing one another."
   )
 
-  cue "Edges, seams, and signals cease agreeing about where the target continues."
-  cue "The user's corresponding sense fails at the instant the target comes apart."
-  affordance "Unmaking can silence a power, open armor, collapse a war machine, kill a creature, or end an anomaly whose manifestations still share one coherent pattern."
-  pressure "Misidentifying the whole either leaves dangerous parts active or expands the target to include structures, passengers, and supports the user meant to spare."
-  variation "Material unmaking leaves sorted fragments, fluids, dust, and disconnected components where the subject stood."
-  variation "Resonant unmaking ends the active figure first, often leaving charged equipment or unstable matter behind."
-
   prose <<~PROSE
-    Unmaking attacks the fact that many parts are acting as one thing. A lock becomes separate pins, springs, and housing. A weapon loses the agreement among charge, barrel, sight, and hand. A resonant barrier ceases to be a continuous field. No blast is required. The subject simply stops maintaining the relationships that made it whole.
+    Unmaking attacks the fact that one person-sized physical subject's parts are acting together. A lock becomes separate pins, springs, and housing. A weapon loses the agreement among charge, barrel, sight, and hand. A joined barrier becomes loose material. A living body becomes tissue that no longer coordinates life. No blast is required; the relationships that made the subject whole simply end.
 
-    The remains do not disappear. A vessel becomes plates, compartments, atmosphere, cargo, and people moving according to their own momentum. A body becomes tissue that no longer coordinates life. An ended field leaves charged glass and heat where its coherence had contained them. Unmaking can remove a threat and release every hazard that threat was holding.
+    The remains do not disappear. An ended field leaves charged glass and heat where its coherence had contained them. A machine becomes disconnected components that continue moving according to their momentum. Unmaking can remove a threat and release every hazard that threat was holding.
   PROSE
   prose <<~PROSE, section: :limits, heading: "Naming the Whole"
-    The user must perceive a coherent subject. A visible wall may be part of a pressure hull; unmaking the larger whole would include everything tied into its structural figure. A marching force can be one target while its orders and shared rhythm hold it together, then become many targets when it scatters. Beliefs, offices, debts, and nations have no single physical coherence for the ability to seize.
+    The practitioner must perceive a coherent subject. A visible panel may be part of a larger pressure door; naming the panel incorrectly can take its guides and seal with it. Occupants and attached tools remain separate unless the target's operation has made them part of one active system. Beliefs, offices, debts, and nations have no single physical coherence for the spell to seize.
 
-    #{ref :unmaker, "The Unmaker"} can destroy coherence at the scale of cities, armies, great creatures, and sustained phenomena. Every apex use removes from the bearer some faculty needed to perceive the destroyed whole. The title's history is therefore also a history of narrowing senses, lost abilities, and resonant bands that no later bearer has recovered.
+    The spell takes the faculty used to perceive its subject for several hours: sight after a visible machine, load sense after a structure, signal hearing after a signal-bound mechanism. #{encyclopedia_ref :unclosing, "Unclosing"} interrupts an active broad-band working without taking apart its medium. #{ref :unmaker, "The Unmaker"} can destroy coherence at the scale of cities, armies, great creatures, and sustained phenomena, and its losses do not return.
   PROSE
 end

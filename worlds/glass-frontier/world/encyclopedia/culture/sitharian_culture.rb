@@ -1,12 +1,13 @@
 encyclopedia :sitharian_culture do
-  name "Sitharian Culture"
-  summary "Sitharian culture is the cosmopolitan prestige culture of the system's de facto capital, marked by formal procedure, institutional memory, and measured speech."
+  name "Sitharians"
+  summary "Sitharians are the cosmopolitan prestige culture of the system's de facto capital, marked by formal procedure, institutional memory, and measured speech."
   kind :culture
   character_role :culture
   origin_blurb "Sitharian upbringing teaches the capital's formal register, public institutions, and procedures for carrying records across offices."
   subkind :cultural_identity
   status :complete
   reviewed "2026-03-19"
+  log "2026-08-31 — Renamed Sitharian Culture to Sitharians; the people carry the civic culture rather than an abstract category."
   topics :"social-structure", :governance, :trade
   prevalence :common
   available_globally
@@ -39,7 +40,7 @@ encyclopedia :sitharian_culture do
   variation "Some travelers lead with a capital office or school; others use a local working name and reserve the Sitharian credential for formal business."
 
   prose <<~PROSE
-    Sitharian culture grew from #{ref :sithari, "Sithari"}, the system's de facto capital, and travels through its schools, offices, courts, and trading houses. During the Rekindling, the city became a center of contact between the surface and returning ring settlements. Its formal register and record practices became common wherever institutions needed to work across jurisdictions.
+    Sitharians grew from #{ref :sithari, "Sithari"}, the system's de facto capital, and carry their civic forms through its schools, offices, courts, and trading houses. During the Rekindling, the city became a center of contact between the surface and returning ring settlements. Its formal register and record practices became common wherever institutions needed to work across jurisdictions.
 
     A Sitharian identity may name upbringing in the capital region, education in one of its institutions, or a household that keeps the register abroad. These sources overlap without being identical. A person raised in Sithari knows ward and office practice as local life; a diplomat trained elsewhere may speak the register perfectly and claim no capital household at all.
   PROSE
@@ -49,7 +50,7 @@ encyclopedia :sitharian_culture do
     Public architecture in the capital heartland uses engineered crystal and stone, resonance-integrated services, and broad spaces organized by proportion rather than dense ornament. Some civic buildings date to the Rekindling, and their continued use is a point of public pride.
   PROSE
   prose <<~PROSE, section: :naming, heading: "Naming Conventions"
-    See #{encyclopedia_ref :naming_conventions, "Naming Conventions"} for Sitharian naming patterns.
+    See #{encyclopedia_ref :naming_conventions, "Names in Kaleidos"} for Sitharian naming patterns.
   PROSE
   prose <<~PROSE, section: :language, heading: "Language"
     The Sithari register is the system's default formal mode. Accord documents use its conventions, diplomatic communications follow its forms, and system-wide trade contracts draw on its legal vocabulary. Schools and offices across the system therefore teach it to people with no Sitharian household or upbringing.

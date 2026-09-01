@@ -1,38 +1,45 @@
 phenomenon :second_channel do
-  name "The Second Channel"
-  summary "The Second Channel makes a heavily traveled route choose a new destination after two warning tones, leaving its former terminus unreachable by that path."
+  name "Second Channel"
+  aka "The Second Channel"
+  summary "Second Channel is the migrating route avulsion tracked on the Keel: after two fixed warning tones, a busy corridor begins delivering all traffic to a destination impressed into it by earlier journeys."
   type_of :route_avulsion
   subkind :physical_phenomenon
   status :complete
   tags :resonance, :navigation, :transport, :trade
   prominence :recognized
-  trigger "Repeated traffic makes one route's kinetic and signal wakes more coherent than the destination it was built to reach"
-  effect "After two tones, every vessel continuing on the established path arrives at a new destination selected by the accumulated traffic pattern"
-  recurrence "The same channel migrates among the Kaleidos system's busiest routes, preserving the interval between its two warning tones"
-  ending "The new channel persists until a different path carries the greater coherent traffic; the former terminus does not reopen on the old geometry"
-  mitigation "Leave the route after the first tone, approach the abandoned destination on different geometry, or deliberately saturate a safer path before the second tone"
-  anchor_behavior "Follows repeated transit rather than beacons, ownership, or published charts and carries its route state into the next busiest path"
-  medium "Established travel corridors, vessel wakes, route beacons, and navigation records"
-  hazard "Convoys, reinforcements, refugees, and cargo can arrive together at an unknown or hostile destination while the place expecting them becomes inaccessible"
+  trigger "Repeated transit makes a corridor's combined kinetic and signal wake more coherent than its maintained approach to the published terminus"
+  effect "After the second warning tone, every vessel remaining on the corridor reaches the strongest destination encoded in its accumulated journeys"
+  recurrence "One avulsion migrates among the system's busiest routes, preserving the exact interval between its low first tone and high second tone"
+  ending "The chosen terminus persists until another path accumulates the stronger coherent wake; the abandoned destination remains reachable only by different geometry"
+  mitigation "Leave the marked corridor after the first tone, rebuild the abandoned approach from an independent bearing, or saturate a prepared diversion before the second tone"
+  anchor_behavior "Follows accumulated transit rather than route ownership or beacon placement, carrying its warning interval into the next busy corridor"
+  medium "Established corridors, vessel wakes, route beacons, joined route records, and repeated destination approaches"
+  content "The accumulated return vectors, diversions, refuges, and ambush approaches carried by traffic through the active corridor"
+  hazard "Convoys, rescue craft, refugees, and cargo can arrive together at an unprepared or hostile destination while the port expecting them loses that approach"
 
   descriptive_identity(
-    signs: "Every beacon and hull on a busy route sounds one low tone and, after the same measured interval, one high tone; the stars ahead do not visibly change.",
-    effects: "Traffic that remains on the path after the second tone reaches a new terminus chosen from the route's accumulated wakes, while the previous terminus cannot be reached along that geometry.",
-    hazards: "Whole convoys arrive together without preparation, and rescue craft following them reinforce the new channel instead of reaching the abandoned destination."
+    signs: "Every beacon and hull on a busy corridor sounds one hull-deep tone and, after the same measured interval, one high tone while the forward view remains unchanged.",
+    effects: "Traffic still on the marked line after the second tone reaches the destination most strongly preserved in the corridor's wakes and return vectors.",
+    hazards: "Whole convoys arrive without reception, and rescue craft that follow the old line travel to the same new terminus instead of the port that called them."
   )
 
   prose <<~PROSE
-    The Second Channel announces itself with two tones. The first is low enough to feel through a hull. The second arrives after an interval that has remained exact in every confirmed appearance. Nothing on the forward view changes. Vessels that stay on the route after the second tone reach somewhere else.
+    Keel pilots call the phenomenon Second Channel because one marked corridor begins carrying traffic to a second terminus. The first warning tone is low enough to feel through a hull. The high tone follows after an interval that has remained exact through every recorded migration. Stars, beacons, and the forward view remain unchanged. A vessel still following the corridor after the high tone arrives somewhere else.
 
-    The new destination is not random. It is a place written into the traffic that formed the channel: a diversion repeatedly flown, a port carried in thousands of return vectors, a refuge encoded into evacuation runs, or an ambush point approached often enough to become the route's stronger habit. The former destination remains where it was and cannot be reached on the old geometry.
+    Wake ledgers narrow the possible destination to places repeatedly carried through the route: a diversion flown in bad seasons, a port preserved in thousands of return vectors, a refuge encoded into evacuation runs, or an ambush point approached often enough to dominate the line. The ledger does not settle which one has taken hold before the second tone. Afterward, the former terminus remains in place but the old approach no longer reaches it.
   PROSE
-  prose <<~PROSE, section: :operations, heading: "Choosing What the Keel Remembers"
-    The #{ref :keel, "Keel"} carries enough traffic to attract the Second Channel repeatedly. Route services teach pilots to leave the corridor after the first tone and rebuild an approach from an independent bearing. Rescue ships that remain on the marked line go wherever the missing convoy went.
+  prose <<~PROSE, section: :course, heading: "Between the Tones"
+    The #{ref :keel, "Keel"} carries enough traffic to attract Second Channel repeatedly. Responsibility is divided among its route services, so each section closes its own departures, publishes an independent bearing away from the marked corridor, and compares local wake records with its neighbors after the first tone. A ship already under way has one measured interval to leave the line.
 
-    Traffic can influence the next destination before the second tone. A fleet can saturate a prepared diversion and turn an invasion into empty space. A settlement can make an emergency refuge the route's strongest habit. The choice is collective and physical: every wake contributes, including decoys, commercial traffic, and enemies who know the same method.
+    Rescue craft rebuild their approach from outside the corridor. Following the missing convoy only reinforces the route that took it. The abandoned port likewise opens approaches from independent bearings, because sending more traffic down the published line carries more ships away from the place asking for help.
+  PROSE
+  prose <<~PROSE, section: :applications, heading: "Writing the Destination"
+    Traffic before the second tone can still strengthen one candidate. A fleet can saturate a prepared diversion and send an invasion into empty space. A settlement can make an emergency refuge the route's strongest habit. The choice remains collective and physical: decoys, commercial traffic, evacuation runs, and hostile vessels all write into the same wake.
+
+    Route services maintain safe-diversion drills for that interval, but the Keel's patchwork authority makes a coordinated answer difficult. One section may flood the prepared refuge while its neighbor continues scheduled departures toward a profitable port. The channel counts both.
   PROSE
 
-  gm_note :appears, "The two warning tones sound across a convoy, leaving one short interval to abandon the route or help decide which destination its accumulated traffic will choose."
+  gm_note :appears, "The low and high warning tones sound across a convoy at their fixed interval, leaving every vessel on the marked line time to break away or add its wake to the destination the corridor is choosing."
 end
 
 relate :rel_second_channel_manifests_keel, :manifests_at, :second_channel, :keel

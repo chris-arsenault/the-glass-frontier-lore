@@ -278,7 +278,7 @@ module Lorecraft
           end
           check_fact_value(entry, definition, value)
         end
-        validate_ability_tiers(entry)
+        validate_ability_tier(entry)
         validate_encyclopedia_role(entry)
         validate_availability(entry)
         validate_complete_encyclopedia_entry(entry) if entry.status == :complete
@@ -296,28 +296,22 @@ module Lorecraft
       err("#{label(entry)}: a shell cannot have descriptive identity") unless entry.descriptive_identity_values.empty?
       err("#{label(entry)}: a shell cannot have usage") unless entry.usage.empty?
       err("#{label(entry)}: a shell cannot have prose") unless entry.prose_blocks.empty?
-      err("#{label(entry)}: a shell cannot have ability tiers") unless entry.ability_tiers.empty?
+      err("#{label(entry)}: a shell cannot have an ability tier") if entry.ability_tier
     end
 
-    def validate_ability_tiers(entry)
+    def validate_ability_tier(entry)
       unless entry.kind == :ability
-        err("#{label(entry)}: only Encyclopedia abilities can declare tiers") unless entry.ability_tiers.empty?
+        err("#{label(entry)}: only Encyclopedia abilities can declare a tier") if entry.ability_tier
         return
       end
 
-      # Tiers are optional: the kind holds trained techniques as well as
-      # extraordinary effects, and only the latter are expressed in ordered
-      # power tiers. A declared tier still has to be real and complete.
-      entry.ability_tiers.each do |expression|
-        unless @schema.encyclopedia_tier_def(:ability, expression.tier)
-          err("#{label(entry)}: unknown ability tier #{expression.tier}")
-        end
-        if expression.effect.to_s.strip.empty?
-          err("#{label(entry)}: ability tier #{expression.tier} needs an effect")
-        end
-        next unless entry.status == :complete && expression.cost.to_s.strip.empty?
-
-        err("#{label(entry)}: complete ability tier #{expression.tier} needs a cost")
+      tiered = @schema.encyclopedia_tiered_classification?(:ability, entry.subkind)
+      if tiered && entry.ability_tier.nil?
+        err("#{label(entry)}: #{entry.subkind} ability needs one tier")
+      elsif !tiered && entry.ability_tier
+        err("#{label(entry)}: #{entry.subkind} ability cannot declare a tier")
+      elsif entry.ability_tier && !@schema.encyclopedia_tier_def(:ability, entry.ability_tier)
+        err("#{label(entry)}: unknown ability tier #{entry.ability_tier}")
       end
     end
 
@@ -408,7 +402,17 @@ module Lorecraft
 
     def validate_complete_encyclopedia_entry(entry)
       visible_usage = entry.dm? ? entry.usage : entry.usage.reject(&:dm?)
-      requirements = { cue: 2, affordance: 1, pressure: 1, variation: 2 }
+      if entry.kind == :ability &&
+         @schema.encyclopedia_tiered_classification?(:ability, entry.subkind)
+        %i[effect limits consequence].each do |field|
+          if entry.fact_values[field].to_s.strip.empty?
+            err("#{label(entry)}: complete tiered ability needs #{field}")
+          end
+        end
+        requirements = {}
+      else
+        requirements = { cue: 2, affordance: 1, variation: 2 }
+      end
       requirements.each do |kind, minimum|
         count = visible_usage.count { |item| item.kind == kind && !item.text.strip.empty? }
         if count < minimum

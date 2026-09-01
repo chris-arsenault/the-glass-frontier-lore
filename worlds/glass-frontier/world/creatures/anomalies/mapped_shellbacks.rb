@@ -1,6 +1,6 @@
 creature :mapped_shellbacks do
-  name "The Mapped Shellbacks"
-  summary "The Mapped Shellbacks are the populations whose grazing grounds, cast-shell yields, and structural loads appear on Ratter claim maps. Their movements can change which debris is safe to cut."
+  name "The Mapped Bolsters"
+  summary "The Mapped Bolsters are the populations whose grazing grounds, cast-shell yields, and structural loads appear on Ratter claim maps. Their movements can change which debris is safe to cut."
   subkind :anomaly
   type_of :shellback
   belongs_to :lifeform, :farborn
@@ -9,7 +9,7 @@ creature :mapped_shellbacks do
   prominence :recognized
 
   prose <<~PROSE
-    Ratter claim maps record known #{encyclopedia_ref :shellback, "shellback"} grazing grounds, the cast-shell yield collected from each, and debris the animals may be helping to hold together. A few dozen can move across one mass over years, smoothing unstable crystal growth and leaving plate behind.
+    Ratter claim maps record known #{encyclopedia_ref :shellback, "bolster"} grazing grounds, the cast-shell yield collected from each, and debris the animals may be helping to hold together. A few dozen can move across one mass over years, smoothing unstable crystal growth and leaving plate behind.
 
     Their departure can reveal that the population had become part of what held the site together. Crews therefore mark the animals before cutting and update the map when a grazing ground shifts, thins, or begins answering survey pulses through every shell.
   PROSE

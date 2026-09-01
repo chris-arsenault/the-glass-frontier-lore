@@ -59,7 +59,7 @@ installation :shadewell do
   prose <<~PROSE, section: :trade, heading: "Rim Port"
     The Keel terminus occupies a chain of landing fields along the crater rim. Heavy kites settle on basalt pads separated by ceramic breaks. Cargo moves under reflective sheds and enters the city lifts only after its temperature and field have equalized. A sealed crate cold enough to contract on descent can break its restraints halfway down the wall.
 
-    Freight yards store ringglass, machine parts, medicine, ceramics, salts, and preserved food. Scheduled carriers dominate long-haul traffic, while local cooperatives run crater lifts and #{encyclopedia_ref :heat_road_hauler, "heat-road haulers"}. The distinction matters during delays. A cargo can have arrived on Ashvane and remain unavailable to the town that ordered it until a surface crew has room on the correct route.
+    Freight yards store ringglass, machine parts, medicine, ceramics, salts, and preserved food. Scheduled carriers dominate long-haul traffic, while local cooperatives run crater lifts and #{encyclopedia_ref :heat_road_hauler, "Ashvane drays"}. The distinction matters during delays. A cargo can have arrived on Ashvane and remain unavailable to the town that ordered it until a surface crew has room on the correct route.
 
     Passenger halls open onto a shaded court with water stations, clothing stalls, and benches built over cool return lines. Porters check visitors' outer layers before directing them toward the surface exits. A person dressed for the crater can still be injured crossing one unshaded freight apron.
   PROSE

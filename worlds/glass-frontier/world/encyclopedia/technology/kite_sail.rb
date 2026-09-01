@@ -54,7 +54,7 @@ encyclopedia :kite_sail do
   prose <<~PROSE, section: :how_it_works, heading: "How It Works"
     The core of a kite is a kinetic-band ringglass array — a set of tuned crystals that generate a momentum nullification field. Within this field, forces opposing movement are shunted into a frequency null space. The vehicle moves as if nothing is pushing back.
 
-    Kites perform mid-bandwidth kinetic work through arrays tuned at manufacture and maintained periodically. A crew member who can read a resonance gauge can operate one. Ambient resonance sustains light duty; #{encyclopedia_ref :microcavities, "microcavities"} supply high-energy operations.
+    Kites perform mid-bandwidth kinetic work through arrays tuned at manufacture and maintained periodically. A crew member who can read a resonance gauge can operate one. Ambient resonance sustains light duty; #{encyclopedia_ref :microcavities, "Seed"} supplies high-energy operations.
 
     The result is a vehicle that performs in atmosphere, vacuum, and the distorted environment of #{ref :the_shear, "The Shear"}. The same engine that runs a surface route can lift to orbit, dock at a ring hab, and push into a debris field.
   PROSE

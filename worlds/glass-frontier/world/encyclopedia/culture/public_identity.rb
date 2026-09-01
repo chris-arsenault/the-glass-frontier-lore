@@ -1,10 +1,11 @@
 encyclopedia :public_identity do
-  name "Public Identity in Kaleidos"
-  summary "Public identity in Kaleidos is the shared practice of reading upbringing from a body, affiliation from speech and dress, and present standing from tools, marks, and introductions."
+  name "Reading a Stranger"
+  summary "Reading a Stranger is the shared practice of reading upbringing from a body, affiliation from speech and dress, and present standing from tools, marks, and introductions."
   kind :culture
   subkind :social_order
   status :complete
   reviewed "2026-03-18"
+  log "2026-08-31 — Renamed Public Identity in Kaleidos to Reading a Stranger; the name centers the ordinary social work of interpreting a new arrival."
   topics :"social-structure"
   prevalence :common
   available_globally

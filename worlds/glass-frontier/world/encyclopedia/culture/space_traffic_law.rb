@@ -1,16 +1,17 @@
 encyclopedia :space_traffic_law do
-  name "Space Traffic Law"
-  summary "Space Traffic Law is the shared body of route and docking rules that gives disabled or unpowered craft priority over vessels still able to maneuver."
+  name "The Empty Mouth"
+  summary "The Empty Mouth is the shared body of route and docking rules that gives disabled or unpowered craft priority over vessels still able to maneuver."
   kind :culture
   subkind :governance
   status :complete
+  log "2026-08-31 — Renamed Space Traffic Law to The Empty Mouth; the name comes from the clear docking approach reserved for craft that cannot maneuver."
   topics :transport, :navigation, :governance, :orbital
   prevalence :common
   appears_when all: { place: [:orbital, :road] }
   appears_when all: { place: [:orbital, :dock] }
 
   prose <<~PROSE
-    Space traffic law begins with remaining control. A powered vessel can turn, brake, or wait; a disabled vessel cannot. Working traffic therefore yields outward from the safest line, and ordinary docking queues leave emergency capacity open for craft arriving without reliable thrust.
+    The Empty Mouth begins with remaining control. A powered vessel can turn, brake, or wait; a disabled vessel cannot. Working traffic therefore yields outward from the safest line, and ordinary docking queues leave emergency capacity open for craft arriving without reliable thrust.
 
     Local acts differ in geometry. A narrow passage may reserve its center. A chain of waystations may keep one docking mouth unused. The shared rule is that inconvenience falls first on the vessel that can still choose where to go.
   PROSE

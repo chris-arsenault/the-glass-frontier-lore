@@ -4,7 +4,7 @@ installation :vigil_breach do
   playable_as :chronicle_location
   context_tags :surface, :cold, :displacement_zone
   subkind :landmark
-  type_of :ring_age_site
+  culture :ring_age_site
   tags :surface, :"ring-era", :resonance, :danger, :archives
   prominence :recognized
   status :complete

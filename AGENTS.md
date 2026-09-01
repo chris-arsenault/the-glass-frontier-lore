@@ -63,6 +63,39 @@ declared structural mistakes; it does not prove free prose true or complete.
 
 Full rules: `craft/writing-guidance.md`. Tone and references are per-world — `worlds/<id>/guidance/tone.md`.
 
+### Names create the setting's lexicon (critical)
+
+A good name adds to a growing, coherent vocabulary that belongs to its world. A reader who
+meets it away from its article should still hear the setting in it. Build that
+vocabulary from a few invented words, familiar words given stable unfamiliar
+meanings, setting-defining words reused across related subjects, and proper
+names whose sounds and forms belong to a particular culture. Repetition is
+useful when it teaches that vocabulary or morphology.
+
+Joining two relevant English nouns does not create a setting term. Treat a
+modifier plus a generic animal, profession, device, hazard, or abstraction as a
+failed name unless one element already carries a distinctive meaning in the
+world and the combination extends that meaning. An in-world speaker, historical
+origin, or etymology can explain a good name; it cannot make an empty
+construction distinctive. Replacing the construction with its bare generic
+noun removes decoration but still does not name the subject.
+
+Before naming or renaming, run `lexicon --world <id>`. It reports the vocabulary
+established so far, never a closed list of permitted words. Reuse an entry only
+when its recorded meaning governs the new subject. When a recurring culture,
+place family, practice, material, or institution needs language the declaration
+cannot supply, extend it in the same change as the first canonical uses. Record
+the new word's meaning and productive use, or the new pattern's morphology;
+give examples and state its boundary. Put new claims about in-world language or
+naming history in the Encyclopedia entry that owns them. A lone subject may
+need a distinctive proper name without creating a productive root.
+
+Ask what word or name family the proposal teaches, which existing names make
+that vocabulary learnable, and whether the proposal would still identify this
+setting outside its entry. Do not stretch an existing entry to avoid extending
+the lexicon, and do not use the declaration as a parts list for automatically
+assembling compounds.
+
 ### In-universe voice (critical)
 
 All prose must be written from inside the world. There is no Earth. Three violations to watch for:
@@ -379,6 +412,7 @@ JSON from the same typed result; validation and lint use diagnostic records.
 | `search <query>` | Find stable ids and canonical source paths from titles, aliases, tags, subkinds, and resolved summaries. |
 | `schema kinds\|kind\|relations\|relation\|tags\|sections` | Inspect the ontology loaded for one world. |
 | `guide list\|<name>` | Read one authoritative craft or world guidance file. |
+| `lexicon` | Read the world's productive naming words, cultural forms, and known dead ends. |
 | `validate` | Hard structural invariants (refs resolve, domain/range, cardinality, causality, DM-leak). Exits nonzero on failure. |
 | `lint` | Graded findings: errors / warnings (prominence reach, orphans, double-article, …) / futures. |
 | `render <dir>` | Generate a directory-shaped Markdown inspection view; defaults to all audiences. |
