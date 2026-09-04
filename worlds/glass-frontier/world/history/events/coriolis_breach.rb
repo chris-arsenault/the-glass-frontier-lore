@@ -2,7 +2,7 @@ incident :coriolis_breach do
   name "Coriolis Breach"
   summary "The Coriolis Breach was a forced entry into a sealed habitat during the Contested Reach that killed all but one member of the contact team."
   subkind :dispute
-  type_of :shuttered_habs
+  type_of :shuttered
   path "player/history/events/coriolis-breach.md"
   status :complete
   reviewed "2026-03-19"
@@ -26,7 +26,7 @@ incident :coriolis_breach do
   )
 
   prose <<~PROSE
-    A forced-entry incident during the Contested Reach. A faction broke into #{ref :hab_coriolis, "Hab Coriolis"}, one of #{encyclopedia_ref :shuttered_habs, "the Shuttered"}, expecting a rescue mission and encountered a community that had been sealed for generations. The contact team was slaughtered. One survivor returned.
+    A forced-entry incident during the Contested Reach. A faction broke into #{ref :hab_coriolis, "Hab Coriolis"}, one of #{encyclopedia_ref :shuttered, "the Shuttered"}, expecting a rescue mission and encountered a community that had been sealed for generations. The contact team was slaughtered. One survivor returned.
   PROSE
   prose <<~PROSE, section: :cause, heading: "Cause"
     Hab Coriolis was a garden hab — an enclosed environment where the original life-support systems had drifted, the interior had rewilded into dense pre-technological biome, and the inhabitants had adapted by abandoning technology entirely over the course of the Signal Famine. By the Rekindling, the community inside was tribal, self-sufficient, and had no framework for understanding the world outside their walls.

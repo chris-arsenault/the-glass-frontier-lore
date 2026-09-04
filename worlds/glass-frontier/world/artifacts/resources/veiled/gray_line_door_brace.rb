@@ -2,7 +2,7 @@ artifact :gray_line_door_brace do
   name "The Gray-Line Door Brace"
   summary "The Gray-Line Door Brace is temporary passage infrastructure sourced around Xyloathax and Gray Line. It holds incompatible room edges apart while people and furniture move between them."
   subkind :artifact
-  type_of :displaced_door_brace
+  type_of :splint
   status :complete
   prominence :marginal
   veiled "The Gray-Line Door Brace holds two incompatible room edges apart while people and furniture pass between them."

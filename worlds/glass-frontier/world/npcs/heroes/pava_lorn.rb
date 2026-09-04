@@ -6,7 +6,7 @@ npc :pava_lorn do
   specialty "Sarn health, formation changes, and safe collection bands"
   type_of :humans
   belongs_to :culture, :hab_worlder
-  belongs_to :role, :readers
+  belongs_to :role, :reader
   descriptive_identity disposition:
     "Lorn replies in spacing and comb angle rather than permission, and " \
     "sends anyone pointing at a single animal's turn back to count the " \

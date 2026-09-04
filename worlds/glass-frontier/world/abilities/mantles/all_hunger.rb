@@ -1,7 +1,7 @@
 ability :all_hunger do
   name "The All-Hunger"
   summary "The All-Hunger is an Adversary mantle that applies Hunger or Want across a crew, army, city, great creature, or resonant system and gathers what it takes into its bearer."
-  type_of :consumption
+  type_of :hunger
   subkind :the_adversary
   status :complete
   log "2026-08-31 — Distinguished the mantle's physical taking through Hunger from its theft of learned and remembered patterns through Want; the mantle can perform either across a collective subject."
@@ -13,7 +13,7 @@ ability :all_hunger do
 
   descriptive_identity(
     signs: "The bearer names a quality, a dark resonant trace draws it out of the source, and the missing heat, motion, memory, skill, or power appears in the bearer with excessive intensity.",
-    effect: "The mantle applies #{encyclopedia_ref :consumption, "Hunger"} to a collective physical quantity or #{encyclopedia_ref :want, "Want"} to a learned or remembered pattern shared across many subjects.",
+    effect: "The mantle applies #{encyclopedia_ref :hunger, "Hunger"} to a collective physical quantity or #{encyclopedia_ref :want, "Want"} to a learned or remembered pattern shared across many subjects.",
     limits: "A physical quantity must be present and doing work; a learned pattern must be actively recalled or performed. Each transfer preserves the original quantity or character, while incompatible reserves strain the body that holds them."
   )
 

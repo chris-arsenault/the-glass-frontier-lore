@@ -2,7 +2,7 @@ creature :pell_stockpile_colony do
   name "The Pell Stockpile Colony"
   summary "The Pell Stockpile Colony is a juvenile glasswurm colony inside the rejected-material stack outside Pell Cut. Its tunnels have produced saleable plate while advancing toward an occupied sorting shed."
   subkind :anomaly
-  type_of :glasswurm
+  type_of :shearwurm
   belongs_to :lifeform, :farborn
   status :complete
   tags :orbital, :salvage, :danger, :ringglass, :resonance

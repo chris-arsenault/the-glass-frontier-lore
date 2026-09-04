@@ -27,7 +27,7 @@ encyclopedia :custodial_standing do
   )
 
   prose <<~PROSE
-    Custodial bodies keep #{encyclopedia_ref :archives_and_public_memory, "the Public Shelf"}, plate libraries, chain rolls, sealed #{encyclopedia_ref :ring_age_site, "sites"}, reference instruments, and registers used to check ledgers, weights, and identities. Their charters define access, copying, certification, and succession while barring the keeper from private trade in the holdings. The door register records each request, and the posted charter supplies the clause for every grant or refusal. A sealed copy names the holding against which it was checked.
+    Custodial bodies keep #{encyclopedia_ref :public_shelf, "the Public Shelf"}, plate libraries, chain rolls, sealed #{encyclopedia_ref :rolls, "sites"}, reference instruments, and registers used to check ledgers, weights, and identities. Their charters define access, copying, certification, and succession while barring the keeper from private trade in the holdings. The door register records each request, and the posted charter supplies the clause for every grant or refusal. A sealed copy names the holding against which it was checked.
 
     Charter fees and endowments fund the custodianship without giving any payer priority in the register. Most charters choose successors through apprenticeship and examination. Users audit the register and can move deposits to another house when a keeper trades on privileged access or alters a certification for private gain. The old oath states the practice in three verbs: to hold, to show, and to hand on entire. At the public desk, a scholar, factor, and child wait in the same order and receive the access their requests qualify for under the same clauses.
   PROSE

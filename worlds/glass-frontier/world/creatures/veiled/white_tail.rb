@@ -4,7 +4,7 @@ creature :white_tail do
   subkind :creature
   status :complete
   prominence :marginal
-  type_of :kesh_wallrunner
+  type_of :ricochets
   veiled "White-Tail carries matching survey marks from Kesh and Perch and crosses each settlement without touching a floor."
 end
 

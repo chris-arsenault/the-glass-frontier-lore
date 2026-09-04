@@ -28,11 +28,11 @@ encyclopedia :thirty_one_echo do
   )
 
   prose <<~PROSE
-    Elven freight depots registered arrivals by impact. A load set on a linked floor repeated its sound at a receiving hall, where clerks tallied deliveries by ear and with #{encyclopedia_ref :rattle_tally_dust, "tally dust"}. Surviving pieces of those grids still reproduce a strike at their receiver after a constant delay. The repeat matches the original volume and timing closely enough for crews to identify which linked floor is working.
+    Elven freight depots registered arrivals by impact. A load set on a linked floor repeated its sound at a receiving hall, where clerks tallied deliveries by ear and with #{encyclopedia_ref :tally_dust, "tally dust"}. Surviving pieces of those grids still reproduce a strike at their receiver after a constant delay. The repeat matches the original volume and timing closely enough for crews to identify which linked floor is working.
 
     A single active floor produces an occasional knock. Several floors linked to one hall make a workday murmur. Some receivers continue to sound for loading rooms that have collapsed, shifted, or become inaccessible; registrars compare the knocks with old plans and current work logs before treating an unknown strike as evidence of movement. Workshops on an active floor accept that every dropped tool and heavy load is public at the receiving end.
 
-    One accessible circuit joins workshop floors at #{ref :bay_thirty_one, "Bay Thirty-One"} to the former receiving deck beneath #{ref :exchange_c, "Rattle's market"}. A heavy impact pauses trade and starts wagers on what fell. Linked workshops announce their largest deliveries by setting them down hard, while work requiring quiet or secrecy is done elsewhere.
+    One accessible circuit joins workshop floors at #{ref :thirty_one, "Bay Thirty-One"} to the former receiving deck beneath #{ref :rattle, "Rattle's market"}. A heavy impact pauses trade and starts wagers on what fell. Linked workshops announce their largest deliveries by setting them down hard, while work requiring quiet or secrecy is done elsewhere.
   PROSE
 
   cue "A knock sounds under a former receiving hall with no local source; a clerk checks the clock, then asks which linked floor was working at that exact lag."

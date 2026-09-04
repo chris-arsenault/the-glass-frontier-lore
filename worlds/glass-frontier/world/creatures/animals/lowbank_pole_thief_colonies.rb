@@ -2,7 +2,7 @@ creature :lowbank_pole_thief_colonies do
   name "The Lowbank Pole-thief Colonies"
   summary "The Lowbank Pole-thief Colonies occupy the settlement's eastern approaches and the channels around its outer mound. Dredging has moved one bank edge into the marked channel, bringing repeated strikes into working traffic."
   subkind :animal
-  type_of :pole_thief
+  type_of :tolven
   status :complete
   tags :"outer-system", :ecology, :resonance, :transport
   prominence :marginal

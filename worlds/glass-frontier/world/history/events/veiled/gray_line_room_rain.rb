@@ -1,7 +1,7 @@
 incident :gray_line_room_rain do
   name "Gray Line Room Rain"
   summary "Gray Line Room Rain is a displacement catastrophe in Xyloathax that drops furniture and wall panels from shifted chambers into occupied streets."
-  type_of :room_rain
+  type_of :shedding
   subkind :incident
   status :complete
   prominence :marginal

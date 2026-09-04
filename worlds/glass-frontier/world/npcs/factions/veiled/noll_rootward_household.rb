@@ -1,7 +1,7 @@
 faction :noll_rootward_household do
   name "The Noll Rootward Household"
   summary "The Noll Rootward Household is one garden-hab family that raises children among rotating crops and gives each child a living graft to maintain."
-  type_of :rootward_households
+  type_of :rootwards
   subkind :community
   status :complete
   prominence :marginal

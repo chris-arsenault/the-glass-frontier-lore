@@ -1,7 +1,7 @@
 phenomenon :white_interval do
   name "The White Interval"
   summary "The White Interval is the single white-edged distance plane charted in the Deep Shear: paths crossing it acquire hours or days of traversable space while their endpoints remain visibly adjacent, and its collapse leaves phantom geography in route records."
-  type_of :distance_insertion
+  type_of :middle
   subkind :physical_phenomenon
   status :complete
   tags :resonance, :"fluid-reality", :danger, :navigation

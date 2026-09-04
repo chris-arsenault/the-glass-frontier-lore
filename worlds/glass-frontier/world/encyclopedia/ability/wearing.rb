@@ -26,6 +26,6 @@ encyclopedia :wearing do
   prose <<~PROSE, section: :aftermath, heading: "What the Body Keeps"
     Wearing hurts while the body makes room. Fever, swelling, and unfamiliar balance continue through the casting. When the useful trait recedes, a lesser remnant stays behind: a patch of scale, a pupil that closes wrongly, a joint with another range, or hunger for food the practitioner cannot digest well. The body removes that remnant through ordinary healing rather than another casting.
 
-    #{encyclopedia_ref :alteration, "Manyflesh"} is the narrower whole-body practice. It can rewrite another living body around a complete viable pattern, and its practitioner carries a matching alteration for as long as the subject does.
+    #{encyclopedia_ref :manyflesh, "Manyflesh"} is the narrower whole-body practice. It can rewrite another living body around a complete viable pattern, and its practitioner carries a matching alteration for as long as the subject does.
   PROSE
 end

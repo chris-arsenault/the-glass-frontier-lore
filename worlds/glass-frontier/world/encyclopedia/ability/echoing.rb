@@ -26,6 +26,6 @@ encyclopedia :echoing do
   prose <<~PROSE, section: :limits, heading: "One Impression"
     Echoing returns a fragment rather than an account. A hand on a rail may feel a running impact without learning who ran, why they fled, or where they went after letting go. Present sensation continues beneath the replay, making a loud echo dangerous beside moving machinery or an active fight.
 
-    #{encyclopedia_ref :revelation, "Witnessing"} follows physical consequences until they yield an event. Echoing neither follows nor joins them; it reports the last impression carried by the surface under the practitioner's hand.
+    #{encyclopedia_ref :witnessing, "Witnessing"} follows physical consequences until they yield an event. Echoing neither follows nor joins them; it reports the last impression carried by the surface under the practitioner's hand.
   PROSE
 end

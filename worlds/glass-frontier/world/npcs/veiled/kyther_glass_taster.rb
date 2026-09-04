@@ -1,7 +1,7 @@
 npc :kyther_glass_taster do
   name "The Kyther Glass Taster"
   summary "The Kyther Glass Taster distinguishes ringglass grades by the metallic taste left on their breath."
-  type_of :glass_taste
+  type_of :palate
   subkind :specialist
   status :complete
   prominence :marginal

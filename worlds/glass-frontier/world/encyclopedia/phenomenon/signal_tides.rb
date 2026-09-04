@@ -30,7 +30,7 @@ encyclopedia :signal_tides do
   PROSE
 
   prose <<~PROSE, section: :operations, heading: "Living on the Table"
-    The tide table organizes more than the relays. Markets time price postings to the ebb so the district's numbers arrive together. Archives schedule crystal readings for slack water, when the band sits quietest. #{encyclopedia_ref :ravel_clampweed, "Signal mat"} grips shut on the flood and growers read the plant as a free gauge, and the deep-route pilots plan crossings so the silent legs fall where the route is boring. A tide-taught child knows the day's two clears the way a coastal child knows the water, and visitors from quiet districts are identified within the hour by their habit of trying to send at flood.
+    The tide table organizes more than the relays. Markets time price postings to the ebb so the district's numbers arrive together. Archives schedule crystal readings for slack water, when the band sits quietest. #{encyclopedia_ref :signal_mat, "Signal mat"} grips shut on the flood and growers read the plant as a free gauge, and the deep-route pilots plan crossings so the silent legs fall where the route is boring. A tide-taught child knows the day's two clears the way a coastal child knows the water, and visitors from quiet districts are identified within the hour by their habit of trying to send at flood.
 
     The flood carries its own uses. Strong-signal work — the blunt, loud traffic that rides any water — goes out on the rise deliberately, and some listening trades want the flood itself: tide-swell recordings are the raw stock of several archive programs, and tuners describe the high flood as the band showing its grain.
   PROSE

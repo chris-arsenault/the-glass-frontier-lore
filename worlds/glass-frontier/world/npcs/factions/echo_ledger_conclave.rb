@@ -4,7 +4,7 @@ faction :echo_ledger_conclave do
   playable_as :allegiance
   origin_blurb "Archivists catalogue voices from Echo Rivers and govern access to recordings whose context still matters."
   subkind :religious_order
-  type_of :archives_and_public_memory
+  type_of :public_shelf
   belongs_to :culture, :custodial_standing
   path "player/npcs/factions/echo-ledger-conclave.md"
   reviewed "2026-03-18"
@@ -63,7 +63,7 @@ faction :echo_ledger_conclave do
 
     ### Retrieval Cells <!-- Operations -->
 
-    Retrieval cells go out to acquire artifacts and recordings before someone else does or before the material degrades past recovery. A typical retrieval cell is four to six archivists with a #{ref :clarisant, "Clarisant"}-credentialed #{encyclopedia_ref :tuners, "Tuner"} on contract, traveling by chartered transport with the equipment to assess, package, and extract resonance-sensitive material in the field.
+    Retrieval cells go out to acquire artifacts and recordings before someone else does or before the material degrades past recovery. A typical retrieval cell is four to six archivists with a #{ref :clarisant, "Clarisant"}-credentialed #{encyclopedia_ref :resonant_tuner, "Tuner"} on contract, traveling by chartered transport with the equipment to assess, package, and extract resonance-sensitive material in the field.
 
     The work is varied. A retrieval cell may be excavating a pre-Glassfall installation that has been newly uncovered by surface erosion. They may be negotiating with a salvage flotilla that has pulled something interesting from the #{ref :deep_shear, "Deep Shear"}. They may be racing a #{ref :coremark, "Coremark"} convoy unit to a known artifact site whose location has just leaked. They may be quietly buying a recording from a private holder who has decided to sell.
 
@@ -108,7 +108,7 @@ faction :echo_ledger_conclave do
     #{ref :lira_vashtenri, "Lira Vashtenri"} left the Conclave to join the #{ref :displacement_council, "Displacement Council"}, taking her resonance expertise with her. The Conclave considers this a personal betrayal dressed up as public service. Lira considers it the most useful thing she's ever done. They are both correct.
   PROSE
 
-  gm_note :appears, "Outside #{ref :sable_crescent, "Sable Crescent"} the Conclave arrives as a retrieval cell: four to six archivists with a contracted #{encyclopedia_ref :tuners, "Tuner"}, a chartered transport, and the funds to buy the thing the party came for before the party reaches it."
+  gm_note :appears, "Outside #{ref :sable_crescent, "Sable Crescent"} the Conclave arrives as a retrieval cell: four to six archivists with a contracted #{encyclopedia_ref :resonant_tuner, "Tuner"}, a chartered transport, and the funds to buy the thing the party came for before the party reaches it."
   gm_note :triggered_by, "Ask for a record and the answer is a fee and a redaction. The Conclave has three times been ordered to widen access and three times released material technically public and practically useless."
   gm_note :complicates, "A find of doubtful provenance is worth more once an archivist attests to its resonance signature. The Conclave does not authenticate such goods; individual archivists do it on their own time, which makes the attestation itself something a rival can raise."
 end

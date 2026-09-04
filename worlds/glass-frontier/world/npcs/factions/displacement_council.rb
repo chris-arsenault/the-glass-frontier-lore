@@ -42,10 +42,10 @@ faction :displacement_council do
 
     **Humanitarian.** The Council still supports displaced communities — settlement integration, resource advocacy, cultural preservation for Bloom diaspora populations.
 
-    **Recruitment.** The Council draws from Bloom survivors, #{encyclopedia_ref :tuners, "Tuners"} willing to work in extreme resonance conditions, and #{encyclopedia_ref :fae, "fae"} whose spatial dislocation management skills translate directly to Bloom Zone operations. #{encyclopedia_ref :gnomes, "Gnomes"} are valuable for calibration but strictly exposure-limited.
+    **Recruitment.** The Council draws from Bloom survivors, #{encyclopedia_ref :resonant_tuner, "Tuners"} willing to work in extreme resonance conditions, and #{encyclopedia_ref :fae, "fae"} whose spatial dislocation management skills translate directly to Bloom Zone operations. #{encyclopedia_ref :gnomes, "Gnomes"} are valuable for calibration but strictly exposure-limited.
   PROSE
   prose <<~PROSE, section: :operations, heading: "Remote Reach"
-    Since #{ref :pell_four, "Pell Four"}, the Council has adapted #{encyclopedia_ref :remote_cutting, "Claim Coupling"} for containment work. A coupled cutter can place an instrument, move damping mass, or recover a damaged buoy from a boundary that would be lethal to an EVA team.
+    Since #{ref :pell_four, "Pell Four"}, the Council has adapted #{encyclopedia_ref :claim_coupling, "Claim Coupling"} for containment work. A coupled cutter can place an instrument, move damping mass, or recover a damaged buoy from a boundary that would be lethal to an EVA team.
 
     Council cutters work one boundary section at a time. Each has an isolated clock, a named field operator, and a stop condition agreed before launch. The recovery route is planned with the same care as the outward cut. If a remote tool cannot be brought home, the crew must know what signal and material it leaves inside the zone.
 

@@ -40,7 +40,7 @@ geographic_location :deep_shear do
     The Deep Shear is the source of the most valuable salvage in the system and the destination of more lost ships than any other identifiable hazard. Both facts are responsible for its traffic.
   PROSE
   prose <<~PROSE, section: :atmosphere, heading: "The Hush"
-    The Shear is a loud environment by resonance standards — ambient distortion at high amplitudes, spikes, tides, the constant interference of debris masses crossing each other's fields. The Deep Shear is quiet. The boundary between ordinary Shear and Deep Shear is marked, for #{encyclopedia_ref :tuners, "Tuners"}, by a sudden hush: the ambient noise drops, the instruments lag for minutes before their telemetry catches up, and the crew's resonance-sensitive members go still in a way that experienced captains learn to watch for.
+    The Shear is a loud environment by resonance standards — ambient distortion at high amplitudes, spikes, tides, the constant interference of debris masses crossing each other's fields. The Deep Shear is quiet. The boundary between ordinary Shear and Deep Shear is marked, for #{encyclopedia_ref :resonant_tuner, "Tuners"}, by a sudden hush: the ambient noise drops, the instruments lag for minutes before their telemetry catches up, and the crew's resonance-sensitive members go still in a way that experienced captains learn to watch for.
 
     The hush is the only reliable boundary marker. Instruments do not detect the crossing in time to act on it. A Tuner on the bridge feels it within seconds. A Tuner-less crew finds out by inference — when the clocks start disagreeing, or the parallax stops behaving, or the navigation system reports that the same debris mass is now in two places. By then the crew is already in.
 

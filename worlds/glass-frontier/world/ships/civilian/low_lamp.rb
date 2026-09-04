@@ -2,7 +2,7 @@ transport :low_lamp do
   name "Low Lamp"
   summary "Low Lamp is a Dovra household barge carrying passengers, kiln goods, and flood stores between the inner water boards and Lowbank. Its low side lamps and Ninth Kiln ribs remain legible even when the river closes its usual channel."
   subkind :vessel
-  type_of :channel_barge
+  type_of :dovran
   capacity "One household crew, twelve passengers, and a reconfigurable shallow cargo deck"
   status :complete
   tags :transport, :trade, :"outer-system", :resonance, :ecology

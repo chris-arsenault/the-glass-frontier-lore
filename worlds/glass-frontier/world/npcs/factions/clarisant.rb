@@ -32,7 +32,7 @@ faction :clarisant do
   )
 
   prose <<~PROSE
-    The professional guild of #{encyclopedia_ref :tuners, "Tuners"}. The Clarisant trains, certifies, and disciplines the practitioners who shape the system's working relationship with #{encyclopedia_ref :resonance, "resonance"}. It is not a government, religion, or order. Its examinations and inspections serve public safety, its fees preserve its independence, and its credential carries only as far as settlements agree to recognize it.
+    The professional guild of #{encyclopedia_ref :resonant_tuner, "Tuners"}. The Clarisant trains, certifies, and disciplines the practitioners who shape the system's working relationship with #{encyclopedia_ref :resonance, "resonance"}. It is not a government, religion, or order. Its examinations and inspections serve public safety, its fees preserve its independence, and its credential carries only as far as settlements agree to recognize it.
 
     Headquartered on #{ref :pelhari, "Pelhari"}, the guild operates a network of chapter houses across the system. A Clarisant credential means something in any settlement that recognizes it, which is most of them.
   PROSE
@@ -68,12 +68,12 @@ faction :clarisant do
     The argument has not resolved. The Hawks have won most of the procedural votes. The Skeptics have won most of the resignations.
   PROSE
   prose <<~PROSE, section: :culture, heading: "Folk Tuners"
-    The Clarisant credential covers roughly seventy percent of practicing #{encyclopedia_ref :tuners, "Tuners"}. The remainder are folk practitioners outside the guild — by choice, by isolation, or by tradition. The Clarisant's official position is that folk Tuning is legitimate practice and folk Tuners are colleagues without credentials. The unofficial position varies by chapter, by individual, and by how the last conversation with a folk Tuner happened to go.
+    The Clarisant credential covers roughly seventy percent of practicing #{encyclopedia_ref :resonant_tuner, "Tuners"}. The remainder are folk practitioners outside the guild — by choice, by isolation, or by tradition. The Clarisant's official position is that folk Tuning is legitimate practice and folk Tuners are colleagues without credentials. The unofficial position varies by chapter, by individual, and by how the last conversation with a folk Tuner happened to go.
 
     There is a small reformist current inside the guild that wants to formalize folk-track credentials — examinations that test competence without imposing Academy methodology. The current is decades old and has not advanced significantly. The Academy's view is that a credential is meaningless without standardized methodology. The reformists' view is that the methodology is the point of disagreement, not the gatekeeping criterion. The conversation continues.
   PROSE
   prose <<~PROSE, section: :operations, heading: "The Hidden Programs"
-    The guild runs a quiet extraction service for #{encyclopedia_ref :tuners, "Tuners"} practicing in secret — communities that prosecute resonance work, habs whose authorities treat Tuners as elven sympathizers, surface settlements where being recognized is dangerous. The service is run out of two chapters by reputation and out of the Pelhari academy on paper. It moves a small number of people every year and is paid for out of the credential fees the recipients will eventually earn back.
+    The guild runs a quiet extraction service for #{encyclopedia_ref :resonant_tuner, "Tuners"} practicing in secret — communities that prosecute resonance work, habs whose authorities treat Tuners as elven sympathizers, surface settlements where being recognized is dangerous. The service is run out of two chapters by reputation and out of the Pelhari academy on paper. It moves a small number of people every year and is paid for out of the credential fees the recipients will eventually earn back.
 
     The program has no formal name in any public document. Hidden Tuners who have been extracted refer to it as **the long door**. The Clarisant does not deny the program exists. It does not advertise it either.
   PROSE

@@ -6,7 +6,7 @@ npc :mik_sorn do
   route "Rattle, Neighborhood Eight, the cold wards, and Dock Four"
   type_of :humans
   belongs_to :culture, :hab_worlder
-  belongs_to :role, :couriers
+  belongs_to :role, :keeper_of_roads
   descriptive_identity attire:
     "Sorn's coat carries the route in chalk — changes on the left cuff, " \
     "recipients on the right — smeared pale by midday and gone by the next " \
@@ -21,7 +21,7 @@ npc :mik_sorn do
   prominence :marginal
 
   prose <<~PROSE
-    Mik Sorn carries hot meals and temperature-sensitive medicine from #{ref :exchange_c, "Rattle"} through Carom's eighth neighborhood. His route crosses two transfer drums and ends at Dock Four. When a delay would spoil the load, he rides *Tally* across the outer docks and rebuilds the route from the far frame lock.
+    Mik Sorn carries hot meals and temperature-sensitive medicine from #{ref :rattle, "Rattle"} through Carom's eighth neighborhood. His route crosses two transfer drums and ends at Dock Four. When a delay would spoil the load, he rides *Tally* across the outer docks and rebuilds the route from the far frame lock.
 
     Sorn writes route changes on his left cuff and recipient changes on his right. The habit leaves his coat covered in pale chalk by midday. Apprentices work the same route from his copied marks until they can rebuild it after a missed drum.
 

@@ -1,7 +1,7 @@
 geographic_location :the_glass_frontier do
   name "The Glass Frontier"
   summary "The Glass Frontier is the shattered orbital ring around Kaleidos, now hundreds of inhabited fragments separated by debris and distorted space."
-  type_of :orbital_habitat_ring
+  type_of :ring
   log "2026-08-22 — Excluded as a chronicle location because the entire field of separated habs is too broad for one starting focus."
   subkind :world_region
   path "player/cosmology/the-glass-frontier.md"

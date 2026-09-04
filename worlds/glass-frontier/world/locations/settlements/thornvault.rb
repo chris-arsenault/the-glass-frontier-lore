@@ -58,7 +58,7 @@ installation :thornvault do
 
     **The river path** is for archivists and authorized personnel. A series of switchback stairs cut into the western canyon wall connect the bridge's underside to the river's edge, where small Conclave craft can dock at a sheltered landing. The river path is how senior archivists access the lower galleries and how the Conclave moves material it does not want to display publicly. The path is patrolled and not signposted.
 
-    There is no third approach. The canyon walls are not climbable in any practical sense at the Vault's location, and the airspace above the canyon has #{encyclopedia_ref :resonance, "resonance"} properties that interfere with #{encyclopedia_ref :kite_sail, "kite"} operation in ways pilots find sufficiently uncomfortable to avoid. The Conclave's predecessors chose the site for these features and the Conclave maintains the choice.
+    There is no third approach. The canyon walls are not climbable in any practical sense at the Vault's location, and the airspace above the canyon has #{encyclopedia_ref :resonance, "resonance"} properties that interfere with #{encyclopedia_ref :kite, "kite"} operation in ways pilots find sufficiently uncomfortable to avoid. The Conclave's predecessors chose the site for these features and the Conclave maintains the choice.
   PROSE
   prose <<~PROSE, section: :culture, heading: "Daily Life"
     Thornvault houses, at any given time, between two and three hundred resident archivists, plus support staff, students, and the occasional outside scholar on standing permission to consult specific records. The residences are along the eastern half of the upper bridge. The dining halls, the libraries, the lecture rooms, and the conservatory greenhouse (which the Conclave maintains for reasons that are functional, theoretical, and aesthetic in roughly that order) occupy the central span.
@@ -84,7 +84,7 @@ installation :thornvault do
     The work continues. The records grow. The river keeps surfacing. Thornvault keeps listening.
   PROSE
 
-  gm_note :appears, "Visitors reach the Vault by the high road from #{ref :ledgerfall, "Ledgerfall"} or they do not reach it; the canyon airspace makes #{encyclopedia_ref :kite_sail, "kite"} approach uncomfortable enough that pilots refuse it, so an urgent errand still costs a half-day on the rim."
+  gm_note :appears, "Visitors reach the Vault by the high road from #{ref :ledgerfall, "Ledgerfall"} or they do not reach it; the canyon airspace makes #{encyclopedia_ref :kite, "kite"} approach uncomfortable enough that pilots refuse it, so an urgent errand still costs a half-day on the rim."
   gm_note :triggered_by, "Asking for a specific record moves the conversation downward. The upper galleries produce working files on request, the mid-galleries want the request written, and anything in the river-facing halls needs a senior archivist willing to walk the stairs alongside you."
   gm_note :complicates, "The Conclave settles contested matters in the late afternoon and schedules its difficult conversations there, so an urgent morning arrival is fed, housed, and left waiting until the western galleries fill with light."
 end

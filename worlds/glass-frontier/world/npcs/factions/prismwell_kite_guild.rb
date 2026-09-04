@@ -4,8 +4,8 @@ faction :prismwell_kite_guild do
   playable_as :allegiance
   origin_blurb "Pilots, repair wells, and carriers share forecasts and rescue duties along Glassfall shower routes."
   subkind :company
-  type_of :working_mutuals
-  belongs_to :culture, :infrastructure_authority
+  type_of :mutuals
+  belongs_to :culture, :warrants
   founded 2312
   tags :transport, :trade, :ringglass, :resonance
   prominence :recognized

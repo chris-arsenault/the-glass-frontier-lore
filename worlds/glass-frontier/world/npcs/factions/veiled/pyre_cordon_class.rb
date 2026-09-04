@@ -1,7 +1,7 @@
 faction :pyre_cordon_class do
   name "The Pyre Cordon Class"
   summary "The Pyre Cordon Class is one cohort raised beside Bloom boundaries, taught warning colors before letters and accustomed to wearing safe-route marks."
-  type_of :cordon_children
+  type_of :cordoners
   subkind :community
   status :complete
   prominence :marginal

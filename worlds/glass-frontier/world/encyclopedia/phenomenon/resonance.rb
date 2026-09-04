@@ -32,7 +32,7 @@ encyclopedia :resonance do
 
     **Structural** resonance reinforces physical bonds. It makes materials harder, denser, and more resilient; ringglass-reinforced concrete is standard construction on Kaleidos.
 
-    **Kinetic** resonance produces motion, heat, and force. It powers #{encyclopedia_ref :kite_sail, "kites"}, refineries, and generators. Kinetic-tuned ringglass redirects opposing forces into a frequency null space, allowing thrust with greatly reduced resistance.
+    **Kinetic** resonance produces motion, heat, and force. It powers #{encyclopedia_ref :kite, "kites"}, refineries, and generators. Kinetic-tuned ringglass redirects opposing forces into a frequency null space, allowing thrust with greatly reduced resistance.
 
     **Signal** resonance carries information for communication, storage, and navigation. Loose signal-tuned crystal can retain and retransmit encountered data; the #{encyclopedia_ref :echo_rivers, "Echo Rivers"} carry pre-Glassfall transmissions through crystal-bearing water. Controlled arrays carry live messages and allow the #{ref :echo_ledger_conclave, "Echo Ledger Conclave"} to recover old records from ambient traffic.
 
@@ -42,7 +42,7 @@ encyclopedia :resonance do
 
     **Broad bandwidth** uses a wide range of frequencies and tolerates low-grade ringglass. Lanterns, stoves, compasses, and basic heaters operate here. A broad structural application strengthens a wall; a broad kinetic application heats a room.
 
-    **Mid bandwidth** requires quality arrays or trained #{encyclopedia_ref :tuners, "Tuners"}. Kite drives, refineries, long-range communication, and #{ref :clarisant, "Clarisant"}-grade attunement work use this range. Mid kinetic arrays generate sustained thrust, while mid signal arrays carry speech across a continent.
+    **Mid bandwidth** requires quality arrays or trained #{encyclopedia_ref :resonant_tuner, "Tuners"}. Kite drives, refineries, long-range communication, and #{ref :clarisant, "Clarisant"}-grade attunement work use this range. Mid kinetic arrays generate sustained thrust, while mid signal arrays carry speech across a continent.
 
     **Narrow bandwidth** concentrates the field tightly enough to produce effects outside ordinary workshop practice. Structural examples alter local physical behavior, kinetic examples produce translocation, and signal examples transfer information directly into consciousness.
 
@@ -50,7 +50,7 @@ encyclopedia :resonance do
 
     Spell registries use the tier names **broad**, **focused**, and **narrow**. *Focused* is the registry term for a spell worked in the middle bandwidth. Each spell is registered once, at the narrowest bandwidth its effect requires; casting it with more force does not move it to another tier. Mantles enlarge or transform particular spells without adding another bandwidth category. Single-wavelength resonance remains a proposed limit beyond the registered tiers.
 
-    Clarisant registries usually give a reproducible spell one short work-word whose technical meaning comes from the casting: #{encyclopedia_ref :step, "Step"}, #{encyclopedia_ref :echoing, "Echoing"}, #{encyclopedia_ref :mending, "Mending"}, #{encyclopedia_ref :seaming, "Seaming"}, #{encyclopedia_ref :stay, "Stay"}, and #{encyclopedia_ref :unclosing, "Unclosing"}. Workings kept by a particular trade retain service names such as #{encyclopedia_ref :signal_folding, "Signal Folding"} and #{encyclopedia_ref :ash_veiling, "Crucible Veiling"}; Tessellan-derived spells retain the language of Form and Will. A registry name belongs to one reproducible casting, not to every stronger act that resembles it.
+    Clarisant registries usually give a reproducible spell one short work-word whose technical meaning comes from the casting: #{encyclopedia_ref :step, "Step"}, #{encyclopedia_ref :echoing, "Echoing"}, #{encyclopedia_ref :mending, "Mending"}, #{encyclopedia_ref :seaming, "Seaming"}, #{encyclopedia_ref :stay, "Stay"}, and #{encyclopedia_ref :unclosing, "Unclosing"}. Workings kept by a particular trade retain service names such as #{encyclopedia_ref :signal_folding, "Signal Folding"} and #{encyclopedia_ref :crucible_veiling, "Crucible Veiling"}; Tessellan-derived spells retain the language of Form and Will. A registry name belongs to one reproducible casting, not to every stronger act that resembles it.
 
     Manufactured devices enclose their tuning, so an operator can use a mid-band array without tuning it. Tuners set and maintain those frequencies deliberately. Narrow-band work remains confined to relic study, controlled surveys, and accidental exposures.
 

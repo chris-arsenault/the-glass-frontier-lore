@@ -77,6 +77,6 @@ relate :rel_glassfall_manifests_at_kesh, :manifests_at, :the_glassfall, :kesh do
   prose "Kesh occupies a surviving kinetic-field junction in the broken ring."
 end
 
-relate :rel_brace_operates_third_latch, :operates_in, :brace, :third_latch, since: 2435 do
+relate :rel_brace_operates_third_latch, :operates_in, :brace, :latchhouse, since: 2435 do
   prose "Brace stages Kesh crossing formations from Latchhouse before Mareth's gate opens."
 end

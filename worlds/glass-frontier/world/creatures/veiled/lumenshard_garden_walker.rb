@@ -2,7 +2,7 @@ creature :lumenshard_garden_walker do
   name "The Lumenshard Garden-Walker"
   summary "The Lumenshard Garden-Walker is a garden-bearing creature ranging around Miraeth, Lumenshard, and Seren. It carries living soil on its back and buries itself when the soil turns sour."
   subkind :creature
-  type_of :blue_loam_walker
+  type_of :pavior
   status :complete
   prominence :marginal
   veiled "The Lumenshard Garden-Walker carries a whole garden on its back and buries itself when the soil turns sour."

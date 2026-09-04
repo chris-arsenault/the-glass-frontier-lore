@@ -4,7 +4,7 @@ creature :the_blue_mirror_swarm do
   subkind :creature
   status :complete
   prominence :marginal
-  type_of :mirror_bee
+  type_of :irides
   veiled "The Blue Mirror Swarm carries the same flower color between Lumenshard and Miraeth even when no matching bloom grows at the destination."
 end
 

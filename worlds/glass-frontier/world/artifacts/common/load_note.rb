@@ -3,7 +3,7 @@ artifact :load_note do
   summary "The Load Note is a Clarisant kinetic horn used to train Tuners in holding moving cargo and damaged frames. Its broad working bell and scarred deck brace preserve the response marks of several rescue commissions."
   subkind :instrument
   type_of :kinetic_horn
-  technology :resonant_instruments
+  technology :tonework
   function "Applies directed kinetic force while its player holds a matched tone"
   status :complete
   tags :resonance, :music, :"kinetic-freq", :training, :transport

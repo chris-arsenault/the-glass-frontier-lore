@@ -1,7 +1,7 @@
 resource :ravel_water do
   name "Ravel Water"
   summary "Ravel Water is a warm resonant condensate collected from Ravel's outer nets and held in six separated trays because nearby samples pull themselves together."
-  type_of :resonant_condensate
+  type_of :flower
   subkind :material
   function "Warm resonant condensate collected from the center of Ravel's outer nets"
   availability "Held in six sealed trays from three plume passages"

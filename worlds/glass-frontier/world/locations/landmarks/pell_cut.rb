@@ -40,7 +40,7 @@ installation :pell_cut do
   )
 
   prose <<~PROSE
-    A chain of receiving yards fixed along a narrow navigable cut through the outer #{ref :deep_shear, "Deep Shear"}. Four anchor stations face four different claim pockets. Freight spines join them to a central sorting yard, where recovered material is separated before it moves inward on #{encyclopedia_ref :heavy_hauler, "Bulk Kites"}.
+    A chain of receiving yards fixed along a narrow navigable cut through the outer #{ref :deep_shear, "Deep Shear"}. Four anchor stations face four different claim pockets. Freight spines join them to a central sorting yard, where recovered material is separated before it moves inward on #{encyclopedia_ref :bulk_kite, "Bulk Kites"}.
 
     The #{ref :pell_freight_assembly, "Pell Freight Assembly"} built the Cut for crews that needed industrial processing without an industrial owner. Member vessels reserve an anchor, bring their own cutter, and pay for the receiving rooms by mass handled or by maintenance work.
   PROSE

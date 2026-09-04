@@ -2,7 +2,7 @@ incident :gray_line_founding do
   name "Gray Line Founding"
   summary "Gray Line Founding was the joining of three family pressure shelters into a settlement at the Bloom cordon."
   subkind :founding
-  type_of :cordon_children
+  type_of :cordoners
   status :complete
   prominence :marginal
   veiled "Gray Line began when three families joined their pressure shelters at the edge of the Bloom cordon."

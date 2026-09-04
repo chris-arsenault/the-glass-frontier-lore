@@ -2,7 +2,7 @@ installation :hab_coriolis do
   name "Hab Coriolis"
   summary "Hab Coriolis is the sealed garden habitat breached during the Contested Reach and closed again after the contact team withdrew."
   subkind :settlement
-  type_of :shuttered_habs
+  type_of :shuttered
   status :complete
   tags :governance, :"ring-hab", :isolation
   prominence :recognized

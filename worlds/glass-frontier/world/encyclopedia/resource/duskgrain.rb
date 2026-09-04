@@ -38,7 +38,7 @@ encyclopedia :duskgrain do
   )
 
   prose <<~PROSE, section: :how_it_works, heading: "How It Works"
-    Duskgrain crystallizes in #{ref :bloom_zones, "Bloom Zones"} and in deep #{ref :the_shear, "Shear"} pockets where narrow-band resonance has held for an extended period. The grains are dark, rarely larger than a seed, and give off a faint harmonic hum that #{encyclopedia_ref :tuners, "Tuners"} describe as unsettling.
+    Duskgrain crystallizes in #{ref :bloom_zones, "Bloom Zones"} and in deep #{ref :the_shear, "Shear"} pockets where narrow-band resonance has held for an extended period. The grains are dark, rarely larger than a seed, and give off a faint harmonic hum that #{encyclopedia_ref :resonant_tuner, "Tuners"} describe as unsettling.
 
     One grain can power a mid-bandwidth device for days. Its stored resonance spans the full spectrum and releases across every band at once. Drawing it down into useful output requires narrow-band skill; an uncontrolled release can disrupt instruments, structures, and living tissue across a small site.
 

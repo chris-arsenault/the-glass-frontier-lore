@@ -2,7 +2,7 @@ creature :ledgerfall_echo_larva do
   name "The Ledgerfall Echo Larva"
   summary "The Ledgerfall Echo Larva is a recording-borne anomaly ranging between Ledgerfall, the Choir Fragment, and Tanel. It hatched inside an old record and consumes the loudest word from each repeated passage."
   subkind :anomaly
-  type_of :echo_larva
+  type_of :echo_spinner
   status :complete
   prominence :marginal
   veiled "The Ledgerfall Echo Larva hatched inside an old recording and chews the loudest word out of every repeated passage."

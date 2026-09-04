@@ -1,7 +1,7 @@
 incident :pelhari_cold_archive_weather do
   name "Pelhari Cold Archive Weather"
   summary "Pelhari Cold Archive Weather is a resonance phenomenon that lays readable frost on sealed hulls near the passage of a Lithren text."
-  type_of :cold_archive_weather
+  type_of :print
   subkind :incident
   status :complete
   prominence :marginal

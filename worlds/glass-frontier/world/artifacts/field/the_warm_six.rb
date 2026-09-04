@@ -2,7 +2,7 @@ artifact :the_warm_six do
   name "The Warm Six"
   summary "The Warm Six are Nara Pell's matched blue-loam cultures, kept in separate rooms around Seren's warm axis after two stable medicinal forms appeared."
   subkind :artifact
-  type_of :blue_loam
+  type_of :seren_blue
   status :complete
   tags :ecology, :materials, :trade
   prominence :marginal

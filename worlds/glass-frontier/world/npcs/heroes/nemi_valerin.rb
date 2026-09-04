@@ -5,7 +5,7 @@ npc :nemi_valerin do
   born 2389
   occupation "Voice Proximate of the Lattice Proxy Synod"
   type_of :humans
-  belongs_to :culture, :sitharian_culture
+  belongs_to :culture, :sitharians
   descriptive_identity disposition:
     "Valerin asks what an answer would change for a named ship, " \
     "settlement, or court, and leaves it untranslated when nobody can " \

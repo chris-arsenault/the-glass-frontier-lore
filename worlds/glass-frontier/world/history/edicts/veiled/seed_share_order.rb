@@ -2,7 +2,7 @@ edict :seed_share_order do
   name "The Seed-Share Order"
   summary "The Seed-Share Order requires half of every revived Orra strain to reach a second habitat before local planting begins."
   subkind :edict
-  type_of :living_cargo_stewardship
+  type_of :second_habitat
   status :complete
   prominence :marginal
   veiled "The Seed-Share Order sends half of every revived Orra strain to a second habitat before local planting begins."

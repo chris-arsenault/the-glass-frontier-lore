@@ -26,6 +26,6 @@ encyclopedia :stay do
   prose <<~PROSE, section: :aftermath, heading: "The Breaths Denied"
     The practitioner lives the interval the process does not. A hold of six breaths adds six breaths of pulse, thought, hunger, healing, and injury to the body even when the room's clock records only the ordinary time spent casting. Repeated holds leave the practitioner older by small intervals that no record can separate from the rest of the day.
 
-    #{encyclopedia_ref :timeworking, "Hourtaking"} assigns duration taken from one process to another immediate action. Stay has no second recipient: it buys delay only by carrying the missing breaths through the person holding it.
+    #{encyclopedia_ref :hourtaking, "Hourtaking"} assigns duration taken from one process to another immediate action. Stay has no second recipient: it buys delay only by carrying the missing breaths through the person holding it.
   PROSE
 end

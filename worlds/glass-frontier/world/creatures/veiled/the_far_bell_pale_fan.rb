@@ -4,7 +4,7 @@ creature :the_far_bell_pale_fan do
   subkind :creature
   status :complete
   prominence :marginal
-  type_of :cold_route_spores
+  type_of :halos
   veiled "The Far Bell Pale Fan came out of Lithren archive ice and flowers beside Far Bell's warm navigation lamps."
 end
 

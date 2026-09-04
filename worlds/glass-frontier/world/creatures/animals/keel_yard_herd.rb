@@ -2,7 +2,7 @@ creature :keel_yard_herd do
   name "The Keel Yard Herd"
   summary "The Keel Yard Herd is a large cinderback herd lodged in the utility culverts beneath Shadewell's outer cargo yard. A damaged cold-store return keeps drawing it back from the screened route to an unused quarry."
   subkind :animal
-  type_of :cinderback
+  type_of :khar
   status :complete
   tags :"outer-system", :ecology, :danger, :trade, :resonance
   prominence :recognized

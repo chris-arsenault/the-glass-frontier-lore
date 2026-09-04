@@ -1,7 +1,7 @@
 ability :red_sovereign do
   name "The Red Sovereign"
   summary "The Red Sovereign is an Adversary mantle that extends Outside Will into standing commands over crews, vessels, armies, cities, and machine intelligences."
-  type_of :dominion
+  type_of :outside_will
   subkind :the_adversary
   status :complete
   tags :resonance, :religion, :governance, :military
@@ -12,7 +12,7 @@ ability :red_sovereign do
 
   descriptive_identity(
     signs: "The bearer's command sounds twice, a second red-toned voice answers inside each listener or machine, and subjects repeat the operative words before acting.",
-    effect: "The mantle extends #{encyclopedia_ref :dominion, "Outside Will"} from one immediate act to standing control of crews, vessels, armies, cities, and machine intelligences.",
+    effect: "The mantle extends #{encyclopedia_ref :outside_will, "Outside Will"} from one immediate act to standing control of crews, vessels, armies, cities, and machine intelligences.",
     limits: "A subject must receive, understand, and be capable of the order. The command supplies obedience rather than skill and follows the subject's literal meaning."
   )
 
@@ -31,7 +31,7 @@ ability :red_sovereign do
   prose <<~PROSE, section: :legacy, heading: "The Red Crown"
     Tessellan shadow lists call this mantle *Red Sovereign*. Its red is Will imposed from outside another person's Form, and several copies replace the written title with a blank red crown. The title names the office created by the second voice: wherever the command is heard, the bearer becomes the authority the mantle recognizes.
 
-    Memory pays for that authority. A command to surrender a weapon may take the bearer's memory of acquiring one. An order that makes soldiers abandon their families may erase the face of the bearer's closest kin while leaving the bare fact of the relationship. #{encyclopedia_ref :ledger_recall, "Binding"} can preserve the lost event's words and hesitations but cannot restore why they mattered to the bearer.
+    Memory pays for that authority. A command to surrender a weapon may take the bearer's memory of acquiring one. An order that makes soldiers abandon their families may erase the face of the bearer's closest kin while leaving the bare fact of the relationship. #{encyclopedia_ref :binding, "Binding"} can preserve the lost event's words and hesitations but cannot restore why they mattered to the bearer.
 
     Absolute disobedience opens succession. A subject must understand the command, resist it, and reach the bearer while the mantle is still enforcing the words. The red second voice then moves into them. The former sovereign remembers having ruled and may no longer remember why anyone feared them.
   PROSE

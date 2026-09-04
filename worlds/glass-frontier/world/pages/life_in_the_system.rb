@@ -27,7 +27,7 @@ page :life_in_the_system, title: "Life in the System", wiki: "Life in the System
     Where authority is contested, the contest is rarely open. It looks like paperwork wars between offices claiming the same jurisdiction, rival patrols keeping to their own sides of a dock, the same cargo taxed twice under two seals, and quiet intimidation where no seal applies. Nobody fights the Accord directly; plenty shirk its reign in the shadows.
   PROSE
   prose <<~PROSE, heading: "Getting Around"
-    #{encyclopedia_ref :kite_sail, "Kites"} are everywhere. #{encyclopedia_ref :flitter, "Flitters"} handle local passengers and light cargo, while road haulers, barges, and larger vessels carry loads whose routes or mass do not justify a flight. Booking passage between major settlements is routine. Interplanetary travel takes days, not months, and most people in the inner system have visited at least one other world.
+    #{encyclopedia_ref :kite, "Kites"} are everywhere. #{encyclopedia_ref :flitter, "Flitters"} handle local passengers and light cargo, while road haulers, barges, and larger vessels carry loads whose routes or mass do not justify a flight. Booking passage between major settlements is routine. Interplanetary travel takes days, not months, and most people in the inner system have visited at least one other world.
 
     The system is compact enough that distance is an inconvenience, not a barrier. A week to the outer planets. A day to an adjacent one. People maintain relationships, business interests, and family ties across planetary distances the way a surface-dweller might maintain them across a continent.
   PROSE

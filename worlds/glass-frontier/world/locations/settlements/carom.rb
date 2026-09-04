@@ -53,7 +53,7 @@ installation :carom do
 
     The route marks combine color, shape, and two short numbers. Color gives the segment. Shape gives the exchange. The first number identifies the neighborhood table and the second the carrier group. A chalk stroke across the mark records a temporary diversion. A clipped corner sends the parcel back through the same route after delivery. Couriers press a tuned ceramic stud through the corner; its vibration identifies the next drum when paint is hidden or the sorting deck is dark.
 
-    #{ref :exchange_c, "Rattle"} handles the busiest drum and most off-hab traffic. #{ref :mik_sorn, "Mik Sorn"} runs its medical and hot-meal route. The hab-runner #{ref :tally, "*Tally*"} moves delayed frames between outer docks when the rotating connection would spoil their contents.
+    #{ref :rattle, "Rattle"} handles the busiest drum and most off-hab traffic. #{ref :mik_sorn, "Mik Sorn"} runs its medical and hot-meal route. The hab-runner #{ref :tally, "*Tally*"} moves delayed frames between outer docks when the rotating connection would spoil their contents.
   PROSE
 
   prose <<~PROSE, section: :people, heading: "A Place That Changes Hands"
@@ -78,11 +78,11 @@ relate :rel_pell_freight_operates_in_carom, :operates_in, :pell_freight_assembly
   prose "Pell Freight Assembly carriers exchange frames and onward manifests through Carom's courier cooperatives."
 end
 
-relate :rel_mik_sorn_operates_exchange_c, :operates_in, :mik_sorn, :exchange_c, since: 2435 do
+relate :rel_mik_sorn_operates_exchange_c, :operates_in, :mik_sorn, :rattle, since: 2435 do
   prose "Mik Sorn sorts and collects the medical and hot-meal frames assigned to Rattle."
 end
 
-relate :rel_tally_operates_exchange_c, :operates_in, :tally, :exchange_c, since: 2435 do
+relate :rel_tally_operates_exchange_c, :operates_in, :tally, :rattle, since: 2435 do
   prose "Rattle dispatches Tally when an outer-dock transfer cannot wait for the next drum alignment."
 end
 

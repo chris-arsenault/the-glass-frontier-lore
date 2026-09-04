@@ -52,6 +52,6 @@ relate :rel_five_bolts_participated_hospital_hull_recovery, :participated_in, :f
   prose "Five Bolts captured the vessel and keeps it separated from inhabited anchors."
 end
 
-relate :rel_lot_forty_hosts_hospital_hull_recovery, :hosts, :lot_forty, :hospital_hull_recovery, since: 2435 do
+relate :rel_lot_forty_hosts_hospital_hull_recovery, :hosts, :forty, :hospital_hull_recovery, since: 2435 do
   prose "Forty supplies the recovery's records room, clinical staging area, and independent utilities."
 end

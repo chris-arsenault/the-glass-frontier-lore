@@ -2,7 +2,7 @@ faction :third_arc_defense do
   name "Third Arc Defense"
   summary "Third Arc Defense was a defense and logistics pact among three outer ring habitats from 2359 until its dissolution in 2423."
   subkind :civic_body
-  type_of :compact_authority
+  type_of :compacts
   founded 2359
   dissolved 2423
   mandate "Protect outer ring-hab supply routes and civilian communications"

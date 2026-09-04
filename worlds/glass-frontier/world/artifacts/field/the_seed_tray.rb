@@ -2,7 +2,7 @@ artifact :the_seed_tray do
   name "The Seed Tray"
   summary "The Seed Tray is a standardized rack of Shear-grade microcavity fuel carried aboard Steady Return."
   subkind :artifact
-  type_of :microcavities
+  type_of :seed
   resource :ringglass
   status :complete
   tags :resonance, :trade, :materials, :transport

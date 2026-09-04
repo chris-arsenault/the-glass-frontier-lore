@@ -1,7 +1,7 @@
 incident :orra_root_sleep do
   name "Orra Root Sleep"
   summary "Orra Root Sleep is a whole-deck plant dormancy that ends when water from another habitat reaches the garden's oldest graft."
-  type_of :root_sleep
+  type_of :sleep
   subkind :incident
   status :complete
   prominence :marginal

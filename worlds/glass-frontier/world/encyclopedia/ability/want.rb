@@ -26,6 +26,6 @@ encyclopedia :want do
   prose <<~PROSE, section: :aftermath, heading: "The Unsatisfied Part"
     A returned pattern does not restore the practitioner. Using another person's skill weakens the pleasure of exercising the practitioner's own craft. Carrying another memory can make a related part of the practitioner's past feel thin and secondhand. The loss is small after one casting and permanent; repeated use teaches the practitioner to seek the missing satisfaction in another taken pattern.
 
-    #{encyclopedia_ref :consumption, "Hunger"} moves heat, momentum, force, or resonant output instead. #{ref :all_hunger, "The All-Hunger"} joins physical and remembered taking at collective scale and carries the appetite without relief.
+    #{encyclopedia_ref :hunger, "Hunger"} moves heat, momentum, force, or resonant output instead. #{ref :all_hunger, "The All-Hunger"} joins physical and remembered taking at collective scale and carries the appetite without relief.
   PROSE
 end

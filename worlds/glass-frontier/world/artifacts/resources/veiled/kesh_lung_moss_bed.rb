@@ -2,7 +2,7 @@ resource :kesh_lung_moss_bed do
   name "The Kesh Lung-Moss Bed"
   summary "The Kesh Lung-Moss Bed is living filter material sourced from Lung Three and Kesh. It traps structural dust and turns bitter before an air shaft begins to buckle."
   subkind :biological_material
-  type_of :lung_moss
+  type_of :kelm
   status :complete
   prominence :marginal
   veiled "The Kesh Lung-Moss Bed traps structural dust and turns bitter before an air shaft begins to buckle."

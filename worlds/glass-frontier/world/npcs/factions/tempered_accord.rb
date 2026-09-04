@@ -2,7 +2,7 @@ faction :tempered_accord do
   name "Tempered Accord"
   summary "The Tempered Accord is the system's mediation framework and set of shared standards, ratified by member settlements in 2423."
   subkind :government
-  type_of :compact_authority
+  type_of :compacts
   path "player/npcs/factions/tempered-accord.md"
   reviewed "2026-03-18"
   tags :governance, :diplomacy

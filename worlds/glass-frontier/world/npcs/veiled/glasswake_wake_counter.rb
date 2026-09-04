@@ -9,5 +9,5 @@ npc :glasswake_wake_counter do
 end
 relate :rel_wake_counting_at_wash_four, :manifests_at, :glasswake_wake_counter, :wash_four
 relate :rel_wake_counting_at_carom, :manifests_at, :glasswake_wake_counter, :carom
-relate :rel_wake_counting_at_exchange_c, :manifests_at, :glasswake_wake_counter, :exchange_c
-relate :rel_wake_counting_at_bay_thirty_one, :manifests_at, :glasswake_wake_counter, :bay_thirty_one
+relate :rel_wake_counting_at_exchange_c, :manifests_at, :glasswake_wake_counter, :rattle
+relate :rel_wake_counting_at_bay_thirty_one, :manifests_at, :glasswake_wake_counter, :thirty_one

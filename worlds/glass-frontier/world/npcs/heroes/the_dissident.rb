@@ -8,8 +8,8 @@ npc :the_dissident do
   occupation "Famine-era resonance teacher"
   omit_facts :based_in
   type_of :elves
-  belongs_to :role, :tuners
-  dm!(public_entry: :tuners)
+  belongs_to :role, :resonant_tuner
+  dm!(public_entry: :resonant_tuner)
 
   prose <<~PROSE
     The Dissident was an elf who rejected the collective disappearance after the Glassfall. They judged that leaving isolated communities without resonance knowledge would kill people more certainly than one concealed teacher would expose the hidden habs.

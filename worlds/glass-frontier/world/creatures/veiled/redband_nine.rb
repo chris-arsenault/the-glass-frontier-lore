@@ -4,7 +4,7 @@ creature :redband_nine do
   subkind :creature
   status :complete
   prominence :marginal
-  type_of :cordon_scavengers
+  type_of :bloomgrazer
   veiled "Redband Nine crosses between Pyre and Latch whenever Bloom light reaches the red warning band."
 end
 

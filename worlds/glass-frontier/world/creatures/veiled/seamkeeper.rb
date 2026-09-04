@@ -4,7 +4,7 @@ creature :seamkeeper do
   subkind :creature
   status :complete
   prominence :marginal
-  type_of :ravel_clampweed
+  type_of :signal_mat
   veiled "Seamkeeper runs through the hull seams of Ravel and Tanel and grips both during the same signal tides."
 end
 

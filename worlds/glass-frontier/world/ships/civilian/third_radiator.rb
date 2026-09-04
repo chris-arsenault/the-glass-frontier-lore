@@ -2,8 +2,8 @@ transport :third_radiator do
   name "Third Radiator"
   summary "Third Radiator is a long Ashvane freight vehicle running between the lowland kiln towns and Shadewell. Its third radiator frame was rebuilt at Coldside Bench after cinderbacks occupied the cargo-yard culverts."
   subkind :transport
-  type_of :heat_road_hauler
-  technology :kite_sail
+  type_of :ashvane_dray
+  technology :kite
   status :complete
   tags :transport, :trade, :resonance, :"kinetic-freq", :"outer-system"
   prominence :recognized

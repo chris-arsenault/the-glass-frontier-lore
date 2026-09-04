@@ -1,7 +1,7 @@
 ability :many_fleshed do
   name "The Many-Fleshed"
   summary "The Many-Fleshed is an Adversary mantle that extends Manyflesh across every selected body in a battlefield or settlement. The bearer becomes the shared anatomy first and retains part of it afterward."
-  type_of :alteration
+  type_of :manyflesh
   subkind :the_adversary
   status :complete
   tags :resonance, :religion, :species, :danger
@@ -12,7 +12,7 @@ ability :many_fleshed do
 
   descriptive_identity(
     signs: "The proposed trait appears in the bearer before any target changes, while remnants of earlier workings remain as additional joints, altered eyes, unfamiliar breath, or organs visible beneath the skin.",
-    effect: "The mantle extends #{encyclopedia_ref :alteration, "Manyflesh"} from one contacted body to every selected living body across a wide area.",
+    effect: "The mantle extends #{encyclopedia_ref :manyflesh, "Manyflesh"} from one contacted body to every selected living body across a wide area.",
     limits: "Each result must sustain life with available mass and working systems for breath, heat, waste, and movement. Functions and identity cues absent from the new anatomy disappear with the old body."
   )
 

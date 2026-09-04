@@ -6,7 +6,7 @@ npc :tavi_soreth do
   occupation "Route surveyor and rescue coordinator"
   specialty "Changing spatial connections in Sithari's Underlayers"
   type_of :orcs
-  belongs_to :culture, :sitharian_culture
+  belongs_to :culture, :sitharians
   descriptive_identity disposition:
     "Soreth's first question is what must reach the far end — a person, a " \
     "cart, a litter, a hose that cannot turn a tight corner — and the " \
@@ -35,7 +35,7 @@ npc :tavi_soreth do
     It also left Soreth suspicious of clean replacements for layered records. The municipal model had removed the buried stair because it was no longer part of the legal building. Residents had kept it in hand-drawn plans because their grandparents used it. Both records were accurate for their purpose; only one still offered a route.
   PROSE
   prose <<~PROSE, section: :relationships, heading: "Tuners and Stewards"
-    Soreth is not a #{encyclopedia_ref :tuners, "Tuner"}. They can recognize repeated physical signs and use a #{encyclopedia_ref :tuning_compass, "tuning compass"} against a known reading, but they cannot distinguish every change in the field. On a deep survey the Clarisant Tuner decides whether an opening is stable enough to enter. Soreth decides whether the route can serve the people waiting on the other side.
+    Soreth is not a #{encyclopedia_ref :resonant_tuner, "Tuner"}. They can recognize repeated physical signs and use a #{encyclopedia_ref :tuning_compass, "tuning compass"} against a known reading, but they cannot distinguish every change in the field. On a deep survey the Clarisant Tuner decides whether an opening is stable enough to enter. Soreth decides whether the route can serve the people waiting on the other side.
 
     Building stewards trust Soreth because they ask for local plans before unpacking instruments. City engineers find the same habit slow. Soreth has stopped more surveys over an unrecorded bedroom, water line, or refuge room than over a resonance reading. In the occupied Underlayers, the contents of a wall matter as much as the geometry behind it.
   PROSE

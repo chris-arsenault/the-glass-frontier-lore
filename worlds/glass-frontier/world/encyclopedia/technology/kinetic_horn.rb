@@ -36,7 +36,7 @@ encyclopedia :kinetic_horn do
   )
 
   prose <<~PROSE
-    A kinetic horn is a braced piece of #{encyclopedia_ref :resonant_instruments, "Tonework"} that turns breath, lip pressure, and hand position into directed kinetic-band force. Pilots use one to steady a damaged craft. Cargo crews ease a suspended load away from a wall. Rescue teams push loose debris without placing a person inside its path.
+    A kinetic horn is a braced piece of #{encyclopedia_ref :tonework, "Tonework"} that turns breath, lip pressure, and hand position into directed kinetic-band force. Pilots use one to steady a damaged craft. Cargo crews ease a suspended load away from a wall. Rescue teams push loose debris without placing a person inside its path.
 
     The horn produces audible sound, usually a low rough note shaped by the folded body and its two control valves. Volume contributes little. The useful force appears when the player's frequency matches the material or motion they are trying to influence and remains stable while the note changes under load.
   PROSE

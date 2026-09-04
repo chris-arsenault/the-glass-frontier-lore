@@ -2,7 +2,7 @@ npc :keeps_the_measure do
   name "Keeps-the-Measure"
   summary "Keeps-the-Measure is a courier carrying pressure samples between Ashvane and Crucible."
   subkind :courier
-  type_of :couriers
+  type_of :keeper_of_roads
   status :complete
   prominence :marginal
   veiled "Keeps-the-Measure carries pressure samples from Ashvane to Crucible without letting either jar cool."end

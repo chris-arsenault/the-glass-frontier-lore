@@ -2,7 +2,7 @@ transport :pale_return do
   name "Pale Return"
   summary "Pale Return is an archive-ice carrier serving Lithren, Pelhari, and Vastine. It remains off the dock until every passenger has named their cargo."
   subkind :vessel
-  type_of :heavy_hauler
+  type_of :bulk_kite
   status :complete
   prominence :marginal
   veiled "Pale Return brings Lithren archive ice to Pelhari and never docks until every passenger has named their cargo."

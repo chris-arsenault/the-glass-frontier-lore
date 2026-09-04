@@ -1,7 +1,7 @@
 ability :thief_of_hours do
   name "The Thief of Hours"
   summary "The Thief of Hours is an Adversary mantle that extends Hourtaking across battles, cities, and catastrophes while its bearer lives every interval removed."
-  type_of :timeworking
+  type_of :hourtaking
   subkind :the_adversary
   status :complete
   tags :resonance, :religion, :danger, :cosmology
@@ -12,7 +12,7 @@ ability :thief_of_hours do
 
   descriptive_identity(
     signs: "Clocks disagree, moving subjects hang between positions, and the bearer emerges from the transferred interval older, hungry, injured, or carrying dust from work completed inside it.",
-    effect: "The mantle extends #{encyclopedia_ref :timeworking, "hourtaking"} from one short transfer to many processes across an army, city, or catastrophe.",
+    effect: "The mantle extends #{encyclopedia_ref :hourtaking, "hourtaking"} from one short transfer to many processes across an army, city, or catastrophe.",
     limits: "Duration must come from a present physical process and passes through a living bearer. Completed events remain fixed, and transferred age can move again only into another living subject."
   )
 

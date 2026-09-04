@@ -6,7 +6,7 @@ npc :vesh_marrow do
   occupation "Retired Hand of the Bloom Coalition and adviser on Accord emergency charters"
   jurisdiction "Cross-faction emergency command"
   type_of :humans
-  belongs_to :culture, :sitharian_culture
+  belongs_to :culture, :sitharians
   descriptive_identity disposition:
     "Marrow meets a request for emergency authority with three questions: " \
     "who can end it, which records stay public, and what happens to " \

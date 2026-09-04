@@ -1,7 +1,7 @@
 phenomenon :heir_bloom do
   name "The Heir Bloom"
   summary "The Heir Bloom is the singular signal overgrowth recorded at Hinge Six: conflicting demands make it branch through unintended channels, and a succession accepted by the active network transfers the complete pattern to its heir."
-  type_of :signal_overgrowth
+  type_of :signal_growth
   subkind :physical_phenomenon
   status :complete
   tags :resonance, :"signal-freq", :navigation, :governance

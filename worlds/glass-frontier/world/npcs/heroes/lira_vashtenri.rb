@@ -14,7 +14,7 @@ npc :lira_vashtenri do
   log "2026-08-21 — Named Crowncut Refinery, her foreman Pera Soll, and the first wall site at Cinder Gap. Her present work retires saturated damping buoys before their stored load fails into the cordon."
   narrative_role "viewpoint"
   type_of :gnomes
-  belongs_to :culture, :sitharian_culture
+  belongs_to :culture, :sitharians
   descriptive_identity disposition:
     "Asked why the containment holds, Lira walks the questioner to a mount " \
     "and has them feel a load cycle through it instead of explaining. Any " \

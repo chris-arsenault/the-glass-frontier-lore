@@ -2,7 +2,7 @@ phenomenon :spanning_fall do
   name "Spanning Fall"
   aka "The Spanning Fall"
   summary "Spanning Fall is the distributed directional-slip field tracked through the Shear, where scattered patches share one vector and send an entire connected mass falling when they join free edge to free edge."
-  type_of :linked_slip
+  type_of :pairing
   subkind :physical_phenomenon
   status :complete
   tags :resonance, :orbital, :danger, :salvage

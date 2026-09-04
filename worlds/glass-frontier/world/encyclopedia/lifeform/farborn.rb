@@ -25,7 +25,7 @@ encyclopedia :farborn do
   )
 
   prose <<~PROSE
-    *Farborn* is the collective name for unrelated creatures found in #{ref :the_shear, "the Shear"}. Bodies range across sizes, materials, and forms that support no accepted common lineage. Working bestiaries divide them by habitat and behavior into categories such as #{encyclopedia_ref :drift_eel, "sheareels"} and #{encyclopedia_ref :shellback, "bolsters"}.
+    *Farborn* is the collective name for unrelated creatures found in #{ref :the_shear, "the Shear"}. Bodies range across sizes, materials, and forms that support no accepted common lineage. Working bestiaries divide them by habitat and behavior into categories such as #{encyclopedia_ref :sheareel, "sheareels"} and #{encyclopedia_ref :bolsters, "bolsters"}.
 
     The category persists because many eyes, independently working mouths, and a displaced resonance presence recur across those different bodies. Origin remains disputed between Deep crews and the institutions that study recovered specimens.
   PROSE
@@ -41,11 +41,11 @@ encyclopedia :farborn do
   prose <<~PROSE, section: :description, heading: "Known Types"
     The working bestiary is large and growing. The categories below are the best-documented.
 
-    #{embed :drift_eel}
+    #{embed :sheareel}
 
-    #{embed :shellback}
+    #{embed :bolsters}
 
-    #{embed :glasswurm}
+    #{embed :shearwurm}
 
     **Oozes.** Single-body amorphous masses that flow across debris. The Shear oozes are slow and avoidable; the Deep Shear oozes are faster and, in confined wreck interiors, lethal. Their eyes surface and submerge through the body at intervals, and the surfacing eyes are tracked carefully by anyone watching one.
 
@@ -60,7 +60,7 @@ encyclopedia :farborn do
     Dozens of smaller categories, regional variants, and named individuals sit beyond these headings. Survey and Ratter boards add new behavior terms as crews document them.
   PROSE
   prose <<~PROSE, section: :operations, heading: "Cutter-Wake Names"
-    Crews using #{encyclopedia_ref :remote_cutting, "Claim Coupling"} need names that tell them what an intruder will do in the receiving bay. #{encyclopedia_ref :ratters, "Ratter"} boards therefore record cutter-wake beasts by behavior. The terms overlap with the broader bestiary and make no claim about lineage.
+    Crews using #{encyclopedia_ref :claim_coupling, "Claim Coupling"} need names that tell them what an intruder will do in the receiving bay. #{encyclopedia_ref :ratters, "Ratter"} boards therefore record cutter-wake beasts by behavior. The terms overlap with the broader bestiary and make no claim about lineage.
 
     **Deckmouths** feed in pressure pockets and are often the first sign that a return has carried life. **Flintjacks** hunt active current, crossing a deck beneath pale sparks. Small **shear-jellies** ride the returning atmosphere into upper rooms. **Splitbacks** arrive under brittle mineral coats that break away from faster inner bodies.
 

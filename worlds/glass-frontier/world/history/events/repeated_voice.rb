@@ -40,7 +40,7 @@ incident :repeated_voice do
   gm_note :complicates, "Certificates are suspended on the lots that read too strong, so their owners cannot sell the cloth on and are refusing the one destructive wash that would settle the question."
 end
 
-relate :rel_repeated_voice_manifests_bay_thirty_one, :manifests_at, :repeated_voice, :bay_thirty_one do
+relate :rel_repeated_voice_manifests_bay_thirty_one, :manifests_at, :repeated_voice, :thirty_one do
   prose "Thirty-One holds the twenty-seven garments and the ceramic maps made before washing."
 end
 

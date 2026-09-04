@@ -6,7 +6,7 @@ npc :orr_senn do
   specialty "Water pressure, heat drift, and coupled structural tone"
   type_of :humans
   belongs_to :culture, :hab_worlder
-  belongs_to :role, :readers
+  belongs_to :role, :reader
   descriptive_identity disposition:
     "Senn stands behind no reading he has not walked from the source " \
     "gate. A blame brought to him comes back separated into heat, " \

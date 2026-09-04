@@ -5,7 +5,7 @@ installation :gray_line do
   context_tags :orbital, :cordon, :bloom_adjacent
   aka "Cordon Station Nine"
   subkind :border_post
-  type_of :cordon_station
+  type_of :bloomwatch
   tags :orbital, :danger, :resonance, :"ring-hab"
   prominence :marginal
   status :complete

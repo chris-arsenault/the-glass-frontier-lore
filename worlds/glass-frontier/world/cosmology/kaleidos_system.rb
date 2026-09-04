@@ -81,7 +81,7 @@ geographic_location :kaleidos_system do
     Population centers are not exclusively planetary. The system is a network, not a set of isolated worlds.
   PROSE
   prose <<~PROSE, section: :applications, heading: "Transit"
-    Interplanetary travel uses #{encyclopedia_ref :kite_sail, "KITE"} technology. Transit times planet-to-planet:
+    Interplanetary travel uses #{encyclopedia_ref :kite, "KITE"} technology. Transit times planet-to-planet:
 
     - Adjacent planets: ~1 day (fast ship), 2-3 days (cargo hauler)
     - Kaleidos to Ashenmaw (planet 5): ~3 days

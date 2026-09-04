@@ -1,7 +1,7 @@
 npc :choir_fragment_span_listener do
   name "The Choir Fragment Span Listener"
   summary "The Choir Fragment Span Listener hears load changes in old ring beams before the metal begins to walk."
-  type_of :span_listening
+  type_of :load_listening
   subkind :specialist
   status :complete
   prominence :marginal

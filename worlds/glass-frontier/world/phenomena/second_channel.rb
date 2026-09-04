@@ -2,7 +2,7 @@ phenomenon :second_channel do
   name "Second Channel"
   aka "The Second Channel"
   summary "Second Channel is the migrating route avulsion tracked on the Keel: after two fixed warning tones, a busy corridor begins delivering all traffic to a destination impressed into it by earlier journeys."
-  type_of :route_avulsion
+  type_of :avulsion
   subkind :physical_phenomenon
   status :complete
   tags :resonance, :navigation, :transport, :trade

@@ -8,4 +8,4 @@ conflict :crowncut_recovery do
 end
 
 relate :rel_crowncut_recovery_at_crowncut_refinery, :manifests_at, :crowncut_recovery, :crowncut_refinery
-relate :rel_crowncut_recovery_at_lot_forty, :manifests_at, :crowncut_recovery, :lot_forty
+relate :rel_crowncut_recovery_at_lot_forty, :manifests_at, :crowncut_recovery, :forty

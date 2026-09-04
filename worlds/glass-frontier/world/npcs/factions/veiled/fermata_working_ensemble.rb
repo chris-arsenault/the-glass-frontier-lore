@@ -1,7 +1,7 @@
 faction :fermata_working_ensemble do
   name "The Fermata Working Ensemble"
   summary "The Fermata Working Ensemble claims a repeated machine tone as public music once three crews can keep time with it."
-  type_of :music_in_kaleidos
+  type_of :answering_phrase
   subkind :community
   status :complete
   prominence :marginal

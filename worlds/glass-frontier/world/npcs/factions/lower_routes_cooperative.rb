@@ -4,8 +4,8 @@ faction :lower_routes_cooperative do
   playable_as :allegiance
   origin_blurb "Resident survey crews keep Sithari's shifting underlayers connected through repeated readings and public route boards."
   subkind :mutual_aid
-  type_of :infrastructure_authority
-  belongs_to :culture, :working_mutuals
+  type_of :warrants
+  belongs_to :culture, :mutuals
   founded 2227
   tags :surface, :resonance, :navigation, :"social-structure", :danger
   prominence :recognized
@@ -39,7 +39,7 @@ faction :lower_routes_cooperative do
   )
 
   prose <<~PROSE
-    A resident-run route service for the #{ref :underlayers, "Underlayers"}. The Cooperative maintains the boards at fixed shafts, verifies approaches below the marked limit, and organizes rescue when a changing connection cuts a household or workshop off from its usual street. Its members include building stewards, couriers, lift mechanics, medics, and certified #{encyclopedia_ref :tuners, "Tuners"} from the Sithari chapter.
+    A resident-run route service for the #{ref :underlayers, "Underlayers"}. The Cooperative maintains the boards at fixed shafts, verifies approaches below the marked limit, and organizes rescue when a changing connection cuts a household or workshop off from its usual street. Its members include building stewards, couriers, lift mechanics, medics, and certified #{encyclopedia_ref :resonant_tuner, "Tuners"} from the Sithari chapter.
 
     The organization began in 2227 after three lower neighborhoods received incompatible municipal evacuation maps during a field shift. Residents already knew the safe approaches. They pooled their stair lists, assigned pairs to check each route, and posted a common board at the lowest fixed shaft. The city adopted the board within a year and has funded part of the work since 2254.
   PROSE

@@ -6,7 +6,7 @@ npc :tess_orr do
   specialty "Recovering signal impressions from layered and repaired cloth"
   type_of :dwarves
   belongs_to :culture, :hab_worlder
-  belongs_to :role, :readers
+  belongs_to :role, :reader
   descriptive_identity appearance:
     "Orr's hands are wash-pale to the wrist from bench work, and she keeps " \
     "her sleeves rolled in any temperature so no cuff touches a cloth before " \
@@ -22,7 +22,7 @@ npc :tess_orr do
   prominence :marginal
 
   prose <<~PROSE
-    Tess Orr maps difficult textiles at #{ref :bay_thirty_one, "Thirty-One"}. She reads the order in which a garment accumulated dirt, pressure, repairs, and resonance, then chooses a wash that separates those layers.
+    Tess Orr maps difficult textiles at #{ref :thirty_one, "Thirty-One"}. She reads the order in which a garment accumulated dirt, pressure, repairs, and resonance, then chooses a wash that separates those layers.
 
     Orr learned on sailcloth, where one careless cycle can erase a route beacon or move it into a later patch. She tests every treatment on thread removed from an existing repair. The test becomes part of the job record and returns to the owner in a small glass tube.
 

@@ -512,7 +512,7 @@ naming_lexicon do
        use: "A water-culture root for communities, practices, and sites directly organized around those channels.",
        examples: ["Rill Households", "Rill Calling", "Perch Rill"],
        boundary: "Use for the managed watercourses and their social systems, not as a decorative synonym for any stream or pipe."
-  word :underturn,
+  word :ravel_underturn,
        meaning: "An intact exchange in which one layer or loaded volume takes another's place without crossing the matter between them.",
        use: "The displacement services' family word for complete layer exchanges and the named Ravel field that repeats one under load.",
        examples: ["Underturns", "Ravel Underturn"],

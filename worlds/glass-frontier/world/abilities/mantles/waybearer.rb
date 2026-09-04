@@ -1,7 +1,7 @@
 ability :waybearer do
   name "The Waybearer"
   summary "The Waybearer is a mantle of the Three that extends Waybearing into a traversable road for fleets or populations between genuinely known places anywhere in Kaleidos."
-  type_of :passage
+  type_of :waybearing
   subkind :the_three
   status :complete
   tags :resonance, :religion, :navigation, :transport
@@ -12,14 +12,14 @@ ability :waybearer do
 
   descriptive_identity(
     signs: "An ordinary opening shows the weather and light of a distant place, air moves through it, and the bearer is visible at both ends at once.",
-    effect: "The mantle extends #{encyclopedia_ref :passage, "waybearing"} from one fixed threshold to a system-wide road for armies, fleets, or whole populations.",
+    effect: "The mantle extends #{encyclopedia_ref :waybearing, "waybearing"} from one fixed threshold to a system-wide road for armies, fleets, or whole populations.",
     limits: "A destination requires lived memory, a trustworthy live signal, or a traveler who belongs there. The road joins both environments and remains open while anyone is upon it."
   )
 
   question "Who is the present or most recently attested Waybearer, and what occupied road did the former bearer yield to them?", raised: "2026-08-31"
 
   prose <<~PROSE
-    The Waybearer makes distant places adjacent on a scale ordinary #{encyclopedia_ref :passage, "waybearing"} cannot sustain. A hangar can open onto a remote vessel, a freight court onto another world, or an embarkation ground onto a settlement held in one passenger's memory. Fleets and populations cross the same road anywhere in Kaleidos, carrying momentum and cargo intact.
+    The Waybearer makes distant places adjacent on a scale ordinary #{encyclopedia_ref :waybearing, "waybearing"} cannot sustain. A hangar can open onto a remote vessel, a freight court onto another world, or an embarkation ground onto a settlement held in one passenger's memory. Fleets and populations cross the same road anywhere in Kaleidos, carrying momentum and cargo intact.
 
     The intervening distance remains untouched because travelers never enter it. Both ends occupy one threshold for as long as the road holds: light and sound cross before the first traveler, air and loose matter follow, and the bearer stands visible from each side. The road stays open behind the intended traffic while anyone remains upon it.
   PROSE

@@ -2,7 +2,7 @@ artifact :open_reed do
   name "The Open Reed"
   summary "The Open Reed is an early free-tuned resonant instrument preserved by Tuners as a working reference. Its adjustable alloy reed demonstrated the continuous control later divided between kinetic horns and three-reed compasses."
   subkind :instrument
-  type_of :resonant_instruments
+  type_of :tonework
   function "Produces an adjustable resonance tone through pressure applied to one free alloy reed"
   status :complete
   tags :resonance, :music

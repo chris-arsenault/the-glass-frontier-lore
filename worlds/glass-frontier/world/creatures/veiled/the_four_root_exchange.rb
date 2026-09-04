@@ -4,7 +4,7 @@ creature :the_four_root_exchange do
   subkind :creature
   status :complete
   prominence :marginal
-  type_of :root_deck_symbiotes
+  type_of :graft
   veiled "The Four-Root Exchange carries the same heat, waste, and warning pulses through living grafts at Ravel, Rib, Olven, and Orra."
 end
 

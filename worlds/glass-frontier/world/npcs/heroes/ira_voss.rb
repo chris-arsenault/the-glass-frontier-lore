@@ -6,7 +6,7 @@ npc :ira_voss do
   specialty "Occupied hulls, crew records, and live ship systems"
   type_of :humans
   belongs_to :culture, :hab_worlder
-  belongs_to :role, :readers
+  belongs_to :role, :reader
   descriptive_identity disposition:
     "Voss hears a claim out, writes it under the claims column of her " \
     "board, and moves nothing while a mark still stands under people."

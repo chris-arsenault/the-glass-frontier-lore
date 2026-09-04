@@ -42,7 +42,7 @@ encyclopedia :humans do
   prose <<~PROSE, section: :present_day, heading: "Present Day"
     Humans are the largest single population in the system. Their shorter lifespans and generation times contributed to that number after the Famine, and human faces are common in most settlements.
 
-    Census and household records usually place human residents through culture, district, trade, and allegiance. #{encyclopedia_ref :sitharian_culture, "Sitharian"} and #{encyclopedia_ref :hab_worlder, "Hab-Worlder"} identities carry more local information than the species line alone.
+    Census and household records usually place human residents through culture, district, trade, and allegiance. #{encyclopedia_ref :sitharians, "Sitharian"} and #{encyclopedia_ref :hab_worlder, "Hab-Worlder"} identities carry more local information than the species line alone.
   PROSE
   prose <<~PROSE, section: :resonance, heading: "Relationship with Resonance"
     Human attunement is learned through deliberate study and practice. Instruments translate resonance into readings the practitioner can compare, while trained attention links those readings to heat, pressure, vibration, and sound. Human schools therefore emphasize calibration, reference collections, and repeatable method.

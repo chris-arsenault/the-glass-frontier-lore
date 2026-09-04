@@ -50,7 +50,7 @@ installation :keelward do
     For many visitors, Keelward is Sithari. They first see its landing lights through filtered cloud, pass its inspection halls, sleep near its rail lines, and conduct their business without entering the old center. The district speaks every major trade register in the system. Its signs lead first to transfers, food, lodging, clinics, and cargo claims; civic monuments appear further west.
   PROSE
   prose <<~PROSE, section: :geography, heading: "From Field to City"
-    The outer terminals occupy a high, open tableland beyond the dense city. Heavy shuttles use reinforced pads there and connect to pressurized arrival halls by ground carriers. Closer in, low craft and #{encyclopedia_ref :kite_sail, "kites"} use narrow fields separated by catch fences and collapsible roofs. Freight rail begins below the customs halls and runs west through warehouses built over older surface roads.
+    The outer terminals occupy a high, open tableland beyond the dense city. Heavy shuttles use reinforced pads there and connect to pressurized arrival halls by ground carriers. Closer in, low craft and #{encyclopedia_ref :kite, "kites"} use narrow fields separated by catch fences and collapsible roofs. Freight rail begins below the customs halls and runs west through warehouses built over older surface roads.
 
     Housing fills the spaces between successive port boundaries. A row of workers' courts that once faced open fields may now sit behind a cargo shed. Former farm lanes carry food stalls and foot traffic beneath elevated freight lines. The oldest neighborhoods retain wells and gardens; newer blocks rely on terminal utilities and lose heat when a berth row shuts down for repair.
 

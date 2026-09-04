@@ -2,7 +2,7 @@ phenomenon :sideways_storm do
   name "Sideways Storm"
   aka "The Sideways Storm"
   summary "Sideways Storm is Ashvane's recurrent lateral pressure front, bowing every rigid length above its current wavelength toward one fixed bearing and releasing the stored motion behind it."
-  type_of :resonant_pressure_front
+  type_of :loadfront
   subkind :physical_phenomenon
   status :complete
   tags :resonance, :"outer-system", :danger, :"kinetic-freq"

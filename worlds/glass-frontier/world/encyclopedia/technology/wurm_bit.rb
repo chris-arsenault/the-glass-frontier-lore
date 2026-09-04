@@ -33,7 +33,7 @@ encyclopedia :wurm_bit do
   )
 
   prose <<~PROSE
-    A wurm-bit is a hand or cutter-mounted boring tool built around a shed #{encyclopedia_ref :glasswurm, "shearwurm"} mouth plate. The plate changes its bite angle as the surrounding structural tone changes, letting the tool follow a seam through mixed mineral and ringglass without forcing a straight bore through both.
+    A wurm-bit is a hand or cutter-mounted boring tool built around a shed #{encyclopedia_ref :shearwurm, "shearwurm"} mouth plate. The plate changes its bite angle as the surrounding structural tone changes, letting the tool follow a seam through mixed mineral and ringglass without forcing a straight bore through both.
 
     The result is a curved, slightly ribbed cut like the wall of a glasswurm tunnel. Salvagers use wurm-bits to free intact material, open wreck panels without crossing tuned members, and make receiving holes that preserve the load around them.
   PROSE

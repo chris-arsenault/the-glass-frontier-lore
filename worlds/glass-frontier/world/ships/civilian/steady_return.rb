@@ -2,8 +2,8 @@ transport :steady_return do
   name "Steady Return"
   summary "Steady Return is a Pell Assembly heavy hauler carrying ringglass, microcavity charge, and industrial freight along the Keel. Its crew plans every outward load around having useful tonnage for the voyage home."
   subkind :vessel
-  type_of :heavy_hauler
-  technology :kite_sail
+  type_of :bulk_kite
+  technology :kite
   capacity "Twelve permanent crew, twenty passengers, and six resonance-separated bulk holds"
   status :complete
   tags :trade, :transport, :ringglass, :"kinetic-freq", :orbital, :navigation

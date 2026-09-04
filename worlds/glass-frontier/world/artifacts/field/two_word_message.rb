@@ -2,7 +2,7 @@ artifact :two_word_message do
   name "The Two-Word Message"
   summary "The Two-Word Message is a short pre-Glassfall Sitharian exchange transmitted weekly by the Choir Fragment, with the middle two words of its final sentence changing each time."
   subkind :record
-  type_of :pre_glassfall_transmissions
+  type_of :old_traffic
   status :complete
   tags :archives, :resonance, :"signal-freq", :"ring-era", :mystery
   prominence :recognized

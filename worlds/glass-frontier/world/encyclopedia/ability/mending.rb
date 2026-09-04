@@ -26,6 +26,6 @@ encyclopedia :mending do
   prose <<~PROSE, section: :aftermath, heading: "Pain Without Injury"
     The repaired damage passes through the practitioner as sensation and fatigue. A closed wound burns in the same place on the practitioner's body; a mended beam leaves the arms and spine aching under its load; a recovered line can produce the headache and eye strain of reading it through the damage. The practitioner carries no matching wound, but the pain remains until the subject has rested or worked long enough to prove the mend.
 
-    #{encyclopedia_ref :restoration, "Return"} recovers an earlier stable state after that immediate continuity has been lost. It can choose among surviving patterns and therefore risks restoring old flaws that Mending never had to consider.
+    #{encyclopedia_ref :return, "Return"} recovers an earlier stable state after that immediate continuity has been lost. It can choose among surviving patterns and therefore risks restoring old flaws that Mending never had to consider.
   PROSE
 end

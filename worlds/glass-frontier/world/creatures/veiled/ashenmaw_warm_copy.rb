@@ -2,7 +2,7 @@ creature :ashenmaw_warm_copy do
   name "The Ashenmaw Warm-Copy"
   summary "The Ashenmaw Warm-Copy is a mirror leech recorded around Ashenmaw and in the Fracture while holding the same borrowed body."
   subkind :anomaly
-  type_of :mirror_leech
+  type_of :imprints
   status :complete
   prominence :marginal
   veiled "The Ashenmaw Warm-Copy has kept the same borrowed body through sightings around Ashenmaw and in the Fracture."

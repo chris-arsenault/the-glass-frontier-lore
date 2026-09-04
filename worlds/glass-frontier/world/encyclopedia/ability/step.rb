@@ -26,6 +26,6 @@ encyclopedia :step do
   prose <<~PROSE, section: :aftermath, heading: "The Ground Left Behind"
     The body arrives with the balance of its departure. A level step onto a turning deck pitches the practitioner sideways; a step from a moving vessel keeps the vessel's motion; a destination under different local gravity meets muscles prepared for the old down. Experienced steppers choose a landing they can fall across and keep one hand free.
 
-    #{encyclopedia_ref :passage, "Waybearing"} instead opens a fixed, two-way threshold to a genuinely known destination and can carry a small group. Step uses direct sight, carries only the caster, and leaves nothing open behind them.
+    #{encyclopedia_ref :waybearing, "Waybearing"} instead opens a fixed, two-way threshold to a genuinely known destination and can carry a small group. Step uses direct sight, carries only the caster, and leaves nothing open behind them.
   PROSE
 end

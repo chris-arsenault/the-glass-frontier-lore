@@ -2,7 +2,7 @@ npc :k_vara do
   name "K'vara"
   summary "K'vara is a courier who carries replacement forks among Issel, Tanel, and Talven."
   subkind :courier
-  type_of :couriers
+  type_of :keeper_of_roads
   status :complete
   prominence :marginal
   veiled "K'vara ferries replacement forks among Issel, Tanel, and Talven in a case that hums when one is missing."end

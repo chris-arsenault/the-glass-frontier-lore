@@ -4,7 +4,7 @@ creature :black_after_vigil do
   subkind :creature
   status :complete
   prominence :marginal
-  type_of :breach_lichen
+  type_of :resonance_lichen
   veiled "Black-After-Vigil joins matching growths at Vigil Breach and Sable Crescent, and both turn black before either site discharges."
 end
 

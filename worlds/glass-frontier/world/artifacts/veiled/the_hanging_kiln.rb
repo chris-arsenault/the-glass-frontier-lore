@@ -1,7 +1,7 @@
 artifact :the_hanging_kiln do
   name "The Hanging Kiln"
   summary "The Hanging Kiln is a river-clay kiln suspended from a Korvath barge so ground tremors cannot crack its firing load."
-  type_of :tripline_kiln
+  type_of :kavra
   subkind :machine
   status :complete
   prominence :marginal

@@ -4,8 +4,8 @@ faction :counterweight do
   playable_as :allegiance
   origin_blurb "Mobile riggers help settlements move structures that local hands cannot shift safely alone."
   subkind :mutual_aid
-  type_of :yard_order
-  belongs_to :culture, :working_mutuals
+  type_of :custody
+  belongs_to :culture, :mutuals
   status :complete
   founded 2429
   tags :surface, :"structural-freq", :"kinetic-freq", :transport, :training

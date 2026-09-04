@@ -54,7 +54,7 @@ installation :brake do
 
     Cutting proceeds from the outer hull toward the structural spine. Crews paint every planned line and clear the compartment on both sides before heat or kinetic tools touch it. Salvaged pieces receive a lot mark at removal. Buyers can trace a pressure door or engine brace back to its vessel and deck.
 
-    #{ref :ira_voss, "Ira Voss"} runs intake on inhabited and recently abandoned ships. #{ref :five_bolts, "*Five Bolts*"} handles short tows between the capture lane and the cutting lots. The largest enclosed work happens at #{ref :lot_forty, "Forty"}, whose doors accept a complete cutter hull.
+    #{ref :ira_voss, "Ira Voss"} runs intake on inhabited and recently abandoned ships. #{ref :five_bolts, "*Five Bolts*"} handles short tows between the capture lane and the cutting lots. The largest enclosed work happens at #{ref :forty, "Forty"}, whose doors accept a complete cutter hull.
   PROSE
 
   prose <<~PROSE, section: :people, heading: "Wards Made From Ships"
@@ -78,10 +78,10 @@ relate :rel_brake_located_in_frontier, :located_in, :brake, :the_glass_frontier,
   prose "Brake anchors derelicts around a reinforced fragment of the inhabited ring."
 end
 
-relate :rel_ira_voss_operates_lot_forty, :operates_in, :ira_voss, :lot_forty, since: 2435 do
+relate :rel_ira_voss_operates_lot_forty, :operates_in, :ira_voss, :forty, since: 2435 do
   prose "Ira Voss uses Forty as the records room and clinical staging area for the captured medical vessel."
 end
 
-relate :rel_five_bolts_operates_lot_forty, :operates_in, :five_bolts, :lot_forty, since: 2435 do
+relate :rel_five_bolts_operates_lot_forty, :operates_in, :five_bolts, :forty, since: 2435 do
   prose "Five Bolts holds vessels at Forty's outer anchors during enclosed or quarantined work."
 end

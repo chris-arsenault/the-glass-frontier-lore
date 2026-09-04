@@ -24,7 +24,7 @@ npc :daro_venn do
     Route work suited him. He remembers which yard can repair an old cutter head, which master will accept a difficult return load, and which crew has already spent its tolerance for risk. His authority rests on those particulars. Assembly meetings become hostile when he treats a schedule as more important than one of them.
   PROSE
   prose <<~PROSE, section: :tensions, heading: "Pell"
-    Daro argued that four synchronized arrays would finish the Pell claims quickly and reduce total exposure. He accepted the stop conditions proposed by the #{encyclopedia_ref :tuners, "Tuners"}, then let the test continue through early signs that separated receivers were answering in the same cadence. By the time he ordered shutdown, the pattern held without the arrays.
+    Daro argued that four synchronized arrays would finish the Pell claims quickly and reduce total exposure. He accepted the stop conditions proposed by the #{encyclopedia_ref :resonant_tuner, "Tuners"}, then let the test continue through early signs that separated receivers were answering in the same cadence. By the time he ordered shutdown, the pattern held without the arrays.
 
     During the closure he stayed at Pell Cut, opened the Assembly's records, and assigned its haulers and repair crews to the Council. Some members kept him in office because he did this. Others voted against him because it came after the decision that mattered.
   PROSE

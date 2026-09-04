@@ -1,7 +1,7 @@
 ability :triumphant do
   name "The Triumphant"
   summary "The Triumphant is a mantle of the Three that extends Shared Will across a willing crew, army, fleet, or city acting toward one finite public purpose."
-  type_of :exaltation
+  type_of :shared_will
   subkind :the_three
   status :complete
   tags :resonance, :religion, :"kinetic-freq", :military
@@ -12,7 +12,7 @@ ability :triumphant do
 
   descriptive_identity(
     signs: "The declaration returns from every participating voice, engine, and weapon, while bodies and machines serving it move in one brightening rhythm.",
-    effect: "The mantle extends #{encyclopedia_ref :exaltation, "Shared Will"} from one willing subject to a crew, army, fleet, or city acting toward one public purpose.",
+    effect: "The mantle extends #{encyclopedia_ref :shared_will, "Shared Will"} from one willing subject to a crew, army, fleet, or city acting toward one public purpose.",
     limits: "The purpose must be understood and physically expressible. The mantle amplifies existing ability, divides along incompatible meanings, and releases anyone who knowingly abandons the words."
   )
 

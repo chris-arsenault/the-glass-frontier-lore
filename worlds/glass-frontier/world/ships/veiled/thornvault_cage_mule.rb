@@ -2,7 +2,7 @@ transport :thornvault_cage_mule do
   name "The Thornvault Cage-Mule"
   summary "The Thornvault Cage-Mule is an archive-transport vehicle serving Thornvault, the Folded Annex, and the Underlayers. Its suspended cages isolate unstable records so one bad page cannot activate the rest."
   subkind :transport
-  type_of :vault_mule
+  type_of :calven
   status :complete
   prominence :marginal
   veiled "The Thornvault Cage-Mule carries unstable records in separate suspended cages so one bad page cannot wake the rest."

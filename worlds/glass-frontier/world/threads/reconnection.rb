@@ -68,7 +68,7 @@ thread :reconnection do
     ---
 
     ### Beat 5: The Shock of Difference
-    **Era:** ~2310s–2330s | **Filled by:** #{ref :verathi_exchange, "Verathi Exchange"}, #{encyclopedia_ref :shuttered_habs, "the Shuttered"}
+    **Era:** ~2310s–2330s | **Filled by:** #{ref :verathi_exchange, "Verathi Exchange"}, #{encyclopedia_ref :shuttered, "the Shuttered"}
 
     Surface communities reach ring habs. The cultural divergence is staggering. Communities that evolved in isolation for #{elapsed :the_glassfall, :the_rekindling} are unrecognizable. Some welcome contact — the resource-starved celebrate. Some refuse — the shuttered habs.
 

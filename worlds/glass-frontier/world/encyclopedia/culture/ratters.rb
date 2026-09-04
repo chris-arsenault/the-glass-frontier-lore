@@ -25,7 +25,7 @@ encyclopedia :ratters do
   prose <<~PROSE, section: :operations, heading: "Claims and Remote Cuts"
     A working Ratter keeps a claim ledger, cutter inspection records, cargo grades, rescue coverage, and the chain of brokers who will take the haul. Long-rats distinguish the forms required for flight and sale from the extra records demanded in a claim dispute. A clean ledger gives a crew room to refuse a bad buyer because the next one can verify its work.
 
-    Ratters developed #{encyclopedia_ref :remote_cutting, "Claim Coupling"} for Deep Shear claims that could not be boarded safely. An expendable cutter works the seam while the crew operates a #{encyclopedia_ref :claim_rig, "Pell Skiff"} at stand-off range. The cutter can be lost. A process room can be sealed and replaced. The crew has a route home.
+    Ratters developed #{encyclopedia_ref :claim_coupling, "Claim Coupling"} for Deep Shear claims that could not be boarded safely. An expendable cutter works the seam while the crew operates a #{encyclopedia_ref :pell_skiff, "Pell Skiff"} at stand-off range. The cutter can be lost. A process room can be sealed and replaced. The crew has a route home.
 
     The work produced its own boards and brokers. The #{ref :pell_freight_assembly, "Pell Freight Assembly"} finances shared receiving yards and hauler access for member crews while claims remain with the crews that worked them. Some flotillas join the Assembly; others sell through its yards one haul at a time.
   PROSE

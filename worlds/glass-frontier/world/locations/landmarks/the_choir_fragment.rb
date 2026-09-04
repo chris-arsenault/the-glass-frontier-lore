@@ -4,7 +4,7 @@ installation :the_choir_fragment do
   playable_as :chronicle_location
   context_tags :orbital, :debris_field, :damaged_signal, :ringglass_rich
   subkind :landmark
-  culture :ring_age_site
+  culture :rolls
   tags :orbital, :"ring-era", :resonance, :archives, :mystery, :salvage
   prominence :recognized
 
@@ -38,7 +38,7 @@ installation :the_choir_fragment do
   prose <<~PROSE
     A fallen ring fragment on the outer Pell routes whose transmitting volume still has partial power. Once each week it sends #{ref :two_word_message, "the Two-Word Message"} through an intact southern antenna deck.
 
-    #{encyclopedia_ref :ratters, "Ratter"} crews named the fragment for the held resonance tone inside its active corridors. The tone sits below ordinary hearing. #{encyclopedia_ref :tuners, "Tuners"} describe it as a voice waiting for another part to enter.
+    #{encyclopedia_ref :ratters, "Ratter"} crews named the fragment for the held resonance tone inside its active corridors. The tone sits below ordinary hearing. #{encyclopedia_ref :resonant_tuner, "Tuners"} describe it as a voice waiting for another part to enter.
   PROSE
   prose <<~PROSE, section: :description, heading: "Inside"
     The Fragment is large enough that crews divide it into the long deck, the plate rooms, the cold galleries, and the southern antennae. Pale-green emergency lights remain active along the inspected route. Corridors outside it are dark.

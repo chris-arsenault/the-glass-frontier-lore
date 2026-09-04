@@ -57,11 +57,11 @@ installation :mareth do
   prose <<~PROSE, section: :structure, heading: "Inside the Gate"
     A Ring-era freight barrier spans the gap between two heavy fragments. Its segmented leaves close around a central aperture. Settlement galleries fill the frame, the service trenches, and three latch housings large enough to contain streets.
 
-    Mareth shortens Mareth-Avelin, the name cut above the aperture. Travelers arriving from the Keel sleep, eat, and sort freight in #{ref :third_latch, "Latchhouse"} while the frame builds toward its opening sequence.
+    Mareth shortens Mareth-Avelin, the name cut above the aperture. Travelers arriving from the Keel sleep, eat, and sort freight in #{ref :latchhouse, "Latchhouse"} while the frame builds toward its opening sequence.
   PROSE
 
   prose <<~PROSE, section: :present_day, heading: "A Fifth Latch"
-    Four latches take the closing load at Mareth. During the latest cycle, a fifth structural tone entered beneath them and held the gate open for six additional leaf crossings. The sound came from the sealed base of #{ref :third_latch, "Latchhouse"}, where residents felt a new set of guide teeth moving inside the wall.
+    Four latches take the closing load at Mareth. During the latest cycle, a fifth structural tone entered beneath them and held the gate open for six additional leaf crossings. The sound came from the sealed base of #{ref :latchhouse, "Latchhouse"}, where residents felt a new set of guide teeth moving inside the wall.
 
     The next opening sequence already carries the fifth tone. Gate crews have cleared the rooms around the base while a Keel freight convoy waits in the holding lanes. If the extra interval returns, Kesh formations will walk instrument frames across the exposed joints before ordinary traffic enters; another extension during closure would leave the convoy between moving leaves.
   PROSE

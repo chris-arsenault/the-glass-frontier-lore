@@ -1,6 +1,6 @@
 transport :nine_holds do
   name "Nine Holds"
-  type_of :heavy_hauler
+  type_of :bulk_kite
   summary "Nine Holds is a Korvathi freighter with nine pressure-independent cargo boxes attached to one drive spine. Its working-share owners carry mixed cargo between Korvath, Kaleidos, and the outer Keel."
   subkind :vessel
   status :complete

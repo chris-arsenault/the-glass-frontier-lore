@@ -4,8 +4,8 @@ faction :pell_freight_assembly do
   playable_as :allegiance
   origin_blurb "Independent carriers pool bulk cargo, equipment, and risk across the outer Pell routes."
   subkind :trade_network
-  type_of :working_mutuals
-  belongs_to :culture, :infrastructure_authority
+  type_of :mutuals
+  belongs_to :culture, :warrants
   founded 2416
   tags :trade, :transport, :salvage, :resonance, :"social-structure"
   prominence :recognized
@@ -56,12 +56,12 @@ faction :pell_freight_assembly do
     #{ref :daro_venn, "Daro Venn"} is the current senior factor. He came out of Ratter brokerage and still conducts meetings like a claim board: the hazard is named first, the price second, and the person accepting it speaks before anyone votes.
   PROSE
   prose <<~PROSE, section: :operations, heading: "Pell Work"
-    The Assembly's Deep Shear business is built around #{encyclopedia_ref :remote_cutting, "Claim Coupling"}. Member coupling crews work unstable seams; shared receiving yards sort the returns; heavy haulers take separated cargoes inward. The system reduces exposure and gives small crews access to processing capacity they could not finance alone.
+    The Assembly's Deep Shear business is built around #{encyclopedia_ref :claim_coupling, "Claim Coupling"}. Member coupling crews work unstable seams; shared receiving yards sort the returns; heavy haulers take separated cargoes inward. The system reduces exposure and gives small crews access to processing capacity they could not finance alone.
 
     Its weakness is coordination. Shared clocks keep berths and haulers moving, and pooled losses reward uniform procedure. At #{ref :pell_cut, "Pell Cut"}, the Assembly extended that discipline to four extraction arrays. The synchronized test triggered #{ref :pell_four, "Pell Four"}.
   PROSE
   prose <<~PROSE, section: :present_day, heading: "After the Emergence"
-    The Assembly closed the affected routes, surrendered its array records, and put its repair crews under #{ref :displacement_council, "Displacement Council"} direction until the boundary was gone. Members voted to keep Daro in office after a long open meeting at Glasswake. They also separated every remote array clock in the network and gave on-site #{encyclopedia_ref :tuners, "Tuners"} independent stop authority.
+    The Assembly closed the affected routes, surrendered its array records, and put its repair crews under #{ref :displacement_council, "Displacement Council"} direction until the boundary was gone. Members voted to keep Daro in office after a long open meeting at Glasswake. They also separated every remote array clock in the network and gave on-site #{encyclopedia_ref :resonant_tuner, "Tuners"} independent stop authority.
 
     Pell remains expensive. The pooled fund pays cordon costs, interrupted contracts, and the crews who dismantle the synchronized equipment. Members argue over how long those payments should continue. They do not dispute that the debt belongs to them.
   PROSE

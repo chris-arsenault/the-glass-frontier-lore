@@ -2,7 +2,7 @@ edict :two_breath_decree do
   name "The Two-Breath Decree"
   summary "The Two-Breath Decree shuts Vey workshops whenever Lung Three misses two pressure pulses."
   subkind :edict
-  type_of :workshop_authority
+  type_of :halt_call
   status :complete
   prominence :marginal
   veiled "The Two-Breath Decree stops Vey workshops whenever Lung Three misses two pressure pulses."

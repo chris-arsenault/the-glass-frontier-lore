@@ -4,7 +4,7 @@ creature :relay_colony_seven do
   subkind :creature
   status :complete
   prominence :marginal
-  type_of :signal_fed_life
+  type_of :signal_fed
   veiled "Relay Colony Seven grows the same shell pattern at Span Nine, Issel, Far Bell, and Karet Three in time with one repeated transmission."
 end
 

@@ -67,7 +67,7 @@ installation :talven do
   prose <<~PROSE, section: :present_day, heading: "The Sixth Bench"
     The newest working face on the Sixth Bench returns a coordinated set of voices across forty meters of glass. The speakers count pressure changes, call lift positions, and repeat a place name absent from surviving ring maps. Their work rhythm matches the last decades of the Ring Age.
 
-    Freight cutters need the same band opened to reach high-grade structural stock behind it. Archive readers are lifting the outer recordings with #{ref :tess_wedge, "Var's Wedge"}, one plate at a time. The first complete plate has drawn two independent translators to Talven, and both hear a different division between the words.
+    Freight cutters need the same band opened to reach high-grade structural stock behind it. Archive readers are lifting the outer recordings with #{ref :vars_wedge, "Var's Wedge"}, one plate at a time. The first complete plate has drawn two independent translators to Talven, and both hear a different division between the words.
   PROSE
 
   gm_note :triggered_by, "A blow against a gallery wall releases a few syllables of whoever worked that layer, so a brawl, a fall, or a dropped crate answers back in centuries-old voices and brings an archive reader asking exactly what was struck and where."
@@ -87,6 +87,6 @@ relate :rel_echo_ledger_studies_talven, :studies, :echo_ledger_conclave, :talven
   prose "Conclave listeners compare Talven's plate-lifting methods with recordings recovered elsewhere in the system."
 end
 
-relate :rel_echo_ledger_studies_tess_var, :studies, :echo_ledger_conclave, :tess_var, since: 2435 do
+relate :rel_echo_ledger_studies_tess_var, :studies, :echo_ledger_conclave, :renn_var, since: 2435 do
   prose "Conclave listeners document Renn Var's grain mapping and the signal loss produced by each rejected cut."
 end

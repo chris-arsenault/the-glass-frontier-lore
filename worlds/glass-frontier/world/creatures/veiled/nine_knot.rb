@@ -4,7 +4,7 @@ creature :nine_knot do
   subkind :creature
   status :complete
   prominence :marginal
-  type_of :ravel_claspworm
+  type_of :knots
   veiled "Nine-Knot appears in pressure lines at Ravel and Perch, always wrapped around the next pipe scheduled for replacement."
 end
 

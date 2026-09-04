@@ -4,7 +4,7 @@ creature :the_fourth_chord do
   subkind :creature
   status :complete
   prominence :marginal
-  type_of :mera_flute_reed
+  type_of :merai
   veiled "The Fourth Chord changes its root note by the same interval at Mera and Olven whenever either garden develops a diseased graft."
 end
 

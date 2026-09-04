@@ -2,7 +2,7 @@ artifact :karet_three_water_silk_coil do
   name "The Karet-3 Water-Silk Coil"
   summary "The Karet-3 Water-Silk Coil is Ravel water-silk sourced around Ravel, Tanel, Issel, and Karet-3. It tightens around a leak and changes color when the escaping fluid carries a signal charge."
   subkind :artifact
-  type_of :ravel_water_silk
+  type_of :suture
   status :complete
   prominence :marginal
   veiled "The Karet-3 Water-Silk Coil tightens around a leak and changes color when the escaping fluid carries a signal charge."

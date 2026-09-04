@@ -49,7 +49,7 @@ installation :folded_annex do
     Modern plans label only observed connections. They do not draw walls around the whole installation. Each attempt to infer an exterior volume has placed part of the Annex inside occupied neighborhoods or beyond the original campus boundary.
   PROSE
   prose <<~PROSE, section: :operations, heading: "Entry Work"
-    A licensed party includes a route surveyor, a certified #{encyclopedia_ref :tuners, "Tuner"}, and an archive specialist. The route surveyor owns the return path. The Tuner records the field and watches for coupling between the Annex and city systems. The archivist decides what can be handled or copied without disturbing an arrangement whose purpose remains partly legible.
+    A licensed party includes a route surveyor, a certified #{encyclopedia_ref :resonant_tuner, "Tuner"}, and an archive specialist. The route surveyor owns the return path. The Tuner records the field and watches for coupling between the Annex and city systems. The archivist decides what can be handled or copied without disturbing an arrangement whose purpose remains partly legible.
 
     Teams place passive reflectors at every turn and compare them by sight. Signal repeaters are not trusted inside: on two visits a repeater answered from the next gallery before it had been carried there. Each person also carries a plain wound clock. If the clocks differ by more than a minute, the party returns without opening another door.
 

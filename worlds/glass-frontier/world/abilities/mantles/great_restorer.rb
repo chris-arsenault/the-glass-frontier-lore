@@ -1,7 +1,7 @@
 ability :great_restorer do
   name "The Great Restorer"
   summary "The Great Restorer is a mantle of the Three that extends Return across scattered witnesses to restore vessels, settlements, populations, and bodies of knowledge as one composite subject."
-  type_of :restoration
+  type_of :return
   subkind :the_three
   status :complete
   tags :resonance, :religion, :rebuilding, :archives
@@ -12,7 +12,7 @@ ability :great_restorer do
 
   descriptive_identity(
     signs: "Fragments return along old breaks, wounds close from surviving tissue, and overwritten records rise beneath later marks while one named absence remains in subject and bearer.",
-    effect: "The mantle extends #{encyclopedia_ref :restoration, "Return"} from one locally witnessed subject to vessels, settlements, populations, and bodies of knowledge assembled from scattered patterns.",
+    effect: "The mantle extends #{encyclopedia_ref :return, "Return"} from one locally witnessed subject to vessels, settlements, populations, and bodies of knowledge assembled from scattered patterns.",
     limits: "A surviving pattern determines the return, including old flaws and harmful contents. Contradictory complete states require one to be chosen and the other to remain lost."
   )
 

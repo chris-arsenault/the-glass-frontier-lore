@@ -46,7 +46,7 @@ installation :wash_four do
   PROSE
 
   prose <<~PROSE, section: :operations, heading: "Thirty-One"
-    #{ref :bay_thirty_one, "Thirty-One"} receives garments associated with injuries, failed seals, contaminated cargo, and disputed journeys. #{ref :tess_orr, "Tess Orr"} lays each piece across an isolated table and maps its strongest trace before any liquid touches it.
+    #{ref :thirty_one, "Thirty-One"} receives garments associated with injuries, failed seals, contaminated cargo, and disputed journeys. #{ref :tess_orr, "Tess Orr"} lays each piece across an isolated table and maps its strongest trace before any liquid touches it.
 
     The first wash uses plain water and hand pressure. Later cycles add heat, mineral grit, tuned paddles, or stillwater according to the map. Trace washers sample every drain. A sudden coherent pattern can identify the tool, room, or signal source that last impressed the cloth.
 
@@ -78,7 +78,7 @@ relate :rel_wash_four_supplies_carom, :supplies, :wash_four, :carom, since: 2435
   prose "Wash Four cleans and certifies courier bags, insulated cloth, and frame webbing for Carom."
 end
 
-relate :rel_tess_orr_operates_bay_thirty_one, :operates_in, :tess_orr, :bay_thirty_one, since: 2435 do
+relate :rel_tess_orr_operates_bay_thirty_one, :operates_in, :tess_orr, :thirty_one, since: 2435 do
   prose "Tess Orr maps disputed garments at Thirty-One before the first wash."
 end
 

@@ -2,7 +2,7 @@ transport :four_shutters do
   name "Four Shutters"
   summary "Four Shutters is a Pell Assembly claim rig working Deep Shear seams with four isolated receivers and unmanned cutters. Its repeatedly rebuilt process deck supplied the isolation pattern later used aboard Quiet Measure."
   subkind :vessel
-  type_of :claim_rig
+  type_of :pell_skiff
   capacity "Eight crew, four remote cutters, and four isolated receiving rooms"
   status :complete
   tags :transport, :salvage, :resonance, :orbital, :danger, :trade

@@ -7,5 +7,5 @@ incident :thirty_one_drop do
   veiled "Thirty-One dropped a tuned cargo rack through Wash Four's lower wall when two counterweights answered the same command."
 end
 
-relate :rel_thirty_one_drop_at_bay_thirty_one, :manifests_at, :thirty_one_drop, :bay_thirty_one
+relate :rel_thirty_one_drop_at_bay_thirty_one, :manifests_at, :thirty_one_drop, :thirty_one
 relate :rel_thirty_one_drop_at_wash_four, :manifests_at, :thirty_one_drop, :wash_four

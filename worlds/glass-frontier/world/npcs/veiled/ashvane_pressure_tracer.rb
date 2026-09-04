@@ -1,7 +1,7 @@
 npc :ashvane_pressure_tracer do
   name "The Ashvane Pressure Tracer"
   summary "The Ashvane Pressure Tracer retraces a pressure front hours after it crosses a sealed room."
-  type_of :pressure_memory
+  type_of :varr
   subkind :specialist
   status :complete
   prominence :marginal

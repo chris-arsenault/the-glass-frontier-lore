@@ -3,7 +3,7 @@ transport :pale_catch do
   summary "Pale Catch is a four-seat Prismwell flitter serving Keelward, Ladderwell, and nearby landing fields. Broad steppe skids and pale shower cloth distinguish it from the guild's ordinary city craft."
   subkind :vessel
   type_of :flitter
-  technology :kite_sail
+  technology :kite
   capacity "One pilot, three passengers, and four courier frames"
   status :complete
   tags :transport, :resonance, :"kinetic-freq", :surface, :orbital, :household

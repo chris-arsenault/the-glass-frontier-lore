@@ -4,7 +4,7 @@ faction :vantara do
   playable_as :allegiance
   origin_blurb "The system's largest travel company runs carriers, waystations, lodging, and the contracts behind them."
   subkind :company
-  type_of :infrastructure_authority
+  type_of :warrants
   belongs_to :culture, :commercial_standing
   path "player/npcs/factions/vantara.md"
   reviewed "2026-03-18"
@@ -40,7 +40,7 @@ faction :vantara do
   prose <<~PROSE
     *"Every journey, elevated."*
 
-    The system's largest travel and logistics corporation. Vantara operates #{encyclopedia_ref :kite_sail, "KITE"} fleets, manages trade route infrastructure, runs hospitality venues across the ring and major surface settlements, and generally positions itself as the entity that makes moving through the Kaleidos system comfortable, reliable, and — if you pay for the premium tier — pleasant.
+    The system's largest travel and logistics corporation. Vantara operates #{encyclopedia_ref :kite, "KITE"} fleets, manages trade route infrastructure, runs hospitality venues across the ring and major surface settlements, and generally positions itself as the entity that makes moving through the Kaleidos system comfortable, reliable, and — if you pay for the premium tier — pleasant.
 
     The name is corporate-smooth by design.
   PROSE

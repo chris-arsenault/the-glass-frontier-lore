@@ -20,7 +20,7 @@ encyclopedia :rind do
     They move slowly past ships and people, holding course toward a stable signal. Their trailing filaments make that scale dangerous: a rind seeks the same signals that hold tuned structures in calibration, and contact can disrupt active ringglass.
   PROSE
   prose <<~PROSE, section: :description, heading: "Body"
-    A rind is roughly the size of a small courier kite. An opaque pale-grey carapace encloses most of the body. Irregular crystal inclusions catch bands of light visible to #{encyclopedia_ref :tuners, "Tuners"} and appear dull to everyone else.
+    A rind is roughly the size of a small courier kite. An opaque pale-grey carapace encloses most of the body. Irregular crystal inclusions catch bands of light visible to #{encyclopedia_ref :resonant_tuner, "Tuners"} and appear dull to everyone else.
 
     Dozens of hair-fine filaments trail ten to fifteen meters behind the shell. They drift independently, producing a harmonic at the edge of hearing. A filament touching active ringglass sets up a sympathetic response through both materials. The animal survives the contact while the array mount can remain out of calibration for hours.
   PROSE

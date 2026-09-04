@@ -2,7 +2,7 @@ transport :eleven_scrap_lift do
   name "The Eleven Scrap Lift"
   summary "The Eleven Scrap Lift is a spoke vehicle serving Eleven, Holl, and Five Landing. It travels on counterweights filled with household scrap."
   subkind :transport
-  type_of :hollow_lift
+  type_of :balance
   status :complete
   prominence :marginal
   veiled "The Eleven Scrap Lift travels the spoke on counterweights filled with household scrap."

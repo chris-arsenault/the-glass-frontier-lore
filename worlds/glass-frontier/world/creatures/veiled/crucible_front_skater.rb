@@ -2,7 +2,7 @@ creature :crucible_front_skater do
   name "The Crucible-Front Skater"
   summary "The Crucible-Front Skater is a mineral-finned animal ranging across Crucible and Ashvane. It rides pressure fronts and sheds cutting flakes when cornered."
   subkind :animal
-  type_of :ash_skater
+  type_of :skirr
   status :complete
   prominence :marginal
   veiled "The Crucible-Front Skater rides Crucible pressure fronts on mineral fins and sheds cutting flakes when cornered."

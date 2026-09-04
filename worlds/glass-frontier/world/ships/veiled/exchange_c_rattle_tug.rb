@@ -9,5 +9,5 @@ transport :exchange_c_rattle_tug do
 end
 
 relate :rel_rattle_tug_at_carom, :operates_in, :exchange_c_rattle_tug, :carom
-relate :rel_rattle_tug_at_exchange_c, :operates_in, :exchange_c_rattle_tug, :exchange_c
+relate :rel_rattle_tug_at_exchange_c, :operates_in, :exchange_c_rattle_tug, :rattle
 relate :rel_rattle_tug_at_wash_four, :operates_in, :exchange_c_rattle_tug, :wash_four

@@ -2,7 +2,7 @@ creature :threshold_child_voice do
   name "The Threshold Child-Voice"
   summary "The Threshold Child-Voice is a relay-ground anomaly ranging between Whitefoot and Threshold Station. It repeats signal bursts in children's voices and flees from a correct reply."
   subkind :anomaly
-  type_of :whitefoot_teller
+  type_of :tellers
   status :complete
   prominence :marginal
   veiled "The Threshold Child-Voice repeats relay bursts in children's voices and flees from any correct reply."

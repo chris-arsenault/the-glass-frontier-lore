@@ -5,7 +5,7 @@ npc :renn_duvasi do
   occupation "Archive scholar at the Pelhari academy"
   specialty "Pre-Glassfall resonance maintenance records"
   type_of :humans
-  belongs_to :culture, :sitharian_culture
+  belongs_to :culture, :sitharians
   descriptive_identity disposition:
     "Put a question about an old record to Duvasi and out come the " \
     "damaged sheet, the copies taken from it, and the overlays where " \
@@ -15,7 +15,7 @@ npc :renn_duvasi do
   prominence :recognized
 
   prose <<~PROSE
-    A #{encyclopedia_ref :humans, "human"} archive scholar whose work joins damaged pre-Glassfall maintenance records to the casebooks of living #{encyclopedia_ref :tuners, "Tuners"}. Renn Duvasi is best known for publishing the #{ref :vashtenri_thesis, "Vashtenri Thesis"}, which used Lira Vashtenri's refinery notes to show that a working array can shift resonance load far beyond the equipment being adjusted.
+    A #{encyclopedia_ref :humans, "human"} archive scholar whose work joins damaged pre-Glassfall maintenance records to the casebooks of living #{encyclopedia_ref :resonant_tuner, "Tuners"}. Renn Duvasi is best known for publishing the #{ref :vashtenri_thesis, "Vashtenri Thesis"}, which used Lira Vashtenri's refinery notes to show that a working array can shift resonance load far beyond the equipment being adjusted.
 
     Duvasi works at the #{ref :pelhari, "Pelhari"} academy, where the #{ref :clarisant, "Clarisant"} keeps its oldest casebooks beside copies of ring-era service material. Their rooms hold more damaged records than whole ones. Heat has darkened some crystal sheets at the edges; repeated copying has turned fine diagrams into pale blocks; several surviving ledgers preserve only the mechanics' corrections because those marks were cut deeper than the original text.
   PROSE

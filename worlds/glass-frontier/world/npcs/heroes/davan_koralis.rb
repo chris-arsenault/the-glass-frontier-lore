@@ -5,7 +5,7 @@ npc :davan_koralis do
   born 2388
   occupation "Chief Experience Officer of Vantara"
   type_of :humans
-  belongs_to :culture, :sitharian_culture
+  belongs_to :culture, :sitharians
   descriptive_identity disposition:
     "Koralis treats any fault mentioned to him — a cold meal, a dead berth " \
     "light, a missed rescue window — as part of one journey, and writes it " \

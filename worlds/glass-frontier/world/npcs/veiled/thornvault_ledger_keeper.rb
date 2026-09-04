@@ -1,7 +1,7 @@
 npc :thornvault_ledger_keeper do
   name "The Thornvault Ledger Keeper"
   summary "The Thornvault Ledger Keeper preserves a long spoken account by tying each passage to a different pulse in the wrist."
-  type_of :ledger_recall
+  type_of :binding
   subkind :specialist
   status :complete
   prominence :marginal

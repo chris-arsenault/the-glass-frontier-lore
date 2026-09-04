@@ -8,4 +8,4 @@ conflict :two_latch_war do
 end
 
 relate :rel_two_latch_war_at_mareth, :manifests_at, :two_latch_war, :mareth
-relate :rel_two_latch_war_at_third_latch, :manifests_at, :two_latch_war, :third_latch
+relate :rel_two_latch_war_at_third_latch, :manifests_at, :two_latch_war, :latchhouse

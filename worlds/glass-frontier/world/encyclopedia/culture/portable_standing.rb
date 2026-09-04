@@ -24,7 +24,7 @@ encyclopedia :portable_standing do
   )
 
   prose <<~PROSE
-    #{encyclopedia_ref :mender, "Circuiters"}, #{encyclopedia_ref :midwife, "route midwives"}, traveling #{encyclopedia_ref :keener, "Descenders"}, and other circuit workers carry an oilcloth road book. At each departure, the host records the work completed, conduct observed, date, and signing hand. A new host reads for hands and house marks already known on the circuit, then extends a bunk, board, credit, or access appropriate to those signatures. *Passed well* is the customary closing line.
+    #{encyclopedia_ref :circuiter, "Circuiters"}, #{encyclopedia_ref :midwife, "route midwives"}, traveling #{encyclopedia_ref :descender, "Descenders"}, and other circuit workers carry an oilcloth road book. At each departure, the host records the work completed, conduct observed, date, and signing hand. A new host reads for hands and house marks already known on the circuit, then extends a bunk, board, credit, or access appropriate to those signatures. *Passed well* is the customary closing line.
 
     Every entry also spends the signer's local standing. A flattering or forged line is challenged when the traveler reaches a host who knows the named house. Circuit guilds add certification pages, preserve retired books, and compare disputed entries with their archives. Travelers annotate how each house received the book, producing a route record of reliable hosts, closed doors, and towns where the signing custom has changed. Apprentices sew their first blank volume before joining a circuit and learn the offering and departure forms at their guild table.
   PROSE

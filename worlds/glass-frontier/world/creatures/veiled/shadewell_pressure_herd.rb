@@ -2,7 +2,7 @@ creature :shadewell_pressure_herd do
   name "The Shadewell Pressure Herd"
   summary "The Shadewell Pressure Herd feeds on hot mineral film outside Shadewell and nearby Ashvane settlements. Before storms, it runs toward sealed workshops."
   subkind :animal
-  type_of :pressure_grazer
+  type_of :sealers
   status :complete
   prominence :marginal
   veiled "The Shadewell Pressure Herd crops the hot mineral film outside the settlement and stampedes toward sealed workshops before storms."

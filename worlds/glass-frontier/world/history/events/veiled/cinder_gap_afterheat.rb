@@ -1,7 +1,7 @@
 incident :cinder_gap_afterheat do
   name "Cinder Gap Afterheat"
   summary "Cinder Gap Afterheat is a recurring flameless heat surge that softens exposed seals along the Cinder Gap cordon."
-  type_of :pyre_afterheat
+  type_of :afterheat
   subkind :incident
   status :complete
   prominence :marginal

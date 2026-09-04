@@ -36,7 +36,7 @@ theme :builders_gone do
     | Faction | The Synod inhabits a station they don't fully control, using rituals they can't explain | #{ref :lattice_proxy_synod, "Lattice Proxy Synod"} |
     | Settlement | *(seed)* A hab whose charismatic leader left — what does the community become after? | unfilled |
     | Personal | Lira Vashtenri left the Conclave to build containment ops from scratch | #{ref :lira_vashtenri, "Lira Vashtenri"} |
-    | Opposition | The Tuners reinvented resonance practice — folk approach sometimes better than original theory | #{encyclopedia_ref :tuners, "Tuners"} |
+    | Opposition | The Tuners reinvented resonance practice — folk approach sometimes better than original theory | #{encyclopedia_ref :resonant_tuner, "Tuners"} |
 
     ---
   PROSE

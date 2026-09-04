@@ -4,7 +4,7 @@ installation :cinder_gap do
   playable_as :chronicle_location
   context_tags :orbital, :bloom_adjacent, :cordon, :hot
   subkind :border_post
-  type_of :cordon_station
+  type_of :bloomwatch
   tags :orbital, :danger, :resonance
   prominence :marginal
   status :complete

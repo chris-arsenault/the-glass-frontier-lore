@@ -26,6 +26,6 @@ encyclopedia :elsewhere do
   prose <<~PROSE, section: :perception, heading: "Present at Both Ends"
     Observation is visible at the destination. A person beside the anchor sees the practitioner in polished metal. A machine records an unauthorized return pulse. Another resonance reader can meet the gaze and follow it back, bringing the practitioner's room into view for everyone near the anchor.
 
-    #{encyclopedia_ref :revelation, "Witnessing"} begins from evidence left by an event and follows its consequences backward. Elsewhere has no past to recover: it holds one distant place in the present until the practitioner releases the anchor.
+    #{encyclopedia_ref :witnessing, "Witnessing"} begins from evidence left by an event and follows its consequences backward. Elsewhere has no past to recover: it holds one distant place in the present until the practitioner releases the anchor.
   PROSE
 end

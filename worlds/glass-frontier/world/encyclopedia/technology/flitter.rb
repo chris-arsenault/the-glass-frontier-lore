@@ -25,7 +25,7 @@ encyclopedia :flitter do
   )
 
   prose <<~PROSE
-    A flitter is the short-range #{encyclopedia_ref :kite_sail, "kite"} used for ordinary passenger travel and light freight. Most carry two to six people in a compact cabin beneath a ringglass drive frame. They cross a city, climb between a surface terminal and low orbit, or follow a marked route to the next settlement. Their range is modest by system standards and ample for the journeys most people make in a day.
+    A flitter is the short-range #{encyclopedia_ref :kite, "kite"} used for ordinary passenger travel and light freight. Most carry two to six people in a compact cabin beneath a ringglass drive frame. They cross a city, climb between a surface terminal and low orbit, or follow a marked route to the next settlement. Their range is modest by system standards and ample for the journeys most people make in a day.
 
     Public fleets outnumber privately owned flitters. A city department, passenger cooperative, pilots' guild, hotel, hospital, or large employer may keep its own pool. Commercial carriers operate many more without owning the category. The same landing board may dispatch municipal craft in the morning, a family carrier after midday, and a hired freight shell at night.
   PROSE

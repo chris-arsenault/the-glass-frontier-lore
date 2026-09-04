@@ -5,7 +5,7 @@ npc :sora_meralis do
   born 2391
   occupation "Chief Ledgrist of the Echo Ledger Conclave"
   type_of :humans
-  belongs_to :culture, :sitharian_culture
+  belongs_to :culture, :sitharians
   descriptive_identity disposition:
     "Meralis gives a restricted holding's title, its date, and the reason " \
     "it is closed, and not the recording. Her seals record the evidence " \

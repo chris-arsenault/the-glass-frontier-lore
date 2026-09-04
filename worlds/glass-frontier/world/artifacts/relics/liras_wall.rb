@@ -39,7 +39,7 @@ artifact :liras_wall do
 
     The damping buoys contain #{encyclopedia_ref :stillwater, "stillwater"} — purified #{encyclopedia_ref :echo_rivers, "Echo River"} water with extraordinary signal-band storage capacity. In Lira's configuration, the stillwater doesn't store data — it absorbs and neutralizes the cascade frequencies propagating along these corridors. Each buoy calms a section of the boundary, and a network of them can stabilize an entire zone perimeter.
 
-    The technology is mid-bandwidth kinetic and signal work — within the range of trained #{encyclopedia_ref :tuners, "Tuners"}, deployable at industrial scale. It doesn't reverse the Bloom. It doesn't heal the reality tears. It stops them from getting bigger. Containment, not cure.
+    The technology is mid-bandwidth kinetic and signal work — within the range of trained #{encyclopedia_ref :resonant_tuner, "Tuners"}, deployable at industrial scale. It doesn't reverse the Bloom. It doesn't heal the reality tears. It stops them from getting bigger. Containment, not cure.
   PROSE
   prose <<~PROSE, section: :operations, heading: "At a Cordon Station"
     A permanent cordon adds a ringglass monitoring array behind the buoys. The array reads the boundary's local gradient and updates each buoy as the zone changes. Mounts are distributed through the station frame so crews can isolate one section without dropping the whole wall.

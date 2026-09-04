@@ -2,7 +2,7 @@ artifact :olven_root_broth_pot do
   name "The Olven Root-Broth Pot"
   summary "The Olven Root-Broth Pot holds heat-storing root broth prepared around Olven, Orra, Mera, and Rib. It can warm a cold sleeper without raising the surrounding room's temperature."
   subkind :artifact
-  type_of :root_broth
+  type_of :bank
   status :complete
   prominence :marginal
   veiled "The Olven Root-Broth Pot carries enough stored heat to warm a cold sleeper without raising the room's temperature."
